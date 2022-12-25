@@ -1,0 +1,73 @@
+{
+    "playableFaction":true,
+    "corvusCompatible":true,
+
+    "marketSpawnWeight":0.1,
+
+    "morality":"amoral",
+
+    "diplomacyTraits":["predatory", "helps_allies", "irredentist", "foreverwar", "temperamental", "neutralist"],
+
+    "difficultyString":"hard",
+
+    "alignments":{
+            "technocratic":0.5,
+            "militarist":0.5,
+            "diplomatic":-1,
+            "ideological":0.5,
+    },
+
+    "colonyExpeditionChance":0.1,  # No point going anywhere worse, but maybe...
+    "maxColonyDistance":5,   #... the rock nearby looks nice?
+
+    "vengeanceLevelNames":["Retribution", "Assassination", "Death"],
+    "vengeanceFleetNames":["Retribution Fleet", "Assassin", "Death-Fleet"],
+    "vengeanceFleetNamesSingle":["a Retribution Fleet", "an Assassin", "a Death-Fleet"],
+
+    "startShipsSolo":[
+      ["centurion_Starting"],
+      # tutorial start
+      ["wolf_Starting", "kite_Starting"],
+      ["wolf_Starting", "shepherd_Starting"],
+      ["wayfarer_Starting", "kite_Starting"],
+      ["wayfarer_Starting", "shepherd_Starting"],
+    ],
+    "startShipsCombatSmall":[["hammerhead_Balanced", "vigilance_Starting", "kite_Standard"]],
+    "startShipsTradeSmall":[["mule_Starting", "cerberus_Standard", "mercury_Standard"]],
+    "startShipsCombatLarge":[
+      ["eagle_Balanced", "sunder_Assault", "brawler_Elite"]
+    ],
+    "startShipsTradeLarge":[["colossus_Standard", "mule_Standard", "wayfarer_Standard"]],
+    "startShipsExplorerLarge":[["venture_Balanced", "tarsus_Standard", "shepherd_Frontier"]],
+    "startShipsCarrierSmall":[["drover_Strike", "monitor_Escort", "vigilance_AP"]],
+    "startShipsCarrierLarge":[["heron_Strike", "hammerhead_Balanced", "brawler_Elite"]],
+    "startShipsSuper":[["hyperion_Attack"]],
+	
+    "defenceStations":[
+        {"ids":["orbitalstation", "battlestation", "starfortress"]},
+        {"ids":["orbitalstation_mid", "battlestation_mid", "starfortress_mid"]},
+        {"ids":["orbitalstation_high", "battlestation_high", "starfortress_high"]},
+    ],
+
+    "startSpecialItems":[
+        [["low_tech_package",""]],
+        [["midline_package",""]],
+        [["high_tech_package",""]],
+
+    ],
+
+    "industrySeeds":[
+        {"id":"orbitalworks", "mult":0.1},
+        {"id":"lightindustry", "mult":0.1},
+        {"id":"refining", "mult":0.1},
+        {"id":"fuelprod", "mult":0.1},
+    ],
+    
+    "bonusSeeds":[
+        {"id":"nanoforge_pristine", "count":1},
+        {"id":"aiCore_station", "count":2, "mult":0.2},
+        {"id":"aiCore_military", "mult":0.4},
+        {"id":"aiCore_heavyindustry", "count":1},
+        {"id":"aiCore_any", "mult":1.5},
+    ],
+}

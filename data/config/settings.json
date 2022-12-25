@@ -1,0 +1,208 @@
+{
+  # If false, makes the Optimal system uninhabited (and free for any colonizers to take)
+  "optimalOccupation": true, # Default: true
+
+  # Faction inhabiting the Optimal system if 'optimalOccupation' is true
+  # Change it with another faction ID (e.g. "hegemony") if you want that faction to be more challenging,
+  # or set it to "player" to instantly take the system for yourself (although doing so causes some bugs
+  # and, more importantly, cheats yourself out of the challenge of colonizing, managing, and/or taking over the system)
+  "whoOwnsOptimal": "adversary", # Default: "adversary"
+
+  # If true, adds an unactivated coronal hypershunt to the Optimal system
+  "addHypershuntToOptimal": false, # Default: false
+
+  # If true, adds an undisturbed Domain-era cryosleeper somewhere in the Optimal system
+  # (Using the Neutrino Detector might help)
+  "addCryosleeperToOptimal": false, # Default: false
+
+  # If true, makes the location of the Optimal system set in a random constellation (instead of nearest constellation)
+  "enableRandomOptimalLocation": false, # Default: false
+
+  # Distance of Optimal's fringe jump-point away from the center
+  # This also affects the system's size in hyperspace and, potentially, its location in hyperspace
+  "optimalFringeJumpPointOrbitRadius": 9000, # Default: 9000
+
+  # Planet list for the Optimal star system, in order of generation
+  # Default creates planets with best (vanilla-possible) conditions for max commodity production
+  # Custom planets can also be added to this list; just make sure to have at least one planet still on this list
+  # First planet orbiting the star generates with a comm relay, inactive gate, and inner jump-point on its stable points
+  # Second planet orbiting the star generates with a nav buoy and sensor array on its stable points
+  # -------------------------------------------
+  # MODIFY AT YOUR OWN RISK; YOU'VE BEEN WARNED
+  # -------------------------------------------
+  "optimalPlanetList": [
+    { # First planet (closely orbits star)
+      "type": "gas_giant",
+      "focus": 0,          # 0 = orbits system's star, 1 = orbits first planet, 2 = orbits second planet,...
+      "radius": 300,       # planet size
+      "orbitRadius": 3500, # distance away from focus
+      "conditions": [
+        "volatiles_plentiful",
+        "high_gravity",
+        "very_hot",
+      ],
+      # Options below only take effect if 'optimalOccupation' is true
+      "marketSize": 6, # population size of market; set to 0 to make planet uninhabited
+      "industries": [
+        "population",
+        "megaport",
+        "waystation",
+        "heavybatteries",
+        "planetaryshield",
+        "highcommand",
+        "starfortress",
+        "mining",
+        "refining",
+        "lightindustry",
+      ],
+      "specials": {
+        "population": ["", "gamma_core"],
+        "megaport": ["", "alpha_core"],
+        "waystation": ["", "gamma_core"],
+        "heavybatteries": ["drone_replicator", "alpha_core"],
+        "planetaryshield": ["", "alpha_core"],
+        "highcommand": ["cryoarithmetic_engine", "alpha_core"],
+        "starfortress": ["", "alpha_core"],
+        "mining": ["plasma_dynamo", "gamma_core"],
+        "refining": ["", "gamma_core"],
+        "lightindustry": ["", "gamma_core"],
+      },
+    },
+    { # Second planet (closely orbits first planet)
+      "type": "toxic",
+      "focus": 1,
+      "radius": 90,
+      "orbitRadius": 750,
+      "conditions": [
+        "rare_ore_ultrarich",
+        "ore_ultrarich",
+        "volatiles_plentiful",
+        "organics_plentiful",
+        "toxic_atmosphere",
+        "tectonic_activity",
+      ],
+      "marketSize": 6,
+      "industries": [
+        "population",
+        "megaport",
+        "waystation",
+        "heavybatteries",
+        "planetaryshield",
+        "highcommand",
+        "starfortress_mid",
+        "mining",
+        "refining",
+        "lightindustry",
+      ],
+      "specials": {
+        "population": ["", "gamma_core"],
+        "megaport": ["fullerene_spool", "alpha_core"],
+        "waystation": ["", "gamma_core"],
+        "heavybatteries": ["drone_replicator", "alpha_core"],
+        "planetaryshield": ["", "alpha_core"],
+        "highcommand": ["", "alpha_core"],
+        "starfortress_mid": ["", "alpha_core"],
+        "mining": ["mantle_bore", "gamma_core"],
+        "refining": ["", "gamma_core"],
+        "lightindustry": ["", "gamma_core"],
+      },
+    },
+    { # Third planet (orbits first planet further away)
+      "type": "barren-bombarded",
+      "focus": 1,
+      "radius": 80,
+      "orbitRadius": 1200,
+      "conditions": [
+        "rare_ore_moderate",
+        "ore_ultrarich",
+        "volatiles_trace",
+        "no_atmosphere",
+      ],
+      "marketSize": 6,
+      "industries": [
+        "population",
+        "megaport",
+        "waystation",
+        "heavybatteries",
+        "planetaryshield",
+        "highcommand",
+        "starfortress_high",
+        "orbitalworks",
+        "refining",
+        "fuelprod",
+      ],
+      "specials": {
+        "population": ["", "alpha_core"],
+        "megaport": ["fullerene_spool", "alpha_core"],
+        "waystation": ["", "gamma_core"],
+        "heavybatteries": ["drone_replicator", "alpha_core"],
+        "planetaryshield": ["", "alpha_core"],
+        "highcommand": ["", "alpha_core"],
+        "starfortress_high": ["", "alpha_core"],
+        "orbitalworks": ["pristine_nanoforge", "gamma_core"],
+        "refining": ["catalytic_core", "gamma_core"],
+        "fuelprod": ["synchrotron", "gamma_core"],
+      },
+    },
+    { # Fourth planet (orbits star further away)
+      "type": "terran-eccentric",
+      "focus": 0,
+      "radius": 150,
+      "orbitRadius": 6000,
+      "conditions": [
+        "ruins_vast",
+        "farmland_bountiful",
+        "ore_ultrarich",
+        "organics_plentiful",
+        "mild_climate",
+        "habitable",
+        "poor_light",
+        "solar_array",
+      ],
+      "marketSize": 6,
+      "industries": [
+        "population",
+        "megaport",
+        "waystation",
+        "heavybatteries",
+        "planetaryshield",
+        "highcommand",
+        "starfortress",
+        "farming",
+        "lightindustry",
+        "techmining",
+      ],
+      "specials": {
+        "population": ["orbital_fusion_lamp", "gamma_core"],
+        "megaport": ["fullerene_spool", "alpha_core"],
+        "waystation": ["", "gamma_core"],
+        "heavybatteries": ["drone_replicator", "alpha_core"],
+        "planetaryshield": ["", "alpha_core"],
+        "highcommand": ["", "alpha_core"],
+        "starfortress": ["", "alpha_core"],
+        "farming": ["soil_nanites", "gamma_core"],
+        "lightindustry": ["biofactory_embryo", "gamma_core"],
+      },
+    },
+    { # Fifth planet, uninhabited (more of an example for adding planets here)
+      "type": "water",
+      "focus": 0,
+      "radius": 120,
+      "orbitRadius": 7500,
+      "conditions": [
+        "water_surface",
+        "mild_climate",
+        "habitable",
+        "ore_ultrarich",
+        "rare_ore_moderate",
+        "volatiles_diffuse",
+        "organics_plentiful",
+      ],
+      "marketSize": 0,
+    }
+  ],
+
+  "designTypeColors": {
+      "Adversary":[255,203,170,255],
+  },
+}
