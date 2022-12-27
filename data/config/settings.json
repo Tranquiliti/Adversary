@@ -12,15 +12,10 @@
   "addHypershuntToOptimal": false, # Default: false
 
   # If true, adds an undisturbed Domain-era cryosleeper somewhere in the Optimal system
-  # (Using the Neutrino Detector might help)
   "addCryosleeperToOptimal": false, # Default: false
 
   # If true, makes the location of the Optimal system set in a random constellation (instead of nearest constellation)
-  "enableRandomOptimalLocation": false, # Default: false
-
-  # Distance of Optimal's fringe jump-point away from the center
-  # This also affects the system's size in hyperspace and, potentially, its location in hyperspace
-  "optimalFringeJumpPointOrbitRadius": 9000, # Default: 9000
+  "enableRandomLocationForOptimal": false, # Default: false
 
   # Planet list for the Optimal star system, in order of generation
   # Default creates planets with best (vanilla-possible) conditions for max commodity production
@@ -31,16 +26,13 @@
   # MODIFY AT YOUR OWN RISK; YOU'VE BEEN WARNED
   # -------------------------------------------
   "optimalPlanetList": [
+    9000, # Distance away from center for fringe jump-point; determines hyperspace size
     { # First planet (closely orbits star)
       "type": "gas_giant",
       "focus": 0,          # 0 = orbits system's star, 1 = orbits first planet, 2 = orbits second planet,...
       "radius": 300,       # planet size
       "orbitRadius": 3500, # distance away from focus
-      "conditions": [
-        "volatiles_plentiful",
-        "high_gravity",
-        "very_hot",
-      ],
+      "conditions": ["volatiles_plentiful","high_gravity","very_hot"],
       # Options below only take effect if 'optimalOccupation' is true
       "marketSize": 6, # population size of market; set to 0 to make planet uninhabited
       "industries": [
@@ -48,7 +40,6 @@
         "megaport",
         "waystation",
         "heavybatteries",
-        "planetaryshield",
         "highcommand",
         "starfortress",
         "mining",
@@ -60,7 +51,6 @@
         "megaport": ["", "alpha_core"],
         "waystation": ["", "gamma_core"],
         "heavybatteries": ["drone_replicator", "alpha_core"],
-        "planetaryshield": ["", "alpha_core"],
         "highcommand": ["cryoarithmetic_engine", "alpha_core"],
         "starfortress": ["", "alpha_core"],
         "mining": ["plasma_dynamo", "gamma_core"],
@@ -87,7 +77,6 @@
         "megaport",
         "waystation",
         "heavybatteries",
-        "planetaryshield",
         "highcommand",
         "starfortress_mid",
         "mining",
@@ -98,8 +87,7 @@
         "population": ["", "gamma_core"],
         "megaport": ["fullerene_spool", "alpha_core"],
         "waystation": ["", "gamma_core"],
-        "heavybatteries": ["drone_replicator", "alpha_core"],
-        "planetaryshield": ["", "alpha_core"],
+        "heavybatteries": ["", "gamma_core"],
         "highcommand": ["", "alpha_core"],
         "starfortress_mid": ["", "alpha_core"],
         "mining": ["mantle_bore", "gamma_core"],
@@ -112,12 +100,7 @@
       "focus": 1,
       "radius": 80,
       "orbitRadius": 1200,
-      "conditions": [
-        "rare_ore_moderate",
-        "ore_ultrarich",
-        "volatiles_trace",
-        "no_atmosphere",
-      ],
+      "conditions": ["rare_ore_moderate","ore_ultrarich","volatiles_trace","no_atmosphere"],
       "marketSize": 6,
       "industries": [
         "population",
@@ -165,7 +148,6 @@
         "megaport",
         "waystation",
         "heavybatteries",
-        "planetaryshield",
         "highcommand",
         "starfortress",
         "farming",
@@ -176,8 +158,7 @@
         "population": ["orbital_fusion_lamp", "gamma_core"],
         "megaport": ["fullerene_spool", "alpha_core"],
         "waystation": ["", "gamma_core"],
-        "heavybatteries": ["drone_replicator", "alpha_core"],
-        "planetaryshield": ["", "alpha_core"],
+        "heavybatteries": ["", "alpha_core"],
         "highcommand": ["", "alpha_core"],
         "starfortress": ["", "alpha_core"],
         "farming": ["soil_nanites", "gamma_core"],
@@ -200,6 +181,49 @@
       ],
       "marketSize": 0,
     }
+  ],
+
+  # If true, generates more star systems in random constellations
+  "enableRandomStarSystems":true, # Default: true
+
+  # List of star systems to generate; each will be placed in a random constellation
+  # Each system also generates campaign entities (inactive gates, comm relays, etc.) similar to Optimal system
+  "randomStarSystemsList": [
+    [ # First random star system
+      10000, # Distance away from center for fringe jump-point; determines hyperspace size
+      {
+        "type": "gas_giant",
+        "focus": 0,
+        "radius": 350,
+        "orbitRadius": 3500,
+        "conditions": ["volatiles_abundant","high_gravity","very_hot"],
+      },
+      {
+        "type": "terran",
+        "focus": 0,
+        "radius": 100,
+        "orbitRadius": 5000,
+        "conditions": ["ruins_vast","farmland_rich","ore_rich","organics_abundant","habitable"],
+      },
+      {
+        "type": "toxic",
+        "focus": 0,
+        "radius": 90,
+        "orbitRadius": 6500,
+        "conditions": ["toxic_atmosphere","ore_rich","rare_ore_moderate","organics_abundant","volatiles_abundant"],
+      },
+      {
+        "type": "barren",
+        "focus": 0,
+        "radius": 50,
+        "orbitRadius": 8000,
+        "conditions": ["no_atmosphere"],
+      },
+    ],
+
+    # Can add more star systems here using the above format
+
+    
   ],
 
   "designTypeColors": {
