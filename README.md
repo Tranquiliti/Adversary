@@ -8,4 +8,5 @@ Includes Nexerelin, Commissioned Crew, and Starship Legend support for the Adver
 <b>Unofficial Starsector Discord</b> - For the helpful informaion (the search bar is great!)<br>
 <b>Alex and the Fractal Softworks team</b> - For the amazing game that is Starsector!<br>
 
-Modding Notes: Mod is licensed under <b>CC BY-SA 4.0</b>. Any derivative work must be released under the same license.
+# Modding Notes
+This mod is licensed under <b>CC BY-SA 4.0</b>. Any derivative work must be released under the same license.
