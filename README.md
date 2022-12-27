@@ -1,4 +1,4 @@
-Adds a player-like challenge faction, the "Adversary", to the game. Includes customizable star systems, editable via the mod's setting.json file.
+Adds a player-like challenge faction, the "Adversary", to the game; this aggressive faction uses all ships, weapons, and fighters from the vanilla game. Includes customizable star systems, editable via the mod's setting.json file.
 
 Includes Nexerelin, Commissioned Crew, and Starship Legend support for the Adversary faction.
 
