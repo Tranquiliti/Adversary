@@ -141,9 +141,9 @@
 		"tags":["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "pirate_bp"],
 		"hulls":[
 			"vanguard_pirates",
-        	"manticore_pirates",
-        	"eradicator_pirates",
-        	"falcon_p",
+			"manticore_pirates",
+			"eradicator_pirates",
+			"falcon_p",
 			"atlas2",
 		],
 	},

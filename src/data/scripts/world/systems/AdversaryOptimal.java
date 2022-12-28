@@ -1,45 +1,47 @@
 package data.scripts.world.systems;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import data.scripts.AdversaryUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Random;
 
 public class AdversaryOptimal {
     public void generate(SectorAPI sector, Random randomSeed) throws JSONException {
-        SettingsAPI settings = Global.getSettings();
-        JSONArray optimalPlanetList = settings.getJSONArray("optimalPlanetList");
+        JSONObject systemSettings = Global.getSettings().getJSONObject("optimalStarSystem");
 
         // Create the system and its star
-        boolean hasFactionPresence = settings.getBoolean("optimalOccupation");
         StarSystemAPI system = sector.createStarSystem("Optimal");
-        String starType = settings.getBoolean("addHypershuntToOptimal") ? "star_blue_supergiant" : "star_orange_giant";
-        if (settings.getString("whoOwnsOptimal").equals("player")) {
-            starType = "star_red_supergiant";
-        }
+        String starType = systemSettings.getBoolean("addCoronalHypershunt") ? "star_blue_supergiant" : "star_orange_giant";
 
         PlanetAPI systemStar = system.initStar(null, starType, 1200f, 500f);
         systemStar.setId("system_Optimal");
 
         // Create Fringe Jump-point
-        float fringeRadius = optimalPlanetList.getInt(0);
+        float fringeRadius = systemSettings.getInt("fringeJumpPointOrbitRadius");
         JumpPointAPI fringePoint = Global.getFactory().createJumpPoint(null, "Fringe Jump-point");
         fringePoint.setCircularOrbit(systemStar, randomSeed.nextFloat() * 360f, fringeRadius, fringeRadius / (15f + randomSeed.nextFloat() * 5f));
         fringePoint.setStandardWormholeToHyperspaceVisual();
         system.addEntity(fringePoint);
 
         // Create planets from JSON list
-        String factionOwner = hasFactionPresence ? settings.getString("whoOwnsOptimal") : null;
+        JSONArray planetList = systemSettings.getJSONArray("planetList");
         int numOfPlanetsOrbitingStar = 0;
-        for (int i = 1; i < optimalPlanetList.length(); i++) {
+        boolean hasFactionPresence = false;
+        for (int i = 0; i < planetList.length(); i++) {
             // Creates planet with appropriate characteristics
-            PlanetAPI newPlanet = AdversaryUtil.addPlanet(system, i, optimalPlanetList.getJSONObject(i), factionOwner, randomSeed);
+            PlanetAPI newPlanet = AdversaryUtil.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
+            String planetFaction = newPlanet.getFaction().getId();
+
+            // Check if the system is occupied by a faction
+            if (!(planetFaction == null || planetFaction.equals("neutral"))) {
+                hasFactionPresence = true;
+            }
 
             // Adds solar mirrors and shades if applicable
             if (newPlanet.hasCondition("solar_array")) {
@@ -51,7 +53,7 @@ public class AdversaryOptimal {
                 if (newPlanet.hasCondition("hot")) {
                     numOfShades += (randomSeed.nextBoolean() ? 2 : 0);
                 }
-                AdversaryUtil.addSolarArray(newPlanet, numOfMirrors, numOfShades, factionOwner);
+                AdversaryUtil.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
             }
 
             // Adds campaign entities at lagrange points of the first two planets orbiting the star
@@ -59,9 +61,9 @@ public class AdversaryOptimal {
                 numOfPlanetsOrbitingStar++;
                 if (numOfPlanetsOrbitingStar == 2) { // 2nd planet to orbit star
                     // Create nav buoy and sensor array on second planet's L4 and L5 points
-                    SectorEntityToken navBuoy = system.addCustomEntity(null, null, "nav_buoy", factionOwner);
-                    SectorEntityToken sensorArray = system.addCustomEntity(null, null, "sensor_array", factionOwner);
-                    if (factionOwner == null) {
+                    SectorEntityToken navBuoy = system.addCustomEntity(null, null, "nav_buoy", planetFaction);
+                    SectorEntityToken sensorArray = system.addCustomEntity(null, null, "sensor_array", planetFaction);
+                    if (planetFaction == null || planetFaction.equals("neutral")) {
                         navBuoy.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                         sensorArray.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
@@ -71,8 +73,8 @@ public class AdversaryOptimal {
                     JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
                     jumpPoint.setStandardWormholeToHyperspaceVisual();
                     system.addEntity(jumpPoint);
-                    SectorEntityToken commRelay = system.addCustomEntity(null, null, "comm_relay", factionOwner);
-                    if (factionOwner == null) {
+                    SectorEntityToken commRelay = system.addCustomEntity(null, null, "comm_relay", planetFaction);
+                    if (planetFaction == null || planetFaction.equals("neutral")) {
                         commRelay.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
                     AdversaryUtil.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
@@ -80,22 +82,22 @@ public class AdversaryOptimal {
             }
         }
 
-        // Add relevant system tags
-        system.removeTag(Tags.THEME_CORE); // Technically not part of the Core Worlds
-        system.addTag(Tags.THEME_INTERESTING);
-
         // Adds a coronal hypershunt if enabled
-        if (settings.getBoolean("addHypershuntToOptimal")) {
+        if (systemSettings.getBoolean("addCoronalHypershunt")) {
             AdversaryUtil.addHypershunt(system, randomSeed, !hasFactionPresence);
         }
 
         // Adds a Domain-era cryosleeper if enabled
-        if (settings.getBoolean("addCryosleeperToOptimal")) {
-            AdversaryUtil.addCryosleeper(system, randomSeed, 15000f, !hasFactionPresence);
+        if (systemSettings.getBoolean("addDomainCryosleeper")) {
+            AdversaryUtil.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", 15000f, !hasFactionPresence, randomSeed);
         }
 
+        // Add relevant system tags
+        system.removeTag(Tags.THEME_CORE); // Technically not part of the Core Worlds
+        system.addTag(Tags.THEME_INTERESTING);
+
         // Finds a suitable location in the constellation nearest to Core Worlds
-        AdversaryUtil.setLocation(system, (fringeRadius / 10) + 100f, sector, !settings.getBoolean("enableRandomLocationForOptimal"));
+        AdversaryUtil.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
         AdversaryUtil.generateHyperspace(system);
     }
 }

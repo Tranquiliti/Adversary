@@ -50,12 +50,12 @@ public class AdversaryUtil {
      * Adds a Domain-era cryosleeper to a star system
      *
      * @param system       Star system to modify
-     * @param randomSeed   Seed for cryosleeper generation
      * @param orbitRadius  How far cryosleeper is located from center of system
      * @param discoverable Whether cryosleeper needs to be discovered before being revealed in map
+     * @param randomSeed   Seed for cryosleeper generation
      */
-    public static void addCryosleeper(StarSystemAPI system, Random randomSeed, float orbitRadius, boolean discoverable) {
-        SectorEntityToken cryosleeper = system.addCustomEntity(null, "Domain-era Cryosleeper \"Sisyphus\"", "derelict_cryosleeper", "derelict");
+    public static void addCryosleeper(StarSystemAPI system, String name, float orbitRadius, boolean discoverable, Random randomSeed) {
+        SectorEntityToken cryosleeper = system.addCustomEntity(null, name, "derelict_cryosleeper", "derelict");
         cryosleeper.setCircularOrbitWithSpin(system.getStar(), randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (10f + randomSeed.nextFloat() * 5f), 1f, 2f);
         cryosleeper.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
 
@@ -74,12 +74,11 @@ public class AdversaryUtil {
      * @param system        Star system
      * @param id            Planet number
      * @param planetOptions Planet characteristics
-     * @param factionOwner  Faction id; set to 'null' if planet should remain unclaimed
      * @param randomSeed    Seed for planet generation
      * @return The newly-generated Planet
      * @throws JSONException if planetOptions is invalid or has wrong format
      */
-    public static PlanetAPI addPlanet(StarSystemAPI system, int id, JSONObject planetOptions, String factionOwner, Random randomSeed) throws JSONException {
+    public static PlanetAPI addPlanet(StarSystemAPI system, int id, JSONObject planetOptions, Random randomSeed) throws JSONException {
         int orbitFocus = planetOptions.getInt("focus");
         SectorEntityToken focus = orbitFocus <= 0 ? system.getStar() : system.getPlanets().get(orbitFocus);
         float orbitRadius = planetOptions.getInt("orbitRadius");
@@ -87,10 +86,10 @@ public class AdversaryUtil {
         PlanetAPI newPlanet = system.addPlanet(system.getStar().getId() + ":planet_" + id, focus, ProcgenUsedNames.pickName("planet", system.getStar().getName(), null).nameWithRomanSuffixIfAny, planetOptions.getString("type"), randomSeed.nextFloat() * 360f, planetOptions.getInt("radius"), orbitRadius, orbitRadius / (20f + randomSeed.nextFloat() * 5f));
         newPlanet.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
 
-        if (factionOwner == null || planetOptions.getInt("marketSize") <= 0) {
+        if (planetOptions.getInt("marketSize") <= 0) {
             addConditions(newPlanet, planetOptions);
         } else {
-            addMarket(newPlanet, planetOptions, factionOwner);
+            addMarket(newPlanet, planetOptions);
         }
 
         return newPlanet;
@@ -107,21 +106,17 @@ public class AdversaryUtil {
     }
 
     // Adds a populated market with specified options
-    private static void addMarket(PlanetAPI planet, JSONObject planetOptions, String owner) throws JSONException {
+    private static void addMarket(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
 
         // Create planet market
         int size = planetOptions.getInt("marketSize");
+        String factionId = planetOptions.getString("factionId");
         MarketAPI planetMarket = Global.getFactory().createMarket(planet.getId() + "_market", planet.getName(), size);
-        planetMarket.setFactionId(owner);
+        planetMarket.setFactionId(factionId);
         planetMarket.setPrimaryEntity(planet);
         planetMarket.getTariff().setBaseValue(0.3f); // Default tariff value
-
-        // Add the submarkets
-        planetMarket.addSubmarket(Submarkets.GENERIC_MILITARY);
-        planetMarket.addSubmarket(Submarkets.SUBMARKET_OPEN);
-        planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
-        planetMarket.addSubmarket(Submarkets.SUBMARKET_BLACK);
+        planetMarket.setFreePort(false);
 
         planetMarket.addCondition("population_" + size);
         JSONArray conditions = planetOptions.getJSONArray("conditions");
@@ -151,13 +146,25 @@ public class AdversaryUtil {
             }
         }
 
-        //Set free port
-        planetMarket.setFreePort(false);
+        // Add the appropriate submarkets
+        if (factionId.equals("player")) {
+            // TODO: fix faction not being properly set until colonizing another planet and still needing to pay for storage access
+            planetMarket.setPlayerOwned(true);
+            planetMarket.setAdmin(null);
+            planetMarket.addSubmarket(Submarkets.LOCAL_RESOURCES);
+        } else {
+            planetMarket.addSubmarket(Submarkets.SUBMARKET_OPEN);
+            if (planetMarket.hasIndustry("militarybase") || planetMarket.hasIndustry("highcommand")) {
+                planetMarket.addSubmarket(Submarkets.GENERIC_MILITARY);
+            }
+            planetMarket.addSubmarket(Submarkets.SUBMARKET_BLACK);
+        }
+        planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
 
         //set market in global, factions, and assign market, also submarkets
         globalEconomy.addMarket(planetMarket, true);
         planet.setMarket(planetMarket);
-        planet.setFaction(owner);
+        planet.setFaction(factionId);
     }
 
     /**
@@ -261,14 +268,14 @@ public class AdversaryUtil {
      * Set a star system's location to the middle of a constellation;
      * will affect the seed used by random sector generation if setToNearest is false
      * <p>
-     * Modified from the constellation proc-gen code originally made by Audax.
+     * Modified from the constellation proc-gen code made originally by Audax.
      *
      * @param system           Star system to relocate
      * @param hyperspaceRadius Radius of star system in hyperspace
      * @param sector           Sector
-     * @param setToNearest     Whether to set location to the nearest constellation (to Core Worlds) or to a random constellation
+     * @param isRandom         If true, set location to a random constellation; else, set location to the nearest constellation (to Core Worlds)
      */
-    public static void setLocation(StarSystemAPI system, float hyperspaceRadius, SectorAPI sector, boolean setToNearest) {
+    public static void setLocation(StarSystemAPI system, float hyperspaceRadius, SectorAPI sector, boolean isRandom) {
         // Get all proc-gen constellations in Sector hyperspace
         LinkedHashSet<Constellation> constellations = new LinkedHashSet<>();
         for (StarSystemAPI sys : sector.getStarSystems()) {
@@ -279,24 +286,15 @@ public class AdversaryUtil {
 
         // If no constellations exist (for whatever reason), just set location to middle of Core Worlds
         // (you could consider them a special constellation?)
-        final Vector2f SECTOR_ORIGIN = new Vector2f(-6000, -6000);
+        final Vector2f CORE_WORLD_CENTER = new Vector2f(-6000, -6000);
         if (constellations.isEmpty()) {
-            system.getLocation().set(SECTOR_ORIGIN);
+            system.getLocation().set(CORE_WORLD_CENTER);
             return;
         }
 
         // Select the constellation
         Constellation selectedConstellation = null;
-        if (setToNearest) { // Find the nearest constellation to Core Worlds
-            float minDistance = Float.MAX_VALUE;
-            for (Constellation thisConst : constellations) {
-                float distance = Misc.getDistance(SECTOR_ORIGIN, thisConst.getLocation());
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    selectedConstellation = thisConst;
-                }
-            }
-        } else { // Find a random constellation
+        if (isRandom) { // Set location to a random constellation
             Random randomSeed = StarSystemGenerator.random;
             int currentIndex = 0;
             int indexToStop = randomSeed.nextInt(constellations.size());
@@ -306,6 +304,15 @@ public class AdversaryUtil {
                     break;
                 }
                 currentIndex++;
+            }
+        } else { // Set location to the constellation closest to Core Worlds
+            float minDistance = Float.MAX_VALUE;
+            for (Constellation thisConst : constellations) {
+                float distance = Misc.getDistance(CORE_WORLD_CENTER, thisConst.getLocation());
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    selectedConstellation = thisConst;
+                }
             }
         }
 
