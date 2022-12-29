@@ -135,8 +135,7 @@
 			"graphics/portraits/characters/old_spacer01.png",
 		],
 	},
-	"variantOverrides":{
-	},
+	"variantOverrides":{},
 	"shipsWhenImporting":{
 		"tags":["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "pirate_bp"],
 		"hulls":[
@@ -312,9 +311,9 @@
 		
 		"aggression":5,
 		
-		"combatFreighterProbability":0,      			    # instead of some portion of the freighters in a fleet
-		"combatFreighterCombatUseFraction":0,  				# as part of the normal combat lineup
-		"combatFreighterCombatUseFractionWhenPriority":0,   # as part of normal combat lineup, when marked as priority ship
+		"combatFreighterProbability":0, 					# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":0, 				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":0, 	# as part of normal combat lineup, when marked as priority ship
 		"autofitRandomizeProbability":0,
 		"strictComposition":false, # warships/carriers/phase at 1 will be treated as 0, also no random factor
 
@@ -326,9 +325,8 @@
 			"force_concentration", # Shouldn't normally occur due to no-shuffle and 2-skill limit, but it'd be funny otherwise
 		],
 	},
-    #"shipRoles":{},
-	"illegalCommodities":[
-	],
+	#"shipRoles":{},
+	"illegalCommodities":[],
 	"music":{
 		"theme":"music_tritach_encounter_neutral",
 		"market_neutral":"music_tritach_market_neutral",

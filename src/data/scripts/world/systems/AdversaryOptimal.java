@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.procgen.SalvageEntityGenDataSpec;
 import data.scripts.AdversaryUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -12,7 +13,7 @@ import org.json.JSONObject;
 import java.util.Random;
 
 public class AdversaryOptimal {
-    public void generate(SectorAPI sector, Random randomSeed) throws JSONException {
+    public void generate(AdversaryUtil util, SectorAPI sector, Random randomSeed) throws JSONException {
         JSONObject systemSettings = Global.getSettings().getJSONObject("optimalStarSystem");
 
         // Create the system and its star
@@ -35,7 +36,7 @@ public class AdversaryOptimal {
         boolean hasFactionPresence = false;
         for (int i = 0; i < planetList.length(); i++) {
             // Creates planet with appropriate characteristics
-            PlanetAPI newPlanet = AdversaryUtil.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
+            PlanetAPI newPlanet = util.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
             String planetFaction = newPlanet.getFaction().getId();
 
             // Check if the system is occupied by a faction
@@ -53,7 +54,7 @@ public class AdversaryOptimal {
                 if (newPlanet.hasCondition("hot")) {
                     numOfShades += (randomSeed.nextBoolean() ? 2 : 0);
                 }
-                AdversaryUtil.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
+                util.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
             }
 
             // Adds campaign entities at lagrange points of the first two planets orbiting the star
@@ -67,7 +68,7 @@ public class AdversaryOptimal {
                         navBuoy.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                         sensorArray.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
-                    AdversaryUtil.addToLagrangePoints(newPlanet, null, navBuoy, sensorArray);
+                    util.addToLagrangePoints(newPlanet, null, navBuoy, sensorArray);
                 } else if (numOfPlanetsOrbitingStar == 1) { // 1st planet to orbit star
                     // Create comm relay, inactive gate, and inner system jump-point on first planet's Lagrange points
                     JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
@@ -77,19 +78,35 @@ public class AdversaryOptimal {
                     if (planetFaction == null || planetFaction.equals("neutral")) {
                         commRelay.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
-                    AdversaryUtil.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
+                    util.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
                 }
             }
         }
 
         // Adds a coronal hypershunt if enabled
         if (systemSettings.getBoolean("addCoronalHypershunt")) {
-            AdversaryUtil.addHypershunt(system, randomSeed, !hasFactionPresence);
+            util.addHypershunt(system, randomSeed, !hasFactionPresence);
         }
 
         // Adds a Domain-era cryosleeper if enabled
         if (systemSettings.getBoolean("addDomainCryosleeper")) {
-            AdversaryUtil.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", 15000f, !hasFactionPresence, randomSeed);
+            util.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", 15000f, !hasFactionPresence, randomSeed);
+        }
+
+        // Adds a hidden supply cache containing either the Hypershunt Tap or the Dealmaker Holosuite
+        if (hasFactionPresence) {
+            SalvageEntityGenDataSpec.DropData drop = new SalvageEntityGenDataSpec.DropData();
+            drop.chances = 1;
+            drop.addCustom("item_coronal_portal", 1f);
+            drop.addCustom("item_dealmaker_holosuite", 1f);
+
+            SectorEntityToken cache = system.addCustomEntity(null, null, "supply_cache_small", null);
+            cache.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
+            cache.addDropRandom(drop);
+            cache.setSensorProfile(1f);
+            cache.getDetectedRangeMod().modifyFlat("gen", 1200f);
+            cache.setCircularOrbitWithSpin(systemStar, randomSeed.nextFloat() * 360f, 16661f, 16661f / (10 + randomSeed.nextFloat() * 5f), 1f, 2f);
+            cache.setDiscoverable(true);
         }
 
         // Add relevant system tags
@@ -97,7 +114,7 @@ public class AdversaryOptimal {
         system.addTag(Tags.THEME_INTERESTING);
 
         // Finds a suitable location in the constellation nearest to Core Worlds
-        AdversaryUtil.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
-        AdversaryUtil.generateHyperspace(system);
+        util.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
+        util.generateHyperspace(system);
     }
 }
