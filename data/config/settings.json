@@ -3,6 +3,9 @@
 	# First planet orbiting the star has a jump-point, inactive gate, and comm relay in its stable points
 	# Second planet orbiting the star has a nav buoy and sensor array in its stable points
 
+	# Generate the Optimal star system upon starting a new game
+	"enableOptimalStarSystem":true, # Default: true
+
 	"optimalStarSystem": {
 		"addCoronalHypershunt": false, # Adds an unactivated coronal hypershunt to this system
 		"addDomainCryosleeper": false, # Adds an undisturbed Domain-era cryosleeper to this system
@@ -21,6 +24,7 @@
 				"marketSize": 6, # Set to 0 to make planet uninhabited
 				# Planet options below only take effect if marketSize is at least 1
 				"factionId": "adversary", # Who owns this planet
+				"aiCoreAdmin":true, # Is this market governed by an AI admin?
 				"industries": [
 					"population",
 					"megaport",
@@ -59,6 +63,7 @@
 				],
 				"marketSize": 6,
 				"factionId": "adversary",
+				"aiCoreAdmin":true,
 				"industries": [
 					"population",
 					"megaport",
@@ -89,6 +94,7 @@
 				"conditions": ["rare_ore_moderate", "ore_ultrarich", "volatiles_trace", "no_atmosphere"],
 				"marketSize": 6,
 				"factionId": "adversary",
+				"aiCoreAdmin":true,
 				"industries": [
 					"population",
 					"megaport",
@@ -130,6 +136,7 @@
 				],
 				"marketSize": 6,
 				"factionId": "adversary",
+				"aiCoreAdmin":true,
 				"industries": [
 					"population",
 					"megaport",
@@ -170,11 +177,11 @@
 		],
 	},
 
-	# If true, generates custom star systems upon starting a new game
-	"enableCustomStarSystems": true,
+	# Generate the custom star systems upon starting a new game
+	"enableCustomStarSystems": true, # Default: true
 
 	"customStarSystems": [
-		{ # First custom star system
+		{ # An uninhabited star system similar to the default Optimal system
 			"addCoronalHypershunt": false,
 			"addDomainCryosleeper": false,
 			"enableRandomLocation": true,
@@ -185,28 +192,36 @@
 					"radius": 350,
 					"orbitRadius": 3500,
 					"conditions": ["volatiles_abundant", "high_gravity", "very_hot"],
-					"marketSize":0,
+					"marketSize": 0,
+					# Options below are just here to let you know it's possible
+					"factionId": "tritachyon",
+					"aiCoreAdmin": true,
+					"industries": ["population","spaceport","commerce"],
+					"specials": {
+						"population": ["coronal_portal", "beta_core"],
+						"commerce": ["dealmaker_holosuite", ""],
+					},
 				},
 				{	"type": "terran",
 					"focus": 0,
 					"radius": 100,
 					"orbitRadius": 5000,
 					"conditions": ["ruins_vast", "farmland_rich", "ore_rich", "organics_abundant", "habitable"],
-					"marketSize":0,
+					"marketSize": 0,
 				},
 				{	"type": "toxic",
 					"focus": 0,
 					"radius": 90,
 					"orbitRadius": 6500,
 					"conditions": ["toxic_atmosphere", "ore_rich", "rare_ore_moderate", "organics_abundant", "volatiles_abundant"],
-					"marketSize":0,
+					"marketSize": 0,
 				},
 				{	"type": "barren",
 					"focus": 0,
 					"radius": 50,
 					"orbitRadius": 8000,
 					"conditions": ["no_atmosphere"],
-					"marketSize":0,
+					"marketSize": 0,
 				},
 			],
 		},

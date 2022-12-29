@@ -13,11 +13,11 @@ import org.json.JSONObject;
 import java.util.Random;
 
 public class AdversaryCustomStarSystem {
-    public void generate(SectorAPI sector, JSONObject systemSettings, String starType, Random randomSeed) throws JSONException {
+    public void generate(AdversaryUtil util, SectorAPI sector, JSONObject systemSettings, String starType, Random randomSeed) throws JSONException {
         // Create the system and set its location
         float fringeRadius = systemSettings.getInt("fringeJumpPointOrbitRadius");
         StarSystemAPI system = sector.createStarSystem(ProcgenUsedNames.pickName("star", null, null).nameWithRomanSuffixIfAny);
-        AdversaryUtil.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
+        util.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
 
         // Creates star for this system
         if (systemSettings.getBoolean("addCoronalHypershunt")) {
@@ -38,7 +38,7 @@ public class AdversaryCustomStarSystem {
         boolean hasFactionPresence = false;
         for (int i = 0; i < planetList.length(); i++) {
             // Creates planet with appropriate characteristics
-            PlanetAPI newPlanet = AdversaryUtil.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
+            PlanetAPI newPlanet = util.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
             String planetFaction = newPlanet.getFaction().getId();
 
             // Check if the system is occupied by a faction
@@ -56,7 +56,7 @@ public class AdversaryCustomStarSystem {
                 if (newPlanet.hasCondition("hot")) {
                     numOfShades += (randomSeed.nextBoolean() ? 2 : 0);
                 }
-                AdversaryUtil.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
+                util.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
             }
 
             // Adds campaign entities at lagrange points of the first two planets orbiting the star
@@ -71,7 +71,7 @@ public class AdversaryCustomStarSystem {
                         sensorArray.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
 
-                    AdversaryUtil.addToLagrangePoints(newPlanet, null, navBuoy, sensorArray);
+                    util.addToLagrangePoints(newPlanet, null, navBuoy, sensorArray);
                 } else if (numOfPlanetsOrbitingStar == 1) { // 1st planet to orbit star
                     // Create comm relay, inactive gate, and inner system jump-point on first planet's Lagrange points
                     JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
@@ -82,25 +82,25 @@ public class AdversaryCustomStarSystem {
                         commRelay.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
                     }
 
-                    AdversaryUtil.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
+                    util.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
                 }
             }
         }
 
         // Adds a coronal hypershunt if enabled
         if (systemSettings.getBoolean("addCoronalHypershunt")) {
-            AdversaryUtil.addHypershunt(system, randomSeed, !hasFactionPresence);
+            util.addHypershunt(system, randomSeed, !hasFactionPresence);
         }
 
         // Adds a Domain-era cryosleeper if enabled
         if (systemSettings.getBoolean("addDomainCryosleeper")) {
-            AdversaryUtil.addCryosleeper(system, null, 15000f, !hasFactionPresence, randomSeed);
+            util.addCryosleeper(system, null, 15000f, !hasFactionPresence, randomSeed);
         }
 
         // Add relevant system tags
         system.removeTag(Tags.THEME_CORE);
         system.addTag(Tags.THEME_INTERESTING);
 
-        AdversaryUtil.generateHyperspace(system);
+        util.generateHyperspace(system);
     }
 }

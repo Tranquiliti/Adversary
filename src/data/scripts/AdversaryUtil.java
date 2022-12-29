@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
@@ -18,12 +19,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.lwjgl.util.vector.Vector2f;
 
-import java.util.Iterator;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class AdversaryUtil {
+    public HashMap<MarketAPI, String> marketsToOverrideAdmin; // Is updated in the addMarket private helper method
+
+    // Making a utility class instantiable just so I can modify admins properly D:
+    public AdversaryUtil() {
+        marketsToOverrideAdmin = new HashMap<>();
+    }
+
     /**
      * Adds a coronal hypershunt to a star system
      *
@@ -31,17 +36,20 @@ public class AdversaryUtil {
      * @param randomSeed   Seed for hypershunt generation
      * @param discoverable Whether hypershunt needs to be discovered before being revealed in map
      */
-    public static void addHypershunt(StarSystemAPI system, Random randomSeed, boolean discoverable) {
+    public void addHypershunt(StarSystemAPI system, Random randomSeed, boolean discoverable) {
         PlanetAPI star = system.getStar();
-        SectorEntityToken coronalTap = system.addCustomEntity(null, null, "coronal_tap", null);
-        float coronalOrbitRadius = star.getRadius() + coronalTap.getRadius() + 100f;
-        coronalTap.setCircularOrbitPointingDown(star, randomSeed.nextFloat() * 360f, coronalOrbitRadius, coronalOrbitRadius / (20f + randomSeed.nextFloat() * 5f));
+        SectorEntityToken hypershunt = system.addCustomEntity(null, null, "coronal_tap", null);
+        float coronalOrbitRadius = star.getRadius() + hypershunt.getRadius() + 100f;
+        hypershunt.setCircularOrbitPointingDown(star, randomSeed.nextFloat() * 360f, coronalOrbitRadius, coronalOrbitRadius / (20f + randomSeed.nextFloat() * 5f));
 
         if (discoverable) {
-            coronalTap.setSensorProfile(1f);
-            coronalTap.getDetectedRangeMod().modifyFlat("gen", 3500f);
-            coronalTap.setDiscoverable(true);
+            hypershunt.setSensorProfile(1f);
+            hypershunt.getDetectedRangeMod().modifyFlat("gen", 3500f);
+            hypershunt.setDiscoverable(true);
         }
+
+        // Makes hypershunt do particle effects when activated
+        Global.getSector().addScript(new CoronalTapParticleScript(hypershunt));
 
         system.addTag(Tags.HAS_CORONAL_TAP);
     }
@@ -54,7 +62,7 @@ public class AdversaryUtil {
      * @param discoverable Whether cryosleeper needs to be discovered before being revealed in map
      * @param randomSeed   Seed for cryosleeper generation
      */
-    public static void addCryosleeper(StarSystemAPI system, String name, float orbitRadius, boolean discoverable, Random randomSeed) {
+    public void addCryosleeper(StarSystemAPI system, String name, float orbitRadius, boolean discoverable, Random randomSeed) {
         SectorEntityToken cryosleeper = system.addCustomEntity(null, name, "derelict_cryosleeper", "derelict");
         cryosleeper.setCircularOrbitWithSpin(system.getStar(), randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (10f + randomSeed.nextFloat() * 5f), 1f, 2f);
         cryosleeper.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
@@ -78,9 +86,9 @@ public class AdversaryUtil {
      * @return The newly-generated Planet
      * @throws JSONException if planetOptions is invalid or has wrong format
      */
-    public static PlanetAPI addPlanet(StarSystemAPI system, int id, JSONObject planetOptions, Random randomSeed) throws JSONException {
-        int orbitFocus = planetOptions.getInt("focus");
-        SectorEntityToken focus = orbitFocus <= 0 ? system.getStar() : system.getPlanets().get(orbitFocus);
+    public PlanetAPI addPlanet(StarSystemAPI system, int id, JSONObject planetOptions, Random randomSeed) throws JSONException {
+        int planetIndex = planetOptions.getInt("focus");
+        SectorEntityToken focus = planetIndex <= 0 ? system.getStar() : system.getPlanets().get(planetIndex);
         float orbitRadius = planetOptions.getInt("orbitRadius");
 
         PlanetAPI newPlanet = system.addPlanet(system.getStar().getId() + ":planet_" + id, focus, ProcgenUsedNames.pickName("planet", system.getStar().getName(), null).nameWithRomanSuffixIfAny, planetOptions.getString("type"), randomSeed.nextFloat() * 360f, planetOptions.getInt("radius"), orbitRadius, orbitRadius / (20f + randomSeed.nextFloat() * 5f));
@@ -96,7 +104,7 @@ public class AdversaryUtil {
     }
 
     // Adds planetary conditions to planet
-    private static void addConditions(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
+    private void addConditions(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
         Misc.initConditionMarket(planet);
         MarketAPI planetMarket = planet.getMarket();
         JSONArray conditions = planetOptions.getJSONArray("conditions");
@@ -106,7 +114,7 @@ public class AdversaryUtil {
     }
 
     // Adds a populated market with specified options
-    private static void addMarket(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
+    private void addMarket(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
 
         // Create planet market
@@ -147,11 +155,12 @@ public class AdversaryUtil {
         }
 
         // Add the appropriate submarkets
+        planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
         if (factionId.equals("player")) {
             // TODO: fix faction not being properly set until colonizing another planet and still needing to pay for storage access
             planetMarket.setPlayerOwned(true);
-            planetMarket.setAdmin(null);
             planetMarket.addSubmarket(Submarkets.LOCAL_RESOURCES);
+            marketsToOverrideAdmin.put(planetMarket, null);
         } else {
             planetMarket.addSubmarket(Submarkets.SUBMARKET_OPEN);
             if (planetMarket.hasIndustry("militarybase") || planetMarket.hasIndustry("highcommand")) {
@@ -159,7 +168,11 @@ public class AdversaryUtil {
             }
             planetMarket.addSubmarket(Submarkets.SUBMARKET_BLACK);
         }
-        planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
+
+        // Adds an AI core admin to the market if enabled
+        if (planetOptions.getBoolean("aiCoreAdmin")) {
+            marketsToOverrideAdmin.put(planetMarket, "alpha_core");
+        }
 
         //set market in global, factions, and assign market, also submarkets
         globalEconomy.addMarket(planetMarket, true);
@@ -176,7 +189,7 @@ public class AdversaryUtil {
      * @param factionOwner Faction id
      * @throws IllegalArgumentException if numOfMirrors > 5, numOfShades > 3, or either of the numbers are even
      */
-    public static void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionOwner) {
+    public void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionOwner) {
         if (numOfMirrors % 2 == 0 || numOfShades % 2 == 0 || numOfMirrors > 5 || numOfShades > 3) {
             throw new IllegalArgumentException("Invalid number of solar mirrors and/or shades");
         }
@@ -232,7 +245,7 @@ public class AdversaryUtil {
      * @param entityL4 Entity to add at L4 point
      * @param entityL5 Entity to add at L5 point
      */
-    public static void addToLagrangePoints(PlanetAPI planet, SectorEntityToken entityL3, SectorEntityToken entityL4, SectorEntityToken entityL5) {
+    public void addToLagrangePoints(PlanetAPI planet, SectorEntityToken entityL3, SectorEntityToken entityL4, SectorEntityToken entityL5) {
         PlanetAPI systemStar = planet.getStarSystem().getStar();
         float planetAngle = planet.getCircularOrbitAngle();
         float planetOrbitRadius = planet.getCircularOrbitRadius();
@@ -253,7 +266,7 @@ public class AdversaryUtil {
      *
      * @param system Star system to modify
      */
-    public static void generateHyperspace(StarSystemAPI system) {
+    public void generateHyperspace(StarSystemAPI system) {
         system.autogenerateHyperspaceJumpPoints(true, false);
 
         // Clear nebula in hyperspace
@@ -275,7 +288,7 @@ public class AdversaryUtil {
      * @param sector           Sector
      * @param isRandom         If true, set location to a random constellation; else, set location to the nearest constellation (to Core Worlds)
      */
-    public static void setLocation(StarSystemAPI system, float hyperspaceRadius, SectorAPI sector, boolean isRandom) {
+    public void setLocation(StarSystemAPI system, float hyperspaceRadius, SectorAPI sector, boolean isRandom) {
         // Get all proc-gen constellations in Sector hyperspace
         LinkedHashSet<Constellation> constellations = new LinkedHashSet<>();
         for (StarSystemAPI sys : sector.getStarSystems()) {
