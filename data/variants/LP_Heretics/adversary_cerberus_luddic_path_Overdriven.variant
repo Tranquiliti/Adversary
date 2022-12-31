@@ -1,0 +1,33 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "cerberus_luddic_path",
+    "hullMods": [
+        "heavyarmor",
+        "reinforcedhull",
+        "solar_shielding",
+        "insulatedengine",
+        "autorepair",
+        "armoredweapons"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_cerberus_luddic_path_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "chaingun"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightdualmg",
+                "WS 002": "lightdualmg",
+                "WS 003": "lightdualmg"
+            }
+        }
+    ]
+}

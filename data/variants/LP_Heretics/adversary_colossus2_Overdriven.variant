@@ -1,0 +1,29 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 15,
+    "fluxVents": 10,
+    "hullId": "colossus2",
+    "hullMods": [],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_colossus2_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "lightdualmg",
+                "WS 012": "lightdualmg",
+                "WS 013": "lightdualmg",
+                "WS 014": "lightdualmg",
+                "WS 015": "lightdualmg",
+                "WS 016": "lightdualmg"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 017": "hammerrack"}
+        }
+    ]
+}

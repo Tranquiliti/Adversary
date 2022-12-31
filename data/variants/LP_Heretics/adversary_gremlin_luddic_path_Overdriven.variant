@@ -1,0 +1,31 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 9,
+    "fluxVents": 0,
+    "hullId": "gremlin_luddic_path",
+    "hullMods": [
+        "hardened_subsystems",
+        "adaptive_coils"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_gremlin_luddic_path_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "railgun",
+                "WS 001": "railgun"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 002": "reaper",
+                "WS 003": "reaper"
+            }
+        }
+    ]
+}

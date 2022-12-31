@@ -18,7 +18,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class AdversaryModPlugin extends BaseModPlugin {
-    private HashMap<MarketAPI, String> marketsToOverrideAdmin;
+    private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
     @Override
@@ -31,9 +31,9 @@ public class AdversaryModPlugin extends BaseModPlugin {
             boolean haveNexerelin = settings.getModManager().isModEnabled("nexerelin");
             AdversaryUtil advUtil = new AdversaryUtil();
 
-            // Generates Optimal star system if enabled and not on Random Sector mode
+            // Generates Optimal star system if enabled and not on Random Core Worlds mode
             if (settings.getBoolean("enableOptimalStarSystem") && (!haveNexerelin || SectorManager.getManager().isCorvusMode())) {
-                new AdversaryOptimal().generate(advUtil, sector, randomSeed);
+                new AdversaryOptimal().generate(advUtil, sector, settings.getJSONObject("optimalStarSystem"), randomSeed);
             }
 
             // Generates any custom star systems if enabled
@@ -73,8 +73,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
             }
         }
 
-        // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use,
-        // since I'm not sure if it would be garbage-collected at all
+        // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
         marketsToOverrideAdmin.clear();
         marketsToOverrideAdmin = null;
     }
