@@ -1,0 +1,30 @@
+{
+    "displayName": "Elite Attack",
+    "fluxCapacitors": 10,
+    "fluxVents": 9,
+    "hullId": "tempest",
+    "hullMods": [
+        "hardened_subsystems",
+        "high_scatter_amp",
+        "solar_shielding"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_tempest_Attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "gravitonbeam",
+                "WS 002": "gravitonbeam"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "atropos_single"}
+        }
+    ],
+    "wings": []
+}

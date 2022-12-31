@@ -1,8 +1,10 @@
 package data.scripts.world.systems;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.*;
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
+import com.fs.starfarer.api.campaign.JumpPointAPI;
+import com.fs.starfarer.api.campaign.PlanetAPI;
+import com.fs.starfarer.api.campaign.SectorAPI;
+import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.procgen.ProcgenUsedNames;
 import data.scripts.AdversaryUtil;
@@ -34,9 +36,8 @@ public class AdversaryCustomStarSystem {
 
         // Create planets from JSON list
         JSONArray planetList = systemSettings.getJSONArray("planetList");
-        int numOfPlanetsOrbitingStar = 0;
         boolean hasFactionPresence = false;
-        for (int i = 0; i < planetList.length(); i++) {
+        for (int i = 0, numOfPlanetsOrbitingStar = 0; i < planetList.length(); i++) {
             // Creates planet with appropriate characteristics
             PlanetAPI newPlanet = util.addPlanet(system, i + 1, planetList.getJSONObject(i), randomSeed);
             String planetFaction = newPlanet.getFaction().getId();
@@ -47,54 +48,32 @@ public class AdversaryCustomStarSystem {
             }
 
             // Adds solar mirrors and shades if applicable
-            if (newPlanet.hasCondition("solar_array")) {
-                int numOfMirrors = 3;
-                int numOfShades = 1;
-                if (newPlanet.hasCondition("poor_light")) {
-                    numOfMirrors += (randomSeed.nextBoolean() ? 2 : 0);
-                }
-                if (newPlanet.hasCondition("hot")) {
-                    numOfShades += (randomSeed.nextBoolean() ? 2 : 0);
-                }
-                util.addSolarArray(newPlanet, numOfMirrors, numOfShades, planetFaction);
-            }
+            util.addSolarArrayToPlanet(newPlanet, planetFaction, randomSeed);
 
             // Adds campaign entities at lagrange points of the first two planets orbiting the star
             if (newPlanet.getOrbitFocus().isStar()) {
                 numOfPlanetsOrbitingStar++;
                 if (numOfPlanetsOrbitingStar == 2) { // 2nd planet to orbit star
                     // Create nav buoy and sensor array on second planet's L4 and L5 points
-                    SectorEntityToken navBuoy = system.addCustomEntity(null, null, "nav_buoy", planetFaction);
-                    SectorEntityToken sensorArray = system.addCustomEntity(null, null, "sensor_array", planetFaction);
-                    if (planetFaction == null || planetFaction.equals("neutral")) {
-                        navBuoy.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
-                        sensorArray.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
-                    }
-
-                    util.addToLagrangePoints(newPlanet, null, navBuoy, sensorArray);
+                    util.addToLagrangePoints(newPlanet, null, util.addObjective(system, "nav_buoy", planetFaction), util.addObjective(system, "sensor_array", planetFaction));
                 } else if (numOfPlanetsOrbitingStar == 1) { // 1st planet to orbit star
                     // Create comm relay, inactive gate, and inner system jump-point on first planet's Lagrange points
                     JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
                     jumpPoint.setStandardWormholeToHyperspaceVisual();
                     system.addEntity(jumpPoint);
-                    SectorEntityToken commRelay = system.addCustomEntity(null, null, "comm_relay", planetFaction);
-                    if (planetFaction == null || planetFaction.equals("neutral")) {
-                        commRelay.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
-                    }
-
-                    util.addToLagrangePoints(newPlanet, commRelay, system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
+                    util.addToLagrangePoints(newPlanet, util.addObjective(system, "comm_relay", planetFaction), system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
                 }
             }
         }
 
         // Adds a coronal hypershunt if enabled
         if (systemSettings.getBoolean("addCoronalHypershunt")) {
-            util.addHypershunt(system, randomSeed, !hasFactionPresence);
+            util.addHypershunt(system, randomSeed, !hasFactionPresence, true);
         }
 
         // Adds a Domain-era cryosleeper if enabled
         if (systemSettings.getBoolean("addDomainCryosleeper")) {
-            util.addCryosleeper(system, null, 15000f, !hasFactionPresence, randomSeed);
+            util.addCryosleeper(system, null, fringeRadius + 5000f, !hasFactionPresence, randomSeed);
         }
 
         // Add relevant system tags

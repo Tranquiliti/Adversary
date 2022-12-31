@@ -1,0 +1,27 @@
+{
+    "displayName": "Elite Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 8,
+    "hullId": "omen",
+    "hullMods": [
+        "hardened_subsystems",
+        "pointdefenseai",
+        "frontemitter",
+        "solar_shielding"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_omen_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "taclaser"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "breach"}
+        }
+    ]
+}

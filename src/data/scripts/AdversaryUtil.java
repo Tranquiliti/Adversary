@@ -21,6 +21,9 @@ import org.lwjgl.util.vector.Vector2f;
 
 import java.util.*;
 
+/**
+ * A utility class for the Adversary mod
+ */
 public class AdversaryUtil {
     public HashMap<MarketAPI, String> marketsToOverrideAdmin; // Is updated in the addMarket private helper method
 
@@ -30,32 +33,7 @@ public class AdversaryUtil {
     }
 
     /**
-     * Adds a coronal hypershunt to a star system
-     *
-     * @param system       Star system to modify
-     * @param randomSeed   Seed for hypershunt generation
-     * @param discoverable Whether hypershunt needs to be discovered before being revealed in map
-     */
-    public void addHypershunt(StarSystemAPI system, Random randomSeed, boolean discoverable) {
-        PlanetAPI star = system.getStar();
-        SectorEntityToken hypershunt = system.addCustomEntity(null, null, "coronal_tap", null);
-        float coronalOrbitRadius = star.getRadius() + hypershunt.getRadius() + 100f;
-        hypershunt.setCircularOrbitPointingDown(star, randomSeed.nextFloat() * 360f, coronalOrbitRadius, coronalOrbitRadius / (20f + randomSeed.nextFloat() * 5f));
-
-        if (discoverable) {
-            hypershunt.setSensorProfile(1f);
-            hypershunt.getDetectedRangeMod().modifyFlat("gen", 3500f);
-            hypershunt.setDiscoverable(true);
-        }
-
-        // Makes hypershunt do particle effects when activated
-        Global.getSector().addScript(new CoronalTapParticleScript(hypershunt));
-
-        system.addTag(Tags.HAS_CORONAL_TAP);
-    }
-
-    /**
-     * Adds a Domain-era cryosleeper to a star system
+     * Adds a Domain-era cryosleeper in a star system
      *
      * @param system       Star system to modify
      * @param orbitRadius  How far cryosleeper is located from center of system
@@ -77,6 +55,50 @@ public class AdversaryUtil {
     }
 
     /**
+     * Adds a coronal hypershunt in a star system.
+     *
+     * @param system             Star system to modify
+     * @param randomSeed         Seed for hypershunt generation
+     * @param discoverable       Whether hypershunt needs to be discovered before being revealed in map
+     * @param hasParticleEffects Whether the hypershunt should emit particle effects upon activation; set to false for better performance
+     */
+    public void addHypershunt(StarSystemAPI system, Random randomSeed, boolean discoverable, boolean hasParticleEffects) {
+        PlanetAPI star = system.getStar();
+        SectorEntityToken hypershunt = system.addCustomEntity(null, null, "coronal_tap", null);
+        float coronalOrbitRadius = star.getRadius() + hypershunt.getRadius() + 100f;
+        hypershunt.setCircularOrbitPointingDown(star, randomSeed.nextFloat() * 360f, coronalOrbitRadius, coronalOrbitRadius / (20f + randomSeed.nextFloat() * 5f));
+
+        if (discoverable) {
+            hypershunt.setSensorProfile(1f);
+            hypershunt.getDetectedRangeMod().modifyFlat("gen", 3500f);
+            hypershunt.setDiscoverable(true);
+        }
+
+        if (hasParticleEffects) {
+            Global.getSector().addScript(new CoronalTapParticleScript(hypershunt));
+        }
+
+        system.addTag(Tags.HAS_CORONAL_TAP);
+    }
+
+    /**
+     * Adds a system objective in a star system
+     *
+     * @param system      Star system to modify
+     * @param objectiveId System objective id; should either be "comm_relay", "sensor_array", or "nav_buoy"
+     * @param factionId   Faction owning the system objective
+     * @return The newly-created system objective
+     */
+    public SectorEntityToken addObjective(StarSystemAPI system, String objectiveId, String factionId) {
+        SectorEntityToken objective = system.addCustomEntity(null, null, objectiveId, factionId);
+        if (factionId == null || factionId.equals("neutral")) {
+            objective.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
+        }
+
+        return objective;
+    }
+
+    /**
      * Adds a planet in a star system
      *
      * @param system        Star system
@@ -95,16 +117,16 @@ public class AdversaryUtil {
         newPlanet.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
 
         if (planetOptions.getInt("marketSize") <= 0) {
-            addConditions(newPlanet, planetOptions);
+            addPlanetConditions(newPlanet, planetOptions);
         } else {
-            addMarket(newPlanet, planetOptions);
+            addPlanetMarket(newPlanet, planetOptions);
         }
 
         return newPlanet;
     }
 
     // Adds planetary conditions to planet
-    private void addConditions(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
+    private void addPlanetConditions(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
         Misc.initConditionMarket(planet);
         MarketAPI planetMarket = planet.getMarket();
         JSONArray conditions = planetOptions.getJSONArray("conditions");
@@ -114,7 +136,7 @@ public class AdversaryUtil {
     }
 
     // Adds a populated market with specified options
-    private void addMarket(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
+    private void addPlanetMarket(PlanetAPI planet, JSONObject planetOptions) throws JSONException {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
 
         // Create planet market
@@ -181,15 +203,15 @@ public class AdversaryUtil {
     }
 
     /**
-     * Adds solar array entities to a planet
+     * Adds solar array entities near a planet
      *
      * @param planet       Planet to modify
      * @param numOfMirrors Number of solar mirrors
      * @param numOfShades  Number of solar shades
-     * @param factionOwner Faction id
+     * @param factionId    Faction owning the solar array
      * @throws IllegalArgumentException if numOfMirrors > 5, numOfShades > 3, or either of the numbers are even
      */
-    public void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionOwner) {
+    public void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionId) {
         if (numOfMirrors % 2 == 0 || numOfShades % 2 == 0 || numOfMirrors > 5 || numOfShades > 3) {
             throw new IllegalArgumentException("Invalid number of solar mirrors and/or shades");
         }
@@ -203,10 +225,10 @@ public class AdversaryUtil {
         float mirrorAngle = planet.getCircularOrbitAngle() - 30f * (numOfMirrors >>> 1);
         int mirrorIndex = 2 - (numOfMirrors / 2);
         for (int i = 0; i < numOfMirrors; i++) {
-            SectorEntityToken mirror = system.addCustomEntity(null, "Stellar Mirror " + mirrorNames[mirrorIndex], "stellar_mirror", factionOwner);
+            SectorEntityToken mirror = system.addCustomEntity(null, "Stellar Mirror " + mirrorNames[mirrorIndex], "stellar_mirror", factionId);
             mirror.setCircularOrbitPointingDown(planet, mirrorAngle, planetRadius + 250f, planetOrbitPeriod);
 
-            if (factionOwner == null || factionOwner.equals("neutral")) {
+            if (factionId == null || factionId.equals("neutral")) {
                 mirror.setSensorProfile(1f);
                 mirror.getDetectedRangeMod().modifyFlat("gen", 2200f);
                 mirror.setDiscoveryXP(300f);
@@ -222,10 +244,10 @@ public class AdversaryUtil {
         float shadeAngle = ((planet.getCircularOrbitAngle() + 180f) % 360f) - 30f * (numOfShades >>> 1);
         int shadeIndex = 1 - (numOfShades / 2);
         for (int i = 0; i < numOfShades; i++) {
-            SectorEntityToken shade = system.addCustomEntity(null, "Stellar Shade " + shadeNames[shadeIndex], "stellar_shade", factionOwner);
+            SectorEntityToken shade = system.addCustomEntity(null, "Stellar Shade " + shadeNames[shadeIndex], "stellar_shade", factionId);
             shade.setCircularOrbitPointingDown(planet, shadeAngle, planetRadius + 240f, planetOrbitPeriod);
 
-            if (factionOwner == null || factionOwner.equals("neutral")) {
+            if (factionId == null || factionId.equals("neutral")) {
                 shade.setSensorProfile(1f);
                 shade.getDetectedRangeMod().modifyFlat("gen", 2200f);
                 shade.setDiscoveryXP(300f);
@@ -238,7 +260,29 @@ public class AdversaryUtil {
     }
 
     /**
-     * Adds entities to a planet's L3, L4, and L5 points, respectively
+     * Adds a solar array near a planet, taking into account planetary conditions
+     *
+     * @param planet     Planet to modify
+     * @param factionId  Faction owning the solar array
+     * @param randomSeed Seed for planet generation
+     */
+    public void addSolarArrayToPlanet(PlanetAPI planet, String factionId, Random randomSeed) {
+        // Adds solar mirrors and shades if applicable
+        if (planet.hasCondition("solar_array")) {
+            int numOfMirrors = 3;
+            int numOfShades = 1;
+            if (planet.hasCondition("poor_light")) {
+                numOfMirrors += (randomSeed.nextBoolean() ? 2 : 0);
+            }
+            if (planet.hasCondition("hot")) {
+                numOfShades += (randomSeed.nextBoolean() ? 2 : 0);
+            }
+            addSolarArray(planet, numOfMirrors, numOfShades, factionId);
+        }
+    }
+
+    /**
+     * Adds system entities in a planet's L3, L4, and L5 points, respectively
      *
      * @param planet   Planet
      * @param entityL3 Entity to add at L3 point

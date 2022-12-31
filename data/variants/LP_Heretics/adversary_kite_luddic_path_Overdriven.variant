@@ -1,0 +1,25 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 8,
+    "fluxVents": 1,
+    "hullId": "kite_luddic_path",
+    "hullMods": ["hardened_subsystems"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_kite_luddic_path_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "railgun"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "reaper",
+                "WS 002": "reaper"
+            }
+        }
+    ]
+}

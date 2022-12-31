@@ -1,0 +1,38 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 10,
+    "fluxVents": 8,
+    "hullId": "lasher_pather",
+    "hullMods": [
+        "hardened_subsystems",
+        "insulatedengine"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_lasher_pather_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 007": "lightag"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "reaper",
+                "WS 004": "reaper"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "lightdualmg",
+                "WS 003": "lightdualmg",
+                "WS 005": "lightdualmg",
+                "WS 006": "lightdualmg"
+            }
+        }
+    ]
+}

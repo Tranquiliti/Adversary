@@ -1,0 +1,26 @@
+{
+    "displayName": "Elite Attack",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "scarab",
+    "hullMods": [
+        "hardened_subsystems",
+        "high_scatter_amp",
+        "frontemitter",
+        "solar_shielding"
+    ],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_scarab_Attack",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "taclaser",
+            "WS 002": "taclaser",
+            "WS 003": "taclaser",
+            "WS 005": "taclaser",
+            "WS 010": "taclaser"
+        }
+    }]
+}
