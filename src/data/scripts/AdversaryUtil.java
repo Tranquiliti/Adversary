@@ -8,17 +8,21 @@ import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.Constellation;
 import com.fs.starfarer.api.impl.campaign.procgen.NebulaEditor;
 import com.fs.starfarer.api.impl.campaign.procgen.ProcgenUsedNames;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
+import com.fs.starfarer.api.impl.campaign.terrain.MagneticFieldTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.lwjgl.util.vector.Vector2f;
 
+import java.awt.*;
+import java.util.List;
 import java.util.*;
 
 /**
@@ -30,6 +34,49 @@ public class AdversaryUtil {
     // Making a utility class instantiable just so I can modify admins properly D:
     public AdversaryUtil() {
         marketsToOverrideAdmin = new HashMap<>();
+    }
+
+    /**
+     * Adds an asteroid belt around a planet (note that stars are technically planets too)
+     *
+     * @param planet      The focus
+     * @param orbitRadius How far it is located from center of system
+     */
+    public void addAsteroidBelt(PlanetAPI planet, float orbitRadius) {
+        // "Nemo's Band" Corvus asteroid belt
+        StarSystemAPI system = planet.getStarSystem();
+        system.addAsteroidBelt(planet, Math.round(orbitRadius / 60), orbitRadius, 256f, Math.round(orbitRadius / 38f), Math.round(orbitRadius / 19f), Terrain.ASTEROID_BELT, null);
+        system.addRingBand(planet, "misc", "rings_dust0", 256f, 3, Color.white, 256f, orbitRadius - 60f, Math.round(orbitRadius / 18f), null, null);
+        system.addRingBand(planet, "misc", "rings_asteroids0", 256f, 3, Color.white, 256f, orbitRadius + 60f, Math.round(orbitRadius / 19.5f), null, null);
+    }
+
+    /**
+     * Adds a ring band around a planet
+     *
+     * @param planet      The focus
+     * @param orbitRadius How far it is located from center of system
+     */
+    public void addRingBand(PlanetAPI planet, float orbitRadius) {
+        // Barad ring band
+        planet.getStarSystem().addRingBand(planet, "misc", "rings_ice0", 256f, 2, Color.white, 256f, orbitRadius, Math.round(orbitRadius / 23f), Terrain.RING, null);
+    }
+
+    /**
+     * Adds a magnetic field around a planet
+     *
+     * @param planet The focus
+     */
+    public void addMagneticField(PlanetAPI planet) {
+        // Barad magnetic field
+        float planetRadius = planet.getRadius();
+        planet.getStarSystem().addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(planetRadius + 200f, // terrain effect band width
+                (planetRadius + 200f) / 2f, // terrain effect middle radius
+                planet, // entity that it's around
+                planetRadius + 50f, // visual band start
+                planetRadius + 50f + 250f, // visual band end
+                new Color(50, 20, 100, 40), // base color
+                0.5f, // probability to spawn aurora sequence, checked once/day when no aurora in progress
+                new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(planet, 0, 0, 100f);
     }
 
     /**

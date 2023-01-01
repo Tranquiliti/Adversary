@@ -22,9 +22,7 @@ public class AdversaryCustomStarSystem {
         util.setLocation(system, (fringeRadius / 10) + 100f, sector, systemSettings.getBoolean("enableRandomLocation"));
 
         // Creates star for this system
-        if (systemSettings.getBoolean("addCoronalHypershunt")) {
-            starType = "star_blue_supergiant";
-        }
+        if (systemSettings.getBoolean("addCoronalHypershunt")) starType = "star_blue_supergiant";
         PlanetAPI systemStar = system.initStar(null, starType, 1200f, 500f);
         systemStar.setId("system_" + systemStar.getId()); // Id format for randomly-generated stars
 
@@ -52,17 +50,36 @@ public class AdversaryCustomStarSystem {
 
             // Adds campaign entities at lagrange points of the first two planets orbiting the star
             if (newPlanet.getOrbitFocus().isStar()) {
-                numOfPlanetsOrbitingStar++;
-                if (numOfPlanetsOrbitingStar == 2) { // 2nd planet to orbit star
-                    // Create nav buoy and sensor array on second planet's L4 and L5 points
-                    util.addToLagrangePoints(newPlanet, null, util.addObjective(system, "nav_buoy", planetFaction), util.addObjective(system, "sensor_array", planetFaction));
-                } else if (numOfPlanetsOrbitingStar == 1) { // 1st planet to orbit star
-                    // Create comm relay, inactive gate, and inner system jump-point on first planet's Lagrange points
-                    JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
-                    jumpPoint.setStandardWormholeToHyperspaceVisual();
-                    system.addEntity(jumpPoint);
-                    util.addToLagrangePoints(newPlanet, util.addObjective(system, "comm_relay", planetFaction), system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
+                switch (numOfPlanetsOrbitingStar++) {
+                    case 2: // 2nd planet to orbit star
+                        // Create nav buoy and sensor array on second planet's L4 and L5 points
+                        util.addToLagrangePoints(newPlanet, null, util.addObjective(system, "nav_buoy", planetFaction), util.addObjective(system, "sensor_array", planetFaction));
+                        break;
+                    case 1: // 1st planet to orbit star
+                        // Create comm relay, inactive gate, and inner system jump-point on first planet's Lagrange points
+                        JumpPointAPI jumpPoint = Global.getFactory().createJumpPoint(null, "Inner System Jump-point");
+                        jumpPoint.setStandardWormholeToHyperspaceVisual();
+                        system.addEntity(jumpPoint);
+                        util.addToLagrangePoints(newPlanet, util.addObjective(system, "comm_relay", planetFaction), system.addCustomEntity(null, null, "inactive_gate", null), jumpPoint);
+                        break;
                 }
+            }
+        }
+
+        // Add the system terrain
+        JSONArray terrainFeatures = systemSettings.getJSONArray("terrainFeatures");
+        for (int i = 0; i < terrainFeatures.length(); i++) {
+            JSONObject terrain = terrainFeatures.getJSONObject(i);
+            switch (terrain.getString("type")) {
+                case "asteroidBelt":
+                    util.addAsteroidBelt(system.getPlanets().get(terrain.getInt("focus")), terrain.getInt("orbitRadius"));
+                    break;
+                case "ringBand":
+                    util.addRingBand(system.getPlanets().get(terrain.getInt("focus")), terrain.getInt("orbitRadius"));
+                    break;
+                case "magneticField":
+                    util.addMagneticField(system.getPlanets().get(terrain.getInt("focus")));
+                    break;
             }
         }
 

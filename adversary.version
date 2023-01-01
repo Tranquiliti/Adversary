@@ -1,0 +1,13 @@
+{
+	"masterVersionFile":"https://raw.githubusercontent.com/Tranquiliti/Adversary/main/adversary.version",
+	"modName":"Adversary",
+	"modThreadId":25821,
+	"modVersion":
+	{
+		"major":0,
+		"minor":7,
+		"patch":0
+	},
+	"starsectorVersion":"0.95.1a-RC6",
+	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v0.7.0/Adversary-v0.7.0.zip",
+}

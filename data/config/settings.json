@@ -1,4 +1,8 @@
 {
+	# Allows the Adversary faction to change fleet doctrines every cycle
+	# Requires a new game for changes to take effect
+	"enableAdversaryDoctrineChange":true, # Default: true
+
 	# For all star systems generated in this mod:
 	# First planet orbiting the star has a jump-point, inactive gate, and comm relay in its stable points
 	# Second planet orbiting the star has a nav buoy and sensor array in its stable points
@@ -6,22 +10,22 @@
 	# Generate the Optimal star system upon starting a new game
 	"enableOptimalStarSystem":true, # Default: true
 
-	"optimalStarSystem": {
+	"optimalStarSystem":{
 		"addCoronalHypershunt":false, # Adds an unactivated coronal hypershunt in this system
 		"addDomainCryosleeper":false, # Adds an undisturbed Domain-era cryosleeper somewhere in this system
 		"enableRandomLocation":false, # Does this system generate in a random constellation?
 		"fringeJumpPointOrbitRadius":9000, # Distance away from center; determines system size in hyperspace
-		"planetList": [
+		"planetList":[
 			{	"type":"gas_giant", # Planet type
 				"focus":0, # 0 = orbits star, 1 = orbits 1st planet, 2 = orbits 2nd planet,...
 				"radius":300, # Planet size
 				"orbitRadius":3500, # How far this planet orbits the focus
-				"conditions": ["volatiles_plentiful", "high_gravity", "very_hot"],
+				"conditions":["volatiles_plentiful", "high_gravity", "very_hot"],
 				"marketSize":6, # Set to 0 to make this planet uninhabited
 				# Planet options below only take effect if marketSize is at least 1
 				"factionId":"adversary", # Who owns this planet?
 				"aiCoreAdmin":true, # Is this market governed by an AI admin?
-				"industries": [
+				"industries":[
 					"population",
 					"megaport",
 					"waystation",
@@ -32,24 +36,24 @@
 					"refining",
 					"lightindustry",
 				],
-				"specials": { # Colony items
+				"specials":{ # Colony items
 					# Make sure the ids are spelled correctly, or else your game WILL crash upon visiting this planet's market
-					"population": ["", "gamma_core"],
-					"megaport": ["", "alpha_core"],
-					"waystation": ["", "gamma_core"],
-					"heavybatteries": ["drone_replicator", "alpha_core"],
-					"highcommand": ["cryoarithmetic_engine", "alpha_core"],
-					"starfortress": ["", "alpha_core"],
-					"mining": ["plasma_dynamo", "gamma_core"],
-					"refining": ["", "gamma_core"],
-					"lightindustry": ["", "gamma_core"],
+					"population":["", "gamma_core"],
+					"megaport":["", "alpha_core"],
+					"waystation":["", "gamma_core"],
+					"heavybatteries":["drone_replicator", "alpha_core"],
+					"highcommand":["cryoarithmetic_engine", "alpha_core"],
+					"starfortress":["", "alpha_core"],
+					"mining":["plasma_dynamo", "gamma_core"],
+					"refining":["", "gamma_core"],
+					"lightindustry":["", "gamma_core"],
 				},
 			},
 			{	"type":"toxic",
 				"focus":1,
 				"radius":90,
 				"orbitRadius":750,
-				"conditions": [
+				"conditions":[
 					"rare_ore_ultrarich",
 					"ore_ultrarich",
 					"volatiles_plentiful",
@@ -60,7 +64,7 @@
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
-				"industries": [
+				"industries":[
 					"population",
 					"megaport",
 					"waystation",
@@ -71,27 +75,27 @@
 					"refining",
 					"lightindustry",
 				],
-				"specials": {
-					"population": ["", "gamma_core"],
-					"megaport": ["fullerene_spool", "alpha_core"],
-					"waystation": ["", "gamma_core"],
-					"heavybatteries": ["", "gamma_core"],
-					"highcommand": ["", "alpha_core"],
-					"starfortress_mid": ["", "alpha_core"],
-					"mining": ["mantle_bore", "gamma_core"],
-					"refining": ["", "gamma_core"],
-					"lightindustry": ["", "gamma_core"],
+				"specials":{
+					"population":["", "gamma_core"],
+					"megaport":["fullerene_spool", "alpha_core"],
+					"waystation":["", "gamma_core"],
+					"heavybatteries":["", "gamma_core"],
+					"highcommand":["", "alpha_core"],
+					"starfortress_mid":["", "alpha_core"],
+					"mining":["mantle_bore", "gamma_core"],
+					"refining":["", "gamma_core"],
+					"lightindustry":["", "gamma_core"],
 				},
 			},
 			{	"type":"barren-bombarded",
 				"focus":1,
 				"radius":80,
 				"orbitRadius":1200,
-				"conditions": ["rare_ore_moderate", "ore_ultrarich", "volatiles_trace", "no_atmosphere"],
+				"conditions":["rare_ore_moderate", "ore_ultrarich", "volatiles_trace", "no_atmosphere"],
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
-				"industries": [
+				"industries":[
 					"population",
 					"megaport",
 					"waystation",
@@ -103,24 +107,24 @@
 					"refining",
 					"fuelprod",
 				],
-				"specials": {
-					"population": ["", "alpha_core"],
-					"megaport": ["fullerene_spool", "alpha_core"],
-					"waystation": ["", "gamma_core"],
-					"heavybatteries": ["drone_replicator", "alpha_core"],
-					"planetaryshield": ["", "alpha_core"],
-					"highcommand": ["", "alpha_core"],
-					"starfortress_high": ["", "alpha_core"],
-					"orbitalworks": ["pristine_nanoforge", "gamma_core"],
-					"refining": ["catalytic_core", "gamma_core"],
-					"fuelprod": ["synchrotron", "gamma_core"],
+				"specials":{
+					"population":["", "alpha_core"],
+					"megaport":["fullerene_spool", "alpha_core"],
+					"waystation":["", "gamma_core"],
+					"heavybatteries":["drone_replicator", "alpha_core"],
+					"planetaryshield":["", "alpha_core"],
+					"highcommand":["", "alpha_core"],
+					"starfortress_high":["", "alpha_core"],
+					"orbitalworks":["pristine_nanoforge", "gamma_core"],
+					"refining":["catalytic_core", "gamma_core"],
+					"fuelprod":["synchrotron", "gamma_core"],
 				},
 			},
 			{	"type":"terran-eccentric",
 				"focus":0,
 				"radius":150,
 				"orbitRadius":6000,
-				"conditions": [
+				"conditions":[
 					"ruins_vast",
 					"farmland_bountiful",
 					"ore_ultrarich",
@@ -133,7 +137,7 @@
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
-				"industries": [
+				"industries":[
 					"population",
 					"megaport",
 					"waystation",
@@ -144,22 +148,22 @@
 					"lightindustry",
 					"techmining",
 				],
-				"specials": {
-					"population": ["orbital_fusion_lamp", "gamma_core"],
-					"megaport": ["fullerene_spool", "alpha_core"],
-					"waystation": ["", "gamma_core"],
-					"heavybatteries": ["", "alpha_core"],
-					"highcommand": ["", "alpha_core"],
-					"starfortress": ["", "alpha_core"],
-					"farming": ["soil_nanites", "gamma_core"],
-					"lightindustry": ["biofactory_embryo", "gamma_core"],
+				"specials":{
+					"population":["orbital_fusion_lamp", "gamma_core"],
+					"megaport":["fullerene_spool", "alpha_core"],
+					"waystation":["", "gamma_core"],
+					"heavybatteries":["", "alpha_core"],
+					"highcommand":["", "alpha_core"],
+					"starfortress":["", "alpha_core"],
+					"farming":["soil_nanites", "gamma_core"],
+					"lightindustry":["biofactory_embryo", "gamma_core"],
 				},
 			},
 			{	"type":"water",
 				"focus":0,
 				"radius":120,
 				"orbitRadius":7500,
-				"conditions": [
+				"conditions":[
 					"water_surface",
 					"mild_climate",
 					"habitable",
@@ -171,64 +175,77 @@
 				"marketSize":0,
 			},
 		],
+		"terrainFeatures":[ # Extra terrain to generate in this system
+			{	"type":"asteroidBelt", # Asteroid belt similar to Nemo's Belt in Corvus
+				"focus":0,
+				"orbitRadius":10000,
+			},
+			{	"type":"ringBand", # Ring band like the one around Barad in Corvus
+				"focus":5,
+				"orbitRadius":300,
+			},
+		],
 	},
 
 	# Generate the custom star systems upon starting a new game
 	"enableCustomStarSystems":true, # Default: true
 
-	"customStarSystems": [
+	"customStarSystems":[
 		{ # An uninhabited star system similar to the default Optimal system
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
 			"enableRandomLocation":true,
 			"fringeJumpPointOrbitRadius":10000,
-			"planetList": [
+			"planetList":[
 				{	"type":"gas_giant",
 					"focus":0,
 					"radius":350,
 					"orbitRadius":3500,
-					"conditions": ["volatiles_abundant", "high_gravity", "very_hot"],
+					"conditions":["volatiles_abundant", "high_gravity", "very_hot"],
 					"marketSize":0,
-					# Options below are just here to let you know it's possible
+					# Planet options below are just here to let you know it's possible
 					"factionId":"tritachyon",
 					"aiCoreAdmin":true,
-					"industries": ["population","spaceport","commerce"],
-					"specials": {
-						"population": ["coronal_portal", "beta_core"],
-						"commerce": ["dealmaker_holosuite", ""],
+					"industries":["population","spaceport","commerce"],
+					"specials":{
+						"population":["coronal_portal", "beta_core"],
+						"commerce":["dealmaker_holosuite", ""],
 					},
 				},
 				{	"type":"terran",
 					"focus":0,
 					"radius":100,
 					"orbitRadius":5000,
-					"conditions": ["ruins_vast", "farmland_rich", "ore_rich", "organics_abundant", "habitable"],
+					"conditions":["ruins_vast", "farmland_rich", "ore_rich", "organics_abundant", "habitable"],
 					"marketSize":0,
 				},
 				{	"type":"toxic",
 					"focus":0,
 					"radius":90,
 					"orbitRadius":6500,
-					"conditions": ["toxic_atmosphere", "ore_rich", "rare_ore_moderate", "organics_abundant", "volatiles_abundant"],
+					"conditions":["toxic_atmosphere", "ore_rich", "rare_ore_moderate", "organics_abundant", "volatiles_abundant"],
 					"marketSize":0,
 				},
 				{	"type":"barren",
 					"focus":0,
 					"radius":50,
 					"orbitRadius":8000,
-					"conditions": ["no_atmosphere"],
+					"conditions":["no_atmosphere"],
 					"marketSize":0,
+				},
+			],
+			"terrainFeatures":[
+				{	"type":"magneticField", # Magnetic field like the one around Barad in Corvus
+					"focus":1,
 				},
 			],
 		},
 
 		# Can add more star systems here using the above format
 
-
-
 	],
 
-	"designTypeColors": {
+	"designTypeColors":{
 		"Adversary":[255, 203, 170, 255],
 	},
 }
