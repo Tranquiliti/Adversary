@@ -38,7 +38,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
             // Generates any custom star systems if enabled
             if (settings.getBoolean("enableCustomStarSystems")) {
-                // Generates custom star systems with a random star type, ignoring constellation age
+                // Generates custom star systems with a random star giant type, ignoring constellation age
                 final String[] STAR_TYPES = {"star_orange_giant", "star_red_giant", "star_red_supergiant", "star_blue_giant", "star_blue_supergiant"};
                 JSONArray systemList = settings.getJSONArray("customStarSystems");
                 for (int i = 0; i < systemList.length(); i++) {
@@ -76,5 +76,14 @@ public class AdversaryModPlugin extends BaseModPlugin {
         // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
         marketsToOverrideAdmin.clear();
         marketsToOverrideAdmin = null;
+    }
+
+    // Allow the Adversary to change fleet doctrine in-game if enabled
+    @Override
+    public void onNewGameAfterTimePass() {
+        if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) {
+            SectorAPI sector = Global.getSector();
+            sector.addScript(new AdversaryFactionDoctrineChanger(sector.getFaction("adversary").getDoctrine()));
+        }
     }
 }
