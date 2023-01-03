@@ -7,7 +7,6 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
-import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
 import data.scripts.world.systems.AdversaryOptimal;
 import exerelin.campaign.SectorManager;
@@ -15,7 +14,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import java.util.HashMap;
-import java.util.Random;
 
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
@@ -27,22 +25,19 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         try {
             SettingsAPI settings = Global.getSettings();
-            Random randomSeed = StarSystemGenerator.random;
             boolean haveNexerelin = settings.getModManager().isModEnabled("nexerelin");
             AdversaryUtil advUtil = new AdversaryUtil();
 
             // Generates Optimal star system if enabled and not on Random Core Worlds mode
             if (settings.getBoolean("enableOptimalStarSystem") && (!haveNexerelin || SectorManager.getManager().isCorvusMode())) {
-                new AdversaryOptimal().generate(advUtil, sector, settings.getJSONObject("optimalStarSystem"), randomSeed);
+                new AdversaryOptimal().generate(advUtil, sector, settings.getJSONObject("optimalStarSystem"));
             }
 
             // Generates any custom star systems if enabled
             if (settings.getBoolean("enableCustomStarSystems")) {
-                // Generates custom star systems with a random star giant type, ignoring constellation age
-                final String[] STAR_TYPES = {"star_orange_giant", "star_red_giant", "star_red_supergiant", "star_blue_giant", "star_blue_supergiant"};
                 JSONArray systemList = settings.getJSONArray("customStarSystems");
                 for (int i = 0; i < systemList.length(); i++) {
-                    new AdversaryCustomStarSystem().generate(advUtil, sector, systemList.getJSONObject(i), STAR_TYPES[randomSeed.nextInt(STAR_TYPES.length)], randomSeed);
+                    new AdversaryCustomStarSystem().generate(advUtil, sector, systemList.getJSONObject(i));
                 }
             }
 
