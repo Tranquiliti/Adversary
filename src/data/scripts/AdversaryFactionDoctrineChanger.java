@@ -8,8 +8,7 @@ import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import java.util.Random;
 
 public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
-    // TODO: See if there's a faster, better way to check for new cycle (maybe a listener?)
-    private final byte[] doctrineList = {3, 2, 1, 0}; // Each index represents a doctrine number
+    protected final byte[] doctrineList = {3, 2, 1, 0}; // Each index represents a doctrine number
     //protected Logger log = Global.getLogger(AdversaryFactionDoctrineChanger.class);
     protected FactionDoctrineAPI factionDoctrine;
     protected boolean done;
@@ -24,27 +23,16 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
         //log.info("Faction doctrine changer active!");
     }
 
-    /**
-     * @return true when the script is finished and can be cleaned up by the engine.
-     */
     @Override
     public boolean isDone() {
         return done;
     }
 
-    /**
-     * @return whether advance() should be called while the campaign engine is paused.
-     */
     @Override
     public boolean runWhilePaused() {
         return false;
     }
 
-    /**
-     * Use SectorAPI.getClock() to convert to campaign days.
-     *
-     * @param amount seconds elapsed during the last frame.
-     */
     @Override
     public void advance(float amount) {
         if (done) return;
@@ -78,7 +66,7 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
     }
 
     // Set this faction's fleets to a specified composition
-    private void setFleetDoctrine(int warships, int carriers, int phaseShips) {
+    protected void setFleetDoctrine(int warships, int carriers, int phaseShips) {
         factionDoctrine.setWarships(warships);
         factionDoctrine.setCarriers(carriers);
         factionDoctrine.setPhaseShips(phaseShips);

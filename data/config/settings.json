@@ -9,11 +9,7 @@
 	# Generates any custom star systems upon starting a new game
 	"enableCustomStarSystems":true, # Default: true
 
-	# If "enableDefaultStableEntities" is true in a star system:
-	# First planet orbiting the center has a jump-point, inactive gate, and comm relay in its stable points
-	# Second planet orbiting the center has a nav buoy and sensor array in its stable points
 	"optimalStarSystem":{
-		"enableDefaultStableEntities":true,
 		"stars":[ # Stars in the center of the star system
 			# Having more than one will make the stars orbit the center
 			{	"type":"star_blue_giant",
@@ -34,17 +30,22 @@
 		"addDomainCryosleeper":false, # Adds an undisturbed Domain-era cryosleeper somewhere in this system
 		"enableRandomLocation":false, # Does this system generate in a random constellation?
 		"fringeJumpPointOrbitRadius":9200, # Distance away from center; determines system size in hyperspace
-		"planetList":[
-			{	"type":"gas_giant", # Planet type
+		"planets":[
+			{	"type":"gas_giant",
 				"focus":0, # 0 = orbits center, 1 = orbits 1st planet, 2 = orbits 2nd planet,...
 				"radius":300, # Planet size
 				"orbitRadius":4800, # How far this planet orbits the focus
-				"conditions":[ # Can leave it empty (i.e. as []), to get proc-gen conditions
+				"conditions":[ # Delete it or leave it empty (as []), to get proc-gen conditions
 					"volatiles_plentiful",
 					"high_gravity",
 					"very_hot",
 				],
-				"marketSize":6, # Set to 0 to make this planet uninhabited
+				"entitiesAtStablePoints":[ # System entities to put on this planet's stable points
+					{"type":"comm_relay"}, # Set to planet's L3
+					{"type":"inactive_gate"}, # Set to planet's L4
+					{"type":"jump_point","name":"Inner System Jump-point"}, # Set to planet's L5
+				],
+				"marketSize":6, # Delete this or set to 0 to make this planet uninhabited
 				# Planet options below only take effect if marketSize is at least 1
 				"factionId":"adversary", # Who owns this planet?
 				"aiCoreAdmin":true, # Is this market governed by an AI admin?
@@ -144,7 +145,6 @@
 				},
 			},
 			{	"type":"terran",
-				"focus":0,
 				"radius":150,
 				"orbitRadius":6800,
 				"conditions":[
@@ -155,6 +155,11 @@
 					"mild_climate",
 					"habitable",
 					"solar_array",
+				],
+				"entitiesAtStablePoints":[
+					{},
+					{"type":"nav_buoy"},
+					{"type":"sensor_array"},
 				],
 				"marketSize":6,
 				"factionId":"adversary",
@@ -182,7 +187,6 @@
 				},
 			},
 			{	"type":"water",
-				"focus":0,
 				"radius":120,
 				"orbitRadius":7700,
 				"conditions":[
@@ -194,10 +198,9 @@
 					"volatiles_diffuse",
 					"organics_plentiful",
 				],
-				"marketSize":0,
 			},
 		],
-		"systemFeatures":[ # Extra terrain to generate in this system
+		"systemFeatures":[ # Extra terrain or system entities to generate in this system
 			{	"type":"asteroid_belt", # Asteroid belt similar to Nemo's Belt in Corvus
 				"focus":0,
 				"orbitRadius":8400,
@@ -211,24 +214,28 @@
 
 	"customStarSystems":[
 		{ # An uninhabited star system with planets similar to the default Optimal system
-			"enableDefaultStableEntities":false,
 			"stars":[
 				{	"type":"random_star_giant", # Set this star to a random star giant
-					"radius":1200,
-					"coronaSize":500,
+					"radius":-1, # Delete this or set to -1 to get proc-gen size
+					"coronaSize":-1, # Delete this or set to -1 to get proc-gen corona
 				},
 			],
-			"starsOrbitRadius":2000,
-			"addCoronalHypershunt":false,
-			"addDomainCryosleeper":false,
-			"enableRandomLocation":true,
-			"fringeJumpPointOrbitRadius":8000,
-			"planetList":[
-				{	"type":"gas_giant",
-					"focus":0,
-					"radius":350,
-					"orbitRadius":3000,
+			#"starsOrbitRadius":2000, # Defaults to 2000 if this entry is deleted
+			"addCoronalHypershunt":false, # Defaults to false if deleted
+			"addDomainCryosleeper":false, # Defaults to false if deleted
+			"enableRandomLocation":true, # Defaults to true if deleted
+			"fringeJumpPointOrbitRadius":8000, # Defaults to 10000 if deleted
+			"planets":[
+				{	"type":"gas_giant", # Defaults to "barren" if deleted
+					"focus":0, # Defaults to 0 if deleted
+					"radius":350, # Delete this or set to -1 to get proc-gen size
+					"orbitRadius":4000,
 					"conditions":["volatiles_abundant", "high_gravity", "very_hot"],
+					"entitiesAtStablePoints":[
+						{"type":"comm_relay"},
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+					],
 					"marketSize":0,
 					# Planet options below are just here to let you know it's possible
 					"factionId":"tritachyon",
@@ -240,25 +247,19 @@
 					},
 				},
 				{	"type":"terran",
-					"focus":0,
 					"radius":100,
-					"orbitRadius":4250,
+					"orbitRadius":5250,
 					"conditions":["ruins_vast", "farmland_rich", "ore_rich", "organics_abundant", "habitable"],
-					"marketSize":0,
 				},
 				{	"type":"toxic",
-					"focus":0,
 					"radius":90,
-					"orbitRadius":5500,
+					"orbitRadius":6500,
 					"conditions":["toxic_atmosphere", "ore_rich", "rare_ore_moderate", "organics_abundant", "volatiles_abundant"],
-					"marketSize":0,
 				},
 				{	"type":"barren",
-					"focus":0,
 					"radius":50,
-					"orbitRadius":6750,
+					"orbitRadius":7750,
 					"conditions":["no_atmosphere"],
-					"marketSize":0,
 				},
 				# Example of an orbiting star
 				#{"type":"star_red_dwarf","focus":0,"radius":500,"coronaSize":300,"orbitRadius":2000},
@@ -266,39 +267,51 @@
 			"systemFeatures":[
 				{	"type":"magnetic_field", # Magnetic field like the one around Barad in Corvus
 					"focus":1,
-					"orbitRadius":550,
-				},
-				{	"type":"comm_relay",
-					"focus":0,
-					"factionId":"neutral",
-					"orbitRadius":2000,
-				},
-				{	"type":"stable_location",
-					"focus":0,
-					"orbitRadius":3750,
-				},
-				{	"type":"stable_location",
-					"focus":0,
-					"orbitRadius":5000,
+					"orbitRadius":360,
 				},
 				{	"type":"inactive_gate",
 					"focus":0,
-					"orbitRadius":7500,
+					"orbitRadius":6000,
 				},
 				{	"type":"jump_point",
 					"focus":0,
 					"name":"Inner System Jump-point",
-					"orbitRadius":2500,
+					"orbitRadius":3000,
 				},
-				{	"type":"station_research", # Free loot
-					"focus":0,
-					"orbitRadius":10000,
+				{	"type":"station_mining", # Free loot
+					"focus":1,
+					"orbitRadius":600,
 				}
 			],
 		},
 
-		# Can add more star systems here using the above format
+		{ # A random star system, using mostly default or proc-gen options
+			"stars":[{"type":"random_star_giant"}],
+			"fringeJumpPointOrbitRadius":9000,
+			"planets":[
+				{"type":"gas_giant","orbitRadius":3750,
+					"entitiesAtStablePoints":[
+						{"type":"comm_relay"},
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+					]
+				},
+				{"type":"terran","orbitRadius":4750},
+				{"type":"toxic","orbitRadius":6000},
+				{"type":"star_red_dwarf","orbitRadius":9000},
+				{"type":"barren","focus":4,"orbitRadius":1500},
+			],
+			"systemFeatures":[
+				{"type":"magnetic_field","orbitRadius":3000},
+				{"type":"inactive_gate","orbitRadius":8000},
+				{"type":"jump_point","name":"Inner System Jump-point","orbitRadius":2750},
+				{"type":"station_research","focus":1,"orbitRadius":700},
+				{"type":"asteroid_belt","focus":4,"orbitRadius":1000},
+				{"type":"asteroid_field","focus":0,"orbitRadius":12000,"size":700},
+			],
+		},
 
+		# Can add more star systems here using the above format
 
 	],
 

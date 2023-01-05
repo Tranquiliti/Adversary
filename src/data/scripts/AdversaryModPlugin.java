@@ -29,16 +29,14 @@ public class AdversaryModPlugin extends BaseModPlugin {
             AdversaryUtil advUtil = new AdversaryUtil();
 
             // Generates Optimal star system if enabled and not on Random Core Worlds mode
-            if (settings.getBoolean("enableOptimalStarSystem") && (!haveNexerelin || SectorManager.getManager().isCorvusMode())) {
+            if (settings.getBoolean("enableOptimalStarSystem") && (!haveNexerelin || SectorManager.getManager().isCorvusMode()))
                 new AdversaryOptimal().generate(advUtil, sector, settings.getJSONObject("optimalStarSystem"));
-            }
 
             // Generates any custom star systems if enabled
             if (settings.getBoolean("enableCustomStarSystems")) {
                 JSONArray systemList = settings.getJSONArray("customStarSystems");
-                for (int i = 0; i < systemList.length(); i++) {
+                for (int i = 0; i < systemList.length(); i++)
                     new AdversaryCustomStarSystem().generate(advUtil, sector, systemList.getJSONObject(i));
-                }
             }
 
             marketsToOverrideAdmin = advUtil.marketsToOverrideAdmin;
@@ -48,9 +46,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // Recent history has made them cold and hateful against almost everyone
         FactionAPI adversary = sector.getFaction("adversary");
-        for (FactionAPI faction : sector.getAllFactions()) {
-            adversary.setRelationship(faction.getId(), -100f);
-        }
+        for (FactionAPI faction : sector.getAllFactions()) adversary.setRelationship(faction.getId(), -100f);
+
         adversary.setRelationship("adversary", 100f);
         adversary.setRelationship("neutral", 0f);
     }
@@ -60,12 +57,9 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onNewGameAfterEconomyLoad() {
         AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
         for (MarketAPI market : marketsToOverrideAdmin.keySet()) {
-            String adminOverride = marketsToOverrideAdmin.get(market);
-            if (adminOverride == null) {
-                market.setAdmin(null);
-            } else if (adminOverride.equals("alpha_core")) {
+            if (marketsToOverrideAdmin.get(market).equals("alpha_core"))
                 market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
-            }
+            else market.setAdmin(null); // For player markets
         }
 
         // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
