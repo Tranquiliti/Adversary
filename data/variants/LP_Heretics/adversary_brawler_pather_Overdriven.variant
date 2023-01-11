@@ -1,11 +1,14 @@
 {
     "displayName": "Overdriven",
     "fluxCapacitors": 10,
-    "fluxVents": 5,
+    "fluxVents": 9,
     "hullId": "brawler_pather",
     "hullMods": ["hardened_subsystems"],
     "permaMods": [],
-    "sMods": [],
+    "sMods": [
+        "nav_relay",
+        "hardenedshieldemitter"
+    ],
     "variantId": "adversary_brawler_pather_Overdriven",
     "weaponGroups": [
         {
@@ -22,8 +25,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "lightdualmg",
-                "WS 004": "lightdualmg"
+                "WS 003": "lightmg",
+                "WS 004": "lightmg"
             }
         }
     ]

@@ -1,17 +1,21 @@
 {
-    "displayName": "Elite Attack",
-    "fluxCapacitors": 10,
+    "displayName": "Close Support",
+    "fluxCapacitors": 5,
     "fluxVents": 10,
     "hullId": "scarab",
     "hullMods": [
         "hardened_subsystems",
-        "high_scatter_amp",
-        "frontemitter",
-        "solar_shielding"
+        "advancedoptics",
+        "fluxdistributor",
+        "solar_shielding",
+        "frontemitter"
     ],
     "permaMods": [],
-    "sMods": [],
-    "variantId": "adversary_scarab_Attack",
+    "sMods": [
+        "ecm",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_scarab_Close_Support",
     "weaponGroups": [{
         "autofire": true,
         "mode": "LINKED",

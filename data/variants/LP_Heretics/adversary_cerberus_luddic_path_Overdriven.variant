@@ -4,15 +4,18 @@
     "fluxVents": 0,
     "hullId": "cerberus_luddic_path",
     "hullMods": [
-        "heavyarmor",
+        "ecm",
         "reinforcedhull",
+        "hardened_subsystems",
         "solar_shielding",
         "insulatedengine",
-        "autorepair",
         "armoredweapons"
     ],
     "permaMods": [],
-    "sMods": [],
+    "sMods": [
+        "nav_relay",
+        "heavyarmor"
+    ],
     "variantId": "adversary_cerberus_luddic_path_Overdriven",
     "weaponGroups": [
         {

@@ -12,6 +12,7 @@ import data.scripts.world.systems.AdversaryOptimal;
 import exerelin.campaign.SectorManager;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 
@@ -25,21 +26,24 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         try {
             SettingsAPI settings = Global.getSettings();
-            boolean haveNexerelin = settings.getModManager().isModEnabled("nexerelin");
-            AdversaryUtil advUtil = new AdversaryUtil();
+            AdversaryUtil util = new AdversaryUtil();
 
             // Generates Optimal star system if enabled and not on Random Core Worlds mode
-            if (settings.getBoolean("enableOptimalStarSystem") && (!haveNexerelin || SectorManager.getManager().isCorvusMode()))
-                new AdversaryOptimal().generate(advUtil, sector, settings.getJSONObject("optimalStarSystem"));
+            if (settings.getBoolean("enableOptimalStarSystem") && (!settings.getModManager().isModEnabled("nexerelin") || SectorManager.getManager().isCorvusMode()))
+                new AdversaryOptimal().generate(util, sector, settings.getJSONObject("optimalStarSystem"));
 
             // Generates any custom star systems if enabled
             if (settings.getBoolean("enableCustomStarSystems")) {
                 JSONArray systemList = settings.getJSONArray("customStarSystems");
-                for (int i = 0; i < systemList.length(); i++)
-                    new AdversaryCustomStarSystem().generate(advUtil, sector, systemList.getJSONObject(i));
+                for (int i = 0; i < systemList.length(); i++) {
+                    JSONObject systemOptions = systemList.getJSONObject(i);
+                    if ((boolean) util.getJSONValue(systemOptions, 'B', "isEnabled", true))
+                        for (int numOfSystems = (int) util.getJSONValue(systemOptions, 'I', "numberOfSystems", 1); numOfSystems > 0; numOfSystems--)
+                            new AdversaryCustomStarSystem().generate(util, sector, systemOptions);
+                }
             }
 
-            marketsToOverrideAdmin = advUtil.marketsToOverrideAdmin;
+            marketsToOverrideAdmin = util.marketsToOverrideAdmin;
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

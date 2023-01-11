@@ -1,32 +1,33 @@
 {
-    "displayName": "Overdriven",
+    "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "hullId": "hound_luddic_path",
+    "fluxVents": 2,
+    "hullId": "hound_hegemony",
     "hullMods": [
-        "ecm",
         "reinforcedhull",
-        "hardened_subsystems",
+        "auxiliarythrusters",
+        "targetingunit",
         "solar_shielding",
         "insulatedengine",
-        "armoredweapons"
+        "autorepair"
     ],
     "permaMods": [],
     "sMods": [
         "nav_relay",
-        "heavyarmor"
+        "heavyarmor",
+        "ecm"
     ],
-    "variantId": "adversary_hound_luddic_path_Overdriven",
+    "variantId": "adversary_hound_hegemony_Armored",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "chaingun"}
+            "weapons": {"WS 001": "hveldriver"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 002": "lightmg"}
+            "weapons": {"WS 002": "vulcan"}
         }
     ]
 }

@@ -1,0 +1,44 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 3,
+    "fluxVents": 20,
+    "hullId": "manticore_pirates",
+    "hullMods": ["converted_hangar"],
+    "permaMods": [
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_manticore_pirates_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "hellbore"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "harpoonpod",
+                "WS 005": "harpoonpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightac",
+                "WS 002": "lightac",
+                "WS 003": "lightac"
+            }
+        }
+    ],
+    "wings": ["gladius_wing"]
+}

@@ -1,0 +1,50 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 0,
+    "fluxVents": 23,
+    "hullId": "falcon_xiv",
+    "hullMods": [
+        "safetyoverrides",
+        "solar_shielding"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "reinforcedhull",
+        "hardenedshieldemitter",
+        "auxiliarythrusters"
+    ],
+    "variantId": "adversary_falcon_xiv_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 006": "ionpulser"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "sabot",
+                "WS 002": "sabot"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "heavyblaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "heavymg",
+                "WS 008": "heavymg"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "mininglaser"}
+        }
+    ]
+}

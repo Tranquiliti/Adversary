@@ -1,11 +1,11 @@
 Adds the Adversary, a player-like challenge faction, to the game. This aggressive faction uses a mix of most vanilla ships, weapons, and fighters to overwhelm their foes. Also adds customizable star systems, editable via this mod's setting.json file.
 
-Includes Nexerelin, Commissioned Crew, and Starship Legend support for the Adversary faction, as well as two MagicLib bounties.
+Includes Nexerelin, Commissioned Crew, and Starship Legend support for the Adversary faction, as well as several MagicLib bounties.
 
 # Credits
 <b>Audax</b> - For the inspiration in Suitable Star Systems and for granting permission to use code from said mod<br>
 <b>Starsector Forums</b> - For the helpful modding tutorials and information<br>
-<b>Unofficial Starsector Discord</b> - For the helpful informaion (the search bar is great!)<br>
+<b>Unofficial Starsector Discord</b> - For helpful modding informaion and tips<br>
 <b>Alex and the Fractal Softworks team</b> - For the amazing game that is Starsector!<br>
 
 # Modding Notes

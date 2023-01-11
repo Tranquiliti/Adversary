@@ -1,0 +1,18 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 9,
+    "fluxVents": 0,
+    "hullId": "phantom",
+    "hullMods": [
+        "hiressensors",
+        "insulatedengine",
+        "adaptive_coils"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "augmentedengines",
+        "additional_berthing"
+    ],
+    "variantId": "adversary_phantom_Elite",
+    "weaponGroups": []
+}
