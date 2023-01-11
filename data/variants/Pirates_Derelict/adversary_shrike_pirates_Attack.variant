@@ -1,0 +1,37 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 13,
+    "fluxVents": 13,
+    "hullId": "shrike_pirates",
+    "hullMods": ["converted_hangar"],
+    "permaMods": [
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_shrike_pirates_Attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "ionpulser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "phasecl"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "railgun"}
+        }
+    ],
+    "wings": ["gladius_wing"]
+}

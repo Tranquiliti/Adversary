@@ -1,0 +1,25 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 8,
+    "hullId": "vigilance",
+    "hullMods": ["targetingunit"],
+    "permaMods": [],
+    "sMods": [
+        "ecm",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_vigilance_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "hveldriver"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "breachpod"}
+        }
+    ]
+}

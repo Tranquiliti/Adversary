@@ -1,0 +1,53 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 22,
+    "fluxVents": 4,
+    "hullId": "doom",
+    "hullMods": [
+        "targetingunit",
+        "hardened_subsystems",
+        "adaptive_coils"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_doom_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "ionbeam",
+                "WS 008": "ionbeam"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "pilum",
+                "WS 002": "pilum"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "lightneedler",
+                "WS 004": "lightneedler",
+                "WS 005": "lightneedler",
+                "WS 006": "lightneedler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "lrpdlaser",
+                "WS 012": "lrpdlaser"
+            }
+        }
+    ]
+}

@@ -1,0 +1,72 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 50,
+    "hullId": "conquest",
+    "hullMods": [
+        "targetingunit",
+        "hardenedshieldemitter",
+        "auxiliarythrusters",
+        "stabilizedshieldemitter",
+        "insulatedengine"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "operations_center",
+        "missleracks"
+    ],
+    "variantId": "adversary_conquest_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "squall"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "locust"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 019": "harpoonpod",
+                "WS 020": "harpoonpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "gauss",
+                "WS 012": "gauss"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 015": "hveldriver",
+                "WS 016": "hveldriver",
+                "WS 022": "ionbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 013": "devastator",
+                "WS 014": "devastator"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "pdburst",
+                "WS 007": "pdburst"
+            }
+        }
+    ]
+}

@@ -1,0 +1,43 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 15,
+    "fluxVents": 50,
+    "hullId": "atlas2",
+    "hullMods": [
+        "militarized_subsystems",
+        "targetingunit",
+        "eccm"
+    ],
+    "permaMods": [
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_atlas2_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 008": "gauss"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 012": "squall",
+                "WS 013": "squall"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "devastator"}
+        }
+    ]
+}

@@ -1,0 +1,54 @@
+{
+    "displayName": "Armored",
+    "fluxCapacitors": 0,
+    "fluxVents": 4,
+    "hullId": "enforcer_xiv",
+    "hullMods": [
+        "reinforcedhull",
+        "targetingunit",
+        "solar_shielding",
+        "insulatedengine",
+        "armoredweapons",
+        "shield_shunt"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "heavyarmor",
+        "missleracks",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_enforcer_xiv_Armored",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "hveldriver",
+                "WS 004": "hveldriver"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "harpoon",
+                "WS 007": "harpoon",
+                "WS 008": "harpoon",
+                "WS 009": "harpoon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "heavymauler"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "flak",
+                "WS 005": "flak"
+            }
+        }
+    ]
+}

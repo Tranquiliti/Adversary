@@ -9,7 +9,10 @@
         "fluxdistributor"
     ],
     "permaMods": [],
-    "sMods": [],
+    "sMods": [
+        "heavyarmor",
+        "reinforcedhull"
+    ],
     "variantId": "adversary_prometheus2_Assault",
     "weaponGroups": [
         {

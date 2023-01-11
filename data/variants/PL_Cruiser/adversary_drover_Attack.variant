@@ -1,0 +1,37 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 13,
+    "fluxVents": 5,
+    "hullId": "drover",
+    "hullMods": ["expanded_deck_crew"],
+    "permaMods": [],
+    "sMods": [
+        "nav_relay",
+        "missleracks"
+    ],
+    "variantId": "adversary_drover_Attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "vulcan",
+                "WS 001": "vulcan"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "harpoon",
+                "WS 003": "harpoon",
+                "WS 004": "harpoon",
+                "WS 005": "harpoon"
+            }
+        }
+    ],
+    "wings": [
+        "thunder_wing",
+        "thunder_wing"
+    ]
+}

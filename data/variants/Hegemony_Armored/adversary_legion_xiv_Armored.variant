@@ -1,0 +1,64 @@
+{
+    "displayName": "Armored",
+    "fluxCapacitors": 0,
+    "fluxVents": 1,
+    "hullId": "legion_xiv",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "solar_shielding",
+        "insulatedengine",
+        "armoredweapons",
+        "shield_shunt"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "heavyarmor",
+        "reinforcedhull",
+        "operations_center"
+    ],
+    "variantId": "adversary_legion_xiv_Armored",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "heavyac",
+                "WS 007": "heavyac"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 000": "hammerrack",
+                "WS 001": "hammerrack"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "heavymortar"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "dualflak",
+                "WS 003": "dualflak",
+                "WS 008": "vulcan",
+                "WS 009": "vulcan",
+                "WS 018": "vulcan",
+                "WS 019": "vulcan",
+                "WS 020": "vulcan",
+                "WS 021": "vulcan"
+            }
+        }
+    ],
+    "wings": [
+        "longbow_wing",
+        "longbow_wing",
+        "longbow_wing",
+        "broadsword_wing"
+    ]
+}

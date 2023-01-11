@@ -1,0 +1,57 @@
+{
+    "displayName": "Armored",
+    "fluxCapacitors": 0,
+    "fluxVents": 14,
+    "hullId": "dominator_xiv",
+    "hullMods": [
+        "reinforcedhull",
+        "targetingunit",
+        "auxiliarythrusters",
+        "solar_shielding",
+        "insulatedengine",
+        "autorepair",
+        "armoredweapons",
+        "shield_shunt"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "heavyarmor",
+        "missleracks",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_dominator_xiv_Armored",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 013": "mark9"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 014": "annihilatorpod",
+                "WS 015": "annihilatorpod",
+                "WS 016": "annihilatorpod"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 012": "hellbore"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "vulcan",
+                "WS 003": "vulcan",
+                "WS 004": "vulcan",
+                "WS 005": "vulcan",
+                "WS 007": "vulcan",
+                "WS 010": "dualflak",
+                "WS 011": "dualflak"
+            }
+        }
+    ]
+}

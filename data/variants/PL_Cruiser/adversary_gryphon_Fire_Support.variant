@@ -1,0 +1,41 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 24,
+    "fluxVents": 30,
+    "hullId": "gryphon",
+    "hullMods": [
+        "converted_hangar",
+        "adaptiveshields"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "eccm",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_gryphon_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "squall"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "harpoonpod",
+                "WS 009": "harpoonpod"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "harpoon",
+                "WS 011": "harpoon",
+                "WS 012": "harpoon"
+            }
+        }
+    ],
+    "wings": ["gladius_wing"]
+}

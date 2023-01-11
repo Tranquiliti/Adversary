@@ -1,22 +1,24 @@
 {
-    "displayName": "Elite Support",
+    "displayName": "Point Defense",
     "fluxCapacitors": 10,
-    "fluxVents": 8,
+    "fluxVents": 10,
     "hullId": "omen",
     "hullMods": [
         "hardened_subsystems",
         "pointdefenseai",
-        "frontemitter",
         "solar_shielding"
     ],
     "permaMods": [],
-    "sMods": [],
-    "variantId": "adversary_omen_Support",
+    "sMods": [
+        "nav_relay",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_omen_Point_Defense",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "taclaser"}
+            "weapons": {"WS 001": "irpulse"}
         },
         {
             "autofire": false,

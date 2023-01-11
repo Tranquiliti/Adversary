@@ -2,7 +2,6 @@ package data.scripts;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
-import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
@@ -292,6 +291,7 @@ public class AdversaryUtil {
             salvageEntity.setCircularOrbitWithSpin(focus, randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (15f + randomSeed.nextFloat() * 5f), 1f, 11f);
             if (type.equals("derelict_cryosleeper")) {
                 salvageEntity.setFaction("derelict");
+                system.addTag(Tags.THEME_DERELICT);
                 system.addTag(Tags.THEME_DERELICT_CRYOSLEEPER);
             }
         }
@@ -336,6 +336,7 @@ public class AdversaryUtil {
             cryosleeper.getDetectedRangeMod().modifyFlat("gen", 3500f);
         }
 
+        system.addTag(Tags.THEME_DERELICT);
         system.addTag(Tags.THEME_DERELICT_CRYOSLEEPER);
     }
 
@@ -452,6 +453,42 @@ public class AdversaryUtil {
     }
 
     /**
+     * Adds a planet or star with specified JSON options
+     *
+     * @param system           The system to modify
+     * @param numOfCenterStars Number of stars in center of system
+     * @param planetOptions    JSONObject representing planet or star options
+     * @param i                Index of this planet or star
+     * @return The newly-created planet or star
+     * @throws JSONException if planetOptions is invalid
+     */
+    public PlanetAPI addPlanetWithOptions(StarSystemAPI system, int numOfCenterStars, JSONObject planetOptions, int i) throws JSONException {
+        // Creates planet with appropriate characteristics
+        int indexFocus = (int) getJSONValue(planetOptions, 'I', "focus", DEFAULT_FOCUS);
+        PlanetAPI newPlanet = addPlanet(system, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), i, planetOptions);
+
+        if (newPlanet.isStar()) { // New "planet" is an orbiting star
+            if (system.getSecondary() == null) { // Second star, orbiting far
+                system.setSecondary(newPlanet);
+                system.setType(StarSystemGenerator.StarSystemType.BINARY_FAR);
+            } else if (system.getTertiary() == null) { // Third star, orbiting far
+                system.setTertiary(newPlanet);
+                if (system.getType() == StarSystemGenerator.StarSystemType.BINARY_CLOSE)
+                    system.setType(StarSystemGenerator.StarSystemType.TRINARY_1CLOSE_1FAR);
+                else if (system.getType() == StarSystemGenerator.StarSystemType.BINARY_FAR)
+                    system.setType(StarSystemGenerator.StarSystemType.TRINARY_2FAR);
+            }
+        } else if (newPlanet.hasCondition("solar_array"))
+            addSolarArrayToPlanet(newPlanet, newPlanet.getFaction().getId());
+
+        // Adds any entities to this planet's lagrange points if applicable
+        JSONArray lagrangePoints = (JSONArray) getJSONValue(planetOptions, 'A', "entitiesAtStablePoints", null);
+        if (lagrangePoints != null) addToLagrangePoints(newPlanet, lagrangePoints);
+
+        return newPlanet;
+    }
+
+    /**
      * Adds a star in a system; initializes system's star if one does not already exist
      *
      * @param system     The system to modify
@@ -470,9 +507,9 @@ public class AdversaryUtil {
         if (starData == null) throw new RuntimeException("Star type " + starType + " not found!");
 
         // Set default random radius and corona size if applicable
-        if (radius < 0)
+        if (radius <= 0)
             radius = starData.getMinRadius() + (starData.getMaxRadius() - starData.getMinRadius()) * StarSystemGenerator.random.nextFloat();
-        if (coronaSize < 0)
+        if (coronaSize <= 0)
             coronaSize = Math.max(starData.getCoronaMin(), radius * (starData.getCoronaMult() + starData.getCoronaVar() * (StarSystemGenerator.random.nextFloat() - 0.5f)));
         float flare = starData.getMinFlare() + (starData.getMaxFlare() - starData.getMinFlare()) * StarSystemGenerator.random.nextFloat();
 
@@ -517,18 +554,14 @@ public class AdversaryUtil {
         String planetType = (String) getJSONValue(planetOptions, 'S', "type", DEFAULT_PLANET_TYPE);
         PlanetGenDataSpec planetData = (PlanetGenDataSpec) Global.getSettings().getSpec(PlanetGenDataSpec.class, planetType, true);
 
-        if (planetData == null) { // Not a planet, so generate it as a star
-            String starName = getProcGenName("star", system.getName());
-            int radius = (int) getJSONValue(planetOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN);
-            int coronaSize = (int) getJSONValue(planetOptions, 'I', "coronaSize", DEFAULT_SET_TO_PROC_GEN);
-
-            newPlanet = addStar(system, starName, systemId + ":star_" + id, planetType, radius, coronaSize);
+        if (planetData == null) { // Not a planet, so try to generate it as a star
+            newPlanet = addStar(system, getProcGenName("star", system.getName()), systemId + ":star_" + id, planetType, (int) getJSONValue(planetOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(planetOptions, 'I', "coronaSize", DEFAULT_SET_TO_PROC_GEN));
             newPlanet.setCircularOrbit(focus, randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + randomSeed.nextFloat() * 5f));
         } else {
             String planetName = getProcGenName("planet", system.getStar().getName());
             // Set default radius if applicable
             float radius = (int) getJSONValue(planetOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN);
-            if (radius < 0)
+            if (radius <= 0)
                 radius = planetData.getMinRadius() + (planetData.getMaxRadius() - planetData.getMinRadius()) * StarSystemGenerator.random.nextFloat();
 
             newPlanet = system.addPlanet(systemId + ":planet_" + id, focus, planetName, planetType, randomSeed.nextFloat() * 360f, radius, orbitRadius, orbitRadius / (20f + randomSeed.nextFloat() * 5f));
@@ -553,8 +586,6 @@ public class AdversaryUtil {
 
     // Adds a populated market with specified options
     private void addPlanetMarket(PlanetAPI planet, JSONObject planetOptions, int size) throws JSONException {
-        EconomyAPI globalEconomy = Global.getSector().getEconomy();
-
         // Create planet market
         String factionId = planetOptions.getString("factionId");
         MarketAPI planetMarket = Global.getFactory().createMarket(planet.getId() + "_market", planet.getName(), size);
@@ -613,7 +644,7 @@ public class AdversaryUtil {
             marketsToOverrideAdmin.put(planetMarket, "alpha_core");
 
         //set market in global, factions, and assign market, also submarkets
-        globalEconomy.addMarket(planetMarket, true);
+        Global.getSector().getEconomy().addMarket(planetMarket, true);
         planet.setMarket(planetMarket);
         planet.setFaction(factionId);
     }

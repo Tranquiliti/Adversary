@@ -8,12 +8,12 @@ import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import java.util.Random;
 
 public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
-    protected final byte[] doctrineList = {3, 2, 1, 0}; // Each index represents a doctrine number
     //protected Logger log = Global.getLogger(AdversaryFactionDoctrineChanger.class);
     protected FactionDoctrineAPI factionDoctrine;
+    protected final byte[] doctrineList = {3, 2, 1, 0}; // Each index represents a doctrine number
     protected boolean done;
     protected CampaignClockAPI clock;
-    protected float currentCycle;
+    protected int currentCycle;
 
     public AdversaryFactionDoctrineChanger(FactionDoctrineAPI doctrine) {
         super();
@@ -35,7 +35,7 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
 
     @Override
     public void advance(float amount) {
-        if (done) return;
+        //if (done) return;
 
         // Change fleet doctrine every new cycle; cannot choose the same doctrine twice in a row
         if (clock.getCycle() != currentCycle) {

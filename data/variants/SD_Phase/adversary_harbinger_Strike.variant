@@ -1,0 +1,41 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 20,
+    "fluxVents": 9,
+    "hullId": "harbinger",
+    "hullMods": [
+        "hardened_subsystems",
+        "targetingunit",
+        "fluxbreakers",
+        "adaptive_coils"
+    ],
+    "permaMods": [],
+    "sMods": [
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_harbinger_Strike",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "ionpulser",
+                "WS 003": "ionpulser"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "atropos_single",
+                "WS 005": "atropos_single"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "heavyblaster"}
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 2,
+    "fluxVents": 0,
+    "hullId": "colossus3",
+    "hullMods": ["militarized_subsystems"],
+    "permaMods": [
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_colossus3_Attack",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 011": "lightmg",
+            "WS 012": "lightmg",
+            "WS 013": "lightmg",
+            "WS 014": "lightmg",
+            "WS 015": "lightmg",
+            "WS 016": "lightmg"
+        }
+    }],
+    "wings": [
+        "thunder_wing",
+        "thunder_wing"
+    ]
+}
