@@ -451,9 +451,9 @@
 		
 		"aggression":5,
 		
-		"combatFreighterProbability":0, 					# instead of some portion of the freighters in a fleet
-		"combatFreighterCombatUseFraction":0, 				# as part of the normal combat lineup
-		"combatFreighterCombatUseFractionWhenPriority":0, 	# as part of normal combat lineup, when marked as priority ship
+		"combatFreighterProbability":0,                   # instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":1,             # as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":1, # as part of normal combat lineup, when marked as priority ship
 		"autofitRandomizeProbability":0,
 		"strictComposition":true, # warships/carriers/phase at 1 will be treated as 0, also no random factor
 

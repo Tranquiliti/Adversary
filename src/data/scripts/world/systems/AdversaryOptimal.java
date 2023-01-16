@@ -5,10 +5,13 @@ import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.procgen.SalvageEntityGenDataSpec;
+import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import data.scripts.AdversaryUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class AdversaryOptimal {
     public void generate(AdversaryUtil util, SectorAPI sector, JSONObject systemOptions) throws JSONException {
@@ -19,10 +22,11 @@ public class AdversaryOptimal {
 
         // Generate the center stars
         util.addStarsInCenter(system, systemOptions.getJSONArray("stars"), (int) util.getJSONValue(systemOptions, 'I', "starsOrbitRadius", util.DEFAULT_STARS_ORBIT_RADIUS));
-        int numOfCenterStars = system.getPlanets().size();
+        ArrayList<PlanetAPI> starsInSystem = new ArrayList<>(system.getPlanets());
+        int numOfCenterStars = starsInSystem.size();
 
         // Create Fringe Jump-point
-        util.addOrbitingJumpPoint(system, system.getCenter(), "Fringe Jump-point", fringeRadius);
+        util.addJumpPoint(system, "Fringe Jump-point").setCircularOrbit(system.getCenter(), StarSystemGenerator.random.nextFloat() * 360f, fringeRadius, fringeRadius / (15f + StarSystemGenerator.random.nextFloat() * 5f));
 
         // Create planets from JSON list
         JSONArray planetList = (JSONArray) util.getJSONValue(systemOptions, 'A', "planets", null);
@@ -31,8 +35,10 @@ public class AdversaryOptimal {
             // Creates planet with appropriate characteristics
             PlanetAPI newPlanet = util.addPlanetWithOptions(system, numOfCenterStars, planetList.getJSONObject(i), i);
             if (!newPlanet.getFaction().getId().equals("neutral")) hasFactionPresence = true;
-            if (newPlanet.isStar()) newPlanet.setId("system_Optimal:star_" + i);
-            else newPlanet.setId("system_Optimal:planet_" + i);
+            if (newPlanet.isStar()) {
+                starsInSystem.add(newPlanet);
+                newPlanet.setId("system_Optimal:star_" + i);
+            } else newPlanet.setId("system_Optimal:planet_" + i);
         }
 
         // Add the system features
@@ -48,20 +54,22 @@ public class AdversaryOptimal {
         if ((boolean) util.getJSONValue(systemOptions, 'B', "addDomainCryosleeper", util.DEFAULT_ADD_CRYOSLEEPER))
             util.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", fringeRadius + 4000f, !hasFactionPresence);
 
-        // Add relevant system tags
-        system.removeTag(Tags.THEME_CORE); // Technically not part of the Core Worlds
-        system.addTag(Tags.THEME_INTERESTING);
-
-        // Adds a hidden supply cache containing either the Hypershunt Tap or the Dealmaker Holosuite
         if (hasFactionPresence) {
+            // Adds a hidden supply cache containing either the Hypershunt Tap or the Dealmaker Holosuite
             SalvageEntityGenDataSpec.DropData drop = new SalvageEntityGenDataSpec.DropData();
             drop.chances = 1;
             drop.addCustom("item_coronal_portal", 1f);
             drop.addCustom("item_dealmaker_holosuite", 1f);
             util.addOrbitingSalvageEntity(system, "supply_cache_small", system.getCenter(), fringeRadius + 7777f).addDropRandom(drop);
-        } else system.setProcgen(true);
+        } else {
+            // Add relevant system tags for an uninhabited system
+            system.removeTag(Tags.THEME_CORE);
+            system.addTag(Tags.THEME_MISC);
+            system.addTag(Tags.THEME_INTERESTING_MINOR);
+            system.setProcgen(true);
+        }
 
-        util.setDefaultLightColorBasedOnStars(system, numOfCenterStars);
+        util.setDefaultLightColorBasedOnStars(system, starsInSystem);
         util.generateHyperspace(system);
     }
 }

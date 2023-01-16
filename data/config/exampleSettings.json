@@ -1,0 +1,586 @@
+# This is simply a reference guide for making and editing custom star systems in settings.json.
+# It should not affect the game in any way.
+
+# Most type ids are found in the .csv files located in the Starsector/starsector-core/data/campaign folder
+
+{
+	# List of custom star systems to generate
+	"customStarSystems":[
+		# An example star system, with all available options explained in comments
+		{
+			# True -> this system will spawn in the Sector
+			# (Not available for the Optimal star system)
+			# Defaults to true if this entry is omitted
+			"isEnabled":true,
+
+			# How many instances of this system exist in the Sector?
+			# (Not available for the Optimal star system)
+			# Defaults to 1 if this entry is omitted
+			"numberOfSystems":1,
+
+			# A list of stars to generate in the center of the system
+			# Having more than one star in this list will make stars orbit the system center (similar to a binary or trinary system)
+			"stars":[
+				{
+					# Star ids are found in starsector-core/data/campaign/procgen/star_gen_data.csv
+					# "random_star_giant" chooses a random vanilla star giant
+					# WARNING: Nebulas are not supported
+					# Defaults to "star_red_dwarf" if this entry is omitted
+					"type":"random_star_giant",
+
+					# Name of this star
+					# If this entry is on first star, it will also change this system's name
+					# Defaults to a random proc-gen name if this entry is omitted
+					"name":"Placeholder Star",
+
+					# Size of this star
+					# Defaults to proc-gen settings if this entry is omitted or set to 0
+					"radius":0,
+
+					# Size of this star's corona
+					# Defaults to proc-gen settings if this entry is omitted or set to 0
+					"coronaSize":0,
+				},
+
+				# More stars can be added to the "stars" list using the above format
+
+			],
+
+			# If there is at least 2 stars in the "stars" list:
+			# How far away the stars orbit the system center.
+			# Defaults to 2000 if this entry is omitted or set to 0
+			"starsOrbitRadius":2000,
+
+			# True -> Adds an unactivated coronal hypershunt in the center of the system
+			# Defaults to false if this entry is omitted
+			"addCoronalHypershunt":false,
+
+			# True -> Adds an undisturbed cryosleeper in the outer reaches of the system
+			# Defaults to false if this entry is omitted
+			"addDomainCryosleeper":false,
+
+			# True -> this system spawns in a random constellation
+			# False -> this system spawns in a constellation closest to the Core Worlds
+			# Defaults to true if this entry is omitted
+			"enableRandomLocation":true,
+
+			# How far away the system's fringe point orbits the system center.
+			# Also determines the area around this system where hyperspace clouds cannot spawn
+			# Defaults to 10000 if this entry is omitted
+			"fringeJumpPointOrbitRadius":9200,
+
+			# A list of planets or additional stars in this system
+			"planets":[
+				# An example PLANET orbiting the system center
+				{
+					# Planet ids are found in starsector-core/data/campaign/procgen/planet_gen_data.csv
+					# Defaults to "barren" if this entry is omitted
+					"type":"barren",
+
+					# How far away this planet orbits the focus.
+					# *REQUIRED* option for each planet or star
+					"orbitRadius":1111,
+					
+					# Indicates the entity this planet will orbit
+					# 0 -> this planet orbits system center
+					# 1 -> this planet orbits 1st entity in the "planets" list
+					# 2 -> this planet orbits 2nd entity in the "planets" list
+					# ...
+					# Defaults to 0 if this entry is omitted
+					"focus":0,
+
+					# Name of this planet
+					# Defaults to a random proc-gen name if this entry is omitted
+					"name":"Placeholder Planet",
+
+					# Size of this planet
+					# Defaults to proc-gen settings if this entry is omitted or set to 0
+					"radius":0,
+
+					# A list of conditions to generate in this planet
+					# Condition ids are found in starsector-core/data/campaign/procgen/condition_gen_data.csv
+					# Uninhabited planet -> Defaults to proc-gen setting if this entry is omitted or is left empty
+					# Inhabited planet -> Defaults to no conditions if this entry is omitted
+					"conditions":[
+						# List of vanilla planet conditions
+						"habitable",
+						"cold",
+						"very_cold",
+						"hot",
+						"very_hot",
+						"tectonic_activity",
+						"extreme_tectonic_activity",
+						"no_atmosphere",
+						"thin_atmosphere",
+						"toxic_atmosphere",
+						"dense_atmosphere",
+						"mild_climate",
+						"extreme_weather",
+						"low_gravity",
+						"high_gravity",
+						"irradiated",
+						"inimical_biosphere",
+						"water_surface",
+						"poor_light",
+						"dark",
+						"meteor_impacts",
+						"pollution",
+						"ore_sparse",
+						"ore_moderate",
+						"ore_abundant",
+						"ore_rich",
+						"ore_ultrarich",
+						"rare_ore_sparse",
+						"rare_ore_moderate",
+						"rare_ore_abundant",
+						"rare_ore_rich",
+						"rare_ore_ultrarich",
+						"volatiles_trace",
+						"volatiles_diffuse",
+						"volatiles_abundant",
+						"volatiles_plentiful",
+						"organics_trace",
+						"organics_common",
+						"organics_abundant",
+						"organics_plentiful",
+						"farmland_poor",
+						"farmland_adequate",
+						"farmland_rich",
+						"farmland_bountiful",
+						"ruins_scattered",
+						"ruins_widespread",
+						"ruins_extensive",
+						"ruins_vast",
+						"decivilized",
+						"decivilized_subpop",
+					],
+
+					# Entities stationed on this planet's L3, L4, or L5 stable points
+					# (A full list of eligible entities is found on the 2nd entry in the "planets" list)
+					# Defaults to no entities if this entry is omitted
+					"entitiesAtStablePoints":[
+						{"type":"comm_relay"}, # Entity on L3 point
+						{"type":"inactive_gate"}, # Entity on L4 point
+						{"type":"jump_point"}, # Entity on L5 point
+					],
+
+					# Population size of this planet's market
+					# Defaults to 0, or uninhabited, if this entry is omitted
+					"marketSize":0,
+
+					#------------------------------------------------------------#
+					# Planet entries below require "marketSize" to be at least 1 #
+					#------------------------------------------------------------#
+
+					# Faction that owns this planet's market
+					# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder
+					# *REQUIRED* option if "marketSize" is at least 1
+					"factionId":"adversary",
+
+					# True -> market has free port enabled
+					# Defaults to false if this entry is omitted
+					"freePort":false,
+
+					# True -> market is governed by an Alpha Core AI admin
+					# Defaults to false if this entry is omitted
+					"aiCoreAdmin":true,
+
+					# A list of industries hosted in this planet's market
+					# Industry ids are found in starsector-core/data/campaign/industries.csv
+					# Defaults to adding "population" and "spaceport" if this entry is omitted
+					"industries":[
+						# List of vanilla industries
+						"population",
+						"farming",
+						"aquaculture",
+						"mining",
+						"techmining",
+						"refining",
+						"spaceport",
+						"megaport",
+						"lightindustry",
+						"heavyindustry",
+						"orbitalworks",
+						"fuelprod",
+						"commerce",
+						"station_base",
+						"orbitalstation",
+						"battlestation",
+						"starfortress",
+						"orbitalstation_mid",
+						"battlestation_mid",
+						"starfortress_mid",
+						"orbitalstation_high",
+						"battlestation_high",
+						"starfortress_high",
+						"grounddefenses",
+						"heavybatteries",
+						"patrolhq",
+						"militarybase",
+						"highcommand",
+						"lionsguard",
+						"planetaryshield",
+						"waystation",
+						"cryosanctum",
+						"cryorevival",
+					],
+
+					# A map of industries, with values being the items to install in a given industry
+					# Each entry in "specials" uses this format: 
+					# "industryToModify":["special_items","ai_core_id"],
+					# Special items ids are found in starsector-core/data/campaign/special_items.csv
+					# Defaults to no installed items if this entry is omitted
+					"specials":{
+						#"heavyindustry":["corrupted_nanoforge",""],
+						"heavyindustry":["pristine_nanoforge","gamma_core"],
+						"fuelprod":["synchrotron","beta_core"],
+						"population":["orbital_fusion_lamp","alpha_core"],
+						#"population":["coronal_portal",""],
+						"mining":["mantle_bore",""],
+						"refining":["catalytic_core",""],
+						"farming":["soil_nanites",""],
+						"lightindustry":["biofactory_embryo",""],
+						"spaceport":["fullerene_spool",""],
+						#"mining":["plasma_dynamo",""],
+						"patrolhq":["cryoarithmetic_engine",""],
+						"grounddefenses":["drone_replicator",""],
+						"commerce":["dealmaker_holosuite",""],
+					},
+				},
+
+				# An example STAR orbiting the first planet
+				{
+					# Star ids are found in starsector-core/data/campaign/procgen/star_gen_data.csv
+					# "random_star_giant" chooses a random vanilla star giant
+					# Nebulas are not supported
+					# *REQUIRED* option if making an orbiting star
+					"type":"star_orange",
+
+					# How far away this star orbits the focus.
+					# *REQUIRED* option for each planet or star
+					"orbitRadius":1111,
+
+					# Indicates the entity this star will orbit
+					# 0 -> this star orbits system center
+					# 1 -> this star orbits 1st entity in the "planets" list
+					# 2 -> this star orbits 2nd entity in the "planets" list
+					# ...
+					# Defaults to 0 if this entry is omitted
+					"focus":1,
+
+					# Name of this star
+					# Does not affect the first star in the "stars" list
+					# Defaults to a random proc-gen name if this entry is omitted
+					"name":"Placeholder Star",
+
+					# Size of this star
+					# Defaults to proc-gen settings if this entry is omitted or set to 0
+					"radius":0,
+
+					# Size of this star's corona
+					# Defaults to proc-gen settings if this entry is omitted or set to 0
+					"coronaSize":0,
+
+					# List of eligible entities that can be placed in "entitiesAtStablePoints"
+					"entitiesAtStablePoints":[
+						# Neutral entities
+						{
+							"type":"inactive_gate"
+							#"type":"stable_location"
+						},
+
+						# System objectives
+						{
+							"type":"comm_relay",
+							#"type":"comm_relay_makeshift",
+							#"type":"nav_buoy",
+							#"type":"nav_buoy_makeshift",
+							#"type":"sensor_array",
+							#"type":"sensor_array_makeshift",
+
+							# Faction owning the objective
+							# Defaults to "neutral", or unactivated, if this entry is omitted
+							"factionId":"neutral",
+						},
+
+						# Jump-points
+						{
+							"type":"jump_point",
+
+							# Name of the jump-point
+							# Uses default name if this entry is omitted
+							"name":"Inner System Jump-point"
+						},
+
+						# Stations (in this case, an abandoned station)
+						# (An example of a populated station can be found in the "systemFeatures" list)
+						{
+							"type":"station",
+
+							# Name of the station
+							# Uses default name if this entry is omitted
+							"name":"Placeholder Station",
+
+							# Type of station graphic to use
+							# Station graphics are found in starsector-core/graphics/stations
+							# Defaults to "station_side06" if this entry is omitted
+							"stationType":"station_side06",
+
+							# Faction owning this station
+							# Defaults to "neutral" if this entry is omitted
+							"factionId":"neutral",
+
+							# Population size of this station's market
+							# Defaults to 0, or abandoned, if this entry is omitted
+							"marketSize":0,
+						},
+					],
+				},
+
+				# More planets or orbiting stars can be added in the "planets" list using the above formats
+
+			],
+
+			# A list of additional system features to generate in this system
+			"systemFeatures":[
+				# Stations (in this case, a populated station)
+				{
+					"type":"station",
+
+					# How far away the station orbits the focus
+					# *REQUIRED* option for stations created in "systemFeatures"
+					"orbitRadius":1111,
+
+					# Indicates the entity this station will orbit
+					# 0 -> orbits system center
+					# 1 -> orbits 1st entity in the "planets" list
+					# 2 -> orbits 2nd entity in the "planets" list
+					# ...
+					# Defaults to 0 if this entry is omitted
+					"focus":0,
+
+					# Name of the station
+					# Uses default name if this entry is omitted
+					"name":"Placeholder Station",
+
+					# Type of station graphic to use
+					# Station graphics are found in starsector-core/graphics/stations
+					# Defaults to "station_side06" if this entry is omitted
+					"stationType":"station_mining00",
+
+					# Faction owning this station
+					# Defaults to "neutral" if this entry is omitted
+					"factionId":"independent",
+
+					# Population size of this station's market
+					# Defaults to 0, or abandoned, if this entry is omitted
+					"marketSize":3,
+
+					#-------------------------------------------------------------#
+					# Station entries below require "marketSize" to be at least 1 #
+					# Refer to the 1st entry in "planets" list for option details #
+					#-------------------------------------------------------------#
+					"freePort":true,
+					"aiCoreAdmin":true,
+					"conditions":[],
+					"industries":["population","spaceport"],
+					"specials":{},
+				},
+
+				# Ringed terrain features
+				{
+					"type":"asteroid_belt",
+					#"type":"ring_band",
+					#"type":"magnetic_field",
+					"orbitRadius":1111,
+					"focus":0,
+				},
+
+				# Asteroid field
+				{
+					"type":"asteroid_field",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Size of the asteroid field
+					# Defaults to 600 if this entry is omitted
+					"size":600,
+				},
+
+				# Neutral entities
+				{
+					"type":"inactive_gate",
+					#"type":"stable_location",
+					"orbitRadius":1111,
+					"focus":0,
+				},
+
+				# System objectives
+				{
+					"type":"comm_relay",
+					#"type":"comm_relay_makeshift",
+					#"type":"nav_buoy",
+					#"type":"nav_buoy_makeshift",
+					#"type":"sensor_array",
+					#"type":"sensor_array_makeshift",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Faction owning the objective
+					# Defaults to "neutral", or unactivated, if this entry is omitted
+					"factionId":"neutral",
+				},
+
+				# Jump-point
+				{
+					"type":"jump_point",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the jump-point
+					# Uses default name if this entry is omitted
+					"name":"Outer System Jump-point",
+				}
+
+				# Salvage entities
+				# Salvage entity ids are found in starsector-core/data/campaign/procgen/salvage_entity_gen_data.csv
+				# Is the default option for handling unrecognized or modded entities
+				{
+					"type":"orbital_habitat",
+					"orbitRadius":1111,
+					"focus":0,
+				},
+			],
+		},
+
+		#-----------------------------------#
+		# Example custom star systems below #
+		#-----------------------------------#
+
+		# A trinary system, occupied by faction outposts
+		{
+			"stars":[
+				{"type":"star_blue_giant","name":"Fulzar"},
+				{"type":"star_yellow"},
+			],
+			"planets":[
+				{
+					"type":"gas_giant",
+					"orbitRadius":4500,
+					"entitiesAtStablePoints":[
+						{"type":"stable_location"},
+						{"type":"jump_point","name":"Inner System Jump-point"},
+						{"type":"stable_location"},
+					]
+				},
+				{
+					"type":"terran",
+					"orbitRadius":5750,
+					"name":"Aureus Outpost",
+					"conditions":[
+						"habitable",
+						"farmland_bountiful",
+						"organics_common",
+					],
+					"entitiesAtStablePoints":[
+						{ # Entity at L3
+							"type":"station",
+							"name":"Abandoned Side Station"
+						},
+						{"type":"comm_relay_makeshift"}, # No entity at L4
+						{}, # No entity at L5
+					],
+					"marketSize":3,
+					"factionId":"hegemony",
+				},
+				{
+					"type":"toxic",
+					"orbitRadius":7000,
+				},
+				{
+					"type":"star_orange",
+					"orbitRadius":9000,
+					"radius":650,
+					"coronaSize":400,
+				},
+				{
+					"type":"barren",
+					"orbitRadius":1600,
+					"focus":4, # orbits orange star
+				},
+			],
+			"systemFeatures":[
+				{"type":"magnetic_field","orbitRadius":3600},
+				{"type":"inactive_gate","orbitRadius":6475},
+				{"type":"station_mining","orbitRadius":700,"focus":1},
+				{"type":"asteroid_belt","orbitRadius":1150,"focus":4},
+				{"type":"jump_point","orbitRadius":1300,"focus":4,"name":"Omnicron Jump-point"},
+				{"type":"asteroid_field","orbitRadius":12000,"size":700},
+				{"type":"station",
+					"orbitRadius":1200,
+					"focus":4,
+					"name":"Orbital Station 13",
+					"stationType":"station_side04",
+					"factionId":"tritachyon",
+					"marketSize":3,
+					"freePort":true,
+					"aiCoreAdmin":true,
+					"conditions":[
+						"decivilized_subpop",
+						"closed_immigration",
+						"vice_demand",
+						"organized_crime",
+						"frontier",
+						"outpost",
+						"dissident",
+					],
+					"industries":[
+						"population",
+						"spaceport",
+						"waystation",
+						"starfortress_high",
+						"lightindustry",
+					],
+				},
+			],
+		},
+
+		# A test system that completely violates all known conventions of star systems
+		{
+			"isEnabled":false,
+			"numberOfSystems":3,
+			"stars":[
+				{"type":"star_red_supergiant"},
+				{"type":"star_blue_supergiant"},
+				{"type":"star_red_giant"},
+				{"type":"star_blue_giant"},
+				{"type":"star_orange_giant"},
+			],
+			"starsOrbitRadius":3000,
+			"addCoronalHypershunt":true,
+			"addDomainCryosleeper":true,
+			"enableRandomLocation":true,
+			"fringeJumpPointOrbitRadius":12000,
+			"planets":[
+				{"type":"star_red_dwarf","orbitRadius":5000},
+				{"type":"star_orange","orbitRadius":6000},
+				{"type":"star_yellow","orbitRadius":7000},
+				{"type":"star_browndwarf","orbitRadius":8000},
+				{"type":"star_white","orbitRadius":9000},
+				{"type":"star_neutron","orbitRadius":10000},
+				{"type":"black_hole","orbitRadius":11000},
+				{"type":"terran","orbitRadius":500},
+			],
+			"systemFeatures":[
+				{"type":"magnetic_field","focus":1,"orbitRadius":5000},
+				{"type":"asteroid_belt","focus":2,"orbitRadius":1000},
+				{"type":"ring_band","focus":3,"orbitRadius":1000},
+				{"type":"comm_relay_makeshift","orbitRadius":10000},
+				{"type":"jump_point","name":"Outer System Jump-point","orbitRadius":6000},
+				{"type":"jump_point","focus":4,"name":"Omnicron Jump-point","orbitRadius":600},
+				{"type":"alpha_site_weapons_cache","orbitRadius":700},
+			],
+		},
+
+	],
+}

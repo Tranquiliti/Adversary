@@ -4,10 +4,13 @@ import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import data.scripts.AdversaryUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class AdversaryCustomStarSystem {
     public void generate(AdversaryUtil util, SectorAPI sector, JSONObject systemOptions) throws JSONException {
@@ -18,10 +21,11 @@ public class AdversaryCustomStarSystem {
 
         // Generate the center stars
         util.addStarsInCenter(system, systemOptions.getJSONArray("stars"), (int) util.getJSONValue(systemOptions, 'I', "starsOrbitRadius", util.DEFAULT_STARS_ORBIT_RADIUS));
-        int numOfCenterStars = system.getPlanets().size();
+        ArrayList<PlanetAPI> starsInSystem = new ArrayList<>(system.getPlanets());
+        int numOfCenterStars = starsInSystem.size();
 
         // Create Fringe Jump-point
-        util.addOrbitingJumpPoint(system, system.getCenter(), "Fringe Jump-point", fringeRadius);
+        util.addJumpPoint(system, "Fringe Jump-point").setCircularOrbit(system.getCenter(), StarSystemGenerator.random.nextFloat() * 360f, fringeRadius, fringeRadius / (15f + StarSystemGenerator.random.nextFloat() * 5f));
 
         // Create planets from JSON list
         JSONArray planetList = (JSONArray) util.getJSONValue(systemOptions, 'A', "planets", null);
@@ -30,6 +34,7 @@ public class AdversaryCustomStarSystem {
             // Creates planet with appropriate characteristics
             PlanetAPI newPlanet = util.addPlanetWithOptions(system, numOfCenterStars, planetList.getJSONObject(i), i);
             if (!newPlanet.getFaction().getId().equals("neutral")) hasFactionPresence = true;
+            if (newPlanet.isStar()) starsInSystem.add(newPlanet);
         }
 
         // Add the system features
@@ -47,10 +52,11 @@ public class AdversaryCustomStarSystem {
 
         // Add relevant system tags
         system.removeTag(Tags.THEME_CORE);
-        system.addTag(Tags.THEME_INTERESTING);
-
+        system.addTag(Tags.THEME_MISC);
+        system.addTag(Tags.THEME_INTERESTING_MINOR);
         system.setProcgen(true);
-        util.setDefaultLightColorBasedOnStars(system, numOfCenterStars);
+
+        util.setDefaultLightColorBasedOnStars(system, starsInSystem);
         util.generateHyperspace(system);
     }
 }
