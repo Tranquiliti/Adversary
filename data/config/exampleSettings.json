@@ -3,6 +3,9 @@
 
 # Most type ids are found in the .csv files located in the Starsector/starsector-core/data/campaign folder
 
+# The units for "orbitRadius", "size", and other similar entries are in pixels (e.g. "size":100 means something is 100 pixels wide)
+# For reference, the Barad gas giant in the Corvus system has a size of 300 pixels
+
 {
 	# List of custom star systems to generate
 	"customStarSystems":[
@@ -283,10 +286,37 @@
 
 					# List of eligible entities that can be placed in "entitiesAtStablePoints"
 					"entitiesAtStablePoints":[
+						# Remnant battlestation
+						{
+							"type":"remnant_station",
+
+							# Does this Remnant station start out damaged?
+							# Defaults to false if this entry is omitted
+							"isDamaged":false,
+						},
+
+						# Asteroid field
+						{
+							"type":"asteroid_field",
+
+							# Name of the asteroid field
+							# Uses default name if this entry is omitted
+							"name":"Test Name Field",
+
+							# Size of the asteroid field
+							# Defaults to 400 if this entry is omitted
+							"size":400,
+						},
+
 						# Neutral entities
 						{
-							"type":"inactive_gate"
-							#"type":"stable_location"
+							"type":"inactive_gate",
+							#"type":"stable_location",
+							#"type":"jump_point",
+
+							# Name of the entity
+							# Uses default name if this entry is omitted
+							"name":"Test Name Gate",
 						},
 
 						# System objectives
@@ -298,18 +328,13 @@
 							#"type":"sensor_array",
 							#"type":"sensor_array_makeshift",
 
+							# Name of the system objective
+							# Uses default name if this entry is omitted
+							"name":"Test Name Comm Relay",
+
 							# Faction owning the objective
 							# Defaults to "neutral", or unactivated, if this entry is omitted
 							"factionId":"neutral",
-						},
-
-						# Jump-points
-						{
-							"type":"jump_point",
-
-							# Name of the jump-point
-							# Uses default name if this entry is omitted
-							"name":"Inner System Jump-point"
 						},
 
 						# Stations (in this case, an abandoned station)
@@ -343,6 +368,120 @@
 
 			# A list of additional system features to generate in this system
 			"systemFeatures":[
+				# Remnant battlestation
+				{
+					"type":"remnant_station",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Does this Remnant station start out damaged?
+					# Defaults to false if this entry is omitted
+					"isDamaged":false,
+				},
+
+				# Magnetic field
+				{
+					"type":"magnetic_field",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Size of the magnetic field
+					# Defaults to 300 if this entry is omitted
+					"size":300,
+				},
+
+				# Asteroid field
+				{
+					"type":"asteroid_field",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the asteroid field
+					# Uses default name if this entry is omitted
+					"name":"Test Name Field",
+
+					# Size of the asteroid field
+					# Defaults to 400 if this entry is omitted
+					"size":400,
+				},
+
+				# Ring bands
+				{
+					"type":"rings_dust",
+					#"type":"rings_ice",
+					#"type":"rings_special",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the ring band
+					# Uses default name if this entry is omitted
+					"name":"Test Name Band",
+
+					# Index of the ring texture to use
+					# Valid options are 0, 1, 2, or 3 for "rings_ice" and "rings_dust"
+					# Must be 1 for "rings_special"
+					# Defaults to 1 if this entry is omitted
+					"bandIndex":1,
+				},
+
+				# Asteroid belt
+				{
+					"type":"asteroid_belt",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the asteroid belt
+					# Uses default name if this entry is omitted
+					"name":"Test Name Belt",
+
+					# Index of the ring texture to use for the asteroid belt's inner ring
+					# Valid options are 0, 1, 2, or 3
+					# Defaults to 0 if this entry is omitted
+					"innerBandIndex":0,
+
+					# Similar to "innerBandIndex", but for the belt's outer ring
+					# Valid options are 0, 1, 2, or 3
+					# Defaults to 0 if this entry is omitted
+					"outerBandIndex":0,
+
+					# Size of the asteroid belt
+					# Defaults to 256 if this entry is omitted
+					"size":256
+				},
+
+				# Neutral entities
+				{
+					"type":"inactive_gate",
+					#"type":"stable_location",
+					#"type":"jump_point",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the entity
+					# Uses default name if this entry is omitted
+					"name":"Test Name Gate",
+				},
+
+				# System objectives
+				{
+					"type":"comm_relay",
+					#"type":"comm_relay_makeshift",
+					#"type":"nav_buoy",
+					#"type":"nav_buoy_makeshift",
+					#"type":"sensor_array",
+					#"type":"sensor_array_makeshift",
+					"orbitRadius":1111,
+					"focus":0,
+
+					# Name of the system objective
+					# Uses default name if this entry is omitted
+					"name":"Test Name Comm Relay",
+
+					# Faction owning the objective
+					# Defaults to "neutral", or unactivated, if this entry is omitted
+					"factionId":"neutral",
+				},
+
 				# Stations (in this case, a populated station)
 				{
 					"type":"station",
@@ -387,61 +526,6 @@
 					"specials":{},
 				},
 
-				# Ringed terrain features
-				{
-					"type":"asteroid_belt",
-					#"type":"ring_band",
-					#"type":"magnetic_field",
-					"orbitRadius":1111,
-					"focus":0,
-				},
-
-				# Asteroid field
-				{
-					"type":"asteroid_field",
-					"orbitRadius":1111,
-					"focus":0,
-
-					# Size of the asteroid field
-					# Defaults to 600 if this entry is omitted
-					"size":600,
-				},
-
-				# Neutral entities
-				{
-					"type":"inactive_gate",
-					#"type":"stable_location",
-					"orbitRadius":1111,
-					"focus":0,
-				},
-
-				# System objectives
-				{
-					"type":"comm_relay",
-					#"type":"comm_relay_makeshift",
-					#"type":"nav_buoy",
-					#"type":"nav_buoy_makeshift",
-					#"type":"sensor_array",
-					#"type":"sensor_array_makeshift",
-					"orbitRadius":1111,
-					"focus":0,
-
-					# Faction owning the objective
-					# Defaults to "neutral", or unactivated, if this entry is omitted
-					"factionId":"neutral",
-				},
-
-				# Jump-point
-				{
-					"type":"jump_point",
-					"orbitRadius":1111,
-					"focus":0,
-
-					# Name of the jump-point
-					# Uses default name if this entry is omitted
-					"name":"Outer System Jump-point",
-				}
-
 				# Salvage entities
 				# Salvage entity ids are found in starsector-core/data/campaign/procgen/salvage_entity_gen_data.csv
 				# Is the default option for handling unrecognized or modded entities
@@ -449,6 +533,10 @@
 					"type":"orbital_habitat",
 					"orbitRadius":1111,
 					"focus":0,
+
+					# Name of the salvage entity
+					# Uses default name if this entry is omitted
+					"name":"Test Name Orbital Habitat",
 				},
 			],
 		},
@@ -456,6 +544,7 @@
 		#-----------------------------------#
 		# Example custom star systems below #
 		#-----------------------------------#
+		# Feel free to copy and paste these examples inside the "customStarSystems" entry of your settings.json
 
 		# A trinary system, occupied by faction outposts
 		{
@@ -545,6 +634,51 @@
 			],
 		},
 
+		# A Remnant-infested binary system (acutally, three of them)
+		{
+			"isEnabled":true,
+			"numberOfSystems":3,
+			"stars":[
+				{"type":"star_yellow"},
+				{"type":"star_yellow"},
+			],
+			"starsOrbitRadius":2000,
+			"addCoronalHypershunt":true,
+			"enableRandomLocation":true,
+			"fringeJumpPointOrbitRadius":8000,
+			"planets":[
+				{
+					"type":"terran-eccentric",
+					"orbitRadius":4000,
+					"entitiesAtStablePoints":[
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+					],
+				},
+				{
+					"type":"irradiated",
+					"orbitRadius":5000,
+					"entitiesAtStablePoints":[
+						{"type":"asteroid_field","size":300},
+						{"type":"jump_point","name":"Outer System Jump-point"},
+						{},
+					],
+				},
+				{"type":"cryovolcanic","orbitRadius":6000},
+				{"type":"barren-desert","orbitRadius":7000},
+			],
+			"systemFeatures":[
+				{"type":"remnant_station","orbitRadius":300},
+				{"type":"remnant_station","orbitRadius":450},
+				{"type":"remnant_station","orbitRadius":600},
+				{"type":"remnant_station","orbitRadius":300,"focus":1,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":2,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":3,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":4,"isDamaged":true},
+			],
+		},
+
 		# A test system that completely violates all known conventions of star systems
 		{
 			"isEnabled":false,
@@ -581,6 +715,6 @@
 				{"type":"alpha_site_weapons_cache","orbitRadius":700},
 			],
 		},
-
+		
 	],
 }

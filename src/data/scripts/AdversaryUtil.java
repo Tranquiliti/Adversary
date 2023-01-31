@@ -4,12 +4,19 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.characters.PersonAPI;
+import com.fs.starfarer.api.fleet.FleetMemberAPI;
+import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
+import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
 import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.ids.Terrain;
 import com.fs.starfarer.api.impl.campaign.procgen.*;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantOfficerGeneratorPlugin;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantStationFleetManager;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin;
 import com.fs.starfarer.api.impl.campaign.terrain.*;
 import com.fs.starfarer.api.util.Misc;
@@ -122,16 +129,23 @@ public class AdversaryUtil {
 
         SectorEntityToken entity;
         StarSystemAPI system = planet.getStarSystem();
+        String name = (String) getJSONValue(featureOptions, 'S', "name", null);
         switch (type) {
+            case "remnant_station":
+                entity = addRemnantStation(system, (boolean) getJSONValue(featureOptions, 'B', "isDamaged", false));
+                break;
+            case "asteroid_field":
+                entity = addAsteroidField(system, name, (int) getJSONValue(featureOptions, 'I', "size", 400));
+                break;
             case "station":
-                entity = addStation(system, featureOptions);
+                entity = addStation(system, name, featureOptions);
                 break;
             case "inactive_gate":
             case "stable_location":
-                entity = system.addCustomEntity(null, null, type, null);
+                entity = system.addCustomEntity(null, name, type, null);
                 break;
             case "jump_point":
-                entity = addJumpPoint(system, (String) getJSONValue(featureOptions, 'S', "name", null));
+                entity = addJumpPoint(system, name);
                 break;
             case "comm_relay":
             case "comm_relay_makeshift":
@@ -139,10 +153,10 @@ public class AdversaryUtil {
             case "nav_buoy_makeshift":
             case "sensor_array":
             case "sensor_array_makeshift":
-                entity = addObjective(system, type, (String) getJSONValue(featureOptions, 'S', "factionId", null));
+                entity = addObjective(system, name, type, (String) getJSONValue(featureOptions, 'S', "factionId", null));
                 break;
             default: // Default option in case of mods adding their own system entities
-                entity = system.addCustomEntity(null, (String) getJSONValue(featureOptions, 'S', "name", null), type, (String) getJSONValue(featureOptions, 'S', "factionId", null));
+                entity = system.addCustomEntity(null, name, type, (String) getJSONValue(featureOptions, 'S', "factionId", null));
                 break;
         }
         if (entity == null) throw new RuntimeException("Invalid entity " + type + " for stable point!");
@@ -161,30 +175,37 @@ public class AdversaryUtil {
         int focusIndex = numOfCenterStars + (int) getJSONValue(featureOptions, 'I', "focus", DEFAULT_FOCUS);
         SectorEntityToken focus = (focusIndex == numOfCenterStars) ? system.getCenter() : system.getPlanets().get(focusIndex - 1);
         float orbitRadius = (int) getJSONValue(featureOptions, 'I', "orbitRadius", Math.round(focus.getRadius() + 100f));
-        switch (featureOptions.getString("type")) {
-            case "asteroid_belt":
-                addAsteroidBelt(system, focus, orbitRadius);
+        String type = featureOptions.getString("type");
+        String name = (String) getJSONValue(featureOptions, 'S', "name", null);
+        switch (type) {
+            case "remnant_station":
+                addRemnantStation(system, (boolean) getJSONValue(featureOptions, 'B', "isDamaged", false)).setCircularOrbitWithSpin(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f), 5f, 5f);
                 break;
-            case "ring_band":
-                addRingBand(system, focus, orbitRadius);
+            case "asteroid_belt":
+                addAsteroidBelt(system, focus, orbitRadius, name, (int) getJSONValue(featureOptions, 'I', "size", 256), (int) getJSONValue(featureOptions, 'I', "innerBandIndex", 0), (int) getJSONValue(featureOptions, 'I', "outerBandIndex", 0));
+                break;
+            case "rings_ice":
+            case "rings_dust":
+            case "rings_special":
+                addRingBand(system, focus, type + '0', orbitRadius, name, (int) getJSONValue(featureOptions, 'I', "bandIndex", 1));
                 break;
             case "magnetic_field":
-                addMagneticField(system, focus, orbitRadius);
+                addMagneticField(system, focus, (int) getJSONValue(featureOptions, 'I', "size", 300), orbitRadius);
                 break;
             case "asteroid_field":
-                addAsteroidField(system, focus, orbitRadius, (int) getJSONValue(featureOptions, 'I', "size", 600f));
+                addAsteroidField(system, name, (int) getJSONValue(featureOptions, 'I', "size", 400)).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f));
                 break;
             case "station":
-                addStation(system, featureOptions).setCircularOrbitPointingDown(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f));
+                addStation(system, name, featureOptions).setCircularOrbitPointingDown(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f));
                 break;
             case "inactive_gate":
-                system.addCustomEntity(null, null, "inactive_gate", null).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (10f + StarSystemGenerator.random.nextFloat() * 5f));
+                system.addCustomEntity(null, name, type, null).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (10f + StarSystemGenerator.random.nextFloat() * 5f));
                 break;
             case "stable_location":
-                system.addCustomEntity(null, null, "stable_location", null).setCircularOrbitWithSpin(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f), 1f, 11f);
+                system.addCustomEntity(null, name, type, null).setCircularOrbitWithSpin(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f), 1f, 11f);
                 break;
             case "jump_point":
-                addJumpPoint(system, (String) getJSONValue(featureOptions, 'S', "name", null)).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (15f + StarSystemGenerator.random.nextFloat() * 5f));
+                addJumpPoint(system, name).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (15f + StarSystemGenerator.random.nextFloat() * 5f));
                 break;
             case "comm_relay":
             case "comm_relay_makeshift":
@@ -192,10 +213,10 @@ public class AdversaryUtil {
             case "nav_buoy_makeshift":
             case "sensor_array":
             case "sensor_array_makeshift":
-                addObjective(system, featureOptions.getString("type"), (String) getJSONValue(featureOptions, 'S', "factionId", null)).setCircularOrbitWithSpin(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f), 1f, 11f);
+                addObjective(system, name, type, (String) getJSONValue(featureOptions, 'S', "factionId", null)).setCircularOrbitWithSpin(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f), 1f, 11f);
                 break;
             default: // Any salvage entities defined in salvage_entity_gen_data.csv (including ones added by mods)
-                addOrbitingSalvageEntity(system, featureOptions.getString("type"), focus, orbitRadius);
+                addOrbitingSalvageEntity(system, type, name, focus, orbitRadius);
                 break;
         }
     }
@@ -207,8 +228,8 @@ public class AdversaryUtil {
      * @param stationOptions JSONObject representing station options
      * @throws JSONException If stationOptions is invalid
      */
-    public SectorEntityToken addStation(StarSystemAPI system, JSONObject stationOptions) throws JSONException {
-        SectorEntityToken station = system.addCustomEntity(system.getStar().getId() + ":station_" + Misc.genUID(), (String) getJSONValue(stationOptions, 'S', "name", null), (String) getJSONValue(stationOptions, 'S', "stationType", "station_side06"), (String) getJSONValue(stationOptions, 'S', "factionId", null));
+    public SectorEntityToken addStation(StarSystemAPI system, String name, JSONObject stationOptions) throws JSONException {
+        SectorEntityToken station = system.addCustomEntity(system.getStar().getId() + ":station_" + Misc.genUID(), name, (String) getJSONValue(stationOptions, 'S', "stationType", "station_side06"), (String) getJSONValue(stationOptions, 'S', "factionId", null));
         int marketSize = (int) getJSONValue(stationOptions, 'I', "marketSize", DEFAULT_MARKET_SIZE);
         if (marketSize <= 0) Misc.setAbandonedStationMarket(station.getId(), station);
         else addPlanetMarket(station, stationOptions, marketSize);
@@ -217,56 +238,150 @@ public class AdversaryUtil {
     }
 
     /**
-     * Adds an asteroid belt around a focus
+     * <p>Creates a Remnant battlestation to this system</p>
+     * <p>Look in com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantThemeGenerator's
+     * addBattlestations() for vanilla implementation</p>
      *
-     * @param system      The system to modify
-     * @param focus       The focus
-     * @param orbitRadius How far it is located from center of system
+     * @param system    The system to modify
+     * @param isDamaged Is the Remnant station to create damaged?
+     * @return The newly-created station
      */
-    public void addAsteroidBelt(StarSystemAPI system, SectorEntityToken focus, float orbitRadius) {
-        // "Nemo's Band" Corvus asteroid belt
-        system.addAsteroidBelt(focus, Math.round(orbitRadius / 60), orbitRadius, 256f, Math.round(orbitRadius / 38f), Math.round(orbitRadius / 19f), Terrain.ASTEROID_BELT, null);
-        system.addRingBand(focus, "misc", "rings_dust0", 256f, 3, Color.white, 256f, orbitRadius - 60f, Math.round(orbitRadius / 18f), null, null);
-        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, 3, Color.white, 256f, orbitRadius + 60f, Math.round(orbitRadius / 19.5f), null, null);
+    public CampaignFleetAPI addRemnantStation(StarSystemAPI system, boolean isDamaged) {
+        CampaignFleetAPI station = FleetFactoryV3.createEmptyFleet("remnant", "battlestation", null);
+
+        FleetMemberAPI member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, isDamaged ? "remnant_station2_Damaged" : "remnant_station2_Standard");
+        station.getFleetData().addFleetMember(member);
+
+        station.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+        station.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
+        station.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
+        station.addTag(Tags.NEUTRINO_HIGH);
+
+        station.setStationMode(true);
+        RemnantThemeGenerator.addRemnantStationInteractionConfig(station);
+        system.addEntity(station);
+
+        station.clearAbilities();
+        station.addAbility("transponder");
+        station.getAbility("transponder").activate();
+        station.getDetectedRangeMod().modifyFlat("gen", 1000f);
+
+        station.setAI(null);
+
+        Random random = StarSystemGenerator.random;
+        PersonAPI commander = Misc.getAICoreOfficerPlugin("alpha_core").createPerson("alpha_core", "remnant", random);
+
+        station.setCommander(commander);
+        station.getFlagship().setCaptain(commander);
+
+        system.addTag(Tags.THEME_INTERESTING);
+        system.addTag(Tags.THEME_REMNANT);
+        system.addTag(Tags.THEME_REMNANT_SECONDARY);
+        system.addTag(Tags.THEME_UNSAFE);
+        if (isDamaged) {
+            station.getMemoryWithoutUpdate().set("$damagedStation", true);
+            station.setName(station.getName() + " (Damaged)");
+
+            system.addScript(new RemnantStationFleetManager(station, 1f, 0, 2 + random.nextInt(3), 25f, 6, 12));
+            system.addTag(Tags.THEME_REMNANT_SUPPRESSED);
+        } else {
+            RemnantOfficerGeneratorPlugin.integrateAndAdaptCoreForAIFleet(station.getFlagship());
+            RemnantOfficerGeneratorPlugin.addCommanderSkills(commander, station, null, 3, random);
+
+            system.addScript(new RemnantStationFleetManager(station, 1f, 0, 8 + random.nextInt(5), 15f, 8, 24));
+            system.addTag(Tags.THEME_REMNANT_RESURGENT);
+        }
+
+        member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
+
+        return station;
+    }
+
+    /**
+     * If applicable, adds the appropriate Remnant warning beacon to a system
+     *
+     * @param system The system to modify
+     */
+    public void addRemnantWarningBeacons(StarSystemAPI system) {
+        if (system.hasTag(Tags.THEME_REMNANT_RESURGENT))
+            RemnantThemeGenerator.addBeacon(system, RemnantThemeGenerator.RemnantSystemType.RESURGENT);
+        else if (system.hasTag(Tags.THEME_REMNANT_SUPPRESSED))
+            RemnantThemeGenerator.addBeacon(system, RemnantThemeGenerator.RemnantSystemType.SUPPRESSED);
+        else if (system.hasTag(Tags.THEME_REMNANT_DESTROYED))
+            RemnantThemeGenerator.addBeacon(system, RemnantThemeGenerator.RemnantSystemType.DESTROYED);
+    }
+
+    /**
+     * Adds an asteroid belt around a focus
+     * <p>Look in com.fs.starfarer.api.impl.campaign.procgen.AsteroidBeltGenPlugin's
+     * generate() for vanilla implementation</p>
+     *
+     * @param system         The system to modify
+     * @param focus          The focus
+     * @param orbitRadius    How far it is located from center of system
+     * @param name           Name of the asteroid belt
+     * @param size           Size of the asteroid belt
+     * @param innerBandIndex The inner belt texture to use
+     * @param outerBandIndex The outer belt texture to use
+     */
+    public void addAsteroidBelt(StarSystemAPI system, SectorEntityToken focus, float orbitRadius, String name, float size, int innerBandIndex, int outerBandIndex) {
+        Random randomSeed = StarSystemGenerator.random;
+        if (innerBandIndex < 0 || innerBandIndex > 3) innerBandIndex = 0;
+        if (outerBandIndex < 0 || outerBandIndex > 3) outerBandIndex = 0;
+        float orbitDays = orbitRadius / (15f + 5f * randomSeed.nextFloat());
+        int count = (int) (orbitDays * (0.25f + 0.5f * StarSystemGenerator.random.nextFloat()));
+        if (count > 100) count = (int) (100f + (count - 100f) * 0.25f);
+        if (count > 250) count = 250;
+        system.addAsteroidBelt(focus, count, orbitRadius, size, orbitDays * .75f, orbitDays * 1.5f, Terrain.ASTEROID_BELT, name);
+        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, innerBandIndex, Color.white, 256f, orbitRadius - size * 0.25f, orbitDays * 1.05f, null, null);
+        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, outerBandIndex, Color.white, 256f, orbitRadius + size * 0.25f, orbitDays, null, null);
     }
 
     /**
      * Adds an asteroid field around a focus
+     * <p>Look in com.fs.starfarer.api.impl.campaign.procgen.AsteroidFieldGenPlugin's
+     * generate() for vanilla implementation</p>
      *
-     * @param system      The system to modify
-     * @param focus       The focus
-     * @param orbitRadius How far it is located from center of system
-     * @param size        Size of the asteroid field
+     * @param system The system to modify
+     * @param name   Name of the asteroid field
+     * @param size   Size of the asteroid field
+     * @return The newly-created asteroid field
      */
-    public void addAsteroidField(StarSystemAPI system, SectorEntityToken focus, float orbitRadius, float size) {
-        // Barad L4/L5 asteroid fields
-        float minFieldSize = size - 100f;
-        float maxFieldSize = size + 100f;
-        system.addTerrain(Terrain.ASTEROID_FIELD, new AsteroidFieldTerrainPlugin.AsteroidFieldParams(minFieldSize, maxFieldSize, Math.round(minFieldSize) / 15, Math.round(maxFieldSize) / 15, 4f, 16f, null)).setCircularOrbit(focus, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + StarSystemGenerator.random.nextFloat() * 5f));
+    public SectorEntityToken addAsteroidField(StarSystemAPI system, String name, float size) {
+        int count = (int) (size * size * 3.14f / 80000f);
+        if (count < 10) count = 10;
+        if (count > 100) count = 100;
+        return system.addTerrain(Terrain.ASTEROID_FIELD, new AsteroidFieldTerrainPlugin.AsteroidFieldParams(size, size + 100f, count, count, 4f, 16f, name));
     }
 
     /**
      * Adds a ring band around a focus
+     * <p>Look in com.fs.starfarer.api.impl.campaign.procgen.RingGenPlugin's
+     * generate() for vanilla implementation</p>
      *
      * @param system      The system to modify
      * @param focus       The focus
      * @param orbitRadius How far it is located from center of system
+     * @param name        Name of the ring band
+     * @param bandIndex   The ring band texture to use
      */
-    public void addRingBand(StarSystemAPI system, SectorEntityToken focus, float orbitRadius) {
-        // Barad ring band
-        system.addRingBand(focus, "misc", "rings_ice0", 256f, 2, Color.white, 256f, orbitRadius, Math.round(orbitRadius / 23f), Terrain.RING, null);
+    public void addRingBand(StarSystemAPI system, SectorEntityToken focus, String type, float orbitRadius, String name, int bandIndex) {
+        if (type.equals("rings_special0") ? bandIndex != 1 : (bandIndex < 0 || bandIndex > 3)) bandIndex = 1;
+        system.addRingBand(focus, "misc", type, 256f, bandIndex, Color.white, 256f, orbitRadius, orbitRadius / (15f + 5f * StarSystemGenerator.random.nextFloat()), Terrain.RING, name);
     }
 
     /**
      * Adds a magnetic field around a focus
+     * <p>Look in com.fs.starfarer.api.impl.campaign.procgen.MagFieldGenPlugin's
+     * generate() for vanilla implementation</p>
      *
      * @param system      The system to modify
      * @param focus       The focus
+     * @param bandWidth   The width of the magnetic field band
      * @param orbitRadius How far away the magnetic field orbits from focus
      */
-    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, float orbitRadius) {
-        // Barad magnetic field
-        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(300f, orbitRadius + 200f, focus, orbitRadius + 50f, orbitRadius + 300f, new Color(50, 20, 100, 40), 0.5f, new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(focus, 0, 0, 100f);
+    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, float bandWidth, float orbitRadius) {
+        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(bandWidth, orbitRadius + bandWidth / 2f, focus, orbitRadius, orbitRadius + bandWidth, new Color(50, 20, 100, 40), 0.25f + 0.75f * StarSystemGenerator.random.nextFloat(), new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(focus, 0, 0, 100f);
     }
 
     /**
@@ -291,12 +406,12 @@ public class AdversaryUtil {
      * @param orbitRadius How far away the salvage entity orbits the focus
      * @return The newly-created salvage entity
      */
-    public SectorEntityToken addOrbitingSalvageEntity(StarSystemAPI system, String type, SectorEntityToken focus, float orbitRadius) {
+    public SectorEntityToken addOrbitingSalvageEntity(StarSystemAPI system, String type, String name, SectorEntityToken focus, float orbitRadius) {
         SalvageEntityGenDataSpec salvageData = (SalvageEntityGenDataSpec) Global.getSettings().getSpec(SalvageEntityGenDataSpec.class, type, true);
         if (salvageData == null) throw new RuntimeException("Salvage entity " + type + " not found!");
 
         Random randomSeed = StarSystemGenerator.random;
-        SectorEntityToken salvageEntity = system.addCustomEntity(null, null, type, null);
+        SectorEntityToken salvageEntity = system.addCustomEntity(null, name, type, null);
         salvageEntity.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
         salvageEntity.setSensorProfile(1f);
         salvageEntity.setDiscoverable(true);
@@ -327,8 +442,8 @@ public class AdversaryUtil {
      * @param factionId   Faction owning the system objective
      * @return The newly-created system objective
      */
-    public SectorEntityToken addObjective(StarSystemAPI system, String objectiveId, String factionId) {
-        SectorEntityToken objective = system.addCustomEntity(null, null, objectiveId, factionId);
+    public SectorEntityToken addObjective(StarSystemAPI system, String name, String objectiveId, String factionId) {
+        SectorEntityToken objective = system.addCustomEntity(null, name, objectiveId, factionId);
         if (factionId == null || factionId.equals("neutral"))
             objective.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
 

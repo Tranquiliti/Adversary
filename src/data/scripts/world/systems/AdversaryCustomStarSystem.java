@@ -58,5 +58,6 @@ public class AdversaryCustomStarSystem {
 
         util.setDefaultLightColorBasedOnStars(system, starsInSystem);
         util.generateHyperspace(system);
+        util.addRemnantWarningBeacons(system);
     }
 }

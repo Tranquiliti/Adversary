@@ -60,7 +60,7 @@ public class AdversaryOptimal {
             drop.chances = 1;
             drop.addCustom("item_coronal_portal", 1f);
             drop.addCustom("item_dealmaker_holosuite", 1f);
-            util.addOrbitingSalvageEntity(system, "supply_cache_small", system.getCenter(), fringeRadius + 7777f).addDropRandom(drop);
+            util.addOrbitingSalvageEntity(system, "supply_cache_small", "Suspicious Cache", system.getCenter(), fringeRadius + 7777f).addDropRandom(drop);
         } else {
             // Add relevant system tags for an uninhabited system
             system.removeTag(Tags.THEME_CORE);
@@ -71,5 +71,6 @@ public class AdversaryOptimal {
 
         util.setDefaultLightColorBasedOnStars(system, starsInSystem);
         util.generateHyperspace(system);
+        util.addRemnantWarningBeacons(system);
     }
 }
