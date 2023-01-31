@@ -325,10 +325,10 @@
         "job_name":"A terrible gamble",
         "job_description":"This one is less of an actual bounty and more of a farcical challenge. For some reason, a couple of League archons collectively decided it would be \"funny\" if they posted a bounty against the ==Adversary's greatest fleet commander==, knowing full well that no sane person would actually take up on the bounty, or at least live to tell the tale. The archons have bet ==a million credits== that no one could possibly take down the Adversary's grand fleet.\nWill they be proven wrong?",
         "job_comm_reply":"The Adversary fleet commander speaks with a confident, yet weary tone, \"Another one seeking to best the Adversary's best? You would do well disengaging right now; I've had enough dealing with more spilled blood.\"",
-        "job_intel_success":"Though you have dealt a major blow to the Adversary forces, it seems the League officials involved in the bet are annoyed that you actually did it. They'll probably make a futile attempt to slander your reputation with the Persean League at large, but at least they are willing to part with their million credits.",
+        "job_intel_success":"Although you have dealt a major blow to the Adversary forces, it seems the League officials involved in the bet are upset that you actually did it. They'll attempt to slander your reputation with the Persean League at large, but at least those shady archons have begrudgingly parted with their million credits.",
         "job_forFaction":"persean_league",
         "job_credit_reward":1000000,
-        "job_reputation_reward":-5, # Doesn't work LOL
+        "job_reputation_reward":-5,
         "job_type":"neutralization",
         "job_show_fleet":"all",
         "job_show_distance":"exact",
