@@ -11,6 +11,9 @@
 	"displayNameIsOrAre":"is",
 	"logo":"graphics/factions/adversary_flag.png",
 	"crest":"graphics/factions/adversary_crest.png",
+
+	"showInIntelTab":true,
+
 	"shipNamePrefix":"ADS",
 	"shipNameSources":{
 		"SPACE":1,
@@ -68,8 +71,8 @@
 			"graphics/portraits/portrait36.png",
 			"graphics/portraits/portrait38.png",
 			"graphics/portraits/portrait40.png",
-			"graphics/portraits/portrait43.png",	
-			"graphics/portraits/portrait44.png",	
+			"graphics/portraits/portrait43.png",
+			"graphics/portraits/portrait44.png",
 			"graphics/portraits/portrait_league01.png",
 			"graphics/portraits/portrait_league02.png",
 			"graphics/portraits/portrait_league03.png",
@@ -115,8 +118,8 @@
 			"graphics/portraits/portrait39.png",
 			"graphics/portraits/portrait41.png",
 			"graphics/portraits/portrait42.png",
-			"graphics/portraits/portrait45.png",	
-			"graphics/portraits/portrait46.png",	
+			"graphics/portraits/portrait45.png",
+			"graphics/portraits/portrait46.png",
 			"graphics/portraits/portrait_league00.png",
 			"graphics/portraits/portrait_league04.png",
 			"graphics/portraits/portrait_league05.png",
@@ -442,15 +445,15 @@
 		"warships":3,
 		"carriers":2,
 		"phaseShips":2,
-		
+
 		"officerQuality":3, # Gives most fast pickets and patrols one more commander skill
 		"shipQuality":2,
 		"numShips":2,
-		
+
 		"shipSize":5,
-		
+
 		"aggression":5,
-		
+
 		"combatFreighterProbability":0,                   # instead of some portion of the freighters in a fleet
 		"combatFreighterCombatUseFraction":1,             # as part of the normal combat lineup
 		"combatFreighterCombatUseFractionWhenPriority":1, # as part of normal combat lineup, when marked as priority ship

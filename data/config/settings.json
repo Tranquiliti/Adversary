@@ -1,6 +1,7 @@
 {
 	#-------------------------------------------------------------------------------#
 	# Open exampleSettings.json for a reference guide on making custom star systems #
+	# (It also includes some tips and warnings about making your own custom system) #
 	#------------------------------------------------------------------------------=#
 
 	# Allows the Adversary faction to change fleet doctrines every cycle
@@ -16,6 +17,8 @@
 
 	# System settings for the Optimal star system
 	"optimalStarSystem":{
+		"systemBackground":"background6.jpg",
+		"systemMusic":"music_diktat_market_hostile",
 		"stars":[
 			{	"type":"star_blue_giant",
 				"radius":1100,
@@ -48,7 +51,7 @@
 					"very_hot",
 				],
 				"entitiesAtStablePoints":[
-					{"type":"comm_relay","name":"Optimal Relay"},
+					{"type":"comm_relay","name":"Optimal Relay","factionId":"adversary"},
 					{"type":"inactive_gate","name":"Optimal Gate"},
 					{"type":"jump_point","name":"Inner System Jump-point"},
 				],
@@ -173,8 +176,8 @@
 				],
 				"entitiesAtStablePoints":[
 					{},
-					{"type":"nav_buoy","name":"Optimal Navigation Buoy"},
-					{"type":"sensor_array","name":"Optimal Listening Station"},
+					{"type":"nav_buoy","name":"Optimal Navigation Buoy","factionId":"adversary"},
+					{"type":"sensor_array","name":"Optimal Listening Station","factionId":"adversary"},
 				],
 				"marketSize":6,
 				"factionId":"adversary",
@@ -244,6 +247,7 @@
 		# An uninhabited star system with planets similar to the default Optimal system
 		{	"isEnabled":true,
 			"numberOfSystems":1,
+			"systemBackground":"background5.jpg",
 			"stars":[{"type":"random_star_giant"}],
 			#"starsOrbitRadius":2000,
 			"addCoronalHypershunt":false,

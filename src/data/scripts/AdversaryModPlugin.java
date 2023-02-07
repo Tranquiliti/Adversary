@@ -50,10 +50,12 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // Recent history has made them cold and hateful against almost everyone
         FactionAPI adversary = sector.getFaction("adversary");
-        for (FactionAPI faction : sector.getAllFactions()) adversary.setRelationship(faction.getId(), -100f);
+        if (adversary != null) { // Null check so determined people can properly remove the faction from the mod without errors
+            for (FactionAPI faction : sector.getAllFactions()) adversary.setRelationship(faction.getId(), -100f);
 
-        adversary.setRelationship("adversary", 100f);
-        adversary.setRelationship("neutral", 0f);
+            adversary.setRelationship("adversary", 100f);
+            adversary.setRelationship("neutral", 0f);
+        }
     }
 
     // Gives selected markets the admins they're supposed to have (can't do it before economy load)
@@ -74,9 +76,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Allow the Adversary to change fleet doctrine in-game if enabled
     @Override
     public void onNewGameAfterTimePass() {
-        if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) {
-            SectorAPI sector = Global.getSector();
+        SectorAPI sector = Global.getSector();
+        if (sector.getFaction("adversary") != null && Global.getSettings().getBoolean("enableAdversaryDoctrineChange"))
             sector.addScript(new AdversaryFactionDoctrineChanger(sector.getFaction("adversary").getDoctrine()));
-        }
     }
 }
