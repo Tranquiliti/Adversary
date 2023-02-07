@@ -47,8 +47,13 @@ public class AdversaryUtil {
     public final String DEFAULT_PLANET_TYPE = "barren";
     public HashMap<MarketAPI, String> marketsToOverrideAdmin; // Is updated in the addMarket private helper method
 
+    // List of proc-gen constellations, filled in during the first setLocation() call
+    private LinkedHashSet<Constellation> constellations;
+
     // List of all vanilla star giants
     private final String[] STAR_GIANT_TYPES = {"star_orange_giant", "star_red_giant", "star_red_supergiant", "star_blue_giant", "star_blue_supergiant"};
+
+    private final Vector2f CORE_WORLD_CENTER = new Vector2f(-6000, -6000);
 
     // Making a utility class instantiable just so I can modify admins properly D:
     public AdversaryUtil() {
@@ -937,16 +942,16 @@ public class AdversaryUtil {
      * @param isRandom         If true, set location to a random constellation; else, set location to the nearest constellation (to Core Worlds)
      */
     public void setLocation(StarSystemAPI system, float hyperspaceRadius, boolean isRandom) {
-        SectorAPI sector = Global.getSector();
-
         // Get all proc-gen constellations in Sector hyperspace
-        LinkedHashSet<Constellation> constellations = new LinkedHashSet<>();
-        for (StarSystemAPI sys : sector.getStarSystems())
-            if (sys.isInConstellation() && sys.isProcgen()) constellations.add(sys.getConstellation());
+        // Subsequent setLocation() calls should already have the full constellation list
+        if (constellations == null) {
+            constellations = new LinkedHashSet<>();
+            for (StarSystemAPI sys : Global.getSector().getStarSystems())
+                if (sys.isProcgen() && sys.isInConstellation()) constellations.add(sys.getConstellation());
+        }
 
         // If no constellations exist (for whatever reason), just set location to middle of Core Worlds
         // (you could consider them a special constellation?)
-        final Vector2f CORE_WORLD_CENTER = new Vector2f(-6000, -6000);
         if (constellations.isEmpty()) {
             system.getLocation().set(CORE_WORLD_CENTER);
             return;
@@ -1048,7 +1053,7 @@ public class AdversaryUtil {
         }
 
         // Generate system as part of the selected constellation
-        nearestSystems.add(system);
+        nearestSystems.add(system); // Selected constellation now contains the new system
         system.setConstellation(selectedConstellation);
         system.getLocation().set(newLoc);
     }

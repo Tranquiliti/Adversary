@@ -6,6 +6,9 @@
 # The units for "orbitRadius", "size", and other similar entries are in pixels (e.g. "size":100 means something is 100 pixels wide)
 # For reference, the Barad gas giant in the Corvus system has a size of 300 pixels
 
+# When testing custom star systems, it is recommended that you either have installed the Console Commands mod or have enabled "devMode" via starsector-core's settings.json to quickly test and debug any errors.
+# Any mistakes will likely cause a crash upon creating a new game or, even worse, crash your game upon visiting the affected star system or planet.
+
 {
 	# List of custom star systems to generate
 	"customStarSystems":[
@@ -20,6 +23,16 @@
 			# (Not available for the Optimal star system)
 			# Defaults to 1 if this entry is omitted
 			"numberOfSystems":1,
+
+			# Which background to use in this system
+			# System backgrounds are found in the starsector-core/graphics/backgrounds folder
+			# Uses default system background if this entry is omitted
+			"systemBackground":"background6.jpg",
+
+			# What music to play while in this star system
+			# A list of eligible music ids is found in starsector-core/data/config/sounds.json
+			# Uses default music if this entry is omitted
+			"systemMusic":"music_campaign",
 
 			# A list of stars to generate in the center of the system
 			# Having more than one star in this list will make stars orbit the system center (similar to a binary or trinary system)
@@ -634,10 +647,12 @@
 			],
 		},
 
-		# A Remnant-infested binary system (acutally, three of them)
+		# A Remnant-infested binary system (acutally, two of them)
 		{
 			"isEnabled":true,
-			"numberOfSystems":3,
+			"numberOfSystems":2,
+			"systemBackground":"background4.jpg",
+			"systemMusic":"music_campaign_alpha_site",
 			"stars":[
 				{"type":"star_yellow"},
 				{"type":"star_yellow"},
@@ -676,13 +691,14 @@
 				{"type":"remnant_station","orbitRadius":300,"focus":2,"isDamaged":true},
 				{"type":"remnant_station","orbitRadius":300,"focus":3,"isDamaged":true},
 				{"type":"remnant_station","orbitRadius":300,"focus":4,"isDamaged":true},
+				{"type":"alpha_site_weapons_cache","orbitRadius":11111},
 			],
 		},
 
 		# A test system that completely violates all known conventions of star systems
 		{
 			"isEnabled":false,
-			"numberOfSystems":3,
+			"numberOfSystems":1,
 			"stars":[
 				{"type":"star_red_supergiant"},
 				{"type":"star_blue_supergiant"},

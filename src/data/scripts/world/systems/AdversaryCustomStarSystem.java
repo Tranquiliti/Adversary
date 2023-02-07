@@ -3,6 +3,7 @@ package data.scripts.world.systems;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import data.scripts.AdversaryUtil;
@@ -59,5 +60,14 @@ public class AdversaryCustomStarSystem {
         util.setDefaultLightColorBasedOnStars(system, starsInSystem);
         util.generateHyperspace(system);
         util.addRemnantWarningBeacons(system);
+
+        // Set the appropriate background, if applicable
+        String background = (String) util.getJSONValue(systemOptions, 'S', "systemBackground", null);
+        if (background != null) system.setBackgroundTextureFilename("graphics/backgrounds/" + background);
+
+        // Set the appropriate system music, if applicable
+        String music = (String) util.getJSONValue(systemOptions, 'S', "systemMusic", null);
+        if (music != null)
+            system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, music);
     }
 }
