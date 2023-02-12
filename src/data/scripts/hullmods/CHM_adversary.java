@@ -11,7 +11,7 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 
 public class CHM_adversary extends BaseHullMod {
-    private static final float DEGRADE_REDUCTION_PERCENT = 50f;
+    private static final float DEGRADE_REDUCTION_PERCENT = 33f;
 
     @Override
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {

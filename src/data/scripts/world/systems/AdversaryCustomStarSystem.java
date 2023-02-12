@@ -15,13 +15,24 @@ import java.util.ArrayList;
 
 public class AdversaryCustomStarSystem {
     public void generate(AdversaryUtil util, SectorAPI sector, JSONObject systemOptions) throws JSONException {
-        // Create the system and set its location
-        StarSystemAPI system = sector.createStarSystem(util.getProcGenName("star", null));
+        // Create the star system with either name of the first star or a random proc-gen name.
+        JSONArray centerStars = systemOptions.getJSONArray("starsInSystemCenter");
+        if (centerStars.length() == 0)
+            throw new RuntimeException("Cannot create a system with no center stars! Custom star systems require at least one star in the \"starsInSystemCenter\" list!");
+        String systemName = (String) util.getJSONValue(centerStars.getJSONObject(0), 'S', "name", null);
+        if (systemName == null) systemName = util.getProcGenName("star", null);
+        StarSystemAPI system = sector.createStarSystem(systemName);
+
+        // Set location of star system
         float fringeRadius = (int) util.getJSONValue(systemOptions, 'I', "fringeJumpPointOrbitRadius", util.DEFAULT_FRINGE_ORBIT_RADIUS);
-        util.setLocation(system, (fringeRadius / 10f) + 100f, (boolean) util.getJSONValue(systemOptions, 'B', "enableRandomLocation", util.DEFAULT_DO_RANDOM_LOCATION));
+        JSONArray locationOverride = (JSONArray) util.getJSONValue(systemOptions, 'A', "setLocationOverride", null);
+        if (locationOverride == null) // Place star system in a constellation
+            util.setLocation(system, (fringeRadius / 10f) + 100f, (int) util.getJSONValue(systemOptions, 'I', "setLocation", util.DEFAULT_DO_RANDOM_LOCATION));
+        else // Place star system in an exact location
+            system.getLocation().set(locationOverride.getInt(0), locationOverride.getInt(1));
 
         // Generate the center stars
-        util.addStarsInCenter(system, systemOptions.getJSONArray("stars"), (int) util.getJSONValue(systemOptions, 'I', "starsOrbitRadius", util.DEFAULT_STARS_ORBIT_RADIUS));
+        util.addStarsInCenter(system, centerStars, (int) util.getJSONValue(systemOptions, 'I', "starsOrbitRadius", util.DEFAULT_STARS_ORBIT_RADIUS));
         ArrayList<PlanetAPI> starsInSystem = new ArrayList<>(system.getPlanets());
         int numOfCenterStars = starsInSystem.size();
 
@@ -29,9 +40,9 @@ public class AdversaryCustomStarSystem {
         util.addJumpPoint(system, "Fringe Jump-point").setCircularOrbit(system.getCenter(), StarSystemGenerator.random.nextFloat() * 360f, fringeRadius, fringeRadius / (15f + StarSystemGenerator.random.nextFloat() * 5f));
 
         // Create planets from JSON list
-        JSONArray planetList = (JSONArray) util.getJSONValue(systemOptions, 'A', "planets", null);
+        JSONArray planetList = (JSONArray) util.getJSONValue(systemOptions, 'A', "orbitingBodies", null);
         boolean hasFactionPresence = false;
-        for (int i = 0; i < planetList.length(); i++) {
+        if (planetList != null) for (int i = 0; i < planetList.length(); i++) {
             // Creates planet with appropriate characteristics
             PlanetAPI newPlanet = util.addPlanetWithOptions(system, numOfCenterStars, planetList.getJSONObject(i), i);
             if (!newPlanet.getFaction().getId().equals("neutral")) hasFactionPresence = true;
@@ -44,22 +55,19 @@ public class AdversaryCustomStarSystem {
             util.addOrbitingSystemFeature(system, numOfCenterStars, systemFeatures.getJSONObject(i));
 
         // Adds a coronal hypershunt if enabled
-        if ((boolean) util.getJSONValue(systemOptions, 'B', "addCoronalHypershunt", util.DEFAULT_ADD_HYPERSHUNT))
+        if ((boolean) util.getJSONValue(systemOptions, 'B', "addCoronalHypershunt", false))
             util.addHypershunt(system, !hasFactionPresence, true);
 
         // Adds a Domain-era cryosleeper if enabled
-        if ((boolean) util.getJSONValue(systemOptions, 'B', "addDomainCryosleeper", util.DEFAULT_ADD_CRYOSLEEPER))
+        if ((boolean) util.getJSONValue(systemOptions, 'B', "addDomainCryosleeper", false))
             util.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", fringeRadius + 4000f, !hasFactionPresence);
 
-        // Add relevant system tags
-        system.removeTag(Tags.THEME_CORE);
-        system.addTag(Tags.THEME_MISC);
-        system.addTag(Tags.THEME_INTERESTING_MINOR);
-        system.setProcgen(true);
-
-        util.setDefaultLightColorBasedOnStars(system, starsInSystem);
-        util.generateHyperspace(system);
-        util.addRemnantWarningBeacons(system);
+        // Add relevant system tags if applicable
+        if (!((boolean) util.getJSONValue(systemOptions, 'B', "isCoreWorldSystem", false))) {
+            system.removeTag(Tags.THEME_CORE);
+            system.addTag(Tags.THEME_MISC);
+            system.addTag(Tags.THEME_INTERESTING_MINOR);
+        }
 
         // Set the appropriate background, if applicable
         String background = (String) util.getJSONValue(systemOptions, 'S', "systemBackground", null);
@@ -67,7 +75,10 @@ public class AdversaryCustomStarSystem {
 
         // Set the appropriate system music, if applicable
         String music = (String) util.getJSONValue(systemOptions, 'S', "systemMusic", null);
-        if (music != null)
-            system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, music);
+        if (music != null) system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, music);
+
+        util.setDefaultLightColorBasedOnStars(system, starsInSystem);
+        util.generateHyperspace(system);
+        util.addRemnantWarningBeacons(system);
     }
 }

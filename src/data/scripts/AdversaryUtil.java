@@ -39,16 +39,15 @@ public class AdversaryUtil {
     public final int DEFAULT_MARKET_SIZE = 0;
     public final int DEFAULT_STARS_ORBIT_RADIUS = 2000;
     public final int DEFAULT_FRINGE_ORBIT_RADIUS = 10000;
-    public final boolean DEFAULT_ADD_HYPERSHUNT = false;
-    public final boolean DEFAULT_ADD_CRYOSLEEPER = false;
     public final boolean DEFAULT_DO_AI_CORE_ADMIN = false;
-    public final boolean DEFAULT_DO_RANDOM_LOCATION = true;
+    public final int DEFAULT_DO_RANDOM_LOCATION = -1; // For user's sake, exampleSettings.json uses 0 to specify random location
     public final String DEFAULT_STAR_TYPE = "star_red_dwarf";
     public final String DEFAULT_PLANET_TYPE = "barren";
     public HashMap<MarketAPI, String> marketsToOverrideAdmin; // Is updated in the addMarket private helper method
 
     // List of proc-gen constellations, filled in during the first setLocation() call
-    private LinkedHashSet<Constellation> constellations;
+    // Is an ArrayList to more easily get constellations by index
+    private ArrayList<Constellation> procGenConstellations;
 
     // List of all vanilla star giants
     private final String[] STAR_GIANT_TYPES = {"star_orange_giant", "star_red_giant", "star_red_supergiant", "star_blue_giant", "star_blue_supergiant"};
@@ -110,9 +109,10 @@ public class AdversaryUtil {
      * @throws JSONException If lagrangePoints is invalid
      */
     public void addToLagrangePoints(PlanetAPI planet, JSONArray lagrangePoints) throws JSONException {
-        addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(0), 3);
-        addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(1), 4);
-        addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(2), 5);
+        int length = lagrangePoints.length();
+        if (length >= 3) addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(2), 5);
+        if (length >= 2) addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(1), 4);
+        if (length >= 1) addSystemFeatureToLagrangePoint(planet, lagrangePoints.getJSONObject(0), 3);
     }
 
     // Adds a system feature to a specific lagrange point of a planet
@@ -325,11 +325,11 @@ public class AdversaryUtil {
      * @param focus          The focus
      * @param orbitRadius    How far it is located from center of system
      * @param name           Name of the asteroid belt
-     * @param size           Size of the asteroid belt
+     * @param width          Width of the asteroid belt
      * @param innerBandIndex The inner belt texture to use
      * @param outerBandIndex The outer belt texture to use
      */
-    public void addAsteroidBelt(StarSystemAPI system, SectorEntityToken focus, float orbitRadius, String name, float size, int innerBandIndex, int outerBandIndex) {
+    public void addAsteroidBelt(StarSystemAPI system, SectorEntityToken focus, float orbitRadius, String name, float width, int innerBandIndex, int outerBandIndex) {
         Random randomSeed = StarSystemGenerator.random;
         if (innerBandIndex < 0 || innerBandIndex > 3) innerBandIndex = 0;
         if (outerBandIndex < 0 || outerBandIndex > 3) outerBandIndex = 0;
@@ -337,9 +337,9 @@ public class AdversaryUtil {
         int count = (int) (orbitDays * (0.25f + 0.5f * StarSystemGenerator.random.nextFloat()));
         if (count > 100) count = (int) (100f + (count - 100f) * 0.25f);
         if (count > 250) count = 250;
-        system.addAsteroidBelt(focus, count, orbitRadius, size, orbitDays * .75f, orbitDays * 1.5f, Terrain.ASTEROID_BELT, name);
-        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, innerBandIndex, Color.white, 256f, orbitRadius - size * 0.25f, orbitDays * 1.05f, null, null);
-        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, outerBandIndex, Color.white, 256f, orbitRadius + size * 0.25f, orbitDays, null, null);
+        system.addAsteroidBelt(focus, count, orbitRadius, width, orbitDays * .75f, orbitDays * 1.5f, Terrain.ASTEROID_BELT, name);
+        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, innerBandIndex, Color.white, 256f, orbitRadius - width * 0.25f, orbitDays * 1.05f, null, null);
+        system.addRingBand(focus, "misc", "rings_asteroids0", 256f, outerBandIndex, Color.white, 256f, orbitRadius + width * 0.25f, orbitDays, null, null);
     }
 
     /**
@@ -349,14 +349,14 @@ public class AdversaryUtil {
      *
      * @param system The system to modify
      * @param name   Name of the asteroid field
-     * @param size   Size of the asteroid field
+     * @param radius Radius of the asteroid field
      * @return The newly-created asteroid field
      */
-    public SectorEntityToken addAsteroidField(StarSystemAPI system, String name, float size) {
-        int count = (int) (size * size * 3.14f / 80000f);
+    public SectorEntityToken addAsteroidField(StarSystemAPI system, String name, float radius) {
+        int count = (int) (radius * radius * 3.14f / 80000f);
         if (count < 10) count = 10;
         if (count > 100) count = 100;
-        return system.addTerrain(Terrain.ASTEROID_FIELD, new AsteroidFieldTerrainPlugin.AsteroidFieldParams(size, size + 100f, count, count, 4f, 16f, name));
+        return system.addTerrain(Terrain.ASTEROID_FIELD, new AsteroidFieldTerrainPlugin.AsteroidFieldParams(radius, radius + 100f, count, count, 4f, 16f, name));
     }
 
     /**
@@ -382,11 +382,11 @@ public class AdversaryUtil {
      *
      * @param system      The system to modify
      * @param focus       The focus
-     * @param bandWidth   The width of the magnetic field band
+     * @param width       Width of the magnetic field band
      * @param orbitRadius How far away the magnetic field orbits from focus
      */
-    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, float bandWidth, float orbitRadius) {
-        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(bandWidth, orbitRadius + bandWidth / 2f, focus, orbitRadius, orbitRadius + bandWidth, new Color(50, 20, 100, 40), 0.25f + 0.75f * StarSystemGenerator.random.nextFloat(), new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(focus, 0, 0, 100f);
+    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, float width, float orbitRadius) {
+        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(width, orbitRadius + width / 2f, focus, orbitRadius, orbitRadius + width, new Color(50, 20, 100, 40), 0.25f + 0.75f * StarSystemGenerator.random.nextFloat(), new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(focus, 0, 0, 100f);
     }
 
     /**
@@ -409,9 +409,8 @@ public class AdversaryUtil {
      * @param type        Type of salvage entity
      * @param focus       Entity to orbit around
      * @param orbitRadius How far away the salvage entity orbits the focus
-     * @return The newly-created salvage entity
      */
-    public SectorEntityToken addOrbitingSalvageEntity(StarSystemAPI system, String type, String name, SectorEntityToken focus, float orbitRadius) {
+    public void addOrbitingSalvageEntity(StarSystemAPI system, String type, String name, SectorEntityToken focus, float orbitRadius) {
         SalvageEntityGenDataSpec salvageData = (SalvageEntityGenDataSpec) Global.getSettings().getSpec(SalvageEntityGenDataSpec.class, type, true);
         if (salvageData == null) throw new RuntimeException("Salvage entity " + type + " not found!");
 
@@ -435,8 +434,6 @@ public class AdversaryUtil {
                 system.addTag(Tags.THEME_INTERESTING);
             }
         }
-
-        return salvageEntity;
     }
 
     /**
@@ -549,7 +546,7 @@ public class AdversaryUtil {
         if (numOfCenterStars == 1) { // Only one star to create
             JSONObject starOptions = starsList.getJSONObject(0);
             String starType = (String) getJSONValue(starOptions, 'S', "type", DEFAULT_STAR_TYPE);
-            system.setCenter(addStar(system, (String) getJSONValue(starOptions, 'S', "name", null), "system_" + id, starType, (int) getJSONValue(starOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(starOptions, 'I', "coronaSize", DEFAULT_SET_TO_PROC_GEN)));
+            system.setCenter(addStar(system, (String) getJSONValue(starOptions, 'S', "name", null), "system_" + id, starType, (int) getJSONValue(starOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(starOptions, 'I', "coronaRadius", DEFAULT_SET_TO_PROC_GEN)));
 
             // Adds an accretion disk if only one center black hole
             if (starType.equals("black_hole")) addAccretionDisk(system.getStar());
@@ -566,7 +563,7 @@ public class AdversaryUtil {
             float starsOrbitDays = starsOrbitRadius / ((60f / numOfCenterStars) + StarSystemGenerator.random.nextFloat() * 50f);
             for (int i = 0; i < numOfCenterStars; i++) {
                 JSONObject starOptions = starsList.getJSONObject(i);
-                PlanetAPI star = addStar(system, (String) getJSONValue(starOptions, 'S', "name", null), "system_" + id, (String) getJSONValue(starOptions, 'S', "type", DEFAULT_STAR_TYPE), (int) getJSONValue(starOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(starOptions, 'I', "coronaSize", DEFAULT_SET_TO_PROC_GEN));
+                PlanetAPI star = addStar(system, (String) getJSONValue(starOptions, 'S', "name", null), "system_" + id, (String) getJSONValue(starOptions, 'S', "type", DEFAULT_STAR_TYPE), (int) getJSONValue(starOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(starOptions, 'I', "coronaRadius", DEFAULT_SET_TO_PROC_GEN));
                 if (i != 0) {
                     star.setId(star.getId() + "_" + starChar);
                     starChar++;
@@ -592,14 +589,16 @@ public class AdversaryUtil {
      * @param system           The system to modify
      * @param numOfCenterStars Number of stars in center of system
      * @param planetOptions    JSONObject representing planet or star options
-     * @param i                Index of this planet or star
+     * @param index            Index of this planet or star
      * @return The newly-created planet or star
      * @throws JSONException if planetOptions is invalid
      */
-    public PlanetAPI addPlanetWithOptions(StarSystemAPI system, int numOfCenterStars, JSONObject planetOptions, int i) throws JSONException {
+    public PlanetAPI addPlanetWithOptions(StarSystemAPI system, int numOfCenterStars, JSONObject planetOptions, int index) throws JSONException {
         // Creates planet with appropriate characteristics
         int indexFocus = (int) getJSONValue(planetOptions, 'I', "focus", DEFAULT_FOCUS);
-        PlanetAPI newPlanet = addPlanet(system, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), i, planetOptions);
+        if (numOfCenterStars + indexFocus > system.getPlanets().size())
+            throw new RuntimeException("Invalid \"focus\" index in " + system.getBaseName() + "'s \"orbitingBodies\" entry #" + (index + 1));
+        PlanetAPI newPlanet = addPlanet(system, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), index, planetOptions);
 
         if (newPlanet.isStar()) { // New "planet" is an orbiting star
             if (system.getSecondary() == null) { // Second star, orbiting far
@@ -625,15 +624,15 @@ public class AdversaryUtil {
     /**
      * Adds a star in a system; initializes system's star if one does not already exist
      *
-     * @param system     The system to modify
-     * @param name       Star name; is not used if creating system's first star
-     * @param id         Star id
-     * @param starType   Star type
-     * @param radius     Radius of the star
-     * @param coronaSize Size of the star's corona
+     * @param system       The system to modify
+     * @param name         Star name; is not used if creating system's first star
+     * @param id           Star id
+     * @param starType     Star type
+     * @param radius       Radius of the star
+     * @param coronaRadius Size of the star's corona
      * @return The newly-created star
      */
-    public PlanetAPI addStar(StarSystemAPI system, String name, String id, String starType, float radius, float coronaSize) {
+    public PlanetAPI addStar(StarSystemAPI system, String name, String id, String starType, float radius, float coronaRadius) {
         if (starType.equals("random_star_giant"))
             starType = STAR_GIANT_TYPES[StarSystemGenerator.random.nextInt(STAR_GIANT_TYPES.length)];
 
@@ -643,19 +642,18 @@ public class AdversaryUtil {
         // Set default random radius and corona size if applicable
         if (radius <= 0)
             radius = starData.getMinRadius() + (starData.getMaxRadius() - starData.getMinRadius()) * StarSystemGenerator.random.nextFloat();
-        if (coronaSize <= 0)
-            coronaSize = Math.max(starData.getCoronaMin(), radius * (starData.getCoronaMult() + starData.getCoronaVar() * (StarSystemGenerator.random.nextFloat() - 0.5f)));
+        if (coronaRadius <= 0)
+            coronaRadius = Math.max(starData.getCoronaMin(), radius * (starData.getCoronaMult() + starData.getCoronaVar() * (StarSystemGenerator.random.nextFloat() - 0.5f)));
         float flare = starData.getMinFlare() + (starData.getMaxFlare() - starData.getMinFlare()) * StarSystemGenerator.random.nextFloat();
 
         PlanetAPI star;
         if (system.getStar() == null) { // First star in system, so initialize system star
-            star = system.initStar(id, starType, radius, coronaSize, starData.getSolarWind(), flare, starData.getCrLossMult());
-            if (name != null) setSystemName(system, name); // Note that the previous system name is still marked as used
-            system.setType(StarSystemGenerator.StarSystemType.SINGLE);
+            // Note: Guaranteed to be called during addStarsInCenter()
+            star = system.initStar(id, starType, radius, coronaRadius, starData.getSolarWind(), flare, starData.getCrLossMult());
         } else { // Add another star in the system; will have to set appropriate system type elsewhere depending if it will be on center or orbiting the center
             if (name == null) name = getProcGenName("star", system.getBaseName());
             star = system.addPlanet(id, null, name, starType, 0f, radius, 10000f, 1000f);
-            system.addCorona(star, coronaSize, starData.getSolarWind(), flare, starData.getCrLossMult());
+            system.addCorona(star, coronaRadius, starData.getSolarWind(), flare, starData.getCrLossMult());
         }
 
         // Add special star hazards if applicable
@@ -665,22 +663,10 @@ public class AdversaryUtil {
 
             String coronaType = starType.equals("black_hole") ? "event_horizon" : "pulsar_beam";
             if (coronaType.equals("pulsar_beam")) system.addCorona(star, 300, 3, 0, 3);
-            system.addTerrain(coronaType, new StarCoronaTerrainPlugin.CoronaParams(star.getRadius() + coronaSize, (star.getRadius() + coronaSize) / 2f, star, starData.getSolarWind(), flare, starData.getCrLossMult())).setCircularOrbit(star, 0, 0, 100);
+            system.addTerrain(coronaType, new StarCoronaTerrainPlugin.CoronaParams(star.getRadius() + coronaRadius, (star.getRadius() + coronaRadius) / 2f, star, starData.getSolarWind(), flare, starData.getCrLossMult())).setCircularOrbit(star, 0, 0, 100);
         }
 
         return star;
-    }
-
-    /**
-     * Sets the system name
-     *
-     * @param system The system to modify
-     * @param name   The new name to give
-     */
-    public void setSystemName(StarSystemAPI system, String name) {
-        system.getStar().setName(name);
-        system.setBaseName(name);
-        system.getMemoryWithoutUpdate().set("$locationId", name.toLowerCase());
     }
 
     /**
@@ -703,7 +689,7 @@ public class AdversaryUtil {
         PlanetGenDataSpec planetData = (PlanetGenDataSpec) Global.getSettings().getSpec(PlanetGenDataSpec.class, planetType, true);
 
         if (planetData == null) { // Not a planet, so try to generate it as a star
-            newPlanet = addStar(system, (String) getJSONValue(planetOptions, 'S', "name", null), systemId + ":star_" + id, planetType, (int) getJSONValue(planetOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(planetOptions, 'I', "coronaSize", DEFAULT_SET_TO_PROC_GEN));
+            newPlanet = addStar(system, (String) getJSONValue(planetOptions, 'S', "name", null), systemId + ":star_" + id, planetType, (int) getJSONValue(planetOptions, 'I', "radius", DEFAULT_SET_TO_PROC_GEN), (int) getJSONValue(planetOptions, 'I', "coronaRadius", DEFAULT_SET_TO_PROC_GEN));
             newPlanet.setCircularOrbit(focus, randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (20f + randomSeed.nextFloat() * 5f));
         } else {
             // Set default radius if applicable
@@ -730,7 +716,11 @@ public class AdversaryUtil {
         MarketAPI planetMarket = planet.getMarket();
         JSONArray conditions = (JSONArray) getJSONValue(planetOptions, 'A', "conditions", null);
         if (conditions != null) for (int i = 0; i < conditions.length(); i++)
-            planetMarket.addCondition(conditions.getString(i));
+            try {
+                planetMarket.addCondition(conditions.getString(i));
+            } catch (Exception e) {
+                throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for \"" + planet.getTypeId() + "\" planet with orbit radius " + Math.round(planet.getCircularOrbitRadius()));
+            }
     }
 
     // Adds a populated market with specified options
@@ -744,23 +734,35 @@ public class AdversaryUtil {
         planetMarket.getTariff().setBaseValue(0.3f); // Default tariff value
         planetMarket.setFreePort((boolean) getJSONValue(planetOptions, 'B', "freePort", false));
 
-        // TODO: fix conditions not being set to proc-gen when "conditions" is omitted for a market planet
         planetMarket.addCondition("population_" + size);
         JSONArray conditions = (JSONArray) getJSONValue(planetOptions, 'A', "conditions", null);
-        if (conditions != null) for (int i = 0; i < conditions.length(); i++)
-            planetMarket.addCondition(conditions.getString(i));
+        if (conditions != null) {
+            for (int i = 0; i < conditions.length(); i++) {
+                try {
+                    planetMarket.addCondition(conditions.getString(i));
+                } catch (Exception e) {
+                    throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
+                }
+            }
+        }
 
         JSONArray industries = (JSONArray) getJSONValue(planetOptions, 'A', "industries", null);
-        if (industries != null) for (int i = 0; i < industries.length(); i++)
-            planetMarket.addIndustry(industries.getString(i));
-        else { // Just give market the bare minimum colony
+        if (industries != null) {
+            for (int i = 0; i < industries.length(); i++) {
+                try {
+                    planetMarket.addIndustry(industries.getString(i));
+                } catch (Exception e) {
+                    throw new RuntimeException("Error attempting to add industry \"" + industries.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
+                }
+            }
+        } else { // Just give market the bare minimum colony
             planetMarket.addIndustry("population");
             planetMarket.addIndustry("spaceport");
         }
 
         JSONObject specials = (JSONObject) getJSONValue(planetOptions, 'O', "specials", null);
         if (specials != null) {
-            Iterator<String> specialIterator = specials.keys();
+            @SuppressWarnings("unchecked") Iterator<String> specialIterator = specials.keys();
             while (specialIterator.hasNext()) {
                 String industryId = specialIterator.next();
                 Industry thisIndustry = planetMarket.getIndustry(industryId);
@@ -780,8 +782,6 @@ public class AdversaryUtil {
         // Add the appropriate submarkets
         planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
         if (factionId.equals("player")) {
-            // TODO: fix faction not being properly set until colonizing another planet
-            // (Nex automatically fixes this issue by raising up the faction creation screen immediately)
             planetMarket.setPlayerOwned(true);
             planetMarket.addSubmarket(Submarkets.LOCAL_RESOURCES);
             ((StoragePlugin) planetMarket.getSubmarket(Submarkets.SUBMARKET_STORAGE).getPlugin()).setPlayerPaidToUnlock(true);
@@ -934,57 +934,49 @@ public class AdversaryUtil {
     }
 
     /**
-     * Set a star system's location to near the middle of a constellation
+     * Set a star system's location to near the middle of a specified constellation
      * <p>Modified from the constellation proc-gen code originally made by Audax.</p>
      *
      * @param system           Star system to relocate
      * @param hyperspaceRadius Radius of star system in hyperspace
-     * @param isRandom         If true, set location to a random constellation; else, set location to the nearest constellation (to Core Worlds)
+     * @param index            Index of constellation to set as location; if index <= 0, set system location to a random constellation.
      */
-    public void setLocation(StarSystemAPI system, float hyperspaceRadius, boolean isRandom) {
-        // Get all proc-gen constellations in Sector hyperspace
+    public void setLocation(StarSystemAPI system, float hyperspaceRadius, int index) {
+        // Get all proc-gen constellations in Sector hyperspace, sorted by proximty to the Core Worlds
         // Subsequent setLocation() calls should already have the full constellation list
-        if (constellations == null) {
-            constellations = new LinkedHashSet<>();
+        if (procGenConstellations == null) {
+            // TreeSet orders the constellations by distance to Core Worlds, while also avoiding duplicates
+            TreeSet<Constellation> sortedSet = new TreeSet<>(new Comparator<Constellation>() {
+                public int compare(Constellation c1, Constellation c2) {
+                    if (c1 == c2) return 0;
+                    return Float.compare(Misc.getDistance(CORE_WORLD_CENTER, c1.getLocation()), Misc.getDistance(CORE_WORLD_CENTER, c2.getLocation()));
+                }
+            });
             for (StarSystemAPI sys : Global.getSector().getStarSystems())
-                if (sys.isProcgen() && sys.isInConstellation()) constellations.add(sys.getConstellation());
+                if (sys.isProcgen() && sys.isInConstellation()) sortedSet.add(sys.getConstellation());
+
+            // Make new ArrayList to copy and store the ordered set of proc-gen constellations
+            procGenConstellations = new ArrayList<>(sortedSet);
         }
 
         // If no constellations exist (for whatever reason), just set location to middle of Core Worlds
         // (you could consider them a special constellation?)
-        if (constellations.isEmpty()) {
+        if (procGenConstellations.isEmpty()) {
             system.getLocation().set(CORE_WORLD_CENTER);
             return;
         }
 
         // Select the constellation
-        Constellation selectedConstellation = null;
+        Constellation selectedConstellation;
         Random randomSeed = StarSystemGenerator.random;
-        if (isRandom) { // Set location to a random constellation
-            int currentIndex = 0;
-            int indexToStop = randomSeed.nextInt(constellations.size());
-            for (Constellation thisConst : constellations) {
-                if (currentIndex == indexToStop) {
-                    selectedConstellation = thisConst;
-                    break;
-                }
-                currentIndex++;
-            }
-        } else { // Set location to the constellation closest to Core Worlds
-            float minDistance = Float.MAX_VALUE;
-            for (Constellation thisConst : constellations) {
-                float distance = Misc.getDistance(CORE_WORLD_CENTER, thisConst.getLocation());
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    selectedConstellation = thisConst;
-                }
-            }
-        }
+        if (index <= 0) // Set location to a random constellation
+            selectedConstellation = procGenConstellations.get(randomSeed.nextInt(procGenConstellations.size()));
+        else // Set location to a specified constellation
+            selectedConstellation = procGenConstellations.get(Math.min(index, procGenConstellations.size()) - 1);
 
         // Get centroid point of the selected constellation
         float centroidX = 0;
         float centroidY = 0;
-        assert selectedConstellation != null; // Should never be null due to previous checks, but who knows?
         List<StarSystemAPI> nearestSystems = selectedConstellation.getSystems();
         for (StarSystemAPI sys : nearestSystems) {
             Vector2f loc = sys.getHyperspaceAnchor().getLocationInHyperspace();
