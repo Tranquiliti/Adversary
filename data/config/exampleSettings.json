@@ -9,20 +9,51 @@
 # When testing custom star systems, it is recommended that you either have installed the Console Commands mod or have enabled "devMode" via starsector-core's settings.json to quickly test and debug any errors.
 # Any mistakes will likely cause a crash upon creating a new game or, even worse, crash your game upon visiting the affected star system or planet.
 
+# Examples of custom star systems are found in the bottom of this guide.
+
 {
 	# List of custom star systems to generate
 	"customStarSystems":[
 		# An example star system, with all available options explained in comments
 		{
 			# True -> this system will spawn in the Sector
-			# (Not available for the Optimal star system)
 			# Defaults to true if this entry is omitted
 			"isEnabled":true,
 
 			# How many instances of this system exist in the Sector?
-			# (Not available for the Optimal star system)
 			# Defaults to 1 if this entry is omitted
 			"numberOfSystems":1,
+
+			# True -> Tags this system as a Core World system
+			# Defaults to false if this entry is omitted
+			"isCoreWorldSystem":false,
+
+			# True -> Adds an unactivated coronal hypershunt in the center of the system
+			# Defaults to false if this entry is omitted
+			"addCoronalHypershunt":false,
+
+			# True -> Adds an undisturbed cryosleeper in the outer reaches of the system
+			# Defaults to false if this entry is omitted
+			"addDomainCryosleeper":false,
+
+			# Which constellation to place this system
+			# 0 -> a random constellation
+			# 1 -> 1st closest constellation to Core Worlds
+			# 2 -> 2nd closest constellation to Core Worlds
+			# ...
+			# Use a very large number to set system location to furthest constellation
+			# Defaults to 0 if this entry is omitted
+			"setLocation":0,
+
+			# The coordinate location of this system, overriding the "setLocation" entry
+			# WARNING: Location may overlap with existing Core World systems and/or proc-gen systems
+			# Defaults to "setLocation" entry if this entry is omitted
+			"setLocationOverride":[-6000, -6000],
+
+			# How far away the system's fringe point orbits the system center.
+			# Also determines the area around this system where hyperspace clouds cannot spawn
+			# Defaults to 10000 if this entry is omitted
+			"fringeJumpPointOrbitRadius":10000,
 
 			# Which background to use in this system
 			# System backgrounds are found in the starsector-core/graphics/backgrounds folder
@@ -35,8 +66,9 @@
 			"systemMusic":"music_campaign",
 
 			# A list of stars to generate in the center of the system
-			# Having more than one star in this list will make stars orbit the system center (similar to a binary or trinary system)
-			"stars":[
+			# *REQUIRED* option, as custom star systems must have at least 1 center star to function
+			# Having more than one star in this list will make stars orbit the system center (like a binary or trinary system)
+			"starsInSystemCenter":[
 				{
 					# Star ids are found in starsector-core/data/campaign/procgen/star_gen_data.csv
 					# "random_star_giant" chooses a random vanilla star giant
@@ -55,39 +87,21 @@
 
 					# Size of this star's corona
 					# Defaults to proc-gen settings if this entry is omitted or set to 0
-					"coronaSize":0,
+					"coronaRadius":0,
 				},
 
-				# More stars can be added to the "stars" list using the above format
+				# More stars can be added to the "starsInSystemCenter" list using the above format
 
 			],
 
-			# If there is at least 2 stars in the "stars" list:
+			# If there is at least 2 stars in the "starsInSystemCenter" list:
 			# How far away the stars orbit the system center.
 			# Defaults to 2000 if this entry is omitted or set to 0
 			"starsOrbitRadius":2000,
 
-			# True -> Adds an unactivated coronal hypershunt in the center of the system
-			# Defaults to false if this entry is omitted
-			"addCoronalHypershunt":false,
-
-			# True -> Adds an undisturbed cryosleeper in the outer reaches of the system
-			# Defaults to false if this entry is omitted
-			"addDomainCryosleeper":false,
-
-			# True -> this system spawns in a random constellation
-			# False -> this system spawns in a constellation closest to the Core Worlds
-			# Defaults to true if this entry is omitted
-			"enableRandomLocation":true,
-
-			# How far away the system's fringe point orbits the system center.
-			# Also determines the area around this system where hyperspace clouds cannot spawn
-			# Defaults to 10000 if this entry is omitted
-			"fringeJumpPointOrbitRadius":9200,
-
 			# A list of planets or additional stars in this system
-			"planets":[
-				# An example PLANET orbiting the system center
+			"orbitingBodies":[
+				# An example planet orbiting the system center
 				{
 					# Planet ids are found in starsector-core/data/campaign/procgen/planet_gen_data.csv
 					# Defaults to "barren" if this entry is omitted
@@ -99,9 +113,11 @@
 					
 					# Indicates the entity this planet will orbit
 					# 0 -> this planet orbits system center
-					# 1 -> this planet orbits 1st entity in the "planets" list
-					# 2 -> this planet orbits 2nd entity in the "planets" list
+					# 1 -> this planet orbits 1st entity in the "orbitingBodies" list
+					# 2 -> this planet orbits 2nd entity in the "orbitingBodies" list
 					# ...
+					# A planet cannot have a focus index equal or greater than its own position in the "orbitingBodies" list
+					# (E.g. 1st planet must have "focus" = 0, 2nd planet must have "focus" < 2, 3rd planet must have "focus" < 3, and so on)
 					# Defaults to 0 if this entry is omitted
 					"focus":0,
 
@@ -172,7 +188,7 @@
 					],
 
 					# Entities stationed on this planet's L3, L4, or L5 stable points
-					# (A full list of eligible entities is found on the 2nd entry in the "planets" list)
+					# (A full list of eligible entities is found on the 2nd entry in the "orbitingBodies" list)
 					# Defaults to no entities if this entry is omitted
 					"entitiesAtStablePoints":[
 						{"type":"comm_relay"}, # Entity on L3 point
@@ -248,7 +264,7 @@
 					# Defaults to no installed items if this entry is omitted
 					"specials":{
 						#"heavyindustry":["corrupted_nanoforge",""],
-						"heavyindustry":["pristine_nanoforge","gamma_core"],
+						"orbitalworks":["pristine_nanoforge","gamma_core"],
 						"fuelprod":["synchrotron","beta_core"],
 						"population":["orbital_fusion_lamp","alpha_core"],
 						#"population":["coronal_portal",""],
@@ -264,7 +280,7 @@
 					},
 				},
 
-				# An example STAR orbiting the first planet
+				# An example star orbiting the 1st orbiting body
 				{
 					# Star ids are found in starsector-core/data/campaign/procgen/star_gen_data.csv
 					# "random_star_giant" chooses a random vanilla star giant
@@ -278,14 +294,15 @@
 
 					# Indicates the entity this star will orbit
 					# 0 -> this star orbits system center
-					# 1 -> this star orbits 1st entity in the "planets" list
-					# 2 -> this star orbits 2nd entity in the "planets" list
+					# 1 -> this star orbits 1st entity in the "orbitingBodies" list
+					# 2 -> this star orbits 2nd entity in the "orbitingBodies" list
 					# ...
+					# A star cannot have a focus index equal or greater than its own position in the "orbitingBodies" list
+					# (E.g. 1st star must have "focus" = 0, 2nd star must have "focus" < 2, 3rd star must have "focus" < 3, and so on)
 					# Defaults to 0 if this entry is omitted
 					"focus":1,
 
 					# Name of this star
-					# Does not affect the first star in the "stars" list
 					# Defaults to a random proc-gen name if this entry is omitted
 					"name":"Placeholder Star",
 
@@ -295,7 +312,7 @@
 
 					# Size of this star's corona
 					# Defaults to proc-gen settings if this entry is omitted or set to 0
-					"coronaSize":0,
+					"coronaRadius":0,
 
 					# List of eligible entities that can be placed in "entitiesAtStablePoints"
 					"entitiesAtStablePoints":[
@@ -375,7 +392,7 @@
 					],
 				},
 
-				# More planets or orbiting stars can be added in the "planets" list using the above formats
+				# More planets or stars can be added in the "orbitingBodies" list using the above formats
 
 			],
 
@@ -505,8 +522,8 @@
 
 					# Indicates the entity this station will orbit
 					# 0 -> orbits system center
-					# 1 -> orbits 1st entity in the "planets" list
-					# 2 -> orbits 2nd entity in the "planets" list
+					# 1 -> orbits 1st entity in the "orbitingBodies" list
+					# 2 -> orbits 2nd entity in the "orbitingBodies" list
 					# ...
 					# Defaults to 0 if this entry is omitted
 					"focus":0,
@@ -530,7 +547,7 @@
 
 					#-------------------------------------------------------------#
 					# Station entries below require "marketSize" to be at least 1 #
-					# Refer to the 1st entry in "planets" list for option details #
+					# Refer to the 1st entry in "orbitingBodies" list for details #
 					#-------------------------------------------------------------#
 					"freePort":true,
 					"aiCoreAdmin":true,
@@ -559,109 +576,246 @@
 		#-----------------------------------#
 		# Feel free to copy and paste these examples inside the "customStarSystems" entry of your settings.json
 
-		# A trinary system, occupied by faction outposts
-		{
-			"stars":[
-				{"type":"star_blue_giant","name":"Fulzar"},
-				{"type":"star_yellow"},
-			],
-			"planets":[
-				{
-					"type":"gas_giant",
-					"orbitRadius":4500,
-					"entitiesAtStablePoints":[
-						{"type":"stable_location"},
-						{"type":"jump_point","name":"Inner System Jump-point"},
-						{"type":"stable_location"},
-					]
+		{ # A tiny, bare-minimum star system with one default star and one default planet
+			"fringeJumpPointOrbitRadius":3000,
+			"starsInSystemCenter":[{}],
+			"orbitingBodies":[{"orbitRadius":2000}],
+		},
+
+		{ # Optimal Star System (as a backup)
+			"isEnabled":true, # Change to false if you don't want this system to spawn
+			"isCoreWorldSystem":true,
+			"addCoronalHypershunt":false,
+			"addDomainCryosleeper":false,
+			"setLocation":1, # 1st closest constellation to Core Worlds
+			"fringeJumpPointOrbitRadius":9000,
+			"systemBackground":"background6.jpg",
+			"systemMusic":"music_diktat_market_hostile",
+			"starsInSystemCenter":[
+				{	"name":"Optimal",
+					"type":"star_blue_giant",
+					"radius":1100,
+					"coronaRadius":500,
 				},
-				{
-					"type":"terran",
-					"orbitRadius":5750,
-					"name":"Aureus Outpost",
-					"conditions":[
-						"habitable",
-						"farmland_bountiful",
-						"organics_common",
-					],
-					"entitiesAtStablePoints":[
-						{ # Entity at L3
-							"type":"station",
-							"name":"Abandoned Side Station"
-						},
-						{"type":"comm_relay_makeshift"}, # No entity at L4
-						{}, # No entity at L5
-					],
-					"marketSize":3,
-					"factionId":"hegemony",
+				{	"name":"Zenith",
+					"type":"star_yellow",
+					"radius":800,
+					"coronaRadius":400,
 				},
-				{
-					"type":"toxic",
-					"orbitRadius":7000,
-				},
-				{
+				{	"name":"Pinnacle",
 					"type":"star_orange",
-					"orbitRadius":9000,
 					"radius":650,
-					"coronaSize":400,
+					"coronaRadius":400,
 				},
-				{
-					"type":"barren",
-					"orbitRadius":1600,
-					"focus":4, # orbits orange star
+			],
+			"starsOrbitRadius":1600,
+			"orbitingBodies":[
+				{	"type":"gas_giant",
+					"orbitRadius":4750,
+					"radius":250,
+					"conditions":[
+						"volatiles_plentiful",
+						"high_gravity",
+						"very_hot",
+					],
+					"entitiesAtStablePoints":[
+						{"type":"comm_relay","name":"Optimal Relay","factionId":"adversary"},
+						{"type":"inactive_gate","name":"Optimal Gate"},
+						{"type":"jump_point","name":"Inner System Jump-point"},
+					],
+					"marketSize":6,
+					"factionId":"adversary",
+					"aiCoreAdmin":true,
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+						"mining",
+						"refining",
+						"lightindustry",
+					],
+					"specials":{
+						# Make sure the ids are spelled correctly, or else your game WILL crash upon visiting this planet's market
+						"population":["","gamma_core"],
+						"megaport":["","alpha_core"],
+						"waystation":["","gamma_core"],
+						"heavybatteries":["drone_replicator","alpha_core"],
+						"highcommand":["cryoarithmetic_engine","alpha_core"],
+						"starfortress":["","alpha_core"],
+						"mining":["plasma_dynamo","gamma_core"],
+						"refining":["","gamma_core"],
+						"lightindustry":["","gamma_core"],
+					},
+				},
+				{	"type":"toxic",
+					"orbitRadius":700,
+					"focus":1,
+					"radius":100,
+					"conditions":[
+						"rare_ore_ultrarich",
+						"ore_ultrarich",
+						"volatiles_plentiful",
+						"organics_plentiful",
+						"toxic_atmosphere",
+						"tectonic_activity",
+					],
+					"marketSize":6,
+					"factionId":"adversary",
+					"aiCoreAdmin":true,
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress_mid",
+						"mining",
+						"refining",
+						"lightindustry",
+					],
+					"specials":{
+						"population":["","gamma_core"],
+						"megaport":["fullerene_spool","alpha_core"],
+						"waystation":["","gamma_core"],
+						"heavybatteries":["","gamma_core"],
+						"highcommand":["","alpha_core"],
+						"starfortress_mid":["","alpha_core"],
+						"mining":["mantle_bore","gamma_core"],
+						"refining":["","gamma_core"],
+						"lightindustry":["","gamma_core"],
+					},
+				},
+				{	"type":"barren-bombarded",
+					"orbitRadius":1170,
+					"focus":1,
+					"radius":90,
+					"conditions":[
+						"rare_ore_moderate",
+						"ore_ultrarich",
+						"volatiles_trace",
+						"no_atmosphere"
+					],
+					"marketSize":6,
+					"factionId":"adversary",
+					"aiCoreAdmin":true,
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"planetaryshield",
+						"highcommand",
+						"starfortress_high",
+						"orbitalworks",
+						"refining",
+						"fuelprod",
+					],
+					"specials":{
+						"population":["","alpha_core"],
+						"megaport":["fullerene_spool","alpha_core"],
+						"waystation":["","gamma_core"],
+						"heavybatteries":["drone_replicator","alpha_core"],
+						"planetaryshield":["","alpha_core"],
+						"highcommand":["","alpha_core"],
+						"starfortress_high":["","alpha_core"],
+						"orbitalworks":["pristine_nanoforge","gamma_core"],
+						"refining":["catalytic_core","gamma_core"],
+						"fuelprod":["synchrotron","gamma_core"],
+					},
+				},
+				{	"type":"terran",
+					"orbitRadius":6700,
+					"radius":130,
+					"conditions":[
+						"ruins_vast",
+						"farmland_bountiful",
+						"ore_ultrarich",
+						"organics_plentiful",
+						"mild_climate",
+						"habitable",
+						"solar_array",
+					],
+					"entitiesAtStablePoints":[
+						{},
+						{"type":"nav_buoy","name":"Optimal Navigation Buoy","factionId":"adversary"},
+						{"type":"sensor_array","name":"Optimal Listening Station","factionId":"adversary"},
+					],
+					"marketSize":6,
+					"factionId":"adversary",
+					"aiCoreAdmin":true,
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+						"farming",
+						"lightindustry",
+						"techmining",
+					],
+					"specials":{
+						"population":["orbital_fusion_lamp","gamma_core"],
+						"megaport":["fullerene_spool","alpha_core"],
+						"waystation":["","gamma_core"],
+						"heavybatteries":["","alpha_core"],
+						"highcommand":["","alpha_core"],
+						"starfortress":["","alpha_core"],
+						"farming":["soil_nanites","gamma_core"],
+						"lightindustry":["biofactory_embryo","gamma_core"],
+					},
+				},
+				{	"type":"water",
+					"orbitRadius":7600,
+					"radius":130,
+					"conditions":[
+						"water_surface",
+						"mild_climate",
+						"habitable",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_diffuse",
+						"organics_plentiful",
+						"pollution",
+						"ruins_widespread",
+					],
 				},
 			],
 			"systemFeatures":[
-				{"type":"magnetic_field","orbitRadius":3600},
-				{"type":"inactive_gate","orbitRadius":6475},
-				{"type":"station_mining","orbitRadius":700,"focus":1},
-				{"type":"asteroid_belt","orbitRadius":1150,"focus":4},
-				{"type":"jump_point","orbitRadius":1300,"focus":4,"name":"Omnicron Jump-point"},
-				{"type":"asteroid_field","orbitRadius":12000,"size":700},
-				{"type":"station",
-					"orbitRadius":1200,
-					"focus":4,
-					"name":"Orbital Station 13",
-					"stationType":"station_side04",
-					"factionId":"tritachyon",
-					"marketSize":3,
-					"freePort":true,
-					"aiCoreAdmin":true,
-					"conditions":[
-						"decivilized_subpop",
-						"closed_immigration",
-						"vice_demand",
-						"organized_crime",
-						"frontier",
-						"outpost",
-						"dissident",
-					],
-					"industries":[
-						"population",
-						"spaceport",
-						"waystation",
-						"starfortress_high",
-						"lightindustry",
-					],
+				{	"type":"asteroid_belt",
+					"orbitRadius":8300,
+					"name":"Ring of Despair",
+					"innerBandIndex":1,
+					"outerBandIndex":3,
 				},
+				{	"type":"rings_ice",
+					"orbitRadius":300,
+					"focus":5,
+					"name":"Hope's Aura",
+					"bandIndex":3,
+				},
+				# An abandoned mining station in the asteroid belt
+				#{"type":"station","orbitRadius":8350,"name":"Abandoned Mining Station","stationType":"station_mining00"},
 			],
 		},
 
-		# A Remnant-infested binary system (acutally, two of them)
-		{
+		{ # A Remnant-infested binary system (acutally, two of them)
 			"isEnabled":true,
 			"numberOfSystems":2,
+			"addCoronalHypershunt":true,
+			"setLocation":0,
+			"fringeJumpPointOrbitRadius":8000,
 			"systemBackground":"background4.jpg",
 			"systemMusic":"music_campaign_alpha_site",
-			"stars":[
+			"starsInSystemCenter":[
 				{"type":"star_yellow"},
 				{"type":"star_yellow"},
 			],
 			"starsOrbitRadius":2000,
-			"addCoronalHypershunt":true,
-			"enableRandomLocation":true,
-			"fringeJumpPointOrbitRadius":8000,
-			"planets":[
+			"orbitingBodies":[
 				{
 					"type":"terran-eccentric",
 					"orbitRadius":4000,
@@ -695,42 +849,170 @@
 			],
 		},
 
-		# A test system that completely violates all known conventions of star systems
-		{
-			"isEnabled":false,
-			"numberOfSystems":1,
-			"stars":[
-				{"type":"star_red_supergiant"},
-				{"type":"star_blue_supergiant"},
-				{"type":"star_red_giant"},
-				{"type":"star_blue_giant"},
-				{"type":"star_orange_giant"},
-			],
-			"starsOrbitRadius":3000,
+		{ # A Battle-Royale system in Core World center, with vanilla factions vying for system control
+			"isEnabled":true,
 			"addCoronalHypershunt":true,
-			"addDomainCryosleeper":true,
-			"enableRandomLocation":true,
-			"fringeJumpPointOrbitRadius":12000,
-			"planets":[
-				{"type":"star_red_dwarf","orbitRadius":5000},
-				{"type":"star_orange","orbitRadius":6000},
-				{"type":"star_yellow","orbitRadius":7000},
-				{"type":"star_browndwarf","orbitRadius":8000},
-				{"type":"star_white","orbitRadius":9000},
-				{"type":"star_neutron","orbitRadius":10000},
-				{"type":"black_hole","orbitRadius":11000},
-				{"type":"terran","orbitRadius":500},
+			"setLocationOverride":[-6000, -6000],
+			"fringeJumpPointOrbitRadius":7000,
+			"systemBackground":"background6.jpg",
+			"systemMusic":"music_diktat_encounter_friendly",
+			"starsInSystemCenter":[
+				{"type":"star_yellow","radius":800,"coronaRadius":400,"name":"Fort Nox"},
+				{"type":"star_orange","radius":650,"coronaRadius":400,"name":"Apex"},
+				{"type":"star_browndwarf","radius":400,"coronaRadius":150,"name":"Cod"},
+			],
+			"starsOrbitRadius":1500,
+			"orbitingBodies":[
+				{ # Hegemony planet
+					"type":"barren-desert",
+					"orbitRadius":3000,
+					"name":"Barren Dominion",
+					"radius":150,
+					"conditions":["pollution","farmland_poor","hot"],
+					"marketSize":6,
+					"factionId":"hegemony",
+					"entitiesAtStablePoints":[
+						{ # Tri-Tachyon station, opposite to the Hegemony planet
+							"type":"station",
+							"name":"Battlestar Galactica",
+							"stationType":"station_hightech3",
+							"factionId":"tritachyon",
+							"marketSize":6,
+							"aiCoreAdmin":true,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_high",
+							],
+						},
+						{ # Luddic Path station
+							"type":"station",
+							"name":"Path of Freedom",
+							"stationType":"station_mining00",
+							"factionId":"luddic_path",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress",
+							],
+						},
+						{ # Pirate station
+							"type":"station",
+							"name":"Will of the Kantas",
+							"stationType":"station_side06",
+							"factionId":"pirates",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_mid",
+							],
+						},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+					],
+					"specials":{"highcommand":["cryoarithmetic_engine",""]},
+				},
+				{ # Persean League planet
+					"type":"barren-bombarded",
+					"orbitRadius":4000,
+					"name":"League of Unity",
+					"radius":150,
+					"conditions":["no_atmosphere"],
+					"marketSize":6,
+					"factionId":"persean",
+					"entitiesAtStablePoints":[
+						{ # Sindrian Diktat station, opposite to the PL planet
+							"type":"station",
+							"name":"Lionheart Station",
+							"stationType":"station_midline3",
+							"factionId":"sindrian_diktat",
+							"marketSize":6,
+							"aiCoreAdmin":true,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_mid",
+							],
+							"specials":{"starfortress_mid":["","alpha_core"]},
+						},
+						{"type":"comm_relay","name":"Royale Broadcasting Station"},
+						{"type":"inactive_gate","name":"Baldrich's Gate"},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress_mid",
+					],
+					"specials":{"highcommand":["","alpha_core"]},
+				},
+				{ # Luddic Church planet
+					"type":"terran",
+					"orbitRadius":5000,
+					"name":"New Earth",
+					"radius":220,
+					"conditions":["farmland_adequate","habitable","mild_climate"],
+					"marketSize":6,
+					"factionId":"luddic_church",
+					"entitiesAtStablePoints":[
+						{ # Independent station, opposite to the LC planet
+							"type":"station",
+							"name":"The United Station of the Persean Sector",
+							"stationType":"station_side04",
+							"factionId":"independent",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_high",
+							],
+						},
+						{"type":"nav_buoy","name":"Royale Coordination Buoy"},
+						{"type":"sensor_array","name":"Royale Listening Beacon"},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+					],
+				},
 			],
 			"systemFeatures":[
-				{"type":"magnetic_field","focus":1,"orbitRadius":5000},
-				{"type":"asteroid_belt","focus":2,"orbitRadius":1000},
-				{"type":"ring_band","focus":3,"orbitRadius":1000},
-				{"type":"comm_relay_makeshift","orbitRadius":10000},
-				{"type":"jump_point","name":"Outer System Jump-point","orbitRadius":6000},
-				{"type":"jump_point","focus":4,"name":"Omnicron Jump-point","orbitRadius":600},
-				{"type":"alpha_site_weapons_cache","orbitRadius":700},
+				{"type":"jump_point","orbitRadius":2600,"name":"Forsaken Jump-point"},
+				{"type":"remnant_station","orbitRadius":300},
+				{"type":"asteroid_belt","orbitRadius":6000},
+				{"type":"rings_special","orbitRadius":500},
 			],
 		},
-		
+
+
 	],
 }
