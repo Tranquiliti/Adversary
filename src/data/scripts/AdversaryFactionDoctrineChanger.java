@@ -16,7 +16,7 @@ import java.util.Random;
 import java.util.Set;
 
 public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
-    protected static Logger log; // For debugging
+    protected final static Logger log = Global.getLogger(AdversaryFactionDoctrineChanger.class); // For debugging
     protected boolean done; // Currently unused
 
     protected FactionAPI faction;
@@ -42,7 +42,6 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
         getDoctrineGroups(carrierGroups, doctrineSettings.getJSONArray("carriers"));
         getDoctrineGroups(phaseShipGroups, doctrineSettings.getJSONArray("phaseShips"));
         getDoctrineGroups(balancedGroups, doctrineSettings.getJSONArray("balanced"));
-        log = Global.getLogger(AdversaryFactionDoctrineChanger.class);
         log.info("Faction doctrine changer active for: " + faction.getId());
     }
 
