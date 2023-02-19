@@ -5,9 +5,9 @@
 	"modVersion":
 	{
 		"major":2,
-		"minor":0,
-		"patch":1
+		"minor":1,
+		"patch":0
 	},
 	"starsectorVersion":"0.95.1a-RC6",
-	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v2.0.1/Adversary-v2.0.1.zip",
+	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v2.1.0/Adversary-v2.1.0.zip",
 }

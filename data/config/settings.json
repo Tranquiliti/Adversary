@@ -1,8 +1,9 @@
 {
-	#-------------------------------------------------------------------------------#
-	# Open exampleSettings.json for a reference guide on making custom star systems #
-	# (It also includes some tips and warnings about making your own custom system) #
-	#------------------------------------------------------------------------------=#
+	#-------------------------------------------------------------------------------------#
+	# Open referenceSettings.json for a reference guide on making a custom star system    #
+	# (It also includes some tips and warnings about making your own custom star systems) #
+	# Open presetStarSystems.json for some preset custom systems to copy, paste, and edit #
+	#-------------------------------------------------------------------------------------#
 
 	# Generates custom star systems upon starting a new game
 	"enableCustomStarSystems":true,
@@ -19,27 +20,29 @@
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
 			"setLocation":1, # 1st closest constellation to Core Worlds
-			"fringeJumpPointOrbitRadius":9000,
 			"systemBackground":"background6.jpg",
 			"systemMusic":"music_diktat_market_hostile",
-			"starsInSystemCenter":[
-				{	"name":"Optimal",
-					"type":"star_blue_giant",
-					"radius":1100,
-					"coronaRadius":500,
-				},
-				{	"name":"Zenith",
-					"type":"star_yellow",
-					"radius":800,
-					"coronaRadius":400,
-				},
-				{	"name":"Pinnacle",
-					"type":"star_orange",
-					"radius":650,
-					"coronaRadius":400,
-				},
-			],
-			"starsOrbitRadius":1600,
+			"fringeJumpPoint":{"orbitRadius":9000},
+			"starsInSystemCenter":{
+				"stars":[
+					{	"name":"Optimal",
+						"type":"star_blue_giant",
+						"radius":1100,
+						"coronaRadius":500,
+					},
+					{	"name":"Zenith",
+						"type":"star_yellow",
+						"radius":800,
+						"coronaRadius":400,
+					},
+					{	"name":"Pinnacle",
+						"type":"star_orange",
+						"radius":650,
+						"coronaRadius":400,
+					},
+				],
+				"orbitRadius":1600,
+			},
 			"orbitingBodies":[
 				{	"type":"gas_giant",
 					"orbitRadius":4750,
@@ -69,7 +72,6 @@
 						"lightindustry",
 					],
 					"specials":{
-						# Make sure the ids are spelled correctly, or else your game WILL crash upon visiting this planet's market
 						"population":["","gamma_core"],
 						"megaport":["","alpha_core"],
 						"waystation":["","gamma_core"],
@@ -239,9 +241,11 @@
 			"setLocation":0, # Location set to a random constellation
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
-			"fringeJumpPointOrbitRadius":8000,
 			"systemBackground":"background5.jpg",
-			"starsInSystemCenter":[{"type":"random_star_giant"}],
+			"fringeJumpPoint":{"orbitRadius":8000},
+			"starsInSystemCenter":{
+				"stars":[{"type":"random_star_giant"}],
+			},
 			"orbitingBodies":[
 				{	"type":"gas_giant",
 					"orbitRadius":4000,
