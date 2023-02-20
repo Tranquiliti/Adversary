@@ -13,28 +13,26 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 
+@SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
     @Override
     public void onNewGameAfterProcGen() {
-        SectorAPI sector = Global.getSector();
-        try {
-            AdversaryUtil util = new AdversaryUtil();
-            if (Global.getSettings().getBoolean("enableCustomStarSystems")) {
-                JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
-                for (int i = 0; i < systemList.length(); i++) {
-                    JSONObject systemOptions = systemList.getJSONObject(i);
-                    if ((boolean) util.getJSONValue(systemOptions, 'B', "isEnabled", true))
-                        for (int numOfSystems = (int) util.getJSONValue(systemOptions, 'I', "numberOfSystems", 1); numOfSystems > 0; numOfSystems--)
-                            new AdversaryCustomStarSystem().generate(util, sector, systemOptions);
-                }
+        AdversaryUtil util = new AdversaryUtil();
+        if (Global.getSettings().getBoolean("enableCustomStarSystems")) try {
+            JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
+            for (int i = 0; i < systemList.length(); i++) {
+                JSONObject systemOptions = systemList.getJSONObject(i);
+                if (systemOptions.isNull("isEnabled") || systemOptions.getBoolean("isEnabled"))
+                    for (int numOfSystems = systemOptions.isNull("numberOfSystems") ? 1 : systemOptions.getInt("numberOfSystems"); numOfSystems > 0; numOfSystems--)
+                        new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
-            marketsToOverrideAdmin = util.marketsToOverrideAdmin;
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+        marketsToOverrideAdmin = util.marketsToOverrideAdmin;
     }
 
     @Override
@@ -42,9 +40,13 @@ public class AdversaryModPlugin extends BaseModPlugin {
         // Gives selected markets the admins they're supposed to have (can't do it before economy load)
         AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
         for (MarketAPI market : marketsToOverrideAdmin.keySet()) {
-            if (marketsToOverrideAdmin.get(market).equals("alpha_core"))
-                market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
-            else market.setAdmin(null); // For player markets
+            switch (marketsToOverrideAdmin.get(market)) {
+                case "player":
+                    market.setAdmin(null);
+                    break;
+                case "alpha_core":
+                    market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
+            }
         }
         // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
         marketsToOverrideAdmin.clear();
@@ -60,12 +62,10 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
             // Allows the Adversary to change fleet doctrine in-game if enabled
             // Doing this here, so it can work during the initial 2-month time pass
-            if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) {
-                try {
-                    sector.addScript(new AdversaryFactionDoctrineChanger(sector.getFaction("adversary"), Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
+            if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) try {
+                sector.addScript(new AdversaryFactionDoctrineChanger(sector.getFaction("adversary"), Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
             }
         }
     }

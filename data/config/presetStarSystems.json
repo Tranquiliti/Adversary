@@ -1,0 +1,328 @@
+# This file contains some preset custom star systems to copy and edit for your own use.
+# It should not affect the game in any way.
+
+# Feel free to copy and paste these examples into the "customStarSystems" entry of this mod's settings.json
+
+{
+	"customStarSystems":[
+
+		{ # A tiny, bare-minimum star system with one default star and one default planet
+			"starsInSystemCenter":{"stars":[{}]},
+			"orbitingBodies":[{"orbitRadius":2000}],
+		},
+
+		{ # A Remnant-infested trinary system (actually, two of them)
+			"isEnabled":true,
+			"numberOfSystems":2,
+			"addCoronalHypershunt":true,
+			"setLocation":0,
+			"systemBackground":"background4.jpg",
+			"systemMusic":"music_campaign_alpha_site",
+			"fringeJumpPoint":{"orbitRadius":8000},
+			"starsInSystemCenter":{
+				"stars":[{"type":"star_yellow"},{"type":"star_yellow"},{"type":"star_yellow"}],
+				"orbitRadius":2000,
+			},
+			"orbitingBodies":[
+				{
+					"type":"terran-eccentric",
+					"orbitRadius":4000,
+					"entitiesAtStablePoints":[
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+						{"type":"stable_location"},
+					],
+				},
+				{
+					"type":"irradiated",
+					"orbitRadius":5000,
+					"entitiesAtStablePoints":[
+						{"type":"asteroid_field","size":300},
+						{"type":"jump_point","name":"Outer System Jump-point"},
+						{},
+					],
+				},
+				{"type":"cryovolcanic","orbitRadius":6000},
+				{"type":"barren-desert","orbitRadius":7000},
+			],
+			"systemFeatures":[
+				{"type":"remnant_station","orbitRadius":300,"orbitAngle":0,"orbitDays":18},
+				{"type":"remnant_station","orbitRadius":300,"orbitAngle":120,"orbitDays":18},
+				{"type":"remnant_station","orbitRadius":300,"orbitAngle":240,"orbitDays":18},
+				{"type":"remnant_station","orbitRadius":300,"focus":1,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":2,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":3,"isDamaged":true},
+				{"type":"remnant_station","orbitRadius":300,"focus":4,"isDamaged":true},
+				{"type":"alpha_site_weapons_cache","orbitRadius":11111},
+			],
+		},
+
+		{ # A Battle-Royale system in Core World center, with vanilla factions vying for system control
+			"isEnabled":true,
+			"addCoronalHypershunt":true,
+			"setLocationOverride":[-6000,-6000],
+			"systemBackground":"background6.jpg",
+			"systemMusic":"music_diktat_encounter_friendly",
+			"fringeJumpPoint":{"orbitRadius":7000},
+			"starsInSystemCenter":{
+				"stars":[
+					{"type":"star_yellow","radius":800,"coronaRadius":400,"name":"Fort Nox"},
+					{"type":"star_orange","radius":650,"coronaRadius":400,"name":"Apex"},
+					{"type":"star_browndwarf","radius":400,"coronaRadius":150,"name":"Cod"},
+				],
+				"orbitRadius":1500,
+				"orbitAngle":0,
+				"orbitDays":100,
+			},
+			"orbitingBodies":[
+				{ # Hegemony planet
+					"type":"barren-desert",
+					"orbitRadius":3000,
+					"name":"Barren Dominion",
+					"radius":150,
+					"conditions":["pollution","farmland_poor","hot"],
+					"marketSize":6,
+					"factionId":"hegemony",
+					"entitiesAtStablePoints":[
+						{ # Tri-Tachyon station, opposite to the Hegemony planet
+							"type":"station",
+							"name":"Battlestar Galactica",
+							"stationType":"station_hightech3",
+							"factionId":"tritachyon",
+							"marketSize":6,
+							"aiCoreAdmin":true,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_high",
+							],
+						},
+						{ # Luddic Path station
+							"type":"station",
+							"name":"Path of Freedom",
+							"stationType":"station_mining00",
+							"factionId":"luddic_path",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress",
+							],
+						},
+						{ # Pirate station
+							"type":"station",
+							"name":"Will of the Kantas",
+							"stationType":"station_side06",
+							"factionId":"pirates",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_mid",
+							],
+						},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+					],
+					"specials":{"highcommand":["cryoarithmetic_engine",""]},
+				},
+				{ # Persean League planet
+					"type":"barren-bombarded",
+					"orbitRadius":4000,
+					"name":"League of Unity",
+					"radius":150,
+					"conditions":["no_atmosphere"],
+					"marketSize":6,
+					"factionId":"persean",
+					"entitiesAtStablePoints":[
+						{ # Sindrian Diktat station, opposite to the PL planet
+							"type":"station",
+							"name":"Lionheart Station",
+							"stationType":"station_midline3",
+							"factionId":"sindrian_diktat",
+							"marketSize":6,
+							"aiCoreAdmin":true,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_mid",
+							],
+							"specials":{"starfortress_mid":["","alpha_core"]},
+						},
+						{"type":"comm_relay","name":"Royale Broadcasting Station"},
+						{"type":"inactive_gate","name":"Baldrich's Gate"},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress_mid",
+					],
+					"specials":{"highcommand":["","alpha_core"]},
+				},
+				{ # Luddic Church planet
+					"type":"terran",
+					"orbitRadius":5000,
+					"name":"New Earth",
+					"radius":220,
+					"conditions":["farmland_adequate","habitable","mild_climate"],
+					"marketSize":6,
+					"factionId":"luddic_church",
+					"entitiesAtStablePoints":[
+						{ # Independent station, opposite to the LC planet
+							"type":"station",
+							"name":"The United Station of the Persean Sector",
+							"stationType":"station_side04",
+							"factionId":"independent",
+							"marketSize":6,
+							"industries":[
+								"population",
+								"megaport",
+								"waystation",
+								"heavybatteries",
+								"highcommand",
+								"starfortress_high",
+							],
+						},
+						{"type":"nav_buoy","name":"Royale Coordination Buoy"},
+						{"type":"sensor_array","name":"Royale Listening Beacon"},
+					],
+					"industries":[
+						"population",
+						"megaport",
+						"waystation",
+						"heavybatteries",
+						"highcommand",
+						"starfortress",
+					],
+				},
+			],
+			"systemFeatures":[
+				{"type":"jump_point","orbitRadius":2600,"name":"Forsaken Jump-point"},
+				{"type":"remnant_station","orbitRadius":300},
+				{"type":"asteroid_belt","orbitRadius":6000},
+				{"type":"rings_special","orbitRadius":500},
+			],
+		},
+
+		{ # A system with most, if not all, vanilla planets and star types
+			"isEnabled":true,
+			"numberOfSystems":1,
+			"isCoreWorldSystem":false,
+			"addCoronalHypershunt":true,
+			"addDomainCryosleeper":true,
+			"setLocation":0,
+			"setLocationOverride":[6000,6000],
+			"systemBackground":"hyperspace1.jpg",
+			"systemMusic":"music_title",
+			"fringeJumpPoint":{
+				"orbitRadius":9000,
+				"name":"Fringe Jump-point",
+				"orbitAngle":0,
+				"orbitDays":600,
+			},
+			"starsInSystemCenter":{
+				"stars":[
+					{"type":"star_orange_giant","name":"Linterna"},
+					{"type":"star_red_giant"},
+					{"type":"star_red_supergiant"},
+					{"type":"star_red_dwarf"},
+					{"type":"star_orange"},
+					{"type":"star_yellow"},
+					{"type":"star_blue_giant"},
+					{"type":"star_browndwarf"},
+					{"type":"star_white"},
+					{"type":"star_blue_supergiant"},
+					{"type":"black_hole"},
+					{"type":"star_neutron"},
+				],
+				"orbitRadius":6500,
+				"orbitAngle":0,
+				"orbitDays":325,
+			},
+			"orbitingBodies":[
+				# cat_giant
+				{"type":"gas_giant","orbitRadius":2000,"orbitAngle":0,"orbitDays":100},
+				{"type":"ice_giant","orbitRadius":2000,"orbitAngle":180,"orbitDays":100},
+
+				# cat_lava
+				{"type":"lava","orbitRadius":2000,"orbitAngle":90,"orbitDays":100},
+				{"type":"lava_minor","orbitRadius":2000,"orbitAngle":270,"orbitDays":100},
+
+				# cat_frozen
+				{"type":"frozen","orbitRadius":1000,"orbitAngle":45,"orbitDays":50},
+				{"type":"frozen1","orbitRadius":1000,"orbitAngle":135,"orbitDays":50},
+				{"type":"frozen2","orbitRadius":1000,"orbitAngle":225,"orbitDays":50},
+				{"type":"frozen3","orbitRadius":1000,"orbitAngle":315,"orbitDays":50},
+
+				# cat_cryovolcanic
+				{"type":"cryovolcanic","orbitRadius":500,"orbitAngle":0,"orbitDays":25},
+
+				# cat_barren
+				{"type":"barren","orbitRadius":3000,"orbitAngle":0,"orbitDays":150},
+				{"type":"barren_castiron","orbitRadius":3000,"orbitAngle":40,"orbitDays":150},
+				{"type":"barren2","orbitRadius":3000,"orbitAngle":80,"orbitDays":150},
+				{"type":"barren3","orbitRadius":3000,"orbitAngle":120,"orbitDays":150},
+				{"type":"barren_venuslike","orbitRadius":3000,"orbitAngle":160,"orbitDays":150},
+				{"type":"rocky_metallic","orbitRadius":3000,"orbitAngle":200,"orbitDays":150},
+				{"type":"rocky_unstable","orbitRadius":3000,"orbitAngle":240,"orbitDays":150},
+				{"type":"rocky_ice","orbitRadius":3000,"orbitAngle":280,"orbitDays":150},
+				{"type":"barren-bombarded","orbitRadius":3000,"orbitAngle":320,"orbitDays":150},
+
+				# cat_irradiated
+				{"type":"irradiated","orbitRadius":500,"orbitAngle":180,"orbitDays":25},
+
+				# cat_toxic
+				{"type":"toxic","orbitRadius":500,"orbitAngle":90,"orbitDays":25},
+				{"type":"toxic_cold","orbitRadius":500,"orbitAngle":270,"orbitDays":25},
+
+				# cat_hab4
+				{"type":"terran","orbitRadius":4000,"orbitAngle":20,"orbitDays":200},
+
+				# cat_hab3
+				{"type":"terran-eccentric","orbitRadius":4000,"orbitAngle":60,"orbitDays":200},
+				{"type":"jungle","orbitRadius":4000,"orbitAngle":100,"orbitDays":200},
+				{"type":"water","orbitRadius":4000,"orbitAngle":140,"orbitDays":200},
+				{"type":"arid","orbitRadius":4000,"orbitAngle":180,"orbitDays":200},
+				{"type":"tundra","orbitRadius":4000,"orbitAngle":220,"orbitDays":200},
+
+				# cat_hab2
+				{"type":"desert","orbitRadius":4000,"orbitAngle":260,"orbitDays":200},
+				{"type":"desert1","orbitRadius":4000,"orbitAngle":300,"orbitDays":200},
+
+				# cat_hab1
+				{"type":"barren-desert","orbitRadius":4000,"orbitAngle":340,"orbitDays":200},
+			],
+			"systemFeatures":[
+				{"type":"jump_point","orbitRadius":250,"orbitAngle":180,"orbitDays":17,"name":"Inner System Jump-point"},
+				{"type":"station_research_remnant","orbitRadius":250,"orbitAngle":0,"orbitDays":17,"name":"Starlight Research Station"},
+				{"type":"inactive_gate","orbitRadius":9000,"orbitAngle":180,"orbitDays":600,"name":"Gate of Miracles"},
+				{"type":"accretion_disk"},
+			]
+		},
+
+		# More custom star systems can be added below, using the above format
+
+
+	],
+},
