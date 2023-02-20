@@ -459,6 +459,12 @@
 
 			# A list of additional system features to generate in this system
 			"systemFeatures":[
+				# Accretion disk
+				{
+					"type":"accretion_disk",
+					"focus":0,
+				},
+
 				# Magnetic field
 				{
 					"type":"magnetic_field",

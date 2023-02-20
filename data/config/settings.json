@@ -1,10 +1,10 @@
-{
-	#-------------------------------------------------------------------------------------#
-	# Open referenceSettings.json for a reference guide on making a custom star system    #
-	# (It also includes some tips and warnings about making your own custom star systems) #
-	# Open presetStarSystems.json for some preset custom systems to copy, paste, and edit #
-	#-------------------------------------------------------------------------------------#
+#-------------------------------------------------------------------------------------#
+# Open referenceSettings.json for a reference guide on making a custom star system    #
+# (It also includes some tips and warnings about making your own custom star systems) #
+# Open presetStarSystems.json for some preset custom systems to copy, paste, and edit #
+#-------------------------------------------------------------------------------------#
 
+{
 	# Generates custom star systems upon starting a new game
 	"enableCustomStarSystems":true,
 
@@ -50,7 +50,7 @@
 					"conditions":[
 						"volatiles_plentiful",
 						"high_gravity",
-						"very_hot",
+						"hot",
 					],
 					"entitiesAtStablePoints":[
 						{"type":"comm_relay","name":"Optimal Relay","factionId":"adversary"},
@@ -68,18 +68,18 @@
 						"highcommand",
 						"starfortress",
 						"mining",
-						"refining",
+						"orbitalworks",
 						"lightindustry",
 					],
 					"specials":{
-						"population":["","gamma_core"],
+						"population":["orbital_fusion_lamp","gamma_core"],
 						"megaport":["","alpha_core"],
 						"waystation":["","gamma_core"],
 						"heavybatteries":["drone_replicator","alpha_core"],
 						"highcommand":["cryoarithmetic_engine","alpha_core"],
 						"starfortress":["","alpha_core"],
 						"mining":["plasma_dynamo","gamma_core"],
-						"refining":["","gamma_core"],
+						"orbitalworks":["corrupted_nanoforge","alpha_core"],
 						"lightindustry":["","gamma_core"],
 					},
 				},
@@ -154,7 +154,7 @@
 						"planetaryshield":["","alpha_core"],
 						"highcommand":["","alpha_core"],
 						"starfortress_high":["","alpha_core"],
-						"orbitalworks":["pristine_nanoforge","gamma_core"],
+						"orbitalworks":["pristine_nanoforge","alpha_core"],
 						"refining":["catalytic_core","gamma_core"],
 						"fuelprod":["synchrotron","gamma_core"],
 					},
@@ -191,7 +191,7 @@
 						"techmining",
 					],
 					"specials":{
-						"population":["orbital_fusion_lamp","gamma_core"],
+						"population":["","gamma_core"],
 						"megaport":["fullerene_spool","alpha_core"],
 						"waystation":["","gamma_core"],
 						"heavybatteries":["","alpha_core"],
@@ -199,6 +199,7 @@
 						"starfortress":["","alpha_core"],
 						"farming":["soil_nanites","gamma_core"],
 						"lightindustry":["biofactory_embryo","gamma_core"],
+						"techmining":["","alpha_core"],
 					},
 				},
 				{	"type":"water",

@@ -79,15 +79,14 @@ public class AdversaryUtil {
         if (type == null) return; // Lagrange point should remain empty
         float lagrangeAngle = planet.getCircularOrbitAngle();
         switch (lagrangePoint) {
-            case 3:
+            case 3: // L3 point
                 lagrangeAngle -= 180f;
                 break;
-            case 4:
+            case 4: // L4 point
                 lagrangeAngle += 60f;
                 break;
-            case 5:
+            case 5: // L5 point
                 lagrangeAngle -= 60f;
-                break;
         }
 
         SectorEntityToken entity;
@@ -120,21 +119,19 @@ public class AdversaryUtil {
                 break;
             default: // Default option in case of mods adding their own system entities
                 entity = system.addCustomEntity(null, name, type, featureOptions.isNull("factionId") ? null : featureOptions.getString("factionId"));
-                break;
         }
-        if (entity == null) throw new RuntimeException("Invalid entity " + type + " for stable point!");
         entity.setCircularOrbitPointingDown(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
     }
 
     /**
-     * Adds an orbiting system feature in a system; attempts to add a salvage entity if handling unsupported types
+     * Adds a system feature in a system; attempts to add a salvage entity if handling unsupported types
      *
      * @param system           System to modify
      * @param numOfCenterStars Number of stars in the center of the system
      * @param featureOptions   Options for a feature
      * @throws JSONException If featureOptions is invalid
      */
-    public void addOrbitingSystemFeature(StarSystemAPI system, int numOfCenterStars, JSONObject featureOptions) throws JSONException {
+    public void addSystemFeature(StarSystemAPI system, int numOfCenterStars, JSONObject featureOptions) throws JSONException {
         int focusIndex = numOfCenterStars + (featureOptions.isNull("focus") ? DEFAULT_FOCUS : featureOptions.getInt("focus"));
         SectorEntityToken focus = (focusIndex == numOfCenterStars) ? system.getCenter() : system.getPlanets().get(focusIndex - 1);
         String type = featureOptions.getString("type");
@@ -143,6 +140,9 @@ public class AdversaryUtil {
         float orbitAngle = featureOptions.isNull("orbitAngle") ? DEFAULT_ORBIT_ANGLE : featureOptions.getInt("orbitAngle");
         float orbitDays = featureOptions.isNull("orbitDays") ? DEFAULT_ORBIT_DAYS : featureOptions.getInt("orbitDays");
         switch (type) {
+            case "accretion_disk":
+                addAccretionDisk(system, focus);
+                break;
             case "magnetic_field":
                 addMagneticField(system, focus, featureOptions.isNull("size") ? 300 : featureOptions.getInt("size"), orbitRadius);
                 break;
@@ -197,7 +197,6 @@ public class AdversaryUtil {
             default: // Any salvage entities defined in salvage_entity_gen_data.csv (including ones added by mods)
                 if (orbitAngle < 0) orbitAngle = StarSystemGenerator.random.nextFloat() * 360f;
                 addOrbitingSalvageEntity(system, type, name, focus, orbitAngle, orbitRadius, orbitDays);
-                break;
         }
     }
 
@@ -414,7 +413,6 @@ public class AdversaryUtil {
             default:
                 if (orbitDays <= 0) orbitDays = orbitRadius / (15f + randomSeed.nextFloat() * 5f);
                 salvageEntity.setCircularOrbitWithSpin(focus, orbitAngle, orbitRadius, orbitDays, 1f, 11f);
-                break;
         }
     }
 
@@ -432,6 +430,32 @@ public class AdversaryUtil {
             objective.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
 
         return objective;
+    }
+
+    /**
+     * <p>Adds an accretion disk to an entity</p>
+     * <p>(Credit to theDragn#0580 for publishing the original code on #advanced-modmaking in the Unofficial Starsector Discord.
+     * It was apparently taken from the vanilla implementation in the source API, but I couldn't find exactly where in the API)</p>
+     *
+     * @param system System to modify
+     * @param focus  Entity to modify
+     */
+    public void addAccretionDisk(StarSystemAPI system, SectorEntityToken focus) {
+        Random randomSeed = StarSystemGenerator.random;
+        float orbitRadius = Math.max(focus.getRadius(), 90f) * (10f + randomSeed.nextFloat() * 5f);
+        float bandWidth = 256f;
+        int numBands = 12 + randomSeed.nextInt(7);
+        for (int i = 0; i < numBands; i++) {
+            float radius = orbitRadius - (i * bandWidth * 0.25f) - (i * bandWidth * 0.1f);
+            RingBandAPI visual = system.addRingBand(focus, "misc", "rings_ice0", 256f, 0, new Color(46, 35, 173), bandWidth, radius + bandWidth / 2f, -(radius / (30f + 10f * randomSeed.nextFloat())));
+            visual.setSpiral(true);
+            visual.setMinSpiralRadius(0);
+            visual.setSpiralFactor(2f + randomSeed.nextFloat() * 5f);
+        }
+
+        SectorEntityToken ring = system.addTerrain(Terrain.RING, new BaseRingTerrain.RingParams(orbitRadius, orbitRadius / 2f, focus, "Accretion Disk"));
+        ring.addTag(Tags.ACCRETION_DISK);
+        ring.setCircularOrbit(focus, 0, 0, -100);
     }
 
     /**
@@ -496,8 +520,8 @@ public class AdversaryUtil {
         SectorEntityToken systemCenter = system.getCenter();
         SectorEntityToken hypershunt = system.addCustomEntity(null, null, "coronal_tap", null);
         if (systemCenter.isStar()) { // Orbit the sole star
-            float coronalOrbitRadius = systemCenter.getRadius() + hypershunt.getRadius() + 100f;
-            hypershunt.setCircularOrbitPointingDown(systemCenter, StarSystemGenerator.random.nextFloat() * 360f, coronalOrbitRadius, coronalOrbitRadius / 20f);
+            float orbitRadius = systemCenter.getRadius() + hypershunt.getRadius() + 100f;
+            hypershunt.setCircularOrbitPointingDown(systemCenter, StarSystemGenerator.random.nextFloat() * 360f, orbitRadius, orbitRadius / 20f);
         } else { // Stay in the center, facing towards the primary star
             PlanetAPI primaryStar = system.getStar();
             hypershunt.setCircularOrbitPointingDown(primaryStar, (primaryStar.getCircularOrbitAngle() - 180f) % 360f, primaryStar.getCircularOrbitRadius(), primaryStar.getCircularOrbitPeriod());
@@ -513,27 +537,6 @@ public class AdversaryUtil {
 
         system.addTag(Tags.HAS_CORONAL_TAP);
         system.addTag(Tags.THEME_INTERESTING);
-    }
-
-    // Credit to theDragn#0580 for publishing the original code on #advanced-modmaking in the Unofficial Starsector Discord
-    // (It was apparently taken from the vanilla implementation in the source API, but I couldn't find exactly where in the API)
-    private static void addAccretionDisk(PlanetAPI star) {
-        StarSystemAPI system = star.getStarSystem();
-        Random randomSeed = StarSystemGenerator.random;
-        float orbitRadius = star.getRadius() * (10f + randomSeed.nextFloat() * 5f);
-        float bandWidth = 256f;
-        int numBands = 12 + randomSeed.nextInt(7);
-        for (int i = 0; i < numBands; i++) {
-            float radius = orbitRadius - (i * bandWidth * 0.25f) - (i * bandWidth * 0.1f);
-            RingBandAPI visual = system.addRingBand(star, "misc", "rings_ice0", 256f, 0, new Color(46, 35, 173), bandWidth, radius + bandWidth / 2f, -(radius / (30f + 10f * randomSeed.nextFloat())));
-            visual.setSpiral(true);
-            visual.setMinSpiralRadius(0);
-            visual.setSpiralFactor(2f + randomSeed.nextFloat() * 5f);
-        }
-
-        SectorEntityToken ring = system.addTerrain(Terrain.RING, new BaseRingTerrain.RingParams(orbitRadius, orbitRadius / 2f, star, "Accretion Disk"));
-        ring.addTag(Tags.ACCRETION_DISK);
-        ring.setCircularOrbit(star, 0, 0, -100);
     }
 
     /**
@@ -556,7 +559,7 @@ public class AdversaryUtil {
             system.setCenter(addStar(system, starOptions.isNull("name") ? null : starOptions.getString("name"), "system_" + id, type, starOptions.isNull("radius") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("radius"), starOptions.isNull("coronaRadius") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("coronaRadius"), starOptions.isNull("flareChance") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("flareChance")));
 
             // Adds an accretion disk if only one center black hole
-            if (type.equals("black_hole")) addAccretionDisk(system.getStar());
+            if (type.equals("black_hole")) addAccretionDisk(system, system.getStar());
         } else { // Multiple stars
             SectorEntityToken systemCenter = system.initNonStarCenter(); // Center in which the stars will orbit
             systemCenter.setId(id); // Set the center's id to the unique id
@@ -573,18 +576,22 @@ public class AdversaryUtil {
             for (int i = 0; i < numOfCenterStars; i++) {
                 JSONObject starOptions = starsList.getJSONObject(i);
                 PlanetAPI star = addStar(system, starOptions.isNull("name") ? null : starOptions.getString("name"), "system_" + id, starOptions.isNull("type") ? DEFAULT_STAR_TYPE : starOptions.getString("type"), starOptions.isNull("radius") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("radius"), starOptions.isNull("coronaRadius") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("coronaRadius"), starOptions.isNull("flareChance") ? DEFAULT_SET_TO_PROC_GEN : starOptions.getInt("flareChance"));
-                if (i != 0) {
-                    star.setId(star.getId() + "_" + starChar);
-                    starChar++;
-
-                    if (i == 1) { // Second star in center
+                switch (i) {
+                    case 0:
+                        break;
+                    case 1: // Second star in center
                         system.setSecondary(star);
                         system.setType(StarSystemGenerator.StarSystemType.BINARY_CLOSE);
-                    } else if (i == 2) { // Third star in center
+                        star.setId(star.getId() + "_" + starChar++);
+                        break; // Break here to prevent fall-through
+                    case 2: // Third star in center
                         system.setTertiary(star);
                         system.setType(StarSystemGenerator.StarSystemType.TRINARY_2CLOSE);
-                    }
+                        // Continue to default
+                    default:
+                        star.setId(star.getId() + "_" + starChar++);
                 }
+
                 // Make the first stars a tiny bit closer to center so their gravity wells get generated first
                 star.setCircularOrbit(systemCenter, starsAngle, starsOrbitRadius + i, starsOrbitDays);
                 starsAngle = (starsAngle + starsAngleDifference) % 360f;
@@ -696,7 +703,6 @@ public class AdversaryUtil {
         String systemId = system.getCenter().getId();
         if (!systemId.contains("system_")) systemId = "system_" + systemId;
 
-        PlanetAPI newPlanet;
         String planetType = planetOptions.isNull("type") ? DEFAULT_PLANET_TYPE : planetOptions.getString("type");
         PlanetGenDataSpec planetData = (PlanetGenDataSpec) Global.getSettings().getSpec(PlanetGenDataSpec.class, planetType, true);
 
@@ -706,6 +712,7 @@ public class AdversaryUtil {
         float orbitRadius = planetOptions.getInt("orbitRadius");
         float orbitDays = planetOptions.isNull("orbitDays") ? orbitRadius / (20f + randomSeed.nextFloat() * 5f) : planetOptions.getInt("orbitDays");
 
+        PlanetAPI newPlanet;
         if (planetData == null) { // Not a planet, so try to generate it as a star
             newPlanet = addStar(system, name, systemId + ":star_" + id, planetType, radius, planetOptions.isNull("coronaRadius") ? DEFAULT_SET_TO_PROC_GEN : planetOptions.getInt("coronaRadius"), planetOptions.isNull("flareChance") ? DEFAULT_SET_TO_PROC_GEN : planetOptions.getInt("flareChance"));
             newPlanet.setCircularOrbit(focus, orbitAngle, orbitRadius, orbitDays);
@@ -752,26 +759,21 @@ public class AdversaryUtil {
 
         planetMarket.addCondition("population_" + size);
         JSONArray conditions = planetOptions.isNull("conditions") ? null : planetOptions.getJSONArray("conditions");
-        if (conditions != null) {
-            for (int i = 0; i < conditions.length(); i++) {
-                try {
-                    planetMarket.addCondition(conditions.getString(i));
-                } catch (Exception e) {
-                    throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
-                }
+        if (conditions != null) for (int i = 0; i < conditions.length(); i++)
+            try {
+                planetMarket.addCondition(conditions.getString(i));
+            } catch (Exception e) {
+                throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
             }
-        }
 
         JSONArray industries = planetOptions.isNull("industries") ? null : planetOptions.getJSONArray("industries");
-        if (industries != null) {
-            for (int i = 0; i < industries.length(); i++) {
-                try {
-                    planetMarket.addIndustry(industries.getString(i));
-                } catch (Exception e) {
-                    throw new RuntimeException("Error attempting to add industry \"" + industries.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
-                }
+        if (industries != null) for (int i = 0; i < industries.length(); i++)
+            try {
+                planetMarket.addIndustry(industries.getString(i));
+            } catch (Exception e) {
+                throw new RuntimeException("Error attempting to add industry \"" + industries.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
             }
-        } else { // Just give market the bare minimum colony
+        else { // Just give market the bare minimum colony
             planetMarket.addIndustry("population");
             planetMarket.addIndustry("spaceport");
         }
@@ -919,11 +921,10 @@ public class AdversaryUtil {
     public void setDefaultLightColorBasedOnStars(StarSystemAPI system, List<PlanetAPI> systemStars) {
         Random randomSeed = StarSystemGenerator.random;
         Color result = Color.WHITE;
-        for (int i = 0; i < systemStars.size(); i++) {
+        for (int i = 0; i < systemStars.size(); i++)
             if (i != 0)
                 result = Misc.interpolateColor(result, pickLightColorForStar(systemStars.get(i), randomSeed), 0.5f);
             else result = pickLightColorForStar(systemStars.get(i), randomSeed); // Set color to first star
-        }
         system.setLightColor(result); // light color in entire system, affects all entities
     }
 
@@ -1030,33 +1031,36 @@ public class AdversaryUtil {
 
             // Found an empty location
             if (!intersects) newLoc = new Vector2f(thisX, thisY);
-                // Else pick the next location to check
-            else if (move == 0) { // moving left
-                if (curX != -squareSize) curX--;
-                else {
-                    move = 1;
-                    curY--;
-                }
-            } else if (move == 1) { // moving down
-                if (curY != -squareSize) curY--;
-                else {
-                    move = 2;
-                    curX++;
-                }
-            } else if (move == 2) { // moving right
-                if (curX != squareSize) curX++;
-                else {
-                    move = 3;
-                    curY++;
-                }
-            } else { // moving up
-                if (curY != squareSize) curY++;
-                else { // Checked the full perimeter, so increase search size
-                    squareSize++;
-                    curX = squareSize - 1;
-                    curY = squareSize;
-                    move = 0;
-                }
+            else switch (move) { // Else pick the next location to check
+                case 0: // Moving left
+                    if (curX != -squareSize) curX--;
+                    else {
+                        move = 1;
+                        curY--;
+                    }
+                    break;
+                case 1: // Moving down
+                    if (curY != -squareSize) curY--;
+                    else {
+                        move = 2;
+                        curX++;
+                    }
+                    break;
+                case 2: // Moving right
+                    if (curX != squareSize) curX++;
+                    else {
+                        move = 3;
+                        curY++;
+                    }
+                    break;
+                case 3: // Moving up
+                    if (curY != squareSize) curY++;
+                    else { // Checked the full perimeter, so increase search size
+                        squareSize++;
+                        curX = squareSize - 1;
+                        curY = squareSize;
+                        move = 0;
+                    }
             }
         }
 
