@@ -256,67 +256,52 @@
 					# Defaults to false if this entry is omitted
 					"aiCoreAdmin":true,
 
-					# A list of industries hosted in this planet's market
+					# A map of industries and special items
+					# Each industry entry has a list of specials applied to the corresponding industry,
+					# with a format of "thisIndustry":["ai_core_id","specials_id","improve_industry?"],
+					# An industry entry defaults to no specials if its list is empty (e.g. "population":[],)
+					#
 					# Industry ids are found in starsector-core/data/campaign/industries.csv
-					# Defaults to adding "population" and "spaceport" if this entry is omitted
-					"industries":[
-						# List of vanilla industries
-						"population",
-						"farming",
-						"aquaculture",
-						"mining",
-						"techmining",
-						"refining",
-						"spaceport",
-						"megaport",
-						"lightindustry",
-						"heavyindustry",
-						"orbitalworks",
-						"fuelprod",
-						"commerce",
-						"station_base",
-						"orbitalstation",
-						"battlestation",
-						"starfortress",
-						"orbitalstation_mid",
-						"battlestation_mid",
-						"starfortress_mid",
-						"orbitalstation_high",
-						"battlestation_high",
-						"starfortress_high",
-						"grounddefenses",
-						"heavybatteries",
-						"patrolhq",
-						"militarybase",
-						"highcommand",
-						"lionsguard",
-						"planetaryshield",
-						"waystation",
-						"cryosanctum",
-						"cryorevival",
-					],
-
-					# A map of industries, with values being the items to install in a given industry
-					# Each entry in "specials" uses this format: 
-					# "industryToModify":["special_items","ai_core_id"],
 					# Special items ids are found in starsector-core/data/campaign/special_items.csv
 					# WARNING: Make sure to correctly spell the ids! Else, your game may crash upon visiting this market!
-					# Defaults to no installed items if this entry is omitted
-					"specials":{
-						#"heavyindustry":["corrupted_nanoforge",""],
-						"orbitalworks":["pristine_nanoforge","gamma_core"],
-						"fuelprod":["synchrotron","beta_core"],
-						"population":["orbital_fusion_lamp","alpha_core"],
-						#"population":["coronal_portal",""],
-						"mining":["mantle_bore",""],
-						"refining":["catalytic_core",""],
-						"farming":["soil_nanites",""],
-						"lightindustry":["biofactory_embryo",""],
-						"spaceport":["fullerene_spool",""],
-						#"mining":["plasma_dynamo",""],
-						"patrolhq":["cryoarithmetic_engine",""],
-						"grounddefenses":["drone_replicator",""],
-						"commerce":["dealmaker_holosuite",""],
+					# Defaults to just adding "population" and "spaceport" if this entry is omitted
+					"industries":{
+						# List of vanilla industries
+						"population":["gamma_core","orbital_fusion_lamp",true],
+						#"population":["beta_core","coronal_portal",false],
+						"farming":["alpha_core","soil_nanites",false],
+						"aquaculture":[],
+						"mining":[,"mantle_bore"],
+						#"mining":[,"plasma_dynamo"],
+						"techmining":[],
+						"refining":[,"catalytic_core"],
+						"spaceport":[,"fullerene_spool"],
+						"megaport":[],
+						"lightindustry":[,"biofactory_embryo"],
+						"heavyindustry":[,"corrupted_nanoforge"],
+						"orbitalworks":[,"pristine_nanoforge"],
+						"fuelprod":[,"synchrotron"],
+						"commerce":[,"dealmaker_holosuite"],
+						"station_base":[],
+						"orbitalstation":["gamma_core"],
+						"battlestation":["beta_core"],
+						"starfortress":["alpha_core"],
+						"orbitalstation_mid":[],
+						"battlestation_mid":[],
+						"starfortress_mid":[],
+						"orbitalstation_high":[,,true],
+						"battlestation_high":[,,false],
+						"starfortress_high":[,,false],
+						"grounddefenses":[,"drone_replicator"],
+						"heavybatteries":[],
+						"patrolhq":[,"cryoarithmetic_engine"],
+						"militarybase":[],
+						"highcommand":[],
+						"lionsguard":[],
+						"planetaryshield":[],
+						"waystation":[],
+						"cryosanctum":[],
+						"cryorevival":[],
 					},
 				},
 
@@ -447,8 +432,7 @@
 							"freePort":false,
 							"aiCoreAdmin":false,
 							"conditions":[],
-							"industries":["population","spaceport"],
-							"specials":{},
+							"industries":{"population":[],"spaceport":[]},
 						},
 					],
 				},
@@ -618,8 +602,7 @@
 					"freePort":false,
 					"aiCoreAdmin":false,
 					"conditions":[],
-					"industries":["population","spaceport"],
-					"specials":{},
+					"industries":{"population":[],"spaceport":[]},
 				},
 
 				# Salvage entities

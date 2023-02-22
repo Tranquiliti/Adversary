@@ -31,6 +31,7 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
     protected WeightedRandomPicker<PriorityDoctrine> carrierGroups = new WeightedRandomPicker<>();
     protected WeightedRandomPicker<PriorityDoctrine> phaseShipGroups = new WeightedRandomPicker<>();
     protected WeightedRandomPicker<PriorityDoctrine> balancedGroups = new WeightedRandomPicker<>();
+    protected PriorityDoctrine selectedPriority;
 
     public AdversaryFactionDoctrineChanger(FactionAPI faction, JSONObject doctrineSettings) throws JSONException {
         this.faction = faction;
@@ -84,7 +85,6 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
                     default: // Balanced
                         setFleetDoctrine(3, 2, 2);
                         setPriorityDoctrine(balancedGroups.pick(factionDoctrineSeed));
-                        break;
                 }
 
                 // Prevent selected doctrine from being picked again next cycle
@@ -92,6 +92,24 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
                 doctrineList[3] = selectedDoctrine;
             }
         }
+    }
+
+    // Reloads the currently-set doctrine
+    public void reload() {
+        switch (doctrineList[3]) {
+            case 3:  // Warship-focused
+                setFleetDoctrine(5, 1, 1);
+                break;
+            case 2:  // Carrier-focused
+                setFleetDoctrine(1, 5, 1);
+                break;
+            case 1:  // Phase-focused
+                setFleetDoctrine(1, 1, 5);
+                break;
+            default: // Balanced
+                setFleetDoctrine(3, 2, 2);
+        }
+        if (selectedPriority != null) setPriorityDoctrine(selectedPriority);
     }
 
     // Initializes a weighted list for a specific doctrine
@@ -139,6 +157,7 @@ public class AdversaryFactionDoctrineChanger implements EveryFrameScript {
         logPrioritySet(factionFighters, "fighters");
 
         faction.clearShipRoleCache(); // Required after any direct manipulation of faction ship lists
+        selectedPriority = thisPriority;
     }
 
     protected void logPrioritySet(Set<String> set, String text) {
