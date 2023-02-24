@@ -1,0 +1,46 @@
+{
+  "exoticChance": 0.15,
+  "upgradeChance": 0.7,
+  "bandwidthMult": 1.25,
+  "allowedExotics": {
+    "SpooledFeeders": 1.0,
+    "FullMetalSalvo": 1.0,
+    "PlasmaFluxCatalyst": 1.0,
+    "DriveFluxVent": 1.0,
+    "EqualizerCore": 1.0,
+    "HangarForge": 1.0,
+    "HangarForgeMissiles": 1.0,
+    "PhasefieldEngine": 1.0,
+    "TierIIIDriveSystem": 1.0,
+    "AlphaSubcore": 1.0
+  },
+  "allowedUpgrades": {
+    "WeldedArmor": 1.0,
+    "PinataConfig": 1.0,
+    "CommissionedCrews":1.0,
+    "InfernalEngines": 1.0,
+    "ForcedOvertime": 1.0,
+    "HyperactiveCapacitors": 1.0,
+    "OverchargedShields": 1.0,
+    "TracerRecoilCalculator": 1.0,
+    "AdvancedFluxCoils": 1.0,
+    "DerelictWeaponAssistant": 1.0,
+    "AuxiliarySensors": 1.0,
+    "InterferenceShielding": 1.0,
+    "AssaultWings": 1.0,
+    "GuidanceComputers": 1.0,
+    "AntimatterBoosters": 1.0
+  },
+  "exoticTurnIn": {
+    "SpooledFeeders":  {"credit": 1.0, "rep": 0.0},
+    "FullMetalSalvo":  {"credit": 1.0, "rep": 0.0},
+    "PlasmaFluxCatalyst": {"credit": 1.0, "rep": 0.0},
+    "DriveFluxVent":  {"credit": 1.0, "rep": 0.0},
+    "EqualizerCore": {"credit": 1.0, "rep": 0.0},
+    "HangarForge": {"credit": 1.0, "rep": 0.0},
+    "HangarForgeMissiles": {"credit": 1.0, "rep": 0.0},
+    "PhasefieldEngine":  {"credit": 1.0, "rep": 0.0},
+    "TierIIIDriveSystem":  {"credit": 1.0, "rep": 0.0},
+    "AlphaSubcore": {"credit": 1.0, "rep": 0.0}
+  }
+}
