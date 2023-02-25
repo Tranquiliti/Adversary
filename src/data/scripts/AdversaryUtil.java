@@ -757,6 +757,7 @@ public class AdversaryUtil {
         planetMarket.getTariff().setBaseValue(0.3f); // Default tariff value
         planetMarket.setFreePort(!planetOptions.isNull("freePort") && planetOptions.getBoolean("freePort"));
 
+        // Add planet conditions
         planetMarket.addCondition("population_" + size);
         JSONArray conditions = planetOptions.isNull("conditions") ? null : planetOptions.getJSONArray("conditions");
         if (conditions != null) for (int i = 0; i < conditions.length(); i++)
@@ -766,35 +767,35 @@ public class AdversaryUtil {
                 throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
             }
 
-        JSONArray industries = planetOptions.isNull("industries") ? null : planetOptions.getJSONArray("industries");
-        if (industries != null) for (int i = 0; i < industries.length(); i++)
-            try {
-                planetMarket.addIndustry(industries.getString(i));
-            } catch (Exception e) {
-                throw new RuntimeException("Error attempting to add industry \"" + industries.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
-            }
-        else { // Just give market the bare minimum colony
-            planetMarket.addIndustry("population");
-            planetMarket.addIndustry("spaceport");
-        }
+        // Add market industries
+        JSONObject industries = planetOptions.isNull("industries") ? null : planetOptions.getJSONObject("industries");
+        if (industries != null) {
+            @SuppressWarnings("unchecked") Iterator<String> industryIterator = industries.keys();
+            while (industryIterator.hasNext()) {
+                String industryId = industryIterator.next();
+                try {
+                    planetMarket.addIndustry(industryId);
+                } catch (Exception e) {
+                    throw new RuntimeException("Error attempting to add industry \"" + industryId + "\" for Size " + size + " \"" + factionId + "\" market");
+                }
+                JSONArray specials = industries.isNull(industryId) ? null : industries.getJSONArray(industryId);
+                if (specials != null && specials.length() > 0) {
+                    Industry newIndustry = planetMarket.getIndustry(industryId);
 
-        JSONObject specials = planetOptions.isNull("specials") ? null : planetOptions.getJSONObject("specials");
-        if (specials != null) {
-            @SuppressWarnings("unchecked") Iterator<String> specialIterator = specials.keys();
-            while (specialIterator.hasNext()) {
-                String industryId = specialIterator.next();
-                Industry thisIndustry = planetMarket.getIndustry(industryId);
-                if (thisIndustry != null) {
-                    JSONArray items = specials.getJSONArray(industryId);
+                    String aiCoreId = specials.optString(0);
+                    if (!aiCoreId.isEmpty()) newIndustry.setAICoreId(aiCoreId);
 
-                    String specialItem = items.getString(0);
-                    if (specialItem != null && !specialItem.isEmpty())
-                        thisIndustry.setSpecialItem(new SpecialItemData(specialItem, null));
+                    if (specials.length() > 1) {
+                        String specialItem = specials.optString(1);
+                        if (!specialItem.isEmpty()) newIndustry.setSpecialItem(new SpecialItemData(specialItem, null));
+                    }
 
-                    String aiCore = items.getString(1);
-                    if (aiCore != null && !aiCore.isEmpty()) thisIndustry.setAICoreId(aiCore);
+                    if (specials.length() > 2) newIndustry.setImproved(specials.optBoolean(2, false));
                 }
             }
+        } else { // Just give market the bare minimum colony
+            planetMarket.addIndustry("population");
+            planetMarket.addIndustry("spaceport");
         }
 
         // Add the appropriate submarkets

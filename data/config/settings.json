@@ -9,7 +9,8 @@
 	"enableCustomStarSystems":true,
 
 	# Allows the Adversary faction to change fleet doctrines every cycle
-	# Requires a new game for changes to take effect
+	# Settings for this can be found in "adversaryDoctrineChangeSettings"
+	# Can be added to and/or removed from an existing game.
 	"enableAdversaryDoctrineChange":true,
 
 	# List of custom star systems to generate
@@ -60,27 +61,16 @@
 					"marketSize":6,
 					"factionId":"adversary",
 					"aiCoreAdmin":true,
-					"industries":[
-						"population",
-						"megaport",
-						"waystation",
-						"heavybatteries",
-						"highcommand",
-						"starfortress",
-						"mining",
-						"orbitalworks",
-						"lightindustry",
-					],
-					"specials":{
-						"population":["orbital_fusion_lamp","gamma_core"],
-						"megaport":["","alpha_core"],
-						"waystation":["","gamma_core"],
-						"heavybatteries":["drone_replicator","alpha_core"],
-						"highcommand":["cryoarithmetic_engine","alpha_core"],
-						"starfortress":["","alpha_core"],
-						"mining":["plasma_dynamo","gamma_core"],
-						"orbitalworks":["corrupted_nanoforge","alpha_core"],
-						"lightindustry":["","gamma_core"],
+					"industries":{
+						"population":["gamma_core","orbital_fusion_lamp",false],
+						"megaport":["alpha_core",,true],
+						"waystation":["gamma_core",,false],
+						"heavybatteries":["alpha_core",,false],
+						"highcommand":["alpha_core","cryoarithmetic_engine",true],
+						"starfortress":["alpha_core",,false],
+						"mining":["gamma_core","plasma_dynamo",false],
+						"orbitalworks":["alpha_core","corrupted_nanoforge",false],
+						"lightindustry":["gamma_core",,false],
 					},
 				},
 				{	"type":"toxic",
@@ -98,27 +88,16 @@
 					"marketSize":6,
 					"factionId":"adversary",
 					"aiCoreAdmin":true,
-					"industries":[
-						"population",
-						"megaport",
-						"waystation",
-						"heavybatteries",
-						"highcommand",
-						"starfortress_mid",
-						"mining",
-						"refining",
-						"lightindustry",
-					],
-					"specials":{
-						"population":["","gamma_core"],
-						"megaport":["fullerene_spool","alpha_core"],
-						"waystation":["","gamma_core"],
-						"heavybatteries":["","gamma_core"],
-						"highcommand":["","alpha_core"],
-						"starfortress_mid":["","alpha_core"],
-						"mining":["mantle_bore","gamma_core"],
-						"refining":["","gamma_core"],
-						"lightindustry":["","gamma_core"],
+					"industries":{
+						"population":["gamma_core",,false],
+						"megaport":["alpha_core","fullerene_spool",false],
+						"waystation":["gamma_core",,false],
+						"heavybatteries":["gamma_core",,false],
+						"highcommand":["alpha_core",,false],
+						"starfortress_mid":["alpha_core",,false],
+						"mining":["gamma_core","mantle_bore",false],
+						"refining":["gamma_core",,false],
+						"lightindustry":["gamma_core",,false],
 					},
 				},
 				{	"type":"barren-bombarded",
@@ -134,29 +113,17 @@
 					"marketSize":6,
 					"factionId":"adversary",
 					"aiCoreAdmin":true,
-					"industries":[
-						"population",
-						"megaport",
-						"waystation",
-						"heavybatteries",
-						"planetaryshield",
-						"highcommand",
-						"starfortress_high",
-						"orbitalworks",
-						"refining",
-						"fuelprod",
-					],
-					"specials":{
-						"population":["","alpha_core"],
-						"megaport":["fullerene_spool","alpha_core"],
-						"waystation":["","gamma_core"],
-						"heavybatteries":["drone_replicator","alpha_core"],
-						"planetaryshield":["","alpha_core"],
-						"highcommand":["","alpha_core"],
-						"starfortress_high":["","alpha_core"],
-						"orbitalworks":["pristine_nanoforge","alpha_core"],
-						"refining":["catalytic_core","gamma_core"],
-						"fuelprod":["synchrotron","gamma_core"],
+					"industries":{
+						"population":["alpha_core",,false],
+						"megaport":["alpha_core","fullerene_spool",false],
+						"waystation":["gamma_core",,false],
+						"heavybatteries":["alpha_core","drone_replicator",false],
+						"planetaryshield":["alpha_core",,false],
+						"highcommand":["alpha_core",,false],
+						"starfortress_high":["alpha_core",,false],
+						"orbitalworks":["alpha_core","pristine_nanoforge",false],
+						"refining":["gamma_core","catalytic_core",false],
+						"fuelprod":["gamma_core","synchrotron",false],
 					},
 				},
 				{	"type":"terran",
@@ -179,27 +146,16 @@
 					"marketSize":6,
 					"factionId":"adversary",
 					"aiCoreAdmin":true,
-					"industries":[
-						"population",
-						"megaport",
-						"waystation",
-						"heavybatteries",
-						"highcommand",
-						"starfortress",
-						"farming",
-						"lightindustry",
-						"techmining",
-					],
-					"specials":{
-						"population":["","gamma_core"],
-						"megaport":["fullerene_spool","alpha_core"],
-						"waystation":["","gamma_core"],
-						"heavybatteries":["","alpha_core"],
-						"highcommand":["","alpha_core"],
-						"starfortress":["","alpha_core"],
-						"farming":["soil_nanites","gamma_core"],
-						"lightindustry":["biofactory_embryo","gamma_core"],
-						"techmining":["","alpha_core"],
+					"industries":{
+						"population":["gamma_core",,true],
+						"megaport":["alpha_core","fullerene_spool",false],
+						"waystation":["gamma_core",,false],
+						"heavybatteries":["alpha_core","drone_replicator",false],
+						"highcommand":["alpha_core",,false],
+						"starfortress":["alpha_core",,true],
+						"farming":["gamma_core","soil_nanites",false],
+						"lightindustry":["gamma_core","biofactory_embryo",false],
+						"commerce":["alpha_core","dealmaker_holosuite",false],
 					},
 				},
 				{	"type":"water",
@@ -289,9 +245,9 @@
 	# Ids can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
 	# WARNING: Make sure to correctly spell the ship, weapon, or fighter ids, and ensure they're in the Adversary's known ships/weapons/fighters list!
 	# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction
-	# Requires a new game for changes to take effect
+	# Any changes here do not apply to existing saves; those saves require setting "enableAdversaryDoctrineChange" to false to remove the old settings.
 	"adversaryDoctrineChangeSettings":{
-		"doctrineChangeDelay":12, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
+		"doctrineChangeDelay":6, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
 		"warships":[
 			{ # High Tech warships
 				"weight":2, # Chance of being picked; setting it to 0 or less will default it back to 1 instead

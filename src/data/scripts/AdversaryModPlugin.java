@@ -1,6 +1,7 @@
 package data.scripts;
 
 import com.fs.starfarer.api.BaseModPlugin;
+import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
@@ -16,6 +17,31 @@ import java.util.HashMap;
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
+
+    // Reload doctrine changer since the Adversary's current doctrine get reset upon loading a new Starsector application.
+    @Override
+    public void onGameLoad(boolean newGame) {
+        if (newGame) return;
+
+        // Remove doctrine changer script if disabled
+        if (!Global.getSettings().getBoolean("enableAdversaryDoctrineChange"))
+            Global.getSector().removeScriptsOfClass(AdversaryFactionDoctrineChanger.class);
+        else {
+            boolean scriptExists = false;
+            for (EveryFrameScript script : Global.getSector().getScripts())
+                if (script instanceof AdversaryFactionDoctrineChanger) {
+                    ((AdversaryFactionDoctrineChanger) script).reload();
+                    scriptExists = true;
+                    break;
+                }
+
+            if (!scriptExists) try { // Add in the faction doctrine changer script if one does not already exist
+                Global.getSector().addScript(new AdversaryFactionDoctrineChanger(Global.getSector().getFaction("adversary"), Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
     @Override
