@@ -245,6 +245,7 @@
 	# Ids can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
 	# WARNING: Make sure to correctly spell the ship, weapon, or fighter ids, and ensure they're in the Adversary's known ships/weapons/fighters list!
 	# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction
+	# Any changes here do not apply to existing saves; those saves require setting "enableAdversaryDoctrineChange" to false to remove the old settings.
 	"adversaryDoctrineChangeSettings":{
 		"doctrineChangeDelay":6, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
 		"warships":[

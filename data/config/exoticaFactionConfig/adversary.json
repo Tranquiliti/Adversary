@@ -3,16 +3,16 @@
   "upgradeChance": 0.7,
   "bandwidthMult": 1.25,
   "allowedExotics": {
-    "SpooledFeeders": 1.0,
-    "FullMetalSalvo": 1.0,
-    "PlasmaFluxCatalyst": 1.0,
-    "DriveFluxVent": 1.0,
-    "EqualizerCore": 1.0,
-    "HangarForge": 1.0,
-    "HangarForgeMissiles": 1.0,
-    "PhasefieldEngine": 1.0,
-    "TierIIIDriveSystem": 1.0,
-    "AlphaSubcore": 1.0
+    "SpooledFeeders": 0.4,
+    "FullMetalSalvo": 0.4,
+    "PlasmaFluxCatalyst": 0.4,
+    "DriveFluxVent": 0.4,
+    "EqualizerCore": 0.4,
+    "HangarForge": 0.4,
+    "HangarForgeMissiles": 0.4,
+    "PhasefieldEngine": 0.4,
+    "TierIIIDriveSystem": 0.4,
+    "AlphaSubcore": 0.4
   },
   "allowedUpgrades": {
     "WeldedArmor": 1.0,
