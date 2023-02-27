@@ -1,11 +1,11 @@
 package data.scripts;
 
 import com.fs.starfarer.api.BaseModPlugin;
-import com.fs.starfarer.api.EveryFrameScript;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
+import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
 import org.json.JSONArray;
@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
+import java.util.List;
 
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
@@ -23,20 +24,19 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         if (newGame) return;
 
-        // Remove doctrine changer script if disabled
-        if (!Global.getSettings().getBoolean("enableAdversaryDoctrineChange"))
-            Global.getSector().removeScriptsOfClass(AdversaryFactionDoctrineChanger.class);
-        else {
-            boolean scriptExists = false;
-            for (EveryFrameScript script : Global.getSector().getScripts())
-                if (script instanceof AdversaryFactionDoctrineChanger) {
-                    ((AdversaryFactionDoctrineChanger) script).reload();
-                    scriptExists = true;
-                    break;
-                }
+        // TODO: remove everything related to the AdversaryFactionDoctrineChanger class if doing a major update
+        Global.getSector().removeScriptsOfClass(AdversaryFactionDoctrineChanger.class); // For save-compatibility with v2.2.0 or earlier
 
-            if (!scriptExists) try { // Add in the faction doctrine changer script if one does not already exist
-                Global.getSector().addScript(new AdversaryFactionDoctrineChanger(Global.getSector().getFaction("adversary"), Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+        ListenerManagerAPI listMan = Global.getSector().getListenerManager();
+        // Remove doctrine changer if disabled
+        if (!Global.getSettings().getBoolean("enableAdversaryDoctrineChange"))
+            listMan.removeListenerOfClass(AdversaryDoctrineChanger.class);
+        else { // Doctrine changer is enabled
+            List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
+            if (!doctrineListeners.isEmpty()) // Doctrine changer already in-game, so refresh the doctrine
+                doctrineListeners.get(0).refresh();
+            else try { // Doctrine changer not active, so add it to the current game
+                listMan.addListener(new AdversaryDoctrineChanger("adversary", (short) 0, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -89,7 +89,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
             // Allows the Adversary to change fleet doctrine in-game if enabled
             // Doing this here, so it can work during the initial 2-month time pass
             if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) try {
-                sector.addScript(new AdversaryFactionDoctrineChanger(sector.getFaction("adversary"), Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+                // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
+                sector.getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
