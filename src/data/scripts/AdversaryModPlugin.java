@@ -19,28 +19,30 @@ import java.util.List;
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
 
-    // Reload doctrine changer since the Adversary's current doctrine get reset upon loading a new Starsector application.
+    // Remove or add listeners to a game depending on currently-set settings
     @Override
     public void onGameLoad(boolean newGame) {
         if (newGame) return;
 
-        // TODO: remove everything related to the AdversaryFactionDoctrineChanger class if doing a major update
-        Global.getSector().removeScriptsOfClass(AdversaryFactionDoctrineChanger.class); // For save-compatibility with v2.2.0 or earlier
-
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        // Remove doctrine changer if disabled
-        if (!Global.getSettings().getBoolean("enableAdversaryDoctrineChange"))
-            listMan.removeListenerOfClass(AdversaryDoctrineChanger.class);
-        else { // Doctrine changer is enabled
+        if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) {
             List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
-            if (!doctrineListeners.isEmpty()) // Doctrine changer already in-game, so refresh the doctrine
-                doctrineListeners.get(0).refresh();
-            else try { // Doctrine changer not active, so add it to the current game
+            if (doctrineListeners.isEmpty()) try {
                 listMan.addListener(new AdversaryDoctrineChanger("adversary", (short) 0, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
-        }
+            else doctrineListeners.get(0).refresh(); // Doctrine changer already in-game, so refresh the doctrine
+            // Need to refresh since the Adversary's current doctrine get reset upon loading a new Starsector application.
+        } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // If disabled, remove doctrine changer
+
+        if (Global.getSettings().getBoolean("enableAdversaryBlueprintStealing")) {
+            if (listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty()) try {
+                listMan.addListener(new AdversaryBlueprintStealer("adversary", (short) 0, Global.getSettings().getJSONObject("adversaryBlueprintStealingSettings")));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+        } else listMan.removeListenerOfClass(AdversaryBlueprintStealer.class); // If disabled, remove blueprint stealer
     }
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
@@ -91,6 +93,12 @@ public class AdversaryModPlugin extends BaseModPlugin {
             if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) try {
                 // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
                 sector.getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
+
+            if (Global.getSettings().getBoolean("enableAdversaryBlueprintStealing")) try {
+                sector.getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryBlueprintStealingSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }

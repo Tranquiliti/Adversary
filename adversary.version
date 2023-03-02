@@ -4,10 +4,10 @@
 	"modThreadId":25821,
 	"modVersion":
 	{
-		"major":2,
-		"minor":2,
-		"patch":1
+		"major":3,
+		"minor":0,
+		"patch":0
 	},
 	"starsectorVersion":"0.95.1a-RC6",
-	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v2.2.1/Adversary-v2.2.1.zip",
+	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v3.0.0/Adversary-v3.0.0.zip",
 }
