@@ -3,11 +3,11 @@ package data.scripts;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
-import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
+import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,8 +24,17 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         if (newGame) return;
 
+        boolean changeDoctrines, stealBlueprints;
+        if (Global.getSettings().getModManager().isModEnabled("lunalib")) { // LunaLib settings overrides settings.json
+            changeDoctrines = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryDoctrineChange"));
+            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryBlueprintStealing"));
+        } else { // Just load from settings.json
+            changeDoctrines = Global.getSettings().getBoolean("enableAdversaryDoctrineChange");
+            stealBlueprints = Global.getSettings().getBoolean("enableAdversaryBlueprintStealing");
+        }
+
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) {
+        if (changeDoctrines) {
             List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
             if (doctrineListeners.isEmpty()) try {
                 listMan.addListener(new AdversaryDoctrineChanger("adversary", (short) 0, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
@@ -36,7 +45,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
             // Need to refresh since the Adversary's current doctrine get reset upon loading a new Starsector application.
         } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // If disabled, remove doctrine changer
 
-        if (Global.getSettings().getBoolean("enableAdversaryBlueprintStealing")) {
+        if (stealBlueprints) {
             if (listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty()) try {
                 listMan.addListener(new AdversaryBlueprintStealer("adversary", (short) 0, Global.getSettings().getJSONObject("adversaryBlueprintStealingSettings")));
             } catch (JSONException e) {
@@ -48,8 +57,13 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Generates mod systems after proc-gen so that planet markets can properly generate
     @Override
     public void onNewGameAfterProcGen() {
-        AdversaryUtil util = new AdversaryUtil();
-        if (Global.getSettings().getBoolean("enableCustomStarSystems")) try {
+        boolean doCustomStarSystems;
+        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
+            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableCustomStarSystems"));
+        else doCustomStarSystems = Global.getSettings().getBoolean("enableCustomStarSystems");
+
+        if (doCustomStarSystems) try {
+            AdversaryUtil util = new AdversaryUtil();
             JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
@@ -57,48 +71,58 @@ public class AdversaryModPlugin extends BaseModPlugin {
                     for (int numOfSystems = systemOptions.isNull("numberOfSystems") ? 1 : systemOptions.getInt("numberOfSystems"); numOfSystems > 0; numOfSystems--)
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
+            marketsToOverrideAdmin = util.marketsToOverrideAdmin;
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
-        marketsToOverrideAdmin = util.marketsToOverrideAdmin;
     }
 
     @Override
     public void onNewGameAfterEconomyLoad() {
         // Gives selected markets the admins they're supposed to have (can't do it before economy load)
-        AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
-        for (MarketAPI market : marketsToOverrideAdmin.keySet()) {
-            switch (marketsToOverrideAdmin.get(market)) {
-                case "player":
-                    market.setAdmin(null);
-                    break;
-                case "alpha_core":
-                    market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
-            }
+        if (marketsToOverrideAdmin != null) {
+            AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
+            for (MarketAPI market : marketsToOverrideAdmin.keySet())
+                switch (marketsToOverrideAdmin.get(market)) {
+                    case "player":
+                        market.setAdmin(null);
+                        break;
+                    case "alpha_core":
+                        market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
+                }
+            // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
+            marketsToOverrideAdmin.clear();
+            marketsToOverrideAdmin = null;
         }
-        // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
-        marketsToOverrideAdmin.clear();
-        marketsToOverrideAdmin = null;
 
-        SectorAPI sector = Global.getSector();
-        FactionAPI adversary = sector.getFaction("adversary");
+        FactionAPI adversary = Global.getSector().getFaction("adversary");
         if (adversary != null) { // Null check so determined people can properly remove the faction from the mod without errors
             // Recent history has made them cold and hateful against almost everyone
-            for (FactionAPI faction : sector.getAllFactions()) adversary.setRelationship(faction.getId(), -100f);
+            for (FactionAPI faction : Global.getSector().getAllFactions())
+                adversary.setRelationship(faction.getId(), -100f);
             adversary.setRelationship("adversary", 100f);
             adversary.setRelationship("neutral", 0f);
 
+            boolean changeDoctrines, stealBlueprints;
+            if (Global.getSettings().getModManager().isModEnabled("lunalib")) { // LunaLib settings overrides settings.json
+                changeDoctrines = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryDoctrineChange"));
+                stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryBlueprintStealing"));
+            } else { // Just load from settings.json
+                changeDoctrines = Global.getSettings().getBoolean("enableAdversaryDoctrineChange");
+                stealBlueprints = Global.getSettings().getBoolean("enableAdversaryBlueprintStealing");
+            }
+
             // Allows the Adversary to change fleet doctrine in-game if enabled
             // Doing this here, so it can work during the initial 2-month time pass
-            if (Global.getSettings().getBoolean("enableAdversaryDoctrineChange")) try {
+            if (changeDoctrines) try {
                 // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
-                sector.getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
+                Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryDoctrineChangeSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
 
-            if (Global.getSettings().getBoolean("enableAdversaryBlueprintStealing")) try {
-                sector.getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryBlueprintStealingSettings")));
+            if (stealBlueprints) try {
+                Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (short) -1, Global.getSettings().getJSONObject("adversaryBlueprintStealingSettings")));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }

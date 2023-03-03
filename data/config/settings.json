@@ -4,6 +4,11 @@
 # Open presetStarSystems.json for some preset custom systems to copy, paste, and edit #
 #-------------------------------------------------------------------------------------#
 
+#--Note for LunaLib users--#
+# LunaLib settings will override the following settings in this settings.json:
+# "enableCustomStarSystems", "enableAdversaryDoctrineChange", "enableAdversaryBlueprintStealing"
+# Use LunaLib's in-game UI configs to toggle these instead.
+
 {
 	# Generates custom star systems upon starting a new game
 	"enableCustomStarSystems":true,
@@ -16,6 +21,7 @@
 	# Allows the Adversary to "borrow" blueprints from specific factions every so often.
 	# Settings for this can be found in "adversaryBlueprintStealingSettings"
 	# Can be added to and/or removed from an existing game.
+	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":true,
 
 	# List of custom star systems to generate
@@ -247,7 +253,7 @@
 	# Settings for how the Adversary doctrine changer
 	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDoctrineChange" to false.
 	"adversaryDoctrineChangeSettings":{
-		"doctrineChangeDelay":1, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
+		"doctrineChangeDelay":6, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
 		
 		# A list of possible Adversary doctrines; the first doctrine in list is considered the default
 		# Note: The Adversary won't pick the same doctrine twice in a row
@@ -336,11 +342,11 @@
 	# Note: The Adversary will continue to use their own existing blueprints
 	# If "enableAdversaryDoctrineChange" is set to true, the Adversary will also continue to prioritize certain blueprints over others.
 	"adversaryBlueprintStealingSettings":{
-		"blueprintStealingDelay":12, # How often, in months, to steal/sync blueprints with the target faction, up to a minimum of every month
+		"blueprintStealingDelay":12, # How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month
 
-		# Which factions from which the Adversary will steal blueprints
+		# List of factions from which the Adversary will steal blueprints
 		# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder
-		"targetFactions":["player",],
+		"targetFactions":["player"],
 	},
 
 	"designTypeColors":{"Adversary":[255,203,170,255]},
