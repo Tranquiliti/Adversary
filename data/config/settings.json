@@ -22,7 +22,7 @@
 	# Settings for this can be found in "adversaryBlueprintStealingSettings"
 	# Can be added to and/or removed from an existing game.
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
-	"enableAdversaryBlueprintStealing":true,
+	"enableAdversaryBlueprintStealing":false,
 
 	# List of custom star systems to generate
 	"customStarSystems":[
