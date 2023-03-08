@@ -22,7 +22,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Remove or add listeners to a game depending on currently-set settings
     @Override
     public void onGameLoad(boolean newGame) {
-        if (newGame) return;
+        if (newGame || Global.getSector().getFaction("adversary") == null) return;
 
         boolean changeDoctrines, stealBlueprints;
         if (Global.getSettings().getModManager().isModEnabled("lunalib")) { // LunaLib settings overrides settings.json
