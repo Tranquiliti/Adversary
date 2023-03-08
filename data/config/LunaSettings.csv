@@ -1,0 +1,4 @@
+modID,fieldID,fieldName,fieldType,defaultValue,fieldDescription,minValue,maxValue
+adversary,adversary_enableCustomStarSystems,Enable Custom Star Systems,Boolean,true,Will custom star systems be generated upon making a new game?,,
+adversary,adversary_enableAdversaryDoctrineChange,Enable Adversary Doctrine Change,Boolean,true,Will the Adversary switch doctrines every so often? Changes will take effect upon reloading a save.,,
+adversary,adversary_enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Will the Adversary steal blueprints from certain, specified factions? Changes will take effect upon reloading a save (however, the Adversary will continue using already-stolen blueprints if this feature is disabled mid-game).",,
