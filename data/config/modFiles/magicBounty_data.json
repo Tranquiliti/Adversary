@@ -53,7 +53,7 @@
         },
         "fleet_composition_quality":2,
         "fleet_transponder":false,
-		"fleet_no_retreat":true,
+        "fleet_no_retreat":true,
         "fleet_behavior":"GUARDED",
         
         "location_distance":"CLOSE",

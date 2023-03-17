@@ -16,28 +16,33 @@ import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
-    protected short elapsedMonths, delayInMonths;
+    protected short elapsedMonths, delayInMonths; // TODO: change to byte after Starsector update
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 
-    public AdversaryDoctrineChanger(String faction, short elapsed, JSONObject doctrineSettings) throws JSONException {
+    public AdversaryDoctrineChanger(String faction, short elapsed, short delay, JSONArray possibleDoctrines) throws JSONException {
         factionId = faction;
         elapsedMonths = elapsed;
-        delayInMonths = (short) Math.max(doctrineSettings.getInt("doctrineChangeDelay"), 1); // Minimum of 1 month delay
+        delayInMonths = delay > 0 ? delay : (short) 1;
         priorityDoctrinePicker = new WeightedRandomPicker();
         factionSeed = new Random();
 
         // Iterating in reverse order so that the first doctrine in JSONArray is considered the selected doctrine
-        JSONArray possibleDoctrines = doctrineSettings.getJSONArray("possibleDoctrines");
         for (int i = possibleDoctrines.length() - 1; i >= 0; i--) {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
             int weight = doctrine.isNull("weight") ? 1 : doctrine.getInt("weight");
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
             // Ignore doctrines with weight of 0 or less
         }
-        priorityDoctrinePicker.ready();
+        priorityDoctrinePicker.ready(factionId);
+        refresh(); // Immediately apply the default doctrine
 
         Global.getLogger(AdversaryDoctrineChanger.class).info("Faction doctrine changer active for: " + factionId);
+    }
+
+    public void changeDelay(short newDelay) {
+        delayInMonths = newDelay;
+        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " doctrine changer delay to " + delayInMonths);
     }
 
     // Unused
@@ -121,8 +126,8 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         }
 
         // Readies the Picker for use; shouldn't add any more elements after calling this function
-        public void ready() {
-            if (items.isEmpty()) add(new PriorityDoctrine());
+        public void ready(String factionId) {
+            if (items.isEmpty()) add(new PriorityDoctrine(Global.getSector().getFaction(factionId).getDoctrine()));
             items.trimToSize();
             if (items.size() > 1) total -= items.get(items.size() - 1).weight;
         }
@@ -158,17 +163,17 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         public byte aggression;
         public String[] priorityShips, priorityWeapons, priorityFighters;
 
-        // Default doctrine, using player's default fleet composition/doctrine settings
-        public PriorityDoctrine() {
+        // Default doctrine, using a faction's current fleet composition/doctrine settings
+        public PriorityDoctrine(FactionDoctrineAPI defaultDoctrine) {
             weight = 1;
-            warships = 4;
-            carriers = 2;
-            phaseShips = 1;
-            officerQuality = 2;
-            shipQuality = 3;
-            numShips = 2;
-            shipSize = 3;
-            aggression = 2;
+            warships = (byte) defaultDoctrine.getWarships();
+            carriers = (byte) defaultDoctrine.getCarriers();
+            phaseShips = (byte) defaultDoctrine.getPhaseShips();
+            officerQuality = (byte) defaultDoctrine.getOfficerQuality();
+            shipQuality = (byte) defaultDoctrine.getShipQuality();
+            numShips = (byte) defaultDoctrine.getNumShips();
+            shipSize = (byte) defaultDoctrine.getShipSize();
+            aggression = (byte) defaultDoctrine.getAggression();
         }
 
         // Creates a priority doctrine from a JSONObject

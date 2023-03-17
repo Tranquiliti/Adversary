@@ -218,7 +218,7 @@
 				{	"type":"gas_giant",
 					"orbitRadius":4000,
 					"radius":325,
-					"conditions":["volatiles_abundant","high_gravity","very_hot"],
+					"conditions":["volatiles_abundant","high_gravity","hot"],
 					"entitiesAtStablePoints":[{"type":"comm_relay"},{"type":"stable_location"},{"type":"stable_location"}],
 				},
 				{	"type":"terran",
@@ -234,7 +234,7 @@
 				{	"type":"barren",
 					"orbitRadius":7750,
 					"radius":120,
-					"conditions":["no_atmosphere"],
+					"conditions":["no_atmosphere","ore_sparse","rare_ore_sparse"],
 				},
 			],
 			"systemFeatures":[
@@ -250,104 +250,105 @@
 
 	],
 
-	# Settings for how the Adversary doctrine changer
+	#-- Settings for the Adversary's doctrine changer --#
 	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDoctrineChange" to false.
-	"adversaryDoctrineChangeSettings":{
-		"doctrineChangeDelay":6, # How often, in months, will the Adversary switch doctrines, up to a minimum of every month
-		
-		# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
-		# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
-		# IDs can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
-		# WARNING: Make sure to correctly spell the ship, weapon, and fighter IDs, and ensure the IDs are in the Adversary's known ships/weapons/fighters list!
-		# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction
-		"possibleDoctrines":[
-			{ # Default doctrine
-				 # The relative chance for this doctrine to be picked
-				 # A weight of 0 or less means this doctrine will never be picked
-				 # Defaults to 1 if this entry is omitted
-				"weight":12,
 
-				 # [Warships, Carriers, Phase Ships]
-				 # Defaults to [3,2,2] if this entry is omitted
-				"fleetComposition":[3,2,2],
+ 	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month
+	"adversaryDoctrineChangeDelay":6,
+	
+	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
+	# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
+	# IDs can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
+	# WARNING: Make sure to correctly spell the ship, weapon, and fighter IDs, and ensure the IDs are in the Adversary's known ships/weapons/fighters list!
+	# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction
+	"adversaryPossibleDoctrines":[
+		{ # Default doctrine
+			 # The relative chance for this doctrine to be picked
+			 # A weight of 0 or less means this doctrine will never be picked
+			 # Defaults to 1 if this entry is omitted
+			"weight":12,
 
-				 # [Officer Quality, Ship Quality, More Ships]
-				 # Defaults to [3,2,2] if this entry is omitted
-				"fleetDoctrine":[3,2,2],
+			 # [Warships, Carriers, Phase Ships]
+			 # Defaults to [3,2,2] if this entry is omitted
+			"fleetComposition":[3,2,2],
 
-				"shipSize":5, # Defaults to 5 if this entry is omitted
-				"aggression":5, # Defaults to 5 if this entry is omitted
-				"priorityShips":[], # Defaults to no priority if this entry is omitted
-				"priorityWeapons":[], # Defaults to no priority if this entry is omitted
-				"priorityFighters":[], # Defaults to no priority if this entry is omitted
-			},
-			{ # High Tech Warships
-				"weight":3,
-				"fleetComposition":[5,1,1],
-				"priorityShips":["paragon","fury","aurora","apogee","shrike","medusa","scarab","omen"],
-				"priorityWeapons":["tachyonlance","plasma","heavyblaster","ionpulser","irpulse","amblaster","sabot","sabotpod","lightneedler","heavyneedler"],
-				"priorityFighters":[],
-			},
-			{ # Midline Warships
-				"weight":3,
-				"fleetComposition":[5,1,1],
-				"priorityShips":["conquest","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
-				"priorityWeapons":["mjolnir","squall","hurricane","hveldriver","heavymauler","vulcan"],
-				"priorityFighters":[],
-			},
-			{ # Midline Warships
-				"weight":3,
-				"fleetComposition":[5,1,1],
-				"priorityShips":["onslaught","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
-				"priorityWeapons":["mark9","hellbore","devastator","sabotpod","annihilatorpod","harpoon","vulcan"],
-				"priorityFighters":[],
-			},
-			{ # Warships
-				"weight":3,
-				"fleetComposition":[5,1,1],
-			},
-			{ # High Tech/Midline Carriers
-				"weight":4,
-				"fleetComposition":[1,5,1],
-				"priorityShips":["astral","heron","drover","tempest"],
-				"priorityWeapons":["squall","harpoonpod","harpoon","lrpdlaser","vulcan","ionbeam","heavymauler","hveldriver"],
-				"priorityFighters":["xyphos_wing","gladius_wing","warthog_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
-			},
-			{ # Low Tech Carriers
-				"weight":4,
-				"fleetComposition":[1,5,1],
-				"priorityShips":["legion","mora","condor","shepherd"],
-				"priorityWeapons":["hurricane","harpoonpod","pilum","harpoon","swarmer","gauss","hellbore","vulcan"],
-				"priorityFighters":["broadsword_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
-			},
-			{ # Carriers
-				"weight":4,
-				"fleetComposition":[1,5,1],
-			},
-			{ # Elite Phase Ships
-				"weight":6,
-				"fleetComposition":[1,1,5],
-				"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
-				"priorityWeapons":["lightneedler","ionpulser","heavyblaster","phasebeam","ionbeam","pdburst","sabot","sabotpod"],
-				"priorityFighters":[],
-			},
-			{ # Phase Ships
-				"weight":6,
-				"fleetComposition":[1,1,5],
-			},
-		],
-	},
+			 # [Officer Quality, Ship Quality, More Ships]
+			 # Defaults to [3,2,2] if this entry is omitted
+			"fleetDoctrine":[3,2,2],
 
-	# Settings for how the Adversary steals blueprints
-	# Note: The Adversary will continue to use their own existing blueprints
-	# If "enableAdversaryDoctrineChange" is set to true, the Adversary will also continue to prioritize certain blueprints over others.
-	"adversaryBlueprintStealingSettings":{
-		"blueprintStealingDelay":12, # How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month
+			"shipSize":5, # Defaults to 5 if this entry is omitted
+			"aggression":5, # Defaults to 5 if this entry is omitted
+			"priorityShips":[], # Defaults to no priority if this entry is omitted
+			"priorityWeapons":[], # Defaults to no priority if this entry is omitted
+			"priorityFighters":[], # Defaults to no priority if this entry is omitted
+		},
+		{ # High Tech Warships
+			"weight":3,
+			"fleetComposition":[5,1,1],
+			"priorityShips":["paragon","fury","aurora","apogee","shrike","medusa","scarab","omen"],
+			"priorityWeapons":["tachyonlance","plasma","heavyblaster","ionpulser","irpulse","amblaster","sabot","sabotpod","lightneedler","heavyneedler"],
+			"priorityFighters":[],
+		},
+		{ # Midline Warships
+			"weight":3,
+			"fleetComposition":[5,1,1],
+			"priorityShips":["conquest","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
+			"priorityWeapons":["mjolnir","squall","hurricane","hveldriver","heavymauler","vulcan"],
+			"priorityFighters":[],
+		},
+		{ # Midline Warships
+			"weight":3,
+			"fleetComposition":[5,1,1],
+			"priorityShips":["onslaught","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
+			"priorityWeapons":["mark9","hellbore","devastator","sabotpod","annihilatorpod","harpoon","vulcan"],
+			"priorityFighters":[],
+		},
+		{ # Warships
+			"weight":3,
+			"fleetComposition":[5,1,1],
+		},
+		{ # High Tech/Midline Carriers
+			"weight":4,
+			"fleetComposition":[1,5,1],
+			"priorityShips":["astral","heron","drover","tempest"],
+			"priorityWeapons":["squall","harpoonpod","harpoon","lrpdlaser","vulcan","ionbeam","heavymauler","hveldriver"],
+			"priorityFighters":["xyphos_wing","gladius_wing","warthog_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
+		},
+		{ # Low Tech Carriers
+			"weight":4,
+			"fleetComposition":[1,5,1],
+			"priorityShips":["legion","mora","condor","shepherd"],
+			"priorityWeapons":["hurricane","harpoonpod","pilum","harpoon","swarmer","gauss","hellbore","vulcan"],
+			"priorityFighters":["broadsword_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
+		},
+		{ # Carriers
+			"weight":4,
+			"fleetComposition":[1,5,1],
+		},
+		{ # Elite Phase Ships
+			"weight":6,
+			"fleetComposition":[1,1,5],
+			"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
+			"priorityWeapons":["lightneedler","ionpulser","heavyblaster","phasebeam","ionbeam","pdburst","sabot","sabotpod"],
+			"priorityFighters":[],
+		},
+		{ # Phase Ships
+			"weight":6,
+			"fleetComposition":[1,1,5],
+		},
+	],
 
-		# List of factions from which the Adversary will steal blueprints
-		# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder
-		"targetFactions":["player"],
-	},
+	#-- Settings for the Adversary's blueprint stealer --#
+	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryBlueprintStealing" to false.
 
+ 	# How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month
+	"adversaryBlueprintStealingDelay":12,
+
+	# List of factions from which the Adversary will steal blueprints
+	# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder
+	"adversaryStealsFromFactions":["player"],
+
+
+	# Other
 	"designTypeColors":{"Adversary":[255,203,170,255]},
 }

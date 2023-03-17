@@ -5,22 +5,25 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.listeners.EconomyTickListener;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 public class AdversaryBlueprintStealer implements EconomyTickListener {
     protected String factionId;
     protected String[] targetIds;
-    protected short elapsedMonths, delayInMonths;
+    protected short elapsedMonths, delayInMonths; // TODO: change to byte after Starsector update
 
-    public AdversaryBlueprintStealer(String faction, short elapsed, JSONObject stealerSettings) throws JSONException {
+    public AdversaryBlueprintStealer(String faction, short elapsed, short delay, JSONArray targetFactions) throws JSONException {
         factionId = faction;
-        JSONArray targetFactions = stealerSettings.getJSONArray("targetFactions");
         targetIds = new String[targetFactions.length()];
         for (int i = targetFactions.length() - 1; i >= 0; i--) targetIds[i] = targetFactions.getString(i);
         elapsedMonths = elapsed;
-        delayInMonths = (short) Math.max(stealerSettings.getInt("blueprintStealingDelay"), 1);
+        delayInMonths = delay > 0 ? delay : (short) 1;
 
         Global.getLogger(AdversaryBlueprintStealer.class).info("Faction blueprint stealer active for: " + factionId);
+    }
+
+    public void changeDelay(short newDelay) {
+        delayInMonths = newDelay;
+        Global.getLogger(AdversaryBlueprintStealer.class).info("Set " + factionId + " blueprint stealer delay to " + delayInMonths);
     }
 
     // Unused
