@@ -609,12 +609,15 @@ public class AdversaryUtil {
      * @return The newly-created planet or star
      * @throws JSONException if planetOptions is invalid
      */
-    public PlanetAPI addPlanetWithOptions(StarSystemAPI system, int numOfCenterStars, JSONObject planetOptions, int index) throws JSONException {
+    public PlanetAPI addPlanetOrStar(StarSystemAPI system, int numOfCenterStars, JSONObject planetOptions, int index) throws JSONException {
         // Creates planet with appropriate characteristics
-        int indexFocus = planetOptions.isNull("focus") ? DEFAULT_FOCUS : planetOptions.getInt("focus");
+        int indexFocus = planetOptions.optInt("focus", DEFAULT_FOCUS);
         if (numOfCenterStars + indexFocus > system.getPlanets().size())
             throw new RuntimeException("Invalid \"focus\" index in " + system.getBaseName() + "'s \"orbitingBodies\" entry #" + (index + 1));
         PlanetAPI newPlanet = addPlanet(system, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), index, planetOptions);
+
+        // Apply any spec changes
+        addSpecChanges(newPlanet, planetOptions.optJSONObject("specChanges"));
 
         if (newPlanet.isStar()) { // New "planet" is an orbiting star
             if (system.getSecondary() == null) { // Second star, orbiting far
@@ -631,10 +634,36 @@ public class AdversaryUtil {
             addSolarArrayToPlanet(newPlanet, newPlanet.getFaction().getId());
 
         // Adds any entities to this planet's lagrange points if applicable
-        JSONArray lagrangePoints = planetOptions.isNull("entitiesAtStablePoints") ? null : planetOptions.getJSONArray("entitiesAtStablePoints");
+        JSONArray lagrangePoints = planetOptions.optJSONArray("entitiesAtStablePoints");
         if (lagrangePoints != null) addToLagrangePoints(newPlanet, lagrangePoints);
 
         return newPlanet;
+    }
+
+    // TODO: Do the rest of the spec changes too, and also add support for center stars too!
+    // Also maybe use .opt() a bit more too
+    public void addSpecChanges(PlanetAPI planet, JSONObject specChanges) throws JSONException {
+        if (specChanges == null) return;
+
+        JSONArray texture = specChanges.optJSONArray("texture");
+        if (texture != null)
+            planet.getSpec().setTexture(Global.getSettings().getSpriteName(texture.getString(0), texture.getString(1)));
+
+        JSONArray planetColor = specChanges.optJSONArray("planetColor");
+        if (planetColor != null)
+            planet.getSpec().setPlanetColor(new Color(planetColor.getInt(0), planetColor.getInt(1), planetColor.getInt(2), planetColor.getInt(3)));
+
+        JSONArray glowTexture = specChanges.optJSONArray("glowTexture");
+        if (glowTexture != null)
+            planet.getSpec().setGlowTexture(Global.getSettings().getSpriteName(glowTexture.getString(0), glowTexture.getString(1)));
+
+        JSONArray glowColor = specChanges.optJSONArray("glowColor");
+        if (glowColor != null)
+            planet.getSpec().setGlowColor(new Color(glowColor.getInt(0), glowColor.getInt(1), glowColor.getInt(2), glowColor.getInt(3)));
+
+        planet.getSpec().setUseReverseLightForGlow(specChanges.optBoolean("useReverseLightForGlow"));
+
+        planet.applySpecChanges();
     }
 
     /**
