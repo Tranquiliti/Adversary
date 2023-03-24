@@ -1,6 +1,6 @@
 modID,fieldID,fieldName,fieldType,defaultValue,fieldDescription,minValue,maxValue
-adversary,adversary_enableCustomStarSystems,Enable Custom Star Systems,Boolean,true,Generates custom star systems during new game creation.,,
+adversary,adversary_enableCustomStarSystems,Enable Custom Star Systems,Boolean,true,"Generates custom star systems during new game creation. [Disabling this will disable all custom star systems, including the default star system occupied by the Adversary faction. Edit the settings.json in the Adversary mod folder if you wish to disable individual custom star systems instead.]",,
 adversary,adversary_enableAdversaryDoctrineChange,Enable Adversary Doctrine Change,Boolean,true,Enables the Adversary to switch fleet composition and doctrines mid-game.,,
-adversary,adversary_adversaryDoctrineChangeDelay,Adversary Doctrine Change Delay,Int,6,How many months between each Adversary doctrine changes?,1,127
-adversary,adversary_enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [If this feature is disabled mid-game, the Adversary will continue to use any stolen blueprints.]",,
-adversary,adversary_adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steals?,1,127
+adversary,adversary_adversaryDoctrineChangeDelay,Adversary Doctrine Change Delay,Int,6,How many months between each Adversary doctrine changes?,1,120
+adversary,adversary_enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [If this feature is disabled mid-game, the Adversary faction will continue to use any stolen blueprints.]",,
+adversary,adversary_adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steals?,1,120

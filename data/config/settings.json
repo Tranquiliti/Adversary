@@ -6,8 +6,9 @@
 
 #--Note for LunaLib users--#
 # LunaLib settings will override the following settings in this settings.json:
-# "enableCustomStarSystems", "enableAdversaryDoctrineChange", "enableAdversaryBlueprintStealing"
-# Use LunaLib's in-game UI configs to toggle these instead.
+# "enableCustomStarSystems", "enableAdversaryDoctrineChange", "enableAdversaryBlueprintStealing",
+# "adversaryDoctrineChangeDelay", and "adversaryBlueprintStealingDelay"
+# Instead, Uuse LunaLib's in-game UI configs to modify these.
 
 {
 	# Generates custom star systems upon starting a new game

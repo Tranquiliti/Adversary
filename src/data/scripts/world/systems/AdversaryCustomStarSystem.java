@@ -33,7 +33,7 @@ public class AdversaryCustomStarSystem {
         JSONArray planetList = systemOptions.isNull("orbitingBodies") ? null : systemOptions.getJSONArray("orbitingBodies");
         boolean hasFactionPresence = false;
         if (planetList != null) for (int i = 0; i < planetList.length(); i++) {
-            PlanetAPI newPlanet = util.addPlanetWithOptions(system, numOfCenterStars, planetList.getJSONObject(i), i);
+            PlanetAPI newPlanet = util.addPlanetOrStar(system, numOfCenterStars, planetList.getJSONObject(i), i);
             if (newPlanet.isStar()) starsInSystem.add(newPlanet);
             if (!hasFactionPresence && !newPlanet.getFaction().getId().equals("neutral")) hasFactionPresence = true;
         }

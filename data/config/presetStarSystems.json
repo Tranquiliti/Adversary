@@ -57,6 +57,9 @@
 						{"type":"jump_point","name":"Penelope's Inner Jump-point"},
 					],
 					"conditions":[],
+					"specChanges":{
+						"planetColor":[230,240,255,255],
+					},
 				},
 				{ # Calypso, orbiting Ogygia
 					"name":"Calypso",
@@ -67,6 +70,10 @@
 					"orbitRadius":400,
 					"orbitDays":25,
 					"conditions":[],
+					"specChanges":{
+						"texture":["planets","barren02"],
+						"planetColor":[220,230,255,255],
+					},
 				},
 				{ # Aeolus, with magnetic storms and trojan asteroid fields
 					"name":"Aeolus",
@@ -81,6 +88,12 @@
 						{"type":"asteroid_field","name":"Penelope L5 Asteroids","size":450},
 					],
 					"conditions":[],
+					"specChanges":{
+						"planetColor":[150,245,255,255],
+						"glowTexture":["hab_glows","banded"],
+						"glowColor":[250,225,55,64],
+						"useReverseLightForGlow":true,
+					},
 				},
 				{ # Dorus, orbiting Dorus
 					"name":"Dorus",
@@ -91,6 +104,10 @@
 					"orbitRadius":700,
 					"orbitDays":22,
 					"conditions":[],
+					"specChanges":{
+						"texture":["planets","venuslike"],
+						"planetColor":[185,245,255,255],
+					},
 				},
 				{ # Xuthus, orbiting Dorus
 					"name":"Xuthus",
@@ -101,6 +118,9 @@
 					"orbitRadius":1000,
 					"orbitDays":45,
 					"conditions":[],
+					"specChanges":{
+						"planetColor":[190,235,255,255],
+					},
 				},
 				{ # Telepylus, with an abandoned station and a ring band around it
 					"name":"Telepylus",
@@ -113,6 +133,11 @@
 						{"type":"jump_point","name":"Penelope's Outer Jump-point"}, # L5 point
 					],
 					"conditions":[],
+					"specChanges":{
+						"planetColor":[170,190,255,255],
+						"glowTexture":["hab_glows","banded"],
+						"glowColor":[250,225,155,32],
+					},
 				},
 				{ # Ismara, had mass-driven volatiles, now looted
 					"name":"Ismara",
@@ -350,14 +375,14 @@
 							"stationType":"station_side04",
 							"factionId":"independent",
 							"marketSize":6,
-							"industries":[
-								"population",
-								"megaport",
-								"waystation",
-								"heavybatteries",
-								"highcommand",
-								"starfortress_high",
-							],
+							"industries":{
+								"population":[],
+								"megaport":[],
+								"waystation":[],
+								"heavybatteries":[],
+								"highcommand":[],
+								"starfortress_high":[],
+							},
 						},
 						{"type":"nav_buoy","name":"Royale Coordination Buoy"},
 						{"type":"sensor_array","name":"Royale Listening Beacon"},
