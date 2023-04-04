@@ -38,8 +38,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
             JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
-                if (systemOptions.isNull("isEnabled") || systemOptions.getBoolean("isEnabled"))
-                    for (int numOfSystems = systemOptions.isNull("numberOfSystems") ? 1 : systemOptions.getInt("numberOfSystems"); numOfSystems > 0; numOfSystems--)
+                if (systemOptions.optBoolean("isEnabled", true))
+                    for (int numOfSystems = systemOptions.optInt("numberOfSystems", 1); numOfSystems > 0; numOfSystems--)
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
             marketsToOverrideAdmin = util.marketsToOverrideAdmin;
@@ -117,7 +117,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (short) (newGame ? -1 : 0), doctrineDelay.shortValue(), Global.getSettings().getJSONArray("adversaryPossibleDoctrines")));
+            Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), Global.getSettings().getJSONArray("adversaryPossibleDoctrines")));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -131,7 +131,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (short) (newGame ? -1 : 0), stealDelay.shortValue(), Global.getSettings().getJSONArray("adversaryStealsFromFactions")));
+            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (byte) (newGame ? -1 : 0), stealDelay.byteValue(), Global.getSettings().getJSONArray("adversaryStealsFromFactions")));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

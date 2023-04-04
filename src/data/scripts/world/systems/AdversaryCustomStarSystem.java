@@ -1,6 +1,5 @@
 package data.scripts.world.systems;
 
-import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
@@ -14,45 +13,42 @@ import java.util.ArrayList;
 
 public class AdversaryCustomStarSystem {
     public void generate(AdversaryUtil util, JSONObject systemOptions) throws JSONException {
-        // Create the star system with either name of the first star or a random proc-gen name.
-        JSONObject centerStars = systemOptions.getJSONObject("starsInSystemCenter");
-        JSONArray starsList = centerStars.getJSONArray("stars");
-        if (starsList.length() == 0)
-            throw new RuntimeException("Cannot create a system with no center stars! Custom star systems require at least one star in the \"stars\" list of \"starsInSystemCenter\"!");
-        StarSystemAPI system = Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull("name") ? util.getProcGenName("star", null) : starsList.getJSONObject(0).getString("name"));
+        // Create the star system
+        StarSystemAPI system = util.generateStarSystem(systemOptions);
 
         // Generate the center stars
-        util.addStarsInCenter(system, centerStars);
+        util.generateSystemCenter(system, systemOptions.getJSONObject("starsInSystemCenter"));
         ArrayList<PlanetAPI> starsInSystem = new ArrayList<>(system.getPlanets());
         int numOfCenterStars = starsInSystem.size();
 
         // Create the fringe Jump-point and save its orbit radius
-        float fringeRadius = util.addFringeJumpPoint(system, systemOptions.isNull("fringeJumpPoint") ? null : systemOptions.getJSONObject("fringeJumpPoint"));
+        float fringeRadius = util.generateFringeJumpPoint(system, systemOptions.optJSONObject("fringeJumpPoint"));
 
         // Create orbiting bodies
-        JSONArray planetList = systemOptions.isNull("orbitingBodies") ? null : systemOptions.getJSONArray("orbitingBodies");
+        JSONArray planetList = systemOptions.optJSONArray("orbitingBodies");
         boolean hasFactionPresence = false;
         if (planetList != null) for (int i = 0; i < planetList.length(); i++) {
-            PlanetAPI newPlanet = util.addPlanetOrStar(system, numOfCenterStars, planetList.getJSONObject(i), i);
-            if (newPlanet.isStar()) starsInSystem.add(newPlanet);
-            if (!hasFactionPresence && !newPlanet.getFaction().getId().equals("neutral")) hasFactionPresence = true;
+            PlanetAPI newBody = util.generateOrbitingBody(system, planetList.getJSONObject(i), numOfCenterStars, i);
+            if (newBody.isStar()) starsInSystem.add(newBody);
+            else if (newBody.hasCondition("solar_array")) util.addSolarArray(newBody, newBody.getFaction().getId());
+            if (!hasFactionPresence && !newBody.getFaction().getId().equals("neutral")) hasFactionPresence = true;
         }
 
         // Add the system features
-        JSONArray systemFeatures = systemOptions.isNull("systemFeatures") ? null : systemOptions.getJSONArray("systemFeatures");
+        JSONArray systemFeatures = systemOptions.optJSONArray("systemFeatures");
         if (systemFeatures != null) for (int i = 0; i < systemFeatures.length(); i++)
-            util.addSystemFeature(system, numOfCenterStars, systemFeatures.getJSONObject(i));
+            util.generateSystemFeature(system, systemFeatures.getJSONObject(i), numOfCenterStars);
 
-        // Adds a coronal hypershunt if enabled, defaulting to false
-        if (!systemOptions.isNull("addCoronalHypershunt") && systemOptions.getBoolean("addCoronalHypershunt"))
-            util.addHypershunt(system, !hasFactionPresence, true);
+        // Adds a coronal hypershunt if enabled
+        if (systemOptions.optBoolean("addCoronalHypershunt", false))
+            util.generateHypershunt(system, !hasFactionPresence, true);
 
-        // Adds a Domain-era cryosleeper if enabled, defaulting to false
-        if (!systemOptions.isNull("addDomainCryosleeper") && systemOptions.getBoolean("addDomainCryosleeper"))
-            util.addCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", fringeRadius + 4000f, !hasFactionPresence);
+        // Adds a Domain-era cryosleeper if enabled
+        if (systemOptions.optBoolean("addDomainCryosleeper", false))
+            util.generateCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", fringeRadius + 4000f, !hasFactionPresence);
 
-        // Add relevant system tags if applicable, defaulting to false
-        if (systemOptions.isNull("isCoreWorldSystem") || !systemOptions.getBoolean("isCoreWorldSystem")) {
+        // Add relevant system tags if applicable
+        if (systemOptions.optBoolean("isCoreWorldSystem", false)) {
             system.removeTag(Tags.THEME_CORE);
             system.addTag(Tags.THEME_MISC);
             system.addTag(Tags.THEME_INTERESTING_MINOR);
@@ -67,12 +63,13 @@ public class AdversaryCustomStarSystem {
             system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, systemOptions.getString("systemMusic"));
 
         // Set location of star system either in a constellation or a specified location
-        JSONArray locationOverride = systemOptions.isNull("setLocationOverride") ? null : systemOptions.getJSONArray("setLocationOverride");
+        JSONArray locationOverride = systemOptions.optJSONArray("setLocationOverride");
         if (locationOverride == null)
-            util.setLocation(system, (fringeRadius / 10f) + 100f, systemOptions.isNull("setLocation") ? 0 : systemOptions.getInt("setLocation"));
+            util.setLocation(system, (fringeRadius / 10f) + 100f, systemOptions.optInt("setLocation", 0));
         else system.getLocation().set(locationOverride.getInt(0), locationOverride.getInt(1));
 
-        util.setDefaultLightColorBasedOnStars(system, starsInSystem);
+        util.setSystemType(system);
+        util.setLightColor(system, starsInSystem);
         util.generateHyperspace(system);
         util.addRemnantWarningBeacons(system);
     }
