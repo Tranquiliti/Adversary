@@ -4,21 +4,22 @@ import com.fs.starfarer.api.campaign.PlanetAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.impl.MusicPlayerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
+import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import data.scripts.AdversaryUtil;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class AdversaryCustomStarSystem {
     public void generate(AdversaryUtil util, JSONObject systemOptions) throws JSONException {
         // Create the star system
         StarSystemAPI system = util.generateStarSystem(systemOptions);
+        system.setHasSystemwideNebula(true);
 
         // Generate the center stars
-        util.generateSystemCenter(system, systemOptions.getJSONObject("starsInSystemCenter"));
-        ArrayList<PlanetAPI> starsInSystem = new ArrayList<>(system.getPlanets());
+        List<PlanetAPI> starsInSystem = util.generateSystemCenter(system, systemOptions.getJSONObject("starsInSystemCenter"));
         int numOfCenterStars = starsInSystem.size();
 
         // Create the fringe Jump-point and save its orbit radius
@@ -30,7 +31,6 @@ public class AdversaryCustomStarSystem {
         if (planetList != null) for (int i = 0; i < planetList.length(); i++) {
             PlanetAPI newBody = util.generateOrbitingBody(system, planetList.getJSONObject(i), numOfCenterStars, i);
             if (newBody.isStar()) starsInSystem.add(newBody);
-            else if (newBody.hasCondition("solar_array")) util.addSolarArray(newBody, newBody.getFaction().getId());
             if (!hasFactionPresence && !newBody.getFaction().getId().equals("neutral")) hasFactionPresence = true;
         }
 
@@ -70,6 +70,10 @@ public class AdversaryCustomStarSystem {
 
         util.setSystemType(system);
         util.setLightColor(system, starsInSystem);
+
+        if (systemOptions.optBoolean("hasSystemwideNebula", false))
+            StarSystemGenerator.addSystemwideNebula(system, system.getAge());
+
         util.generateHyperspace(system);
         util.addRemnantWarningBeacons(system);
     }

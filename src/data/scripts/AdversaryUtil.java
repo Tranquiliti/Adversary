@@ -37,7 +37,6 @@ public class AdversaryUtil {
     public final int DEFAULT_FOCUS = 0;
     public final int DEFAULT_SET_TO_PROC_GEN = -1; // For user's sake, exampleSettings.json uses 0 to specify proc-gen
     public final int DEFAULT_MARKET_SIZE = 0;
-    public final int DEFAULT_STARS_ORBIT_RADIUS = 2000;
     public final int DEFAULT_FRINGE_ORBIT_RADIUS = 5000;
     public final String DEFAULT_STAR_TYPE = "star_red_dwarf";
     public final String DEFAULT_PLANET_TYPE = "barren";
@@ -78,36 +77,40 @@ public class AdversaryUtil {
      *
      * @param system        The star system to modify
      * @param centerOptions Center options
+     * @return A List of the newly-created stars
      * @throws JSONException if centerOptions is invlaid
      */
-    public void generateSystemCenter(StarSystemAPI system, JSONObject centerOptions) throws JSONException {
+    public List<PlanetAPI> generateSystemCenter(StarSystemAPI system, JSONObject centerOptions) throws JSONException {
         JSONArray starsList = centerOptions.getJSONArray("stars");
         int numOfCenterStars = starsList.length();
         String id = Misc.genUID();
 
+        ArrayList<PlanetAPI> stars = new ArrayList<>(numOfCenterStars);
         if (numOfCenterStars == 1) {
             PlanetAPI newStar = addStar(system, starsList.getJSONObject(0), "system_" + id);
-            system.setCenter(newStar);
-
             if (newStar.getTypeId().equals("black_hole")) addAccretionDisk(system, newStar);
+            system.setCenter(newStar);
+            stars.add(newStar);
         } else {
             SectorEntityToken systemCenter = system.initNonStarCenter(); // Center in which the stars will orbit
             systemCenter.setId(id); // Set the center's id to the unique id
 
-            float orbitRadius = centerOptions.optInt("orbitRadius", DEFAULT_STARS_ORBIT_RADIUS) - numOfCenterStars + 1;
+            float orbitRadius = centerOptions.optInt("orbitRadius", 2000) - numOfCenterStars + 1;
             float angle = centerOptions.isNull("orbitAngle") ? StarSystemGenerator.random.nextFloat() * 360f : centerOptions.getInt("orbitAngle");
             float angleDifference = 360f / numOfCenterStars;
             float orbitDays = centerOptions.isNull("orbitDays") ? orbitRadius / ((60f / numOfCenterStars) + StarSystemGenerator.random.nextFloat() * 50f) : centerOptions.getInt("orbitDays");
             char idChar = 'b';
 
             for (int i = 0; i < numOfCenterStars; i++) {
-                JSONObject starOptions = starsList.getJSONObject(i);
-                PlanetAPI star = addStar(system, starOptions, "system_" + id + (i > 0 ? "_" + idChar++ : ""));
+                PlanetAPI newStar = addStar(system, starsList.getJSONObject(i), "system_" + id + (i > 0 ? "_" + idChar++ : ""));
+                newStar.setCircularOrbit(systemCenter, angle, orbitRadius + i, orbitDays);
+                stars.add(newStar);
 
-                star.setCircularOrbit(systemCenter, angle, orbitRadius + i, orbitDays);
                 angle = (angle + angleDifference) % 360f;
             }
         }
+
+        return stars;
     }
 
     /**
@@ -130,6 +133,7 @@ public class AdversaryUtil {
 
         PlanetAPI newBody = Global.getSettings().getSpec(StarGenDataSpec.class, bodyOptions.optString("type", null), true) != null ? addStar(system, bodyOptions, systemId + ":star_" + index) : addPlanet(system, bodyOptions, systemId + ":planet_" + index);
         addCircularOrbit(newBody, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), bodyOptions, 20f);
+        if (newBody.hasCondition("solar_array")) addSolarArray(newBody, newBody.getFaction().getId());
 
         // Adds any entities to this planet's lagrange points if applicable
         JSONArray lagrangePoints = bodyOptions.optJSONArray("entitiesAtStablePoints");
@@ -251,7 +255,7 @@ public class AdversaryUtil {
         if (glowColor != null)
             body.getSpec().setGlowColor(new Color(glowColor.getInt(0), glowColor.getInt(1), glowColor.getInt(2), glowColor.getInt(3)));
 
-        body.getSpec().setUseReverseLightForGlow(specChanges.optBoolean("useReverseLightForGlow"));
+        body.getSpec().setUseReverseLightForGlow(specChanges.optBoolean("useReverseLightForGlow", false));
 
         body.applySpecChanges();
     }
@@ -393,7 +397,7 @@ public class AdversaryUtil {
                 break;
             default: // Any salvage entities defined in salvage_entity_gen_data.csv (including ones added by mods)
                 entity = addSalvageEntity(system, type, name);
-                if (type.equals("coronal_tap")) addCircularOrbitPointingDown(entity, focus, featureOptions, 20f);
+                if (type.equals("coronal_tap")) addCircularOrbitPointingDown(entity, focus, featureOptions, 15f);
                 else addCircularOrbitWithSpin(entity, focus, featureOptions, 20f, 1f, 11f);
         }
     }
@@ -871,7 +875,6 @@ public class AdversaryUtil {
         else addSolarArray(planet, numOfMirrors, numOfShades, factionId);
     }
 
-    // TODO: simplify this mess (it was made before I realized I could just look for the actual vanilla implementation)
     private void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionId) {
         if (numOfMirrors > 5 || numOfShades > 3)
             throw new IllegalArgumentException("Invalid number of solar mirrors and/or shades");
@@ -1128,5 +1131,6 @@ public class AdversaryUtil {
         nearestSystems.add(system); // Selected constellation now contains the new system
         system.setConstellation(selectedConstellation);
         system.getLocation().set(newLoc);
+        system.setAge(selectedConstellation.getAge());
     }
 }

@@ -30,12 +30,12 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onNewGameAfterProcGen() {
         boolean doCustomStarSystems;
         if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableCustomStarSystems"));
+            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableCustomStarSystems"));
         else doCustomStarSystems = Global.getSettings().getBoolean("enableCustomStarSystems");
 
         if (doCustomStarSystems) try {
-            AdversaryUtil util = new AdversaryUtil();
             JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
+            AdversaryUtil util = new AdversaryUtil();
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
                 if (systemOptions.optBoolean("isEnabled", true))
@@ -84,8 +84,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
         boolean lunaLibEnabled = Global.getSettings().getModManager().isModEnabled("lunalib");
         if (lunaLibEnabled) { // LunaLib settings overrides settings.json
             new AdversaryLunaSettingsListener();
-            changeDoctrines = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryDoctrineChange"));
-            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "adversary_enableAdversaryBlueprintStealing"));
+            changeDoctrines = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryDoctrineChange"));
+            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryBlueprintStealing"));
         } else { // Just load from settings.json
             changeDoctrines = Global.getSettings().getBoolean("enableAdversaryDoctrineChange");
             stealBlueprints = Global.getSettings().getBoolean("enableAdversaryBlueprintStealing");
@@ -112,7 +112,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Adds a AdversaryDoctrineChanger with settings
     private void addAdversaryDoctrineChanger(boolean newGame, boolean lunaLibEnabled) {
         Integer doctrineDelay = null;
-        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", "adversary_adversaryDoctrineChangeDelay");
+        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", "adversaryDoctrineChangeDelay");
         if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
@@ -126,7 +126,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Adds a AdversaryBlueprintStealer with settings
     private void addAdversaryBlueprintStealer(boolean newGame, boolean lunaLibEnabled) {
         Integer stealDelay = null;
-        if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", "adversary_adversaryBlueprintStealingDelay");
+        if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", "adversaryBlueprintStealingDelay");
         if (stealDelay == null) stealDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that

@@ -10,4 +10,5 @@
 	},
 	"starsectorVersion":"0.95.1a-RC6",
 	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v3.2.0/Adversary-v3.2.0.zip",
+	"changelogURL":"https://raw.githubusercontent.com/Tranquiliti/Adversary/main/changelog.txt"
 }

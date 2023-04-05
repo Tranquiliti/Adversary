@@ -1,0 +1,43 @@
+Version 3.2.0
+
+* Updated LunaLib compatibility yet again (now with an actual changelog!)
+  - Note that setting IDs have been changed, so you may need to set your LunaLib settings for this mod again.
+* Added "hasSystemwideNebula" toggle for custom star systems, allowing for nebula clouds to appear in your custom star systems.
+  - Default uninhabited system now has this set to "true".
+* Custom star systems created with "setLocation" now set their star age to that of their selected constellation.
+  - This affects the nebula color of the system in-game.
+* Stars in the "stars" list of "starsInSystemCenter" can now have "specChanges" as well.
+* Fixed optional blueprint stealer setting not correctly resetting the elasped months after each steal attempt.
+* Major code refactors
+
+
+
+Version 3.1.0
+
+* Updated LunaLib compatibility:
+  - LunaLib settings for the Adversary mod now immediately apply to an existing save, without needing to reload a save.
+  - Added "Adversary Doctrine Change Delay" and "Adversary Blueprint Change Delay" as LunaLib settings
+* Reformated and renamed some settings in settings.json to account for the above change.
+* Adjusted default uninhabited custom system:
+  - Gas Giant now has "Hot" instead of "Extreme Heat" to encourage using the Orbital Fusion Lamp to maximize Cryoarithmetic Engine efficacy.
+  - Added sparse ore deposits to Barren planet to make Mining an option.
+* Added "specChanges" option for any planets or stars in "orbitingBodies".
+  - This allows changing the appearance of a planet or star.
+  - Updated Penelope's Star copy in presetStarSystems.json with the appropriate "specChanges"
+
+
+
+Version 3.0.0
+
+* Added "enableAdversaryBlueprintStealing" and its corresponding "adversaryBlueprintStealingSettings".
+  - Set to false by default, it allows the Adversary to learn the blueprints of specific factions after some time.
+  - Default settings has the Adversary steal blueprints from the player faction every new cycle.
+* Expanded "adversaryDoctrineChangeSettings":
+  - Now supports modifying the exact fleet composition and doctrine (e.g. can set doctrine to 3-3-1 fleet composition and 5-1-1 fleet doctrine for warships and carriers with high-level officers)
+  - Replaced "warships", "carriers", etc. with "possibleDoctrines", which holds the possible doctrines the Adversary may use.
+* Added some LunaLib support
+  - The LunaLib toggle settings are: Enable Custom Star Systems, Enable Adversary Doctrine Change, Enable Adversary Blueprint Stealing
+  - If LunaLib is enabled, these toggles will override their settings.json equivalent.
+* Added Better Colonies mod support for the Adversary faction; they will now participate in the Age of Innovation.
+* Added a mirror version of Penelope's Star to presetStarSystems.json
+* Tweaked the Adversary's default carrier doctrines to use a wider variety of fighters.

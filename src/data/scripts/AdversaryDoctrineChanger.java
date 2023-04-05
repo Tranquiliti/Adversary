@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
-    protected byte elapsedMonths, delayInMonths;
+    protected short elapsedMonths, delayInMonths; // TODO: switch to byte after next Starsector update (really!)
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 
@@ -36,11 +36,10 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-
         Global.getLogger(AdversaryDoctrineChanger.class).info("Faction doctrine changer active for: " + factionId);
     }
 
-    public void changeDelay(byte newDelay) {
+    public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
         Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " doctrine changer delay to " + delayInMonths);
     }

@@ -28,6 +28,10 @@
 			# Defaults to false if this entry is omitted
 			"isCoreWorldSystem":false,
 
+			# True -> adds nebulas throughout this systems
+			# Defaults to false if this entry is omitted
+			"hasSystemwideNebula":false,
+
 			# True -> Adds an unactivated coronal hypershunt in the center of the system
 			# Defaults to false if this entry is omitted
 			"addCoronalHypershunt":false,
