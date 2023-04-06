@@ -16,31 +16,30 @@ import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
-    protected short elapsedMonths, delayInMonths; // TODO: change to byte after Starsector update
+    protected short elapsedMonths, delayInMonths; // TODO: switch to byte after next Starsector update (really!)
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 
-    public AdversaryDoctrineChanger(String faction, short elapsed, short delay, JSONArray possibleDoctrines) throws JSONException {
+    public AdversaryDoctrineChanger(String faction, byte elapsed, byte delay, JSONArray possibleDoctrines) throws JSONException {
         factionId = faction;
         elapsedMonths = elapsed;
-        delayInMonths = delay > 0 ? delay : (short) 1;
+        delayInMonths = delay > 0 ? delay : (byte) 1;
         priorityDoctrinePicker = new WeightedRandomPicker();
         factionSeed = new Random();
 
         // Iterating in reverse order so that the first doctrine in JSONArray is considered the selected doctrine
         for (int i = possibleDoctrines.length() - 1; i >= 0; i--) {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
-            int weight = doctrine.isNull("weight") ? 1 : doctrine.getInt("weight");
+            int weight = doctrine.optInt("weight", 1);
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
             // Ignore doctrines with weight of 0 or less
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-
         Global.getLogger(AdversaryDoctrineChanger.class).info("Faction doctrine changer active for: " + factionId);
     }
 
-    public void changeDelay(short newDelay) {
+    public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
         Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " doctrine changer delay to " + delayInMonths);
     }
@@ -203,8 +202,8 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
                 numShips = (byte) fleetDoctrine.getInt(2);
             }
 
-            shipSize = priorityObject.isNull("shipSize") ? 5 : (byte) priorityObject.getInt("shipSize");
-            aggression = priorityObject.isNull("aggression") ? 5 : (byte) priorityObject.getInt("aggression");
+            shipSize = (byte) priorityObject.optInt("shipSize", 5);
+            aggression = (byte) priorityObject.optInt("aggression", 5);
 
             // Fill priority ships
             if (!priorityObject.isNull("priorityShips")) {

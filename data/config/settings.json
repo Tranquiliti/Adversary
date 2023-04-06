@@ -8,7 +8,7 @@
 # LunaLib settings will override the following settings in this settings.json:
 # "enableCustomStarSystems", "enableAdversaryDoctrineChange", "enableAdversaryBlueprintStealing",
 # "adversaryDoctrineChangeDelay", and "adversaryBlueprintStealingDelay"
-# Instead, Uuse LunaLib's in-game UI configs to modify these.
+# Instead, use LunaLib's in-game UI configs to modify these.
 
 {
 	# Generates custom star systems upon starting a new game
@@ -30,6 +30,7 @@
 		{ # Optimal Star System
 			"isEnabled":true, # Change to false if you don't want this system to spawn
 			"isCoreWorldSystem":true,
+			"hasSystemwideNebula":false,
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
 			"setLocation":1, # 1st closest constellation to Core Worlds
@@ -208,6 +209,7 @@
 			"isEnabled":true,
 			"numberOfSystems":1,
 			"setLocation":0, # Location set to a random constellation
+			"hasSystemwideNebula":true,
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
 			"systemBackground":"background5.jpg",

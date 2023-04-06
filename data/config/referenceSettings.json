@@ -28,6 +28,10 @@
 			# Defaults to false if this entry is omitted
 			"isCoreWorldSystem":false,
 
+			# True -> adds nebulas throughout this systems
+			# Defaults to false if this entry is omitted
+			"hasSystemwideNebula":false,
+
 			# True -> Adds an unactivated coronal hypershunt in the center of the system
 			# Defaults to false if this entry is omitted
 			"addCoronalHypershunt":false,
@@ -110,6 +114,29 @@
 						# Chance, from 0 to 100 percent, for solar flares to appear in this star's corona
 						# Defaults to proc-gen settings if this entry is omitted or set to a negative number
 						"flareChance":100,
+
+						# Changes to this star's appearance
+						# Uses default appearance if this entry is omitted
+						# All sub-options within "specChanges" can be individually omitted as well
+						"specChanges":{
+							# Texture of star's surface
+							# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
+							"texture":["planets","castiron"],
+
+							# Color of the star
+							"planetColor":[255,255,255,255],
+
+							# Texture of the star's outer layer
+							# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
+							"glowTexture":["hab_glows","sindria"],
+
+							# Color of the star's glow
+							"glowColor":[255,255,255,255],
+
+							# Does the star's glow use reverse light?
+							# Defaults to false if this entry is omitted
+							"useReverseLightForGlow":false,
+						},
 					},
 				],
 
@@ -460,7 +487,7 @@
 					],
 				},
 
-				# Changes to this stars's appearance
+				# Changes to this star's appearance
 				# Uses default appearance if this entry is omitted
 				# All sub-options within "specChanges" can be individually omitted as well
 				"specChanges":{

@@ -9,19 +9,18 @@ import org.json.JSONException;
 public class AdversaryBlueprintStealer implements EconomyTickListener {
     protected String factionId;
     protected String[] targetIds;
-    protected short elapsedMonths, delayInMonths; // TODO: change to byte after Starsector update
+    protected short elapsedMonths, delayInMonths; // TODO: switch to byte after next Starsector update (really!)
 
-    public AdversaryBlueprintStealer(String faction, short elapsed, short delay, JSONArray targetFactions) throws JSONException {
+    public AdversaryBlueprintStealer(String faction, byte elapsed, byte delay, JSONArray targetFactions) throws JSONException {
         factionId = faction;
-        targetIds = new String[targetFactions.length()];
-        for (int i = targetFactions.length() - 1; i >= 0; i--) targetIds[i] = targetFactions.getString(i);
         elapsedMonths = elapsed;
-        delayInMonths = delay > 0 ? delay : (short) 1;
-
+        delayInMonths = delay > 0 ? delay : (byte) 1;
+        targetIds = new String[targetFactions.length()];
+        for (int i = 0; i < targetFactions.length(); i++) targetIds[i] = targetFactions.getString(i);
         Global.getLogger(AdversaryBlueprintStealer.class).info("Faction blueprint stealer active for: " + factionId);
     }
 
-    public void changeDelay(short newDelay) {
+    public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
         Global.getLogger(AdversaryBlueprintStealer.class).info("Set " + factionId + " blueprint stealer delay to " + delayInMonths);
     }
@@ -31,32 +30,26 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
     public void reportEconomyTick(int iterIndex) {
     }
 
-    // Thieving faction will periodically steal targeted factions' current blueprints
+    // Stealer faction will periodically steal targeted factions' current blueprints
     @Override
     public void reportEconomyMonthEnd() {
         elapsedMonths++;
         if (elapsedMonths >= delayInMonths) {
-            FactionAPI thiefFaction = Global.getSector().getFaction(factionId);
-            for (String id : targetIds) stealBlueprints(thiefFaction, id);
+            elapsedMonths = 0;
+            FactionAPI stealerFaction = Global.getSector().getFaction(factionId);
+            for (String id : targetIds) stealBlueprints(stealerFaction, Global.getSector().getFaction(id));
         }
     }
 
     // Look in com.fs.starfarer.api.impl.campaign.DelayedBlueprintLearnScript's doAction() for vanilla implementation
-    protected void stealBlueprints(FactionAPI thiefFaction, String targetId) {
-        FactionAPI targetFaction = Global.getSector().getFaction(targetId);
-
-        for (String id : targetFaction.getKnownShips())
-            if (!thiefFaction.knowsShip(id)) {
-                thiefFaction.addKnownShip(id, true);
-                thiefFaction.addUseWhenImportingShip(id);
+    protected void stealBlueprints(FactionAPI stealer, FactionAPI target) {
+        for (String id : target.getKnownShips())
+            if (!stealer.knowsShip(id)) {
+                stealer.addKnownShip(id, true);
+                stealer.addUseWhenImportingShip(id);
             }
-
-        for (String id : targetFaction.getKnownWeapons())
-            if (!thiefFaction.knowsWeapon(id)) thiefFaction.addKnownWeapon(id, true);
-
-        for (String id : targetFaction.getKnownFighters())
-            if (!thiefFaction.knowsFighter(id)) thiefFaction.addKnownFighter(id, true);
-
-        Global.getLogger(AdversaryBlueprintStealer.class).info(factionId + " has stolen blueprints from " + targetId + "!");
+        for (String id : target.getKnownWeapons()) if (!stealer.knowsWeapon(id)) stealer.addKnownWeapon(id, true);
+        for (String id : target.getKnownFighters()) if (!stealer.knowsFighter(id)) stealer.addKnownFighter(id, true);
+        Global.getLogger(AdversaryBlueprintStealer.class).info(factionId + " has stolen blueprints from " + target.getId() + "!");
     }
 }

@@ -1,6 +1,11 @@
-modID,fieldID,fieldName,fieldType,defaultValue,fieldDescription,minValue,maxValue
-adversary,adversary_enableCustomStarSystems,Enable Custom Star Systems,Boolean,true,"Generates custom star systems during new game creation. [Disabling this will disable all custom star systems, including the default star system occupied by the Adversary faction. Edit the settings.json in the Adversary mod folder if you wish to disable individual custom star systems instead.]",,
-adversary,adversary_enableAdversaryDoctrineChange,Enable Adversary Doctrine Change,Boolean,true,Enables the Adversary to switch fleet composition and doctrines mid-game.,,
-adversary,adversary_adversaryDoctrineChangeDelay,Adversary Doctrine Change Delay,Int,6,How many months between each Adversary doctrine changes?,1,120
-adversary,adversary_enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [If this feature is disabled mid-game, the Adversary faction will continue to use any stolen blueprints.]",,
-adversary,adversary_adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steals?,1,120
+fieldID,fieldName,fieldType,defaultValue,fieldDescription,minValue,maxValue
+customStarSystemHeader,Custom Star Systems Header,Header,Custom Star Systems,,,
+enableCustomStarSystems,Enable Custom Star Systems,Boolean,true,"Generates custom star systems during new game creation. [Disabling this will disable all custom star systems, including the default star system occupied by the Adversary faction.] Edit the ""customStarSystems"" entry in the settings.json of the Adversary mod folder if you wish to disable individual custom star systems instead.",,
+,,,,,,
+doctrineChangerHeader,Doctrine Changer Header,Header,Doctrine Changer,,,
+enableAdversaryDoctrineChange,Enable Adversary Doctrine Change,Boolean,true,"Enables the Adversary to switch fleet composition and doctrines mid-game. The list of possible doctrines can be found and modified via ""adversaryPossibleDoctrines"" in settings.json.",,
+adversaryDoctrineChangeDelay,Adversary Doctrine Change Delay,Int,6,How many months between each Adversary doctrine change?,1,120
+,,,,,,
+blueprintStealingHeader,Blueprint Stealing Header,Header,Blueprint Stealing,,,
+enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [Disabling this feature mid-game will not stop the Adversary faction from using already-stolen blueprints.] The targeted factions can be found and modified via ""adversaryStealsFromFactions"" in settings.json.",,
+adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steal attempt?,1,120
