@@ -3,11 +3,14 @@ Version 3.2.0
 * Updated LunaLib compatibility yet again (now with an actual changelog!)
   - Note that setting IDs have been changed, so you may need to set your LunaLib settings for this mod again.
 * Added "hasSystemwideNebula" toggle for custom star systems, allowing for nebula clouds to appear in your custom star systems.
-  - Default uninhabited system now has this set to "true".
+  - The default uninhabited system now has this set to "true".
 * Custom star systems created with "setLocation" now set their star age to that of their selected constellation.
-  - This affects the nebula color of the system in-game.
+  - This affects the nebula color if the system's "hasSystemwideNebula" is set to "true".
 * Stars in the "stars" list of "starsInSystemCenter" can now have "specChanges" as well.
-* Fixed optional blueprint stealer setting not correctly resetting the elasped months after each steal attempt.
+* Fixed optional blueprint stealer setting not correctly resetting the elapsed months after each steal attempt.
+* Exotica Technologies:
+  - Updated the Adversary faction with the latest exotics and upgrades
+  - Decreased chance for faction-exclusive exotics and upgrades to appear in Adversary ships
 * Major code refactors
 
 
