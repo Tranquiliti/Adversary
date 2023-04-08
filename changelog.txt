@@ -1,3 +1,9 @@
+Version 3.2.1
+
+* Fixed "isCoreWorldSystem" toggle doing the complete opposite (e.g. tagging the Optimal system as a proc-gen system and not a Core World system).
+
+
+
 Version 3.2.0
 
 * Updated LunaLib compatibility yet again (now with an actual changelog!)
