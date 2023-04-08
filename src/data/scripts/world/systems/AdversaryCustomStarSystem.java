@@ -16,7 +16,6 @@ public class AdversaryCustomStarSystem {
     public void generate(AdversaryUtil util, JSONObject systemOptions) throws JSONException {
         // Create the star system
         StarSystemAPI system = util.generateStarSystem(systemOptions);
-        system.setHasSystemwideNebula(true);
 
         // Generate the center stars
         List<PlanetAPI> starsInSystem = util.generateSystemCenter(system, systemOptions.getJSONObject("starsInSystemCenter"));
@@ -47,8 +46,8 @@ public class AdversaryCustomStarSystem {
         if (systemOptions.optBoolean("addDomainCryosleeper", false))
             util.generateCryosleeper(system, "Domain-era Cryosleeper \"Sisyphus\"", fringeRadius + 4000f, !hasFactionPresence);
 
-        // Add relevant system tags if applicable
-        if (systemOptions.optBoolean("isCoreWorldSystem", false)) {
+        // Add relevant system tags it is NOT a Core World system
+        if (!systemOptions.optBoolean("isCoreWorldSystem", false)) {
             system.removeTag(Tags.THEME_CORE);
             system.addTag(Tags.THEME_MISC);
             system.addTag(Tags.THEME_INTERESTING_MINOR);
