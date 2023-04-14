@@ -4,9 +4,10 @@ Version 3.3.0
   - Updated Penelope's Star mirror in presetStarSystems.json to use this option
   - Updated referenceSetting.json
 * Updated MagicLib bounties:
-  - Added a bounty against the Luddic Church, posted by the Adversary (partly a placeholder until 0.96 comes)
+  - Added a bounty against the Luddic Church, posted by the Adversary
   - Changed/reworked all ship variants in the Pirate and Hegemony bounties
   - Increased the reward for the Independent bounty
+  - Note: these changes are in preparation of Starsector 0.96
 * More code refactors
 
 
