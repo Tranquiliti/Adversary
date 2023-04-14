@@ -1,30 +1,28 @@
 {
-    "displayName": "Armored",
-    "fluxCapacitors": 0,
-    "fluxVents": 4,
+    "displayName": "Close Support",
+    "fluxCapacitors": 14,
+    "fluxVents": 20,
     "hullId": "enforcer_xiv",
     "hullMods": [
-        "reinforcedhull",
         "targetingunit",
         "solar_shielding",
         "insulatedengine",
-        "armoredweapons",
-        "shield_shunt"
+        "armoredweapons"
     ],
     "permaMods": [],
     "sMods": [
         "heavyarmor",
         "missleracks",
-        "pointdefenseai"
+        "reinforcedhull"
     ],
-    "variantId": "adversary_enforcer_xiv_Armored",
+    "variantId": "adversary_enforcer_xiv_Close_Support",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "hveldriver",
-                "WS 004": "hveldriver"
+                "WS 002": "arbalest",
+                "WS 004": "arbalest"
             }
         },
         {
@@ -40,7 +38,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 003": "heavymauler"}
+            "weapons": {"WS 003": "heavymortar"}
         },
         {
             "autofire": true,

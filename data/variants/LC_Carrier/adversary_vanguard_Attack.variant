@@ -1,54 +1,57 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 0,
-    "fluxVents": 3,
-    "hullId": "vanguard_pirates",
+    "fluxVents": 6,
+    "hullId": "vanguard",
     "hullMods": [
         "heavyarmor",
-        "eccm",
-        "pointdefenseai",
+        "blast_doors",
+        "auxiliarythrusters",
         "solar_shielding",
         "insulatedengine",
-        "autorepair",
         "armoredweapons"
     ],
     "permaMods": [
         "damaged_mounts",
         "erratic_injector",
+        "faulty_grid",
         "glitched_sensors",
-        "increased_maintenance",
-        "fragile_subsystems",
+        "fragile_subsystems"
     ],
     "sMods": [
         "missleracks",
         "reinforcedhull"
     ],
-    "variantId": "adversary_vanguard_pirates_Attack",
+    "variantId": "adversary_vanguard_Attack",
     "weaponGroups": [
         {
-            "autofire": true,
-            "mode": "LINKED",
+            "autofire": false,
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 005": "lightac",
-                "WS 006": "lightac",
-                "WS 007": "lightac"
+                "WS 000": "sabot",
+                "WS 002": "sabot"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
+            "weapons": {"WS 001": "breach"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
             "weapons": {
-                "WS 000": "harpoon",
-                "WS 001": "harpoon",
-                "WS 002": "harpoon"
+                "WS 005": "lightmortar",
+                "WS 006": "lightmortar",
+                "WS 007": "lightmortar"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "lightmortar",
-                "WS 004": "lightmortar"
+                "WS 003": "lightdualac",
+                "WS 004": "lightdualac"
             }
         }
     ]

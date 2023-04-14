@@ -45,6 +45,7 @@
 						{"type":"stable_location"}, # L4 point
 					],
 					"conditions":[],
+					"customDescriptionId":"planet_ithaca",
 				},
 				{ # Ogygia, terraforming target B, with a jump-point at its L4
 					"name":"Ogygia",
@@ -60,6 +61,7 @@
 					"specChanges":{
 						"planetColor":[230,240,255,255],
 					},
+					"customDescriptionId":"planet_ogygia",
 				},
 				{ # Calypso, orbiting Ogygia
 					"name":"Calypso",
@@ -147,6 +149,7 @@
 					"orbitRadius":14520,
 					"orbitDays":335,
 					"conditions":[],
+					"customDescriptionId":"planet_ismara",
 				},
 			],
 			"systemFeatures":[
@@ -177,6 +180,7 @@
 					"orbitRadius":420,
 					"orbitDays":25,
 					"stationType":"station_sporeship_derelict",
+					"customDescriptionId":"station_telepylus",
 				},
 				{ # Telepylus' ring band
 					"type":"rings_special",

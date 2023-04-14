@@ -1,21 +1,21 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 13,
-    "fluxVents": 13,
+    "displayName": "Strike",
+    "fluxCapacitors": 17,
+    "fluxVents": 8,
     "hullId": "shrike_pirates",
-    "hullMods": ["converted_hangar"],
+    "hullMods": ["magazines"],
     "permaMods": [
         "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
-        "fragile_subsystems",
     ],
     "sMods": [
         "missleracks",
         "reinforcedhull"
     ],
-    "variantId": "adversary_shrike_pirates_Attack",
+    "variantId": "adversary_shrike_pirates_Strike",
     "weaponGroups": [
         {
             "autofire": true,
@@ -30,8 +30,15 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "railgun"}
+            "weapons": {"WS 001": "lightneedler"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "pdburst",
+                "WS 002": "pdburst"
+            }
         }
-    ],
-    "wings": ["gladius_wing"]
+    ]
 }

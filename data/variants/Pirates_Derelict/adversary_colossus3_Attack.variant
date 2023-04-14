@@ -1,18 +1,18 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 2,
-    "fluxVents": 0,
+    "fluxCapacitors": 4,
+    "fluxVents": 3,
     "hullId": "colossus3",
-    "hullMods": ["militarized_subsystems"],
+    "hullMods": ["pointdefenseai"],
     "permaMods": [
+        "comp_armor",
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
-        "increased_maintenance",
-        "fragile_subsystems",
+        "glitched_sensors",
     ],
     "sMods": [
-        "missleracks",
+        "nav_relay",
         "reinforcedhull"
     ],
     "variantId": "adversary_colossus3_Attack",
@@ -20,16 +20,16 @@
         "autofire": true,
         "mode": "LINKED",
         "weapons": {
-            "WS 011": "lightmg",
-            "WS 012": "lightmg",
-            "WS 013": "lightmg",
-            "WS 014": "lightmg",
-            "WS 015": "lightmg",
-            "WS 016": "lightmg"
+            "WS 011": "vulcan",
+            "WS 012": "vulcan",
+            "WS 013": "vulcan",
+            "WS 014": "vulcan",
+            "WS 015": "vulcan",
+            "WS 016": "vulcan"
         }
     }],
     "wings": [
-        "thunder_wing",
-        "thunder_wing"
+        "gladius_wing",
+        "gladius_wing"
     ]
 }

@@ -1,0 +1,47 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 4,
+    "fluxVents": 14,
+    "hullId": "mora",
+    "hullMods": [
+        "heavyarmor",
+        "expanded_deck_crew"
+    ],
+    "permaMods": [
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_mora_Assault",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "vulcan",
+                "WS 007": "vulcan",
+                "WS 008": "vulcan",
+                "WS 011": "vulcan"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "sabotpod",
+                "WS 004": "sabotpod"
+            }
+        }
+    ],
+    "wings": [
+        "warthog_wing",
+        "warthog_wing",
+        "warthog_wing"
+    ]
+}
