@@ -262,7 +262,7 @@
 					# (A full list of eligible entities is found on the 2nd entry in the "orbitingBodies" list)
 					# Defaults to no entities if this entry is omitted
 					"entitiesAtStablePoints":[
-						{"type":"comm_relay"}, # Entity on L3 point
+						,                      # No entity on L3 point
 						{},                    # No entity on L4 point
 						{"type":"jump_point"}, # Entity on L5 point
 					],
@@ -316,53 +316,52 @@
 					# Defaults to false if this entry is omitted
 					"aiCoreAdmin":true,
 
-					# A map of industries and special items
-					# Each industry entry has a list of specials applied to the corresponding industry,
-					# with a format of "thisIndustry":["ai_core_id","specials_id","improve_industry?"],
-					# An industry entry defaults to no specials if its list is empty (e.g. "population":[],)
+					# A list of industries, along with any applicable special items
+					# Defaults to just adding "population" and "spaceport" if this entry is omitted
 					#
+					# Each item can either be an industry ID or an array containing the industry ID and specials IDs
+					# (E.g. "industryId" or ["industryId", "aiCoreId", "specItemId", "improveIndustryToggle"])
 					# Industry IDs are found in starsector-core/data/campaign/industries.csv
 					# Special items IDs are found in starsector-core/data/campaign/special_items.csv
 					# WARNING: Make sure to correctly spell the IDs! Else, your game may crash upon visiting this market!
-					# Defaults to just adding "population" and "spaceport" if this entry is omitted
-					"industries":{
+					"industries":[
 						# List of vanilla industries
-						"population":["gamma_core","orbital_fusion_lamp",true],
-						#"population":["beta_core","coronal_portal",false],
-						"farming":["alpha_core","soil_nanites",false],
-						"aquaculture":[],
-						"mining":[,"mantle_bore"],
-						#"mining":[,"plasma_dynamo"],
-						"techmining":[],
-						"refining":[,"catalytic_core"],
-						"spaceport":[,"fullerene_spool"],
-						"megaport":[],
-						"lightindustry":[,"biofactory_embryo"],
-						"heavyindustry":[,"corrupted_nanoforge"],
-						"orbitalworks":[,"pristine_nanoforge"],
-						"fuelprod":[,"synchrotron"],
-						"commerce":[,"dealmaker_holosuite"],
-						"station_base":[],
-						"orbitalstation":["gamma_core"],
-						"battlestation":["beta_core"],
-						"starfortress":["alpha_core"],
-						"orbitalstation_mid":[],
-						"battlestation_mid":[],
-						"starfortress_mid":[],
-						"orbitalstation_high":[,,true],
-						"battlestation_high":[,,false],
-						"starfortress_high":[,,false],
-						"grounddefenses":[,"drone_replicator"],
-						"heavybatteries":[],
-						"patrolhq":[,"cryoarithmetic_engine"],
-						"militarybase":[],
-						"highcommand":[],
-						"lionsguard":[],
-						"planetaryshield":[],
-						"waystation":[],
-						"cryosanctum":[],
-						"cryorevival":[],
-					},
+						["population","gamma_core","orbital_fusion_lamp",true],
+						#["population","beta_core","coronal_portal",false],
+						["farming","alpha_core","soil_nanites",false],
+						"aquaculture", # No specials
+						["mining",,"mantle_bore"],
+						#["mining",,"plasma_dynamo"],
+						"techmining",
+						["refining",,"catalytic_core"],
+						["spaceport",,"fullerene_spool"],
+						"megaport",
+						["lightindustry",,"biofactory_embryo"], # Only special item
+						["heavyindustry",,"corrupted_nanoforge"],
+						["orbitalworks",,"pristine_nanoforge"],
+						["fuelprod",,"synchrotron"],
+						["commerce",,"dealmaker_holosuite"],
+						"station_base",
+						["orbitalstation","gamma_core"], # Only cores
+						["battlestation","beta_core"],
+						["starfortress","alpha_core"],
+						"orbitalstation_mid",
+						"battlestation_mid",
+						"starfortress_mid",
+						["orbitalstation_high",,,true], # Only story-point improvement
+						["battlestation_high",,,false],
+						["starfortress_high",,,false],
+						["grounddefenses",,"drone_replicator"],
+						"heavybatteries",
+						["patrolhq",,"cryoarithmetic_engine"],
+						"militarybase",
+						"highcommand",
+						"lionsguard",
+						"planetaryshield",
+						"waystation",
+						"cryosanctum",
+						"cryorevival",
+					],
 				},
 
 				# An example star orbiting the 1st orbiting body
@@ -507,7 +506,7 @@
 							"freePort":false,
 							"aiCoreAdmin":false,
 							"conditions":[],
-							"industries":{"population":[],"spaceport":[]},
+							"industries":["population","spaceport"],
 						},
 					],
 
@@ -720,7 +719,7 @@
 					"freePort":false,
 					"aiCoreAdmin":false,
 					"conditions":[],
-					"industries":{"population":[],"spaceport":[]},
+					"industries":["population","spaceport"],
 				},
 
 				# Salvage entities

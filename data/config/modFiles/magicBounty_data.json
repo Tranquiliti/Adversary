@@ -297,7 +297,7 @@
         },
         
         "fleet_name":"Lion's Guard Phase Corps",
-        "fleet_faction":"adversary",
+        "fleet_faction":"ML_bounty",
         "fleet_flagship_variant":"adversary_afflictor_Command",
         "fleet_flagship_name":"LGS Coward's Trial",
         "fleet_preset_ships":{
@@ -456,7 +456,7 @@
         "trigger_player_minLevel":15,
 
         "job_name":"Extinguishing Hope",
-        "job_description":"You find a bounty targeting a well-acclaimed activist, with a name you might have recognized before. Once a vice admiral of the Adversary Defense Forces, this activist-commander was disheartened by the isolationist and xenophobic policies upheld by the Adversary's leading figures, and so $heSheThey had deserted their prestigious post to provide humanitarian aid to desperate and struggling worlds. Most notably, they provided much needed protection and resources for the Luddic faithful, garnering much fame and appreciation throughout much of the Sector's population.\nJudging from this bounty's existence, however, it seems not everyone shares this same applause, as a rival Adversary commander wishes for a complete destruction of this Good Samaritan's fleet. A ==ludicrous reward== awaits those who fulfill this deed, but is that really worth snuffing out one of the few remaining beacons of hope in this Sector?",
+        "job_description":"You find a bounty targeting a well-acclaimed activist, whose name you recognize from an award-winning holodoc you watched once. Once a vice admiral of the Adversary Defense Forces, this activist-commander was disheartened by the isolationist and xenophobic policies upheld by the Adversary's leading figures, and so $heSheThey had deserted $hisHerTheir prestigious post to provide humanitarian aid to desperate and struggling worlds. Most notably, $hisHerTheir impressive carrier detachment provided much needed protection for traders serving the Luddic faithful, garnering widespread fame and appreciation throughout much of the Sector's population.\nJudging from this bounty's existence, however, it seems not everyone shares this same applause, as a rival Adversary commander wishes for a complete destruction of this Good Samaritan's fleet. A ==ludicrous reward== awaits those who fulfill this deed, but is that really worth snuffing out one of the few remaining beacons of hope in this Sector?",
         "job_comm_reply":"\"Please, our people desire to live peacefully! Please, have you not seen what good we have done in this Ludd-forsaken Sector! Please, reconsider your choice!\"",
         "job_intel_success":"Your actions have brought you tremendous monetary rewards, but you feel a slight chill behind your back as you consider what you have just done. You can only hope that you will not regret this later.",
         "job_forFaction":"adversary",

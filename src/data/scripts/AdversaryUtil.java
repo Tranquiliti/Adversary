@@ -293,14 +293,15 @@ public class AdversaryUtil {
      * @throws JSONException If lagrangePoints is invalid
      */
     public void addToLagrangePoints(PlanetAPI planet, JSONArray lagrangePoints) throws JSONException {
-        int length = lagrangePoints.length();
-        if (length >= 3) addLagrangePointFeature(planet, lagrangePoints.getJSONObject(2), 5);
-        if (length >= 2) addLagrangePointFeature(planet, lagrangePoints.getJSONObject(1), 4);
-        if (length >= 1) addLagrangePointFeature(planet, lagrangePoints.getJSONObject(0), 3);
+        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(0), 3);
+        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(1), 4);
+        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(2), 5);
     }
 
     // Adds a system feature to a specific lagrange point of a planet
     private void addLagrangePointFeature(PlanetAPI planet, JSONObject featureOptions, int lagrangePoint) throws JSONException {
+        if (featureOptions == null) return;
+
         String type = featureOptions.optString(OPT_TYPE, null);
         if (type == null) return; // Lagrange point should remain empty
         float lagrangeAngle = planet.getCircularOrbitAngle();
@@ -863,32 +864,35 @@ public class AdversaryUtil {
             }
 
         // Add industries and, if applicable, their specials
-        JSONObject industries = marketOptions.optJSONObject("industries");
-        if (industries != null) {
-            @SuppressWarnings("unchecked") Iterator<String> industryIterator = industries.keys();
-            while (industryIterator.hasNext()) {
-                String industryId = industryIterator.next();
-                try {
-                    planetMarket.addIndustry(industryId);
-                } catch (Exception e) {
-                    throw new RuntimeException("Error attempting to add industry \"" + industryId + "\" for Size " + size + " \"" + factionId + "\" market");
-                }
-                JSONArray specials = industries.optJSONArray(industryId);
-                if (specials != null && specials.length() > 0) {
-                    Industry newIndustry = planetMarket.getIndustry(industryId);
+        JSONArray industries = marketOptions.optJSONArray("industries");
+        if (industries != null) for (int i = 0; i < industries.length(); i++) {
+            // Get the industry ID from a lone String or the first entry of a JSONArray
+            JSONArray specials = industries.optJSONArray(i);
+            String industryId;
+            if (specials != null) industryId = specials.getString(0);
+            else industryId = industries.optString(i, null);
 
-                    String aiCoreId = specials.optString(0);
-                    if (!aiCoreId.isEmpty()) newIndustry.setAICoreId(aiCoreId);
-
-                    if (specials.length() > 1) {
-                        String specialItem = specials.optString(1);
-                        if (!specialItem.isEmpty()) newIndustry.setSpecialItem(new SpecialItemData(specialItem, null));
-                    }
-
-                    if (specials.length() > 2) newIndustry.setImproved(specials.optBoolean(2, false));
-                }
+            // Add the industry
+            try {
+                planetMarket.addIndustry(industryId);
+            } catch (Exception e) {
+                throw new RuntimeException("Error attempting to add industry \"" + industryId + "\" for Size " + size + " \"" + factionId + "\" market");
             }
-        } else { // Just give market the bare minimum colony
+
+            // Add any special items, if applicable
+            if (specials != null && specials.length() > 1) {
+                Industry newIndustry = planetMarket.getIndustry(industryId);
+
+                String aiCoreId = specials.optString(1, null);
+                if (aiCoreId != null) newIndustry.setAICoreId(aiCoreId);
+
+                String specialItem = specials.optString(2, null);
+                if (specialItem != null) newIndustry.setSpecialItem(new SpecialItemData(specialItem, null));
+
+                if (specials.length() > 3) newIndustry.setImproved(specials.optBoolean(3, false));
+            }
+        }
+        else { // Just give market the bare minimum colony
             planetMarket.addIndustry("population");
             planetMarket.addIndustry("spaceport");
         }

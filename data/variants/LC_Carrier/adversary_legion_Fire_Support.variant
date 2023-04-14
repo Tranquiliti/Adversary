@@ -30,7 +30,7 @@
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
                 "WS 002": "harpoonpod",
                 "WS 003": "harpoonpod",

@@ -2,14 +2,18 @@ Version 3.3.0
 
 * Added "customDescriptionId" option for planets, stars, and some custom entities.
   - Updated Penelope's Star mirror in presetStarSystems.json to use this option
-  - Updated referenceSetting.json
+  - Updated referenceSettings.json
+* "industries" entry in settings.json is now a List once again:
+  - It now mimics how campaign markets are set up in starsector-core/data/campaign/econ
+  - Each "industries" entry can either be a String (for industries without specified specials) or a sub-List (if adding specials as well)
+  - See updated referenceSettings.json for detailed examples
+* "entitiesAtStablePoints" can now also accept an empty entry (in place of "{}") to signify no entity in a given stable point.
 * Updated MagicLib bounties:
   - Added a bounty against the Luddic Church, posted by the Adversary
   - Changed/reworked all ship variants in the Pirate and Hegemony bounties
   - Increased the reward for the Independent bounty
-  - Note: these changes are in preparation of Starsector 0.96
+  - Note: these changes are in preparation of Starsector 0.96; more changes/adjustments will come after the 0.96 release.
 * More code refactors
-
 
 
 
