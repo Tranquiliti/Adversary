@@ -111,9 +111,9 @@
 						# Defaults to proc-gen settings if this entry is omitted or set to 0
 						"coronaRadius":0,
 
-						# Chance, from 0 to 100 percent, for solar flares to appear in this star's corona
+						# Chance for solar flares to appear in this star's corona
 						# Defaults to proc-gen settings if this entry is omitted or set to a negative number
-						"flareChance":100,
+						"flareChance":1.0,
 
 						# Changes to this star's appearance
 						# Uses default appearance if this entry is omitted
@@ -406,9 +406,9 @@
 					# Defaults to proc-gen settings if this entry is omitted or is set to 0
 					"coronaRadius":0,
 
-					# Chance, from 0 to 100 percent, for solar flares to appear in this star's corona
-					# Defaults to proc-gen settings if this entry is omitted or set to 0
-					"flareChance":0,
+					# Chance for solar flares to appear in this star's corona
+					# Defaults to proc-gen settings if this entry is omitted or set to a negative number
+					"flareChance":0.0,
 
 					# List of eligible entities that can be placed in "entitiesAtStablePoints"
 					"entitiesAtStablePoints":[
@@ -519,6 +519,7 @@
 						"texture":["planets","castiron"],
 
 						# Color of the star
+						# Format is [Red, Blue, Green, Alpha]
 						"planetColor":[255,255,255,255],
 
 						# Texture of the star's outer layer
@@ -526,6 +527,7 @@
 						"glowTexture":["hab_glows","sindria"],
 
 						# Color of the star's glow
+						# Format is [Red, Blue, Green, Alpha]
 						"glowColor":[255,255,255,255],
 
 						# Does the star's glow use reverse light?
@@ -554,12 +556,42 @@
 				# Magnetic field
 				{
 					"type":"magnetic_field",
-					"orbitRadius":100,
+					"orbitRadius":100, # Inner radius of visual band
 					"focus":0,
 
-					# Size of the magnetic field
+					# Size, or band width, of the magnetic field
 					# Defaults to 300 if this entry is omitted
 					"size":300,
+
+					# The terrain effect middle radius
+					# Defaults to orbitRadius + size / 2 if this entry is omitted
+					"middleRadius":250,
+
+					# Outer radius of visual band
+					# Defaults to orbitRadius + size if this entry is omitted
+					"outerRadius":400,
+
+					# Base color of magnetic field
+					# Format is [Red, Blue, Green, Alpha]
+					# Defaults to below color if this entry is omitted
+					"baseColor":[50,20,100,40],
+
+					# How often a magnetic aurora appears, checked once every day when no aurora is currently active
+					# Defaults to 0.25 if this entry is omitted
+					"auroraFrequency":0.25,
+
+					# A list of possible aurora colors
+					# Format is [Red, Blue, Green, Alpha]
+					# Defaults to below colors if this entry is omitted
+					"auroraColors":[
+						[140,100,235,255],
+						[180,110,210,255],
+						[150,140,190,255],
+						[140,190,210,255],
+						[90,200,170,255],
+						[65,230,160,255],
+						[20,220,70,255],
+					],
 				},
 
 				# Ring bands

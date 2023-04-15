@@ -182,10 +182,9 @@ public class AdversaryUtil {
         if (coronaRadius <= 0)
             coronaRadius = Math.max(starData.getCoronaMin(), radius * (starData.getCoronaMult() + starData.getCoronaVar() * (StarSystemGenerator.random.nextFloat() - 0.5f)));
 
-        float flareChance = starOptions.optInt("flareChance", DEFAULT_SET_TO_PROC_GEN);
+        float flareChance = (float) starOptions.optDouble("flareChance", DEFAULT_SET_TO_PROC_GEN);
         if (flareChance < 0)
             flareChance = starData.getMinFlare() + (starData.getMaxFlare() - starData.getMinFlare()) * StarSystemGenerator.random.nextFloat();
-        else flareChance /= 100f;
 
         PlanetAPI newStar;
         if (system.getStar() == null) { // First star in system, so initialize system star
@@ -269,16 +268,14 @@ public class AdversaryUtil {
             body.getSpec().setTexture(Global.getSettings().getSpriteName(texture.getString(0), texture.getString(1)));
 
         JSONArray planetColor = specChanges.optJSONArray("planetColor");
-        if (planetColor != null)
-            body.getSpec().setPlanetColor(new Color(planetColor.getInt(0), planetColor.getInt(1), planetColor.getInt(2), planetColor.getInt(3)));
+        if (planetColor != null) body.getSpec().setPlanetColor(getColor(planetColor));
 
         JSONArray glowTexture = specChanges.optJSONArray("glowTexture");
         if (glowTexture != null)
             body.getSpec().setGlowTexture(Global.getSettings().getSpriteName(glowTexture.getString(0), glowTexture.getString(1)));
 
         JSONArray glowColor = specChanges.optJSONArray("glowColor");
-        if (glowColor != null)
-            body.getSpec().setGlowColor(new Color(glowColor.getInt(0), glowColor.getInt(1), glowColor.getInt(2), glowColor.getInt(3)));
+        if (glowColor != null) body.getSpec().setGlowColor(getColor(glowColor));
 
         body.getSpec().setUseReverseLightForGlow(specChanges.optBoolean("useReverseLightForGlow", false));
 
@@ -634,10 +631,40 @@ public class AdversaryUtil {
      * @param focus   The focus
      * @param options Magnetic field options
      */
-    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, JSONObject options) {
+    public void addMagneticField(StarSystemAPI system, SectorEntityToken focus, JSONObject options) throws JSONException {
         float width = options.optInt(OPT_SIZE, 300);
-        float orbitRadius = options.optInt(OPT_ORBIT_RADIUS, Math.round(focus.getRadius()) + 100);
-        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(width, orbitRadius + width / 2f, focus, orbitRadius, orbitRadius + width, new Color(50, 20, 100, 40), 0.25f + 0.75f * StarSystemGenerator.random.nextFloat(), new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70))).setCircularOrbit(focus, 0, 0, 100f);
+
+        float orbitRadius = options.optInt(OPT_ORBIT_RADIUS, Math.round(focus.getRadius()) + 100); // Inner radius, or visual band start
+        float middleRadius = options.optInt("middleRadius", (int) (orbitRadius + width / 2f));
+        float outerRadius = options.optInt("outerRadius", (int) (orbitRadius + width));
+
+        Color baseColor = getColor(options.optJSONArray("baseColor"));
+        if (baseColor == null) baseColor = new Color(50, 20, 100, 40);
+
+        float auroraFrequency = (float) options.optDouble("auroraFrequency", DEFAULT_SET_TO_PROC_GEN);
+        if (auroraFrequency < 0) auroraFrequency = 0.25f + 0.75f * StarSystemGenerator.random.nextFloat();
+
+        Color[] auroraColors = getColors(options.optJSONArray("auroraColors"));
+        if (auroraColors == null)
+            auroraColors = new Color[]{new Color(140, 100, 235), new Color(180, 110, 210), new Color(150, 140, 190), new Color(140, 190, 210), new Color(90, 200, 170), new Color(65, 230, 160), new Color(20, 220, 70)};
+
+        system.addTerrain(Terrain.MAGNETIC_FIELD, new MagneticFieldTerrainPlugin.MagneticFieldParams(width, middleRadius, focus, orbitRadius, outerRadius, baseColor, auroraFrequency, auroraColors)).setCircularOrbit(focus, 0, 0, 100f);
+    }
+
+    // Gets a Color from a JSONArray of suitable size
+    private Color getColor(JSONArray rgba) throws JSONException {
+        if (rgba == null) return null;
+        return new Color(rgba.getInt(0), rgba.getInt(1), rgba.getInt(2), rgba.getInt(3));
+    }
+
+    // Gets an array of Colors from a JSONArray containing colors
+    private Color[] getColors(JSONArray colorList) throws JSONException {
+        if (colorList == null) return null;
+
+        Color[] colors = new Color[colorList.length()];
+        for (int i = 0; i < colorList.length(); i++) colors[i] = getColor(colorList.getJSONArray(i));
+
+        return colors;
     }
 
     /**
