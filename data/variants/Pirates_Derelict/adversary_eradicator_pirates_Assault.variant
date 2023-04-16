@@ -1,0 +1,57 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 10,
+    "fluxVents": 30,
+    "hullId": "eradicator_pirates",
+    "hullMods": [
+        "targetingunit",
+        "converted_hangar"
+    ],
+    "permaMods": [
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_eradicator_pirates_Assault",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 006": "heavymauler"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 000": "sabot",
+                "WS 001": "sabot",
+                "WS 002": "sabot",
+                "WS 003": "sabot",
+                "WS 004": "sabot"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "hveldriver",
+                "WS 007": "hveldriver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 009": "railgun",
+                "WS 010": "railgun"
+            }
+        }
+    ],
+    "wings": ["wasp_wing"]
+}

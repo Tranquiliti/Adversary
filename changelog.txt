@@ -1,3 +1,31 @@
+Version 3.3.0
+
+* Added "customDescriptionId" option for planets, stars, and some custom entities.
+  - Updated Penelope's Star mirror in presetStarSystems.json to use this option
+  - Updated referenceSettings.json
+* "industries" entry in settings.json is now a List once again:
+  - It now mimics how campaign markets are set up in starsector-core/data/campaign/econ
+  - Each "industries" entry can either be a String (for industries without specified specials) or a sub-List (if adding specials as well)
+  - See updated referenceSettings.json for detailed examples
+* "entitiesAtStablePoints" can now also accept an empty entry (in place of "{}") to signify no entity in a given stable point.
+* Expanded "magnetic_field" options:
+  - Now has "middleRadius", "outerRadius", "baseColor", "auroraFrequency", and "auroraColors" options
+  - See updated referenceSettings.json to see how to use them
+  - Old "magnetic_field" settings should still work fine (I hope)
+* "flareChance" now requires a floating-point number instead of an integer (0.0 to 1.0 instead of 0 to 100)
+* Updated Optimal system and default uninhabited system:
+  - Changed orbit radius values; generally made planets and entities more evenly spaced
+  - Increased corona size of Optimal and uninhabited stars; "flareChance" set to 0.0 for those stars
+  - Decreased radius of Optimal's Toxic and Barren moons
+* Updated MagicLib bounties:
+  - Added a bounty against the Luddic Church, posted by the Adversary
+  - Changed/reworked all ship variants in the Pirate and Hegemony bounties
+  - Increased the reward for the Independent bounty
+  - Note: these changes are in preparation of Starsector 0.96; more changes/adjustments will come after the 0.96 release.
+* More code refactors
+
+
+
 Version 3.2.1
 
 * Fixed "isCoreWorldSystem" toggle doing the complete opposite (e.g. tagging the Optimal system as a proc-gen system and not a Core World system).

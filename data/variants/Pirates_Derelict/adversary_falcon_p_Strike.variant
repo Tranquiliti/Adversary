@@ -1,19 +1,15 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 11,
-    "fluxVents": 6,
+    "fluxCapacitors": 30,
+    "fluxVents": 24,
     "hullId": "falcon_p",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "eccm",
-        "converted_hangar"
-    ],
+    "hullMods": ["hardenedshieldemitter"],
     "permaMods": [
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "increased_maintenance",
         "fragile_subsystems",
+        "glitched_sensors",
     ],
     "sMods": [
         "missleracks",
@@ -33,23 +29,25 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "harpoonpod",
-                "WS 006": "harpoonpod"
+                "WS 001": "harpoon",
+                "WS 002": "harpoon"
             }
         },
         {
-            "autofire": false,
-            "mode": "LINKED",
+            "autofire": true,
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "swarmer",
-                "WS 002": "swarmer"
+                "WS 005": "phasecl",
+                "WS 006": "phasecl"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 009": "mininglaser"}
+            "weapons": {
+                "WS 009": "mininglaser",
+                "WS 010": "mininglaser"
+            }
         }
-    ],
-    "wings": ["thunder_wing"]
+    ]
 }
