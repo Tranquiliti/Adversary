@@ -1,5 +1,7 @@
 Version 3.4.0
 
+* "customStarSystems" now moved to a new customStarSystems.json in this mod's config folder
+  - This .json file is (re)loaded when starting a new save, allow you to adjust custom star systems without restarting Starsector!
 * Expanded "specChanges" with many more options:
   - See updated referenceSettings.json for using these options
   - Texture-related sub-options accept a String instead for the image file

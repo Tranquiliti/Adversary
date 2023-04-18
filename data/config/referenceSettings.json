@@ -1,4 +1,4 @@
-# This is simply a reference guide for making and editing custom star systems in settings.json.
+# This is simply a reference guide for making and editing custom star systems in customStarSystems.json.
 # It should not affect the game in any way.
 
 # Most type IDs are found in the .csv files located in the Starsector/starsector-core/data/campaign folder

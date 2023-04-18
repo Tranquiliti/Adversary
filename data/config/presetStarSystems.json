@@ -1,7 +1,7 @@
 # This file contains some preset custom star systems to copy and edit for your own use.
 # It should not affect the game in any way.
 
-# Feel free to copy and paste these examples into the "customStarSystems" entry of this mod's settings.json
+# Feel free to copy and paste these examples into the "customStarSystems" entry of customStarSystems.json
 
 {
 	"customStarSystems":[
