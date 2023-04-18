@@ -1,3 +1,12 @@
+Version 3.4.0
+
+* Expanded "specChanges" with many more options:
+  - See updated referenceSettings.json for using these options
+  - Texture-related sub-options accept a String instead for the image file
+    - However, it must still be pre-loaded via Starsector's settings.json for textures to load properly
+
+
+
 Version 3.3.0
 
 * Added "customDescriptionId" option for planets, stars, and some custom entities.

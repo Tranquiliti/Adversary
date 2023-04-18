@@ -121,21 +121,9 @@
 						"specChanges":{
 							# Texture of star's surface
 							# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-							"texture":["planets","castiron"],
+							"texture":"castiron.jpg",
 
-							# Color of the star
-							"planetColor":[255,255,255,255],
-
-							# Texture of the star's outer layer
-							# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-							"glowTexture":["hab_glows","sindria"],
-
-							# Color of the star's glow
-							"glowColor":[255,255,255,255],
-
-							# Does the star's glow use reverse light?
-							# Defaults to false if this entry is omitted
-							"useReverseLightForGlow":false,
+							# (See "specChanges" option in the 1st entry of "orbitingBodies" to see full list of sub-options)
 						},
 
 						# The ID of the custom description to use for this star
@@ -270,24 +258,62 @@
 					# Changes to this planet's appearance
 					# Uses default appearance if this entry is omitted
 					# All sub-options within "specChanges" can be individually omitted as well
+					#
+					# For texture sub-options, eligible images are found in the starsector-core/graphics/planets folder
+					# These images must be a pre-loaded image, found inside the "graphics" entry in starsector-core/data/config/settings.json
 					"specChanges":{
-						# Texture of planet's surface
-						# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-						"texture":["planets","castiron"],
+						# Color of the planet's atmosphere
+						"atmosphereColor":[255,255,255,255],
 
-						# Color of the planet
-						"planetColor":[255,255,255,255],
+						# Thickness of the atmosphere
+						"atmosphereThickness":0.1,
 
-						# Texture of the planet's outer layer
-						# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-						"glowTexture":["hab_glows","sindria"],
+						# Minimum atmosphere thickness
+						"atmosphereThicknessMin":1.0,
+
+						# Color of the planet's cloud
+						"cloudColor":[255,255,255,255],
+
+						# Rotation speed of the cloud
+						"cloudRotation":1.0,
+
+						# Texture to use for the cloud
+						"cloudTexture":"clouds_banded01.png",
 
 						# Color of the planet's glow
 						"glowColor":[255,255,255,255],
 
+						# Texture to use for this planet's outer layer
+						"glowTexture":"sindria_glow.png",
+
+						# Color of the icon when displayed in Sector map
+						"iconColor":[255,255,255,255],
+
+						# Pitch of the planet
+						"pitch":1.0,
+
+						# Color of the planet
+						"planetColor":[255,255,255,255],
+
+						# Rotation of the planet
+						"rotation":1.0,
+
+						# Texture to use for this planet's surface
+						"texture":"castiron.jpg",
+
+						# Tilt of the planet
+						"tilt":1.0,
+
 						# Does the planet's glow use reverse light?
 						# Defaults to false if this entry is omitted
 						"useReverseLightForGlow":false,
+
+						# Overrides a planet's type to another type
+						# Takes on the appearance of the chosen type, while also changing planet description
+						# Format is ["typeId","newTypeName"]
+						# Overriding planet type must also have a corresponding entry in descriptions.csv
+						# Should only be used to get modded planets that either do not spawn as proc-gen entities or spawn outside proc-gen parameters
+						"typeOverride":["barren","Barren"],
 					},
 
 					# The ID of the custom description to use for this planet
@@ -516,23 +542,9 @@
 					"specChanges":{
 						# Texture of star's surface
 						# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-						"texture":["planets","castiron"],
+						"texture":"castiron.jpg",
 
-						# Color of the star
-						# Format is [Red, Blue, Green, Alpha]
-						"planetColor":[255,255,255,255],
-
-						# Texture of the star's outer layer
-						# Texture must be preloaded into the game via "graphics" in Starsector's settings.json
-						"glowTexture":["hab_glows","sindria"],
-
-						# Color of the star's glow
-						# Format is [Red, Blue, Green, Alpha]
-						"glowColor":[255,255,255,255],
-
-						# Does the star's glow use reverse light?
-						# Defaults to false if this entry is omitted
-						"useReverseLightForGlow":false,
+						# (See "specChanges" option in the 1st entry of "orbitingBodies" to see full list of sub-options)
 					},
 
 					# The ID of the custom description to use for this star

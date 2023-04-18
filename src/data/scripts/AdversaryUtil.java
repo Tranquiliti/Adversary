@@ -20,6 +20,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.submarkets.StoragePlugin;
 import com.fs.starfarer.api.impl.campaign.terrain.*;
 import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.loading.specs.PlanetSpec;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -53,6 +54,7 @@ public class AdversaryUtil {
     public final String OPT_CONDITIONS = "conditions";
     public final String OPT_MARKET_SIZE = "marketSize";
     public final String OPT_SIZE = "size";
+    public final String GRAPHICS_PLANET_PATH = "graphics/planets/";
 
     // Is updated in the addMarket private helper method
     public transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
@@ -260,24 +262,64 @@ public class AdversaryUtil {
     }
 
     // Adds spec changes to a body
+    // Note: Textures must already be preloaded via settings.json for texture-replacing fields to work
     private void addSpecChanges(PlanetAPI body, JSONObject specChanges) throws JSONException {
         if (specChanges == null) return;
+        PlanetSpecAPI bodySpec = body.getSpec();
 
-        JSONArray texture = specChanges.optJSONArray("texture");
-        if (texture != null)
-            body.getSpec().setTexture(Global.getSettings().getSpriteName(texture.getString(0), texture.getString(1)));
+        JSONArray atmosphereColor = specChanges.optJSONArray("atmosphereColor");
+        if (atmosphereColor != null) bodySpec.setAtmosphereColor(getColor(atmosphereColor));
 
-        JSONArray planetColor = specChanges.optJSONArray("planetColor");
-        if (planetColor != null) body.getSpec().setPlanetColor(getColor(planetColor));
+        float atmosphereThickness = (float) specChanges.optDouble("atmosphereThickness");
+        if (!Float.isNaN(atmosphereThickness)) bodySpec.setAtmosphereThickness(atmosphereThickness);
 
-        JSONArray glowTexture = specChanges.optJSONArray("glowTexture");
-        if (glowTexture != null)
-            body.getSpec().setGlowTexture(Global.getSettings().getSpriteName(glowTexture.getString(0), glowTexture.getString(1)));
+        float atmosphereThicknessMin = (float) specChanges.optDouble("atmosphereThicknessMin");
+        if (!Float.isNaN(atmosphereThicknessMin)) bodySpec.setAtmosphereThicknessMin(atmosphereThicknessMin);
+
+        JSONArray cloudColor = specChanges.optJSONArray("cloudColor");
+        if (cloudColor != null) bodySpec.setCloudColor(getColor(cloudColor));
+
+        float cloudRotation = (float) specChanges.optDouble("cloudRotation");
+        if (!Float.isNaN(cloudRotation)) bodySpec.setCloudRotation(cloudRotation);
+
+        String cloudTexture = specChanges.optString("cloudTexture", null);
+        if (cloudTexture != null) bodySpec.setCloudTexture(GRAPHICS_PLANET_PATH + cloudTexture);
 
         JSONArray glowColor = specChanges.optJSONArray("glowColor");
-        if (glowColor != null) body.getSpec().setGlowColor(getColor(glowColor));
+        if (glowColor != null) bodySpec.setGlowColor(getColor(glowColor));
 
-        body.getSpec().setUseReverseLightForGlow(specChanges.optBoolean("useReverseLightForGlow", false));
+        String glowTexture = specChanges.optString("glowTexture", null);
+        if (glowTexture != null) bodySpec.setGlowTexture(GRAPHICS_PLANET_PATH + glowTexture);
+
+        JSONArray iconColor = specChanges.optJSONArray("iconColor");
+        if (iconColor != null) bodySpec.setIconColor(getColor(iconColor));
+
+        float pitch = (float) specChanges.optDouble("pitch");
+        if (!Float.isNaN(pitch)) bodySpec.setPitch(pitch);
+
+        JSONArray planetColor = specChanges.optJSONArray("planetColor");
+        if (planetColor != null) bodySpec.setPlanetColor(getColor(planetColor));
+
+        float rotation = (float) specChanges.optDouble("rotation");
+        if (!Float.isNaN(rotation)) bodySpec.setRotation(rotation);
+
+        String texture = specChanges.optString("texture", null);
+        if (texture != null) bodySpec.setTexture(GRAPHICS_PLANET_PATH + texture);
+
+        float tilt = (float) specChanges.optDouble("tilt");
+        if (!Float.isNaN(tilt)) bodySpec.setTilt(tilt);
+
+        boolean revLightGlow = specChanges.optBoolean("useReverseLightForGlow");
+        if (revLightGlow != bodySpec.isUseReverseLightForGlow()) bodySpec.setUseReverseLightForGlow(revLightGlow);
+
+        JSONArray typeOverride = specChanges.optJSONArray("typeOverride");
+        if (typeOverride != null) {
+            String newType = typeOverride.getString(0);
+            ((PlanetSpec) bodySpec).planetType = newType;
+            ((PlanetSpec) bodySpec).name = typeOverride.getString(1);
+            ((PlanetSpec) bodySpec).descriptionId = newType;
+            body.setTypeId(newType);
+        }
 
         body.applySpecChanges();
     }

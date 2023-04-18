@@ -73,7 +73,7 @@
 					"orbitDays":25,
 					"conditions":[],
 					"specChanges":{
-						"texture":["planets","barren02"],
+						"texture":"barren02.jpg",
 						"planetColor":[220,230,255,255],
 					},
 				},
@@ -92,12 +92,12 @@
 					"conditions":[],
 					"specChanges":{
 						"planetColor":[150,245,255,255],
-						"glowTexture":["hab_glows","banded"],
+						"glowTexture":"clouds_banded01.png",
 						"glowColor":[250,225,55,64],
 						"useReverseLightForGlow":true,
 					},
 				},
-				{ # Dorus, orbiting Dorus
+				{ # Dorus, orbiting Aeolus
 					"name":"Dorus",
 					"focus":5,
 					"type":"barren_venuslike",
@@ -107,11 +107,11 @@
 					"orbitDays":22,
 					"conditions":[],
 					"specChanges":{
-						"texture":["planets","venuslike"],
+						"texture":"venuslike.jpg",
 						"planetColor":[185,245,255,255],
 					},
 				},
-				{ # Xuthus, orbiting Dorus
+				{ # Xuthus, orbiting Aeolus
 					"name":"Xuthus",
 					"focus":5,
 					"type":"toxic_cold",
@@ -137,7 +137,7 @@
 					"conditions":[],
 					"specChanges":{
 						"planetColor":[170,190,255,255],
-						"glowTexture":["hab_glows","banded"],
+						"glowTexture":"clouds_banded01.png",
 						"glowColor":[250,225,155,32],
 					},
 				},
