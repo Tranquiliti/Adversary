@@ -260,7 +260,7 @@
 					# All sub-options within "specChanges" can be individually omitted as well
 					#
 					# For texture sub-options, eligible images are found in the starsector-core/graphics/planets folder
-					# These images must be a pre-loaded image, found inside the "graphics" entry in starsector-core/data/config/settings.json
+					# These images must be a preloaded image; eligible images are found inside the "graphics" entry in starsector-core/data/config/settings.json
 					"specChanges":{
 						# Color of the planet's atmosphere
 						"atmosphereColor":[255,255,255,255],

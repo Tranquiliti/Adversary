@@ -5,8 +5,8 @@
 #-------------------------------------------------------------------------------------#
 
 # This JSON file is reloaded during new game creation.
-# Thus, it can be edited without needing to restart your Starsector application.
-# Any changes here will apply on the next new game creation.
+# Thus, it can be edited without needing to restart your Starsector application,
+# as any changes here will apply on the next new game creation.
 
 {	# List of custom star systems to generate
 	"customStarSystems":[
@@ -14,8 +14,8 @@
 			"isEnabled":true, # Change to false if you don't want this system to spawn
 			"isCoreWorldSystem":true,
 			"hasSystemwideNebula":false,
-			"addCoronalHypershunt":true,
-			"addDomainCryosleeper":true,
+			"addCoronalHypershunt":false,
+			"addDomainCryosleeper":false,
 			"setLocation":1, # 1st closest constellation to Core Worlds
 			"systemBackground":"background6.jpg",
 			"systemMusic":"music_diktat_market_hostile",
@@ -232,7 +232,9 @@
 			],
 		},
 
-		# Can add more star systems here using the above format
+		#--------------------------------------#
+		# Can add more star systems below here #
+		#--------------------------------------#
 
 
 
