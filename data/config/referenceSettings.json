@@ -251,8 +251,12 @@
 					# Defaults to no entities if this entry is omitted
 					"entitiesAtStablePoints":[
 						,                      # No entity on L3 point
-						{},                    # No entity on L4 point
-						{"type":"jump_point"}, # Entity on L5 point
+						{"type":"jump_point"}, # Entity on L4 point
+						[ # Multiple entities on L5 point
+							{"type":"jump_point"},
+							{"type":"jump_point"},
+							{"type":"jump_point"},
+						],
 					],
 
 					# Changes to this planet's appearance
@@ -533,6 +537,33 @@
 							"aiCoreAdmin":false,
 							"conditions":[],
 							"industries":["population","spaceport"],
+						},
+
+						# A planet located in a stable point
+						# (Similar to 1st entry in "orbitingBodies", but without any orbit options)
+						{
+							"type":"planet",
+
+							"planetOptions":{
+								"type":"barren",
+								"name":"Planet II-L3",
+								"radius":100,
+								"conditions":[
+									"no_atmosphere",
+								],
+								"specChanges":{
+									"texture":"bread.png",
+								},
+								"customDescriptionId":"planet_kazeron",
+								"marketSize":0,
+								"factionId":"persean",
+								"freePort":false,
+								"aiCoreAdmin":false,
+								"industries":[
+									"population",
+									"spaceport"
+								],
+							},
 						},
 					],
 

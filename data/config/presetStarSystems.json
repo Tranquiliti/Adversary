@@ -6,10 +6,15 @@
 {
 	"customStarSystems":[
 
+
 		{ # A tiny, bare-minimum star system with one default star and one default planet
 			"starsInSystemCenter":{"stars":[{}]},
 			"orbitingBodies":[{"orbitRadius":2000}],
 		},
+
+
+		#--------------------------------------#
+
 
 		{ # A Penelope's Star clone/rip-off (compare to the real one in starsector-core/data/scripts/world/systems/Penelope.java)
 			"isEnabled":true,
@@ -87,7 +92,10 @@
 					"entitiesAtStablePoints":[
 						{"type":"stable_location"}, # L3 point
 						{"type":"asteroid_field","name":"Penelope L4 Asteroids","size":450},
-						{"type":"asteroid_field","name":"Penelope L5 Asteroids","size":450},
+						[ # L5 point, with both an asteroid field and a stable location
+							{"type":"asteroid_field","name":"Penelope L5 Asteroids","size":450},
+							{"type":"stable_location"},
+						],
 					],
 					"conditions":[],
 					"specChanges":{
@@ -163,14 +171,21 @@
 				{ # Aeolus' magnetic field
 					"type":"magnetic_field",
 					"focus":5,
-					"orbitRadius":325,
-					"size":160,
-				},
-				{ # Stable location at Aeolus' L5 Point
-					"type":"stable_location",
-					"orbitAngle":170,
-					"orbitRadius":9500,
-					"orbitDays":450,
+					"orbitRadius":325, # Aeolus' radius (275) + 50
+					"size":435, # 275 + 160
+					"middleRadius":218, # Half of "size"
+					"outerRadius":525, # 275 + 50 + 200
+					"baseColor":[50,20,100,50],
+					"auroraFrequency":0.5,
+					"auroraColors":[
+						[90,180,40,255],
+						[130,145,90,255],
+						[165,110,145,255],
+						[95,55,160,255],
+						[45,0,130,255],
+						[20,0,130,255],
+						[10,0,150,255],
+					]
 				},
 				{ # Telepylus Station, a staging area for volatiles transport
 					"name":"Telepylus Station",
@@ -198,6 +213,10 @@
 			],
 		},
 
+
+		#--------------------------------------#
+
+
 		{ # A Remnant-infested trinary system (actually, two of them)
 			"isEnabled":true,
 			"numberOfSystems":2,
@@ -224,9 +243,12 @@
 					"type":"irradiated",
 					"orbitRadius":5000,
 					"entitiesAtStablePoints":[
-						{"type":"asteroid_field","size":300},
+						[
+							{"type":"asteroid_field","size":300},
+							{"type":"station_research_remnant"},
+						],
 						{"type":"jump_point","name":"Outer System Jump-point"},
-						{},
+						{"type":"inactive_gate"},
 					],
 				},
 				{"type":"cryovolcanic","orbitRadius":6000},
@@ -243,6 +265,10 @@
 				{"type":"alpha_site_weapons_cache","orbitRadius":11111},
 			],
 		},
+
+
+		#--------------------------------------#
+
 
 		{ # A Battle-Royale system in Core World center, with vanilla factions vying for system control
 			"isEnabled":true,
@@ -409,6 +435,10 @@
 			],
 		},
 
+
+		#--------------------------------------#
+
+
 		{ # A system with most, if not all, vanilla planet and star types (for reference and testing, not for actual use LOL)
 			"isEnabled":true,
 			"numberOfSystems":1,
@@ -505,7 +535,8 @@
 			]
 		},
 
-		# More custom star systems can be added below, using the above format
+
+		#--------------------------------------#
 
 
 	],

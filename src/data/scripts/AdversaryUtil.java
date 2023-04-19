@@ -332,9 +332,20 @@ public class AdversaryUtil {
      * @throws JSONException If lagrangePoints is invalid
      */
     public void addToLagrangePoints(PlanetAPI planet, JSONArray lagrangePoints) throws JSONException {
-        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(0), 3);
-        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(1), 4);
-        addLagrangePointFeature(planet, lagrangePoints.optJSONObject(2), 5);
+        JSONArray lagrangePoint3 = lagrangePoints.optJSONArray(0);
+        if (lagrangePoint3 == null) addLagrangePointFeature(planet, lagrangePoints.optJSONObject(0), 3);
+        else for (int i = 0; i < lagrangePoint3.length(); i++)
+            addLagrangePointFeature(planet, lagrangePoint3.optJSONObject(i), 3);
+
+        JSONArray lagrangePoint4 = lagrangePoints.optJSONArray(1);
+        if (lagrangePoint4 == null) addLagrangePointFeature(planet, lagrangePoints.optJSONObject(1), 4);
+        else for (int i = 0; i < lagrangePoint4.length(); i++)
+            addLagrangePointFeature(planet, lagrangePoint4.optJSONObject(i), 4);
+
+        JSONArray lagrangePoint5 = lagrangePoints.optJSONArray(2);
+        if (lagrangePoint5 == null) addLagrangePointFeature(planet, lagrangePoints.optJSONObject(2), 5);
+        else for (int i = 0; i < lagrangePoint5.length(); i++)
+            addLagrangePointFeature(planet, lagrangePoint5.optJSONObject(i), 5);
     }
 
     // Adds a system feature to a specific lagrange point of a planet
@@ -358,6 +369,9 @@ public class AdversaryUtil {
         SectorEntityToken entity;
         StarSystemAPI system = planet.getStarSystem();
         switch (type) {
+            case "planet":
+                entity = addPlanet(system, featureOptions.getJSONObject("planetOptions"), planet.getId() + ":planet_" + lagrangePoint);
+                break;
             case "asteroid_field":
                 entity = addAsteroidField(system, featureOptions);
                 break;
@@ -384,7 +398,12 @@ public class AdversaryUtil {
             default: // Default option in case of mods adding their own system entities
                 entity = addCustomEntity(system, featureOptions, type);
         }
-        entity.setCircularOrbitPointingDown(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
+
+        if (type.equals("planet")) {
+            entity.setCircularOrbit(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
+        } else {
+            entity.setCircularOrbitPointingDown(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
+        }
     }
 
     /**

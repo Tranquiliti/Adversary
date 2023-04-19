@@ -7,6 +7,7 @@
 # This JSON file is reloaded during new game creation.
 # Thus, it can be edited without needing to restart your Starsector application,
 # as any changes here will apply on the next new game creation.
+# Any customStarSystems.json in the data/config folder of other mods will merge together with this one
 
 {	# List of custom star systems to generate
 	"customStarSystems":[
