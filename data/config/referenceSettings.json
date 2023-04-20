@@ -540,7 +540,8 @@
 						},
 
 						# A planet located in a stable point
-						# (Similar to 1st entry in "orbitingBodies", but without any orbit options)
+						# (Similar to 1st entry in "orbitingBodies", but without any orbit-related options)
+						# WARNING: This planet will count as an eligible target planet for "focus" options
 						{
 							"type":"planet",
 
@@ -548,21 +549,14 @@
 								"type":"barren",
 								"name":"Planet II-L3",
 								"radius":100,
-								"conditions":[
-									"no_atmosphere",
-								],
-								"specChanges":{
-									"texture":"bread.png",
-								},
+								"conditions":["no_atmosphere"],
+								"specChanges":{"texture":"bread.png"},
 								"customDescriptionId":"planet_kazeron",
 								"marketSize":0,
 								"factionId":"persean",
 								"freePort":false,
 								"aiCoreAdmin":false,
-								"industries":[
-									"population",
-									"spaceport"
-								],
+								"industries":["population","spaceport"],
 							},
 						},
 					],

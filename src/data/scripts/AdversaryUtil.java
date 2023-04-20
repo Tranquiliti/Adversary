@@ -263,6 +263,7 @@ public class AdversaryUtil {
 
     // Adds spec changes to a body
     // Note: Textures must already be preloaded via settings.json for texture-replacing fields to work
+    // Partially adapted from Tartiflette's Unknown Skies source code
     private void addSpecChanges(PlanetAPI body, JSONObject specChanges) throws JSONException {
         if (specChanges == null) return;
         PlanetSpecAPI bodySpec = body.getSpec();
