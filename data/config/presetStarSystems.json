@@ -16,6 +16,308 @@
 		#--------------------------------------#
 
 
+		# A star system containing planets with 'perfect' conditions, following vanilla constraints
+		#
+		# A few proc-gen notes:
+		# - Vast ruins ("ruins_vast") can spawn any planet (even the worst ones, apparently)
+		# - Ultrarich Rare Ore Deposits can only spawn on planets with any of the following conditions:
+		#   -> Tectonic Activity, Extreme Tectonic Activity, High Gravity, Extreme Heat, Irradiated
+		{
+			"isEnabled":true,
+			"starsInSystemCenter":{"stars":[{
+				"type":"star_browndwarf",
+				"radius":400,
+				"coronaRadius":350,
+			}]},
+			"fringeJumpPoint":{"orbitRadius":12800},
+			"orbitingBodies":[
+				
+				{ # cat_giant
+					"type":"gas_giant",
+					#"type":"ice_giant",
+					"orbitRadius":1000,
+					"radius":250,
+					"conditions":[
+						#"cold", # For Ice Giants
+						"high_gravity",
+						"volatiles_plentiful",
+					],
+				},
+
+				{ # cat_lava
+					"type":"lava",
+					"orbitRadius":1750,
+					"radius":100,
+					"conditions":[
+						"very_hot",
+						"extreme_tectonic_activity",
+						"toxic_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_ultrarich",
+					],
+				},
+
+				{ # lava_minor
+					"type":"lava_minor",
+					"orbitRadius":2350,
+					"radius":100,
+					"conditions":[
+						"hot",
+						"tectonic_activity",
+						"thin_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_ultrarich",
+					],
+				},
+
+				{ # cat_frozen
+					"type":"frozen",
+					#"type":"frozen1",
+					#"type":"frozen2",
+					#"type":"frozen3",
+					"orbitRadius":2980,
+					"radius":130,
+					"conditions":[
+						"very_cold",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_plentiful",
+					],
+				},
+
+				{ # cat_cryovolcanic
+					"type":"cryovolcanic",
+					"orbitRadius":3640,
+					"radius":130,
+					"conditions":[
+						"very_cold",
+						"tectonic_activity",
+						"ore_ultrarich",
+						"rare_ore_ultrarich",
+						"volatiles_plentiful",
+					],
+				},
+
+				{ # cat_barren
+					"type":"barren",
+					#"type":"barren_castiron",
+					#"type":"barren2",
+					#"type":"barren3",
+					#"type":"barren_venuslike",
+					#"type":"rocky_metallic",
+					#"type":"barren-bombarded",
+					"orbitRadius":4260,
+					"radius":90,
+					"conditions":[
+						"no_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_trace",
+					],
+				},
+
+				{ # rocky_unstable
+					"type":"rocky_unstable",
+					"orbitRadius":4840,
+					"radius":90,
+					"conditions":[
+						"tectonic_activity",
+						"no_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_ultrarich",
+						"volatiles_trace",
+					],
+				},
+
+				{ # rocky_ice
+					"type":"rocky_ice",
+					"orbitRadius":5420,
+					"radius":90,
+					"conditions":[
+						"cold",
+						"no_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_diffuse",
+					],
+				},
+
+				{ # irradiated
+					"type":"irradiated",
+					"orbitRadius":6000,
+					"radius":90,
+					"conditions":[
+						"irradiated",
+						"ore_ultrarich",
+						"rare_ore_ultrarich",
+					],
+				},
+
+				{ # cat_toxic
+					"type":"toxic",
+					"orbitRadius":6590,
+					"radius":100,
+					"conditions":[
+						#"tectonic_activity", # Required for Ultrarich Rare Ore Deposits
+						"toxic_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						#"rare_ore_ultrarich", # Requires Tectonic Activity
+						"volatiles_plentiful",
+						"organics_plentiful",
+					]
+				},
+
+				{ # toxic_cold
+					"type":"toxic_cold",
+					"orbitRadius":7190,
+					"radius":100,
+					"conditions":[
+						"very_cold",
+						#"tectonic_activity", # Required for Ultrarich Rare Ore Deposits
+						"toxic_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						#"rare_ore_ultrarich", # Requires Tectonic Activity
+						"volatiles_plentiful",
+					],
+				},
+
+				{ # cat_hab4
+					"type":"terran",
+					"orbitRadius":7820,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"mild_climate",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						#"volatiles_diffuse", # Prevents Soil Nanites
+						"organics_plentiful",
+						"farmland_bountiful",
+						# Solar arrays don't spawn on Terran planets
+					],
+				},
+
+				{ # terran-eccentric
+					"type":"terran-eccentric",
+					"orbitRadius":8480,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"mild_climate",
+						"poor_light",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						#"volatiles_diffuse", # Prevents Soil Nanites
+						"organics_plentiful",
+						"farmland_bountiful",
+						"solar_array",
+					],
+				},
+
+				{ # jungle
+					"type":"jungle",
+					"orbitRadius":9140,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"hot",
+						"mild_climate",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						#"volatiles_diffuse", # Prevents Soil Nanites
+						"organics_plentiful",
+						"farmland_bountiful",
+						"solar_array",
+					],
+				},
+
+				{ # water
+					"type":"water",
+					"orbitRadius":9800,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"mild_climate",
+						"water_surface",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_diffuse",
+						"organics_plentiful",
+						"solar_array",
+					],
+				},
+
+				{ # arid
+					"type":"arid",
+					"orbitRadius":10460,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"hot",
+						"mild_climate",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						#"volatiles_diffuse", # Prevents Soil Nanites
+						"organics_plentiful",
+						"farmland_rich",
+						"solar_array",
+					],
+				},
+
+				{ # tundra
+					"type":"tundra",
+					"orbitRadius":11120,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"cold",
+						"mild_climate",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						#"volatiles_diffuse", # Prevents Soil Nanites
+						"organics_plentiful",
+						"farmland_bountiful",
+						"solar_array",
+					],
+				},
+
+				{ # cat_hab2
+					"type":"desert",
+					#"type":"desert1",
+					"orbitRadius":11780,
+					"radius":130,
+					"conditions":[
+						"habitable",
+						"hot",
+						"ore_ultrarich",
+						#"rare_ore_moderate", # Prevents Soil Nanites
+						"farmland_poor",
+						"solar_array",
+					],
+				},
+
+				{ # cat_hab1
+					"type":"barren-desert",
+					"orbitRadius":12400,
+					"radius":90,
+					"conditions":[
+						"thin_atmosphere",
+						"ore_ultrarich",
+						"rare_ore_moderate",
+						"volatiles_diffuse",
+						"organics_common",
+					],
+				},
+
+			],
+		},
+
+
+		#--------------------------------------#
+
+
 		{ # A Penelope's Star clone/rip-off (compare to the real one in starsector-core/data/scripts/world/systems/Penelope.java)
 			"isEnabled":true,
 			"setLocation":0,
@@ -439,7 +741,7 @@
 		#--------------------------------------#
 
 
-		{ # A system with most, if not all, vanilla planet and star types (for reference and testing, not for actual use LOL)
+		{ # A system with most, if not all, vanilla planet and star types (for reference and testing)
 			"isEnabled":true,
 			"numberOfSystems":1,
 			"isCoreWorldSystem":false,
