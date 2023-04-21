@@ -34,7 +34,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
         else doCustomStarSystems = Global.getSettings().getBoolean("enableCustomStarSystems");
 
         if (doCustomStarSystems) try {
-            JSONArray systemList = Global.getSettings().getJSONArray("customStarSystems");
+            JSONArray systemList = Global.getSettings().getMergedJSONForMod("data/config/customStarSystems.json", "adversary").getJSONArray("customStarSystems");
             AdversaryUtil util = new AdversaryUtil();
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
@@ -43,7 +43,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
             marketsToOverrideAdmin = util.marketsToOverrideAdmin;
-        } catch (JSONException e) {
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }

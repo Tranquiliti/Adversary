@@ -1,3 +1,25 @@
+Version 3.4.0
+
+* "customStarSystems" now moved to a new customStarSystems.json in this mod's config folder
+  - This .json file is (re)loaded during new game creation, allow you to adjust custom star systems without having to restart Starsector!
+  - Can be merged with customStarSystems.json from other mods, allowing a personal mod (or other mods, if they so wish) to implement their own custom star systems without needing to re-configure it after each Adversary update.
+* Renamed referenceSettings.json to referenceStarSystem.json, updated with the latest changes.
+* Expanded "specChanges":
+  - Added many more sub-options (more than I can list here), allowing more control over planet/star appearance
+  - Texture-related sub-options now accept a String instead for the image file (however, said image file must still be preloaded via Starsector's settings.json for textures to load properly).
+  - See updated referenceStarSystem.json for using these options
+* Expanded "entitiesAtStablePoints" option:
+  - Planets can be added to "entitiesAtStablePoints"; these follow a similar format to planets in "orbitingBodies", except without orbit options
+  - "entitiesAtStablePoints" can now accept a List of entities to generate in a given stable point
+  - See updated referenceStarSystem.json and presetStarSystems.json for examples of these
+* Added a system with all 'perfect' vanilla planets to presetStarSystems.json
+  - This should hopefully make it a little easier to set up your own perfect star system.
+* Optimal's Terran planet is now a Jungle planet, with the Hot condition added as well.
+  - Proc-gen Terran planets are normally unable to get the Solar Array condition, so this change merely reflects this.
+  - This does allow for Extreme Heat (using a Lamp) and further increases the impact of sabotaging the Solar Array.
+
+
+
 Version 3.3.0
 
 * Added "customDescriptionId" option for planets, stars, and some custom entities.
