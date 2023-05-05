@@ -9,7 +9,7 @@ import org.json.JSONException;
 public class AdversaryBlueprintStealer implements EconomyTickListener {
     protected String factionId;
     protected String[] targetIds;
-    protected short elapsedMonths, delayInMonths; // TODO: switch to byte after next Starsector update (really!)
+    protected byte elapsedMonths, delayInMonths;
 
     public AdversaryBlueprintStealer(String faction, byte elapsed, byte delay, JSONArray targetFactions) throws JSONException {
         factionId = faction;

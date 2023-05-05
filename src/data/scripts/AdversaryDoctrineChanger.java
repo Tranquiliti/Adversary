@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
-    protected short elapsedMonths, delayInMonths; // TODO: switch to byte after next Starsector update (really!)
+    protected byte elapsedMonths, delayInMonths;
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 

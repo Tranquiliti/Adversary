@@ -62,14 +62,14 @@
 		{ # Midline Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"priorityShips":["conquest","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
+			"priorityShips":["conquest","pegasus","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
 			"priorityWeapons":["mjolnir","squall","hurricane","hveldriver","heavymauler","vulcan"],
 			"priorityFighters":[],
 		},
 		{ # Midline Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"priorityShips":["onslaught","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
+			"priorityShips":["onslaught","invictus","retribution","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
 			"priorityWeapons":["mark9","hellbore","devastator","sabotpod","annihilatorpod","harpoon","vulcan"],
 			"priorityFighters":[],
 		},
@@ -82,14 +82,14 @@
 			"fleetComposition":[1,5,1],
 			"priorityShips":["astral","heron","drover","tempest"],
 			"priorityWeapons":["squall","harpoonpod","harpoon","lrpdlaser","vulcan","ionbeam","heavymauler","hveldriver"],
-			"priorityFighters":["xyphos_wing","gladius_wing","warthog_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
+			"priorityFighters":["xyphos_wing","gladius_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
 		},
 		{ # Low Tech Carriers
 			"weight":4,
 			"fleetComposition":[1,5,1],
 			"priorityShips":["legion","mora","condor","shepherd"],
 			"priorityWeapons":["hurricane","harpoonpod","pilum","harpoon","swarmer","gauss","hellbore","vulcan"],
-			"priorityFighters":["broadsword_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
+			"priorityFighters":["broadsword_wing","warthog_wing","sarissa_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
 		},
 		{ # Carriers
 			"weight":4,

@@ -1,3 +1,13 @@
+Version 4.0.0
+
+* Updated to Starsector 0.96a-RC6
+  - HOWEVER, no promises that it will work perfectly if/when integrated mods (e.g. LunaLib) also update as well.
+  - Further updates/fixes will come later...
+* Upgraded the Adversary faction with the latest tech (however, no fancy SD tech)
+  - They also remembered to actually get Dominator blueprints too.
+
+
+
 Version 3.4.0
 
 * "customStarSystems" now moved to a new customStarSystems.json in this mod's config folder
