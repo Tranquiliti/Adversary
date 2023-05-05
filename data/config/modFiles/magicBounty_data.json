@@ -236,7 +236,7 @@
         "fleet_faction":"adversary",
         "fleet_flagship_variant":"adversary_legion_xiv_Armored",
         "fleet_flagship_name":"HSS Warrior's Spirit",
-        "fleet_flagship_recoverable":true,
+        "fleet_flagship_alwaysRecoverable":true,
         "fleet_preset_ships":{
             "adversary_onslaught_xiv_Armored":4,
             "adversary_dominator_xiv_Armored":5,
