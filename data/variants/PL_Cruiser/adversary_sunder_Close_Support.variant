@@ -1,31 +1,36 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 7,
+    "fluxCapacitors": 8,
     "fluxVents": 20,
     "hullId": "sunder",
     "hullMods": [
-        "converted_hangar",
+        "advancedoptics",
+        "ecm",
+        "hardenedshieldemitter",
         "targetingunit",
         "adaptiveshields"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "advancedoptics",
+        "ecm"
+    ],
     "sMods": [
-        "hardenedshieldemitter",
-        "advancedoptics"
+        "advancedoptics",
+        "ecm"
     ],
     "variantId": "adversary_sunder_Close_Support",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 003": "tachyonlance"}
+            "weapons": {"WS 003": "hil"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "atropos_single",
-                "WS 005": "atropos_single"
+                "WS 001": "sabot",
+                "WS 005": "sabot"
             }
         },
         {
@@ -35,7 +40,14 @@
                 "WS 002": "gravitonbeam",
                 "WS 004": "gravitonbeam"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "vulcan",
+                "WS 007": "vulcan"
+            }
         }
-    ],
-    "wings": ["gladius_wing"]
+    ]
 }

@@ -1,8 +1,8 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 15,
-    "fluxVents": 11,
-    "hullId": "falcon_p",
+    "displayName": "Attack",
+    "fluxCapacitors": 0,
+    "fluxVents": 2,
+    "hullId": "vanguard_pirates",
     "hullMods": [
         "missleracks",
         "reinforcedhull",
@@ -11,8 +11,12 @@
         "erratic_injector",
         "glitched_sensors",
         "increased_maintenance",
-        "converted_hangar",
-        "hardenedshieldemitter"
+        "armoredweapons",
+        "autorepair",
+        "auxiliarythrusters",
+        "blast_doors",
+        "heavyarmor",
+        "insulatedengine"
     ],
     "permaMods": [
         "missleracks",
@@ -25,42 +29,33 @@
     ],
     "sMods": [
         "missleracks",
-        "reinforcedhull",
+        "reinforcedhull"
     ],
-    "variantId": "adversary_falcon_p_Strike",
+    "variantId": "adversary_vanguard_pirates_Attack",
     "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "phasecl",
-                "WS 008": "phasecl"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "phasecl",
-                "WS 006": "phasecl"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "swarmer",
-                "WS 002": "swarmer"
-            }
-        },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "lrpdlaser",
-                "WS 010": "lrpdlaser"
+                "WS 005": "lightdualac",
+                "WS 006": "lightdualac"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "gorgon",
+                "WS 001": "gorgon",
+                "WS 002": "gorgon",
+                "WS 003": "mininglaser",
+                "WS 004": "mininglaser"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 007": "lightag"}
         }
-    ],
-    "wings": ["sarissa_wing"]
+    ]
 }

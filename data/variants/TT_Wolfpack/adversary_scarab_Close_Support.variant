@@ -1,19 +1,23 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 10,
     "fluxVents": 10,
     "hullId": "scarab",
     "hullMods": [
+        "hardenedshieldemitter",
         "hardened_subsystems",
         "advancedoptics",
-        "fluxdistributor",
-        "solar_shielding",
-        "frontemitter"
+        "targetingunit",
+        "frontemitter",
+        "stabilizedshieldemitter"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
     "sMods": [
-        "ecm",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "hardened_subsystems"
     ],
     "variantId": "adversary_scarab_Close_Support",
     "weaponGroups": [{

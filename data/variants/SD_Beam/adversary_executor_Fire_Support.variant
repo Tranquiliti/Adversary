@@ -1,0 +1,76 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 34,
+    "fluxVents": 50,
+    "hullId": "executor",
+    "hullMods": [
+        "missleracks",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure",
+        "advancedoptics",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "adaptiveshields"
+    ],
+    "permaMods": [
+        "missleracks",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure"
+    ],
+    "sMods": [
+        "missleracks",
+        "targetingunit"
+    ],
+    "variantId": "adversary_executor_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "tachyonlance",
+                "WS 001": "tachyonlance"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 012": "squall",
+                "WS 013": "squall"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "hveldriver",
+                "WS 009": "hveldriver",
+                "WS 010": "hveldriver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "gravitonbeam",
+                "WS 005": "gravitonbeam",
+                "WS 006": "gravitonbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "irautolance",
+                "WS 004": "ionbeam",
+                "WS 007": "irautolance"
+            }
+        }
+    ]
+}

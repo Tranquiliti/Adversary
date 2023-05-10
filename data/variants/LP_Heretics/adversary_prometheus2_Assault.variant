@@ -1,16 +1,20 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 2,
+    "fluxCapacitors": 0,
     "fluxVents": 50,
     "hullId": "prometheus2",
     "hullMods": [
-        "militarized_subsystems",
         "targetingunit",
-        "fluxdistributor"
+        "reinforcedhull",
+        "fluxdistributor",
+        "heavyarmor"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "targetingunit",
+        "reinforcedhull"
+    ],
     "sMods": [
-        "heavyarmor",
+        "targetingunit",
         "reinforcedhull"
     ],
     "variantId": "adversary_prometheus2_Assault",
@@ -40,7 +44,7 @@
         }
     ],
     "wings": [
-        "longbow_wing",
-        "longbow_wing"
+        "xyphos_wing",
+        "xyphos_wing"
     ]
 }

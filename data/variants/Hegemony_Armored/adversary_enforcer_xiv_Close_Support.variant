@@ -1,17 +1,21 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 14,
+    "fluxCapacitors": 17,
     "fluxVents": 20,
     "hullId": "enforcer_xiv",
     "hullMods": [
-        "targetingunit",
-        "solar_shielding",
-        "insulatedengine",
-        "armoredweapons"
+        "armoredweapons",
+        "missleracks",
+        "reinforcedhull",
+        "targetingunit"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "armoredweapons",
+        "missleracks",
+        "reinforcedhull"
+    ],
     "sMods": [
-        "heavyarmor",
+        "armoredweapons",
         "missleracks",
         "reinforcedhull"
     ],
@@ -21,8 +25,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "arbalest",
-                "WS 004": "arbalest"
+                "WS 002": "hveldriver",
+                "WS 004": "hveldriver"
             }
         },
         {
@@ -38,7 +42,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 003": "heavymortar"}
+            "weapons": {"WS 003": "heavymauler"}
         },
         {
             "autofire": true,

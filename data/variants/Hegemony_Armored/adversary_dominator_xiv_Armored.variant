@@ -4,18 +4,24 @@
     "fluxVents": 22,
     "hullId": "dominator_xiv",
     "hullMods": [
-        "heavyarmor",
-        "missleracks",
-        "pointdefenseai",
-        "solar_shielding",
-        "insulatedengine",
-        "autorepair",
-        "armoredweapons"
-    ],
-    "permaMods": [],
-    "sMods": [
-        "reinforcedhull",
         "targetingunit",
+        "reinforcedhull",
+        "shield_shunt",
+        "armoredweapons",
+        "autorepair",
+        "missleracks",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai"
+    ],
+    "permaMods": [
+        "targetingunit",
+        "reinforcedhull",
+        "shield_shunt"
+    ],
+    "sMods": [
+        "targetingunit",
+        "reinforcedhull",
         "shield_shunt"
     ],
     "variantId": "adversary_dominator_xiv_Armored",
@@ -43,8 +49,11 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 001": "vulcan",
                 "WS 003": "vulcan",
+                "WS 004": "vulcan",
                 "WS 005": "vulcan",
+                "WS 007": "vulcan",
                 "WS 010": "dualflak",
                 "WS 011": "dualflak"
             }

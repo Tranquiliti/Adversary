@@ -1,16 +1,21 @@
 {
     "displayName": "Fire Support",
-    "fluxCapacitors": 24,
-    "fluxVents": 30,
+    "fluxCapacitors": 23,
+    "fluxVents": 29,
     "hullId": "gryphon",
     "hullMods": [
-        "converted_hangar",
+        "eccm",
+        "missile_autoloader",
+        "targetingunit",
         "adaptiveshields"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "eccm",
+        "missile_autoloader"
+    ],
     "sMods": [
         "eccm",
-        "hardenedshieldemitter"
+        "missile_autoloader"
     ],
     "variantId": "adversary_gryphon_Fire_Support",
     "weaponGroups": [
@@ -28,6 +33,11 @@
             }
         },
         {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "hveldriver"}
+        },
+        {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
@@ -36,6 +46,5 @@
                 "WS 012": "harpoon"
             }
         }
-    ],
-    "wings": ["gladius_wing"]
+    ]
 }

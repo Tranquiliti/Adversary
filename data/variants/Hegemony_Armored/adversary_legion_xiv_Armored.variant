@@ -1,19 +1,26 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 3,
+    "fluxVents": 7,
     "hullId": "legion_xiv",
     "hullMods": [
-        "heavyarmor",
-        "missleracks",
-        "solar_shielding",
-        "insulatedengine",
-        "armoredweapons"
-    ],
-    "permaMods": [],
-    "sMods": [
+        "defensive_targeting_array",
         "reinforcedhull",
-        "targetingunit",
+        "shield_shunt",
+        "armoredweapons",
+        "missleracks",
+        "heavyarmor",
+        "insulatedengine",
+        "targetingunit"
+    ],
+    "permaMods": [
+        "defensive_targeting_array",
+        "reinforcedhull",
+        "shield_shunt"
+    ],
+    "sMods": [
+        "defensive_targeting_array",
+        "reinforcedhull",
         "shield_shunt"
     ],
     "variantId": "adversary_legion_xiv_Armored",
@@ -30,8 +37,8 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 000": "hammerrack",
-                "WS 001": "hammerrack"
+                "WS 000": "cyclone",
+                "WS 001": "cyclone"
             }
         },
         {
@@ -47,15 +54,17 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 005": "dualflak",
+                "WS 018": "vulcan",
+                "WS 019": "vulcan",
                 "WS 020": "vulcan",
                 "WS 021": "vulcan"
             }
         }
     ],
     "wings": [
-        "longbow_wing",
-        "longbow_wing",
-        "longbow_wing",
-        "longbow_wing"
+        "sarissa_wing",
+        "sarissa_wing",
+        "sarissa_wing",
+        "xyphos_wing"
     ]
 }

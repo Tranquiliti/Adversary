@@ -19,6 +19,13 @@ import java.util.List;
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
 
+    // Adding LunaSettingsListener when game starts
+    @Override
+    public void onApplicationLoad() {
+        LunaSettings.INSTANCE.addListener(new AdversaryLunaSettingsListener());
+    }
+
+    // Re-applying or removing listeners on an existing game.
     @Override
     public void onGameLoad(boolean newGame) {
         if (newGame || Global.getSector().getFaction("adversary") == null) return;
@@ -80,28 +87,27 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     // Remove or add listeners to a game depending on currently-set settings
     private void addAdversaryListeners(boolean newGame) {
-        boolean changeDoctrines, stealBlueprints;
+        boolean dynaDoctrine, stealBlueprints;
         boolean lunaLibEnabled = Global.getSettings().getModManager().isModEnabled("lunalib");
         if (lunaLibEnabled) { // LunaLib settings overrides settings.json
-            new AdversaryLunaSettingsListener();
-            changeDoctrines = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryDoctrineChange"));
+            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryDynamicDoctrine"));
             stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryBlueprintStealing"));
         } else { // Just load from settings.json
-            changeDoctrines = Global.getSettings().getBoolean("enableAdversaryDoctrineChange");
+            dynaDoctrine = Global.getSettings().getBoolean("enableAdversaryDynamicDoctrine");
             stealBlueprints = Global.getSettings().getBoolean("enableAdversaryBlueprintStealing");
         }
 
         if (newGame) { // Assumes it gets called during onNewGameAfterEconomyLoad()
-            if (changeDoctrines) addAdversaryDoctrineChanger(true, lunaLibEnabled);
+            if (dynaDoctrine) addAdversaryDynamicDoctrine(true, lunaLibEnabled);
             if (stealBlueprints) addAdversaryBlueprintStealer(true, lunaLibEnabled);
         } else { // Loading existing game
             ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-            if (changeDoctrines) {
+            if (dynaDoctrine) {
                 List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
-                if (doctrineListeners.isEmpty()) addAdversaryDoctrineChanger(false, lunaLibEnabled);
+                if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, lunaLibEnabled);
                 else // Refresh needed since Adversary's current doctrine resets upon loading a new Starsector application.
                     doctrineListeners.get(0).refresh();
-            } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable doctrine changer
+            } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable dynamic doctrine
 
             if (stealBlueprints && listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty())
                 addAdversaryBlueprintStealer(false, lunaLibEnabled);
@@ -109,11 +115,11 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    // Adds a AdversaryDoctrineChanger with settings
-    private void addAdversaryDoctrineChanger(boolean newGame, boolean lunaLibEnabled) {
+    // Adds a AdversaryDynamicDoctrine with settings
+    private void addAdversaryDynamicDoctrine(boolean newGame, boolean lunaLibEnabled) {
         Integer doctrineDelay = null;
-        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", "adversaryDoctrineChangeDelay");
-        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
+        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", "adversaryDynamicDoctrineDelay");
+        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt("adversaryDynamicDoctrineDelay");
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
@@ -127,7 +133,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private void addAdversaryBlueprintStealer(boolean newGame, boolean lunaLibEnabled) {
         Integer stealDelay = null;
         if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", "adversaryBlueprintStealingDelay");
-        if (stealDelay == null) stealDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
+        if (stealDelay == null) stealDelay = Global.getSettings().getInt("adversaryDynamicDoctrineDelay");
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {

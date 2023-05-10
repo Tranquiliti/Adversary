@@ -1,21 +1,28 @@
 {
     "displayName": "Armored",
-    "fluxCapacitors": 1,
+    "fluxCapacitors": 0,
     "fluxVents": 50,
     "hullId": "onslaught_xiv",
     "hullMods": [
-        "heavyarmor",
-        "pointdefenseai",
-        "solar_shielding",
-        "fluxbreakers",
-        "insulatedengine",
-        "autorepair",
-        "armoredweapons"
-    ],
-    "permaMods": [],
-    "sMods": [
-        "reinforcedhull",
         "targetingunit",
+        "reinforcedhull",
+        "shield_shunt",
+        "armoredweapons",
+        "autorepair",
+        "missleracks",
+        "fluxdistributor",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai"
+    ],
+    "permaMods": [
+        "targetingunit",
+        "reinforcedhull",
+        "shield_shunt"
+    ],
+    "sMods": [
+        "targetingunit",
+        "reinforcedhull",
         "shield_shunt"
     ],
     "variantId": "adversary_onslaught_xiv_Armored",
@@ -30,12 +37,12 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
-                "WS 021": "salamanderpod",
-                "WS 022": "salamanderpod",
-                "WS 023": "salamanderpod",
-                "WS 024": "salamanderpod"
+                "WS 021": "annihilatorpod",
+                "WS 022": "annihilatorpod",
+                "WS 023": "annihilatorpod",
+                "WS 024": "annihilatorpod"
             }
         },
         {
@@ -47,18 +54,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 018": "mjolnir",
-                "WS 020": "mjolnir"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "arbalest",
-                "WS 011": "arbalest",
-                "WS 014": "shredder",
-                "WS 015": "shredder"
+                "WS 014": "railgun",
+                "WS 015": "railgun"
             }
         },
         {
@@ -73,13 +70,25 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "dualflak",
-                "WS 003": "dualflak",
+                "WS 018": "devastator",
+                "WS 020": "devastator"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "flak",
+                "WS 002": "vulcan",
+                "WS 003": "flak",
+                "WS 004": "vulcan",
                 "WS 005": "vulcan",
                 "WS 006": "vulcan",
                 "WS 007": "flak",
-                "WS 008": "lightmg",
-                "WS 009": "lightmg"
+                "WS 008": "vulcan",
+                "WS 009": "vulcan",
+                "WS 010": "vulcan",
+                "WS 011": "vulcan"
             }
         }
     ]

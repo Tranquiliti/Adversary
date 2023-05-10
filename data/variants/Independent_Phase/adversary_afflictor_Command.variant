@@ -4,14 +4,20 @@
     "fluxVents": 0,
     "hullId": "afflictor",
     "hullMods": [
-        "phase_anchor",
+        "operations_center",
+        "reinforcedhull",
+        "advancedoptics",
         "hardened_subsystems",
+        "insulatedengine",
+        "phase_anchor"
+    ],
+    "permaMods": [
+        "operations_center",
         "reinforcedhull"
     ],
-    "permaMods": [],
     "sMods": [
         "operations_center",
-        "heavyarmor"
+        "reinforcedhull"
     ],
     "variantId": "adversary_afflictor_Command",
     "weaponGroups": [
@@ -34,7 +40,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "pdburst"}
+            "weapons": {"WS 006": "taclaser"}
         }
     ]
 }

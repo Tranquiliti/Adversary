@@ -1,18 +1,26 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 4,
-    "fluxVents": 14,
+    "fluxCapacitors": 15,
+    "fluxVents": 23,
     "hullId": "mora",
     "hullMods": [
-        "heavyarmor",
+        "missleracks",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "glitched_sensors",
+        "increased_maintenance",
         "expanded_deck_crew"
     ],
     "permaMods": [
+        "missleracks",
+        "reinforcedhull",
         "damaged_mounts",
-        "degraded_shields",
+        "degraded_life_support",
         "erratic_injector",
         "glitched_sensors",
-        "fragile_subsystems"
+        "increased_maintenance"
     ],
     "sMods": [
         "missleracks",

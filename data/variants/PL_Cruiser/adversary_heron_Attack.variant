@@ -1,13 +1,21 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 17,
-    "fluxVents": 13,
+    "fluxCapacitors": 18,
+    "fluxVents": 14,
     "hullId": "heron",
-    "hullMods": ["expanded_deck_crew"],
-    "permaMods": [],
+    "hullMods": [
+        "expanded_deck_crew",
+        "missleracks",
+        "pointdefenseai",
+        "targetingunit"
+    ],
+    "permaMods": [
+        "expanded_deck_crew",
+        "missleracks"
+    ],
     "sMods": [
-        "nav_relay",
-        "ecm"
+        "expanded_deck_crew",
+        "missleracks"
     ],
     "variantId": "adversary_heron_Attack",
     "weaponGroups": [
@@ -24,12 +32,12 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 005": "pilum"}
+            "weapons": {"WS 005": "harpoonpod"}
         }
     ],
     "wings": [
-        "warthog_wing",
-        "broadsword_wing",
-        "broadsword_wing"
+        "gladius_wing",
+        "gladius_wing",
+        "gladius_wing"
     ]
 }

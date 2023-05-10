@@ -1,26 +1,31 @@
 {
-    "displayName": "Close Support",
+    "displayName": "Attack",
     "fluxCapacitors": 22,
-    "fluxVents": 4,
+    "fluxVents": 0,
     "hullId": "doom",
     "hullMods": [
-        "targetingunit",
-        "hardened_subsystems",
-        "adaptive_coils"
+        "heavyarmor",
+        "reinforcedhull",
+        "adaptive_coils",
+        "advancedoptics",
+        "targetingunit"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "heavyarmor",
+        "reinforcedhull"
+    ],
     "sMods": [
         "heavyarmor",
         "reinforcedhull"
     ],
-    "variantId": "adversary_doom_Close_Support",
+    "variantId": "adversary_doom_Attack",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "ionbeam",
-                "WS 008": "ionbeam"
+                "WS 007": "phasebeam",
+                "WS 008": "phasebeam"
             }
         },
         {
@@ -45,8 +50,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 011": "lrpdlaser",
-                "WS 012": "lrpdlaser"
+                "WS 011": "pdburst",
+                "WS 012": "pdburst"
             }
         }
     ]

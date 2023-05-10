@@ -5,15 +5,18 @@
     "hullId": "monitor",
     "hullMods": [
         "hardenedshieldemitter",
+        "frontemitter",
         "fluxdistributor",
         "stabilizedshieldemitter",
-        "solar_shielding",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
         "frontemitter"
     ],
-    "permaMods": [],
     "sMods": [
-        "nav_relay",
-        "unstable_injector"
+        "hardenedshieldemitter",
+        "frontemitter"
     ],
     "variantId": "adversary_monitor_Fortress",
     "weaponGroups": [
@@ -29,8 +32,8 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "hammer_single",
-                "WS 004": "hammer_single"
+                "WS 003": "sabot",
+                "WS 004": "sabot"
             }
         }
     ]

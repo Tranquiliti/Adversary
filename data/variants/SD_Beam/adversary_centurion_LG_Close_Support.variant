@@ -1,0 +1,46 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "centurion_LG",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure",
+        "advancedoptics",
+        "fluxdistributor"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "variantId": "adversary_centurion_LG_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "taclaser",
+                "WS 002": "taclaser",
+                "WS 004": "taclaser",
+                "WS 005": "taclaser"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "heatseeker"}
+        }
+    ]
+}

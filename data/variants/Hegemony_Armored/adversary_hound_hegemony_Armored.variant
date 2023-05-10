@@ -4,16 +4,24 @@
     "fluxVents": 1,
     "hullId": "hound_hegemony",
     "hullMods": [
-        "heavyarmor",
-        "blast_doors",
         "auxiliarythrusters",
-        "solar_shielding",
-        "insulatedengine"
-    ],
-    "permaMods": [],
-    "sMods": [
         "nav_relay",
-        "ecm",
+        "reinforcedhull",
+        "autorepair",
+        "blast_doors",
+        "heavyarmor",
+        "insulatedengine",
+        "fluxbreakers",
+        "solar_shielding"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "nav_relay",
+        "reinforcedhull"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "nav_relay",
         "reinforcedhull"
     ],
     "variantId": "adversary_hound_hegemony_Armored",

@@ -1,0 +1,74 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 9,
+    "fluxVents": 30,
+    "hullId": "eagle_LG",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure",
+        "adaptiveshields",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "variantId": "adversary_eagle_LG_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "hveldriver",
+                "WS 008": "hveldriver"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "heatseeker",
+                "WS 002": "heatseeker"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 013": "heavymauler"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "ionbeam"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "gravitonbeam",
+                "WS 006": "gravitonbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "taclaser",
+                "WS 011": "taclaser",
+                "WS 012": "taclaser"
+            }
+        }
+    ]
+}

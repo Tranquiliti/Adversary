@@ -1,16 +1,21 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 10,
+    "fluxCapacitors": 9,
     "fluxVents": 0,
     "hullId": "gremlin_luddic_path",
     "hullMods": [
-        "hardened_subsystems",
-        "adaptive_coils"
-    ],
-    "permaMods": [],
-    "sMods": [
+        "eccm",
         "missleracks",
-        "eccm"
+        "adaptive_coils",
+        "hardened_subsystems"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks"
     ],
     "variantId": "adversary_gremlin_luddic_path_Overdriven",
     "weaponGroups": [
@@ -23,14 +28,10 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "harpoon",
-                "WS 003": "harpoon"
+                "WS 001": "mininglaser",
+                "WS 002": "gorgon",
+                "WS 003": "gorgon"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "lightac"}
         }
     ]
 }
