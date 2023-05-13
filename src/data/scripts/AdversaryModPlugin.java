@@ -22,7 +22,10 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
-        LunaSettings.INSTANCE.addListener(new AdversaryLunaSettingsListener());
+        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
+            LunaSettings.INSTANCE.addListener(new AdversaryLunaSettingsListener());
+        // Even without LunaLib enabled, above line crashes with NoClassDefFoundError using dev JDK...
+        // but it works perfectly fine on Starsector's JRE. (Surely nothing will go wrong!)
     }
 
     // Re-applying or removing listeners on an existing game.

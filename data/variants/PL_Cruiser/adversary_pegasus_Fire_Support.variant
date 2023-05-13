@@ -1,11 +1,12 @@
 {
     "displayName": "Fire Support",
-    "fluxCapacitors": 35,
+    "fluxCapacitors": 46,
     "fluxVents": 50,
     "hullId": "pegasus",
     "hullMods": [
         "missleracks",
         "targetingunit",
+        "armoredweapons",
         "eccm",
         "fluxdistributor",
         "hardenedshieldemitter",
@@ -25,19 +26,25 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 008": "hveldriver",
-                "WS 009": "hveldriver",
-                "WS 010": "hveldriver"
+                "WS 012": "hurricane",
+                "WS 013": "hurricane"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "hurricane",
-                "WS 001": "hurricane",
-                "WS 012": "hurricane",
-                "WS 013": "hurricane"
+                "WS 000": "dragon",
+                "WS 001": "dragon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "hveldriver",
+                "WS 009": "hveldriver",
+                "WS 010": "hveldriver"
             }
         },
         {
