@@ -1,0 +1,80 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 46,
+    "hullId": "invictus",
+    "hullMods": [
+        "auxiliarythrusters",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+        "armoredweapons",
+        "converted_hangar",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_invictus_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "mark9",
+                "WS 009": "mark9"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "pilum_large",
+                "WS 007": "pilum_large"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "hephag",
+                "WS 010": "hephag"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "gauss",
+                "WS 026": "gauss"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "devastator",
+                "WS 005": "devastator",
+                "WS 006": "devastator",
+                "WS 008": "devastator"
+            }
+        }
+    ],
+    "wings": [
+        "piranha_wing",
+        "piranha_wing"
+    ]
+}

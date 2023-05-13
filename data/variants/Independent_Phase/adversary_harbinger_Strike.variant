@@ -1,15 +1,20 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 20,
-    "fluxVents": 9,
+    "fluxVents": 11,
     "hullId": "harbinger",
     "hullMods": [
+        "heavyarmor",
+        "reinforcedhull",
+        "adaptive_coils",
+        "armoredweapons",
         "hardened_subsystems",
-        "targetingunit",
-        "fluxbreakers",
-        "adaptive_coils"
+        "fluxbreakers"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "heavyarmor",
+        "reinforcedhull"
+    ],
     "sMods": [
         "heavyarmor",
         "reinforcedhull"
@@ -20,8 +25,9 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "ionpulser",
-                "WS 003": "ionpulser"
+                "WS 001": "phasebeam",
+                "WS 002": "phasebeam",
+                "WS 003": "phasebeam"
             }
         },
         {
@@ -31,11 +37,6 @@
                 "WS 004": "atropos_single",
                 "WS 005": "atropos_single"
             }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "heavyblaster"}
         }
     ]
 }

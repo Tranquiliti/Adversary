@@ -1,17 +1,23 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 3,
-    "fluxVents": 30,
+    "fluxCapacitors": 0,
+    "fluxVents": 28,
     "hullId": "champion",
     "hullMods": [
+        "missleracks",
         "targetingunit",
-        "converted_hangar",
-        "fluxdistributor"
+        "eccm",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "adaptiveshields"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "missleracks",
+        "targetingunit"
+    ],
     "sMods": [
         "missleracks",
-        "hardenedshieldemitter"
+        "targetingunit"
     ],
     "variantId": "adversary_champion_Close_Support",
     "weaponGroups": [
@@ -37,10 +43,11 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 000": "lrpdlaser",
+                "WS 001": "lrpdlaser",
                 "WS 010": "lrpdlaser",
                 "WS 011": "lrpdlaser"
             }
         }
-    ],
-    "wings": ["gladius_wing"]
+    ]
 }

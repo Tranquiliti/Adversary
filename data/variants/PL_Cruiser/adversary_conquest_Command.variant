@@ -1,35 +1,37 @@
 {
-    "displayName": "Close Support",
-    "fluxCapacitors": 0,
+    "displayName": "Command",
+    "fluxCapacitors": 1,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
-        "targetingunit",
-        "hardenedshieldemitter",
-        "auxiliarythrusters",
-        "stabilizedshieldemitter",
-        "insulatedengine"
-    ],
-    "permaMods": [],
-    "sMods": [
+        "missleracks",
         "operations_center",
-        "missleracks"
+        "eccm",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "targetingunit"
     ],
-    "variantId": "adversary_conquest_Close_Support",
+    "permaMods": [
+        "missleracks",
+        "operations_center"
+    ],
+    "sMods": [
+        "missleracks",
+        "operations_center"
+    ],
+    "variantId": "adversary_conquest_Command",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 002": "squall"}
+            "weapons": {
+                "WS 001": "hurricane",
+                "WS 002": "hurricane"
+            }
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "locust"}
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
             "weapons": {
                 "WS 019": "harpoonpod",
                 "WS 020": "harpoonpod"
@@ -48,9 +50,13 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 015": "hveldriver",
-                "WS 016": "hveldriver",
-                "WS 022": "ionbeam"
+                "WS 016": "hveldriver"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 022": "ionbeam"}
         },
         {
             "autofire": true,
@@ -64,8 +70,10 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "pdburst",
-                "WS 007": "pdburst"
+                "WS 003": "lrpdlaser",
+                "WS 005": "lrpdlaser",
+                "WS 007": "lrpdlaser",
+                "WS 009": "lrpdlaser"
             }
         }
     ]

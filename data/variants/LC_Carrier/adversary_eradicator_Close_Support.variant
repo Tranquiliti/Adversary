@@ -1,17 +1,26 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 13,
+    "fluxCapacitors": 21,
     "fluxVents": 30,
     "hullId": "eradicator",
     "hullMods": [
-        "heavyarmor",
+        "missleracks",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "increased_maintenance",
+        "fragile_subsystems",
+        "fluxdistributor",
         "targetingunit"
     ],
     "permaMods": [
+        "missleracks",
+        "reinforcedhull",
         "damaged_mounts",
-        "degraded_shields",
+        "degraded_life_support",
         "erratic_injector",
-        "glitched_sensors",
+        "increased_maintenance",
         "fragile_subsystems"
     ],
     "sMods": [
@@ -27,7 +36,7 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
                 "WS 000": "harpoon",
                 "WS 001": "harpoon",

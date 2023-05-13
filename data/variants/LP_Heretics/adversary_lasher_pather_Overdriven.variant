@@ -3,42 +3,48 @@
     "fluxCapacitors": 10,
     "fluxVents": 10,
     "hullId": "lasher_pather",
-    "hullMods": ["hardened_subsystems"],
-    "permaMods": [],
+    "hullMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks"
+    ],
     "sMods": [
-        "missleracks",
-        "eccm"
+        "eccm",
+        "missleracks"
     ],
     "variantId": "adversary_lasher_pather_Overdriven",
     "weaponGroups": [
         {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 007": "lightag"}
+        },
+        {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "lightmortar",
-                "WS 003": "lightmortar"
+                "WS 001": "gorgon",
+                "WS 002": "lightdualmg"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "harpoon",
-                "WS 004": "harpoon"
+                "WS 003": "lightdualmg",
+                "WS 004": "gorgon"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "lightdualac",
-                "WS 006": "lightdualac"
+                "WS 005": "lightdualmg",
+                "WS 006": "lightdualmg"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "lightneedler"}
         }
     ]
 }

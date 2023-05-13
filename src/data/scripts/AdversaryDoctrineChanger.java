@@ -20,6 +20,7 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 
+    // TODO: Rename to AdversaryDynamicDoctrine when doing save-breaking update
     public AdversaryDoctrineChanger(String faction, byte elapsed, byte delay, JSONArray possibleDoctrines) throws JSONException {
         factionId = faction;
         elapsedMonths = elapsed;
@@ -36,12 +37,12 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Faction doctrine changer active for: " + factionId);
+        Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
     }
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " doctrine changer delay to " + delayInMonths);
+        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
     }
 
     // Unused

@@ -1,17 +1,26 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 4,
+    "fluxCapacitors": 8,
     "fluxVents": 20,
     "hullId": "manticore_pirates",
     "hullMods": [
-        "converted_hangar",
-        "targetingunit"
-    ],
-    "permaMods": [
-        "damaged_mounts",
+        "missleracks",
+        "reinforcedhull",
         "degraded_life_support",
         "degraded_shields",
         "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
+        "armoredweapons",
+        "targetingunit"
+    ],
+    "permaMods": [
+        "missleracks",
+        "reinforcedhull",
+        "degraded_life_support",
+        "degraded_shields",
+        "erratic_injector",
+        "faulty_auto",
         "increased_maintenance",
     ],
     "sMods": [
@@ -23,16 +32,24 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 000": "gauss"}
+            "weapons": {"WS 000": "hellbore"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "harpoonpod",
-                "WS 005": "harpoonpod"
+                "WS 004": "gazerpod",
+                "WS 005": "gazerpod"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightac",
+                "WS 002": "lightac",
+                "WS 003": "lightac"
             }
         }
-    ],
-    "wings": ["talon_wing"]
+    ]
 }

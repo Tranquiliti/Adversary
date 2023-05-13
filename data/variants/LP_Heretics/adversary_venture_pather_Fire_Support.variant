@@ -1,0 +1,46 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 11,
+    "hullId": "venture_pather",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "targetingunit",
+        "missile_autoloader"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "variantId": "adversary_venture_pather_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "hveldriver",
+                "WS 004": "gorgon",
+                "WS 005": "dragon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "hveldriver",
+                "WS 006": "dragon",
+                "WS 007": "gorgon"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "gravitonbeam"}
+        }
+    ]
+}

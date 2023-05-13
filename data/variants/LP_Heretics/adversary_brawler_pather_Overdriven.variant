@@ -1,32 +1,36 @@
 {
     "displayName": "Overdriven",
     "fluxCapacitors": 10,
-    "fluxVents": 9,
+    "fluxVents": 10,
     "hullId": "brawler_pather",
-    "hullMods": ["hardened_subsystems"],
-    "permaMods": [],
+    "hullMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
     "sMods": [
-        "nav_relay",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "hardened_subsystems"
     ],
     "variantId": "adversary_brawler_pather_Overdriven",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "chaingun"}
+            "weapons": {
+                "WS 001": "chaingun",
+                "WS 002": "chaingun"
+            }
         },
         {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "heavymg"}
-        },
-        {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "lightmg",
-                "WS 004": "lightmg"
+                "WS 003": "gazer",
+                "WS 004": "gazer"
             }
         }
     ]

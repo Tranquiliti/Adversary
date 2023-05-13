@@ -1,67 +1,66 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 16,
-    "fluxVents": 30,
-    "hullId": "eradicator_pirates",
+    "displayName": "Overdriven",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "vanguard",
     "hullMods": [
         "missleracks",
         "reinforcedhull",
+        "damaged_mounts",
         "degraded_life_support",
-        "degraded_shields",
         "erratic_injector",
+        "glitched_sensors",
         "increased_maintenance",
-        "fragile_subsystems",
         "armoredweapons",
-        "converted_hangar",
-        "targetingunit"
+        "autorepair",
+        "hardened_subsystems",
+        "heavyarmor",
+        "safetyoverrides"
     ],
     "permaMods": [
         "missleracks",
         "reinforcedhull",
+        "damaged_mounts",
         "degraded_life_support",
-        "degraded_shields",
         "erratic_injector",
-        "increased_maintenance",
-        "fragile_subsystems"
+        "glitched_sensors",
+        "increased_maintenance"
     ],
     "sMods": [
         "missleracks",
         "reinforcedhull"
     ],
-    "variantId": "adversary_eradicator_pirates_Assault",
+    "variantId": "adversary_vanguard_Overdriven",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "heavymortar"}
+            "weapons": {
+                "WS 005": "lightdualac",
+                "WS 006": "lightdualac"
+            }
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "swarmer",
-                "WS 001": "swarmer",
-                "WS 002": "swarmer",
-                "WS 003": "swarmer",
-                "WS 004": "swarmer"
+                "WS 000": "atropos",
+                "WS 001": "atropos",
+                "WS 002": "atropos"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 005": "arbalest",
-                "WS 007": "arbalest"
-            }
+            "weapons": {"WS 007": "lightag"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "railgun",
-                "WS 010": "railgun"
+                "WS 003": "mininglaser",
+                "WS 004": "mininglaser"
             }
         }
-    ],
-    "wings": ["xyphos_wing"]
+    ]
 }

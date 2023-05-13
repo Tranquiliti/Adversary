@@ -1,12 +1,19 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 13,
-    "fluxVents": 5,
+    "fluxCapacitors": 17,
+    "fluxVents": 10,
     "hullId": "drover",
-    "hullMods": ["expanded_deck_crew"],
-    "permaMods": [],
+    "hullMods": [
+        "expanded_deck_crew",
+        "missleracks",
+        "adaptiveshields"
+    ],
+    "permaMods": [
+        "expanded_deck_crew",
+        "missleracks"
+    ],
     "sMods": [
-        "nav_relay",
+        "expanded_deck_crew",
         "missleracks"
     ],
     "variantId": "adversary_drover_Attack",
@@ -23,10 +30,10 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "harpoon",
-                "WS 003": "harpoon",
-                "WS 004": "harpoon",
-                "WS 005": "harpoon"
+                "WS 002": "gorgon",
+                "WS 003": "gorgon",
+                "WS 004": "gorgon",
+                "WS 005": "gorgon"
             }
         }
     ],

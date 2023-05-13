@@ -1,7 +1,7 @@
 #--Note for LunaLib users--#
 # LunaLib settings will override the following settings in this settings.json:
-# "enableCustomStarSystems", "enableAdversaryDoctrineChange", "enableAdversaryBlueprintStealing",
-# "adversaryDoctrineChangeDelay", and "adversaryBlueprintStealingDelay"
+# "enableCustomStarSystems", "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
+# "adversaryDynamicDoctrineDelay", and "adversaryBlueprintStealingDelay"
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {
@@ -10,21 +10,19 @@
 	"enableCustomStarSystems":true,
 
 	# Allows the Adversary faction to change fleet doctrines after a specified number of months have passed
-	# Settings for this can be found in "adversaryDoctrineChangeSettings"
 	# Can be added to and/or removed from an existing game.
-	"enableAdversaryDoctrineChange":true,
+	"enableAdversaryDynamicDoctrine":true,
 
 	# Allows the Adversary to "borrow" blueprints from specific factions every so often.
-	# Settings for this can be found in "adversaryBlueprintStealingSettings"
 	# Can be added to and/or removed from an existing game.
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
-	#-- Settings for the Adversary's doctrine changer --#
-	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDoctrineChange" to false.
+	#-- Settings for the Adversary's dynamic doctrine --#
+	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDynamicDoctrine" to false.
 
  	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month
-	"adversaryDoctrineChangeDelay":6,
+	"adversaryDynamicDoctrineDelay":6,
 	
 	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
 	# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
@@ -55,22 +53,23 @@
 		{ # High Tech Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"priorityShips":["paragon","fury","aurora","apogee","shrike","medusa","scarab","omen"],
-			"priorityWeapons":["tachyonlance","plasma","heavyblaster","ionpulser","irpulse","amblaster","sabot","sabotpod","lightneedler","heavyneedler"],
+			"priorityShips":["paragon","odyssey","fury","aurora","apogee","shrike","medusa","scarab","omen","hyperion"],
+			"priorityWeapons":["tachyonlance","guardian","plasma","ionpulser","heavyblaster","amblaster","irpulse","squall","phasecl","sabotpod","sabot","heavyneedler","lightneedler"],
 			"priorityFighters":[],
 		},
 		{ # Midline Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"priorityShips":["conquest","pegasus","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
-			"priorityWeapons":["mjolnir","squall","hurricane","hveldriver","heavymauler","vulcan"],
+			"aggression":2,
+			"priorityShips":["pegasus","conquest","gryphon","champion","eagle","falcon","sunder","hammerhead","centurion","monitor","vigilance","brawler"],
+			"priorityWeapons":["tachyonlance","plasma","irautolance","gravitonbeam","lrpdlaser","taclaser","hurricane","locust","gazerpod","gazer","mjolnir","hveldriver","heavymauler","vulcan"],
 			"priorityFighters":[],
 		},
-		{ # Midline Warships
+		{ # Low Tech Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"priorityShips":["onslaught","invictus","retribution","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
-			"priorityWeapons":["mark9","hellbore","devastator","sabotpod","annihilatorpod","harpoon","vulcan"],
+			"priorityShips":["retribution","invictus","onslaught","eradicator","dominator","manticore","enforcer","lasher","vanguard"],
+			"priorityWeapons":["hydra","pilum_large","phasecl","annihilatorpod","gorgonpod","harpoon","mark9","hellbore","devastator","hveldriver","heavymauler","railgun","lightag","vulcan"],
 			"priorityFighters":[],
 		},
 		{ # Warships
@@ -81,15 +80,19 @@
 			"weight":4,
 			"fleetComposition":[1,5,1],
 			"priorityShips":["astral","heron","drover","tempest"],
-			"priorityWeapons":["squall","harpoonpod","harpoon","lrpdlaser","vulcan","ionbeam","heavymauler","hveldriver"],
+			"fleetDoctrine":[3,1,3],
+			"aggression":2,
+			"priorityWeapons":["ionbeam","gravitonbeam","lrpdlaser","locust","hydra","harpoonpod","harpoon","swarmer","hveldriver","heavymauler","railgun","lightag","vulcan"],
 			"priorityFighters":["xyphos_wing","gladius_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
 		},
 		{ # Low Tech Carriers
 			"weight":4,
 			"fleetComposition":[1,5,1],
+			"fleetDoctrine":[3,1,3],
+			"aggression":3,
 			"priorityShips":["legion","mora","condor","shepherd"],
-			"priorityWeapons":["hurricane","harpoonpod","pilum","harpoon","swarmer","gauss","hellbore","vulcan"],
-			"priorityFighters":["broadsword_wing","warthog_wing","sarissa_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
+			"priorityWeapons":["squall","harpoonpod","harpoon","swarmer","gauss","hellbore","hveldriver","heavymauler","railgun","lightag","vulcan"],
+			"priorityFighters":["broadsword_wing","sarissa_wing","warthog_wing","talon_wing","hoplon_wing","piranha_wing","perdition_wing","mining_drone_wing"],
 		},
 		{ # Carriers
 			"weight":4,
@@ -98,8 +101,9 @@
 		{ # Elite Phase Ships
 			"weight":6,
 			"fleetComposition":[1,1,5],
+			"fleetDoctrine":[5,1,1],
 			"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
-			"priorityWeapons":["lightneedler","ionpulser","heavyblaster","phasebeam","ionbeam","pdburst","sabot","sabotpod"],
+			"priorityWeapons":["autopulse","ionpulser","heavyburst","heavyblaster","phasebeam","amblaster","pdburst","phasecl","sabotpod","sabot","lightneedler","lightag"],
 			"priorityFighters":[],
 		},
 		{ # Phase Ships

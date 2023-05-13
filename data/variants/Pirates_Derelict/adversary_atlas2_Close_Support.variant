@@ -4,16 +4,25 @@
     "fluxVents": 50,
     "hullId": "atlas2",
     "hullMods": [
-        "targetingunit",
-        "eccm",
-        "turretgyros"
-    ],
-    "permaMods": [
+        "missleracks",
+        "reinforcedhull",
         "degraded_life_support",
         "erratic_injector",
         "faulty_auto",
         "increased_maintenance",
         "fragile_subsystems",
+        "targetingunit",
+        "fluxdistributor",
+        "turretgyros"
+    ],
+    "permaMods": [
+        "missleracks",
+        "reinforcedhull",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
+        "fragile_subsystems"
     ],
     "sMods": [
         "missleracks",
@@ -22,12 +31,12 @@
     "variantId": "adversary_atlas2_Close_Support",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {"WS 008": "gauss"}
         },
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {"WS 009": "gauss"}
         },

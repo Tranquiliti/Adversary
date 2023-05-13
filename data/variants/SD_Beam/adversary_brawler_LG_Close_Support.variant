@@ -1,35 +1,39 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 1,
     "fluxVents": 10,
-    "hullId": "brawler_tritachyon",
+    "hullId": "brawler_LG",
     "hullMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter",
-        "advancedoptics",
-        "fluxdistributor",
         "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure",
+        "advancedoptics",
         "adaptiveshields"
     ],
     "permaMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "comp_structure"
     ],
     "sMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "targetingunit"
     ],
-    "variantId": "adversary_brawler_tritachyon_Close_Support",
+    "variantId": "adversary_brawler_LG_Close_Support",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 002": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "ionbeam"}
+            "weapons": {
+                "WS 001": "gravitonbeam",
+                "WS 002": "gravitonbeam"
+            }
         },
         {
             "autofire": true,

@@ -1,15 +1,25 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 2,
-    "fluxVents": 1,
+    "fluxCapacitors": 6,
+    "fluxVents": 5,
     "hullId": "condor",
-    "hullMods": ["expanded_deck_crew"],
-    "permaMods": [
+    "hullMods": [
+        "missleracks",
+        "reinforcedhull",
         "damaged_mounts",
-        "degraded_shields",
+        "degraded_life_support",
         "erratic_injector",
-        "faulty_grid",
-        "glitched_sensors"
+        "glitched_sensors",
+        "increased_maintenance"
+    ],
+    "permaMods": [
+        "missleracks",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "glitched_sensors",
+        "increased_maintenance"
     ],
     "sMods": [
         "missleracks",

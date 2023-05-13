@@ -1,5 +1,6 @@
 package data.scripts;
 
+import com.fs.starfarer.api.GameState;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import lunalib.lunaSettings.LunaSettings;
@@ -9,19 +10,16 @@ import org.json.JSONException;
 import java.util.List;
 
 public class AdversaryLunaSettingsListener implements LunaSettingsListener {
-    public AdversaryLunaSettingsListener() {
-        Global.getSector().getListenerManager().addListener(this, true);
-    }
-
     @Override
     public void settingsChanged(String modId) {
-        if (Global.getSector().getFaction("adversary") == null) return;
-
-        Integer doctrineDelay = LunaSettings.getInt("adversary", "adversaryDoctrineChangeDelay");
-        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
+        if (Global.getCurrentState() != GameState.CAMPAIGN || Global.getSector().getFaction("adversary") == null)
+            return; // Do nothing if not in campaign or the Adversary faction does not exist
 
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, "enableAdversaryDoctrineChange"))) {
+
+        Integer doctrineDelay = LunaSettings.getInt("adversary", "adversaryDynamicDoctrineDelay");
+        assert doctrineDelay != null;
+        if (Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryDynamicDoctrine"))) {
             List<AdversaryDoctrineChanger> changers = listMan.getListeners(AdversaryDoctrineChanger.class);
             if (changers.isEmpty()) try {
                 listMan.addListener(new AdversaryDoctrineChanger("adversary", (byte) 0, doctrineDelay.byteValue(), Global.getSettings().getJSONArray("adversaryPossibleDoctrines")));
@@ -29,11 +27,11 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
                 throw new RuntimeException(e);
             }
             else changers.get(0).setDelay(doctrineDelay.byteValue());
-        } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable doctrine changer
+        } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable dynamic doctrine
 
         Integer stealDelay = LunaSettings.getInt("adversary", "adversaryBlueprintStealingDelay");
-        if (stealDelay == null) stealDelay = Global.getSettings().getInt("adversaryDoctrineChangeDelay");
-        if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, "enableAdversaryBlueprintStealing"))) {
+        assert stealDelay != null;
+        if (Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryBlueprintStealing"))) {
             List<AdversaryBlueprintStealer> steals = listMan.getListeners(AdversaryBlueprintStealer.class);
             if (steals.isEmpty()) try {
                 listMan.addListener(new AdversaryBlueprintStealer("adversary", (byte) 0, stealDelay.byteValue(), Global.getSettings().getJSONArray("adversaryStealsFromFactions")));

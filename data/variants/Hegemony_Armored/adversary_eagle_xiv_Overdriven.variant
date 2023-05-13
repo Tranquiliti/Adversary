@@ -1,17 +1,24 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 20,
-    "fluxVents": 19,
+    "fluxCapacitors": 0,
+    "fluxVents": 30,
     "hullId": "eagle_xiv",
     "hullMods": [
-        "safetyoverrides",
-        "solar_shielding"
-    ],
-    "permaMods": [],
-    "sMods": [
-        "heavyarmor",
-        "reinforcedhull",
         "hardenedshieldemitter",
+        "reinforcedhull",
+        "stabilizedshieldemitter",
+        "hardened_subsystems",
+        "safetyoverrides"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "reinforcedhull",
+        "stabilizedshieldemitter"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "reinforcedhull",
+        "stabilizedshieldemitter"
     ],
     "variantId": "adversary_eagle_xiv_Overdriven",
     "weaponGroups": [
@@ -19,6 +26,14 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 009": "ionpulser"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "atropos_single",
+                "WS 002": "atropos_single"
+            }
         },
         {
             "autofire": true,
@@ -40,7 +55,11 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 011": "mininglaser"}
+            "weapons": {
+                "WS 003": "mininglaser",
+                "WS 004": "mininglaser",
+                "WS 011": "mininglaser"
+            }
         }
     ]
 }

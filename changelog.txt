@@ -1,3 +1,15 @@
+Version 4.1.0
+
+* Revamped MagicLib bounties with 0.96 additions:
+  - Changed all bounties with different ships and variants, some of which use the new 0.96 ships and weapons.
+  - Phase bounty is now an Independent bounty; removed the Smuggler bounty as a result.
+  - Added a Sindrian Diktat bounty, using the new Lion's Guard ships.
+  - Increased credit rewards for most bounties
+* Readjusted most of the Adversary's possible doctrines, including changing priority weapons and fighters.
+* Some code refactors, mostly to account for LunaLib changes
+
+
+
 Version 4.0.0
 
 * Updated to Starsector 0.96a-RC6

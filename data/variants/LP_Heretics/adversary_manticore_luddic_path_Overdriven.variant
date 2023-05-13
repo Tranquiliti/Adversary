@@ -1,0 +1,44 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 20,
+    "fluxVents": 7,
+    "hullId": "manticore_luddic_path",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "armoredweapons"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "variantId": "adversary_manticore_luddic_path_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "heavymortar",
+                "WS 005": "heavymortar"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "dragonpod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightdualac",
+                "WS 002": "lightdualac",
+                "WS 003": "lightdualac"
+            }
+        }
+    ]
+}

@@ -1,19 +1,21 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 0,
-    "fluxVents": 1,
+    "fluxCapacitors": 2,
+    "fluxVents": 10,
     "hullId": "hyperion",
     "hullMods": [
-        "safetyoverrides",
-        "hardened_subsystems",
         "hardenedshieldemitter",
         "stabilizedshieldemitter",
-        "solar_shielding"
+        "hardened_subsystems",
+        "safetyoverrides"
     ],
-    "permaMods": [],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "stabilizedshieldemitter"
+    ],
     "sMods": [
-        "nav_relay",
-        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "stabilizedshieldemitter"
     ],
     "variantId": "adversary_hyperion_Overdriven",
     "weaponGroups": [

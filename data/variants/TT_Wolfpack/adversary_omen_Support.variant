@@ -1,0 +1,38 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 5,
+    "hullId": "omen",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "pointdefenseai",
+        "missile_autoloader"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "variantId": "adversary_omen_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "irpulse"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "gazer"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "lrpdlaser"}
+        }
+    ]
+}
