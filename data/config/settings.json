@@ -1,7 +1,7 @@
 #--Note for LunaLib users--#
 # LunaLib settings will override the following settings in this settings.json:
 # "enableCustomStarSystems", "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
-# "adversaryDoctrineChangeDelay", and "adversaryBlueprintStealingDelay"
+# "adversaryDynamicDoctrineDelay", and "adversaryBlueprintStealingDelay"
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {
@@ -22,7 +22,7 @@
 	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDynamicDoctrine" to false.
 
  	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month
-	"adversaryDoctrineChangeDelay":6,
+	"adversaryDynamicDoctrineDelay":6,
 	
 	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
 	# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
