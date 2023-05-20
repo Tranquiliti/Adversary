@@ -23,9 +23,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     @Override
     public void onApplicationLoad() {
         if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            LunaSettings.INSTANCE.addListener(new AdversaryLunaSettingsListener());
-        // Even without LunaLib enabled, above line crashes with NoClassDefFoundError using dev JDK...
-        // but it works perfectly fine on Starsector's JRE. (Surely nothing will go wrong!)
+            LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }
 
     // Re-applying or removing listeners on an existing game.
@@ -48,8 +46,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
             AdversaryUtil util = new AdversaryUtil();
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
-                if (systemOptions.optBoolean("isEnabled", true))
-                    for (int numOfSystems = systemOptions.optInt("numberOfSystems", 1); numOfSystems > 0; numOfSystems--)
+                if (systemOptions.optBoolean(util.OPT_IS_ENABLED, true))
+                    for (int numOfSystems = systemOptions.optInt(util.OPT_NUMBER_OF_SYSTEMS, 1); numOfSystems > 0; numOfSystems--)
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
             marketsToOverrideAdmin = util.marketsToOverrideAdmin;

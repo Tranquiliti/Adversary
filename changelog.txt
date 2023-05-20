@@ -1,3 +1,10 @@
+Version 4.2.0
+
+* Changed a Pegasus variant in a MagicLib bounty
+* Externalized most strings involving customStarSystems.json, which should help with any translation efforts
+  - No gameplay changes, hopefully
+
+
 Version 4.1.0
 
 * Revamped MagicLib bounties with 0.96 additions:
@@ -17,108 +24,3 @@ Version 4.0.0
   - Further updates/fixes will come later...
 * Upgraded the Adversary faction with the latest tech (however, no fancy SD tech)
   - They also remembered to actually get Dominator blueprints too.
-
-
-
-Version 3.4.0
-
-* "customStarSystems" now moved to a new customStarSystems.json in this mod's config folder
-  - This .json file is (re)loaded during new game creation, allow you to adjust custom star systems without having to restart Starsector!
-  - Can be merged with customStarSystems.json from other mods, allowing a personal mod (or other mods, if they so wish) to implement their own custom star systems without needing to re-configure it after each Adversary update.
-* Renamed referenceSettings.json to referenceStarSystem.json, updated with the latest changes.
-* Expanded "specChanges":
-  - Added many more sub-options (more than I can list here), allowing more control over planet/star appearance
-  - Texture-related sub-options now accept a String instead for the image file (however, said image file must still be preloaded via Starsector's settings.json for textures to load properly).
-  - See updated referenceStarSystem.json for using these options
-* Expanded "entitiesAtStablePoints" option:
-  - Planets can be added to "entitiesAtStablePoints"; these follow a similar format to planets in "orbitingBodies", except without orbit options
-  - "entitiesAtStablePoints" can now accept a List of entities to generate in a given stable point
-  - See updated referenceStarSystem.json and presetStarSystems.json for examples of these
-* Added a system with all 'perfect' vanilla planets to presetStarSystems.json
-  - This should hopefully make it a little easier to set up your own perfect star system.
-* Optimal's Terran planet is now a Jungle planet, with the Hot condition added as well.
-  - Proc-gen Terran planets are normally unable to get the Solar Array condition, so this change merely reflects this.
-  - This does allow for Extreme Heat (using a Lamp) and further increases the impact of sabotaging the Solar Array.
-
-
-
-Version 3.3.0
-
-* Added "customDescriptionId" option for planets, stars, and some custom entities.
-  - Updated Penelope's Star mirror in presetStarSystems.json to use this option
-  - Updated referenceSettings.json
-* "industries" entry in settings.json is now a List once again:
-  - It now mimics how campaign markets are set up in starsector-core/data/campaign/econ
-  - Each "industries" entry can either be a String (for industries without specified specials) or a sub-List (if adding specials as well)
-  - See updated referenceSettings.json for detailed examples
-* "entitiesAtStablePoints" can now also accept an empty entry (in place of "{}") to signify no entity in a given stable point.
-* Expanded "magnetic_field" options:
-  - Now has "middleRadius", "outerRadius", "baseColor", "auroraFrequency", and "auroraColors" options
-  - See updated referenceSettings.json to see how to use them
-  - Old "magnetic_field" settings should still work fine (I hope)
-* "flareChance" now requires a floating-point number instead of an integer (0.0 to 1.0 instead of 0 to 100)
-* Updated Optimal system and default uninhabited system:
-  - Changed orbit radius values; generally made planets and entities more evenly spaced
-  - Increased corona size of Optimal and uninhabited stars; "flareChance" set to 0.0 for those stars
-  - Decreased radius of Optimal's Toxic and Barren moons
-* Updated MagicLib bounties:
-  - Added a bounty against the Luddic Church, posted by the Adversary
-  - Changed/reworked all ship variants in the Pirate and Hegemony bounties
-  - Increased the reward for the Independent bounty
-  - Note: these changes are in preparation of Starsector 0.96; more changes/adjustments will come after the 0.96 release.
-* More code refactors
-
-
-
-Version 3.2.1
-
-* Fixed "isCoreWorldSystem" toggle doing the complete opposite (e.g. tagging the Optimal system as a proc-gen system and not a Core World system).
-
-
-
-Version 3.2.0
-
-* Updated LunaLib compatibility yet again (now with an actual changelog!)
-  - Note that setting IDs have been changed, so you may need to set your LunaLib settings for this mod again.
-* Added "hasSystemwideNebula" toggle for custom star systems, allowing for nebula clouds to appear in your custom star systems.
-  - The default uninhabited system now has this set to "true".
-* Custom star systems created with "setLocation" now set their star age to that of their selected constellation.
-  - This affects the nebula color if the system's "hasSystemwideNebula" is set to "true".
-* Stars in the "stars" list of "starsInSystemCenter" can now have "specChanges" as well.
-* Fixed optional blueprint stealer setting not correctly resetting the elapsed months after each steal attempt.
-* Exotica Technologies:
-  - Updated the Adversary faction with the latest exotics and upgrades
-  - Decreased chance for faction-exclusive exotics and upgrades to appear in Adversary ships
-* Major code refactors
-
-
-
-Version 3.1.0
-
-* Updated LunaLib compatibility:
-  - LunaLib settings for the Adversary mod now immediately apply to an existing save, without needing to reload a save.
-  - Added "Adversary Doctrine Change Delay" and "Adversary Blueprint Change Delay" as LunaLib settings
-* Reformated and renamed some settings in settings.json to account for the above change.
-* Adjusted default uninhabited custom system:
-  - Gas Giant now has "Hot" instead of "Extreme Heat" to encourage using the Orbital Fusion Lamp to maximize Cryoarithmetic Engine efficacy.
-  - Added sparse ore deposits to Barren planet to make Mining an option.
-* Added "specChanges" option for any planets or stars in "orbitingBodies".
-  - This allows changing the appearance of a planet or star.
-  - Updated Penelope's Star copy in presetStarSystems.json with the appropriate "specChanges"
-
-
-
-Version 3.0.0
-
-* Added "enableAdversaryBlueprintStealing" and its corresponding "adversaryBlueprintStealingSettings".
-  - Set to false by default, it allows the Adversary to learn the blueprints of specific factions after some time.
-  - Default settings has the Adversary steal blueprints from the player faction every new cycle.
-* Expanded "adversaryDoctrineChangeSettings":
-  - Now supports modifying the exact fleet composition and doctrine (e.g. can set doctrine to 3-3-1 fleet composition and 5-1-1 fleet doctrine for warships and carriers with high-level officers)
-  - Replaced "warships", "carriers", etc. with "possibleDoctrines", which holds the possible doctrines the Adversary may use.
-* Added some LunaLib support
-  - The LunaLib toggle settings are: Enable Custom Star Systems, Enable Adversary Doctrine Change, Enable Adversary Blueprint Stealing
-  - If LunaLib is enabled, these toggles will override their settings.json equivalent.
-* Added Better Colonies mod support for the Adversary faction; they will now participate in the Age of Innovation.
-* Added a mirror version of Penelope's Star to presetStarSystems.json
-* Tweaked the Adversary's default carrier doctrines to use a wider variety of fighters.

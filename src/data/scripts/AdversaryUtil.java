@@ -34,27 +34,84 @@ import java.util.*;
  * A utility class for the Adversary mod
  */
 public class AdversaryUtil {
+    // TODO: Continue externalizing each and every string (because of course I can!)
     // Default values
     public final int DEFAULT_FOCUS = 0;
     public final int DEFAULT_SET_TO_PROC_GEN = -1; // For user's sake, exampleSettings.json uses 0 to specify proc-gen
     public final int DEFAULT_MARKET_SIZE = 0;
     public final int DEFAULT_FRINGE_ORBIT_RADIUS = 5000;
-    public final String DEFAULT_STAR_TYPE = "star_red_dwarf";
-    public final String DEFAULT_PLANET_TYPE = "barren";
 
-    // Common, shared options
-    public final String OPT_NAME = "name";
-    public final String OPT_TYPE = "type";
-    public final String OPT_FOCUS = "focus";
-    public final String OPT_RADIUS = "radius";
-    public final String OPT_ORBIT_RADIUS = "orbitRadius";
-    public final String OPT_ORBIT_ANGLE = "orbitAngle";
-    public final String OPT_ORBIT_DAYS = "orbitDays";
-    public final String OPT_FACTION_ID = "factionId";
-    public final String OPT_CONDITIONS = "conditions";
-    public final String OPT_MARKET_SIZE = "marketSize";
-    public final String OPT_SIZE = "size";
-    public final String GRAPHICS_PLANET_PATH = "graphics/planets/";
+    // Main system options in customStarSystems.json
+    public final String OPT_IS_ENABLED = Global.getSettings().getString("adversary", "isEnabled");
+    public final String OPT_NUMBER_OF_SYSTEMS = Global.getSettings().getString("adversary", "numberOfSystems");
+    public final String OPT_IS_CORE_WORLD_SYSTEM = Global.getSettings().getString("adversary", "isCoreWorldSystem");
+    public final String OPT_HAS_SYSTEMWIDE_NEBULA = Global.getSettings().getString("adversary", "hasSystemwideNebula");
+    public final String OPT_ADD_CORONAL_HYPERSHUNT = Global.getSettings().getString("adversary", "addCoronalHypershunt");
+    public final String OPT_ADD_DOMAIN_CRYOSLEEPER = Global.getSettings().getString("adversary", "addDomainCryosleeper");
+    public final String OPT_SET_LOCATION = Global.getSettings().getString("adversary", "setLocation");
+    public final String OPT_SET_LOCATION_OVERRIDE = Global.getSettings().getString("adversary", "setLocationOverride");
+    public final String OPT_SYSTEM_BACKGROUND = Global.getSettings().getString("adversary", "systemBackground");
+    public final String OPT_SYSTEM_MUSIC = Global.getSettings().getString("adversary", "systemMusic");
+    public final String OPT_FRINGE_JUMP_POINT = Global.getSettings().getString("adversary", "fringeJumpPoint");
+    public final String OPT_STARS_IN_SYSTEM_CENTER = Global.getSettings().getString("adversary", "starsInSystemCenter");
+    public final String OPT_ORBITING_BODIES = Global.getSettings().getString("adversary", "orbitingBodies");
+    public final String OPT_SYSTEM_FEATURES = Global.getSettings().getString("adversary", "systemFeatures");
+
+    // Sub-options
+    public final String OPT_ORBIT_RADIUS = Global.getSettings().getString("adversary", "orbitRadius");
+    public final String OPT_NAME = Global.getSettings().getString("adversary", "name");
+    public final String OPT_ORBIT_ANGLE = Global.getSettings().getString("adversary", "orbitAngle");
+    public final String OPT_ORBIT_DAYS = Global.getSettings().getString("adversary", "orbitDays");
+    public final String OPT_STARS = Global.getSettings().getString("adversary", "stars");
+    public final String OPT_TYPE = Global.getSettings().getString("adversary", "type");
+    public final String OPT_RADIUS = Global.getSettings().getString("adversary", "radius");
+    public final String OPT_CORONA_RADIUS = Global.getSettings().getString("adversary", "coronaRadius");
+    public final String OPT_FLARE_CHANCE = Global.getSettings().getString("adversary", "flareChance");
+    public final String OPT_SPEC_CHANGES = Global.getSettings().getString("adversary", "specChanges");
+    public final String OPT_CUSTOM_DESCRIPTION_ID = Global.getSettings().getString("adversary", "customDescriptionId");
+    public final String OPT_FOCUS = Global.getSettings().getString("adversary", "focus");
+    public final String OPT_CONDITIONS = Global.getSettings().getString("adversary", "conditions");
+    public final String OPT_ENTITIES_AT_STABLE_POINTS = Global.getSettings().getString("adversary", "entitiesAtStablePoints");
+    public final String OPT_SIZE = Global.getSettings().getString("adversary", "size");
+    public final String OPT_MARKET_SIZE = Global.getSettings().getString("adversary", "marketSize");
+    public final String OPT_FACTION_ID = Global.getSettings().getString("adversary", "factionId");
+    public final String OPT_FREE_PORT = Global.getSettings().getString("adversary", "freePort");
+    public final String OPT_AI_CORE_ADMIN = Global.getSettings().getString("adversary", "aiCoreAdmin");
+    public final String OPT_INDUSTRIES = Global.getSettings().getString("adversary", "industries");
+
+    // Sub-options for "specChanges"
+    public final String OPT_ATMOSPHERE_COLOR = Global.getSettings().getString("adversary", "atmosphereColor");
+    public final String OPT_ATMOSPHERE_THICKNESS = Global.getSettings().getString("adversary", "atmosphereThickness");
+    public final String OPT_ATMOSPHERE_THICKNESS_MIN = Global.getSettings().getString("adversary", "atmosphereThicknessMin");
+    public final String OPT_CLOUD_COLOR = Global.getSettings().getString("adversary", "cloudColor");
+    public final String OPT_CLOUD_ROTATION = Global.getSettings().getString("adversary", "cloudRotation");
+    public final String OPT_CLOUD_TEXTURE = Global.getSettings().getString("adversary", "cloudTexture");
+    public final String OPT_GLOW_COLOR = Global.getSettings().getString("adversary", "glowColor");
+    public final String OPT_GLOW_TEXTURE = Global.getSettings().getString("adversary", "glowTexture");
+    public final String OPT_ICON_COLOR = Global.getSettings().getString("adversary", "iconColor");
+    public final String OPT_PITCH = Global.getSettings().getString("adversary", "pitch");
+    public final String OPT_PLANET_COLOR = Global.getSettings().getString("adversary", "planetColor");
+    public final String OPT_ROTATION = Global.getSettings().getString("adversary", "rotation");
+    public final String OPT_TEXTURE = Global.getSettings().getString("adversary", "texture");
+    public final String OPT_TILT = Global.getSettings().getString("adversary", "tilt");
+    public final String OPT_USE_REVERSE_LIGHT_FOR_GLOW = Global.getSettings().getString("adversary", "useReverseLightForGlow");
+    public final String OPT_TYPE_OVERRIDE = Global.getSettings().getString("adversary", "typeOverride");
+
+    // Default types/paths
+    public final String DEFAULT_STAR_TYPE = Global.getSettings().getString("adversary", "default_star_type");
+    public final String DEFAULT_PLANET_TYPE = Global.getSettings().getString("adversary", "default_planet_type");
+    public final String DEFAULT_FACTION_TYPE = Global.getSettings().getString("adversary", "default_faction_type");
+    public final String PATH_GRAPHICS_PLANET = Global.getSettings().getString("adversary", "path_graphics_planet");
+    public final String PATH_GRAPHICS_BACKGROUND = Global.getSettings().getString("adversary", "path_graphics_background");
+    public final String TAG_STAR = Global.getSettings().getString("adversary", "tag_star");
+    public final String TAG_PLANET = Global.getSettings().getString("adversary", "tag_planet");
+    public final String TYPE_BLACK_HOLE = Global.getSettings().getString("adversary", "type_black_hole");
+    public final String TYPE_NEUTRON_STAR = Global.getSettings().getString("adversary", "type_neutron_star");
+    public final String TYPE_EVENT_HORIZON = Global.getSettings().getString("adversary", "type_event_horizon");
+    public final String TYPE_PULSAR_BEAM = Global.getSettings().getString("adversary", "type_pulsar_beam");
+
+    // Error messages
+    public final String ERROR_NO_CENTER_STAR = Global.getSettings().getString("adversary", "error_noCenterStar");
 
     // Is updated in the addMarket private helper method
     public transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
@@ -83,10 +140,9 @@ public class AdversaryUtil {
      * @throws JSONException if systemOptions is invalid
      */
     public StarSystemAPI generateStarSystem(JSONObject systemOptions) throws JSONException {
-        JSONArray starsList = systemOptions.getJSONObject("starsInSystemCenter").getJSONArray("stars");
-        if (starsList.length() == 0)
-            throw new RuntimeException("Cannot create a system with no center stars! Custom star systems require at least one star in the \"stars\" list of \"starsInSystemCenter\"!");
-        return Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull(OPT_NAME) ? getProcGenName("star", null) : starsList.getJSONObject(0).getString(OPT_NAME));
+        JSONArray starsList = systemOptions.getJSONObject(OPT_STARS_IN_SYSTEM_CENTER).getJSONArray(OPT_STARS);
+        if (starsList.length() == 0) throw new RuntimeException(ERROR_NO_CENTER_STAR);
+        return Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull(OPT_NAME) ? getProcGenName(TAG_STAR, null) : starsList.getJSONObject(0).getString(OPT_NAME));
     }
 
     /**
@@ -98,14 +154,14 @@ public class AdversaryUtil {
      * @throws JSONException if centerOptions is invlaid
      */
     public List<PlanetAPI> generateSystemCenter(StarSystemAPI system, JSONObject centerOptions) throws JSONException {
-        JSONArray starsList = centerOptions.getJSONArray("stars");
+        JSONArray starsList = centerOptions.getJSONArray(OPT_STARS);
         int numOfCenterStars = starsList.length();
         String id = Misc.genUID();
 
         ArrayList<PlanetAPI> stars = new ArrayList<>(numOfCenterStars);
         if (numOfCenterStars == 1) {
             PlanetAPI newStar = addStar(system, starsList.getJSONObject(0), "system_" + id);
-            if (newStar.getTypeId().equals("black_hole")) addAccretionDisk(system, newStar);
+            if (newStar.getTypeId().equals(TYPE_BLACK_HOLE)) addAccretionDisk(system, newStar);
             system.setCenter(newStar);
             stars.add(newStar);
         } else {
@@ -153,7 +209,7 @@ public class AdversaryUtil {
         if (newBody.hasCondition("solar_array")) addSolarArray(newBody, newBody.getFaction().getId());
 
         // Adds any entities to this planet's lagrange points if applicable
-        JSONArray lagrangePoints = bodyOptions.optJSONArray("entitiesAtStablePoints");
+        JSONArray lagrangePoints = bodyOptions.optJSONArray(OPT_ENTITIES_AT_STABLE_POINTS);
         if (lagrangePoints != null) addToLagrangePoints(newBody, lagrangePoints);
 
         return newBody;
@@ -180,11 +236,11 @@ public class AdversaryUtil {
         if (radius <= 0)
             radius = starData.getMinRadius() + (starData.getMaxRadius() - starData.getMinRadius()) * StarSystemGenerator.random.nextFloat();
 
-        float coronaRadius = starOptions.optInt("coronaRadius", DEFAULT_SET_TO_PROC_GEN);
+        float coronaRadius = starOptions.optInt(OPT_CORONA_RADIUS, DEFAULT_SET_TO_PROC_GEN);
         if (coronaRadius <= 0)
             coronaRadius = Math.max(starData.getCoronaMin(), radius * (starData.getCoronaMult() + starData.getCoronaVar() * (StarSystemGenerator.random.nextFloat() - 0.5f)));
 
-        float flareChance = (float) starOptions.optDouble("flareChance", DEFAULT_SET_TO_PROC_GEN);
+        float flareChance = (float) starOptions.optDouble(OPT_FLARE_CHANCE, DEFAULT_SET_TO_PROC_GEN);
         if (flareChance < 0)
             flareChance = starData.getMinFlare() + (starData.getMaxFlare() - starData.getMinFlare()) * StarSystemGenerator.random.nextFloat();
 
@@ -193,7 +249,7 @@ public class AdversaryUtil {
             newStar = system.initStar(id, starType, radius, coronaRadius, starData.getSolarWind(), flareChance, starData.getCrLossMult());
         } else { // Add another star in the system; will have to set appropriate system type elsewhere depending if it will be on center or orbiting the center
             String name = starOptions.optString(OPT_NAME, null);
-            if (name == null) name = getProcGenName("star", system.getBaseName());
+            if (name == null) name = getProcGenName(TAG_STAR, system.getBaseName());
 
             // Need to set a default orbit, else new game creation will fail when attempting to save
             newStar = system.addPlanet(id, system.getCenter(), name, starType, 0f, radius, 10000f, 1000f);
@@ -201,17 +257,17 @@ public class AdversaryUtil {
         }
 
         // Add special star hazards if applicable
-        if (starType.equals("black_hole") || starType.equals("star_neutron")) {
+        if (starType.equals(TYPE_BLACK_HOLE) || starType.equals(TYPE_NEUTRON_STAR)) {
             StarCoronaTerrainPlugin coronaPlugin = Misc.getCoronaFor(newStar);
             if (coronaPlugin != null) system.removeEntity(coronaPlugin.getEntity());
 
-            String coronaType = starType.equals("black_hole") ? "event_horizon" : "pulsar_beam";
-            if (coronaType.equals("pulsar_beam")) system.addCorona(newStar, 300, 3, 0, 3);
+            String coronaType = starType.equals(TYPE_BLACK_HOLE) ? TYPE_EVENT_HORIZON : TYPE_PULSAR_BEAM;
+            if (coronaType.equals(TYPE_PULSAR_BEAM)) system.addCorona(newStar, 300, 3, 0, 3);
             system.addTerrain(coronaType, new StarCoronaTerrainPlugin.CoronaParams(newStar.getRadius() + coronaRadius, (newStar.getRadius() + coronaRadius) / 2f, newStar, starData.getSolarWind(), flareChance, starData.getCrLossMult())).setCircularOrbit(newStar, 0, 0, 100);
         }
 
         // Apply any spec changes
-        addSpecChanges(newStar, starOptions.optJSONObject("specChanges"));
+        addSpecChanges(newStar, starOptions.optJSONObject(OPT_SPEC_CHANGES));
 
         addCustomDescription(newStar, starOptions);
 
@@ -233,7 +289,7 @@ public class AdversaryUtil {
         if (planetData == null) throw new RuntimeException("Planet type " + planetType + " not found!");
 
         String name = planetOptions.optString(OPT_NAME, null);
-        if (name == null) name = getProcGenName("planet", system.getBaseName());
+        if (name == null) name = getProcGenName(TAG_PLANET, system.getBaseName());
 
         float radius = planetOptions.optInt(OPT_RADIUS, DEFAULT_SET_TO_PROC_GEN);
         if (radius <= 0)
@@ -244,7 +300,7 @@ public class AdversaryUtil {
         newPlanet.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, StarSystemGenerator.random.nextLong());
 
         // Apply any spec changes
-        addSpecChanges(newPlanet, planetOptions.optJSONObject("specChanges"));
+        addSpecChanges(newPlanet, planetOptions.optJSONObject(OPT_SPEC_CHANGES));
 
         addCustomDescription(newPlanet, planetOptions);
 
@@ -257,7 +313,7 @@ public class AdversaryUtil {
 
     // Adds a custom description to an entity, if applicable
     private void addCustomDescription(SectorEntityToken entity, JSONObject options) {
-        String id = options.optString("customDescriptionId", null);
+        String id = options.optString(OPT_CUSTOM_DESCRIPTION_ID, null);
         if (id != null) entity.setCustomDescriptionId(id);
     }
 
@@ -268,52 +324,52 @@ public class AdversaryUtil {
         if (specChanges == null) return;
         PlanetSpecAPI bodySpec = body.getSpec();
 
-        JSONArray atmosphereColor = specChanges.optJSONArray("atmosphereColor");
+        JSONArray atmosphereColor = specChanges.optJSONArray(OPT_ATMOSPHERE_COLOR);
         if (atmosphereColor != null) bodySpec.setAtmosphereColor(getColor(atmosphereColor));
 
-        float atmosphereThickness = (float) specChanges.optDouble("atmosphereThickness");
+        float atmosphereThickness = (float) specChanges.optDouble(OPT_ATMOSPHERE_THICKNESS);
         if (!Float.isNaN(atmosphereThickness)) bodySpec.setAtmosphereThickness(atmosphereThickness);
 
-        float atmosphereThicknessMin = (float) specChanges.optDouble("atmosphereThicknessMin");
+        float atmosphereThicknessMin = (float) specChanges.optDouble(OPT_ATMOSPHERE_THICKNESS_MIN);
         if (!Float.isNaN(atmosphereThicknessMin)) bodySpec.setAtmosphereThicknessMin(atmosphereThicknessMin);
 
-        JSONArray cloudColor = specChanges.optJSONArray("cloudColor");
+        JSONArray cloudColor = specChanges.optJSONArray(OPT_CLOUD_COLOR);
         if (cloudColor != null) bodySpec.setCloudColor(getColor(cloudColor));
 
-        float cloudRotation = (float) specChanges.optDouble("cloudRotation");
+        float cloudRotation = (float) specChanges.optDouble(OPT_CLOUD_ROTATION);
         if (!Float.isNaN(cloudRotation)) bodySpec.setCloudRotation(cloudRotation);
 
-        String cloudTexture = specChanges.optString("cloudTexture", null);
-        if (cloudTexture != null) bodySpec.setCloudTexture(GRAPHICS_PLANET_PATH + cloudTexture);
+        String cloudTexture = specChanges.optString(OPT_CLOUD_TEXTURE, null);
+        if (cloudTexture != null) bodySpec.setCloudTexture(PATH_GRAPHICS_PLANET + cloudTexture);
 
-        JSONArray glowColor = specChanges.optJSONArray("glowColor");
+        JSONArray glowColor = specChanges.optJSONArray(OPT_GLOW_COLOR);
         if (glowColor != null) bodySpec.setGlowColor(getColor(glowColor));
 
-        String glowTexture = specChanges.optString("glowTexture", null);
-        if (glowTexture != null) bodySpec.setGlowTexture(GRAPHICS_PLANET_PATH + glowTexture);
+        String glowTexture = specChanges.optString(OPT_GLOW_TEXTURE, null);
+        if (glowTexture != null) bodySpec.setGlowTexture(PATH_GRAPHICS_PLANET + glowTexture);
 
-        JSONArray iconColor = specChanges.optJSONArray("iconColor");
+        JSONArray iconColor = specChanges.optJSONArray(OPT_ICON_COLOR);
         if (iconColor != null) bodySpec.setIconColor(getColor(iconColor));
 
-        float pitch = (float) specChanges.optDouble("pitch");
+        float pitch = (float) specChanges.optDouble(OPT_PITCH);
         if (!Float.isNaN(pitch)) bodySpec.setPitch(pitch);
 
-        JSONArray planetColor = specChanges.optJSONArray("planetColor");
+        JSONArray planetColor = specChanges.optJSONArray(OPT_PLANET_COLOR);
         if (planetColor != null) bodySpec.setPlanetColor(getColor(planetColor));
 
-        float rotation = (float) specChanges.optDouble("rotation");
+        float rotation = (float) specChanges.optDouble(OPT_ROTATION);
         if (!Float.isNaN(rotation)) bodySpec.setRotation(rotation);
 
-        String texture = specChanges.optString("texture", null);
-        if (texture != null) bodySpec.setTexture(GRAPHICS_PLANET_PATH + texture);
+        String texture = specChanges.optString(OPT_TEXTURE, null);
+        if (texture != null) bodySpec.setTexture(PATH_GRAPHICS_PLANET + texture);
 
-        float tilt = (float) specChanges.optDouble("tilt");
+        float tilt = (float) specChanges.optDouble(OPT_TILT);
         if (!Float.isNaN(tilt)) bodySpec.setTilt(tilt);
 
-        boolean revLightGlow = specChanges.optBoolean("useReverseLightForGlow");
+        boolean revLightGlow = specChanges.optBoolean(OPT_USE_REVERSE_LIGHT_FOR_GLOW);
         if (revLightGlow != bodySpec.isUseReverseLightForGlow()) bodySpec.setUseReverseLightForGlow(revLightGlow);
 
-        JSONArray typeOverride = specChanges.optJSONArray("typeOverride");
+        JSONArray typeOverride = specChanges.optJSONArray(OPT_TYPE_OVERRIDE);
         if (typeOverride != null) {
             String newType = typeOverride.getString(0);
             ((PlanetSpec) bodySpec).planetType = newType;
@@ -790,7 +846,7 @@ public class AdversaryUtil {
     public SectorEntityToken addObjective(StarSystemAPI system, JSONObject options, String objectiveId) {
         String factionId = options.optString(OPT_FACTION_ID, null);
         SectorEntityToken objective = system.addCustomEntity(null, options.optString(OPT_NAME, null), objectiveId, factionId);
-        if (factionId == null || factionId.equals("neutral"))
+        if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE))
             objective.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
 
         addCustomDescription(objective, options);
@@ -940,7 +996,7 @@ public class AdversaryUtil {
         planetMarket.setFactionId(factionId);
         planetMarket.setPrimaryEntity(entity);
         planetMarket.getTariff().setBaseValue(0.3f); // Default tariff value
-        planetMarket.setFreePort(marketOptions.optBoolean("freePort", false));
+        planetMarket.setFreePort(marketOptions.optBoolean(OPT_FREE_PORT, false));
 
         // Add conditions
         planetMarket.addCondition("population_" + size);
@@ -953,7 +1009,7 @@ public class AdversaryUtil {
             }
 
         // Add industries and, if applicable, their specials
-        JSONArray industries = marketOptions.optJSONArray("industries");
+        JSONArray industries = marketOptions.optJSONArray(OPT_INDUSTRIES);
         if (industries != null) for (int i = 0; i < industries.length(); i++) {
             // Get the industry ID from a lone String or the first entry of a JSONArray
             JSONArray specials = industries.optJSONArray(i);
@@ -1001,7 +1057,7 @@ public class AdversaryUtil {
         }
 
         // Adds an AI core admin to the market if enabled
-        if (marketOptions.optBoolean("aiCoreAdmin", false)) marketsToOverrideAdmin.put(planetMarket, "alpha_core");
+        if (marketOptions.optBoolean(OPT_AI_CORE_ADMIN, false)) marketsToOverrideAdmin.put(planetMarket, "alpha_core");
 
         //set market in global, factions, and assign market, also submarkets
         Global.getSector().getEconomy().addMarket(planetMarket, true);
@@ -1049,7 +1105,7 @@ public class AdversaryUtil {
             SectorEntityToken mirror = system.addCustomEntity(null, "Stellar Mirror " + mirrorNames[mirrorIndex], "stellar_mirror", factionId);
             mirror.setCircularOrbitPointingDown(planet, mirrorAngle, radius, planetOrbitPeriod);
 
-            if (factionId == null || factionId.equals("neutral")) {
+            if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
                 mirror.setDiscoverable(true);
                 mirror.setDiscoveryXP(300f);
                 mirror.setSensorProfile(2000f);
@@ -1067,7 +1123,7 @@ public class AdversaryUtil {
             SectorEntityToken shade = system.addCustomEntity(null, "Stellar Shade " + shadeNames[shadeIndex], "stellar_shade", factionId);
             shade.setCircularOrbitPointingDown(planet, shadeAngle, radius + ((numOfShades == 3 && (i % 2) == 0) ? -10 : 25), planetOrbitPeriod);
 
-            if (factionId == null || factionId.equals("neutral")) {
+            if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
                 shade.setDiscoverable(true);
                 shade.setDiscoveryXP(300f);
                 shade.setSensorProfile(2000f);
