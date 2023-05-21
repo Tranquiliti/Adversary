@@ -17,12 +17,12 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
         delayInMonths = delay > 0 ? delay : (byte) 1;
         targetIds = new String[targetFactions.length()];
         for (int i = 0; i < targetFactions.length(); i++) targetIds[i] = targetFactions.getString(i);
-        Global.getLogger(AdversaryBlueprintStealer.class).info("Faction blueprint stealer active for: " + factionId);
+        //Global.getLogger(AdversaryBlueprintStealer.class).info("Faction blueprint stealer active for: " + factionId);
     }
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        Global.getLogger(AdversaryBlueprintStealer.class).info("Set " + factionId + " blueprint stealer delay to " + delayInMonths);
+        //Global.getLogger(AdversaryBlueprintStealer.class).info("Set " + factionId + " blueprint stealer delay to " + delayInMonths);
     }
 
     // Unused
@@ -50,6 +50,6 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
             }
         for (String id : target.getKnownWeapons()) if (!stealer.knowsWeapon(id)) stealer.addKnownWeapon(id, true);
         for (String id : target.getKnownFighters()) if (!stealer.knowsFighter(id)) stealer.addKnownFighter(id, true);
-        Global.getLogger(AdversaryBlueprintStealer.class).info(factionId + " has stolen blueprints from " + target.getId() + "!");
+        //Global.getLogger(AdversaryBlueprintStealer.class).info(factionId + " has stolen blueprints from " + target.getId() + "!");
     }
 }

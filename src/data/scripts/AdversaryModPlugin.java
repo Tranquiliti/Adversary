@@ -6,6 +6,8 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
 import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
@@ -63,11 +65,11 @@ public class AdversaryModPlugin extends BaseModPlugin {
             AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
             for (MarketAPI market : marketsToOverrideAdmin.keySet())
                 switch (marketsToOverrideAdmin.get(market)) {
-                    case "player":
+                    case Factions.PLAYER:
                         market.setAdmin(null);
                         break;
-                    case "alpha_core":
-                        market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
+                    case Commodities.ALPHA_CORE:
+                        market.setAdmin(aiPlugin.createPerson(Commodities.ALPHA_CORE, market.getFaction().getId(), 0));
                 }
             // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
             marketsToOverrideAdmin.clear();
@@ -80,7 +82,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
             for (FactionAPI faction : Global.getSector().getAllFactions())
                 adversary.setRelationship(faction.getId(), -100f);
             adversary.setRelationship("adversary", 100f);
-            adversary.setRelationship("neutral", 0f);
+            adversary.setRelationship(Factions.NEUTRAL, 0f);
 
             addAdversaryListeners(true);
         }

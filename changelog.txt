@@ -3,6 +3,9 @@ Version 4.2.0
 * Changed a Pegasus variant in a MagicLib bounty
 * Externalized most strings involving customStarSystems.json, which should help with any translation efforts
   - No gameplay changes, hopefully
+* Disabled loggers for the code handling the dynamic doctrine and the blueprint stealer
+  - No issues have been reported with them for a while, so probably no need to log these now.
+
 
 
 Version 4.1.0

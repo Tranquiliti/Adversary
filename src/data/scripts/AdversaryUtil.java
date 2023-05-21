@@ -9,10 +9,7 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.fleet.FleetMemberType;
 import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
-import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
-import com.fs.starfarer.api.impl.campaign.ids.Tags;
-import com.fs.starfarer.api.impl.campaign.ids.Terrain;
+import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.*;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantOfficerGeneratorPlugin;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantStationFleetManager;
@@ -72,6 +69,7 @@ public class AdversaryUtil {
     public final String OPT_FOCUS = Global.getSettings().getString("adversary", "focus");
     public final String OPT_CONDITIONS = Global.getSettings().getString("adversary", "conditions");
     public final String OPT_ENTITIES_AT_STABLE_POINTS = Global.getSettings().getString("adversary", "entitiesAtStablePoints");
+    public final String OPT_PLANET_OPTIONS = Global.getSettings().getString("adversary", "planetOptions");
     public final String OPT_SIZE = Global.getSettings().getString("adversary", "size");
     public final String OPT_MARKET_SIZE = Global.getSettings().getString("adversary", "marketSize");
     public final String OPT_FACTION_ID = Global.getSettings().getString("adversary", "factionId");
@@ -103,15 +101,17 @@ public class AdversaryUtil {
     public final String DEFAULT_FACTION_TYPE = Global.getSettings().getString("adversary", "default_faction_type");
     public final String PATH_GRAPHICS_PLANET = Global.getSettings().getString("adversary", "path_graphics_planet");
     public final String PATH_GRAPHICS_BACKGROUND = Global.getSettings().getString("adversary", "path_graphics_background");
-    public final String TAG_STAR = Global.getSettings().getString("adversary", "tag_star");
-    public final String TAG_PLANET = Global.getSettings().getString("adversary", "tag_planet");
-    public final String TYPE_BLACK_HOLE = Global.getSettings().getString("adversary", "type_black_hole");
-    public final String TYPE_NEUTRON_STAR = Global.getSettings().getString("adversary", "type_neutron_star");
-    public final String TYPE_EVENT_HORIZON = Global.getSettings().getString("adversary", "type_event_horizon");
-    public final String TYPE_PULSAR_BEAM = Global.getSettings().getString("adversary", "type_pulsar_beam");
+    public final String TYPE_RANDOM_STAR_GIANT = Global.getSettings().getString("adversary", "type_random_star_giant");
 
     // Error messages
     public final String ERROR_NO_CENTER_STAR = Global.getSettings().getString("adversary", "error_noCenterStar");
+    public final String ERROR_STAR_TYPE_NOT_FOUND = Global.getSettings().getString("adversary", "error_starTypeNotFound");
+    public final String ERROR_PLANET_TYPE_NOT_FOUND = Global.getSettings().getString("adversary", "error_planetTypeNotFound");
+    public final String ERROR_INVALID_FOCUS = Global.getSettings().getString("adversary", "error_invalidFocus");
+    public final String ERROR_INVALID_CONDITION_UNINHABITED = Global.getSettings().getString("adversary", "error_invalidConditionUninhabited");
+    public final String ERROR_INVALID_CONDITION_INHABITED = Global.getSettings().getString("adversary", "error_invalidConditionInhabited");
+    public final String ERROR_INVALID_INDUSTRY = Global.getSettings().getString("adversary", "error_invalidIndustry");
+    public final String ERROR_INVALID_SALVAGE_ENTITY = Global.getSettings().getString("adversary", "error_invalidSalvageEntity");
 
     // Is updated in the addMarket private helper method
     public transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
@@ -121,7 +121,8 @@ public class AdversaryUtil {
     private transient ArrayList<Constellation> procGenConstellations;
 
     // List of all vanilla star giants, for "random_star_giant" type
-    private final String[] STAR_GIANT_TYPES = {"star_orange_giant", "star_red_giant", "star_red_supergiant", "star_blue_giant", "star_blue_supergiant"};
+    private final String[] STAR_GIANT_TYPES = {StarTypes.ORANGE_GIANT, StarTypes.RED_GIANT, StarTypes.RED_SUPERGIANT, StarTypes.BLUE_GIANT, StarTypes.BLUE_SUPERGIANT};
+
 
     private final Vector2f CORE_WORLD_CENTER = new Vector2f(-6000, -6000);
 
@@ -142,7 +143,7 @@ public class AdversaryUtil {
     public StarSystemAPI generateStarSystem(JSONObject systemOptions) throws JSONException {
         JSONArray starsList = systemOptions.getJSONObject(OPT_STARS_IN_SYSTEM_CENTER).getJSONArray(OPT_STARS);
         if (starsList.length() == 0) throw new RuntimeException(ERROR_NO_CENTER_STAR);
-        return Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull(OPT_NAME) ? getProcGenName(TAG_STAR, null) : starsList.getJSONObject(0).getString(OPT_NAME));
+        return Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull(OPT_NAME) ? getProcGenName(Tags.STAR, null) : starsList.getJSONObject(0).getString(OPT_NAME));
     }
 
     /**
@@ -161,7 +162,7 @@ public class AdversaryUtil {
         ArrayList<PlanetAPI> stars = new ArrayList<>(numOfCenterStars);
         if (numOfCenterStars == 1) {
             PlanetAPI newStar = addStar(system, starsList.getJSONObject(0), "system_" + id);
-            if (newStar.getTypeId().equals(TYPE_BLACK_HOLE)) addAccretionDisk(system, newStar);
+            if (newStar.getTypeId().equals(StarTypes.BLACK_HOLE)) addAccretionDisk(system, newStar);
             system.setCenter(newStar);
             stars.add(newStar);
         } else {
@@ -199,14 +200,15 @@ public class AdversaryUtil {
     public PlanetAPI generateOrbitingBody(StarSystemAPI system, JSONObject bodyOptions, int numOfCenterStars, int index) throws JSONException {
         int indexFocus = bodyOptions.optInt(OPT_FOCUS, DEFAULT_FOCUS);
         if (numOfCenterStars + indexFocus > system.getPlanets().size())
-            throw new RuntimeException("Invalid \"focus\" index in " + system.getBaseName() + "'s \"orbitingBodies\" entry #" + (index + 1));
+            throw new RuntimeException(String.format(ERROR_INVALID_FOCUS, system.getBaseName(), index + 1));
+
 
         String systemId = system.getCenter().getId();
         if (!systemId.startsWith("system_")) systemId = "system_" + systemId;
 
         PlanetAPI newBody = Global.getSettings().getSpec(StarGenDataSpec.class, bodyOptions.optString(OPT_TYPE, null), true) != null ? addStar(system, bodyOptions, systemId + ":star_" + index) : addPlanet(system, bodyOptions, systemId + ":planet_" + index);
         addCircularOrbit(newBody, (indexFocus <= 0) ? system.getCenter() : system.getPlanets().get(numOfCenterStars + indexFocus - 1), bodyOptions, 20f);
-        if (newBody.hasCondition("solar_array")) addSolarArray(newBody, newBody.getFaction().getId());
+        if (newBody.hasCondition(Conditions.SOLAR_ARRAY)) addSolarArray(newBody, newBody.getFaction().getId());
 
         // Adds any entities to this planet's lagrange points if applicable
         JSONArray lagrangePoints = bodyOptions.optJSONArray(OPT_ENTITIES_AT_STABLE_POINTS);
@@ -226,11 +228,12 @@ public class AdversaryUtil {
      */
     public PlanetAPI addStar(StarSystemAPI system, JSONObject starOptions, String id) throws JSONException {
         String starType = starOptions.optString(OPT_TYPE, DEFAULT_STAR_TYPE);
-        if (starType.equals("random_star_giant"))
+        if (starType.equals(TYPE_RANDOM_STAR_GIANT))
             starType = STAR_GIANT_TYPES[StarSystemGenerator.random.nextInt(STAR_GIANT_TYPES.length)];
 
         StarGenDataSpec starData = (StarGenDataSpec) Global.getSettings().getSpec(StarGenDataSpec.class, starType, true);
-        if (starData == null) throw new RuntimeException("Star type " + starType + " not found!");
+        if (starData == null) throw new RuntimeException(String.format(ERROR_STAR_TYPE_NOT_FOUND, starType));
+
 
         float radius = starOptions.optInt(OPT_RADIUS, DEFAULT_SET_TO_PROC_GEN);
         if (radius <= 0)
@@ -249,7 +252,7 @@ public class AdversaryUtil {
             newStar = system.initStar(id, starType, radius, coronaRadius, starData.getSolarWind(), flareChance, starData.getCrLossMult());
         } else { // Add another star in the system; will have to set appropriate system type elsewhere depending if it will be on center or orbiting the center
             String name = starOptions.optString(OPT_NAME, null);
-            if (name == null) name = getProcGenName(TAG_STAR, system.getBaseName());
+            if (name == null) name = getProcGenName(Tags.STAR, system.getBaseName());
 
             // Need to set a default orbit, else new game creation will fail when attempting to save
             newStar = system.addPlanet(id, system.getCenter(), name, starType, 0f, radius, 10000f, 1000f);
@@ -257,12 +260,13 @@ public class AdversaryUtil {
         }
 
         // Add special star hazards if applicable
-        if (starType.equals(TYPE_BLACK_HOLE) || starType.equals(TYPE_NEUTRON_STAR)) {
+        if (starType.equals(StarTypes.BLACK_HOLE) || starType.equals(StarTypes.NEUTRON_STAR)) {
             StarCoronaTerrainPlugin coronaPlugin = Misc.getCoronaFor(newStar);
             if (coronaPlugin != null) system.removeEntity(coronaPlugin.getEntity());
 
-            String coronaType = starType.equals(TYPE_BLACK_HOLE) ? TYPE_EVENT_HORIZON : TYPE_PULSAR_BEAM;
-            if (coronaType.equals(TYPE_PULSAR_BEAM)) system.addCorona(newStar, 300, 3, 0, 3);
+
+            String coronaType = starType.equals(StarTypes.BLACK_HOLE) ? Terrain.EVENT_HORIZON : Terrain.PULSAR_BEAM;
+            if (coronaType.equals(Terrain.PULSAR_BEAM)) system.addCorona(newStar, 300, 3, 0, 3);
             system.addTerrain(coronaType, new StarCoronaTerrainPlugin.CoronaParams(newStar.getRadius() + coronaRadius, (newStar.getRadius() + coronaRadius) / 2f, newStar, starData.getSolarWind(), flareChance, starData.getCrLossMult())).setCircularOrbit(newStar, 0, 0, 100);
         }
 
@@ -286,10 +290,10 @@ public class AdversaryUtil {
     public PlanetAPI addPlanet(StarSystemAPI system, JSONObject planetOptions, String id) throws JSONException {
         String planetType = planetOptions.optString(OPT_TYPE, DEFAULT_PLANET_TYPE);
         PlanetGenDataSpec planetData = (PlanetGenDataSpec) Global.getSettings().getSpec(PlanetGenDataSpec.class, planetType, true);
-        if (planetData == null) throw new RuntimeException("Planet type " + planetType + " not found!");
+        if (planetData == null) throw new RuntimeException(String.format(ERROR_PLANET_TYPE_NOT_FOUND, planetType));
 
         String name = planetOptions.optString(OPT_NAME, null);
-        if (name == null) name = getProcGenName(TAG_PLANET, system.getBaseName());
+        if (name == null) name = getProcGenName(Tags.PLANET, system.getBaseName());
 
         float radius = planetOptions.optInt(OPT_RADIUS, DEFAULT_SET_TO_PROC_GEN);
         if (radius <= 0)
@@ -426,10 +430,10 @@ public class AdversaryUtil {
         SectorEntityToken entity;
         StarSystemAPI system = planet.getStarSystem();
         switch (type) {
-            case "planet":
-                entity = addPlanet(system, featureOptions.getJSONObject("planetOptions"), planet.getId() + ":planet_" + lagrangePoint);
+            case Tags.PLANET:
+                entity = addPlanet(system, featureOptions.getJSONObject(OPT_PLANET_OPTIONS), planet.getId() + ":planet_" + lagrangePoint);
                 break;
-            case "asteroid_field":
+            case Terrain.ASTEROID_FIELD:
                 entity = addAsteroidField(system, featureOptions);
                 break;
             case "remnant_station":
@@ -441,22 +445,22 @@ public class AdversaryUtil {
             case "jump_point":
                 entity = addJumpPoint(system, featureOptions);
                 break;
-            case "comm_relay":
-            case "comm_relay_makeshift":
-            case "nav_buoy":
-            case "nav_buoy_makeshift":
-            case "sensor_array":
-            case "sensor_array_makeshift":
+            case Entities.COMM_RELAY:
+            case Entities.COMM_RELAY_MAKESHIFT:
+            case Entities.NAV_BUOY:
+            case Entities.NAV_BUOY_MAKESHIFT:
+            case Entities.SENSOR_ARRAY:
+            case Entities.SENSOR_ARRAY_MAKESHIFT:
                 entity = addObjective(system, featureOptions, type);
                 break;
             // These usually don't have a set faction, but whatever
-            case "inactive_gate":
-            case "stable_location":
+            case Entities.INACTIVE_GATE:
+            case Entities.STABLE_LOCATION:
             default: // Default option in case of mods adding their own system entities
                 entity = addCustomEntity(system, featureOptions, type);
         }
 
-        if (type.equals("planet")) {
+        if (type.equals(Tags.PLANET)) {
             entity.setCircularOrbit(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
         } else {
             entity.setCircularOrbitPointingDown(planet.getOrbitFocus(), lagrangeAngle, planet.getCircularOrbitRadius(), planet.getCircularOrbitPeriod());
@@ -478,10 +482,10 @@ public class AdversaryUtil {
 
         boolean alreadyGenerated = true;
         switch (type) { // For whole-orbit entities
-            case "accretion_disk":
+            case Tags.ACCRETION_DISK:
                 addAccretionDisk(system, focus);
                 break;
-            case "magnetic_field":
+            case Terrain.MAGNETIC_FIELD:
                 addMagneticField(system, focus, featureOptions);
                 break;
             case "rings_ice":
@@ -489,7 +493,7 @@ public class AdversaryUtil {
             case "rings_special":
                 addRingBand(system, focus, featureOptions, type + '0');
                 break;
-            case "asteroid_belt":
+            case Terrain.ASTEROID_BELT:
                 addAsteroidBelt(system, focus, featureOptions);
                 break;
             default:
@@ -500,7 +504,7 @@ public class AdversaryUtil {
 
         SectorEntityToken entity;
         switch (type) {
-            case "asteroid_field":
+            case Terrain.ASTEROID_FIELD:
                 entity = addAsteroidField(system, featureOptions);
                 addCircularOrbit(entity, focus, featureOptions, 20f);
                 break;
@@ -512,11 +516,11 @@ public class AdversaryUtil {
                 entity = addStation(system, featureOptions);
                 addCircularOrbitPointingDown(entity, focus, featureOptions, 20f);
                 break;
-            case "inactive_gate":
+            case Entities.INACTIVE_GATE:
                 entity = addCustomEntity(system, featureOptions, type);
                 addCircularOrbit(entity, focus, featureOptions, 10f);
                 break;
-            case "stable_location":
+            case Entities.STABLE_LOCATION:
                 entity = addCustomEntity(system, featureOptions, type);
                 addCircularOrbitWithSpin(entity, focus, featureOptions, 20f, 1f, 11f);
                 break;
@@ -524,18 +528,18 @@ public class AdversaryUtil {
                 entity = addJumpPoint(system, featureOptions);
                 addCircularOrbit(entity, focus, featureOptions, 15f);
                 break;
-            case "comm_relay":
-            case "comm_relay_makeshift":
-            case "nav_buoy":
-            case "nav_buoy_makeshift":
-            case "sensor_array":
-            case "sensor_array_makeshift":
+            case Entities.COMM_RELAY:
+            case Entities.COMM_RELAY_MAKESHIFT:
+            case Entities.NAV_BUOY:
+            case Entities.NAV_BUOY_MAKESHIFT:
+            case Entities.SENSOR_ARRAY:
+            case Entities.SENSOR_ARRAY_MAKESHIFT:
                 entity = addObjective(system, featureOptions, type);
                 addCircularOrbitWithSpin(entity, focus, featureOptions, 20f, 1f, 11f);
                 break;
             default: // Any salvage entities defined in salvage_entity_gen_data.csv (including ones added by mods)
                 entity = addSalvageEntity(system, featureOptions, type);
-                if (type.equals("coronal_tap")) addCircularOrbitPointingDown(entity, focus, featureOptions, 15f);
+                if (type.equals(Entities.CORONAL_TAP)) addCircularOrbitPointingDown(entity, focus, featureOptions, 15f);
                 else addCircularOrbitWithSpin(entity, focus, featureOptions, 20f, 1f, 11f);
         }
     }
@@ -626,7 +630,7 @@ public class AdversaryUtil {
     public CampaignFleetAPI addRemnantStation(StarSystemAPI system, JSONObject options) {
         boolean isDamaged = options.optBoolean("isDamaged", false);
 
-        CampaignFleetAPI station = FleetFactoryV3.createEmptyFleet("remnant", "battlestation", null);
+        CampaignFleetAPI station = FleetFactoryV3.createEmptyFleet(Factions.REMNANTS, FleetTypes.BATTLESTATION, null);
 
         FleetMemberAPI member = Global.getFactory().createFleetMember(FleetMemberType.SHIP, isDamaged ? "remnant_station2_Damaged" : "remnant_station2_Standard");
         station.getFleetData().addFleetMember(member);
@@ -641,13 +645,13 @@ public class AdversaryUtil {
         system.addEntity(station);
 
         station.clearAbilities();
-        station.addAbility("transponder");
-        station.getAbility("transponder").activate();
+        station.addAbility(Abilities.TRANSPONDER);
+        station.getAbility(Abilities.TRANSPONDER).activate();
         station.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
         station.setAI(null);
 
-        PersonAPI commander = Misc.getAICoreOfficerPlugin("alpha_core").createPerson("alpha_core", "remnant", StarSystemGenerator.random);
+        PersonAPI commander = Misc.getAICoreOfficerPlugin(Commodities.ALPHA_CORE).createPerson(Commodities.ALPHA_CORE, Factions.REMNANTS, StarSystemGenerator.random);
 
         station.setCommander(commander);
         station.getFlagship().setCaptain(commander);
@@ -809,7 +813,7 @@ public class AdversaryUtil {
      */
     public SectorEntityToken addSalvageEntity(StarSystemAPI system, JSONObject options, String type) {
         SalvageEntityGenDataSpec salvageData = (SalvageEntityGenDataSpec) Global.getSettings().getSpec(SalvageEntityGenDataSpec.class, type, true);
-        if (salvageData == null) throw new RuntimeException("Salvage entity " + type + " not found!");
+        if (salvageData == null) throw new RuntimeException(String.format(ERROR_INVALID_SALVAGE_ENTITY, type));
 
         Random randomSeed = StarSystemGenerator.random;
         SectorEntityToken salvageEntity = system.addCustomEntity(null, options.optString(OPT_NAME, null), type, null);
@@ -820,12 +824,12 @@ public class AdversaryUtil {
 
         // Set proper attributes for certain entities
         switch (type) {
-            case "coronal_tap":
+            case Entities.CORONAL_TAP:
                 system.addTag(Tags.HAS_CORONAL_TAP);
                 system.addTag(Tags.THEME_INTERESTING);
                 break;
-            case "derelict_cryosleeper":
-                salvageEntity.setFaction("derelict");
+            case Entities.DERELICT_CRYOSLEEPER:
+                salvageEntity.setFaction(Factions.DERELICT);
                 system.addTag(Tags.THEME_DERELICT_CRYOSLEEPER);
                 system.addTag(Tags.THEME_INTERESTING);
         }
@@ -846,7 +850,7 @@ public class AdversaryUtil {
     public SectorEntityToken addObjective(StarSystemAPI system, JSONObject options, String objectiveId) {
         String factionId = options.optString(OPT_FACTION_ID, null);
         SectorEntityToken objective = system.addCustomEntity(null, options.optString(OPT_NAME, null), objectiveId, factionId);
-        if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE))
+        if (factionId == null || factionId.equals(Factions.NEUTRAL))
             objective.getMemoryWithoutUpdate().set(MemFlags.OBJECTIVE_NON_FUNCTIONAL, true);
 
         addCustomDescription(objective, options);
@@ -928,7 +932,7 @@ public class AdversaryUtil {
      */
     public void generateCryosleeper(StarSystemAPI system, String name, float orbitRadius, boolean discoverable) {
         Random randomSeed = StarSystemGenerator.random;
-        SectorEntityToken cryosleeper = system.addCustomEntity(null, name, "derelict_cryosleeper", "derelict");
+        SectorEntityToken cryosleeper = system.addCustomEntity(null, name, Entities.DERELICT_CRYOSLEEPER, Factions.DERELICT);
         cryosleeper.setCircularOrbitWithSpin(system.getCenter(), randomSeed.nextFloat() * 360f, orbitRadius, orbitRadius / (15f + randomSeed.nextFloat() * 5f), 1f, 11);
         cryosleeper.getMemoryWithoutUpdate().set(MemFlags.SALVAGE_SEED, randomSeed.nextLong());
 
@@ -983,7 +987,7 @@ public class AdversaryUtil {
             try {
                 planetMarket.addCondition(conditions.getString(i));
             } catch (Exception e) {
-                throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for \"" + planet.getTypeId() + "\" planet with orbit radius " + Math.round(planet.getCircularOrbitRadius()));
+                throw new RuntimeException(String.format(ERROR_INVALID_CONDITION_UNINHABITED, conditions.getString(i), planet.getTypeId(), Math.round(planet.getCircularOrbitRadius())));
             }
     }
 
@@ -1005,7 +1009,8 @@ public class AdversaryUtil {
             try {
                 planetMarket.addCondition(conditions.getString(i));
             } catch (Exception e) {
-                throw new RuntimeException("Error attempting to add condition \"" + conditions.getString(i) + "\" for Size " + size + " \"" + factionId + "\" market");
+                throw new RuntimeException(String.format(ERROR_INVALID_CONDITION_INHABITED, conditions.getString(i), size, factionId));
+
             }
 
         // Add industries and, if applicable, their specials
@@ -1021,7 +1026,8 @@ public class AdversaryUtil {
             try {
                 planetMarket.addIndustry(industryId);
             } catch (Exception e) {
-                throw new RuntimeException("Error attempting to add industry \"" + industryId + "\" for Size " + size + " \"" + factionId + "\" market");
+                throw new RuntimeException(String.format(ERROR_INVALID_INDUSTRY, industryId, size, factionId));
+
             }
 
             // Add any special items, if applicable
@@ -1038,26 +1044,27 @@ public class AdversaryUtil {
             }
         }
         else { // Just give market the bare minimum colony
-            planetMarket.addIndustry("population");
-            planetMarket.addIndustry("spaceport");
+            planetMarket.addIndustry(Industries.POPULATION);
+            planetMarket.addIndustry(Industries.SPACEPORT);
         }
 
         // Add the appropriate submarkets
         planetMarket.addSubmarket(Submarkets.SUBMARKET_STORAGE);
-        if (factionId.equals("player")) {
+        if (factionId.equals(Factions.PLAYER)) {
             planetMarket.setPlayerOwned(true);
             planetMarket.addSubmarket(Submarkets.LOCAL_RESOURCES);
             ((StoragePlugin) planetMarket.getSubmarket(Submarkets.SUBMARKET_STORAGE).getPlugin()).setPlayerPaidToUnlock(true);
-            marketsToOverrideAdmin.put(planetMarket, "player");
+            marketsToOverrideAdmin.put(planetMarket, Factions.PLAYER);
         } else {
             planetMarket.addSubmarket(Submarkets.SUBMARKET_OPEN);
-            if (planetMarket.hasIndustry("militarybase") || planetMarket.hasIndustry("highcommand"))
+            if (planetMarket.hasIndustry(Industries.MILITARYBASE) || planetMarket.hasIndustry(Industries.HIGHCOMMAND))
                 planetMarket.addSubmarket(Submarkets.GENERIC_MILITARY);
             planetMarket.addSubmarket(Submarkets.SUBMARKET_BLACK);
         }
 
         // Adds an AI core admin to the market if enabled
-        if (marketOptions.optBoolean(OPT_AI_CORE_ADMIN, false)) marketsToOverrideAdmin.put(planetMarket, "alpha_core");
+        if (marketOptions.optBoolean(OPT_AI_CORE_ADMIN, false))
+            marketsToOverrideAdmin.put(planetMarket, Commodities.ALPHA_CORE);
 
         //set market in global, factions, and assign market, also submarkets
         Global.getSector().getEconomy().addMarket(planetMarket, true);
@@ -1078,10 +1085,10 @@ public class AdversaryUtil {
         int numOfMirrors = 0;
         String planetType = planet.getTypeId();
         String starType = planet.getStarSystem().getStar().getTypeId();
-        if (planet.hasCondition("hot") || planetType.equals("desert") || planetType.equals("desert1") || planetType.equals("arid") || starType.equals("star_blue_giant") || starType.equals("star_blue_supergiant"))
+        if (planet.hasCondition(Conditions.HOT) || planetType.equals(Planets.DESERT) || planetType.equals(Planets.DESERT1) || planetType.equals(Planets.ARID) || starType.equals(StarTypes.BLUE_GIANT) || starType.equals(StarTypes.BLUE_SUPERGIANT))
             numOfShades += (StarSystemGenerator.random.nextBoolean() ? 3 : 1);
 
-        if (planet.hasCondition("poor_light") || planetType.equals("terran-eccentric") || starType.equals("star_red_dwarf") || starType.equals("star_brown_dwarf"))
+        if (planet.hasCondition(Conditions.POOR_LIGHT) || planetType.equals(Planets.PLANET_TERRAN_ECCENTRIC) || starType.equals(StarTypes.RED_DWARF) || starType.equals(StarTypes.BROWN_DWARF))
             numOfMirrors += (StarSystemGenerator.random.nextBoolean() ? 5 : 3);
 
         // Force a solar array if none of the above conditions are met

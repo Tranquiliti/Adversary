@@ -4,7 +4,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import com.fs.starfarer.api.campaign.listeners.EconomyTickListener;
-import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -12,7 +11,6 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
-import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
@@ -37,12 +35,12 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
+        //Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
     }
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
+        //Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
     }
 
     // Unused
@@ -64,40 +62,41 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected void setPriorityDoctrine(PriorityDoctrine thisPriority) {
         FactionAPI faction = Global.getSector().getFaction(factionId);
         FactionDoctrineAPI factionDoctrine = faction.getDoctrine();
-        Logger doctrineLogger = Global.getLogger(AdversaryDoctrineChanger.class);
+        //Logger doctrineLogger = Global.getLogger(AdversaryDoctrineChanger.class);
 
         factionDoctrine.setWarships(thisPriority.warships);
         factionDoctrine.setCarriers(thisPriority.carriers);
         factionDoctrine.setPhaseShips(thisPriority.phaseShips);
-        doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
+        //doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
 
         factionDoctrine.setOfficerQuality(thisPriority.officerQuality);
         factionDoctrine.setShipQuality(thisPriority.shipQuality);
         factionDoctrine.setNumShips(thisPriority.numShips);
-        doctrineLogger.info(factionId + " fleet doctrine set to " + factionDoctrine.getOfficerQuality() + "-" + factionDoctrine.getShipQuality() + "-" + factionDoctrine.getNumShips());
+        //doctrineLogger.info(factionId + " fleet doctrine set to " + factionDoctrine.getOfficerQuality() + "-" + factionDoctrine.getShipQuality() + "-" + factionDoctrine.getNumShips());
 
         factionDoctrine.setShipSize(thisPriority.shipSize);
         factionDoctrine.setAggression(thisPriority.aggression);
-        doctrineLogger.info(factionId + " ship size and aggression set to " + factionDoctrine.getShipSize() + " and " + factionDoctrine.getAggression());
+        //doctrineLogger.info(factionId + " ship size and aggression set to " + factionDoctrine.getShipSize() + " and " + factionDoctrine.getAggression());
 
         faction.getPriorityShips().clear();
         if (thisPriority.priorityShips != null && thisPriority.priorityShips.length != 0)
             Collections.addAll(faction.getPriorityShips(), thisPriority.priorityShips);
-        infoPrioritySet(doctrineLogger, faction.getPriorityShips(), "ships");
+        //infoPrioritySet(doctrineLogger, faction.getPriorityShips(), "ships");
 
         faction.getPriorityWeapons().clear();
         if (thisPriority.priorityWeapons != null && thisPriority.priorityWeapons.length != 0)
             Collections.addAll(faction.getPriorityWeapons(), thisPriority.priorityWeapons);
-        infoPrioritySet(doctrineLogger, faction.getPriorityWeapons(), "weapons");
+        //infoPrioritySet(doctrineLogger, faction.getPriorityWeapons(), "weapons");
 
         faction.getPriorityFighters().clear();
         if (thisPriority.priorityFighters != null && thisPriority.priorityFighters.length != 0)
             Collections.addAll(faction.getPriorityFighters(), thisPriority.priorityFighters);
-        infoPrioritySet(doctrineLogger, faction.getPriorityFighters(), "fighters");
+        //infoPrioritySet(doctrineLogger, faction.getPriorityFighters(), "fighters");
 
         faction.clearShipRoleCache(); // Required after any direct manipulation of faction ship lists
     }
 
+    /* Logs contents of priority list
     protected void infoPrioritySet(Logger thisLogger, Set<String> set, String text) {
         if (set.isEmpty()) thisLogger.info(factionId + " has no priority " + text);
         else {
@@ -106,6 +105,7 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             thisLogger.info(factionId + " priority " + text + ": [" + contents.deleteCharAt(contents.length() - 1) + "]");
         }
     }
+    */
 
     // Refreshes the currently-set doctrine
     public void refresh() {

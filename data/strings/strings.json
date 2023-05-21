@@ -31,6 +31,7 @@
 		"focus":"focus",
 		"conditions":"conditions",
 		"entitiesAtStablePoints":"entitiesAtStablePoints",
+		"planetOptions":"planetOptions",
 		"size":"size",
 		"marketSize":"marketSize",
 		"factionId":"factionId",
@@ -62,16 +63,17 @@
 		"default_faction_type":"neutral",
 		"path_graphics_planet":"graphics/planets/",
 		"path_graphics_background":"graphics/backgrounds/",
-		"tag_star":"star",
-		"tag_planet":"planet",
-		"type_black_hole":"black_hole",
-		"type_neutron_star":"star_neutron",
-		"type_event_horizon":"event_horizon",
-		"type_pulsar_beam":"pulsar_beam",
+		"type_random_star_giant":"random_star_giant",
 
 		# Error messages
 		"error_noCenterStar":"Cannot create a system with no center stars! Custom star systems require at least one star in the \"stars\" list of \"starsInSystemCenter\"!",
-
+		"error_starTypeNotFound":"Star type %s not found!",
+		"error_planetTypeNotFound":"Planet type %s not found!",
+		"error_invalidFocus":"Invalid \"focus\" index in %s's \"orbitingBodies\" entry #%d!",
+		"error_invalidConditionUninhabited":"Error attempting to add condition \"%s\" for \"%s\" planet with orbit radius %d!",
+		"error_invalidConditionInhabited":"Error attempting to add condition \"%s\" for Size %d \"%s\" market!",
+		"error_invalidIndustry":"Error attempting to add industry \"%s\" for Size %d \"%s\" market!",
+		"error_invalidSalvageEntity":"Salvage entity %s not found!",
 	},
 	"CHM":{
 		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\"",
