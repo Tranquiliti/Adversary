@@ -633,9 +633,9 @@
 
 				# Ring bands
 				{
-					"type":"rings_dust",
-					#"type":"rings_ice",
-					#"type":"rings_special",
+					"type":"rings_dust0",
+					#"type":"rings_ice0",
+					#"type":"rings_special0",
 					"orbitRadius":100,
 					"focus":0,
 
@@ -644,8 +644,8 @@
 					"name":"Test Name Band",
 
 					# Index of the ring texture to use
-					# Valid options are 0, 1, 2, or 3 for "rings_ice" and "rings_dust"
-					# Must be 1 for "rings_special"
+					# Valid options are 0, 1, 2, or 3 for "rings_ice0" and "rings_dust0"
+					# Must be 1 for "rings_special0"
 					# Defaults to 1 if this entry is omitted
 					"bandIndex":1,
 				},

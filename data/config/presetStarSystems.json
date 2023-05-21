@@ -500,7 +500,7 @@
 					"customDescriptionId":"station_telepylus",
 				},
 				{ # Telepylus' ring band
-					"type":"rings_special",
+					"type":"rings_special0",
 					"focus":8,
 					"orbitRadius":600,
 				},
@@ -733,7 +733,7 @@
 				{"type":"jump_point","orbitRadius":2600,"name":"Forsaken Jump-point"},
 				{"type":"remnant_station","orbitRadius":300},
 				{"type":"asteroid_belt","orbitRadius":6000},
-				{"type":"rings_special","orbitRadius":500},
+				{"type":"rings_special0","orbitRadius":500},
 			],
 		},
 

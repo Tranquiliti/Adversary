@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.FactionDoctrineAPI;
 import com.fs.starfarer.api.campaign.listeners.EconomyTickListener;
+import org.apache.log4j.Logger;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -11,6 +12,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+import java.util.Set;
 
 public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected String factionId;
@@ -29,18 +31,18 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         // Iterating in reverse order so that the first doctrine in JSONArray is considered the selected doctrine
         for (int i = possibleDoctrines.length() - 1; i >= 0; i--) {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
-            int weight = doctrine.optInt("weight", 1);
+            int weight = doctrine.optInt(Global.getSettings().getString("adversary", "settings_weight"), 1);
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
             // Ignore doctrines with weight of 0 or less
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-        //Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
+        Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
     }
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        //Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
+        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
     }
 
     // Unused
@@ -62,41 +64,40 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected void setPriorityDoctrine(PriorityDoctrine thisPriority) {
         FactionAPI faction = Global.getSector().getFaction(factionId);
         FactionDoctrineAPI factionDoctrine = faction.getDoctrine();
-        //Logger doctrineLogger = Global.getLogger(AdversaryDoctrineChanger.class);
+        Logger doctrineLogger = Global.getLogger(AdversaryDoctrineChanger.class);
 
         factionDoctrine.setWarships(thisPriority.warships);
         factionDoctrine.setCarriers(thisPriority.carriers);
         factionDoctrine.setPhaseShips(thisPriority.phaseShips);
-        //doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
+        doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
 
         factionDoctrine.setOfficerQuality(thisPriority.officerQuality);
         factionDoctrine.setShipQuality(thisPriority.shipQuality);
         factionDoctrine.setNumShips(thisPriority.numShips);
-        //doctrineLogger.info(factionId + " fleet doctrine set to " + factionDoctrine.getOfficerQuality() + "-" + factionDoctrine.getShipQuality() + "-" + factionDoctrine.getNumShips());
+        doctrineLogger.info(factionId + " fleet doctrine set to " + factionDoctrine.getOfficerQuality() + "-" + factionDoctrine.getShipQuality() + "-" + factionDoctrine.getNumShips());
 
         factionDoctrine.setShipSize(thisPriority.shipSize);
         factionDoctrine.setAggression(thisPriority.aggression);
-        //doctrineLogger.info(factionId + " ship size and aggression set to " + factionDoctrine.getShipSize() + " and " + factionDoctrine.getAggression());
+        doctrineLogger.info(factionId + " ship size and aggression set to " + factionDoctrine.getShipSize() + " and " + factionDoctrine.getAggression());
 
         faction.getPriorityShips().clear();
         if (thisPriority.priorityShips != null && thisPriority.priorityShips.length != 0)
             Collections.addAll(faction.getPriorityShips(), thisPriority.priorityShips);
-        //infoPrioritySet(doctrineLogger, faction.getPriorityShips(), "ships");
+        infoPrioritySet(doctrineLogger, faction.getPriorityShips(), "ships");
 
         faction.getPriorityWeapons().clear();
         if (thisPriority.priorityWeapons != null && thisPriority.priorityWeapons.length != 0)
             Collections.addAll(faction.getPriorityWeapons(), thisPriority.priorityWeapons);
-        //infoPrioritySet(doctrineLogger, faction.getPriorityWeapons(), "weapons");
+        infoPrioritySet(doctrineLogger, faction.getPriorityWeapons(), "weapons");
 
         faction.getPriorityFighters().clear();
         if (thisPriority.priorityFighters != null && thisPriority.priorityFighters.length != 0)
             Collections.addAll(faction.getPriorityFighters(), thisPriority.priorityFighters);
-        //infoPrioritySet(doctrineLogger, faction.getPriorityFighters(), "fighters");
+        infoPrioritySet(doctrineLogger, faction.getPriorityFighters(), "fighters");
 
         faction.clearShipRoleCache(); // Required after any direct manipulation of faction ship lists
     }
 
-    /* Logs contents of priority list
     protected void infoPrioritySet(Logger thisLogger, Set<String> set, String text) {
         if (set.isEmpty()) thisLogger.info(factionId + " has no priority " + text);
         else {
@@ -105,7 +106,6 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             thisLogger.info(factionId + " priority " + text + ": [" + contents.deleteCharAt(contents.length() - 1) + "]");
         }
     }
-    */
 
     // Refreshes the currently-set doctrine
     public void refresh() {
@@ -181,34 +181,37 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         public PriorityDoctrine(JSONObject priorityObject, int weight) throws JSONException {
             this.weight = weight;
 
-            if (priorityObject.isNull("fleetComposition")) {
+            String compId = Global.getSettings().getString("adversary", "settings_fleetComposition");
+            if (priorityObject.isNull(compId)) {
                 warships = 3;
                 carriers = 2;
                 phaseShips = 2;
             } else {
-                JSONArray fleetComp = priorityObject.getJSONArray("fleetComposition");
+                JSONArray fleetComp = priorityObject.getJSONArray(compId);
                 warships = (byte) fleetComp.getInt(0);
                 carriers = (byte) fleetComp.getInt(1);
                 phaseShips = (byte) fleetComp.getInt(2);
             }
 
-            if (priorityObject.isNull("fleetDoctrine")) {
+            String doctrineId = Global.getSettings().getString("adversary", "settings_fleetDoctrine");
+            if (priorityObject.isNull(doctrineId)) {
                 officerQuality = 3;
                 shipQuality = 2;
                 numShips = 2;
             } else {
-                JSONArray fleetDoctrine = priorityObject.getJSONArray("fleetDoctrine");
+                JSONArray fleetDoctrine = priorityObject.getJSONArray(doctrineId);
                 officerQuality = (byte) fleetDoctrine.getInt(0);
                 shipQuality = (byte) fleetDoctrine.getInt(1);
                 numShips = (byte) fleetDoctrine.getInt(2);
             }
 
-            shipSize = (byte) priorityObject.optInt("shipSize", 5);
-            aggression = (byte) priorityObject.optInt("aggression", 5);
+            shipSize = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_shipSize"), 5);
+            aggression = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_aggression"), 5);
 
             // Fill priority ships
-            if (!priorityObject.isNull("priorityShips")) {
-                JSONArray shipList = priorityObject.getJSONArray("priorityShips");
+            String shipsId = Global.getSettings().getString("adversary", "settings_priorityShips");
+            if (!priorityObject.isNull(shipsId)) {
+                JSONArray shipList = priorityObject.getJSONArray(shipsId);
                 if (shipList.length() > 0) {
                     priorityShips = new String[shipList.length()];
                     for (int i = 0; i < shipList.length(); i++) priorityShips[i] = shipList.getString(i);
@@ -216,8 +219,9 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             }
 
             // Fill priority weapons
-            if (!priorityObject.isNull("priorityWeapons")) {
-                JSONArray weaponList = priorityObject.getJSONArray("priorityWeapons");
+            String weaponsId = Global.getSettings().getString("adversary", "settings_priorityWeapons");
+            if (!priorityObject.isNull(weaponsId)) {
+                JSONArray weaponList = priorityObject.getJSONArray(weaponsId);
                 if (weaponList.length() > 0) {
                     priorityWeapons = new String[weaponList.length()];
                     for (int i = 0; i < weaponList.length(); i++) priorityWeapons[i] = weaponList.getString(i);
@@ -225,8 +229,9 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             }
 
             // Fill priority fighters
-            if (!priorityObject.isNull("priorityFighters")) {
-                JSONArray fighterList = priorityObject.getJSONArray("priorityFighters");
+            String fightersId = Global.getSettings().getString("adversary", "settings_priorityFighters");
+            if (!priorityObject.isNull(fightersId)) {
+                JSONArray fighterList = priorityObject.getJSONArray(fightersId);
                 if (fighterList.length() > 0) {
                     priorityFighters = new String[fighterList.length()];
                     for (int i = 0; i < fighterList.length(); i++) priorityFighters[i] = fighterList.getString(i);
