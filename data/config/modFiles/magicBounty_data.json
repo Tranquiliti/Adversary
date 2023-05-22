@@ -568,16 +568,15 @@
     "adversary_Ziggurat_Plus":{
         "trigger_marketFaction_any":["independent","hegemony"],
         "trigger_player_minLevel":15,
-        "trigger_min_days_elapsed":1825,
         "trigger_memKeys_all":{
             "$adversary_sillyBountiesEnabled":true,
-            #"$defeatedZiggurat":true, # Doesn't work for whatever reason
+            "$defeatedZiggurat":true,
         },
 
-        "job_name":"The Alpha and Omega",
-        "job_description":"Rumors that Tri-Tachyon has produced yet another experimental Ziggurat-class hull has now been proven true by COMSEC. Now, you have been tasked to destroy this particular example once and for all.",
+        "job_name":"The Alpha and the Omega",
+        "job_description":"COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to destroy this particular example once and for all.",
         "job_comm_reply":"...",
-        "job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments and will feature you in their propaganda holodocs.",
+        "job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
         "job_intel_failure":"You have made a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
         "job_forFaction":"hegemony",
         "job_deadline":365,
@@ -585,11 +584,11 @@
         "job_reputation_reward":100,
         "job_type":"destruction",
         "job_show_captain":false,
-        "job_show_fleet":"vanilla",
+        "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
 
-        "target_portrait":"zig_captain.png",
+        "target_portrait":"ziggurat_captain",
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
         "target_post":"fleetCommander",
@@ -607,12 +606,17 @@
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
             "crew_training":1,
+            "officer_training":1,
+            "officer_management":1,
             "best_of_the_best":1,
+            "support_doctrine":1,
             "force_concentration":1,
             #
             "navigation":1,
             "sensors":1,
+            "electronic_warfare":1,
             "flux_regulation":1,
             "phase_corps":1,
             #
@@ -623,11 +627,16 @@
             "derelict_contingent":1,
         },
 
-        "fleet_name":"Unidentified Vessel",
-        "fleet_faction":"neutral",
+        "fleet_name":"Unidentified Fleet",
+        "fleet_faction":"tritachyon",
         "fleet_flagship_variant":"adversary_ziggurat_Experimental",
         "fleet_flagship_name":"TTS Xenomorph",
         "fleet_flagship_alwaysRecoverable":true,
+         "fleet_preset_ships":{
+            "adversary_aurora_Experimental":3,
+            "adversary_medusa_Experimental":4,
+            "adversary_scarab_Experimental":6,
+        },
         "fleet_composition_quality":2,
         "fleet_transponder":false,
         "fleet_no_retreat":true,

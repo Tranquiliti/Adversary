@@ -11,6 +11,7 @@ import com.fs.starfarer.api.impl.campaign.CoronalTapParticleScript;
 import com.fs.starfarer.api.impl.campaign.fleets.FleetFactoryV3;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.procgen.*;
+import com.fs.starfarer.api.impl.campaign.procgen.themes.MiscellaneousThemeGenerator;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantOfficerGeneratorPlugin;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantStationFleetManager;
 import com.fs.starfarer.api.impl.campaign.procgen.themes.RemnantThemeGenerator;
@@ -31,7 +32,6 @@ import java.util.*;
  * A utility class for the Adversary mod
  */
 public class AdversaryUtil {
-    // TODO: Continue externalizing each and every string (because of course I can!)
     // Default values
     public final int DEFAULT_FOCUS = 0;
     public final int DEFAULT_SET_TO_PROC_GEN = -1; // For user's sake, exampleSettings.json uses 0 to specify proc-gen
@@ -95,6 +95,7 @@ public class AdversaryUtil {
     public final String OPT_USE_REVERSE_LIGHT_FOR_GLOW = Global.getSettings().getString("adversary", "opt_useReverseLightForGlow");
     public final String OPT_TYPE_OVERRIDE = Global.getSettings().getString("adversary", "opt_typeOverride");
 
+    // Sub-options for certain system features
     public final String OPT_IS_DAMAGED = Global.getSettings().getString("adversary", "opt_isDamaged");
     public final String OPT_SIZE = Global.getSettings().getString("adversary", "opt_size");
     public final String OPT_INNER_BAND_INDEX = Global.getSettings().getString("adversary", "opt_innerBandIndex");
@@ -116,6 +117,17 @@ public class AdversaryUtil {
     public final String PATH_GRAPHICS_BACKGROUND = Global.getSettings().getString("adversary", "path_graphics_background");
     public final String TYPE_RANDOM_STAR_GIANT = Global.getSettings().getString("adversary", "type_random_star_giant");
 
+    // Names used in Solar Array generation
+    public final String NAME_MIRROR1 = Global.getSettings().getString("adversary", "name_mirror1");
+    public final String NAME_MIRROR2 = Global.getSettings().getString("adversary", "name_mirror2");
+    public final String NAME_MIRROR3 = Global.getSettings().getString("adversary", "name_mirror3");
+    public final String NAME_MIRROR4 = Global.getSettings().getString("adversary", "name_mirror4");
+    public final String NAME_MIRROR5 = Global.getSettings().getString("adversary", "name_mirror5");
+    public final String NAME_SHADE1 = Global.getSettings().getString("adversary", "name_shade1");
+    public final String NAME_SHADE2 = Global.getSettings().getString("adversary", "name_shade2");
+    public final String NAME_SHADE3 = Global.getSettings().getString("adversary", "name_shade3");
+
+    // Other, used in code
     public final String SOURCE_GEN = Global.getSettings().getString("adversary", "source_gen");
     public final String CATEGORY_MISC = Global.getSettings().getString("adversary", "category_misc");
 
@@ -139,7 +151,6 @@ public class AdversaryUtil {
     // List of all vanilla star giants, for "random_star_giant" type
     private final String[] STAR_GIANT_TYPES = {StarTypes.ORANGE_GIANT, StarTypes.RED_GIANT, StarTypes.RED_SUPERGIANT, StarTypes.BLUE_GIANT, StarTypes.BLUE_SUPERGIANT};
 
-
     private final Vector2f CORE_WORLD_CENTER = new Vector2f(-6000, -6000);
 
     // Making a utility class instantiable just so I can modify admins properly D:
@@ -158,7 +169,7 @@ public class AdversaryUtil {
      */
     public StarSystemAPI generateStarSystem(JSONObject systemOptions) throws JSONException {
         JSONArray starsList = systemOptions.getJSONObject(OPT_STARS_IN_SYSTEM_CENTER).getJSONArray(OPT_STARS);
-        if (starsList.length() == 0) throw new RuntimeException(ERROR_NO_CENTER_STAR);
+        if (starsList.length() == 0) throw new IllegalArgumentException(ERROR_NO_CENTER_STAR);
         return Global.getSector().createStarSystem(starsList.getJSONObject(0).isNull(OPT_NAME) ? getProcGenName(Tags.STAR, null) : starsList.getJSONObject(0).getString(OPT_NAME));
     }
 
@@ -216,7 +227,7 @@ public class AdversaryUtil {
     public PlanetAPI generateOrbitingBody(StarSystemAPI system, JSONObject bodyOptions, int numOfCenterStars, int index) throws JSONException {
         int indexFocus = bodyOptions.optInt(OPT_FOCUS, DEFAULT_FOCUS);
         if (numOfCenterStars + indexFocus > system.getPlanets().size())
-            throw new RuntimeException(String.format(ERROR_INVALID_FOCUS, system.getBaseName(), index + 1));
+            throw new IllegalArgumentException(String.format(ERROR_INVALID_FOCUS, system.getBaseName(), index + 1));
 
         String systemId = system.getCenter().getId();
         if (!systemId.startsWith("system_")) systemId = "system_" + systemId;
@@ -247,7 +258,7 @@ public class AdversaryUtil {
             starType = STAR_GIANT_TYPES[StarSystemGenerator.random.nextInt(STAR_GIANT_TYPES.length)];
 
         StarGenDataSpec starData = (StarGenDataSpec) Global.getSettings().getSpec(StarGenDataSpec.class, starType, true);
-        if (starData == null) throw new RuntimeException(String.format(ERROR_STAR_TYPE_NOT_FOUND, starType));
+        if (starData == null) throw new IllegalArgumentException(String.format(ERROR_STAR_TYPE_NOT_FOUND, starType));
 
 
         float radius = starOptions.optInt(OPT_RADIUS, DEFAULT_SET_TO_PROC_GEN);
@@ -305,7 +316,8 @@ public class AdversaryUtil {
     public PlanetAPI addPlanet(StarSystemAPI system, JSONObject planetOptions, String id) throws JSONException {
         String planetType = planetOptions.optString(OPT_TYPE, DEFAULT_PLANET_TYPE);
         PlanetGenDataSpec planetData = (PlanetGenDataSpec) Global.getSettings().getSpec(PlanetGenDataSpec.class, planetType, true);
-        if (planetData == null) throw new RuntimeException(String.format(ERROR_PLANET_TYPE_NOT_FOUND, planetType));
+        if (planetData == null)
+            throw new IllegalArgumentException(String.format(ERROR_PLANET_TYPE_NOT_FOUND, planetType));
 
         String name = planetOptions.optString(OPT_NAME, null);
         if (name == null) name = getProcGenName(Tags.PLANET, system.getBaseName());
@@ -828,7 +840,7 @@ public class AdversaryUtil {
      */
     public SectorEntityToken addSalvageEntity(StarSystemAPI system, JSONObject options, String type) {
         SalvageEntityGenDataSpec salvageData = (SalvageEntityGenDataSpec) Global.getSettings().getSpec(SalvageEntityGenDataSpec.class, type, true);
-        if (salvageData == null) throw new RuntimeException(String.format(ERROR_INVALID_SALVAGE_ENTITY, type));
+        if (salvageData == null) throw new IllegalArgumentException(String.format(ERROR_INVALID_SALVAGE_ENTITY, type));
 
         Random randomSeed = StarSystemGenerator.random;
         SectorEntityToken salvageEntity = system.addCustomEntity(null, options.optString(OPT_NAME, null), type, null);
@@ -1002,7 +1014,7 @@ public class AdversaryUtil {
             try {
                 planetMarket.addCondition(conditions.getString(i));
             } catch (Exception e) {
-                throw new RuntimeException(String.format(ERROR_INVALID_CONDITION_UNINHABITED, conditions.getString(i), planet.getTypeId(), Math.round(planet.getCircularOrbitRadius())));
+                throw new IllegalArgumentException(String.format(ERROR_INVALID_CONDITION_UNINHABITED, conditions.getString(i), planet.getTypeId(), Math.round(planet.getCircularOrbitRadius())));
             }
     }
 
@@ -1024,7 +1036,7 @@ public class AdversaryUtil {
             try {
                 planetMarket.addCondition(conditions.getString(i));
             } catch (Exception e) {
-                throw new RuntimeException(String.format(ERROR_INVALID_CONDITION_INHABITED, conditions.getString(i), size, factionId));
+                throw new IllegalArgumentException(String.format(ERROR_INVALID_CONDITION_INHABITED, conditions.getString(i), size, factionId));
 
             }
 
@@ -1041,7 +1053,7 @@ public class AdversaryUtil {
             try {
                 planetMarket.addIndustry(industryId);
             } catch (Exception e) {
-                throw new RuntimeException(String.format(ERROR_INVALID_INDUSTRY, industryId, size, factionId));
+                throw new IllegalArgumentException(String.format(ERROR_INVALID_INDUSTRY, industryId, size, factionId));
 
             }
 
@@ -1112,48 +1124,58 @@ public class AdversaryUtil {
     }
 
     private void addSolarArray(PlanetAPI planet, int numOfMirrors, int numOfShades, String factionId) {
-        // TODO: fix this mess
-        if (numOfMirrors > 5 || numOfShades > 3)
-            throw new IllegalArgumentException("Invalid number of solar mirrors and/or shades");
-
         StarSystemAPI system = planet.getStarSystem();
         float radius = 270f + planet.getRadius();
+        float angle = planet.getCircularOrbitAngle();
         float planetOrbitPeriod = planet.getCircularOrbitPeriod();
 
         // Create solar mirrors
-        String[] mirrorNames = {"Alpha", "Beta", "Gamma", "Delta", "Epsilon"};
-        float mirrorAngle = planet.getCircularOrbitAngle() - 30f * (numOfMirrors >>> 1);
-        int mirrorIndex = 2 - (numOfMirrors / 2);
-        for (int i = 0; i < numOfMirrors; i++) {
-            SectorEntityToken mirror = system.addCustomEntity(null, "Stellar Mirror " + mirrorNames[mirrorIndex], Entities.STELLAR_MIRROR, factionId);
-            mirror.setCircularOrbitPointingDown(planet, mirrorAngle, radius, planetOrbitPeriod);
+        if (numOfMirrors >= 3) {
+            SectorEntityToken mirror2 = system.addCustomEntity(null, NAME_MIRROR2, Entities.STELLAR_MIRROR, factionId);
+            SectorEntityToken mirror3 = system.addCustomEntity(null, NAME_MIRROR3, Entities.STELLAR_MIRROR, factionId);
+            SectorEntityToken mirror4 = system.addCustomEntity(null, NAME_MIRROR4, Entities.STELLAR_MIRROR, factionId);
+            mirror2.setCircularOrbitPointingDown(planet, angle - 30, radius, planetOrbitPeriod);
+            mirror3.setCircularOrbitPointingDown(planet, angle, radius, planetOrbitPeriod);
+            mirror4.setCircularOrbitPointingDown(planet, angle + 30, radius, planetOrbitPeriod);
 
             if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
-                mirror.setDiscoverable(true);
-                mirror.setDiscoveryXP(300f);
-                mirror.setSensorProfile(2000f);
+                MiscellaneousThemeGenerator.makeDiscoverable(mirror2, 300f, 2000f);
+                MiscellaneousThemeGenerator.makeDiscoverable(mirror3, 300f, 2000f);
+                MiscellaneousThemeGenerator.makeDiscoverable(mirror4, 300f, 2000f);
             }
 
-            mirrorIndex++;
-            mirrorAngle += 30f;
+            if (numOfMirrors >= 5) {
+                SectorEntityToken mirror1 = system.addCustomEntity(null, NAME_MIRROR1, Entities.STELLAR_MIRROR, factionId);
+                SectorEntityToken mirror5 = system.addCustomEntity(null, NAME_MIRROR5, Entities.STELLAR_MIRROR, factionId);
+                mirror1.setCircularOrbitPointingDown(planet, angle - 60, radius, planetOrbitPeriod);
+                mirror5.setCircularOrbitPointingDown(planet, angle + 60, radius, planetOrbitPeriod);
+
+                if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
+                    MiscellaneousThemeGenerator.makeDiscoverable(mirror1, 300f, 2000f);
+                    MiscellaneousThemeGenerator.makeDiscoverable(mirror5, 300f, 2000f);
+                }
+            }
         }
 
         // Create solar shades
-        String[] shadeNames = {"Omega", "Psi", "Chi"};
-        float shadeAngle = ((planet.getCircularOrbitAngle() + 180f) % 360f) - 26f * (numOfShades >>> 1);
-        int shadeIndex = 1 - (numOfShades / 2);
-        for (int i = 0; i < numOfShades; i++) {
-            SectorEntityToken shade = system.addCustomEntity(null, "Stellar Shade " + shadeNames[shadeIndex], Entities.STELLAR_SHADE, factionId);
-            shade.setCircularOrbitPointingDown(planet, shadeAngle, radius + ((numOfShades == 3 && (i % 2) == 0) ? -10 : 25), planetOrbitPeriod);
+        if (numOfShades >= 1) {
+            SectorEntityToken shade2 = system.addCustomEntity(null, NAME_SHADE2, Entities.STELLAR_SHADE, factionId);
+            shade2.setCircularOrbitPointingDown(planet, angle + 180, radius + 25, planetOrbitPeriod);
 
-            if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
-                shade.setDiscoverable(true);
-                shade.setDiscoveryXP(300f);
-                shade.setSensorProfile(2000f);
+            if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE))
+                MiscellaneousThemeGenerator.makeDiscoverable(shade2, 300f, 2000f);
+
+            if (numOfShades >= 3) {
+                SectorEntityToken shade1 = system.addCustomEntity(null, NAME_SHADE1, Entities.STELLAR_SHADE, factionId);
+                SectorEntityToken shade3 = system.addCustomEntity(null, NAME_SHADE3, Entities.STELLAR_SHADE, factionId);
+                shade1.setCircularOrbitPointingDown(planet, angle + 154, radius - 10, planetOrbitPeriod);
+                shade3.setCircularOrbitPointingDown(planet, angle + 206, radius - 10, planetOrbitPeriod);
+
+                if (factionId == null || factionId.equals(DEFAULT_FACTION_TYPE)) {
+                    MiscellaneousThemeGenerator.makeDiscoverable(shade1, 300f, 2000f);
+                    MiscellaneousThemeGenerator.makeDiscoverable(shade3, 300f, 2000f);
+                }
             }
-
-            shadeAngle += 26f;
-            shadeIndex++;
         }
     }
 

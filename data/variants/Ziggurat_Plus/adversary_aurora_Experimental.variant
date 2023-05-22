@@ -1,0 +1,67 @@
+{
+    "displayName": "Experimental",
+    "fluxCapacitors": 20,
+    "fluxVents": 30,
+    "hullId": "aurora",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "variantId": "adversary_aurora_Experimental",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "resonatormrm"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 006": "resonatormrm"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 010": "amsrm",
+                "WS 011": "amsrm",
+                "WS 012": "amsrm",
+                "WS 013": "amsrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 008": "cryoflux"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "riftlance"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "minipulser",
+                "WS 005": "minipulser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 007": "riftbeam"}
+        }
+    ]
+}

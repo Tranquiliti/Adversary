@@ -1,0 +1,46 @@
+{
+    "displayName": "Experimental",
+    "fluxCapacitors": 10,
+    "fluxVents": 7,
+    "hullId": "scarab",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "stabilizedshieldemitter",
+        "frontemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "stabilizedshieldemitter"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "stabilizedshieldemitter"
+    ],
+    "variantId": "adversary_scarab_Experimental",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "shockrepeater",
+                "WS 003": "shockrepeater"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "shockrepeater"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "shockrepeater",
+                "WS 010": "shockrepeater"
+            }
+        }
+    ]
+}

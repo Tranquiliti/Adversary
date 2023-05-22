@@ -1,12 +1,12 @@
 Version 4.2.0
 
 * Changed a Pegasus variant in a MagicLib bounty
-* Externalized most Strings within the mod code which should help with any translation efforts
+* Externalized most Strings within the mod code, which should help with any translation efforts
   - A lot of code refactors and adjustments, as a result.
 * Ring types "rings_ice", "rings_dust", and "rings_special" now require a '0' appended to them
   - Now "rings_ice0", "rings_dust0", and "rings_special0"
 * Fixed the Blueprint Stealing delay using the Dynamic Doctrine's delay setting instead if LunaLib is not enabled.
-* Added two extraordinary MagicLib bounties that break vanilla boundaries (but still use vanilla assets)
+* Added two extraordinary MagicLib bounties that completely break vanilla boundaries
   - Disabled by default; use the "enableAdversarySillyBounties" setting in settings.json or LunaLib to allow these bounties to spawn in the bounty board
   - Requires the MagicLib library mod to work
 

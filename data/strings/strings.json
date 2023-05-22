@@ -1,11 +1,11 @@
-{
-	# Note for translators:
-	# Certain Strings, especially those in AdversaryUtil.java, are still hard-coded,
-	# either due to switch statements requiring constant String objects
-	# or the Strings only mattering in Dev Mode or debugging.
-	#
-	# That said, let me know if there's anything else that will make your life a little easier.
+# Note for translators:
+# Certain Strings, especially those in AdversaryUtil.java, remain hard-coded,
+# sometimes due to switch statements requiring constant String objects or
+# the Strings only mattering in Dev Mode or debugging (hopefully).
+#
+# That said, let me know if there's anything that I can do to make your life a little easier.
 
+{
 	"adversary":{
 		# Sole entry in customStarSystems.json
 		"settings_customStarSystems":"customStarSystems",
@@ -49,7 +49,7 @@
 		"opt_aiCoreAdmin":"aiCoreAdmin",
 		"opt_industries":"industries",
 
-		# Sub-options for "specChanges"
+		# Sub-options for "opt_specChanges"
 		"opt_atmosphereColor":"atmosphereColor",
 		"opt_atmosphereThickness":"atmosphereThickness",
 		"opt_atmosphereThicknessMin":"atmosphereThicknessMin",
@@ -89,6 +89,16 @@
 		"path_graphics_background":"graphics/backgrounds/",
 		"path_merged_json_customStarSystems":"data/config/customStarSystems.json",
 		"type_random_star_giant":"random_star_giant",
+
+		# Names used in Solar Array generation
+		"name_mirror1":"Stellar Mirror Alpha",
+		"name_mirror2":"Stellar Mirror Beta",
+		"name_mirror3":"Stellar Mirror Gamma",
+		"name_mirror4":"Stellar Mirror Delta",
+		"name_mirror5":"Stellar Mirror Epsilon",
+		"name_shade1":"Stellar Shade Omega",
+		"name_shade2":"Stellar Shade Psi",
+		"name_shade3":"Stellar Shade Chi",
 
 		# Other, used in code
 		"source_gen":"gen",
