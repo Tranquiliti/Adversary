@@ -6,6 +6,9 @@ Version 4.2.0
 * Ring types "rings_ice", "rings_dust", and "rings_special" now require a '0' appended to them
   - Now "rings_ice0", "rings_dust0", and "rings_special0"
 * Fixed the Blueprint Stealing delay using the Dynamic Doctrine's delay setting instead if LunaLib is not enabled.
+* Added two extraordinary MagicLib bounties that break vanilla boundaries (but still use vanilla assets)
+  - Disabled by default; use the "enableAdversarySillyBounties" setting in settings.json or LunaLib to allow these bounties to spawn in the bounty board
+  - Requires the MagicLib library mod to work
 
 
 

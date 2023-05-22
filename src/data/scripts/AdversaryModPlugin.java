@@ -35,6 +35,15 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         if (newGame || Global.getSector().getFaction(FACTION_ADVERSARY) == null) return;
         addAdversaryListeners(false);
+
+        boolean enableSilliness;
+        String sillyBountyId = Global.getSettings().getString("adversary", "settings_enableAdversarySillyBounties");
+        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
+            enableSilliness = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", sillyBountyId));
+        else enableSilliness = Global.getSettings().getBoolean(sillyBountyId);
+
+        if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
+        else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
     }
 
     // Generates mod systems after proc-gen so that planet markets can properly generate

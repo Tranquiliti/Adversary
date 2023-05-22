@@ -109,6 +109,7 @@
 		"settings_enableCustomStarSystems":"enableCustomStarSystems",
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
+		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
 
 		# Settings for the Adversary dynamic doctrine
 		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",

@@ -9,3 +9,6 @@ adversaryDynamicDoctrineDelay,Adversary Dynamic Doctrine Delay,Int,6,How many mo
 blueprintStealingHeader,Blueprint Stealing Header,Header,Blueprint Stealing,,,
 enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [Disabling this feature mid-game will not stop the Adversary faction from using already-stolen blueprints.] The targeted factions can be found and modified via ""adversaryStealsFromFactions"" in settings.json.",,
 adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steal attempt?,1,120
+,,,,,,
+OtherHeader,Other Header,Header,Other,,,
+enableAdversarySillyBounties,Enable Silly Bounties,Boolean,false,"Allows [ridiculous, vanilla-breaking MagicLib bounties] to spawn in the bounty board. [Not for those who value vanilla restraints!] Requires the [MagicLib] library mod to work.",,

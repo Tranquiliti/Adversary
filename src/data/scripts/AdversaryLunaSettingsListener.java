@@ -13,11 +13,17 @@ import java.util.List;
 public class AdversaryLunaSettingsListener implements LunaSettingsListener {
     @Override
     public void settingsChanged(String modId) {
-        if (Global.getCurrentState() != GameState.CAMPAIGN || Global.getSector().getFaction("adversary") == null)
-            return; // Do nothing if not in campaign or the Adversary faction does not exist
+        if (Global.getCurrentState() != GameState.CAMPAIGN) return;
+
+        SettingsAPI settings = Global.getSettings();
+
+        if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, settings.getString("adversary", "settings_enableAdversarySillyBounties")))) {
+            Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
+        } else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
+
+        if (Global.getSector().getFaction("adversary") == null) return;
 
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        SettingsAPI settings = Global.getSettings();
         String adversaryId = settings.getString("adversary", "faction_id_adversary");
 
         Integer doctrineDelay = LunaSettings.getInt(modId, settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay"));

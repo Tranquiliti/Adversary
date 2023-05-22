@@ -18,6 +18,11 @@
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
+	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards;
+	# definitely not for those who value vanilla restraints!
+	# Requires MagicLib to work; does nothing otherwise
+	"enableAdversarySillyBounties":false,
+
 	#-- Settings for the Adversary's dynamic doctrine --#
 	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDynamicDoctrine" to false.
 
