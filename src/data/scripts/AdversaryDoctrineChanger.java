@@ -31,7 +31,7 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         // Iterating in reverse order so that the first doctrine in JSONArray is considered the selected doctrine
         for (int i = possibleDoctrines.length() - 1; i >= 0; i--) {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
-            int weight = doctrine.optInt("weight", 1);
+            int weight = doctrine.optInt(Global.getSettings().getString("adversary", "settings_weight"), 1);
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
             // Ignore doctrines with weight of 0 or less
         }
@@ -181,34 +181,37 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         public PriorityDoctrine(JSONObject priorityObject, int weight) throws JSONException {
             this.weight = weight;
 
-            if (priorityObject.isNull("fleetComposition")) {
+            String compId = Global.getSettings().getString("adversary", "settings_fleetComposition");
+            if (priorityObject.isNull(compId)) {
                 warships = 3;
                 carriers = 2;
                 phaseShips = 2;
             } else {
-                JSONArray fleetComp = priorityObject.getJSONArray("fleetComposition");
+                JSONArray fleetComp = priorityObject.getJSONArray(compId);
                 warships = (byte) fleetComp.getInt(0);
                 carriers = (byte) fleetComp.getInt(1);
                 phaseShips = (byte) fleetComp.getInt(2);
             }
 
-            if (priorityObject.isNull("fleetDoctrine")) {
+            String doctrineId = Global.getSettings().getString("adversary", "settings_fleetDoctrine");
+            if (priorityObject.isNull(doctrineId)) {
                 officerQuality = 3;
                 shipQuality = 2;
                 numShips = 2;
             } else {
-                JSONArray fleetDoctrine = priorityObject.getJSONArray("fleetDoctrine");
+                JSONArray fleetDoctrine = priorityObject.getJSONArray(doctrineId);
                 officerQuality = (byte) fleetDoctrine.getInt(0);
                 shipQuality = (byte) fleetDoctrine.getInt(1);
                 numShips = (byte) fleetDoctrine.getInt(2);
             }
 
-            shipSize = (byte) priorityObject.optInt("shipSize", 5);
-            aggression = (byte) priorityObject.optInt("aggression", 5);
+            shipSize = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_shipSize"), 5);
+            aggression = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_aggression"), 5);
 
             // Fill priority ships
-            if (!priorityObject.isNull("priorityShips")) {
-                JSONArray shipList = priorityObject.getJSONArray("priorityShips");
+            String shipsId = Global.getSettings().getString("adversary", "settings_priorityShips");
+            if (!priorityObject.isNull(shipsId)) {
+                JSONArray shipList = priorityObject.getJSONArray(shipsId);
                 if (shipList.length() > 0) {
                     priorityShips = new String[shipList.length()];
                     for (int i = 0; i < shipList.length(); i++) priorityShips[i] = shipList.getString(i);
@@ -216,8 +219,9 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             }
 
             // Fill priority weapons
-            if (!priorityObject.isNull("priorityWeapons")) {
-                JSONArray weaponList = priorityObject.getJSONArray("priorityWeapons");
+            String weaponsId = Global.getSettings().getString("adversary", "settings_priorityWeapons");
+            if (!priorityObject.isNull(weaponsId)) {
+                JSONArray weaponList = priorityObject.getJSONArray(weaponsId);
                 if (weaponList.length() > 0) {
                     priorityWeapons = new String[weaponList.length()];
                     for (int i = 0; i < weaponList.length(); i++) priorityWeapons[i] = weaponList.getString(i);
@@ -225,8 +229,9 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
             }
 
             // Fill priority fighters
-            if (!priorityObject.isNull("priorityFighters")) {
-                JSONArray fighterList = priorityObject.getJSONArray("priorityFighters");
+            String fightersId = Global.getSettings().getString("adversary", "settings_priorityFighters");
+            if (!priorityObject.isNull(fightersId)) {
+                JSONArray fighterList = priorityObject.getJSONArray(fightersId);
                 if (fighterList.length() > 0) {
                     priorityFighters = new String[fighterList.length()];
                     for (int i = 0; i < fighterList.length(); i++) priorityFighters[i] = fighterList.getString(i);

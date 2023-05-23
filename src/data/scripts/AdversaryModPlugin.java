@@ -2,10 +2,13 @@ package data.scripts;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
+import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
 import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
@@ -18,38 +21,47 @@ import java.util.List;
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
+    private transient final String FACTION_ADVERSARY = Global.getSettings().getString("adversary", "faction_id_adversary");
 
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
         if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            LunaSettings.INSTANCE.addListener(new AdversaryLunaSettingsListener());
-        // Even without LunaLib enabled, above line crashes with NoClassDefFoundError using dev JDK...
-        // but it works perfectly fine on Starsector's JRE. (Surely nothing will go wrong!)
+            LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }
 
     // Re-applying or removing listeners on an existing game.
     @Override
     public void onGameLoad(boolean newGame) {
-        if (newGame || Global.getSector().getFaction("adversary") == null) return;
+        if (newGame || Global.getSector().getFaction(FACTION_ADVERSARY) == null) return;
         addAdversaryListeners(false);
+
+        boolean enableSilliness;
+        String sillyBountyId = Global.getSettings().getString("adversary", "settings_enableAdversarySillyBounties");
+        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
+            enableSilliness = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", sillyBountyId));
+        else enableSilliness = Global.getSettings().getBoolean(sillyBountyId);
+
+        if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
+        else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
     }
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
     @Override
     public void onNewGameAfterProcGen() {
         boolean doCustomStarSystems;
+        String systemsId = Global.getSettings().getString("adversary", "settings_enableCustomStarSystems");
         if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableCustomStarSystems"));
-        else doCustomStarSystems = Global.getSettings().getBoolean("enableCustomStarSystems");
+            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", systemsId));
+        else doCustomStarSystems = Global.getSettings().getBoolean(systemsId);
 
         if (doCustomStarSystems) try {
-            JSONArray systemList = Global.getSettings().getMergedJSONForMod("data/config/customStarSystems.json", "adversary").getJSONArray("customStarSystems");
+            JSONArray systemList = Global.getSettings().getMergedJSONForMod(Global.getSettings().getString("adversary", "path_merged_json_customStarSystems"), "adversary").getJSONArray(Global.getSettings().getString("adversary", "settings_customStarSystems"));
             AdversaryUtil util = new AdversaryUtil();
             for (int i = 0; i < systemList.length(); i++) {
                 JSONObject systemOptions = systemList.getJSONObject(i);
-                if (systemOptions.optBoolean("isEnabled", true))
-                    for (int numOfSystems = systemOptions.optInt("numberOfSystems", 1); numOfSystems > 0; numOfSystems--)
+                if (systemOptions.optBoolean(util.OPT_IS_ENABLED, true))
+                    for (int numOfSystems = systemOptions.optInt(util.OPT_NUMBER_OF_SYSTEMS, 1); numOfSystems > 0; numOfSystems--)
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
             marketsToOverrideAdmin = util.marketsToOverrideAdmin;
@@ -65,24 +77,24 @@ public class AdversaryModPlugin extends BaseModPlugin {
             AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
             for (MarketAPI market : marketsToOverrideAdmin.keySet())
                 switch (marketsToOverrideAdmin.get(market)) {
-                    case "player":
+                    case Factions.PLAYER:
                         market.setAdmin(null);
                         break;
-                    case "alpha_core":
-                        market.setAdmin(aiPlugin.createPerson("alpha_core", market.getFaction().getId(), 0));
+                    case Commodities.ALPHA_CORE:
+                        market.setAdmin(aiPlugin.createPerson(Commodities.ALPHA_CORE, market.getFaction().getId(), 0));
                 }
             // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
             marketsToOverrideAdmin.clear();
             marketsToOverrideAdmin = null;
         }
 
-        FactionAPI adversary = Global.getSector().getFaction("adversary");
+        FactionAPI adversary = Global.getSector().getFaction(FACTION_ADVERSARY);
         if (adversary != null) { // Null check so determined people can properly remove the faction from the mod without errors
             // Recent history has made them cold and hateful against almost everyone
             for (FactionAPI faction : Global.getSector().getAllFactions())
                 adversary.setRelationship(faction.getId(), -100f);
-            adversary.setRelationship("adversary", 100f);
-            adversary.setRelationship("neutral", 0f);
+            adversary.setRelationship(FACTION_ADVERSARY, 100f);
+            adversary.setRelationship(Factions.NEUTRAL, 0f);
 
             addAdversaryListeners(true);
         }
@@ -92,12 +104,14 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private void addAdversaryListeners(boolean newGame) {
         boolean dynaDoctrine, stealBlueprints;
         boolean lunaLibEnabled = Global.getSettings().getModManager().isModEnabled("lunalib");
+        String doctrineId = Global.getSettings().getString("adversary", "settings_enableAdversaryDynamicDoctrine");
+        String blueprintId = Global.getSettings().getString("adversary", "settings_enableAdversaryBlueprintStealing");
         if (lunaLibEnabled) { // LunaLib settings overrides settings.json
-            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryDynamicDoctrine"));
-            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", "enableAdversaryBlueprintStealing"));
+            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", doctrineId));
+            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", blueprintId));
         } else { // Just load from settings.json
-            dynaDoctrine = Global.getSettings().getBoolean("enableAdversaryDynamicDoctrine");
-            stealBlueprints = Global.getSettings().getBoolean("enableAdversaryBlueprintStealing");
+            dynaDoctrine = Global.getSettings().getBoolean(doctrineId);
+            stealBlueprints = Global.getSettings().getBoolean(blueprintId);
         }
 
         if (newGame) { // Assumes it gets called during onNewGameAfterEconomyLoad()
@@ -120,13 +134,16 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     // Adds a AdversaryDynamicDoctrine with settings
     private void addAdversaryDynamicDoctrine(boolean newGame, boolean lunaLibEnabled) {
+        SettingsAPI settings = Global.getSettings();
+
         Integer doctrineDelay = null;
-        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", "adversaryDynamicDoctrineDelay");
-        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt("adversaryDynamicDoctrineDelay");
+        String delayId = settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay");
+        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", delayId);
+        if (doctrineDelay == null) doctrineDelay = settings.getInt(delayId);
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger("adversary", (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), Global.getSettings().getJSONArray("adversaryPossibleDoctrines")));
+            Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryPossibleDoctrines"))));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -134,13 +151,16 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     // Adds a AdversaryBlueprintStealer with settings
     private void addAdversaryBlueprintStealer(boolean newGame, boolean lunaLibEnabled) {
+        SettingsAPI settings = Global.getSettings();
+
         Integer stealDelay = null;
-        if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", "adversaryBlueprintStealingDelay");
-        if (stealDelay == null) stealDelay = Global.getSettings().getInt("adversaryDynamicDoctrineDelay");
+        String delayId = settings.getString("adversary", "settings_adversaryBlueprintStealingDelay");
+        if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", delayId);
+        if (stealDelay == null) stealDelay = settings.getInt(delayId);
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer("adversary", (byte) (newGame ? -1 : 0), stealDelay.byteValue(), Global.getSettings().getJSONArray("adversaryStealsFromFactions")));
+            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), stealDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryStealsFromFactions"))));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }

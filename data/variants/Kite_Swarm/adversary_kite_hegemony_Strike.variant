@@ -1,0 +1,42 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 4,
+    "fluxVents": 3,
+    "hullId": "kite_hegemony",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems",
+        "missile_autoloader"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_kite_hegemony_Strike",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "gorgon",
+            "WS 002": "gorgon",
+            "WS 003": "railgun"
+        }
+    }]
+}

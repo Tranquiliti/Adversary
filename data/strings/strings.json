@@ -1,4 +1,142 @@
+# Note for translators:
+# Certain Strings, especially those in AdversaryUtil.java, remain hard-coded,
+# sometimes due to switch statements requiring constant String objects or
+# the Strings only mattering in Dev Mode or debugging (hopefully).
+#
+# That said, let me know if there's anything that I can do to make your life a little easier.
+
 {
+	"adversary":{
+		# Sole entry in customStarSystems.json
+		"settings_customStarSystems":"customStarSystems",
+
+		# Main system options in customStarSystems.json
+		"opt_isEnabled":"isEnabled",
+		"opt_numberOfSystems":"numberOfSystems",
+		"opt_isCoreWorldSystem":"isCoreWorldSystem",
+		"opt_hasSystemwideNebula":"hasSystemwideNebula",
+		"opt_addCoronalHypershunt":"addCoronalHypershunt",
+		"opt_addDomainCryosleeper":"addDomainCryosleeper",
+		"opt_setLocation":"setLocation",
+		"opt_setLocationOverride":"setLocationOverride",
+		"opt_systemBackground":"systemBackground",
+		"opt_systemMusic":"systemMusic",
+		"opt_fringeJumpPoint":"fringeJumpPoint",
+		"opt_starsInSystemCenter":"starsInSystemCenter",
+		"opt_orbitingBodies":"orbitingBodies",
+		"opt_systemFeatures":"systemFeatures",
+
+		# Sub-options for various options
+		"opt_orbitRadius":"orbitRadius",
+		"opt_name":"name",
+		"opt_orbitAngle":"orbitAngle",
+		"opt_orbitDays":"orbitDays",
+		"opt_stars":"stars",
+		"opt_type":"type",
+		"opt_radius":"radius",
+		"opt_coronaRadius":"coronaRadius",
+		"opt_flareChance":"flareChance",
+		"opt_specChanges":"specChanges",
+		"opt_customDescriptionId":"customDescriptionId",
+		"opt_focus":"focus",
+		"opt_conditions":"conditions",
+		"opt_entitiesAtStablePoints":"entitiesAtStablePoints",
+		"opt_planetOptions":"planetOptions",
+		"opt_stationType":"stationType",
+		"opt_marketSize":"marketSize",
+		"opt_factionId":"factionId",
+		"opt_freePort":"freePort",
+		"opt_aiCoreAdmin":"aiCoreAdmin",
+		"opt_industries":"industries",
+
+		# Sub-options for "opt_specChanges"
+		"opt_atmosphereColor":"atmosphereColor",
+		"opt_atmosphereThickness":"atmosphereThickness",
+		"opt_atmosphereThicknessMin":"atmosphereThicknessMin",
+		"opt_cloudColor":"cloudColor",
+		"opt_cloudRotation":"cloudRotation",
+		"opt_cloudTexture":"cloudTexture",
+		"opt_glowColor":"glowColor",
+		"opt_glowTexture":"glowTexture",
+		"opt_iconColor":"iconColor",
+		"opt_pitch":"pitch",
+		"opt_planetColor":"planetColor",
+		"opt_rotation":"rotation",
+		"opt_texture":"texture",
+		"opt_tilt":"tilt",
+		"opt_useReverseLightForGlow":"useReverseLightForGlow",
+		"opt_typeOverride":"typeOverride",
+
+		# Sub-options for certain system features
+		"opt_isDamaged":"isDamaged",
+		"opt_size":"size",
+		"opt_innerBandIndex":"innerBandIndex",
+		"opt_outerBandIndex":"outerBandIndex",
+		"opt_bandIndex":"bandIndex",
+		"opt_middleRadius":"middleRadius",
+		"opt_outerRadius":"outerRadius",
+		"opt_baseColor":"baseColor",
+		"opt_auroraFrequency":"auroraFrequency",
+		"opt_auroraColor":"auroraColor",
+
+		# Default types/paths
+		"default_star_type":"star_red_dwarf",
+		"default_planet_type":"barren",
+		"default_faction_type":"neutral",
+		"default_fringe_jump_point_name":"Fringe Jump Point",
+		"default_station_type":"station_side06",
+		"path_graphics_planet":"graphics/planets/",
+		"path_graphics_background":"graphics/backgrounds/",
+		"path_merged_json_customStarSystems":"data/config/customStarSystems.json",
+		"type_random_star_giant":"random_star_giant",
+
+		# Names used in Solar Array generation
+		"name_mirror1":"Stellar Mirror Alpha",
+		"name_mirror2":"Stellar Mirror Beta",
+		"name_mirror3":"Stellar Mirror Gamma",
+		"name_mirror4":"Stellar Mirror Delta",
+		"name_mirror5":"Stellar Mirror Epsilon",
+		"name_shade1":"Stellar Shade Omega",
+		"name_shade2":"Stellar Shade Psi",
+		"name_shade3":"Stellar Shade Chi",
+
+		# Other, used in code
+		"source_gen":"gen",
+		"category_misc":"misc",
+		"faction_id_adversary":"adversary",
+
+		# Error messages for customStarSystems.json
+		"error_noCenterStar":"Cannot create a system with no center stars! Custom star systems require at least one star in the \"stars\" list of \"starsInSystemCenter\"!",
+		"error_starTypeNotFound":"Star type %s not found!",
+		"error_planetTypeNotFound":"Planet type %s not found!",
+		"error_invalidFocus":"Invalid \"focus\" index in %s's \"orbitingBodies\" entry #%d!",
+		"error_invalidConditionUninhabited":"Error attempting to add condition \"%s\" for \"%s\" planet with orbit radius %d!",
+		"error_invalidConditionInhabited":"Error attempting to add condition \"%s\" for Size %d \"%s\" market!",
+		"error_invalidIndustry":"Error attempting to add industry \"%s\" for Size %d \"%s\" market!",
+		"error_invalidSalvageEntity":"Salvage entity %s not found!",
+
+		# Settings in settings.json
+		"settings_enableCustomStarSystems":"enableCustomStarSystems",
+		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
+		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
+		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
+
+		# Settings for the Adversary dynamic doctrine
+		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",
+		"settings_adversaryPossibleDoctrines":"adversaryPossibleDoctrines",
+		"settings_weight":"weight",
+		"settings_fleetComposition":"fleetComposition",
+		"settings_fleetDoctrine":"fleetDoctrine",
+		"settings_shipSize":"shipSize",
+		"settings_aggression":"aggression",
+		"settings_priorityShips":"priorityShips",
+		"settings_priorityWeapons":"priorityWeapons",
+		"settings_priorityFighters":"priorityFighters",
+
+		# Settings for the Adversary blueprint stealing
+		"settings_adversaryBlueprintStealingDelay":"adversaryBlueprintStealingDelay",
+		"settings_adversaryStealsFromFactions":"adversaryStealsFromFactions",
+	},
 	"CHM":{
 		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\"",
 	},

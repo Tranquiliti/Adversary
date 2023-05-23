@@ -1,0 +1,68 @@
+{
+    "displayName": "Experimental",
+    "fluxCapacitors": 14,
+    "fluxVents": 0,
+    "hullId": "ziggurat",
+    "hullMods": [
+        "high_frequency_attractor",
+        "eccm",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "faulty_auto",
+        "glitched_sensors",
+        "increased_maintenance",
+        "missleracks",
+        "phase_anchor"
+    ],
+    "permaMods": [
+        "high_frequency_attractor",
+        "eccm",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "faulty_auto",
+        "glitched_sensors",
+        "increased_maintenance"
+    ],
+    "sMods": [
+        "eccm",
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_ziggurat_Experimental",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 000": "rifttorpedo",
+                "WS 001": "rifttorpedo"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 006": "amsrm",
+                "WS 007": "amsrm",
+                "WS 008": "amsrm",
+                "WS 009": "amsrm",
+                "WS 010": "amsrm",
+                "WS 011": "amsrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 002": "resonatormrm",
+                "WS 003": "resonatormrm",
+                "WS 004": "resonatormrm",
+                "WS 005": "resonatormrm"
+            }
+        }
+    ]
+}

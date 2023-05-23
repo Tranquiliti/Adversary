@@ -182,7 +182,7 @@
 					"innerBandIndex":1,
 					"outerBandIndex":3,
 				},
-				{	"type":"rings_ice",
+				{	"type":"rings_ice0",
 					"orbitRadius":300,
 					"focus":5,
 					"name":"Hope's Aura",
