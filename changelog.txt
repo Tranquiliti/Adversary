@@ -9,6 +9,8 @@ Version 4.2.0
 * Added two extraordinary MagicLib bounties that completely break vanilla boundaries
   - Disabled by default; use the "enableAdversarySillyBounties" setting in settings.json or LunaLib to allow these bounties to spawn in the bounty board
   - Requires the MagicLib library mod to work
+* Updated LunaLib compatibility
+  - If you use LunaLib alongside this mod, you'll need to update LunaLib to at least v1.7.4 to ensure compatibility.
 
 
 
