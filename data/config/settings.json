@@ -1,7 +1,8 @@
-#--Note for LunaLib users--#
+#-- Note for LunaLib users --#
 # LunaLib settings will override the following settings in this settings.json:
 # "enableCustomStarSystems", "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
 # "adversaryDynamicDoctrineDelay", and "adversaryBlueprintStealingDelay"
+#
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {

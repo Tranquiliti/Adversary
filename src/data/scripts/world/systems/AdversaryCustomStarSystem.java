@@ -45,8 +45,7 @@ public class AdversaryCustomStarSystem {
 
         // Adds a Domain-era cryosleeper if enabled
         if (systemOptions.optBoolean(util.OPT_ADD_DOMAIN_CRYOSLEEPER, false))
-            util.generateCryosleeper(system, null, fringeRadius + 4000f, !hasFactionPresence);
-        // "Domain-era Cryosleeper \"Sisyphus\""
+            util.generateCryosleeper(system, util.DEFAULT_CRYOSLEEPER_NAME, fringeRadius + 4000f, !hasFactionPresence);
 
         // Add relevant system tags it is NOT a Core World system
         if (!systemOptions.optBoolean(util.OPT_IS_CORE_WORLD_SYSTEM, false)) {

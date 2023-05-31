@@ -1,3 +1,10 @@
+Version 4.2.1
+
+* Added "rings_asteroid0" as a valid option for ring bands
+* More code refactors/cleanup
+
+
+
 Version 4.2.0
 
 * Changed a Pegasus variant in a MagicLib bounty

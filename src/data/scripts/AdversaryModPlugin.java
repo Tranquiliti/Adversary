@@ -22,12 +22,13 @@ import java.util.List;
 public class AdversaryModPlugin extends BaseModPlugin {
     private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
     private transient final String FACTION_ADVERSARY = Global.getSettings().getString("adversary", "faction_id_adversary");
+    private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
+    private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
-        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
+        if (LUNALIB_ENABLED) LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }
 
     // Re-applying or removing listeners on an existing game.
@@ -38,8 +39,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         boolean enableSilliness;
         String sillyBountyId = Global.getSettings().getString("adversary", "settings_enableAdversarySillyBounties");
-        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            enableSilliness = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", sillyBountyId));
+        if (LUNALIB_ENABLED)
+            enableSilliness = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, sillyBountyId));
         else enableSilliness = Global.getSettings().getBoolean(sillyBountyId);
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
@@ -51,8 +52,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onNewGameAfterProcGen() {
         boolean doCustomStarSystems;
         String systemsId = Global.getSettings().getString("adversary", "settings_enableCustomStarSystems");
-        if (Global.getSettings().getModManager().isModEnabled("lunalib"))
-            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", systemsId));
+        if (LUNALIB_ENABLED)
+            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, systemsId));
         else doCustomStarSystems = Global.getSettings().getBoolean(systemsId);
 
         if (doCustomStarSystems) try {
@@ -103,31 +104,30 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Remove or add listeners to a game depending on currently-set settings
     private void addAdversaryListeners(boolean newGame) {
         boolean dynaDoctrine, stealBlueprints;
-        boolean lunaLibEnabled = Global.getSettings().getModManager().isModEnabled("lunalib");
         String doctrineId = Global.getSettings().getString("adversary", "settings_enableAdversaryDynamicDoctrine");
         String blueprintId = Global.getSettings().getString("adversary", "settings_enableAdversaryBlueprintStealing");
-        if (lunaLibEnabled) { // LunaLib settings overrides settings.json
-            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", doctrineId));
-            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean("adversary", blueprintId));
+        if (LUNALIB_ENABLED) { // LunaLib settings overrides settings.json
+            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, doctrineId));
+            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, blueprintId));
         } else { // Just load from settings.json
             dynaDoctrine = Global.getSettings().getBoolean(doctrineId);
             stealBlueprints = Global.getSettings().getBoolean(blueprintId);
         }
 
         if (newGame) { // Assumes it gets called during onNewGameAfterEconomyLoad()
-            if (dynaDoctrine) addAdversaryDynamicDoctrine(true, lunaLibEnabled);
-            if (stealBlueprints) addAdversaryBlueprintStealer(true, lunaLibEnabled);
+            if (dynaDoctrine) addAdversaryDynamicDoctrine(true, LUNALIB_ENABLED);
+            if (stealBlueprints) addAdversaryBlueprintStealer(true, LUNALIB_ENABLED);
         } else { // Loading existing game
             ListenerManagerAPI listMan = Global.getSector().getListenerManager();
             if (dynaDoctrine) {
                 List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
-                if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, lunaLibEnabled);
+                if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, LUNALIB_ENABLED);
                 else // Refresh needed since Adversary's current doctrine resets upon loading a new Starsector application.
                     doctrineListeners.get(0).refresh();
             } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable dynamic doctrine
 
             if (stealBlueprints && listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty())
-                addAdversaryBlueprintStealer(false, lunaLibEnabled);
+                addAdversaryBlueprintStealer(false, LUNALIB_ENABLED);
             else listMan.removeListenerOfClass(AdversaryBlueprintStealer.class); // Disable blueprint stealer
         }
     }
@@ -138,7 +138,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         Integer doctrineDelay = null;
         String delayId = settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay");
-        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt("adversary", delayId);
+        if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, delayId);
         if (doctrineDelay == null) doctrineDelay = settings.getInt(delayId);
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
@@ -155,7 +155,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         Integer stealDelay = null;
         String delayId = settings.getString("adversary", "settings_adversaryBlueprintStealingDelay");
-        if (lunaLibEnabled) stealDelay = LunaSettings.getInt("adversary", delayId);
+        if (lunaLibEnabled) stealDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, delayId);
         if (stealDelay == null) stealDelay = settings.getInt(delayId);
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
