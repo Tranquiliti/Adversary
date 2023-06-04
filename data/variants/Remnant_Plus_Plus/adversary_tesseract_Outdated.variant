@@ -1,0 +1,56 @@
+{
+    "displayName": "Outdated",
+    "fluxCapacitors": 0,
+    "fluxVents": 4,
+    "hullId": "tesseract",
+    "hullMods": [
+        "armoredweapons",
+        "autorepair",
+        "hardenedshieldemitter",
+        "auxiliarythrusters",
+        "heavyarmor",
+        "pointdefenseai",
+        "targetingunit",
+        "reinforcedhull"
+    ],
+    "permaMods": [
+        "armoredweapons",
+        "autorepair",
+        "hardenedshieldemitter"
+    ],
+    "sMods": [
+        "armoredweapons",
+        "autorepair",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_tesseract_Outdated",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "devastator"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "heavymg",
+                "WS 007": "heavymg",
+                "WS 008": "heavymg",
+                "WS 010": "heavymg"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "shockrepeater",
+                "WS 001": "shockrepeater",
+                "WS 002": "shockrepeater",
+                "WS 003": "shockrepeater",
+                "WS 004": "shockrepeater",
+                "WS 005": "shockrepeater"
+            }
+        }
+    ]
+}

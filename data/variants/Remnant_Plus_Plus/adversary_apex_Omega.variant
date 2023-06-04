@@ -1,0 +1,54 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 0,
+    "fluxVents": 20,
+    "hullId": "apex",
+    "hullMods": [
+        "defensive_targeting_array",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "adaptiveshields"
+    ],
+    "permaMods": [
+        "defensive_targeting_array",
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "sMods": [
+        "defensive_targeting_array",
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "variantId": "adversary_apex_Omega",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "cryoflux",
+                "WS 003": "cryoflux"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 004": "resonatormrm",
+                "WS 005": "resonatormrm",
+                "WS 006": "resonatormrm",
+                "WS 007": "resonatormrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "shockrepeater",
+                "WS 011": "shockrepeater",
+                "WS 012": "shockrepeater",
+                "WS 013": "shockrepeater"
+            }
+        }
+    ],
+    "wings": []
+}

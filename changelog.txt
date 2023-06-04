@@ -1,5 +1,8 @@
-Version 4.2.1
+Version 4.3.0
 
+* Added a [VERY REDACTED] MagicLib bounty, only available by enabling "enableAdversarySillyBounties"
+  - You'll also need to attempt or defeat its lesser bounty version first.
+* Adjusted a couple of regular MagicLib bounties, mostly changing a few variants/ships
 * Added "rings_asteroid0" as a valid option for ring bands
 * More code refactors/cleanup
 

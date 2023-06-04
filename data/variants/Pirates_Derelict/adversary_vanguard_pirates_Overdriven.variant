@@ -1,0 +1,56 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "vanguard_pirates",
+    "hullMods": [
+        "eccm",
+        "reinforcedhull",
+        "damaged_mounts",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors",
+        "fragile_subsystems",
+        "armoredweapons",
+        "auxiliarythrusters",
+        "missleracks",
+        "fluxbreakers",
+        "safetyoverrides",
+        "unstable_injector",
+    ],
+    "permaMods": [
+        "eccm",
+        "reinforcedhull",
+        "damaged_mounts",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "eccm",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_vanguard_pirates_Overdriven",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "lightmortar",
+                "WS 006": "lightmortar"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "gorgon",
+                "WS 001": "gorgon",
+                "WS 002": "gorgon",
+                "WS 003": "mininglaser",
+                "WS 004": "mininglaser"
+            }
+        }
+    ]
+}

@@ -2,31 +2,31 @@
     "displayName": "Command",
     "fluxCapacitors": 10,
     "fluxVents": 0,
-    "hullId": "afflictor",
+    "hullId": "shade",
     "hullMods": [
+        "nav_relay",
         "operations_center",
-        "reinforcedhull",
-        "advancedoptics",
         "hardened_subsystems",
-        "insulatedengine",
+        "pointdefenseai",
         "phase_anchor"
     ],
     "permaMods": [
-        "operations_center",
-        "reinforcedhull"
+        "nav_relay",
+        "operations_center"
     ],
     "sMods": [
-        "operations_center",
-        "reinforcedhull"
+        "nav_relay",
+        "operations_center"
     ],
-    "variantId": "adversary_afflictor_Command",
+    "variantId": "adversary_shade_Command",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "taclaser",
-                "WS 003": "taclaser"
+                "WS 003": "lrpdlaser",
+                "WS 004": "lrpdlaser",
+                "WS 005": "lrpdlaser"
             }
         },
         {
@@ -34,13 +34,8 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "heatseeker",
-                "WS 004": "heatseeker"
+                "WS 002": "heatseeker"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 006": "taclaser"}
         }
     ]
 }

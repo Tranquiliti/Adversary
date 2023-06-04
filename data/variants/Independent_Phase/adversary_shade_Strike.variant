@@ -1,14 +1,13 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 20,
+    "fluxCapacitors": 9,
     "fluxVents": 0,
-    "hullId": "harbinger",
+    "hullId": "shade",
     "hullMods": [
         "heavyarmor",
         "reinforcedhull",
         "adaptive_coils",
         "armoredweapons",
-        "magazines",
         "hardened_subsystems",
         "fluxbreakers"
     ],
@@ -20,23 +19,19 @@
         "heavyarmor",
         "reinforcedhull"
     ],
-    "variantId": "adversary_harbinger_Strike",
+    "variantId": "adversary_shade_Strike",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {
-                "WS 001": "miningblaster",
-                "WS 002": "ionpulser",
-                "WS 003": "ionpulser"
-            }
+            "weapons": {"WS 004": "amblaster"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "swarmer",
-                "WS 005": "swarmer"
+                "WS 001": "lightneedler",
+                "WS 002": "lightneedler"
             }
         }
     ]

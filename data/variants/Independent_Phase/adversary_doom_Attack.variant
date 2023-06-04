@@ -1,14 +1,15 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 22,
+    "fluxCapacitors": 4,
     "fluxVents": 0,
     "hullId": "doom",
     "hullMods": [
         "heavyarmor",
         "reinforcedhull",
-        "adaptive_coils",
-        "advancedoptics",
-        "targetingunit"
+        "armoredweapons",
+        "missleracks",
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "heavyarmor",
@@ -24,16 +25,16 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "phasebeam",
-                "WS 008": "phasebeam"
+                "WS 007": "ionbeam",
+                "WS 008": "ionbeam"
             }
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "pilum",
-                "WS 002": "pilum"
+                "WS 001": "phasecl",
+                "WS 002": "phasecl"
             }
         },
         {
@@ -50,8 +51,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 011": "pdburst",
-                "WS 012": "pdburst"
+                "WS 011": "lrpdlaser",
+                "WS 012": "lrpdlaser"
             }
         }
     ]

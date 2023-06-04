@@ -1,14 +1,15 @@
 {
-    "displayName": "Attack",
+    "displayName": "Assault",
     "fluxCapacitors": 10,
-    "fluxVents": 1,
-    "hullId": "shade",
+    "fluxVents": 0,
+    "hullId": "afflictor",
     "hullMods": [
         "heavyarmor",
         "reinforcedhull",
         "adaptive_coils",
-        "missleracks",
-        "hardened_subsystems"
+        "armoredweapons",
+        "hardened_subsystems",
+        "fluxbreakers"
     ],
     "permaMods": [
         "heavyarmor",
@@ -18,28 +19,30 @@
         "heavyarmor",
         "reinforcedhull"
     ],
-    "variantId": "adversary_shade_Attack",
+    "variantId": "adversary_afflictor_Assault",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
-            "weapons": {
-                "WS 003": "irpulse",
-                "WS 005": "irpulse"
-            }
+            "weapons": {"WS 002": "amblaster"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "gazer",
-                "WS 002": "gazer"
+                "WS 001": "swarmer",
+                "WS 004": "swarmer"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "lightneedler"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 004": "mininglaser"}
+            "weapons": {"WS 006": "ioncannon"}
         }
     ]
 }

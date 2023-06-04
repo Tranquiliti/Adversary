@@ -1,0 +1,70 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 0,
+    "fluxVents": 50,
+    "hullId": "nova",
+    "hullMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "fluxdistributor",
+        "adaptiveshields"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "variantId": "adversary_nova_Omega",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "riftcascade"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 006": "resonatormrm",
+                "WS 007": "resonatormrm",
+                "WS 008": "resonatormrm",
+                "WS 009": "resonatormrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "realitydisruptor"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "cryoblaster",
+                "WS 005": "cryoblaster"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "disintegrator",
+                "WS 003": "disintegrator"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "shockrepeater",
+                "WS 012": "shockrepeater"
+            }
+        }
+    ]
+}

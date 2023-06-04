@@ -1,0 +1,66 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 0,
+    "fluxVents": 3,
+    "hullId": "radiant",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "hardenedshieldemitter",
+        "autorepair",
+        "converted_hangar",
+        "defensive_targeting_array",
+        "reinforcedhull",
+        "fluxbreakers",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_radiant_Omega",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 005": "resonatormrm",
+                "WS 006": "resonatormrm",
+                "WS 007": "resonatormrm",
+                "WS 008": "resonatormrm"
+            }
+        }
+    ],
+    "wings": ["spark_wing"]
+}

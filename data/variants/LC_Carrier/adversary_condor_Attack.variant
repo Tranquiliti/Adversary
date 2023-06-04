@@ -1,10 +1,10 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 6,
-    "fluxVents": 5,
+    "fluxCapacitors": 7,
+    "fluxVents": 7,
     "hullId": "condor",
     "hullMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -13,7 +13,7 @@
         "increased_maintenance"
     ],
     "permaMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -22,7 +22,7 @@
         "increased_maintenance"
     ],
     "sMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull"
     ],
     "variantId": "adversary_condor_Attack",
@@ -38,7 +38,7 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 003": "harpoonpod"}
+            "weapons": {"WS 003": "pilum"}
         }
     ],
     "wings": [

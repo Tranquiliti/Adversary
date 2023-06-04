@@ -1,37 +1,38 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 0,
-    "fluxVents": 2,
-    "hullId": "vanguard_pirates",
+    "fluxVents": 1,
+    "hullId": "vanguard",
     "hullMods": [
-        "missleracks",
+        "eccm",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
         "erratic_injector",
-        "glitched_sensors",
         "increased_maintenance",
+        "fragile_subsystems",
         "armoredweapons",
         "autorepair",
         "auxiliarythrusters",
         "blast_doors",
+        "missleracks",
         "heavyarmor",
         "insulatedengine"
     ],
     "permaMods": [
-        "missleracks",
+        "eccm",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
         "erratic_injector",
-        "glitched_sensors",
-        "increased_maintenance"
+        "increased_maintenance",
+        "fragile_subsystems"
     ],
     "sMods": [
-        "missleracks",
+        "eccm",
         "reinforcedhull"
     ],
-    "variantId": "adversary_vanguard_pirates_Attack",
+    "variantId": "adversary_vanguard_Attack",
     "weaponGroups": [
         {
             "autofire": true,
@@ -45,17 +46,19 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "gorgon",
-                "WS 001": "gorgon",
-                "WS 002": "gorgon",
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
+                "WS 000": "atropos",
+                "WS 001": "atropos",
+                "WS 002": "atropos"
             }
         },
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 007": "lightag"}
+            "weapons": {
+                "WS 003": "lightmortar",
+                "WS 004": "lightmortar",
+                "WS 007": "lightmortar"
+            }
         }
     ]
 }
