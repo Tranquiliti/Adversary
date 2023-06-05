@@ -1,33 +1,34 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 2,
+    "displayName": "Attack",
+    "fluxCapacitors": 5,
     "fluxVents": 10,
     "hullId": "hyperion",
     "hullMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter",
         "hardened_subsystems",
-        "safetyoverrides"
+        "auxiliarythrusters",
+        "extendedshieldemitter",
+        "targetingunit",
+        "fluxbreakers",
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "hardened_subsystems"
     ],
     "sMods": [
         "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "hardened_subsystems"
     ],
-    "variantId": "adversary_hyperion_Overdriven",
+    "variantId": "adversary_hyperion_Assault",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 002": "ionpulser"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "heavyblaster"}
+            "weapons": {
+                "WS 001": "ionpulser",
+                "WS 002": "miningblaster"
+            }
         },
         {
             "autofire": true,

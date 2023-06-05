@@ -1,22 +1,25 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 13,
+    "displayName": "Strike",
+    "fluxCapacitors": 2,
     "fluxVents": 0,
     "hullId": "colossus2",
     "hullMods": [
-        "eccm",
-        "reinforcedhull",
-        "missleracks"
+        "missleracks",
+        "heavyarmor",
+        "armoredweapons",
+        "autorepair",
+        "reinforcedhull"
     ],
     "permaMods": [
-        "eccm",
-        "reinforcedhull"
+        "missleracks",
+        "heavyarmor"
     ],
     "sMods": [
-        "eccm",
-        "reinforcedhull"
+        "missleracks",
+        "heavyarmor"
     ],
-    "variantId": "adversary_colossus2_Overdriven",
+    "suppressedMods": ["ill_advised"],
+    "variantId": "adversary_colossus2_Strike",
     "weaponGroups": [
         {
             "autofire": true,
@@ -32,14 +35,6 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {"WS 017": "hammerrack"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 011": "mininglaser",
-                "WS 012": "mininglaser"
-            }
         }
     ]
 }

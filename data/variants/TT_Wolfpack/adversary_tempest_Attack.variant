@@ -1,38 +1,38 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 10,
-    "fluxVents": 8,
+    "fluxVents": 10,
     "hullId": "tempest",
     "hullMods": [
-        "defensive_targeting_array",
         "hardenedshieldemitter",
-        "frontemitter",
+        "missile_autoloader",
+        "defensive_targeting_array",
         "hardened_subsystems"
     ],
     "permaMods": [
-        "defensive_targeting_array",
-        "frontemitter"
+        "hardenedshieldemitter",
+        "missile_autoloader"
     ],
     "sMods": [
-        "defensive_targeting_array",
-        "frontemitter"
+        "hardenedshieldemitter",
+        "missile_autoloader"
     ],
     "variantId": "adversary_tempest_Attack",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "pulselaser"}
+            "weapons": {"WS 002": "irautolance"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 003": "swarmer"}
+            "weapons": {"WS 003": "gazer"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 002": "heavyburst"}
+            "weapons": {"WS 001": "pulselaser"}
         }
     ],
     "wings": []

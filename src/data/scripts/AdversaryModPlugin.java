@@ -25,6 +25,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
     private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
+    // TODO: reorganize/refactor classes and packages (everything under org.Adversary, for example)
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {

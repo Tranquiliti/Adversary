@@ -5,34 +5,32 @@
     "hullId": "omen",
     "hullMods": [
         "hardenedshieldemitter",
+        "missile_autoloader",
         "hardened_subsystems",
-        "pointdefenseai",
-        "missile_autoloader"
+        "pointdefenseai"
     ],
     "permaMods": [
         "hardenedshieldemitter",
-        "hardened_subsystems"
+        "missile_autoloader"
     ],
     "sMods": [
         "hardenedshieldemitter",
-        "hardened_subsystems"
+        "missile_autoloader"
     ],
     "variantId": "adversary_omen_Support",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "irpulse"}
+            "weapons": {
+                "WS 001": "pdburst",
+                "WS 002": "pdburst"
+            }
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {"WS 003": "gazer"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "lrpdlaser"}
         }
     ]
 }

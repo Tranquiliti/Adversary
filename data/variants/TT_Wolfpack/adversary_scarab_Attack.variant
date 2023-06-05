@@ -1,0 +1,42 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "scarab",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp",
+        "hardened_subsystems",
+        "targetingunit",
+        "frontemitter",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp"
+    ],
+    "variantId": "adversary_scarab_Attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "taclaser",
+                "WS 003": "taclaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "taclaser",
+                "WS 005": "taclaser",
+                "WS 010": "taclaser"
+            }
+        }
+    ]
+}

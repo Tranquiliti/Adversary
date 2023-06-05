@@ -1,23 +1,22 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 10,
     "fluxVents": 10,
     "hullId": "brawler_tritachyon",
     "hullMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter",
-        "advancedoptics",
         "fluxdistributor",
-        "targetingunit",
-        "adaptiveshields"
+        "hardenedshieldemitter",
+        "advancedoptics",
+        "adaptiveshields",
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "fluxdistributor",
+        "hardenedshieldemitter"
     ],
     "sMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter"
+        "fluxdistributor",
+        "hardenedshieldemitter"
     ],
     "variantId": "adversary_brawler_tritachyon_Close_Support",
     "weaponGroups": [
