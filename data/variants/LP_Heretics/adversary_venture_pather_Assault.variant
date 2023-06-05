@@ -1,7 +1,7 @@
 {
     "displayName": "Assault",
     "fluxCapacitors": 0,
-    "fluxVents": 10,
+    "fluxVents": 4,
     "hullId": "venture_pather",
     "hullMods": [
         "missleracks",
@@ -43,6 +43,14 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 002": "kineticblaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightmg",
+                "WS 003": "lightmg"
+            }
         }
     ]
 }

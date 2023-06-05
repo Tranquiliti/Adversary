@@ -5,6 +5,7 @@ Version 4.3.0
 * Major adjustments to MagicLib bounties:
   - Most bounties now have custom officers on designated ships
   - Changed ship variants and/or composition for most bounties
+  - Rewards have been adjusted for some bounties
 * Added "rings_asteroid0" as a valid option for ring bands
 * More code refactors/cleanup
 

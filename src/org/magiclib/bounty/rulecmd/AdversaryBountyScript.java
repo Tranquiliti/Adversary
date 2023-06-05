@@ -1,9 +1,9 @@
 package org.magiclib.bounty.rulecmd;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
-import com.fs.starfarer.api.characters.FullName;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
@@ -33,15 +33,15 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             return true;
         }
 
-        String bountyFactionId = bounty.getFleet().getFaction().getId();
         switch (bountyId) {
             case "adversary_TT_Wolfpack":
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction("adversary");
                     if (member.getHullId().equals("hyperion")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
@@ -56,8 +56,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction(Factions.LUDDIC_PATH);
                     if (member.getHullId().equals("prometheus2")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.LUDDIC_PATH, 5, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 1);
                         person.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
                         person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
@@ -73,8 +74,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction("adversary");
                     if (atlasCount < 3 && member.getHullId().equals("atlas2")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                         person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
@@ -83,7 +85,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkipRefresh(false);
                         atlasCount++;
                     } else if (member.getHullId().equals("falcon_p")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
@@ -98,8 +100,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Training, Officer Management, and Cybernetic Augmentation
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction(Factions.HEGEMONY);
                     if (member.getHullId().equals("dominator_xiv")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.HEGEMONY, 6, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
                         person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 1);
@@ -108,7 +111,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("onslaught_xiv")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.HEGEMONY, 6, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
                         person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 1);
@@ -124,8 +127,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction("adversary");
                     if (member.getHullId().equals("gryphon")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
@@ -133,7 +137,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("champion")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                         person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
@@ -141,7 +145,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 1);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("pegasus")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
@@ -156,8 +160,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction("adversary");
                     if (member.getHullId().equals("eradicator")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
@@ -165,7 +170,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("retribution")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.AGGRESSIVE, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                         person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
@@ -180,8 +185,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction("adversary");
                     if (member.getHullId().equals("doom")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.AGGRESSIVE, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
                         person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 1);
@@ -189,7 +195,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("apogee")) {
-                        PersonAPI person = createOfficer(bountyFactionId, "adversary", 5, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
@@ -204,8 +210,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction(Factions.LIONS_GUARD);
                     if (member.getHullId().equals("eagle_LG")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.LIONS_GUARD, 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
@@ -213,7 +220,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("sunder_LG")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.LIONS_GUARD, 5, Personalities.CAUTIOUS, member);
+                        PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
@@ -228,8 +235,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume everything, because this is a silly bounty, and it should stay that way
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction(Factions.HEGEMONY);
                     if (member.getHullId().equals("kite_hegemony")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.HEGEMONY, 3, Personalities.RECKLESS, member);
+                        PersonAPI person = createOfficer(faction, 3, Personalities.RECKLESS, member);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
                         person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
@@ -242,8 +250,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume sleeper officers (a lot of them)
                     member.setCaptain(null);
+                    FactionAPI faction = Global.getSector().getFaction(Factions.TRITACHYON);
                     if (member.getHullId().equals("scarab")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.TRITACHYON, 7, Personalities.AGGRESSIVE, member);
+                        PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
@@ -253,7 +262,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("medusa")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.TRITACHYON, 7, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
@@ -263,7 +272,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("aurora")) {
-                        PersonAPI person = createOfficer(bountyFactionId, Factions.TRITACHYON, 7, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
@@ -283,18 +292,15 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         return true;
     }
 
-    private PersonAPI createOfficer(String factionId, String portraitFaction, int level, String personality, FleetMemberAPI member) {
-        PersonAPI person = Global.getFactory().createPerson();
-        person.setFaction(factionId);
+    // Creates a human officer with no skills
+    private PersonAPI createOfficer(FactionAPI faction, int level, String personality, FleetMemberAPI member) {
+        PersonAPI person = faction.createRandomPerson();
         person.getStats().setSkipRefresh(true);
-        person.setPortraitSprite(Global.getSector().getFaction(portraitFaction).getPortraits(FullName.Gender.ANY).pick());
         person.getStats().setLevel(level);
         person.setPersonality(personality);
-        person.setRankId(Ranks.SPACE_CAPTAIN);
-        person.setPostId(null);
-
+        person.setRankId(Ranks.SPACE_LIEUTENANT);
+        person.setPostId(Ranks.POST_OFFICER);
         member.setCaptain(person);
-
         return person;
     }
 }
