@@ -1,0 +1,48 @@
+{
+    "displayName": "Close Support",
+    "fluxCapacitors": 16,
+    "fluxVents": 20,
+    "hullId": "hammerhead",
+    "hullMods": [
+        "missleracks",
+        "hardenedshieldemitter",
+        "adaptiveshields",
+        "pointdefenseai",
+        "targetingunit"
+    ],
+    "permaMods": [
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "sMods": [
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_hammerhead_Close_Support",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "hveldriver",
+                "WS 002": "hveldriver"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "breach",
+                "WS 004": "breach"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "lrpdlaser",
+                "WS 006": "lrpdlaser"
+            }
+        }
+    ]
+}

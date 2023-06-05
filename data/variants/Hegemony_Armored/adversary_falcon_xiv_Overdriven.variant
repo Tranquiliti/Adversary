@@ -1,44 +1,34 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 0,
-    "fluxVents": 21,
+    "fluxCapacitors": 20,
+    "fluxVents": 4,
     "hullId": "falcon_xiv",
     "hullMods": [
+        "magazines",
         "hardenedshieldemitter",
         "reinforcedhull",
-        "stabilizedshieldemitter",
-        "hardened_subsystems",
-        "safetyoverrides"
+        "safetyoverrides",
+        "adaptiveshields"
     ],
     "permaMods": [
+        "magazines",
         "hardenedshieldemitter",
-        "reinforcedhull",
-        "stabilizedshieldemitter"
+        "reinforcedhull"
     ],
     "sMods": [
+        "magazines",
         "hardenedshieldemitter",
-        "reinforcedhull",
-        "stabilizedshieldemitter"
+        "reinforcedhull"
     ],
     "variantId": "adversary_falcon_xiv_Overdriven",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "ionpulser"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
             "weapons": {
-                "WS 001": "atropos_single",
-                "WS 002": "atropos_single"
+                "WS 005": "ionpulser",
+                "WS 006": "miningblaster"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "heavyblaster"}
         },
         {
             "autofire": true,
@@ -52,10 +42,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser",
-                "WS 009": "mininglaser",
-                "WS 010": "mininglaser"
+                "WS 009": "pdburst",
+                "WS 010": "pdburst"
             }
         }
     ]

@@ -1,18 +1,17 @@
 {
-    "displayName": "Armored",
+    "displayName": "Support",
     "fluxCapacitors": 0,
-    "fluxVents": 1,
+    "fluxVents": 0,
     "hullId": "hound_hegemony",
     "hullMods": [
         "auxiliarythrusters",
         "nav_relay",
         "reinforcedhull",
-        "autorepair",
         "blast_doors",
+        "ecm",
         "heavyarmor",
         "insulatedengine",
-        "fluxbreakers",
-        "solar_shielding"
+        "targetingunit"
     ],
     "permaMods": [
         "auxiliarythrusters",
@@ -24,7 +23,7 @@
         "nav_relay",
         "reinforcedhull"
     ],
-    "variantId": "adversary_hound_hegemony_Armored",
+    "variantId": "adversary_hound_hegemony_Support",
     "weaponGroups": [
         {
             "autofire": false,

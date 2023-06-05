@@ -1,11 +1,12 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 18,
-    "fluxVents": 14,
+    "fluxCapacitors": 14,
+    "fluxVents": 3,
     "hullId": "heron",
     "hullMods": [
         "expanded_deck_crew",
         "missleracks",
+        "hardenedshieldemitter",
         "pointdefenseai",
         "targetingunit"
     ],

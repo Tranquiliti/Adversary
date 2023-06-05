@@ -1,14 +1,15 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 7,
+    "fluxVents": 4,
     "hullId": "legion_xiv",
     "hullMods": [
         "defensive_targeting_array",
         "reinforcedhull",
         "shield_shunt",
         "armoredweapons",
-        "missleracks",
+        "autorepair",
+        "blast_doors",
         "heavyarmor",
         "insulatedengine",
         "targetingunit"
@@ -29,8 +30,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "heavyac",
-                "WS 007": "heavyac"
+                "WS 002": "heavymauler",
+                "WS 003": "heavymauler"
             }
         },
         {
@@ -45,17 +46,17 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "heavymauler",
-                "WS 003": "heavymauler"
+                "WS 004": "heavyac",
+                "WS 005": "heavyac",
+                "WS 007": "heavyac"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "dualflak",
-                "WS 018": "vulcan",
-                "WS 019": "vulcan",
+                "WS 008": "vulcan",
+                "WS 009": "vulcan",
                 "WS 020": "vulcan",
                 "WS 021": "vulcan"
             }

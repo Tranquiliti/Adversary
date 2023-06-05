@@ -8,7 +8,7 @@
         "job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
         "job_intel_success":"Looks like a Tri-Tachyon representative heard word of your success, as you receive the promised payout shortly after the fight.",
         "job_forFaction":"tritachyon",
-        "job_credit_reward":900000,
+        "job_credit_reward":1000000,
         "job_type":"assassination",
         "job_show_fleet":"flagshipText",
         "job_show_distance":"vanilla",
@@ -206,6 +206,7 @@
         "job_show_fleet":"vanilla",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryHegemonyArmoredPicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -228,8 +229,8 @@
             #
             "navigation":1,
             "gunnery_implants":2,
-            "electronic_warfare":1,
             "flux_regulation":1,
+            "cybernetic_augmentation":1,
         },
 
         "fleet_name":"The Fist of Steel",
@@ -239,11 +240,11 @@
         "fleet_flagship_alwaysRecoverable":true,
         "fleet_preset_ships":{
             "adversary_onslaught_xiv_Armored":4,
-            "adversary_dominator_xiv_Armored":5,
-            "adversary_eagle_xiv_Overdriven":5,
-            "adversary_falcon_xiv_Overdriven":5,
-            "adversary_enforcer_xiv_Close_Support":5,
-            "adversary_hound_hegemony_Armored":5,
+            "adversary_dominator_xiv_Armored":6,
+            "adversary_eagle_xiv_Overdriven":4,
+            "adversary_falcon_xiv_Overdriven":4,
+            "adversary_enforcer_xiv_Attack":6,
+            "adversary_hound_hegemony_Support":5,
         },
         "fleet_composition_faction":"hegemony",
         "fleet_composition_quality":2,
@@ -270,6 +271,7 @@
         "job_show_fleet":"all",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryPLCruiserPicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -288,11 +290,11 @@
             "crew_training":1,
             "carrier_group":1,
             "fighter_uplink":1,
+            "officer_management":1,
             "support_doctrine":1,
             #
             "navigation":1,
             "gunnery_implants":2,
-            "electronic_warfare":1,
             "flux_regulation":1,
         },
 
@@ -302,12 +304,12 @@
         "fleet_flagship_name":"ADS Revenge of the Fallen",
         "fleet_preset_ships":{
             "adversary_pegasus_Fire_Support":1,
-            "adversary_champion_Close_Support":4,
+            "adversary_champion_Support":4,
             "adversary_gryphon_Fire_Support":5,
             "adversary_heron_Attack":5,
             "adversary_drover_Attack":5,
-            "adversary_sunder_Close_Support":4,
-            "adversary_monitor_Fortress":5,
+            "adversary_hammerhead_Close_Support":5,
+            "adversary_monitor_Fortress":4,
         },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
@@ -334,6 +336,7 @@
         "job_show_fleet":"all",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryLCCarrierPicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -390,12 +393,13 @@
         "job_comm_reply":"\"No! No! No! You will not make me do this!\"",
         "job_intel_success":"The mercenary's former employer has rewarded you with a bountiful amount of credits. They will also share to other independent entities about your impeccable skills in defeating the cowardly mercenary.",
         "job_forFaction":"independent",
-        "job_credit_reward":1100000,
+        "job_credit_reward":1200000,
         "job_reputation_reward":35,
         "job_type":"assassination",
         "job_show_fleet":"flagship",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"none",
+        "job_pick_script":"AdversaryIndependentPhasePicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -411,9 +415,9 @@
             #
             "navigation":1,
             "sensors":1,
-            "electronic_warfare":1,
             "flux_regulation":1,
             "phase_corps":1,
+            "cybernetic_augmentation":1,
             #
             "bulk_transport":1,
             "field_repairs":1,
@@ -458,6 +462,7 @@
         "job_show_fleet":"vanilla",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversarySDBeamPicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -473,9 +478,9 @@
             #
             "navigation":1,
             "gunnery_implants":2,
-            "energy_weapon_mastery":2,
             "electronic_warfare":1,
             "flux_regulation":1,
+            "cybernetic_augmentation":1,
             #
             "bulk_transport":1,
             "field_repairs":1,
@@ -524,6 +529,7 @@
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"none",
+        "job_pick_script":"AdversaryKiteSwarmPicked",
 
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
@@ -546,6 +552,7 @@
             "bulk_transport":1,
             "field_repairs":1,
             "containment_procedures":1,
+            "hull_restoration":1,
             "derelict_contingent":1,
         },
 
@@ -587,6 +594,7 @@
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryZigguratPlusPicked",
 
         "target_portrait":"ziggurat_captain",
         "target_rank":"spaceCommander",
