@@ -22,6 +22,9 @@ import java.util.Map;
 public class AdversaryBountyScript extends BaseCommandPlugin {
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
+        // Safety check, if the MagicLib library mod is not enabled for some reason
+        if (!Global.getSettings().getModManager().isModEnabled("MagicLib")) return true;
+
         String bountyId = params.get(0).getString(memoryMap);
 
         ActiveBounty bounty;

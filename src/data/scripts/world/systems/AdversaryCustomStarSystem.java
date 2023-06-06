@@ -54,10 +54,6 @@ public class AdversaryCustomStarSystem {
             system.addTag(Tags.THEME_INTERESTING_MINOR);
         }
 
-        // Set the appropriate background, if applicable
-        if (!systemOptions.isNull(util.OPT_SYSTEM_BACKGROUND))
-            system.setBackgroundTextureFilename(util.PATH_GRAPHICS_BACKGROUND + systemOptions.getString(util.OPT_SYSTEM_BACKGROUND));
-
         // Set the appropriate system music, if applicable
         if (!systemOptions.isNull(util.OPT_SYSTEM_MUSIC))
             system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, systemOptions.getString(util.OPT_SYSTEM_MUSIC));
@@ -71,8 +67,17 @@ public class AdversaryCustomStarSystem {
         util.setSystemType(system);
         util.setLightColor(system, starsInSystem);
 
+        // Set presence (or lack) of a system-wide nebula
         if (systemOptions.optBoolean(util.OPT_HAS_SYSTEMWIDE_NEBULA, false))
             StarSystemGenerator.addSystemwideNebula(system, system.getAge());
+
+        // Set the appropriate background, if applicable
+        if (!systemOptions.isNull(util.OPT_SYSTEM_BACKGROUND))
+            system.setBackgroundTextureFilename(util.PATH_GRAPHICS_BACKGROUND + systemOptions.getString(util.OPT_SYSTEM_BACKGROUND));
+        else {
+            String nebulaType = system.hasSystemwideNebula() ? StarSystemGenerator.nebulaTypes.get(system.getAge()) : StarSystemGenerator.NEBULA_NONE;
+            system.setBackgroundTextureFilename(StarSystemGenerator.backgroundsByNebulaType.get(nebulaType).pick());
+        }
 
         util.generateHyperspace(system);
         util.addRemnantWarningBeacons(system);
