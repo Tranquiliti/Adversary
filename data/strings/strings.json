@@ -123,6 +123,7 @@
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
+		"settings_enableAdversaryPersonalFleet":"enableAdversaryPersonalFleet",
 
 		# Settings for the Adversary dynamic doctrine
 		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",
@@ -139,6 +140,10 @@
 		# Settings for the Adversary blueprint stealing
 		"settings_adversaryBlueprintStealingDelay":"adversaryBlueprintStealingDelay",
 		"settings_adversaryStealsFromFactions":"adversaryStealsFromFactions",
+
+		# Used for Adversary Personal Fleet
+		"person_id_adversary_personal_commander":"adversary_first_admiral",
+		"name_adversary_personal_fleet":"Sword of Destruction",
 	},
 	"CHM":{
 		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\"",

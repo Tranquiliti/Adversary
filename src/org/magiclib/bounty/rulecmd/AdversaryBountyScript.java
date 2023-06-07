@@ -38,6 +38,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
         switch (bountyId) {
             case "adversary_TT_Wolfpack":
+                bounty.getCaptain().getStats().setLevel(6);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
@@ -55,6 +56,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_LP_Heretics":
+                bounty.getCaptain().getStats().setLevel(7);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
@@ -73,6 +75,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 break;
             case "adversary_Pirates_Derelict":
                 byte atlasCount = 0;
+                bounty.getCaptain().getStats().setLevel(1);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
@@ -99,6 +102,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_Hegemony_Armored":
+                bounty.getCaptain().getStats().setLevel(4);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Training, Officer Management, and Cybernetic Augmentation
@@ -126,6 +130,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_PL_Cruiser":
+                bounty.getCaptain().getStats().setLevel(7);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management
@@ -159,6 +164,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_LC_Carrier":
+                bounty.getCaptain().getStats().setLevel(6);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume no fleet-wide officer skills
@@ -184,6 +190,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_Independent_Phase":
+                bounty.getCaptain().getStats().setLevel(1);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
@@ -209,6 +216,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_SD_Beam":
+                bounty.getCaptain().getStats().setLevel(2);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume Officer Management and Cybernetic Augmentation
@@ -234,6 +242,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_Kite_Swarm":
+                bounty.getCaptain().getStats().setLevel(1);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume everything, because this is a silly bounty, and it should stay that way
@@ -249,6 +258,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             case "adversary_Ziggurat_Plus":
+                bounty.getCaptain().getStats().setLevel(11);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume sleeper officers (a lot of them)

@@ -4,19 +4,25 @@ import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
+import com.fs.starfarer.api.campaign.StarSystemAPI;
+import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import com.fs.starfarer.api.impl.campaign.ids.Industries;
+import data.scripts.campaign.fleets.AdversaryPersonalFleetScript;
 import data.scripts.world.systems.AdversaryCustomStarSystem;
 import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.TreeSet;
 
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
@@ -52,10 +58,10 @@ public class AdversaryModPlugin extends BaseModPlugin {
     @Override
     public void onNewGameAfterProcGen() {
         boolean doCustomStarSystems;
-        String systemsId = Global.getSettings().getString("adversary", "settings_enableCustomStarSystems");
+        String enableSystemId = Global.getSettings().getString("adversary", "settings_enableCustomStarSystems");
         if (LUNALIB_ENABLED)
-            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, systemsId));
-        else doCustomStarSystems = Global.getSettings().getBoolean(systemsId);
+            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, enableSystemId));
+        else doCustomStarSystems = Global.getSettings().getBoolean(enableSystemId);
 
         if (doCustomStarSystems) try {
             JSONArray systemList = Global.getSettings().getMergedJSONForMod(Global.getSettings().getString("adversary", "path_merged_json_customStarSystems"), "adversary").getJSONArray(Global.getSettings().getString("adversary", "settings_customStarSystems"));
@@ -99,6 +105,50 @@ public class AdversaryModPlugin extends BaseModPlugin {
             adversary.setRelationship(Factions.NEUTRAL, 0f);
 
             addAdversaryListeners(true);
+        }
+    }
+
+    @Override
+    public void onNewGameAfterTimePass() {
+        // Adding a special Adversary fleet, so don't do anything if the Adversary doesn't even exist
+        if (Global.getSector().getFaction(FACTION_ADVERSARY) == null) return;
+
+        boolean doPersonalFleet;
+        String personalFleetId = Global.getSettings().getString("adversary", "settings_enableAdversaryPersonalFleet");
+        if (LUNALIB_ENABLED)
+            doPersonalFleet = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, personalFleetId));
+        else doPersonalFleet = Global.getSettings().getBoolean(personalFleetId);
+
+        if (doPersonalFleet) {
+            // List of Adversary markets is sorted by High-Command presence
+            TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
+                public int compare(MarketAPI m1, MarketAPI m2) {
+                    int comp = Integer.compare(getScore(m1), getScore(m2));
+                    if (comp != 0) return comp;
+                    return Integer.compare(m1.getSize(), m2.getSize());
+                }
+
+                private int getScore(MarketAPI m) {
+                    int score = 0;
+                    if (m.hasIndustry(Industries.HIGHCOMMAND)) {
+                        score++;
+                        Industry hc = m.getIndustry(Industries.HIGHCOMMAND);
+                        if (hc.isImproved()) score++;
+                        if (hc.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
+                        if (hc.getSpecialItem() != null) score++;
+                    }
+                    return score;
+                }
+            });
+
+            // Get all planetary Adversary markets
+            for (StarSystemAPI system : Global.getSector().getEconomy().getStarSystemsWithMarkets())
+                for (MarketAPI market : Global.getSector().getEconomy().getMarkets(system))
+                    if (market.getFactionId().equals(FACTION_ADVERSARY) && market.getPlanetEntity() != null && !market.isHidden())
+                        adversaryMarkets.add(market);
+
+            if (!adversaryMarkets.isEmpty())
+                new AdversaryPersonalFleetScript(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
         }
     }
 

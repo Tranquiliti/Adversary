@@ -34,7 +34,7 @@
             "support_doctrine":1,
             #
             "sensors":1,
-            "energy_weapon_mastery":2,
+            "gunnery_implants":2,
             "flux_regulation":1,
             "phase_corps":1,
             "cybernetic_augmentation":1,
@@ -68,7 +68,7 @@
         "job_name":"The Forbidden Path",
         "job_description":"You inspect an image of a hand-written poster, written by what appears to be a Luddic Path operative. It asks for anyone to ==assassinate== one of their former brethren. The bounty target has apparently strayed from the Path by installing ==high-tech weaponry on Pather ships==. Since then, they have defected to the Adversary, taking many of the Path's warships with them.\nSadly, the operative can only offer a mere pittance of credits upon proof of success, but they also hint that the heretical defector has ==something else== worth taking. Who knows what that \"something else\" is?",
         "job_comm_reply":"\"I see that my past brothers and sisters have finally exposed their Envy. No matter. You shall be a victim of God's wrath and Moloch's treachery.\"",
-        "job_intel_success":"Not only did you get some credits for finishing the job, but it seems this former Pather had two Alpha Cores with $himHerThem all along. Perhaps the operative who posted the bounty knew this too, but was afraid of being tempted by technological excess. Either way, you at least got something out of this mess.",
+        "job_intel_success":"Not only did you get some credits for finishing the job, but it seems this former Pather had a cache of Alpha Cores with $himHerThem all along. Perhaps the operative who posted the bounty knew this too, but was afraid of being tempted by technological excess. Either way, you at least got something out of this mess.",
         "job_forFaction":"luddic_path",
         "job_credit_reward":100000,
         "job_item_reward":{"alpha_core":3},
@@ -663,7 +663,7 @@
 
         "job_name":"Omega Alpha Strike",
         "job_description":"A mysterious fleet has been spotted by a long-range independent patrol. Due to your reputation, the patrol commander has personally requested you to take out whoever - or whatever - is commanding this unusual fleet.",
-        "job_comm_reply":"...",
+        "job_comm_reply":"It seems whatever is controlling the exotic ship either cannot - or refuses to - respond to your comms.",
         "job_intel_success":"The angular shape and its minions have fallen before your mighty fleet, and you shall reap its bizarre and alien technology.",
         "job_deadline":365,
         "job_credit_reward":2000000,
