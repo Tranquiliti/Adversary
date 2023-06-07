@@ -45,8 +45,7 @@ public class AdversaryCustomStarSystem {
 
         // Adds a Domain-era cryosleeper if enabled
         if (systemOptions.optBoolean(util.OPT_ADD_DOMAIN_CRYOSLEEPER, false))
-            util.generateCryosleeper(system, null, fringeRadius + 4000f, !hasFactionPresence);
-        // "Domain-era Cryosleeper \"Sisyphus\""
+            util.generateCryosleeper(system, util.DEFAULT_CRYOSLEEPER_NAME, fringeRadius + 4000f, !hasFactionPresence);
 
         // Add relevant system tags it is NOT a Core World system
         if (!systemOptions.optBoolean(util.OPT_IS_CORE_WORLD_SYSTEM, false)) {
@@ -54,10 +53,6 @@ public class AdversaryCustomStarSystem {
             system.addTag(Tags.THEME_MISC);
             system.addTag(Tags.THEME_INTERESTING_MINOR);
         }
-
-        // Set the appropriate background, if applicable
-        if (!systemOptions.isNull(util.OPT_SYSTEM_BACKGROUND))
-            system.setBackgroundTextureFilename(util.PATH_GRAPHICS_BACKGROUND + systemOptions.getString(util.OPT_SYSTEM_BACKGROUND));
 
         // Set the appropriate system music, if applicable
         if (!systemOptions.isNull(util.OPT_SYSTEM_MUSIC))
@@ -72,8 +67,17 @@ public class AdversaryCustomStarSystem {
         util.setSystemType(system);
         util.setLightColor(system, starsInSystem);
 
+        // Set presence (or lack) of a system-wide nebula
         if (systemOptions.optBoolean(util.OPT_HAS_SYSTEMWIDE_NEBULA, false))
             StarSystemGenerator.addSystemwideNebula(system, system.getAge());
+
+        // Set the appropriate background, if applicable
+        if (!systemOptions.isNull(util.OPT_SYSTEM_BACKGROUND))
+            system.setBackgroundTextureFilename(util.PATH_GRAPHICS_BACKGROUND + systemOptions.getString(util.OPT_SYSTEM_BACKGROUND));
+        else {
+            String nebulaType = system.hasSystemwideNebula() ? StarSystemGenerator.nebulaTypes.get(system.getAge()) : StarSystemGenerator.NEBULA_NONE;
+            system.setBackgroundTextureFilename(StarSystemGenerator.backgroundsByNebulaType.get(nebulaType).pick());
+        }
 
         util.generateHyperspace(system);
         util.addRemnantWarningBeacons(system);

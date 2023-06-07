@@ -1,6 +1,6 @@
-# Note for translators:
-# Certain Strings, especially those in AdversaryUtil.java, remain hard-coded,
-# sometimes due to switch statements requiring constant String objects or
+#-- Note for translators --#
+# A few Strings remain hard-coded, especially in AdversaryUtil.java,
+# due to switch statements requiring constant String objects or
 # the Strings only mattering in Dev Mode or debugging (hopefully).
 #
 # That said, let me know if there's anything that I can do to make your life a little easier.
@@ -84,6 +84,8 @@
 		"default_planet_type":"barren",
 		"default_faction_type":"neutral",
 		"default_fringe_jump_point_name":"Fringe Jump Point",
+		"default_accretion_disk_name":"Accretion Disk",
+		"default_cryosleeper_name":"Domain-era Cryosleeper \"Sisyphus\"",
 		"default_station_type":"station_side06",
 		"path_graphics_planet":"graphics/planets/",
 		"path_graphics_background":"graphics/backgrounds/",
@@ -103,6 +105,7 @@
 		# Other, used in code
 		"source_gen":"gen",
 		"category_misc":"misc",
+		"mod_id_adversary":"adversary",
 		"faction_id_adversary":"adversary",
 
 		# Error messages for customStarSystems.json
@@ -120,6 +123,7 @@
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
+		"settings_enableAdversaryPersonalFleet":"enableAdversaryPersonalFleet",
 
 		# Settings for the Adversary dynamic doctrine
 		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",
@@ -136,6 +140,10 @@
 		# Settings for the Adversary blueprint stealing
 		"settings_adversaryBlueprintStealingDelay":"adversaryBlueprintStealingDelay",
 		"settings_adversaryStealsFromFactions":"adversaryStealsFromFactions",
+
+		# Used for Adversary Personal Fleet
+		"person_id_adversary_personal_commander":"adversary_first_admiral",
+		"name_adversary_personal_fleet":"Sword of Destruction",
 	},
 	"CHM":{
 		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\"",

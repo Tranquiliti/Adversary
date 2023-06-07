@@ -1,35 +1,34 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 20,
-    "fluxVents": 7,
+    "displayName": "Strike",
+    "fluxCapacitors": 11,
+    "fluxVents": 0,
     "hullId": "manticore_luddic_path",
     "hullMods": [
-        "eccm",
         "missleracks",
-        "armoredweapons"
+        "heavyarmor",
+        "eccm",
+        "reinforcedhull"
     ],
     "permaMods": [
-        "eccm",
-        "missleracks"
+        "missleracks",
+        "heavyarmor"
     ],
     "sMods": [
-        "eccm",
-        "missleracks"
+        "missleracks",
+        "heavyarmor"
     ],
-    "variantId": "adversary_manticore_luddic_path_Overdriven",
+    "suppressedMods": ["ill_advised"],
+    "variantId": "adversary_manticore_luddic_path_Strike",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {
-                "WS 004": "heavymortar",
-                "WS 005": "heavymortar"
-            }
+            "weapons": {"WS 004": "miningblaster"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 000": "dragonpod"}
+            "weapons": {"WS 000": "cyclone"}
         },
         {
             "autofire": true,
@@ -39,6 +38,11 @@
                 "WS 002": "lightdualac",
                 "WS 003": "lightdualac"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "heavymg"}
         }
     ]
 }

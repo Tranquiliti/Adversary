@@ -18,7 +18,6 @@
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
 			"setLocation":1, # 1st closest constellation to Core Worlds
-			"systemBackground":"background6.jpg",
 			"systemMusic":"music_diktat_market_hostile",
 			"fringeJumpPoint":{"orbitRadius":8410},
 			"starsInSystemCenter":{
@@ -26,19 +25,19 @@
 					{	"name":"Optimal",
 						"type":"star_blue_giant",
 						"radius":1100,
-						"coronaRadius":1100,
+						"coronaRadius":825,
 						"flareChance":0.0,
 					},
 					{	"name":"Zenith",
 						"type":"star_yellow",
 						"radius":800,
-						"coronaRadius":800,
+						"coronaRadius":600,
 						"flareChance":0.0,
 					},
 					{	"name":"Pinnacle",
 						"type":"star_orange",
 						"radius":650,
-						"coronaRadius":650,
+						"coronaRadius":488,
 						"flareChance":0.0,
 					},
 				],
@@ -195,12 +194,10 @@
 
 		{ # An uninhabited star system with planets similar to the default Optimal system
 			"isEnabled":true,
-			"numberOfSystems":1,
 			"setLocation":0, # Location set to a random constellation
 			"hasSystemwideNebula":true,
 			"addCoronalHypershunt":false,
 			"addDomainCryosleeper":false,
-			"systemBackground":"background5.jpg",
 			"fringeJumpPoint":{"orbitRadius":6840},
 			"starsInSystemCenter":{"stars":[{"type":"random_star_giant"}]},
 			"orbitingBodies":[

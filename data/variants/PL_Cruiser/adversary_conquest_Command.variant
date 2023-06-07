@@ -1,22 +1,22 @@
 {
     "displayName": "Command",
-    "fluxCapacitors": 1,
+    "fluxCapacitors": 3,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
-        "missleracks",
-        "operations_center",
         "eccm",
-        "fluxdistributor",
+        "operations_center",
+        "missleracks",
         "hardenedshieldemitter",
-        "targetingunit"
+        "targetingunit",
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "missleracks",
+        "eccm",
         "operations_center"
     ],
     "sMods": [
-        "missleracks",
+        "eccm",
         "operations_center"
     ],
     "variantId": "adversary_conquest_Command",
@@ -56,7 +56,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 022": "ionbeam"}
+            "weapons": {"WS 022": "gravitonbeam"}
         },
         {
             "autofire": true,
@@ -72,8 +72,7 @@
             "weapons": {
                 "WS 003": "lrpdlaser",
                 "WS 005": "lrpdlaser",
-                "WS 007": "lrpdlaser",
-                "WS 009": "lrpdlaser"
+                "WS 007": "lrpdlaser"
             }
         }
     ]

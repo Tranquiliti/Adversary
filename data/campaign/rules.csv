@@ -1,0 +1,11 @@
+id,trigger,conditions,script,text,options,notes
+adversary_TT_Wolfpack_Picked,AdversaryTTWolfpackPicked,,"AdversaryBountyScript ""adversary_TT_Wolfpack""",,,
+adversary_LP_Heretics_Picked,AdversaryLPHereticsPicked,,"AdversaryBountyScript ""adversary_LP_Heretics""",,,
+adversary_Pirates_Derelict_Picked,AdversaryPiratesDerelictPicked,,"AdversaryBountyScript ""adversary_Pirates_Derelict""",,,
+adversary_Hegemony_Armored_Picked,AdversaryHegemonyArmoredPicked,,"AdversaryBountyScript ""adversary_Hegemony_Armored""",,,
+adversary_PL_Cruiser_Picked,AdversaryPLCruiserPicked,,"AdversaryBountyScript ""adversary_PL_Cruiser""",,,
+adversary_LC_Carrier_Picked,AdversaryLCCarrierPicked,,"AdversaryBountyScript ""adversary_LC_Carrier""",,,
+adversary_Independent_Phase_Picked,AdversaryIndependentPhasePicked,,"AdversaryBountyScript ""adversary_Independent_Phase""",,,
+adversary_SD_Beam_Picked,AdversarySDBeamPicked,,"AdversaryBountyScript ""adversary_SD_Beam""",,,
+adversary_Kite_Swarm_Picked,AdversaryKiteSwarmPicked,,"AdversaryBountyScript ""adversary_Kite_Swarm""",,,
+adversary_Ziggurat_Plus_Picked,AdversaryZigguratPlusPicked,,"AdversaryBountyScript ""adversary_Ziggurat_Plus""",,,

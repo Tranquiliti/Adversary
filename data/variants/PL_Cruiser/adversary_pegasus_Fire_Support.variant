@@ -1,24 +1,24 @@
 {
     "displayName": "Fire Support",
-    "fluxCapacitors": 20,
+    "fluxCapacitors": 14,
     "fluxVents": 50,
     "hullId": "pegasus",
     "hullMods": [
-        "missleracks",
-        "targetingunit",
-        "armoredweapons",
         "eccm",
+        "missleracks",
+        "armoredweapons",
         "fluxdistributor",
         "hardenedshieldemitter",
+        "targetingunit",
         "adaptiveshields"
     ],
     "permaMods": [
-        "missleracks",
-        "targetingunit"
+        "eccm",
+        "missleracks"
     ],
     "sMods": [
-        "missleracks",
-        "targetingunit"
+        "eccm",
+        "missleracks"
     ],
     "variantId": "adversary_pegasus_Fire_Support",
     "weaponGroups": [
@@ -45,17 +45,15 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "ionbeam",
-                "WS 006": "irautolance"
+                "WS 002": "gravitonbeam",
+                "WS 006": "gravitonbeam",
+                "WS 007": "gravitonbeam"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 002": "gravitonbeam",
-                "WS 007": "gravitonbeam"
-            }
+            "weapons": {"WS 003": "ionbeam"}
         },
         {
             "autofire": true,

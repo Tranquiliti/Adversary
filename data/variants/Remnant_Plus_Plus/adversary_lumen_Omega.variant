@@ -1,0 +1,40 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 7,
+    "fluxVents": 0,
+    "hullId": "lumen",
+    "hullMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "hardenedshieldemitter"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "hardenedshieldemitter"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_lumen_Omega",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 008": "amsrm",
+                "WS 009": "amsrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 006": "amsrm",
+                "WS 007": "amsrm"
+            }
+        }
+    ]
+}

@@ -1,59 +1,60 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 4,
-    "fluxVents": 0,
-    "hullId": "doom",
+    "fluxCapacitors": 13,
+    "fluxVents": 20,
+    "hullId": "enforcer_xiv",
     "hullMods": [
+        "hardenedshieldemitter",
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
-        "missleracks",
-        "targetingunit",
-        "fluxbreakers"
+        "converted_hangar"
     ],
     "permaMods": [
+        "hardenedshieldemitter",
         "heavyarmor",
         "reinforcedhull"
     ],
     "sMods": [
+        "hardenedshieldemitter",
         "heavyarmor",
         "reinforcedhull"
     ],
-    "variantId": "adversary_doom_Attack",
+    "variantId": "adversary_enforcer_xiv_Attack",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "ionbeam",
-                "WS 008": "ionbeam"
+                "WS 006": "atropos_single",
+                "WS 009": "atropos_single"
             }
         },
         {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "phasecl",
-                "WS 002": "phasecl"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler",
-                "WS 005": "lightneedler",
-                "WS 006": "lightneedler"
+                "WS 007": "breach",
+                "WS 008": "breach"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 011": "lrpdlaser",
-                "WS 012": "lrpdlaser"
+                "WS 002": "arbalest",
+                "WS 003": "arbalest",
+                "WS 004": "arbalest"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "flak",
+                "WS 005": "flak"
             }
         }
-    ]
+    ],
+    "wings": ["xyphos_wing"]
 }

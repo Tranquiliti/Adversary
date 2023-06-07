@@ -16,6 +16,150 @@
 		#--------------------------------------#
 
 
+		# A set of systems, optimized for Hostile Activity/Hyperspace Topology events
+		# (Less overall HA impact, larger area for Slipstream detection)
+
+		{ # Gas Giant -> Plasma Dynamo Volatiles
+			"setLocation":1,
+			#"setLocationOverride":[-6000,-6000], # If desired, uncomment this option and set it to a desirable location
+			"fringeJumpPoint":{"orbitRadius":3500},
+			"starsInSystemCenter":{"stars":[{
+				"name":"Max Volatiles",
+				"type":"star_red_dwarf",
+				"radius":500,
+				"coronaRadius":438,
+				"flareChance":0.0,
+			}]},
+			"orbitingBodies":[{
+				"type":"gas_giant",
+				"orbitRadius":2750,
+				"radius":250,
+				"conditions":[
+					"high_gravity",
+					"volatiles_plentiful",
+				],
+				"entitiesAtStablePoints":[
+					,
+					{"type":"comm_relay"},
+					{"type":"sensor_array"}
+				],
+			}],
+			"systemFeatures":[
+				{"type":"inactive_gate","orbitRadius":1750},
+				{"type":"nav_buoy","orbitRadius":3800},
+			],
+		},
+
+		{ # Barren -> Synchrotron Fuel Production, Catalytic Core Refining
+			"setLocation":2,
+			#"setLocationOverride":[-6000,-6000],
+			"fringeJumpPoint":{"orbitRadius":1500},
+			"starsInSystemCenter":{"stars":[{
+				"name":"Max Fuel and Metals",
+				"type":"star_browndwarf",
+				"radius":400,
+				"coronaRadius":350,
+				"flareChance":0.0,
+			}]},
+			"orbitingBodies":[{
+				"type":"barren",
+				"orbitRadius":1200,
+				"radius":90,
+				"conditions":[
+					"no_atmosphere",
+					"ore_ultrarich",
+					"rare_ore_moderate",
+					"volatiles_trace",
+				],
+				"entitiesAtStablePoints":[
+					,
+					{"type":"nav_buoy"}
+				]
+			}],
+			"systemFeatures":[
+				{"type":"comm_relay","orbitRadius":1650},
+				{"type":"sensor_array","orbitRadius":1300},
+				{"type":"inactive_gate","orbitRadius":900},
+			],
+		},
+
+		{ # Jungle -> Soil Nanites Farming, Biofactory Embryo Light Industry, Cryoarithmetic Engine High Command (with or without Orbital Fusion Lamp)
+			"setLocation":3,
+			#"setLocationOverride":[-6000,-6000],
+			"fringeJumpPoint":{"orbitRadius":4000},
+			"starsInSystemCenter":{"stars":[{
+				"name":"Max Food and Goods",
+				"type":"star_orange",
+				"radius":650,
+				"coronaRadius":488,
+				"flareChance":0.0,
+			}]},
+			"orbitingBodies":[{
+				"type":"jungle",
+				"orbitRadius":3000,
+				"radius":130,
+				"conditions":[
+					"habitable",
+					"hot",
+					"mild_climate",
+					"ore_ultrarich",
+					"organics_plentiful",
+					"farmland_bountiful",
+					"solar_array",
+				],
+				"entitiesAtStablePoints":[
+					,
+					{"type":"comm_relay"},
+					{"type":"nav_buoy"}
+				],
+			}],
+			"systemFeatures":[
+				{"type":"inactive_gate","orbitRadius":2000},
+				{"type":"sensor_array","orbitRadius":4500},
+			],
+		},
+
+		{ # Toxic -> Autonomous Mining Bore Organics Mining
+			"setLocation":4,
+			#"setLocationOverride":[-6000,-6000],
+			"fringeJumpPoint":{"orbitRadius":4000},
+			"starsInSystemCenter":{"stars":[{
+				"name":"Max Deposits",
+				"type":"star_yellow",
+				"radius":800,
+				"coronaRadius":600,
+				"flareChance":0.0,
+			}]},
+			"orbitingBodies":[{
+				"type":"toxic",
+				"orbitRadius":3500,
+				"radius":100,
+				"conditions":[
+					#"tectonic_activity", # Required for Ultrarich Rare Ore Deposits
+					"toxic_atmosphere",
+					"ore_ultrarich",
+					"rare_ore_moderate", # Max possible without other hazard-increasing conditions
+					#"rare_ore_ultrarich", # Requires Tectonic Activity; commented out since more Rare Ore production might not outweigh the increased hazard rating
+					"volatiles_plentiful",
+					"organics_plentiful",
+				],
+				"entitiesAtStablePoints":[
+					,
+					,
+					{"type":"nav_buoy"}
+				],
+			}],
+			"systemFeatures":[
+				{"type":"sensor_array","orbitRadius":4250},
+				{"type":"comm_relay","orbitRadius":2250},
+				{"type":"inactive_gate","orbitRadius":1650},
+			],
+		},
+
+
+		#--------------------------------------#
+
+
 		# A star system containing planets with 'perfect' conditions, following vanilla constraints
 		#
 		# A few proc-gen notes:

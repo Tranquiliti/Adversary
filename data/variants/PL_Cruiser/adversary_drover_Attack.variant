@@ -1,11 +1,12 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 17,
-    "fluxVents": 10,
+    "fluxCapacitors": 14,
+    "fluxVents": 3,
     "hullId": "drover",
     "hullMods": [
         "expanded_deck_crew",
         "missleracks",
+        "hardenedshieldemitter",
         "adaptiveshields"
     ],
     "permaMods": [

@@ -28,7 +28,7 @@
 			# Defaults to false if this entry is omitted
 			"isCoreWorldSystem":false,
 
-			# True -> adds nebulas throughout this systems
+			# True -> adds nebula clouds in this system, based on the system's constellation age
 			# Defaults to false if this entry is omitted
 			"hasSystemwideNebula":false,
 
@@ -56,7 +56,7 @@
 
 			# Which background to use in this system
 			# System backgrounds are found in the starsector-core/graphics/backgrounds folder
-			# Uses default system background if this entry is omitted
+			# Uses a default system background, dependent on "hasSystemwideNebula", if this entry is omitted
 			"systemBackground":"background6.jpg",
 
 			# What music to play while in this star system
@@ -636,6 +636,7 @@
 					"type":"rings_dust0",
 					#"type":"rings_ice0",
 					#"type":"rings_special0",
+					#"type":"rings_asteroids0",
 					"orbitRadius":100,
 					"focus":0,
 
@@ -644,7 +645,7 @@
 					"name":"Test Name Band",
 
 					# Index of the ring texture to use
-					# Valid options are 0, 1, 2, or 3 for "rings_ice0" and "rings_dust0"
+					# Valid options are 0, 1, 2, or 3 for "rings_ice0", "rings_dust0", and "rings_asteroids0"
 					# Must be 1 for "rings_special0"
 					# Defaults to 1 if this entry is omitted
 					"bandIndex":1,

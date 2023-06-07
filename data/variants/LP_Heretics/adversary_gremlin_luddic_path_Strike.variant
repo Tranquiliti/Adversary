@@ -1,34 +1,35 @@
 {
-    "displayName": "Overdriven",
+    "displayName": "Strike",
     "fluxCapacitors": 9,
     "fluxVents": 0,
     "hullId": "gremlin_luddic_path",
     "hullMods": [
-        "eccm",
         "missleracks",
-        "adaptive_coils",
-        "hardened_subsystems"
+        "heavyarmor",
+        "armoredweapons",
+        "reinforcedhull"
     ],
     "permaMods": [
-        "eccm",
-        "missleracks"
+        "missleracks",
+        "heavyarmor"
     ],
     "sMods": [
-        "eccm",
-        "missleracks"
+        "missleracks",
+        "heavyarmor"
     ],
-    "variantId": "adversary_gremlin_luddic_path_Overdriven",
+    "suppressedMods": ["ill_advised"],
+    "variantId": "adversary_gremlin_luddic_path_Strike",
     "weaponGroups": [
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 000": "lightag"}
+            "weapons": {"WS 001": "lightdualac"}
         },
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "mininglaser",
+                "WS 000": "lightmg",
                 "WS 002": "gorgon",
                 "WS 003": "gorgon"
             }

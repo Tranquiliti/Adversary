@@ -1,27 +1,29 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 22,
+    "fluxVents": 0,
     "hullId": "dominator_xiv",
     "hullMods": [
-        "targetingunit",
-        "reinforcedhull",
-        "shield_shunt",
-        "armoredweapons",
         "autorepair",
         "missleracks",
+        "shield_shunt",
+        "armoredweapons",
+        "auxiliarythrusters",
+        "blast_doors",
         "heavyarmor",
         "insulatedengine",
-        "pointdefenseai"
+        "pointdefenseai",
+        "targetingunit",
+        "reinforcedhull"
     ],
     "permaMods": [
-        "targetingunit",
-        "reinforcedhull",
+        "autorepair",
+        "missleracks",
         "shield_shunt"
     ],
     "sMods": [
-        "targetingunit",
-        "reinforcedhull",
+        "autorepair",
+        "missleracks",
         "shield_shunt"
     ],
     "variantId": "adversary_dominator_xiv_Armored",
@@ -29,33 +31,38 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 013": "hephag"}
+            "weapons": {"WS 012": "multineedler"}
         },
         {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 014": "annihilatorpod",
-                "WS 015": "annihilatorpod",
-                "WS 016": "annihilatorpod"
+                "WS 014": "phasecl",
+                "WS 015": "phasecl",
+                "WS 016": "phasecl"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 012": "mark9"}
+            "weapons": {"WS 013": "hellbore"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "vulcan",
+                "WS 001": "mininglaser",
+                "WS 007": "mininglaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
                 "WS 003": "vulcan",
-                "WS 004": "vulcan",
                 "WS 005": "vulcan",
-                "WS 007": "vulcan",
-                "WS 010": "dualflak",
-                "WS 011": "dualflak"
+                "WS 010": "flak",
+                "WS 011": "flak"
             }
         }
     ]

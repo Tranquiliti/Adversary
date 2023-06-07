@@ -1,21 +1,23 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 21,
+    "fluxCapacitors": 7,
     "fluxVents": 30,
     "hullId": "eradicator",
     "hullMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
         "fragile_subsystems",
-        "fluxdistributor",
+        "armoredweapons",
+        "autorepair",
+        "hardenedshieldemitter",
         "targetingunit"
     ],
     "permaMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -24,7 +26,7 @@
         "fragile_subsystems"
     ],
     "sMods": [
-        "missleracks",
+        "heavyarmor",
         "reinforcedhull"
     ],
     "variantId": "adversary_eradicator_Close_Support",
@@ -36,13 +38,13 @@
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 000": "harpoon",
-                "WS 001": "harpoon",
-                "WS 002": "harpoon",
-                "WS 003": "harpoon",
-                "WS 004": "harpoon"
+                "WS 000": "breach",
+                "WS 001": "breach",
+                "WS 002": "breach",
+                "WS 003": "breach",
+                "WS 004": "breach"
             }
         },
         {
@@ -57,9 +59,14 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "railgun",
-                "WS 010": "railgun"
+                "WS 009": "lightac",
+                "WS 010": "lightac"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 011": "lightac"}
         }
     ]
 }

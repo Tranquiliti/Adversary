@@ -1,7 +1,8 @@
-#--Note for LunaLib users--#
+#-- Note for LunaLib users --#
 # LunaLib settings will override the following settings in this settings.json:
 # "enableCustomStarSystems", "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
 # "adversaryDynamicDoctrineDelay", and "adversaryBlueprintStealingDelay"
+#
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {
@@ -13,22 +14,29 @@
 	# Can be added to and/or removed from an existing game.
 	"enableAdversaryDynamicDoctrine":true,
 
-	# Allows the Adversary to "borrow" blueprints from specific factions every so often.
-	# Can be added to and/or removed from an existing game.
+	# Allows the Adversary to "borrow" blueprints from specific factions every so often
+	# Can be added to and/or removed from an existing game
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
-	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards;
-	# definitely not for those who value vanilla restraints!
+	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards
+	# Definitely not for those who value vanilla restraints!
 	# Requires MagicLib to work; does nothing otherwise
 	"enableAdversarySillyBounties":false,
 
-	#-- Settings for the Adversary's dynamic doctrine --#
-	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryDynamicDoctrine" to false.
+	# Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command
+	# WARNING: Only applies to new games! Existing games will remain unaffected!
+	"enableAdversaryPersonalFleet":true,
+
+	#--- Settings for the Adversary's dynamic doctrine ---#
+	# Any changes here do not re-apply to existing saves; #
+	# those saves must remove the old settings first by   #
+	# setting "enableAdversaryDynamicDoctrine" to false.  #
+	#-----------------------------------------------------#
 
  	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month
 	"adversaryDynamicDoctrineDelay":6,
-	
+
 	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
 	# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
 	# IDs can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
@@ -117,8 +125,11 @@
 		},
 	],
 
-	#-- Settings for the Adversary's blueprint stealer --#
-	# Any changes here do not apply to existing saves; those saves must remove the old settings first by setting "enableAdversaryBlueprintStealing" to false.
+	#--- Settings for the Adversary's blueprint stealing ---#
+	# Any changes here do not re-apply to existing saves;   #
+	# those saves must remove the old settings first by     #
+	# setting "enableAdversaryBlueprintStealing" to false.  #
+	#-------------------------------------------------------#
 
  	# How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month
 	"adversaryBlueprintStealingDelay":12,
@@ -130,4 +141,5 @@
 
 	# Other
 	"designTypeColors":{"Adversary":[255,203,170,255]},
+	"ruleCommandPackages":["org.magiclib.bounty.rulecmd"], # To maintain soft dependency with MagicLib
 }

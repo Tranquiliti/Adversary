@@ -1,0 +1,41 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 10,
+    "fluxVents": 5,
+    "hullId": "brawler_pather",
+    "hullMods": [
+        "missleracks",
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "permaMods": [
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "sMods": [
+        "missleracks",
+        "hardenedshieldemitter"
+    ],
+    "suppressedMods": ["ill_advised"],
+    "variantId": "adversary_brawler_pather_Assault",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "chaingun"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "gazer",
+                "WS 004": "gazer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "heavymg"}
+        }
+    ]
+}

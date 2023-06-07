@@ -1,10 +1,10 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 26,
+    "fluxCapacitors": 15,
     "fluxVents": 50,
     "hullId": "retribution",
     "hullMods": [
-        "missleracks",
+        "auxiliarythrusters",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -12,11 +12,13 @@
         "increased_maintenance",
         "fragile_subsystems",
         "armoredweapons",
+        "autorepair",
         "ballistic_rangefinder",
-        "heavyarmor"
+        "fluxdistributor",
+        "hardenedshieldemitter"
     ],
     "permaMods": [
-        "missleracks",
+        "auxiliarythrusters",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -25,7 +27,7 @@
         "fragile_subsystems"
     ],
     "sMods": [
-        "missleracks",
+        "auxiliarythrusters",
         "reinforcedhull"
     ],
     "variantId": "adversary_retribution_Assault",
@@ -42,14 +44,25 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
-                "WS 007": "sabot",
-                "WS 008": "sabot",
-                "WS 009": "sabot",
-                "WS 010": "sabot",
-                "WS 020": "sabot",
-                "WS 021": "sabot"
+                "WS 007": "swarmer",
+                "WS 008": "swarmer",
+                "WS 009": "swarmer",
+                "WS 010": "swarmer",
+                "WS 020": "swarmer",
+                "WS 021": "swarmer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "lightdualac",
+                "WS 012": "lightdualac",
+                "WS 013": "lightdualac",
+                "WS 014": "lightdualac",
+                "WS 015": "lightdualac"
             }
         },
         {
@@ -59,19 +72,6 @@
                 "WS 000": "devastator",
                 "WS 001": "devastator",
                 "WS 002": "devastator"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 011": "vulcan",
-                "WS 012": "vulcan",
-                "WS 013": "vulcan",
-                "WS 014": "vulcan",
-                "WS 015": "vulcan",
-                "WS 016": "vulcan",
-                "WS 017": "vulcan"
             }
         }
     ]

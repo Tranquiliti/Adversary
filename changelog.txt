@@ -1,3 +1,24 @@
+Version 4.3.0
+
+* Added a special, respawning Adversary fleet, which spawns on an Adversary planet and always drops a single Alpha Core upon defeat.
+  - Added "enableAdversaryPersonalFleet" to settings.json and LunaSettings
+  - Only applies to new games, and also requires having an Adversary planetary market upon starting a new game
+  - Respawn point is always on an Adversary planet with the most-improved High Command and/or population size (by default, and at the time of writing, this is their Gas Giant planet).
+* Major adjustments to MagicLib bounties:
+  - Most bounties now have custom officers on designated ships, increasing overall bounty difficulty
+  - Changed ship variants and/or composition for most bounties
+  - Rewards have been adjusted for some bounties
+* Added a [VERY REDACTED] MagicLib bounty, only available by enabling "enableAdversarySillyBounties"
+  - You'll need to attempt or defeat its lesser bounty version first.
+* Added "rings_asteroid0" as a valid option for ring bands
+* "systemBackground" now defaults to a background based on the system's "hasSystemwideNebula" toggle and its constellation age
+  - Both default star systems no longer have a set "systemBackground"
+* Added a set of star systems to presetStarSystems.json
+  - These star systems contain optimal planets for max production/income and are set up to better optimize for the Hostile Activity and Hyperspace Topology events, which incentivize having colonies over multiple star systems
+* More code refactors/cleanup
+
+
+
 Version 4.2.0
 
 * Changed a Pegasus variant in a MagicLib bounty
