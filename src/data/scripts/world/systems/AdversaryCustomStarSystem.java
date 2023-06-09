@@ -62,7 +62,7 @@ public class AdversaryCustomStarSystem {
         JSONArray locationOverride = systemOptions.optJSONArray(util.OPT_SET_LOCATION_OVERRIDE);
         if (locationOverride == null)
             util.setLocation(system, (fringeRadius / 10f) + 100f, systemOptions.optInt(util.OPT_SET_LOCATION, 0));
-        else system.getLocation().set(locationOverride.getInt(0), locationOverride.getInt(1));
+        else util.setLocation(system, locationOverride.getInt(0), locationOverride.getInt(1));
 
         util.setSystemType(system);
         util.setLightColor(system, starsInSystem);
