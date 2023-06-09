@@ -1,3 +1,9 @@
+Version 4.3.1
+
+* Fixed new game crash when generating a custom star system with both a true "hasSystemwideNebula" and a specifed "setLocationOverride"
+
+
+
 Version 4.3.0
 
 * Added a special, respawning Adversary fleet, which spawns on an Adversary planet and always drops a single Alpha Core upon defeat.

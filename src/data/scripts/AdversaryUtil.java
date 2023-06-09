@@ -1401,4 +1401,16 @@ public class AdversaryUtil {
         system.getLocation().set(newLoc);
         system.setAge(selectedConstellation.getAge());
     }
+
+    /**
+     * Sets a star system's location to a specified location
+     *
+     * @param system Star system to relocate
+     * @param x      X-coordinate of the new location
+     * @param y      Y-coordinate of the new location
+     */
+    public void setLocation(StarSystemAPI system, int x, int y) {
+        system.getLocation().set(x, y);
+        system.setAge(StarAge.AVERAGE); // Can't be ANY, since game will crash if addSystemwideNebula() is ran
+    }
 }
