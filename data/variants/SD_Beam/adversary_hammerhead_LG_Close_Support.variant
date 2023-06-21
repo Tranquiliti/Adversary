@@ -1,29 +1,30 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 11,
-    "fluxVents": 20,
+    "fluxCapacitors": 0,
+    "fluxVents": 18,
     "hullId": "hammerhead_LG",
     "hullMods": [
+        "ecm",
         "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure",
+        "increased_maintenance",
         "advancedoptics",
-        "adaptiveshields"
+        "reinforcedhull",
+        "targetingunit"
     ],
     "permaMods": [
+        "ecm",
         "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure"
+        "increased_maintenance"
     ],
     "sMods": [
-        "hardenedshieldemitter",
-        "targetingunit"
+        "ecm",
+        "hardenedshieldemitter"
     ],
     "variantId": "adversary_hammerhead_LG_Close_Support",
     "weaponGroups": [

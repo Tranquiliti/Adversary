@@ -1,7 +1,7 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 4,
-    "fluxVents": 3,
+    "fluxVents": 5,
     "hullId": "kite_hegemony",
     "hullMods": [
         "eccm",
@@ -36,7 +36,7 @@
         "weapons": {
             "WS 001": "gorgon",
             "WS 002": "gorgon",
-            "WS 003": "railgun"
+            "WS 003": "lightag"
         }
     }]
 }

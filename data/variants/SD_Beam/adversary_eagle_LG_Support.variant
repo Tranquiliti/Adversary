@@ -1,25 +1,26 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 9,
-    "fluxVents": 30,
+    "fluxCapacitors": 0,
+    "fluxVents": 24,
     "hullId": "eagle_LG",
     "hullMods": [
         "hardenedshieldemitter",
         "targetingunit",
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure",
+        "increased_maintenance",
         "adaptiveshields",
+        "reinforcedhull",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
         "hardenedshieldemitter",
         "targetingunit",
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure"
+        "increased_maintenance"
     ],
     "sMods": [
         "hardenedshieldemitter",
