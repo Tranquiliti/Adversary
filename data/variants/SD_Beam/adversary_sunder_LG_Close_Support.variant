@@ -1,29 +1,29 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 2,
+    "fluxCapacitors": 0,
     "fluxVents": 20,
     "hullId": "sunder_LG",
     "hullMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "comp_structure",
         "advancedoptics",
-        "stabilizedshieldemitter"
+        "hardenedshieldemitter",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "increased_maintenance",
+        "reinforcedhull",
+        "targetingunit"
     ],
     "permaMods": [
+        "advancedoptics",
         "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure"
+        "increased_maintenance"
     ],
     "sMods": [
-        "hardenedshieldemitter",
-        "targetingunit"
+        "advancedoptics",
+        "hardenedshieldemitter"
     ],
     "variantId": "adversary_sunder_LG_Close_Support",
     "weaponGroups": [

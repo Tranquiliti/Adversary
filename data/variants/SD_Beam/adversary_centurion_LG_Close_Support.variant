@@ -1,29 +1,31 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 10,
+    "fluxCapacitors": 0,
     "fluxVents": 10,
     "hullId": "centurion_LG",
     "hullMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
+        "ecm",
+        "nav_relay",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure",
+        "increased_maintenance",
         "advancedoptics",
-        "fluxdistributor"
+        "hardenedshieldemitter",
+        "reinforcedhull",
+        "targetingunit"
     ],
     "permaMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "comp_armor",
+        "ecm",
+        "nav_relay",
         "damaged_mounts",
+        "degraded_life_support",
         "erratic_injector",
-        "comp_structure"
+        "increased_maintenance"
     ],
     "sMods": [
-        "hardenedshieldemitter",
-        "targetingunit"
+        "ecm",
+        "nav_relay"
     ],
     "variantId": "adversary_centurion_LG_Close_Support",
     "weaponGroups": [

@@ -24,7 +24,8 @@
 			# Defaults to 1 if this entry is omitted
 			"numberOfSystems":1,
 
-			# True -> Tags this system as a Core World system
+			# True -> Tags this system as a Core World system,
+			# This tells the game to not spawn certain mission entities (e.g. probes or bounty targets) in this system
 			# Defaults to false if this entry is omitted
 			"isCoreWorldSystem":false,
 

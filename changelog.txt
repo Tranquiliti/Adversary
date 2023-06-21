@@ -1,3 +1,17 @@
+Version 4.3.2
+
+* A few MagicLib bounty adjustments:
+  - Reworked Sindrian bounty variants; now just as hull-tanky as the other DO bounties
+  - Increased credit reward for Hegemony bounty
+  - Decreased credit reward for Tri-Tachyon bounty; increased reputation reward to compensate
+  - Changed a weapon choice in a Silly bounty
+  - Minor fixes for another Silly bounty
+* Changed Adversary neutral market and encounter theme to the Persean League themes
+  - Sorry Tri-Tachyon fans, but the PL music is just too good and also fits the Adversary faction a little better
+  - Main, non-market, and non-encounter theme now set to generic, Independent market theme.
+
+
+
 Version 4.3.1
 
 * Fixed new game crash when generating a custom star system with both a true "hasSystemwideNebula" and a specifed "setLocationOverride"
