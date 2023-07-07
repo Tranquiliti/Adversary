@@ -31,7 +31,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
     private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
-    // TODO: reorganize/refactor classes and packages (everything under org.Adversary, for example)
+    // TODO: reorganize/refactor classes and packages (everything under org.Tranquility.Adversary, for example)
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
@@ -41,9 +41,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
     // Re-applying or removing listeners on an existing game.
     @Override
     public void onGameLoad(boolean newGame) {
-        if (newGame || Global.getSector().getFaction(FACTION_ADVERSARY) == null) return;
-        addAdversaryListeners(false);
-
         boolean enableSilliness;
         String sillyBountyId = Global.getSettings().getString("adversary", "settings_enableAdversarySillyBounties");
         if (LUNALIB_ENABLED)
@@ -52,6 +49,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
+
+        if (!newGame && Global.getSector().getFaction(FACTION_ADVERSARY) != null) addAdversaryListeners(false);
     }
 
     // Generates mod systems after proc-gen so that planet markets can properly generate
@@ -119,37 +118,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
             doPersonalFleet = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, personalFleetId));
         else doPersonalFleet = Global.getSettings().getBoolean(personalFleetId);
 
-        if (doPersonalFleet) {
-            // List of Adversary markets is sorted by High-Command presence
-            TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
-                public int compare(MarketAPI m1, MarketAPI m2) {
-                    int comp = Integer.compare(getScore(m1), getScore(m2));
-                    if (comp != 0) return comp;
-                    return Integer.compare(m1.getSize(), m2.getSize());
-                }
-
-                private int getScore(MarketAPI m) {
-                    int score = 0;
-                    if (m.hasIndustry(Industries.HIGHCOMMAND)) {
-                        score++;
-                        Industry hc = m.getIndustry(Industries.HIGHCOMMAND);
-                        if (hc.isImproved()) score++;
-                        if (hc.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
-                        if (hc.getSpecialItem() != null) score++;
-                    }
-                    return score;
-                }
-            });
-
-            // Get all planetary Adversary markets
-            for (StarSystemAPI system : Global.getSector().getEconomy().getStarSystemsWithMarkets())
-                for (MarketAPI market : Global.getSector().getEconomy().getMarkets(system))
-                    if (market.getFactionId().equals(FACTION_ADVERSARY) && market.getPlanetEntity() != null && !market.isHidden())
-                        adversaryMarkets.add(market);
-
-            if (!adversaryMarkets.isEmpty())
-                new AdversaryPersonalFleetScript(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
-        }
+        if (doPersonalFleet) addAdversaryPersonalFleet();
     }
 
     // Remove or add listeners to a game depending on currently-set settings
@@ -215,5 +184,38 @@ public class AdversaryModPlugin extends BaseModPlugin {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    // Adds a Personal Fleet script
+    private void addAdversaryPersonalFleet() {
+        // List of Adversary markets is sorted by High-Command presence
+        TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
+            public int compare(MarketAPI m1, MarketAPI m2) {
+                int comp = Integer.compare(getScore(m1), getScore(m2));
+                if (comp != 0) return comp;
+                return Integer.compare(m1.getSize(), m2.getSize());
+            }
+
+            private int getScore(MarketAPI m) {
+                int score = 0;
+                if (m.hasIndustry(Industries.HIGHCOMMAND)) {
+                    score++;
+                    Industry hc = m.getIndustry(Industries.HIGHCOMMAND);
+                    if (hc.isImproved()) score++;
+                    if (hc.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
+                    if (hc.getSpecialItem() != null) score++;
+                }
+                return score;
+            }
+        });
+
+        // Get all planetary Adversary markets
+        for (StarSystemAPI system : Global.getSector().getEconomy().getStarSystemsWithMarkets())
+            for (MarketAPI market : Global.getSector().getEconomy().getMarkets(system))
+                if (market.getFactionId().equals(FACTION_ADVERSARY) && market.getPlanetEntity() != null && !market.isHidden())
+                    adversaryMarkets.add(market);
+
+        if (!adversaryMarkets.isEmpty())
+            new AdversaryPersonalFleetScript(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
     }
 }

@@ -36,15 +36,27 @@
     "weaponGroups": [
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
+            "weapons": {"WS 000": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "rifttorpedo"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
             "weapons": {
-                "WS 000": "rifttorpedo",
-                "WS 001": "rifttorpedo"
+                "WS 002": "resonatormrm",
+                "WS 003": "resonatormrm",
+                "WS 004": "resonatormrm",
+                "WS 005": "resonatormrm"
             }
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
                 "WS 006": "amsrm",
                 "WS 007": "amsrm",
@@ -52,16 +64,6 @@
                 "WS 009": "amsrm",
                 "WS 010": "amsrm",
                 "WS 011": "amsrm"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 002": "resonatormrm",
-                "WS 003": "resonatormrm",
-                "WS 004": "resonatormrm",
-                "WS 005": "resonatormrm"
             }
         }
     ]
