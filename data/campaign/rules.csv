@@ -21,7 +21,7 @@ $entity.isHostile
 $entity.relativeStrength < 0
 $entity.weakerThanPlayerButHolding",$entity.ignorePlayerCommRequests = true 1,"The enemy $personRank looks grim but defiant. ""You will not take away our hope and our legacy! May your crimes be your undoing!""
 OR
-The Adversary $personRank stares above their screen, and then at you, ""You know not what your actions will bring forth. Leave us be, or suffer the wrath of the Adversary.""
+The Adversary $personRank glances at something above their screen, and then stares at you, ""You know not what your actions will bring forth. Soon, you will suffer the wrath of the Adversary.""
 OR
 ""I did not wish for this to happen, but we shall fight to the last regardless. May Ludd forgive us all.""",cutCommLink:Cut the comm link,
 greetingAdversaryHostileStronger,OpenCommLink,"$faction.id == adversary
@@ -72,7 +72,7 @@ $player.numColonies == 0
 $player.fleetPoints >= 120",FireAll RelLevelMoreDescription,"To the Adversary, you are just one of the many beasts attempting to take down the grand and mighty bulwark of their glorious Project. Adversary commanders will be more than obliged to obliterate your $shipOrFleet into nothingness - as they have always done against their foes for decades and will continue to do so for an eternity.",,
 relLevelVengefulAdversaryPlanet,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
-$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to wipe out both your $shipOrFleet and your fledgling empire - as their foes had once attempted to do so against the then-newly-born polity.",,
+$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to wipe out both your $shipOrFleet and your fledgling empire - as their foes had once attempted against the then-newly-born polity.",,
 relLevelAdversaryPKRival,RelLevelMoreDescription,"$faction.id == adversary
 $player.turnedInPlanetkiller == true",,Adversary informants have taken notice of you turning in a planetkiller to a rival faction.,,
 ,,,,,,
@@ -80,20 +80,20 @@ $player.turnedInPlanetkiller == true",,Adversary informants have taken notice of
 CMSNTextRejectHostile_adversary,CMSNTextRejectHostile,$faction.id == adversary,,"""Is this some kind of joke? If you are who you say you are, you have an outstanding death warrant waiting to be served, straight from High Command. I really hope you have an escape plan, because our retribution fleets will be coming to crush you into fine dust.""",,
 CMSNTextHasOther_adversary,CMSNTextHasOther,$faction.id == adversary,,"""Our glorious Project requires absolute and exclusive alleigance above all else, and, somehow, you come in expecting to serve as a double agent? We do not appreciate this duplicity from you, so I'll kindly ask you to resign your current commission before I reconsider my decision.""",,
 CMSNTextUnsuited_adversary,CMSNTextUnsuited,$faction.id == adversary,,"""You lack the ideals and the aptitude needed to serve as part of our great Project. Come back later when you can demonstrate your value to our cause.""",,
-CMSNTextSuitedPart1_adversary,CMSNTextSuitedPart1,$faction.id == adversary,,"""Well, we have seen what you have done for our great Project, and, besides, the Adversary Defense Force has marked you as a viable candidate for a commission.
+CMSNTextSuitedPart1_adversary,CMSNTextSuitedPart1,$faction.id == adversary,,"""Well, we've seen what you have done for our great Project, and, besides, the Adversary Defense Force has marked you as a viable candidate for a commission.
 
-I don't think you need to be reminded of this, independent captain, but accepting this commission is a serious matter. You will be required to defend our sacred utopia from any and all would-be invaders and interlopers. We will demand that you devote your entire existence to furthering our great Project, no matter the means and no matter the cost. Which, if I may put it bluntly, may mean sacrificing your life and your crew's life to fulfill your end of the pledge.
+I don't think you need to be reminded of this, independent captain, but accepting this commission is a serious matter. You will be required to defend our sacred utopia from any and all would-be invaders and interlopers. We will demand that you devote your entire existence to furthering our great Project, no matter the means and no matter the cost. Which, if I may put it bluntly, may mean sacrificing your life and your crew's life if that is required to fulfill your end of the pledge.
 
 Now, uh, you could just resign your commission at any moment, but I'd bet my own life that, if you were to do so, someone somewhere within our Project will be... unhappy with this and rally their supporters in the Adversary Defense Force just to ruin your life. So, I wouldn't recommend doing that at all.",,
 CMSNTextSuitedPart2_adversary,CMSNTextSuitedPart2,$faction.id == adversary,,"""That being said, will you accept our offer and join our glorious Project? We shall await your response.""",,
 CMSNTextWelcomePart1_adversary,CMSNTextWelcomePart1,$faction.id == adversary,,"""Welcome to the Project, $playerName. May we all unite in peace and prosperity.""",,
 CMSNTextWelcomePart2_adversary,CMSNTextWelcomePart2,$faction.id == adversary,,"""Is there anything else you need, before some smuggler in hyperspace decides to attack you?""",,
 CMSNTextChangeMind_adversary,CMSNTextChangeMind,$faction.id == adversary,,"""Fair enough. Only a few have benefited our Project enough to be considered for a commission, and fewer still have the courage and the strength to uphold our cause even in the face of overwhelming adversity. Do come back to us whenever you are finally ready to join us.""",,
-CMSNResignAskToConfirm_adversary,CMSNResignAskToConfirm,$faction.id == adversary,,"""I think you need to hear yourself again, $playerName. Some within our glorious Project will consider your request as tantamount to a betrayal and will relentlessly pursue your demise. I can do my best to minimize this, but I cannot guarantee your safety in the event you resign your pledge. Is that what you really want?""",,
+CMSNResignAskToConfirm_adversary,CMSNResignAskToConfirm,$faction.id == adversary,,"""I think you need to hear yourself again, $playerName. Some within our glorious Project will consider your request as tantamount to a betrayal and will relentlessly pursue your demise. I can do my best to minimize this, but I cannot guarantee your safety in the event you resign your commission. Is this what you really want?""",,
 CMSNResignConfirmed_adversary,CMSNResignConfirmed,$faction.id == adversary,,"""Well, at least you have come to me about this, else you'd facing quite the retaliation from our... err, my more fervent friends.
 
 I'll inform the Adversary Defense Force about this, make the necessary accommadations, and ensure your safety as best as I can. Burn bright, $playerName.""",,
-CMSNResignCancelled_adversary,CMSNResignCancelled,$faction.id == adversary,,"""Good choice, captain. Though the, umm, radicals within our Project would absolutely want to execute you - and possibly me as well - if they heard even a snippet of our conversation, our grand Project would not have endured this long had we sought to extinguish every single sign of doubt or hesitance within our ranks. We greatly value your affirmation in continuing to uphold our cause.",,
+CMSNResignCancelled_adversary,CMSNResignCancelled,$faction.id == adversary,,"""Good choice, captain. Though the, umm, radicals within our Project would've had you - and possibly me as well - executed if they heard our conversation, our grand Project would not have endured this long had we extinguished anyone and everyone within our ranks who had shown even a shred of doubt. We greatly value your affirmation in continuing to uphold our cause.",,
 ,,,,,,
 # turning AI cores in,,,,,,
 aiCores_turnInOptionSelAdversary,DialogOptionSelected,"$option == aiCores_startTurnIn

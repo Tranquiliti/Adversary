@@ -24,7 +24,7 @@
 			#"setLocationOverride":[-6000,-6000], # If desired, uncomment this option and set it to a desirable location
 			"fringeJumpPoint":{"orbitRadius":3500},
 			"starsInSystemCenter":{"stars":[{
-				"name":"Max Volatiles",
+				"name":"Max Volatiles", # Rename this if desired
 				"type":"star_red_dwarf",
 				"radius":500,
 				"coronaRadius":438,
@@ -55,7 +55,7 @@
 			#"setLocationOverride":[-6000,-6000],
 			"fringeJumpPoint":{"orbitRadius":1500},
 			"starsInSystemCenter":{"stars":[{
-				"name":"Max Fuel and Metals",
+				"name":"Max Fuel and Metals", # Rename this if desired
 				"type":"star_browndwarf",
 				"radius":400,
 				"coronaRadius":350,
@@ -88,7 +88,7 @@
 			#"setLocationOverride":[-6000,-6000],
 			"fringeJumpPoint":{"orbitRadius":4000},
 			"starsInSystemCenter":{"stars":[{
-				"name":"Max Food and Goods",
+				"name":"Max Food and Goods", # Rename this if desired
 				"type":"star_orange",
 				"radius":650,
 				"coronaRadius":488,
@@ -124,7 +124,7 @@
 			#"setLocationOverride":[-6000,-6000],
 			"fringeJumpPoint":{"orbitRadius":4000},
 			"starsInSystemCenter":{"stars":[{
-				"name":"Max Deposits",
+				"name":"Max Deposits", # Rename this if desired
 				"type":"star_yellow",
 				"radius":800,
 				"coronaRadius":600,
