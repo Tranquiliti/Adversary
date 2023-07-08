@@ -139,6 +139,7 @@
 	"adversaryStealsFromFactions":["player"],
 
 
+
 	# Other
 	"designTypeColors":{"Adversary":[255,203,170,255]},
 	"ruleCommandPackages":["org.magiclib.bounty.rulecmd"], # To maintain soft dependency with MagicLib

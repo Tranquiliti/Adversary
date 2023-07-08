@@ -30,7 +30,6 @@ public class AdversaryPersonalFleetScript extends PersonalFleetScript {
         commander.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
         commander.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
         commander.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
-        commander.getStats().setSkillLevel(Skills.SUPPORT_DOCTRINE, 1);
         commander.getStats().setSkillLevel(Skills.TACTICAL_DRILLS, 1);
         commander.getStats().setSkillLevel(Skills.COORDINATED_MANEUVERS, 1);
         commander.getStats().setSkillLevel(Skills.WOLFPACK_TACTICS, 1);
