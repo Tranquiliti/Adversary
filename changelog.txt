@@ -1,5 +1,7 @@
-Version 4.3.3
+Version 4.4.0
 
+* Added lore for the Adversary faction
+  - Now has custom faction relation descriptions, as well as custom dialog for most Adversary interactions
 * Fixed the "enableAdversarySillyBounties" setting not immediately applying to a new game.
 * Fixed a Silly bounty having the wrong giving and target factions (quite a mystery how this didn't register to me for a long time)
 
