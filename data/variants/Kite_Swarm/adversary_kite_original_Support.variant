@@ -1,0 +1,38 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 7,
+    "fluxVents": 0,
+    "hullId": "kite_original",
+    "hullMods": [
+        "ecm",
+        "nav_relay",
+        "operations_center",
+        "comp_storage",
+        "degraded_drive_field",
+        "erratic_injector",
+        "increased_maintenance",
+        "comp_structure",
+        "auxiliarythrusters",
+        "blast_doors",
+        "militarized_subsystems",
+        "reinforcedhull",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "ecm",
+        "nav_relay",
+        "operations_center",
+        "comp_storage",
+        "degraded_drive_field",
+        "erratic_injector",
+        "increased_maintenance",
+        "comp_structure"
+    ],
+    "sMods": [
+        "ecm",
+        "nav_relay",
+        "operations_center"
+    ],
+    "variantId": "adversary_kite_original_Support",
+    "weaponGroups": []
+}

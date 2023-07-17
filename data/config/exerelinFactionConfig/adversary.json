@@ -16,8 +16,8 @@
     "maxColonyDistance":5,        # ...the rock nearby looks nice?
 
     "vengeanceLevelNames":["Retribution","Assassination","Death"],
-    "vengeanceFleetNames":["Retribution Fleet","Assassin","Death-Fleet"],
-    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Assassin","a Death-Fleet"],
+    "vengeanceFleetNames":["Retribution Fleet","Assassin Fleet","Death-Fleet"],
+    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Assassination Fleet","a Death-Fleet"],
 
     "startShipsSolo":[["centurion_Starting"],
       # tutorial start

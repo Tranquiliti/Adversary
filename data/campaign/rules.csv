@@ -34,7 +34,7 @@ OR
 OR
 The Adversary $personRank laughs at you, ""This is all you've got! How silly of you; I'm going to have a great time blowing apart your puny $shipOrFleet!""
 OR
-""Why are we even doing this,"" the Adversary $personRank sighs, with a look of regret in their face.
+""Why are we even doing this,"" the Adversary $personRank sighs, with a look of regret in $hisOrHer face.
 
 Then, $heOrShe leans in to their screen and whispers, ""Run away, independent captain, if you still can. I cannot stop my fleet from attacking yours, but I can still hope you'll listen and avoid a bloodshed today.""",cutCommLink:Cut the comm link,
 greetingAdversaryNeutral,OpenCommLink,"$faction.id == adversary
@@ -53,7 +53,7 @@ $faction.id == adversary",FireAll RelLevelMoreDescription,"No longer seen as an 
 relLevelWelcomingAdversary,RelationshipLevelDesc,"$faction.rel == WELCOMING
 $faction.id == adversary",FireAll RelLevelMoreDescription,"Your name is known to some high-level Adversary officials, with a few of the more xenophobic figures starting to treat you with more respect than they do with their own peers. As such, patrol fleets of the Adversary Defense Force will prefer not to harass you if they can help it.",,
 relLevelFavorableAdversary,RelationshipLevelDesc,"$faction.rel == FAVORABLE
-$faction.id == adversary",FireAll RelLevelMoreDescription,"Adversary officials and commanders have started to take notice of your helpful deeds. However, in practice, this only has the effect of giving you minor access to low-level equipment and making the more timid Adversary patrols rethink twice about investigating your $shipOrFleet for illegal activities.",,
+$faction.id == adversary",FireAll RelLevelMoreDescription,"Adversary officials and commanders have started to take notice of your helpful deeds. However, in practice, this only has the effect of giving you limited access to low-level equipment and making the more timid Adversary patrols rethink twice about investigating your $shipOrFleet for illegal activities.",,
 relLevelNeutralAdversary,RelationshipLevelDesc,"$faction.rel == NEUTRAL
 $faction.id == adversary",FireAll RelLevelMoreDescription,You are considered a mere outsider by Adversary officials - though that is far better than how most other spacers are usually treated in Adversary-controlled space.,,
 relLevelSuspiciousAdversary,RelationshipLevelDesc,"$faction.rel == SUSPICIOUS
@@ -61,7 +61,7 @@ $faction.id == adversary",FireAll RelLevelMoreDescription,"Whatever the reason, 
 relLevelInhospitableAdversary,RelationshipLevelDesc,"$faction.rel == INHOSPITABLE
 $faction.id == adversary",FireAll RelLevelMoreDescription,"Commanders of the Adversary Defense Force barely tolerate your existence inside Adversary-controlled space, while port officials will happily refuse your docking requests. Although the Adversary leadership considers you dangerously unsteady, at least they haven't yet ordered the ADF to convert your $shipOrFleet into molten slag and scattered debris.",,
 relLevelHostileAdversary,RelationshipLevelDesc,"$faction.rel == HOSTILE
-$faction.id == adversary",FireAll RelLevelMoreDescription,Fleets of the Adversary Defense Force are authorized to engage with your $shipOrFleet at will and at whatever the cost. Adversary-controlled markets will deny you access to their stockpiles and will report each and every nearby disturbances attributed to you.,,
+$faction.id == adversary",FireAll RelLevelMoreDescription,Adversary fleets are authorized to engage with your $shipOrFleet at will and at whatever the cost. Adversary-controlled markets will deny you access to their stockpiles and will report each and every nearby disturbances attributed to you.,,
 relLevelVengefulAdversary,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
 $player.numColonies == 0
