@@ -15,7 +15,7 @@
     "TierIIIDriveSystem":0.5,
     "TerminatorSubsystems":0.5,
     "AlphaSubcore":0.5,
-    "PenanceEngine":0.3,
+    "PenanceEngine":0.2,
     "NanotechArmor":0.3
   },
   "allowedUpgrades":{
@@ -32,9 +32,9 @@
     "GuidanceComputers":1.0,
     "AntimatterBoosters":0.8,
     "ForcedOvertime":1.0,
-    "AuxiliarySensors":0.4,
-    "InterferenceShielding":0.4,
-    "CommissionedCrews":0.4,
+    "AuxiliarySensors":0.2,
+    "InterferenceShielding":0.2,
+    "CommissionedCrews":0.2,
     "AssaultWings":1.0,
     "VelocityInjectors":1.0,
     "WaspDefenseDrones":1.0,

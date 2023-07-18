@@ -3,7 +3,7 @@ Version 4.4.1
 * Some changes and updates to the Adversary's configs for supported mods
 * Minor grammar changes
 * Made a Silly bounty slightly more silly
-  - Changed to Assassination instead of Obliteration; reward reduced a bit to compensate
+  - Also changed to Assassination instead of Obliteration
 
 
 
