@@ -526,7 +526,8 @@
         "job_forFaction":"independent",
         "job_deadline":365,
         "job_credit_reward":2000000,
-        "job_type":"obliteration",
+        "job_reputation_reward":1,
+        "job_type":"assassination",
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"none",
@@ -535,7 +536,7 @@
         "target_gender":"ANY",
         "target_rank":"spaceCommander",
         "target_post":"fleetCommander",
-        "target_personality":"steady",
+        "target_personality":"timid",
         "target_level":1,
         "target_skills":{
             "tactical_drills":1,
@@ -560,7 +561,8 @@
 
         "fleet_name":"Hegemony Auxiliary Armada",
         "fleet_faction":"hegemony",
-        "fleet_flagship_variant":"adversary_kite_hegemony_Strike",
+        "fleet_flagship_variant":"adversary_kite_original_Support",
+        "fleet_flagship_name":"HSS Cerf-Volant 53",
         "fleet_preset_ships":{
             "adversary_kite_hegemony_Strike":239,
         },

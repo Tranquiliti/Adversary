@@ -31,7 +31,12 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
     private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
-    // TODO: reorganize/refactor classes and packages (everything under org.Tranquility.Adversary, for example)
+    /*
+    TODO: Reorganize/refactor classes and packages (everything under org.Tranquility.Adversary, for example)
+    TODO: On Starsector update, also consider splitting off the mod into two separate mods (one for custom star system, one for Adversary faction).
+    If done, the Adversary portion would still need to have a mod dependency with the custom star system portion.
+    For licensing, custom star system portion would inherit the current license; the Adversary part would have a more open license.
+    */
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
@@ -69,6 +74,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
                 JSONObject systemOptions = systemList.getJSONObject(i);
                 if (systemOptions.optBoolean(util.OPT_IS_ENABLED, true))
                     for (int numOfSystems = systemOptions.optInt(util.OPT_NUMBER_OF_SYSTEMS, 1); numOfSystems > 0; numOfSystems--)
+                        // TODO: should probably be a method for AdversaryUtil instead of a full class
                         new AdversaryCustomStarSystem().generate(util, systemOptions);
             }
             marketsToOverrideAdmin = util.marketsToOverrideAdmin;
