@@ -1,4 +1,4 @@
-package data.scripts;
+package org.tranquility.adversary.scripts;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
@@ -14,14 +14,13 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
 
-public class AdversaryDoctrineChanger implements EconomyTickListener {
+public class AdversaryDynamicDoctrine implements EconomyTickListener {
     protected String factionId;
     protected byte elapsedMonths, delayInMonths;
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
 
-    // TODO: Rename to AdversaryDynamicDoctrine when doing save-breaking update
-    public AdversaryDoctrineChanger(String faction, byte elapsed, byte delay, JSONArray possibleDoctrines) throws JSONException {
+    public AdversaryDynamicDoctrine(String faction, byte elapsed, byte delay, JSONArray possibleDoctrines) throws JSONException {
         factionId = faction;
         elapsedMonths = elapsed;
         delayInMonths = delay > 0 ? delay : (byte) 1;
@@ -37,12 +36,12 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Faction dynamic doctrine active for: " + factionId);
+        Global.getLogger(AdversaryDynamicDoctrine.class).info("Faction dynamic doctrine active for: " + factionId);
     }
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        Global.getLogger(AdversaryDoctrineChanger.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
+        Global.getLogger(AdversaryDynamicDoctrine.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
     }
 
     // Unused
@@ -64,7 +63,7 @@ public class AdversaryDoctrineChanger implements EconomyTickListener {
     protected void setPriorityDoctrine(PriorityDoctrine thisPriority) {
         FactionAPI faction = Global.getSector().getFaction(factionId);
         FactionDoctrineAPI factionDoctrine = faction.getDoctrine();
-        Logger doctrineLogger = Global.getLogger(AdversaryDoctrineChanger.class);
+        Logger doctrineLogger = Global.getLogger(AdversaryDynamicDoctrine.class);
 
         factionDoctrine.setWarships(thisPriority.warships);
         factionDoctrine.setCarriers(thisPriority.carriers);

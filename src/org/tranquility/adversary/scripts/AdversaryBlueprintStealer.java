@@ -1,4 +1,4 @@
-package data.scripts;
+package org.tranquility.adversary.scripts;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;

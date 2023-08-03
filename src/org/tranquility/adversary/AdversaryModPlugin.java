@@ -1,4 +1,4 @@
-package data.scripts;
+package org.tranquility.adversary;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
@@ -8,35 +8,26 @@ import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
-import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
-import data.scripts.campaign.fleets.AdversaryPersonalFleetScript;
-import data.scripts.world.systems.AdversaryCustomStarSystem;
 import lunalib.lunaSettings.LunaSettings;
-import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
+import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
+import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
+import org.tranquility.adversary.scripts.AdversaryLunaSettingsListener;
+import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
 
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
 import java.util.TreeSet;
 
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
-    private transient HashMap<MarketAPI, String> marketsToOverrideAdmin;
     private transient final String FACTION_ADVERSARY = Global.getSettings().getString("adversary", "faction_id_adversary");
     private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
     private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
-    /*
-    TODO: Reorganize/refactor classes and packages (everything under org.Tranquility.Adversary, for example)
-    TODO: On Starsector update, also consider splitting off the mod into two separate mods (one for custom star system, one for Adversary faction).
-    If done, the Adversary portion would still need to have a mod dependency with the custom star system portion.
-    For licensing, custom star system portion would inherit the current license; the Adversary part would have a more open license.
-    */
     // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
@@ -55,69 +46,23 @@ public class AdversaryModPlugin extends BaseModPlugin {
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
 
-        if (!newGame && Global.getSector().getFaction(FACTION_ADVERSARY) != null) addAdversaryListeners(false);
-    }
-
-    // Generates mod systems after proc-gen so that planet markets can properly generate
-    @Override
-    public void onNewGameAfterProcGen() {
-        boolean doCustomStarSystems;
-        String enableSystemId = Global.getSettings().getString("adversary", "settings_enableCustomStarSystems");
-        if (LUNALIB_ENABLED)
-            doCustomStarSystems = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, enableSystemId));
-        else doCustomStarSystems = Global.getSettings().getBoolean(enableSystemId);
-
-        if (doCustomStarSystems) try {
-            JSONArray systemList = Global.getSettings().getMergedJSONForMod(Global.getSettings().getString("adversary", "path_merged_json_customStarSystems"), "adversary").getJSONArray(Global.getSettings().getString("adversary", "settings_customStarSystems"));
-            AdversaryUtil util = new AdversaryUtil();
-            for (int i = 0; i < systemList.length(); i++) {
-                JSONObject systemOptions = systemList.getJSONObject(i);
-                if (systemOptions.optBoolean(util.OPT_IS_ENABLED, true))
-                    for (int numOfSystems = systemOptions.optInt(util.OPT_NUMBER_OF_SYSTEMS, 1); numOfSystems > 0; numOfSystems--)
-                        // TODO: should probably be a method for AdversaryUtil instead of a full class
-                        new AdversaryCustomStarSystem().generate(util, systemOptions);
-            }
-            marketsToOverrideAdmin = util.marketsToOverrideAdmin;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        if (!newGame) addAdversaryListeners(false);
     }
 
     @Override
     public void onNewGameAfterEconomyLoad() {
-        // Gives selected markets the admins they're supposed to have (can't do it before economy load)
-        if (marketsToOverrideAdmin != null) {
-            AICoreAdminPluginImpl aiPlugin = new AICoreAdminPluginImpl();
-            for (MarketAPI market : marketsToOverrideAdmin.keySet())
-                switch (marketsToOverrideAdmin.get(market)) {
-                    case Factions.PLAYER:
-                        market.setAdmin(null);
-                        break;
-                    case Commodities.ALPHA_CORE:
-                        market.setAdmin(aiPlugin.createPerson(Commodities.ALPHA_CORE, market.getFaction().getId(), 0));
-                }
-            // No need for the HashMap afterwards, so clear it and set it to null to minimize memory use, just in case
-            marketsToOverrideAdmin.clear();
-            marketsToOverrideAdmin = null;
-        }
-
         FactionAPI adversary = Global.getSector().getFaction(FACTION_ADVERSARY);
-        if (adversary != null) { // Null check so determined people can properly remove the faction from the mod without errors
-            // Recent history has made them cold and hateful against almost everyone
-            for (FactionAPI faction : Global.getSector().getAllFactions())
-                adversary.setRelationship(faction.getId(), -100f);
-            adversary.setRelationship(FACTION_ADVERSARY, 100f);
-            adversary.setRelationship(Factions.NEUTRAL, 0f);
+        // Recent history has made them cold and hateful against almost everyone
+        for (FactionAPI faction : Global.getSector().getAllFactions())
+            adversary.setRelationship(faction.getId(), -100f);
+        adversary.setRelationship(FACTION_ADVERSARY, 100f);
+        adversary.setRelationship(Factions.NEUTRAL, 0f);
 
-            addAdversaryListeners(true);
-        }
+        addAdversaryListeners(true);
     }
 
     @Override
     public void onNewGameAfterTimePass() {
-        // Adding a special Adversary fleet, so don't do anything if the Adversary doesn't even exist
-        if (Global.getSector().getFaction(FACTION_ADVERSARY) == null) return;
-
         boolean doPersonalFleet;
         String personalFleetId = Global.getSettings().getString("adversary", "settings_enableAdversaryPersonalFleet");
         if (LUNALIB_ENABLED)
@@ -146,11 +91,11 @@ public class AdversaryModPlugin extends BaseModPlugin {
         } else { // Loading existing game
             ListenerManagerAPI listMan = Global.getSector().getListenerManager();
             if (dynaDoctrine) {
-                List<AdversaryDoctrineChanger> doctrineListeners = listMan.getListeners(AdversaryDoctrineChanger.class);
+                List<AdversaryDynamicDoctrine> doctrineListeners = listMan.getListeners(AdversaryDynamicDoctrine.class);
                 if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, LUNALIB_ENABLED);
                 else // Refresh needed since Adversary's current doctrine resets upon loading a new Starsector application.
                     doctrineListeners.get(0).refresh();
-            } else listMan.removeListenerOfClass(AdversaryDoctrineChanger.class); // Disable dynamic doctrine
+            } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 
             if (stealBlueprints && listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty())
                 addAdversaryBlueprintStealer(false, LUNALIB_ENABLED);
@@ -169,7 +114,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryDoctrineChanger(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryPossibleDoctrines"))));
+            Global.getSector().getListenerManager().addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryPossibleDoctrines"))));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -222,6 +167,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
                     adversaryMarkets.add(market);
 
         if (!adversaryMarkets.isEmpty())
-            new AdversaryPersonalFleetScript(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
+            new AdversaryPersonalFleet(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
     }
 }

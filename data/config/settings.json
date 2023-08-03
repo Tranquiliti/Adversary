@@ -1,15 +1,11 @@
 #-- Note for LunaLib users --#
 # LunaLib settings will override the following settings in this settings.json:
-# "enableCustomStarSystems", "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
+# "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
 # "adversaryDynamicDoctrineDelay", and "adversaryBlueprintStealingDelay"
 #
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {
-	# Generates custom star systems upon starting a new game
-	# Custom star systems can be configured in customStarSystems.json
-	"enableCustomStarSystems":true,
-
 	# Allows the Adversary faction to change fleet doctrines after a specified number of months have passed
 	# Can be added to and/or removed from an existing game.
 	"enableAdversaryDynamicDoctrine":true,
@@ -142,5 +138,5 @@
 
 	# Other
 	"designTypeColors":{"Adversary":[255,203,170,255]},
-	"ruleCommandPackages":["org.magiclib.bounty.rulecmd"], # To maintain soft dependency with MagicLib
+	"ruleCommandPackages":["org.tranquility.adversary.rulecmd"],
 }

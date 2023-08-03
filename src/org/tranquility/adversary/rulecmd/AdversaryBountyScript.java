@@ -1,4 +1,4 @@
-package org.magiclib.bounty.rulecmd;
+package org.tranquility.adversary.rulecmd;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
