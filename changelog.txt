@@ -2,6 +2,7 @@ Version 5.0.0
 
 * Split off the custom star system feature to the Customizable Star Systems mod
   - Adversary portion now has a dependency on this split-off mod
+  - Updated Adversary's customStarSystem.json with the updated format
 * Changed source code and package names
 
 
