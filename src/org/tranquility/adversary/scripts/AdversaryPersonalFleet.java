@@ -1,4 +1,4 @@
-package data.scripts.campaign.fleets;
+package org.tranquility.adversary.scripts;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
@@ -9,12 +9,12 @@ import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
 import com.fs.starfarer.api.impl.campaign.missions.hub.MissionFleetAutoDespawn;
 
-public class AdversaryPersonalFleetScript extends PersonalFleetScript {
+public class AdversaryPersonalFleet extends PersonalFleetScript {
     protected final String fleetName;
     protected final String factionId;
     protected final String marketId;
 
-    public AdversaryPersonalFleetScript(String personId, String fleetName, String factionId, String marketId) {
+    public AdversaryPersonalFleet(String personId, String fleetName, String factionId, String marketId) {
         super(personId);
         this.fleetName = fleetName;
         this.factionId = factionId;
