@@ -3,6 +3,10 @@ Version 5.0.0
 * Split off the custom star system feature to the Customizable Star Systems mod
   - Adversary portion now has a dependency on this split-off mod
   - Updated Adversary's customStarSystem.json with the updated format
+* Added a game-breaking, modded Adversary system to customStarSystems.json
+  - Disabled by default
+  - Requires both Industrial.Evolution and Unknown Skies to successfully enable
+  - Not for the faint-hearted
 * Changed source code and package names
 
 

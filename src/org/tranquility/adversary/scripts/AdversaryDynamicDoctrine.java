@@ -49,7 +49,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
     public void reportEconomyTick(int iterIndex) {
     }
 
-    // Change fleet doctrine if enough months have passed
     @Override
     public void reportEconomyMonthEnd() {
         elapsedMonths++;
@@ -207,7 +206,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             shipSize = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_shipSize"), 5);
             aggression = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_aggression"), 5);
 
-            // Fill priority ships
             String shipsId = Global.getSettings().getString("adversary", "settings_priorityShips");
             if (!priorityObject.isNull(shipsId)) {
                 JSONArray shipList = priorityObject.getJSONArray(shipsId);
@@ -217,7 +215,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
                 }
             }
 
-            // Fill priority weapons
             String weaponsId = Global.getSettings().getString("adversary", "settings_priorityWeapons");
             if (!priorityObject.isNull(weaponsId)) {
                 JSONArray weaponList = priorityObject.getJSONArray(weaponsId);
@@ -227,7 +224,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
                 }
             }
 
-            // Fill priority fighters
             String fightersId = Global.getSettings().getString("adversary", "settings_priorityFighters");
             if (!priorityObject.isNull(fightersId)) {
                 JSONArray fighterList = priorityObject.getJSONArray(fightersId);

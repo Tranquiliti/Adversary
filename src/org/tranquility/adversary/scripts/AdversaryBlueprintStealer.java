@@ -30,7 +30,6 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
     public void reportEconomyTick(int iterIndex) {
     }
 
-    // Stealer faction will periodically steal targeted factions' current blueprints
     @Override
     public void reportEconomyMonthEnd() {
         elapsedMonths++;

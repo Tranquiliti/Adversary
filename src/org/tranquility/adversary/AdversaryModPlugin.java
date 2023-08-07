@@ -28,13 +28,11 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
     private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
 
-    // Adding LunaSettingsListener when game starts
     @Override
     public void onApplicationLoad() {
         if (LUNALIB_ENABLED) LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }
 
-    // Re-applying or removing listeners on an existing game.
     @Override
     public void onGameLoad(boolean newGame) {
         boolean enableSilliness;
@@ -103,7 +101,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    // Adds a AdversaryDynamicDoctrine with settings
     private void addAdversaryDynamicDoctrine(boolean newGame, boolean lunaLibEnabled) {
         SettingsAPI settings = Global.getSettings();
 
@@ -120,7 +117,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    // Adds a AdversaryBlueprintStealer with settings
     private void addAdversaryBlueprintStealer(boolean newGame, boolean lunaLibEnabled) {
         SettingsAPI settings = Global.getSettings();
 
@@ -137,9 +133,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    // Adds a Personal Fleet script
     private void addAdversaryPersonalFleet() {
-        // List of Adversary markets is sorted by High-Command presence
         TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
             public int compare(MarketAPI m1, MarketAPI m2) {
                 int comp = Integer.compare(getScore(m1), getScore(m2));
@@ -160,7 +154,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
             }
         });
 
-        // Get all planetary Adversary markets
         for (StarSystemAPI system : Global.getSector().getEconomy().getStarSystemsWithMarkets())
             for (MarketAPI market : Global.getSector().getEconomy().getMarkets(system))
                 if (market.getFactionId().equals(FACTION_ADVERSARY) && market.getPlanetEntity() != null && !market.isHidden())
