@@ -1,0 +1,42 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_hightech_attack_minelayer",
+    "hullMods": ["fluxbreakers"],
+    "permaMods": [],
+    "variantId": "adversary_module_hightech_attack_minelayer_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "plasma"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "plasma"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "plasma"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "dragon",
+                "WS 004": "dragon",
+                "WS 005": "dragon",
+                "WS 006": "dragon",
+                "WS 007": "gorgon",
+                "WS 012": "gorgon",
+                "WS 008": "pdburst",
+                "WS 009": "pdburst",
+                "WS 010": "pdburst",
+                "WS 011": "pdburst"
+            }
+        }
+    ]
+}

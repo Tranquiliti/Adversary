@@ -1,15 +1,13 @@
 package org.tranquility.adversary.rulecmd;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.ids.Personalities;
-import com.fs.starfarer.api.impl.campaign.ids.Ranks;
-import com.fs.starfarer.api.impl.campaign.ids.Skills;
+import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.bounty.ActiveBounty;
@@ -285,6 +283,30 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                         person.getStats().setSkipRefresh(false);
                     }
+                }
+                break;
+            case "adversary_Station_Low_Tech":
+            case "adversary_Station_Midline":
+            case "adversary_Station_High_Tech":
+            case "adversary_Station_Remnant":
+                CampaignFleetAPI fleet = bounty.getFleet();
+                fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
+                fleet.addTag(Tags.NEUTRINO_HIGH);
+
+                fleet.clearAbilities();
+                fleet.addAbility(Abilities.TRANSPONDER);
+                fleet.getAbility(Abilities.TRANSPONDER).activate();
+                fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
+
+                // Only the Midline station should be funny (in reality, this doesn't work, so they're all funny)
+                if (!bountyId.equals("adversary_Station_Midline")) {
+                    fleet.setStationMode(true);
+                    fleet.setAI(null);
+                    fleet.setCircularOrbitWithSpin(bounty.getFleetSpawnLocation(), 0f, bounty.getFleetSpawnLocation().getRadius() + 150f, 120f, 5f, 5f);
                 }
                 break;
             default:

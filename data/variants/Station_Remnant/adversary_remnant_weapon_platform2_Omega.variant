@@ -1,0 +1,34 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "remnant_weapon_platform2",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_remnant_weapon_platform2_Omega",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "vpdriver"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "cryoblaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "cryoflux"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "shockrepeater",
+                "WS 007": "shockrepeater"
+            }
+        }
+    ]
+}

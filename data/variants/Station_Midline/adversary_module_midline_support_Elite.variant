@@ -1,0 +1,33 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_midline_support",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_midline_support_Elite",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "jackhammer",
+                "WS 001": "jackhammer",
+                "WS 002": "jackhammer",
+                "WS 003": "jackhammer",
+                "WS 004": "sabot",
+                "WS 005": "sabot",
+                "WS 008": "sabot",
+                "WS 009": "sabot",
+                "WS 006": "lightdualmg",
+                "WS 007": "lightdualmg",
+            }
+        },
+    ],
+    "wings": [
+        "trident_wing",
+        "trident_wing",
+        "trident_wing",
+        "trident_wing",
+    ],
+}

@@ -1,0 +1,34 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_hightech_citadel",
+    "hullMods": ["fluxbreakers"],
+    "permaMods": [],
+    "variantId": "adversary_module_hightech_citadel_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "plasma"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "plasma"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "dragon",
+                "WS 012": "dragon",
+                "WS 002": "heavyburst",
+                "WS 003": "heavyburst",
+                "WS 004": "gorgon",
+                "WS 006": "gorgon",
+                "WS 008": "gorgon"
+            }
+        }
+    ]
+}

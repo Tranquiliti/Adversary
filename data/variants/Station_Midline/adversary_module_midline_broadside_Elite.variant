@@ -1,0 +1,63 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_midline_broadside",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_midline_broadside_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "hellbore",
+                "WS 004": "hellbore",
+                "WS 000": "hellbore"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "multineedler",
+                "WS 007": "multineedler",
+                "WS 005": "multineedler",
+                "WS 002": "multineedler",
+                "WS 003": "multineedler",
+                "WS 001": "multineedler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 015": "ionpulser",
+                "WS 010": "ionpulser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 013": "irautolance",
+                "WS 012": "irautolance"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "gravitonbeam",
+                "WS 014": "gravitonbeam",
+                "WS 016": "lightdualmg",
+                "WS 017": "lightdualmg",
+                "WS 018": "lightdualmg",
+                "WS 019": "lightdualmg",
+                "WS 020": "lightdualmg",
+                "WS 021": "lightdualmg",
+                "WS 022": "lightdualmg"
+            }
+        }
+    ]
+}

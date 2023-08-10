@@ -1,3 +1,12 @@
+Version 5.1.0
+
+* Add 4 silly MagicBounties centered around extremely lethal station battles.
+  - Requires MagicLib, as well as enabling "enableAdversarySillyBounties" in settings.json or LunaSettings
+  - These bounties have valuable, one-of-a-kind rewards, but with an extreme difficulty to match.
+* Fixed Paradiso system not being a Core system and having a misplaced sensor array.
+
+
+
 Version 5.0.0
 
 * Split off the custom star system feature to the Customizable Star Systems mod

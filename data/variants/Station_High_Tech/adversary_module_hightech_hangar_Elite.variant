@@ -1,0 +1,30 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_hightech_hangar",
+    "hullMods": ["fluxbreakers"],
+    "permaMods": [],
+    "sMods": [],
+    "variantId": "adversary_module_hightech_hangar_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "dragon",
+                "WS 002": "dragon",
+                "WS 003": "dragon",
+                "WS 005": "dragon",
+                "WS 001": "pdburst",
+                "WS 004": "pdburst"
+            }
+        }
+    ],
+    "wings": [
+        "longbow_wing",
+        "longbow_wing",
+        "longbow_wing",
+        "longbow_wing"
+    ]
+}
