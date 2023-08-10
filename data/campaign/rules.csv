@@ -110,3 +110,7 @@ adversary_Independent_Phase_Picked,AdversaryIndependentPhasePicked,,"AdversaryBo
 adversary_SD_Beam_Picked,AdversarySDBeamPicked,,"AdversaryBountyScript ""adversary_SD_Beam""",,,
 adversary_Kite_Swarm_Picked,AdversaryKiteSwarmPicked,,"AdversaryBountyScript ""adversary_Kite_Swarm""",,,
 adversary_Ziggurat_Plus_Picked,AdversaryZigguratPlusPicked,,"AdversaryBountyScript ""adversary_Ziggurat_Plus""",,,
+adversary_Station_Low_Tech_Picked,AdversaryStationLowTechPicked,,"AdversaryBountyScript ""adversary_Station_Low_Tech""",,,
+adversary_Station_Midline_Picked,AdversaryStationMidlinePicked,,"AdversaryBountyScript ""adversary_Station_Midline""",,,
+adversary_Station_High_Tech_Picked,AdversaryStationHighTechPicked,,"AdversaryBountyScript ""adversary_Station_High_Tech""",,,
+adversary_Station_Remnant_Picked,AdversaryStationRemnantPicked,,"AdversaryBountyScript ""adversary_Station_Remnant""",,,
