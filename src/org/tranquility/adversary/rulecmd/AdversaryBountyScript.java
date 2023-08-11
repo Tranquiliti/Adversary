@@ -294,7 +294,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
                 fleet.addTag(Tags.NEUTRINO_HIGH);
 
                 fleet.clearAbilities();
@@ -302,10 +302,11 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
                 fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
+                fleet.setStationMode(true);
                 // Only the Midline station should be funny
                 if (!bountyId.equals("adversary_Station_Midline")) {
-                    fleet.setStationMode(true);
                     // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
+                    // (Un)fortunately, this means all stations will be funny
                     fleet.setCircularOrbitWithSpin(bounty.getFleetSpawnLocation(), 0f, bounty.getFleetSpawnLocation().getRadius() + 150f, 120f, 5f, 5f);
                 }
                 break;
