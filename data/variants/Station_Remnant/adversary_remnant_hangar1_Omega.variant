@@ -1,0 +1,25 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "remnant_hangar1",
+    "hullMods": [],
+    "variantId": "adversary_remnant_hangar1_Omega",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "shockrepeater",
+                "WS 005": "shockrepeater",
+                "WS 002": "disintegrator",
+                "WS 001": "disintegrator"
+            }
+        },
+    ],
+    "wings": [
+        "aspect_missile_wing",
+        "aspect_missile_wing",
+        "aspect_missile_wing"
+    ]
+}

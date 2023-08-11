@@ -1,0 +1,24 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_midline_bastion",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_midline_bastion_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "hammerrack",
+                "WS 002": "hammerrack",
+                "WS 000": "heavymg",
+                "WS 003": "heavymg",
+                "WS 005": "lightneedler",
+                "WS 006": "lightneedler",
+                "WS 007": "lightneedler"
+            }
+        }
+    ]
+}

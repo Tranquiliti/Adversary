@@ -1,0 +1,30 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_bastion1_lowtech",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_bastion1_lowtech_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "lightneedler",
+                "WS 003": "lightneedler",
+                "WS 004": "lightneedler",
+                "WS 005": "lightneedler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "heavymg",
+                "WS 002": "heavymg",
+                "WS 008": "harpoon"
+            }
+        }
+    ]
+}

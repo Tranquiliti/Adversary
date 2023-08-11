@@ -1,0 +1,43 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "remnant_station2",
+    "hullMods": [],
+    "variantId": "adversary_remnant_station2_Omega",
+    "weaponGroups": [],
+    "modules": [
+        # top plus armor
+        {"WS 024": "remnant_armour3_Standard"},
+        {"WS 001": "adversary_remnant_weapon_platform1_Omega"},
+        
+        # bottom right plus armor
+        {"WS 030": "remnant_armour3_Standard"},
+        {"WS 007": "adversary_remnant_weapon_platform1_Omega"},
+        
+        # bottom left plus armor
+        {"WS 027": "remnant_armour3_Standard"},
+        {"WS 016": "adversary_remnant_weapon_platform1_Omega"},
+        
+        # bottom PD/shield
+        {"WS 032": "adversary_remnant_shield2_Omega"},
+        
+        # left PD/shield
+        {"WS 033": "adversary_remnant_shield2_Omega"},
+        
+        # right PD/shield
+        {"WS 034": "adversary_remnant_shield2_Omega"},
+        
+        # left side weapon platforms
+        {"WS 035": "adversary_remnant_weapon_platform2_Omega"},
+        {"WS 036": "adversary_remnant_weapon_platform2_Omega"},
+        
+        # right side weapon platforms
+        {"WS 037": "adversary_remnant_weapon_platform2_Omega"},
+        {"WS 038": "adversary_remnant_weapon_platform2_Omega"},
+        
+        # hangars
+        {"WS 039": "adversary_remnant_hangar1_Omega"},
+        {"WS 040": "adversary_remnant_hangar1_Omega"}
+    ]
+}

@@ -1,0 +1,26 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "remnant_weapon_platform1",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_remnant_weapon_platform1_Omega",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "vpdriver"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": { "WS 004": "rifttorpedo"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "riftcascade"}
+        }
+    ]
+}

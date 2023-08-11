@@ -1,0 +1,37 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_large1_lowtech",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_large1_lowtech_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "multineedler",
+                "WS 001": "multineedler",
+                "WS 002": "multineedler",
+                "WS 003": "multineedler",
+                "WS 004": "harpoonpod",
+                "WS 005": "harpoonpod",
+                "WS 006": "harpoonpod",
+                "WS 007": "harpoonpod",
+                "WS 008": "harpoonpod",
+                "WS 009": "harpoonpod",
+                "WS 010": "harpoonpod",
+                "WS 011": "harpoonpod",
+                "WS 012": "harpoonpod",
+                "WS 013": "harpoonpod",
+                "WS 015": "lightdualmg",
+                "WS 018": "lightdualmg",
+                "WS 020": "lightdualmg",
+                "WS 021": "lightdualmg",
+                "WS 023": "lightdualmg",
+                "WS 026": "lightdualmg"
+            }
+        }
+    ]
+}

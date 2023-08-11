@@ -1,0 +1,16 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "remnant_shield2",
+    "hullMods": [],
+    "variantId": "adversary_remnant_shield2_Omega",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 002": "realitydisruptor",
+            "WS 001": "realitydisruptor"
+        }
+    }]
+}

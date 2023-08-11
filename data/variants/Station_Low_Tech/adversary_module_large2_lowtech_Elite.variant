@@ -1,0 +1,38 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_large2_lowtech",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_large2_lowtech_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "lightneedler",
+                "WS 007": "lightneedler",
+                "WS 010": "lightneedler",
+                "WS 012": "lightneedler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "harpoonpod",
+                "WS 009": "harpoonpod",
+                "WS 001": "harpoonpod",
+                "WS 003": "harpoonpod",
+                "WS 000": "heavymg",
+                "WS 002": "heavymg",
+                "WS 004": "heavymg"
+            }
+        }
+    ],
+    "wings": [
+        "warthog_wing",
+        "warthog_wing"
+    ]
+}

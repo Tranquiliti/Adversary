@@ -1,0 +1,38 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "module_citadel1_lowtech",
+    "hullMods": [],
+    "permaMods": [],
+    "variantId": "adversary_module_citadel1_lowtech_Elite",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 015": "multineedler",
+                "WS 016": "multineedler",
+                "WS 000": "heavymg",
+                "WS 004": "heavymg",
+                "WS 006": "heavymg",
+                "WS 009": "heavymg",
+                "WS 010": "heavymg",
+                "WS 013": "heavymg",
+                "WS 002": "lightdualmg",
+                "WS 005": "lightdualmg",
+                "WS 007": "lightdualmg",
+                "WS 008": "lightdualmg",
+                "WS 012": "lightdualmg"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "hellbore",
+                "WS 014": "hellbore"
+            }
+        }
+    ]
+}

@@ -187,6 +187,7 @@
 	"adversary_paradiso":{
 		"isEnabled":false,
 		"setLocation":2,
+		"isCoreWorldSystem":true,
 		"addCoronalHypershunt":true,
 		"addDomainCryosleeper":false,
 		"hasSystemwideNebula":true,
@@ -486,7 +487,7 @@
 			{"entity":"inactive_gate","focus":[1,4],"name":"Paradiso Gate"},
 			{"entity":"jump_point","focus":[1,5],"name":"Inner System Jump-point"},
 			{"entity":"nav_buoy","focus":[5,4]},
-			{"entity":"sensor_array","focus":[5,4]},
+			{"entity":"sensor_array","focus":[5,5]},
 			{"entity":"jump_point","orbitRadius":7400,"name":"Fringe Jump-point"},
 			{ # Magnetic field for magnetic planet
 				"entity":"magnetic_field",
