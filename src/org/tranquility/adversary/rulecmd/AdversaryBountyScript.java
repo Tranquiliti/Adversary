@@ -303,10 +303,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
                 fleet.setStationMode(true);
-                // Only the Midline station should be funny
+                // Only the Midline station should be funny; (un)fortunately, a bug (?) means all stations will be funny
                 if (!bountyId.equals("adversary_Station_Midline")) {
-                    // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
-                    // (Un)fortunately, this means all stations will be funny
+                    // fleet.setAI(null); MagicLib's ActiveBounty despawn() lacks a null check for getAI()
                     fleet.setCircularOrbitWithSpin(bounty.getFleetSpawnLocation(), 0f, bounty.getFleetSpawnLocation().getRadius() + 150f, 120f, 5f, 5f);
                 }
                 break;

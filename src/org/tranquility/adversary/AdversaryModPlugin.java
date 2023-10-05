@@ -83,15 +83,15 @@ public class AdversaryModPlugin extends BaseModPlugin {
             stealBlueprints = Global.getSettings().getBoolean(blueprintId);
         }
 
-        if (newGame) { // Assumes it gets called during onNewGameAfterEconomyLoad()
+        if (newGame) { // Called presumably after onNewGameAfterEconomyLoad()
             if (dynaDoctrine) addAdversaryDynamicDoctrine(true, LUNALIB_ENABLED);
             if (stealBlueprints) addAdversaryBlueprintStealer(true, LUNALIB_ENABLED);
-        } else { // Loading existing game
+        } else {
             ListenerManagerAPI listMan = Global.getSector().getListenerManager();
             if (dynaDoctrine) {
                 List<AdversaryDynamicDoctrine> doctrineListeners = listMan.getListeners(AdversaryDynamicDoctrine.class);
                 if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, LUNALIB_ENABLED);
-                else // Refresh needed since Adversary's current doctrine resets upon loading a new Starsector application.
+                else // Refresh needed since opening the Starsector app resets faction doctrines
                     doctrineListeners.get(0).refresh();
             } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 
@@ -109,7 +109,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
         if (lunaLibEnabled) doctrineDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, delayId);
         if (doctrineDelay == null) doctrineDelay = settings.getInt(delayId);
 
-        // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
+        // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
             Global.getSector().getListenerManager().addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryPossibleDoctrines"))));
         } catch (JSONException e) {
@@ -125,7 +125,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
         if (lunaLibEnabled) stealDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, delayId);
         if (stealDelay == null) stealDelay = settings.getInt(delayId);
 
-        // reportEconomyMonthEnd() procs immediately when starting time pass, hence the -1 to account for that
+        // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
             Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), stealDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryStealsFromFactions"))));
         } catch (JSONException e) {
