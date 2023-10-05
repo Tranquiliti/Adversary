@@ -525,6 +525,13 @@
         "job_intel_success":"Ok, that was something to behold, alright. At least you got some credits out of this \"lightshow\" display.",
         "job_forFaction":"independent",
         "job_credit_reward":2000000,
+        "job_item_reward":{
+            "ship_bp kite":1,
+            "ship_bp kite_original":1,
+            "ship_bp kite_pirates":1,
+            "ship_bp kite_luddic_path":1,
+            "ship_bp kite_hegemony":1,
+        },
         "job_reputation_reward":1,
         "job_type":"assassination",
         "job_show_fleet":"flagship",
@@ -757,7 +764,7 @@
         "job_comm_reply":"\"You come to take us by force? We will not back down, not now, not ever!\"",
         "job_intel_success":"You have demolished the Rebellion's last hope, once and for all. Lying within their ruins are blueprints for a Remnant interceptor wing, truly suspicious for something found in a former Hegemony station.",
         "job_forFaction":"hegemony",
-        "job_credit_reward":2000000,
+        "job_credit_reward":3000000,
         "job_item_reward":{
             "ship_bp onslaught":1,
             "fighter_bp spark_wing":1,
@@ -781,6 +788,7 @@
             "target_analysis":2,
             "ballistic_mastery":2,
             "systems_expertise":2,
+            "missile_specialization":2,
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
@@ -824,7 +832,7 @@
         "job_comm_reply":"\"From my point of view, the Sector is evil!\"",
         "job_intel_success":"That was not worth it at all. Or so you thought, as your salvage team had found three blueprints from the wrecked station, with one containing schematics for a Remnant drone fighter. If any of the major factions had known about these blueprints, the so-called \"Chosen One\" would've been dead by now.",
         "job_forFaction":"independent",
-        "job_credit_reward":1000000,
+        "job_credit_reward":2000000,
         "job_item_reward":{
             "ship_bp paragon":1,
             "fighter_bp lux_wing":1,
@@ -855,6 +863,7 @@
             "target_analysis":2,
             "ballistic_mastery":2,
             "systems_expertise":2,
+            "missile_specialization":2,
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
@@ -900,7 +909,7 @@
         "job_comm_reply":"\"Hello there, spacer! Do not come any closer, or we will burn your fleet off the face of this Sector!\"",
         "job_intel_success":"From the burning hulk of a station comes blueprints for both a Pegasus-class ship and, surprisingly, a Remnant bomber wing. It seemed like the League had access to Tri-Tachyon's remaining automated arsenal and, thus, were keeping it a secret from the rest of the Sector.",
         "job_forFaction":"tritachyon",
-        "job_credit_reward":3000000,
+        "job_credit_reward":4000000,
         "job_item_reward":{
             "ship_bp pegasus":1,
             "fighter_bp flash_wing":1,
@@ -924,6 +933,7 @@
             "target_analysis":2,
             "ballistic_mastery":2,
             "systems_expertise":2,
+            "missile_specialization":2,
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
@@ -995,6 +1005,7 @@
             "target_analysis":2,
             "ballistic_mastery":2,
             "systems_expertise":2,
+            "missile_specialization":2,
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
