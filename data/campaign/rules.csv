@@ -1,49 +1,77 @@
 id,trigger,conditions,script,text,options,notes
 # Adversary fleet greeting lines,,,,,,
-greetingAdversaryFriendly,OpenCommLink,"$faction.id == adversary
-$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+greetingAdversaryFriendlySpacer,OpenCommLink,"$faction.id == adversary
+$faction.friendlyToPlayer
+$voice == spacer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Good to see an ally here. Quite a rarity these days, if I'm honest, but I hope to see more of them in the future. Burn bright, $playerName.""",,
+greetingAdversaryFriendlySoldier,OpenCommLink,"$faction.id == adversary
+$faction.friendlyToPlayer
+$voice == soldier","$menuState = fleetConvMain 0
 FireAll PopulateOptions","""Acknowledging receipt of AIS code. Good to see you, $playerName. Burn bright, and may we all unite in peace and prosperity.""
 OR
 ""Identity acknowledged. We welcome your assistance in our great Project. May we all unite in peace and prosperity.""
-OR
-""Good to see an ally here. Quite a rarity these days, if I'm honest, but I hope to see more of them in the future. Burn bright, $playerName.""
-OR
-""Comms received, status friendly. If you see any unauthorized outsiders around here, do you mind taking them down for us? Wouldn't want anything to distract us from our venerable obligations, don't you think?""",,
-greetingAdversaryHostileWeaker,OpenCommLink,"$faction.id == adversary
-$entity.isHostile
-$entity.relativeStrength < 0",$entity.ignorePlayerCommRequests = true 1,"""Hostile $shipOrFleet, you may prey on the weak. But you shall soon find yourself the prey of even greater predators.""
-OR
-""We are but a cog in the grand machinery of the Project. You may take down one cog, but you cannot dismantle the entire machine. The Project shall live on, with or without us.""
-OR
-""I did not wish for this to happen, but if it must happen, then let it happen quickly and painlessly.""",cutCommLink:Cut the comm link,
-greetingAdversaryHostileWeakerDefiant,OpenCommLink,"$faction.id == adversary
+",,
+greetingAdversaryFriendlyVillian,OpenCommLink,"$faction.id == adversary
+$faction.friendlyToPlayer
+$voice == villain","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Comms received, status friendly. If you see any unauthorized outsiders around here, do you mind taking them down for us? Wouldn't want anything to distract us from our venerable obligations, don't you think?""",,
+greetingAdversaryHostileWeakerSpacer,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength < 0
-$entity.weakerThanPlayerButHolding",$entity.ignorePlayerCommRequests = true 1,"The enemy $personRank looks grim but defiant. ""You will not take away our hope and our legacy! May your crimes be your undoing!""
-OR
-The Adversary $personRank glances at something above their screen, and then stares at you, ""You know not what your actions will bring forth. Soon, you will suffer the wrath of the Adversary.""
-OR
-""I did not wish for this to happen, but we shall fight to the last regardless. May Ludd forgive us all.""",cutCommLink:Cut the comm link,
-greetingAdversaryHostileStronger,OpenCommLink,"$faction.id == adversary
+$voice == spacer",$entity.ignorePlayerCommRequests = true 1,"""I did not wish for this to happen, but if it must happen, then let it happen quickly and painlessly.""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileWeakerSoldier,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
-$entity.relativeStrength >= 0",$entity.ignorePlayerCommRequests = true 1,"""Do not contest our great Project, pest. We shall swat you aside for your insolence.""
-
-The comm-link aburptly shuts off, leaving behind the symbol of the Adversary.
-OR
-""Your $shipOrFleet amuses me. It would be a shame if something were to happen to it.""
-OR
-The Adversary $personRank laughs at you, ""This is all you've got! How silly of you; I'm going to have a great time blowing apart your puny $shipOrFleet!""
-OR
-""Why are we even doing this,"" the Adversary $personRank sighs, with a look of regret in $hisOrHer face.
+$entity.relativeStrength < 0
+$voice == soldier",$entity.ignorePlayerCommRequests = true 1,"""Hostile $shipOrFleet, you may prey on the weak. But you shall soon find yourself the prey of even greater predators.""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileWeakerVillian,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength < 0
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""We are but a cog in the grand machinery of the Project. You may take down one cog, but you cannot dismantle the entire machine. The Project shall live on, with or without us.""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileWeakerDefiantSpacer,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength < 0
+$entity.weakerThanPlayerButHolding
+$voice == spacer",$entity.ignorePlayerCommRequests = true 1,"""I did not wish for this to happen, but we shall fight to the last regardless. May Ludd forgive us all.""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileWeakerDefiantSoldier,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength < 0
+$entity.weakerThanPlayerButHolding
+$voice == soldier",$entity.ignorePlayerCommRequests = true 1,"The Adversary $personRank glances at something above their screen, and then stares at you, ""You know not what your actions will bring forth. Soon, you will suffer the wrath of the Adversary.""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileWeakerDefiantVillian,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength < 0
+$entity.weakerThanPlayerButHolding
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"The enemy $personRank looks grim but defiant. ""You will not take away our hope and our legacy, you vermin! May your crimes be your undoing!""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileStrongerSpacer,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength >= 0
+$voice == spacer",$entity.ignorePlayerCommRequests = true 1,"""Why are we even doing this,"" the Adversary $personRank sighs, with a look of regret in $hisOrHer face.
 
 Then, $heOrShe leans in to their screen and whispers, ""Run away, independent captain, if you still can. I cannot stop my fleet from attacking yours, but I can still hope you'll listen and avoid a bloodshed today.""",cutCommLink:Cut the comm link,
-greetingAdversaryNeutral,OpenCommLink,"$faction.id == adversary
-$faction.neutralToPlayer","$menuState = fleetConvMain 0
-FireAll PopulateOptions","""You have been scanned and identified, outsider. If I were you, I'd keep my distance; you just never know what could happen if one of us decides that you shouldn't deserve to be here.""
+greetingAdversaryHostileStrongerSoldier,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength >= 0
+$voice == soldier",$entity.ignorePlayerCommRequests = true 1,"""Your $shipOrFleet amuses me. It would be a shame if something were to happen to it.""
 OR
-The Adversary $personRank looks at you with disgust, ""Ugh, an outsider. Please consider moving away from us by at least a few light-years. Our duties are worth far more than your... plain $shipOrFleet.""
-OR
-""Good to see a friendly face. I was getting tired of having to shoot down everyone I met, eh?""",,
+The Adversary $personRank laughs at you, ""This is all you've got! How silly of you; I'm going to have a great time blowing apart your puny $shipOrFleet!""",cutCommLink:Cut the comm link,
+greetingAdversaryHostileStrongerVillian,OpenCommLink,"$faction.id == adversary
+$entity.isHostile
+$entity.relativeStrength >= 0
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""Do not contest our great Project, pest. We shall swat you aside for your insolence.""
+
+The comm-link aburptly shuts off, leaving behind the symbol of the Adversary.",cutCommLink:Cut the comm link,
+greetingAdversaryNeutralSpacer,OpenCommLink,"$faction.id == adversary
+$faction.neutralToPlayer
+$voice == spacer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""Good to see a friendly face. I was getting tired of having to shoot down everyone I met, eh?""",,
+greetingAdversaryNeutralSoldier,OpenCommLink,"$faction.id == adversary
+$faction.neutralToPlayer
+$voice == soldier","$menuState = fleetConvMain 0
+FireAll PopulateOptions","""You have been scanned and identified, outsider. If I were you, I'd keep my distance; you just never know what could happen if one of us decides that you shouldn't deserve to be here.""",,
+greetingAdversaryNeutralVillian,OpenCommLink,"$faction.id == adversary
+$faction.neutralToPlayer
+$voice == villian","$menuState = fleetConvMain 0
+FireAll PopulateOptions","The Adversary $personRank looks at you with disgust, ""Ugh, an outsider. Please consider moving away from us by at least a few light-years. Our duties are worth far more than your... mild $shipOrFleet.""",,
 ,,,,,,
 # relationship level descriptions,,,,,,
 relLevelCooperativeAdversary,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
@@ -87,13 +115,13 @@ I don't think you need to be reminded of this, independent captain, but acceptin
 Now, uh, you could just resign your commission at any moment, but I'd bet my own life that, if you were to do so, someone somewhere within our Project will be... unhappy with this and rally their supporters in the Adversary Defense Force just to ruin your life. So, I wouldn't recommend doing that at all.",,
 CMSNTextSuitedPart2_adversary,CMSNTextSuitedPart2,$faction.id == adversary,,"""That being said, will you accept our offer and join our glorious Project? We shall await your response.""",,
 CMSNTextWelcomePart1_adversary,CMSNTextWelcomePart1,$faction.id == adversary,,"""Welcome to the Project, $playerName. May we all unite in peace and prosperity.""",,
-CMSNTextWelcomePart2_adversary,CMSNTextWelcomePart2,$faction.id == adversary,,"""Is there anything else you need, before some smuggler in hyperspace decides to attack you?""",,
+CMSNTextWelcomePart2_adversary,CMSNTextWelcomePart2,$faction.id == adversary,,"""Is there anything else you need, before some smuggler in hyperspace attacks you out of spite?""",,
 CMSNTextChangeMind_adversary,CMSNTextChangeMind,$faction.id == adversary,,"""Fair enough. Only a few have benefited our Project enough to be considered for a commission, and fewer still have the courage and the strength to uphold our cause even in the face of overwhelming adversity. Do come back to us whenever you are finally ready to join us.""",,
 CMSNResignAskToConfirm_adversary,CMSNResignAskToConfirm,$faction.id == adversary,,"""I think you need to hear yourself again, $playerName. Some within our glorious Project will consider your request as tantamount to a betrayal and will relentlessly pursue your demise. I can do my best to minimize this, but I cannot guarantee your safety in the event you resign your commission. Is this what you really want?""",,
 CMSNResignConfirmed_adversary,CMSNResignConfirmed,$faction.id == adversary,,"""Well, at least you have come to me about this, else you'd facing quite the retaliation from our... err, my more fervent friends.
 
 I'll inform the Adversary Defense Force about this, make the necessary accommadations, and ensure your safety as best as I can. Burn bright, $playerName.""",,
-CMSNResignCancelled_adversary,CMSNResignCancelled,$faction.id == adversary,,"""Good choice, captain. Though the, umm, radicals within our Project would've had you - and possibly me as well - executed if they heard our conversation, our grand Project would not have endured this long had we extinguished anyone and everyone within our ranks who had shown even a shred of doubt. We greatly value your affirmation in continuing to uphold our cause.",,
+CMSNResignCancelled_adversary,CMSNResignCancelled,$faction.id == adversary,,"""Good choice, captain. Though the... radicals within our Project would've had you - and possibly me as well - executed if they heard our conversation, our grand Project would not have endured this long had we extinguished anyone and everyone within our ranks who had shown even a shred of doubt. We greatly value your affirmation in continuing to uphold our cause.",,
 ,,,,,,
 # turning AI cores in,,,,,,
 aiCores_turnInOptionSelAdversary,DialogOptionSelected,"$option == aiCores_startTurnIn
