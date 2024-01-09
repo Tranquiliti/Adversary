@@ -21,8 +21,6 @@
 		"settings_adversaryPossibleDoctrines":"adversaryPossibleDoctrines",
 		"settings_weight":"weight",
 		"settings_fleetComposition":"fleetComposition",
-		"settings_fleetDoctrine":"fleetDoctrine",
-		"settings_shipSize":"shipSize",
 		"settings_aggression":"aggression",
 		"settings_priorityShips":"priorityShips",
 		"settings_priorityWeapons":"priorityWeapons",

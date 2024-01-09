@@ -1,24 +1,4 @@
 {
   "TakeNoPrisoners":{"factionsWithConfigs":["adversary"]},
-  "exoticatechnologies":{
-    "factionsWithConfigs":["adversary"],
-    "variantWeights":{
-      "adversary_onslaught_xiv_Armored":{
-        "upgrades":{"AdvancedFluxCoils":0.0,"OversizedMagazines":0.0,"AntimatterBoosters":0.0},
-        "exotics":{"NanotechArmor":60.0,"PlasmaFluxCatalyst":0.0,"DriveFluxVent":0.0,"SpooledFeeders":0.0},
-      },
-      "adversary_legion_xiv_Armored":{
-        "upgrades":{"AdvancedFluxCoils":0.0,"OversizedMagazines":0.0,"AntimatterBoosters":0.0},
-        "exotics":{"NanotechArmor":60.0,"PlasmaFluxCatalyst":0.0,"DriveFluxVent":0.0,"SpooledFeeders":0.0},
-      },
-      "adversary_dominator_xiv_Armored":{
-        "upgrades":{"AdvancedFluxCoils":0.0,"OversizedMagazines":0.0,"AntimatterBoosters":0.0},
-        "exotics":{"NanotechArmor":60.0,"PlasmaFluxCatalyst":0.0,"DriveFluxVent":0.0,"SpooledFeeders":0.0},
-      },
-      "adversary_enforcer_xiv_Attack":{
-        "upgrades":{"AdvancedFluxCoils":0.0,"OversizedMagazines":0.0,"AntimatterBoosters":0.0},
-        "exotics":{"NanotechArmor":60.0,"PlasmaFluxCatalyst":0.0,"DriveFluxVent":0.0,"SpooledFeeders":0.0},
-      },
-    },
-  }
+  "exoticatechnologies":{"factionsWithConfigs":["adversary"]}
 }

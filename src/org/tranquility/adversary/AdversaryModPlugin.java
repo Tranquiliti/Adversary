@@ -91,7 +91,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
             if (dynaDoctrine) {
                 List<AdversaryDynamicDoctrine> doctrineListeners = listMan.getListeners(AdversaryDynamicDoctrine.class);
                 if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, LUNALIB_ENABLED);
-                else // Refresh needed since opening the Starsector app resets faction doctrines
+                else // Refresh needed since restarting Starsector also resets faction doctrines
                     doctrineListeners.get(0).refresh();
             } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 

@@ -1,5 +1,7 @@
-Version 5.1.2
+Version 5.2.0 (Not save-compatible)
 
+* Removed "fleetDoctrine" and "shipSize" options for Adversary's Dynamic Doctrine
+  - This is done as these options are barely used by default and can conflict with mods that dynamically increase NPC faction strength
 * Made officers in a certain Silly bounty count as sleeper officers
 * Added voices to the Adversary for more consistent dialogue
 

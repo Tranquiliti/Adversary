@@ -5,10 +5,10 @@
 	"modVersion":
 	{
 		"major":5,
-		"minor":1,
-		"patch":2
+		"minor":2,
+		"patch":0
 	},
 	"starsectorVersion":"0.96a-RC10",
-	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v5.1.2/Adversary-v5.1.2.zip",
+	"directDownloadURL":"https://github.com/Tranquiliti/Adversary/releases/download/v5.2.0/Adversary-v5.2.0.zip",
 	"changelogURL":"https://raw.githubusercontent.com/Tranquiliti/Adversary/main/changelog.txt"
 }
