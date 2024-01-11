@@ -29,8 +29,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         try {
             bounty = MagicBountyCoordinator.getInstance().getActiveBounty(bountyId);
             if (bounty == null) throw new NullPointerException();
-        } catch (Exception ex) {
-            Global.getLogger(AdversaryBountyScript.class).error("Unable to get MagicBounty: " + bountyId, ex);
+        } catch (Exception e) {
+            Global.getLogger(AdversaryBountyScript.class).error("Unable to get MagicBounty: " + bountyId, e);
             return true;
         }
 
@@ -261,6 +261,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 2);
                         person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 1);
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
+                        person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("medusa")) {
                         PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
@@ -271,6 +272,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 2);
                         person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
+                        person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("aurora")) {
                         PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
@@ -281,6 +283,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                         person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
                         person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
+                        person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                         person.getStats().setSkipRefresh(false);
                     }
                 }

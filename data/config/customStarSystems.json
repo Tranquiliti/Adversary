@@ -198,7 +198,7 @@
 				"name":"Paradiso",
 				"type":"US_star_blue_giant",
 				"radius":1100,
-				"coronaRadius":1100,
+				"coronaRadius":825,
 				"flareChance":0.0,
 			},
 			{ # Best Gas Giant

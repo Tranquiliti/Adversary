@@ -32,7 +32,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
             int weight = doctrine.optInt(Global.getSettings().getString("adversary", "settings_weight"), 1);
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
-            // Ignore doctrines with weight of 0 or less
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
@@ -69,14 +68,8 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         factionDoctrine.setPhaseShips(thisPriority.phaseShips);
         doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
 
-        factionDoctrine.setOfficerQuality(thisPriority.officerQuality);
-        factionDoctrine.setShipQuality(thisPriority.shipQuality);
-        factionDoctrine.setNumShips(thisPriority.numShips);
-        doctrineLogger.info(factionId + " fleet doctrine set to " + factionDoctrine.getOfficerQuality() + "-" + factionDoctrine.getShipQuality() + "-" + factionDoctrine.getNumShips());
-
-        factionDoctrine.setShipSize(thisPriority.shipSize);
         factionDoctrine.setAggression(thisPriority.aggression);
-        doctrineLogger.info(factionId + " ship size and aggression set to " + factionDoctrine.getShipSize() + " and " + factionDoctrine.getAggression());
+        doctrineLogger.info(factionId + " aggression set to " + factionDoctrine.getAggression());
 
         faction.getPriorityShips().clear();
         if (thisPriority.priorityShips != null && thisPriority.priorityShips.length != 0)
@@ -125,7 +118,8 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
 
         // Readies the Picker for use; shouldn't add any more elements after calling this function
         public void ready(String factionId) {
-            if (items.isEmpty()) add(new PriorityDoctrine(Global.getSector().getFaction(factionId).getDoctrine()));
+            if (items.isEmpty())
+                add(new PriorityDoctrine(Global.getSettings().getFactionSpec(factionId).getFactionDoctrine()));
             items.trimToSize();
             if (items.size() > 1) total -= items.get(items.size() - 1).weight;
         }
@@ -156,8 +150,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
     protected static class PriorityDoctrine {
         public int weight;
         public byte warships, carriers, phaseShips;
-        public byte officerQuality, shipQuality, numShips;
-        public byte shipSize;
         public byte aggression;
         public String[] priorityShips, priorityWeapons, priorityFighters;
 
@@ -167,10 +159,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             warships = (byte) defaultDoctrine.getWarships();
             carriers = (byte) defaultDoctrine.getCarriers();
             phaseShips = (byte) defaultDoctrine.getPhaseShips();
-            officerQuality = (byte) defaultDoctrine.getOfficerQuality();
-            shipQuality = (byte) defaultDoctrine.getShipQuality();
-            numShips = (byte) defaultDoctrine.getNumShips();
-            shipSize = (byte) defaultDoctrine.getShipSize();
             aggression = (byte) defaultDoctrine.getAggression();
         }
 
@@ -191,19 +179,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
                 phaseShips = (byte) fleetComp.getInt(2);
             }
 
-            String doctrineId = Global.getSettings().getString("adversary", "settings_fleetDoctrine");
-            if (priorityObject.isNull(doctrineId)) {
-                officerQuality = 3;
-                shipQuality = 2;
-                numShips = 2;
-            } else {
-                JSONArray fleetDoctrine = priorityObject.getJSONArray(doctrineId);
-                officerQuality = (byte) fleetDoctrine.getInt(0);
-                shipQuality = (byte) fleetDoctrine.getInt(1);
-                numShips = (byte) fleetDoctrine.getInt(2);
-            }
-
-            shipSize = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_shipSize"), 5);
             aggression = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_aggression"), 5);
 
             String shipsId = Global.getSettings().getString("adversary", "settings_priorityShips");

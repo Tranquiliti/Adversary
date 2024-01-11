@@ -8,7 +8,6 @@
 	"brightUIColor":[255,215,203,255],
 
 	"showInIntelTab":true,
-
 	"displayName":"Adversary",
 	"displayNameWithArticle":"the Adversary",
 	"personNamePrefixAOrAn":"an",
@@ -512,10 +511,10 @@
 		"combatFreighterProbability":1.0,                   # instead of some portion of the freighters in a fleet
 		"combatFreighterCombatUseFraction":1.0,             # as part of the normal combat lineup
 		"combatFreighterCombatUseFractionWhenPriority":1.0, # as part of normal combat lineup, when marked as priority ship
-		"autofitRandomizeProbability":0,
+		"autofitRandomizeProbability":0.0,
 		"strictComposition":true, # warships/carriers/phase at 1 will be treated as 0, also no random factor
 
-		"commanderSkillsShuffleProbability":0,
+		"commanderSkillsShuffleProbability":0.0,
 		"commanderSkills":[
 			"support_doctrine",
 			"crew_training",
@@ -535,6 +534,23 @@
 		"encounter_friendly":"music_hegemony_encounter_friendly",
 	},
 	"barSound":"bar_ambience",
+	"voices":{
+		"LOW":{
+			"spacer":5,
+			"soldier":5,
+			"villain":5,
+		},
+		"MEDIUM":{
+			"spacer":5,
+			"soldier":10,
+			"villain":10,
+		},
+		"HIGH":{
+			"spacer":1,
+			"soldier":5,
+			"villain":20,
+		},
+	},	
 	"custom":{
 		"engageWhenEvenStrength":true,
 		"postsNoBounties":true,

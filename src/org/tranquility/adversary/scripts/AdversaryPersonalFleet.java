@@ -2,6 +2,7 @@ package org.tranquility.adversary.scripts;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
+import com.fs.starfarer.api.campaign.PersonImportance;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.impl.campaign.fleets.PersonalFleetScript;
@@ -24,6 +25,8 @@ public class AdversaryPersonalFleet extends PersonalFleetScript {
         commander.setId(personId);
         commander.setRankId(Ranks.SPACE_ADMIRAL);
         commander.setPostId(Ranks.POST_FLEET_COMMANDER);
+        commander.setVoice(Voices.VILLAIN);
+        commander.setImportance(PersonImportance.VERY_HIGH);
         commander.getStats().setLevel(5);
         commander.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
         commander.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);

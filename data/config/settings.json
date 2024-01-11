@@ -49,11 +49,6 @@
 			 # Defaults to [3,2,2] if this entry is omitted
 			"fleetComposition":[3,2,2],
 
-			 # [Officer Quality, Ship Quality, More Ships]
-			 # Defaults to [3,2,2] if this entry is omitted
-			"fleetDoctrine":[3,2,2],
-
-			"shipSize":5, # Defaults to 5 if this entry is omitted
 			"aggression":5, # Defaults to 5 if this entry is omitted
 			"priorityShips":[], # Defaults to no priority if this entry is omitted
 			"priorityWeapons":[], # Defaults to no priority if this entry is omitted
@@ -89,7 +84,6 @@
 			"weight":4,
 			"fleetComposition":[1,5,1],
 			"priorityShips":["astral","heron","drover","tempest"],
-			"fleetDoctrine":[3,1,3],
 			"aggression":2,
 			"priorityWeapons":["ionbeam","gravitonbeam","lrpdlaser","locust","hydra","harpoonpod","harpoon","swarmer","hveldriver","heavymauler","railgun","lightag","vulcan"],
 			"priorityFighters":["xyphos_wing","gladius_wing","thunder_wing","claw_wing","wasp_wing","dagger_wing","trident_wing","cobra_wing","longbow_wing"],
@@ -97,7 +91,6 @@
 		{ # Low Tech Carriers
 			"weight":4,
 			"fleetComposition":[1,5,1],
-			"fleetDoctrine":[3,1,3],
 			"aggression":3,
 			"priorityShips":["legion","mora","condor","shepherd"],
 			"priorityWeapons":["squall","harpoonpod","harpoon","swarmer","gauss","hellbore","hveldriver","heavymauler","railgun","lightag","vulcan"],
@@ -110,7 +103,6 @@
 		{ # Elite Phase Ships
 			"weight":6,
 			"fleetComposition":[1,1,5],
-			"fleetDoctrine":[5,1,1],
 			"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
 			"priorityWeapons":["autopulse","ionpulser","heavyburst","heavyblaster","phasebeam","amblaster","pdburst","phasecl","sabotpod","sabot","lightneedler","lightag"],
 			"priorityFighters":[],
