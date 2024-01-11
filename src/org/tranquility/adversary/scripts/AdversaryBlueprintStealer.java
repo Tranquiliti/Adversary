@@ -40,7 +40,7 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
         }
     }
 
-    // Look in com.fs.starfarer.api.impl.campaign.DelayedBlueprintLearnScript's doAction() for vanilla implementation
+    // See com.fs.starfarer.api.impl.campaign.DelayedBlueprintLearnScript's doAction() for vanilla implementation
     protected void stealBlueprints(FactionAPI stealer, FactionAPI target) {
         for (String id : target.getKnownShips())
             if (!stealer.knowsShip(id)) {
