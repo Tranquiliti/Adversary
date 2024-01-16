@@ -1,6 +1,6 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 20,
+    "fluxCapacitors": 17,
     "fluxVents": 0,
     "hullId": "harbinger",
     "hullMods": [
@@ -8,8 +8,8 @@
         "reinforcedhull",
         "adaptive_coils",
         "armoredweapons",
-        "magazines",
         "hardened_subsystems",
+        "targetingunit",
         "fluxbreakers"
     ],
     "permaMods": [
@@ -25,8 +25,12 @@
         {
             "autofire": false,
             "mode": "LINKED",
+            "weapons": {"WS 001": "miningblaster"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
             "weapons": {
-                "WS 001": "miningblaster",
                 "WS 002": "ionpulser",
                 "WS 003": "ionpulser"
             }

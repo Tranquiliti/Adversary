@@ -1,7 +1,7 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 7,
-    "fluxVents": 30,
+    "fluxCapacitors": 5,
+    "fluxVents": 28,
     "hullId": "eradicator",
     "hullMods": [
         "heavyarmor",
@@ -12,9 +12,9 @@
         "increased_maintenance",
         "fragile_subsystems",
         "armoredweapons",
-        "autorepair",
-        "hardenedshieldemitter",
-        "targetingunit"
+        "missleracks",
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "heavyarmor",
@@ -51,22 +51,22 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "hveldriver",
-                "WS 007": "hveldriver"
+                "WS 009": "railgun",
+                "WS 010": "railgun"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 011": "railgun"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "lightac",
-                "WS 010": "lightac"
+                "WS 005": "flak",
+                "WS 007": "flak"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 011": "lightac"}
         }
     ]
 }

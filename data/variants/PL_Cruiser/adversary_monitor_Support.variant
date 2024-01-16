@@ -1,0 +1,32 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 10,
+    "hullId": "monitor",
+    "hullMods": [
+        "frontemitter",
+        "stabilizedshieldemitter",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "frontemitter",
+        "stabilizedshieldemitter"
+    ],
+    "sMods": [
+        "frontemitter",
+        "stabilizedshieldemitter"
+    ],
+    "variantId": "adversary_monitor_Support",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "flak",
+            "WS 002": "flak",
+            "WS 003": "heatseeker",
+            "WS 004": "heatseeker"
+        }
+    }]
+}

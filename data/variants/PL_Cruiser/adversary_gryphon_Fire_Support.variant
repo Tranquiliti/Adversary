@@ -1,6 +1,6 @@
 {
     "displayName": "Fire Support",
-    "fluxCapacitors": 12,
+    "fluxCapacitors": 15,
     "fluxVents": 17,
     "hullId": "gryphon",
     "hullMods": [
@@ -23,27 +23,17 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "squall"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
             "weapons": {
+                "WS 001": "squall",
                 "WS 008": "harpoonpod",
-                "WS 009": "harpoonpod"
+                "WS 009": "harpoonpod",
+                "WS 010": "harpoon",
+                "WS 011": "harpoon",
+                "WS 012": "harpoon"
             }
         },
         {
             "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "gorgon",
-                "WS 011": "gorgon",
-                "WS 012": "gorgon"
-            }
-        },
-        {
-            "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 002": "flak"}
         }

@@ -1,7 +1,7 @@
 {
     "displayName": "Support",
     "fluxCapacitors": 10,
-    "fluxVents": 5,
+    "fluxVents": 9,
     "hullId": "omen",
     "hullMods": [
         "hardenedshieldemitter",
@@ -22,15 +22,17 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 001": "pdburst",
-                "WS 002": "pdburst"
-            }
+            "weapons": {"WS 002": "irpulse"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 003": "gazer"}
+            "weapons": {"WS 003": "breach"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "irpulse"}
         }
     ]
 }

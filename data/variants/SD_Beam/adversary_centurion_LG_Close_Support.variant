@@ -1,6 +1,6 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 0,
+    "fluxCapacitors": 2,
     "fluxVents": 10,
     "hullId": "centurion_LG",
     "hullMods": [
@@ -12,8 +12,8 @@
         "increased_maintenance",
         "advancedoptics",
         "hardenedshieldemitter",
-        "reinforcedhull",
-        "targetingunit"
+        "targetingunit",
+        "reinforcedhull"
     ],
     "permaMods": [
         "ecm",

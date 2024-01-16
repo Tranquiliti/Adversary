@@ -1,36 +1,35 @@
 {
     "displayName": "Elite",
     "fluxCapacitors": 0,
-    "fluxVents": 0,
+    "fluxVents": 18,
     "hullId": "apogee",
     "hullMods": [
-        "ecm",
         "missleracks",
+        "nav_relay",
         "hardenedshieldemitter",
         "insulatedengine",
         "targetingunit",
-        "adaptiveshields",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "ecm",
-        "missleracks"
+        "missleracks",
+        "nav_relay"
     ],
     "sMods": [
-        "ecm",
-        "missleracks"
+        "missleracks",
+        "nav_relay"
     ],
     "variantId": "adversary_apogee_Elite",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 008": "gigacannon"}
+            "weapons": {"WS 008": "autopulse"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 009": "hydra"}
+            "weapons": {"WS 009": "locust"}
         },
         {
             "autofire": false,
@@ -51,8 +50,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "heavyburst",
-                "WS 002": "heavyburst"
+                "WS 001": "irautolance",
+                "WS 002": "irautolance"
             }
         }
     ]

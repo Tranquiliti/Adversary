@@ -1,7 +1,7 @@
 {
     "displayName": "Support",
     "fluxCapacitors": 0,
-    "fluxVents": 24,
+    "fluxVents": 28,
     "hullId": "eagle_LG",
     "hullMods": [
         "hardenedshieldemitter",
@@ -10,8 +10,8 @@
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
-        "adaptiveshields",
         "reinforcedhull",
+        "adaptiveshields",
         "stabilizedshieldemitter"
     ],
     "permaMods": [

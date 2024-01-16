@@ -1,0 +1,31 @@
+{
+    "displayName": "DEM",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "vigilance",
+    "hullMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks"
+    ],
+    "variantId": "adversary_vigilance_DEM",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "hveldriver"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "dragon"}
+        }
+    ]
+}

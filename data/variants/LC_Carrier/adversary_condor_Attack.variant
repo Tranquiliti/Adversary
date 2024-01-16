@@ -7,19 +7,19 @@
         "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
-        "degraded_life_support",
+        "degraded_shields",
         "erratic_injector",
+        "faulty_grid",
         "glitched_sensors",
-        "increased_maintenance"
     ],
     "permaMods": [
         "heavyarmor",
         "reinforcedhull",
         "damaged_mounts",
-        "degraded_life_support",
+        "degraded_shields",
         "erratic_injector",
+        "faulty_grid",
         "glitched_sensors",
-        "increased_maintenance"
     ],
     "sMods": [
         "heavyarmor",

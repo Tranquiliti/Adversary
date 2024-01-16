@@ -1,12 +1,13 @@
 {
     "displayName": "Command",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 18,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
         "eccm",
         "operations_center",
         "missleracks",
+        "fluxdistributor",
         "hardenedshieldemitter",
         "targetingunit",
         "stabilizedshieldemitter"
@@ -25,14 +26,8 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "hurricane",
-                "WS 002": "hurricane"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
+                "WS 001": "squall",
+                "WS 002": "locust",
                 "WS 019": "harpoonpod",
                 "WS 020": "harpoonpod"
             }
@@ -40,30 +35,20 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 011": "gauss",
-                "WS 012": "gauss"
-            }
+            "weapons": {"WS 011": "mjolnir"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 012": "mjolnir"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 015": "hveldriver",
-                "WS 016": "hveldriver"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 022": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 013": "devastator",
-                "WS 014": "devastator"
+                "WS 016": "hveldriver",
+                "WS 022": "irautolance"
             }
         },
         {

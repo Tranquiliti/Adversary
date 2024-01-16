@@ -1,0 +1,30 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 8,
+    "hullId": "omen",
+    "hullMods": [
+        "missleracks",
+        "missile_autoloader",
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "permaMods": [
+        "missleracks",
+        "missile_autoloader"
+    ],
+    "sMods": [
+        "missleracks",
+        "missile_autoloader"
+    ],
+    "variantId": "adversary_omen_Fire_Support",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "lrpdlaser",
+            "WS 002": "lrpdlaser",
+            "WS 003": "harpoon"
+        }
+    }]
+}

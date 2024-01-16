@@ -15,16 +15,16 @@
     "colonyExpeditionChance":0.1, # No point going anywhere worse, but maybe...
     "maxColonyDistance":5,        # ...the rock nearby looks nice?
 
-    "vengeanceLevelNames":["Retribution","Assassination","Death"],
-    "vengeanceFleetNames":["Retribution Fleet","Assassin Fleet","Death-Fleet"],
-    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Assassination Fleet","a Death-Fleet"],
+    "vengeanceLevelNames":["Retribution","Extermination","Death"],
+    "vengeanceFleetNames":["Retribution Fleet","Extermination Fleet","Death-Fleet"],
+    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Extermination Fleet","a Death-Fleet"],
 
     "startShipsSolo":[["centurion_Starting"],
       # tutorial start
       ["wolf_Starting","kite_Starting"],
       ["wolf_Starting","shepherd_Starting"],
       ["wayfarer_Starting","kite_Starting"],
-      ["wayfarer_Starting","shepherd_Starting"],
+      ["wayfarer_Starting","shepherd_Starting"]
     ],
     "startShipsCombatSmall":[["hammerhead_Balanced","vigilance_Starting","kite_Standard"]],
     "startShipsTradeSmall":[["mule_Starting","cerberus_Standard","mercury_Standard"]],
@@ -38,20 +38,20 @@
     "defenceStations":[
         {"ids":["orbitalstation","battlestation","starfortress"]},
         {"ids":["orbitalstation_mid","battlestation_mid","starfortress_mid"]},
-        {"ids":["orbitalstation_high","battlestation_high","starfortress_high"]},
+        {"ids":["orbitalstation_high","battlestation_high","starfortress_high"]}
     ],
 
     "startSpecialItems":[
         [["low_tech_package",""]],
         [["midline_package",""]],
-        [["high_tech_package",""]],
+        [["high_tech_package",""]]
     ],
 
     "industrySeeds":[
         {"id":"orbitalworks","mult":0.1},
         {"id":"lightindustry","mult":0.1},
         {"id":"refining","mult":0.1},
-        {"id":"fuelprod","mult":0.1},
+        {"id":"fuelprod","mult":0.1}
     ],
     
     "bonusSeeds":[
@@ -59,6 +59,6 @@
         {"id":"aiCore_station","count":2,"mult":0.2},
         {"id":"aiCore_military","mult":0.4},
         {"id":"aiCore_heavyindustry","count":1},
-        {"id":"aiCore_any","mult":1.5},
-    ],
+        {"id":"aiCore_any","mult":1.5}
+    ]
 }

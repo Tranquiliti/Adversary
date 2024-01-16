@@ -1,14 +1,13 @@
 {
     "displayName": "Overdriven",
     "fluxCapacitors": 20,
-    "fluxVents": 7,
+    "fluxVents": 9,
     "hullId": "eagle_xiv",
     "hullMods": [
         "magazines",
         "hardenedshieldemitter",
         "reinforcedhull",
-        "safetyoverrides",
-        "adaptiveshields"
+        "safetyoverrides"
     ],
     "permaMods": [
         "magazines",
@@ -29,6 +28,14 @@
                 "WS 005": "ionpulser",
                 "WS 006": "ionpulser",
                 "WS 009": "miningblaster"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "breach",
+                "WS 002": "breach"
             }
         },
         {

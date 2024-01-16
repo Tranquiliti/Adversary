@@ -1,12 +1,13 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 10,
-    "fluxVents": 10,
+    "fluxVents": 7,
     "hullId": "tempest",
     "hullMods": [
         "hardenedshieldemitter",
         "missile_autoloader",
         "defensive_targeting_array",
+        "magazines",
         "hardened_subsystems"
     ],
     "permaMods": [
@@ -32,7 +33,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "pulselaser"}
+            "weapons": {"WS 001": "ionpulser"}
         }
     ],
     "wings": []

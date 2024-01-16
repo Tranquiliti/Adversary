@@ -39,7 +39,8 @@
     "AssaultWings":1.0,
     "VelocityInjectors":1.0,
     "WaspDefenseDrones":1.0,
-    "OverclockedFabricators":1.0
+    "OverclockedFabricators":1.0,
+    "QuickJets":0.8
   },
   "exoticTurnIn":{
     "SpooledFeeders":{"credit":1.0,"rep":0.0},

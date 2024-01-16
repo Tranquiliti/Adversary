@@ -38,7 +38,7 @@
             "gunnery_implants":2,
             "flux_regulation":1,
             "phase_corps":1,
-            "cybernetic_augmentation":1,
+            "cybernetic_augmentation":1
         },
 
         "fleet_name":"Adversary Wolfpack",
@@ -51,7 +51,7 @@
             "adversary_tempest_Attack":4,
             "adversary_scarab_Attack":4,
             "adversary_omen_Support":4,
-            "adversary_brawler_tritachyon_Close_Support":3,
+            "adversary_brawler_tritachyon_Close_Support":3
         },
         "fleet_composition_quality":2,
         "fleet_transponder":false,
@@ -60,7 +60,7 @@
         
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_LP_Heretics":{
         "trigger_marketFaction_any":["independent","luddic_path"],
@@ -101,7 +101,7 @@
             "gunnery_implants":2,
             "energy_weapon_mastery":2,
             "electronic_warfare":1,
-            "flux_regulation":1,
+            "flux_regulation":1
         },
 
         "fleet_name":"Adversary Righteous Flotilla",
@@ -114,7 +114,7 @@
             "adversary_colossus2_Strike":3,
             "adversary_manticore_luddic_path_Strike":6,
             "adversary_gremlin_luddic_path_Strike":2,
-            "adversary_brawler_pather_Assault":4,
+            "adversary_brawler_pather_Assault":4
         },
         "fleet_composition_faction":"luddic_path",
         "fleet_composition_quality":2,
@@ -124,7 +124,7 @@
 
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Pirates_Derelict":{
         "trigger_marketFaction_any":["independent","pirates"],
@@ -152,19 +152,19 @@
             "coordinated_maneuvers":1,
             "crew_training":1,
             "carrier_group":1,
-            "fighter_uplink":1,
             "support_doctrine":1,
             #
             "navigation":1,
             "sensors":1,
             "electronic_warfare":1,
             "flux_regulation":1,
+            "cybernetic_augmentation":1,
             #
             "bulk_transport":1,
             "field_repairs":1,
             "ordnance_expert":2,
             "containment_procedures":1,
-            "derelict_contingent":1,
+            "derelict_contingent":1
         },
 
         "fleet_name":"Adversary Armada",
@@ -179,7 +179,7 @@
             "adversary_colossus3_Attack":2,
             "adversary_manticore_pirates_Close_Support":3,
             "adversary_shrike_pirates_Attack":2,
-            "adversary_vanguard_pirates_Overdriven":2,
+            "adversary_vanguard_pirates_Overdriven":2
         },
         "fleet_composition_faction":"pirates",
         "fleet_composition_quality":2,
@@ -189,7 +189,7 @@
 
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Hegemony_Armored":{
         "trigger_marketFaction_any":["independent","hegemony"],
@@ -222,7 +222,6 @@
             "tactical_drills":1,
             "coordinated_maneuvers":1,
             "crew_training":1,
-            "carrier_group":1,
             "officer_training":1,
             "officer_management":1,
             "best_of_the_best":1,
@@ -230,8 +229,9 @@
             #
             "navigation":1,
             "gunnery_implants":2,
+            "electronic_warfare":1,
             "flux_regulation":1,
-            "cybernetic_augmentation":1,
+            "cybernetic_augmentation":1
         },
 
         "fleet_name":"The Fist of Steel",
@@ -245,7 +245,7 @@
             "adversary_eagle_xiv_Overdriven":4,
             "adversary_falcon_xiv_Overdriven":4,
             "adversary_enforcer_xiv_Attack":6,
-            "adversary_hound_hegemony_Support":5,
+            "adversary_hound_hegemony_Support":5
         },
         "fleet_composition_faction":"hegemony",
         "fleet_composition_quality":2,
@@ -255,7 +255,7 @@
 
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_PL_Cruiser":{
         "trigger_marketFaction_any":["independent","persean"],
@@ -278,9 +278,8 @@
         "target_rank":"spaceCommander",
         "target_post":"fleetCommander",
         "target_personality":"cautious",
-        "target_level":7,
+        "target_level":6,
         "target_skills":{
-            "helmsmanship":2,
             "combat_endurance":2,
             "field_modulation":2,
             "target_analysis":2,
@@ -290,13 +289,14 @@
             "tactical_drills":1,
             "crew_training":1,
             "carrier_group":1,
-            "fighter_uplink":1,
             "officer_management":1,
             "support_doctrine":1,
             #
             "navigation":1,
             "gunnery_implants":2,
+            "electronic_warfare":1,
             "flux_regulation":1,
+            "cybernetic_augmentation":1
         },
 
         "fleet_name":"Spear of Destiny",
@@ -310,7 +310,7 @@
             "adversary_heron_Attack":5,
             "adversary_drover_Attack":5,
             "adversary_hammerhead_Close_Support":5,
-            "adversary_monitor_Overdriven":4,
+            "adversary_monitor_Support":4
         },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
@@ -320,7 +320,7 @@
         "location_marketFactions":["adversary"],
         "location_distance":"CORE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_LC_Carrier":{
         "trigger_marketFaction_any":["independent","luddic_church","adversary"],
@@ -361,7 +361,7 @@
             "field_repairs":1,
             "polarized_armor":2,
             "containment_procedures":1,
-            "derelict_contingent":1,
+            "derelict_contingent":1
         },
 
         "fleet_name":"Reformed Hope",
@@ -373,7 +373,7 @@
             "adversary_mora_Attack":10,
             "adversary_eradicator_Close_Support":6,
             "adversary_condor_Attack":8,
-            "adversary_vanguard_Attack":3,
+            "adversary_vanguard_Attack":3
         },
         "fleet_composition_faction":"adversary",
         "fleet_composition_quality":2,
@@ -383,7 +383,7 @@
 
         "location_distance":"CORE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Independent_Phase":{
         "trigger_marketFaction_any":["independent"],
@@ -411,7 +411,7 @@
             "tactical_drills":1,
             "coordinated_maneuvers":1,
             "crew_training":1,
-            "officer_management":1,
+            "officer_training":1,
             "support_doctrine":1,
             #
             "navigation":1,
@@ -424,7 +424,7 @@
             "field_repairs":1,
             "ordnance_expert":2,
             "containment_procedures":1,
-            "hull_restoration":1,
+            "hull_restoration":1
         },
 
         "fleet_name":"Mercenary Phase Corps",
@@ -433,10 +433,10 @@
         "fleet_flagship_name":"Coward's Trial",
         "fleet_preset_ships":{
             "adversary_doom_Attack":6,
-            "adversary_apogee_Elite":4,
-            "adversary_harbinger_Strike":10,
-            "adversary_afflictor_Assault":5,
-            "adversary_shade_Strike":4,
+            "adversary_apogee_Elite":2,
+            "adversary_harbinger_Strike":12,
+            "adversary_afflictor_Strike":5,
+            "adversary_shade_Strike":4
         },
         "fleet_composition_faction":"adversary",
         "fleet_composition_quality":2,
@@ -446,7 +446,7 @@
 
         "location_distance":"FAR",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_SD_Beam":{
         "trigger_marketFaction_any":["independent","sindrian_diktat"],
@@ -487,7 +487,7 @@
             "field_repairs":1,
             "ordnance_expert":2,
             "containment_procedures":1,
-            "derelict_contingent":1,
+            "derelict_contingent":1
         },
 
         "fleet_name":"Lion's Guard Support Flotilla",
@@ -500,7 +500,7 @@
             "adversary_sunder_LG_Close_Support":5,
             "adversary_hammerhead_LG_Close_Support":5,
             "adversary_brawler_LG_Close_Support":5,
-            "adversary_centurion_LG_Close_Support":4,
+            "adversary_centurion_LG_Close_Support":4
         },
         "fleet_composition_faction":"lions_guard",
         "fleet_composition_quality":2,
@@ -510,13 +510,13 @@
 
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Kite_Swarm":{
         "trigger_marketFaction_any":["independent","hegemony"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
+            "$adversary_sillyBountiesEnabled":true
         },
 
         "job_name":"Overwhelming Power",
@@ -530,7 +530,7 @@
             "ship_bp kite_original":1,
             "ship_bp kite_pirates":1,
             "ship_bp kite_luddic_path":1,
-            "ship_bp kite_hegemony":1,
+            "ship_bp kite_hegemony":1
         },
         "job_reputation_reward":1,
         "job_type":"assassination",
@@ -557,12 +557,13 @@
             "sensors":1,
             "electronic_warfare":1,
             "flux_regulation":1,
+            "cybernetic_augmentation":1,
             #
             "bulk_transport":1,
             "field_repairs":1,
             "containment_procedures":1,
             "hull_restoration":1,
-            "derelict_contingent":1,
+            "derelict_contingent":1
         },
 
         "fleet_name":"Hegemony Auxiliary Armada",
@@ -570,7 +571,7 @@
         "fleet_flagship_variant":"adversary_kite_original_Support",
         "fleet_flagship_name":"HSS Cerf-Volant 53",
         "fleet_preset_ships":{
-            "adversary_kite_hegemony_Strike":239,
+            "adversary_kite_hegemony_Strike":239
         },
         "fleet_composition_faction":"hegemony",
         "fleet_composition_quality":2,
@@ -580,14 +581,15 @@
 
         "location_distance":"CLOSE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Ziggurat_Plus":{
         "trigger_marketFaction_any":["independent","hegemony"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
             "$adversary_sillyBountiesEnabled":true,
-            "$defeatedZiggurat":true,
+            "$CBRemnantPlus_accepted":true,
+            "$defeatedZiggurat":true
         },
 
         "job_name":"The Alpha and the Omega",
@@ -636,12 +638,13 @@
             "electronic_warfare":1,
             "flux_regulation":1,
             "phase_corps":1,
+            "cybernetic_augmentation":1,
             #
             "field_repairs":1,
             "ordnance_expert":2,
             "polarized_armor":2,
             "hull_restoration":1,
-            "derelict_contingent":1,
+            "derelict_contingent":1
         },
 
         "fleet_name":"Unidentified Fleet",
@@ -652,7 +655,7 @@
          "fleet_preset_ships":{
             "adversary_aurora_Experimental":3,
             "adversary_medusa_Experimental":4,
-            "adversary_scarab_Experimental":6,
+            "adversary_scarab_Experimental":6
         },
         "fleet_composition_quality":2,
         "fleet_transponder":false,
@@ -661,14 +664,14 @@
 
         "location_distance":"FAR",
         "location_themes":["theme_remnant","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Remnant_Plus_Plus":{
         "trigger_marketFaction_any":["independent","player"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
             "$adversary_sillyBountiesEnabled":true,
-            "$CBRemnantPlus_accepted":true,
+            "$CBRemnantPlus_accepted":true
         },
 
         "job_name":"Omega Alpha Strike",
@@ -700,6 +703,7 @@
             "target_analysis":2,
             "ballistic_mastery":2,
             "systems_expertise":2,
+            "missile_specialization":2,
             #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
@@ -726,14 +730,14 @@
             "ordnance_expert":2,
             "polarized_armor":2,
             "containment_procedures":1,
-            "hull_restoration":1,
+            "hull_restoration":1
         },
 
         "fleet_name":"Very Unusual Remnant Fleet",
         "fleet_faction":"omega",
         "fleet_flagship_variant":"adversary_tesseract_Outdated",
         "fleet_flagship_name":"01001111 4F6D656761",
-         "fleet_preset_ships":{
+        "fleet_preset_ships":{
             "adversary_radiant_Omega":1,
             "adversary_nova_Omega":2,
             "adversary_apex_Omega":3,
@@ -741,7 +745,7 @@
             "adversary_scintilla_Omega":5,
             "adversary_fulgent_Omega":5,
             "adversary_glimmer_Omega":5,
-            "adversary_lumen_Omega":4,
+            "adversary_lumen_Omega":4
         },
         "fleet_composition_quality":2,
         "fleet_transponder":false,
@@ -750,13 +754,13 @@
 
         "location_distance":"FAR",
         "location_themes":["theme_remnant","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Station_Low_Tech":{
         "trigger_marketFaction_any":["independent","hegemony","player"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
+            "$adversary_sillyBountiesEnabled":true
         },
 
         "job_name":"Quashing the Rebellion",
@@ -764,10 +768,10 @@
         "job_comm_reply":"\"You come to take us by force? We will not back down, not now, not ever!\"",
         "job_intel_success":"You have demolished the Rebellion's last hope, once and for all. Lying within their ruins are blueprints for a Remnant interceptor wing, truly suspicious for something found in a former Hegemony station.",
         "job_forFaction":"hegemony",
-        "job_credit_reward":3000000,
+        "job_credit_reward":4000000,
         "job_item_reward":{
-            "ship_bp onslaught":1,
-            "fighter_bp spark_wing":1,
+            "ship_bp pegasus":1,
+            "fighter_bp spark_wing":1
         },
         "job_type":"obliteration",
         "job_show_captain":false,
@@ -790,27 +794,20 @@
             "systems_expertise":2,
             "missile_specialization":2,
             #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "force_concentration":1,
-            #
             "gunnery_implants":2,
             "energy_weapon_mastery":2,
-            "flux_regulation":1,
             #
-            "field_repairs":1,
             "ordnance_expert":2,
-            "polarized_armor":2,
+            "polarized_armor":2
         },
 
         "fleet_name":"The United Independent Station of the Persean Sector",
         "fleet_faction":"independent",
         "fleet_flagship_variant":"adversary_station3_Elite",
         "fleet_flagship_name":"Concordance",
+        "fleet_preset_ships":{
+            "adversary_omen_Fire_Support":10
+        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
@@ -818,13 +815,13 @@
 
         "location_distance":"CORE",
         "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Station_Midline":{
         "trigger_marketFaction_any":["independent","player"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
+            "$adversary_sillyBountiesEnabled":true
         },
 
         "job_name":"A Technological Terror",
@@ -836,7 +833,7 @@
         "job_item_reward":{
             "ship_bp paragon":1,
             "fighter_bp lux_wing":1,
-            "fighter_bp gladius_wing":1,
+            "fighter_bp gladius_wing":1
         },
         "job_type":"obliteration",
         "job_show_captain":false,
@@ -865,29 +862,20 @@
             "systems_expertise":2,
             "missile_specialization":2,
             #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "force_concentration":1,
-            #
-            "navigation":1,
-            "sensors":1,
             "gunnery_implants":2,
             "energy_weapon_mastery":2,
-            "flux_regulation":1,
             #
-            "field_repairs":1,
             "ordnance_expert":2,
-            "polarized_armor":2,
+            "polarized_armor":2
         },
 
         "fleet_name":"Suspicious Station",
         "fleet_faction":"pirates",
         "fleet_flagship_variant":"adversary_station3_midline_Elite",
         "fleet_flagship_name":"Death Star",
+        "fleet_preset_ships":{
+            "adversary_vanguard_pirates_DIE":25
+        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
@@ -895,13 +883,13 @@
 
         "location_distance":"FAR",
         "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Station_High_Tech":{
         "trigger_marketFaction_any":["independent","tritachyon","player"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
+            "$adversary_sillyBountiesEnabled":true
         },
 
         "job_name":"Persean Supremacy",
@@ -909,10 +897,10 @@
         "job_comm_reply":"\"Hello there, spacer! Do not come any closer, or we will burn your fleet off the face of this Sector!\"",
         "job_intel_success":"From the burning hulk of a station comes blueprints for both a Pegasus-class ship and, surprisingly, a Remnant bomber wing. It seemed like the League had access to Tri-Tachyon's remaining automated arsenal and, thus, were keeping it a secret from the rest of the Sector.",
         "job_forFaction":"tritachyon",
-        "job_credit_reward":4000000,
+        "job_credit_reward":8000000,
         "job_item_reward":{
-            "ship_bp pegasus":1,
-            "fighter_bp flash_wing":1,
+            "ship_bp invictus":1,
+            "fighter_bp flash_wing":1
         },
         "job_type":"obliteration",
         "job_show_captain":false,
@@ -935,27 +923,20 @@
             "systems_expertise":2,
             "missile_specialization":2,
             #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "force_concentration":1,
-            #
             "gunnery_implants":2,
             "energy_weapon_mastery":2,
-            "flux_regulation":1,
             #
-            "field_repairs":1,
             "ordnance_expert":2,
-            "polarized_armor":2,
+            "polarized_armor":2
         },
 
         "fleet_name":"Tech Lab 13",
         "fleet_faction":"persean",
         "fleet_flagship_variant":"adversary_station3_hightech_Elite",
         "fleet_flagship_name":"Tech Lab 13",
+        "fleet_preset_ships":{
+            "adversary_vigilance_DEM":5
+        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
@@ -963,13 +944,14 @@
 
         "location_distance":"CORE",
         "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Station_Remnant":{
         "trigger_marketFaction_any":["independent","remnant","player"],
         "trigger_player_minLevel":15,
         "trigger_memKeys_all":{
             "$adversary_sillyBountiesEnabled":true,
+            "$CBRemnantPlus_accepted":true
         },
 
         "job_name":"A Traitorous God",
@@ -979,7 +961,7 @@
         "job_forFaction":"remnant",
         "job_reputation_reward":60,
         "job_item_reward":{
-            "ship_bp radiant":1,
+            "ship_bp radiant":1
         },
         "job_type":"obliteration",
         "job_show_captain":false,
@@ -1007,27 +989,20 @@
             "systems_expertise":2,
             "missile_specialization":2,
             #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "force_concentration":1,
-            #
             "gunnery_implants":2,
             "energy_weapon_mastery":2,
-            "flux_regulation":1,
             #
-            "field_repairs":1,
             "ordnance_expert":2,
-            "polarized_armor":2,
+            "polarized_armor":2
         },
 
         "fleet_name":"Remnant Nexus (Omega)",
         "fleet_faction":"omega",
         "fleet_flagship_variant":"adversary_remnant_station2_Omega",
         "fleet_flagship_name":"[SUPER ALABASTER]",
+        "fleet_preset_ships":{
+            "adversary_glimmer_Omega":5
+        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
@@ -1035,6 +1010,6 @@
 
         "location_distance":"CORE",
         "location_themes":["theme_remnant_destroyed","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
-    },
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+    }
 }

@@ -11,8 +11,8 @@
         "erratic_injector",
         "increased_maintenance",
         "advancedoptics",
-        "stabilizedshieldemitter",
-        "targetingunit"
+        "targetingunit",
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
         "ecm",

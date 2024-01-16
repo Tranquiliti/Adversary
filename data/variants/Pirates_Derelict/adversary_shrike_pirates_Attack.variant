@@ -1,20 +1,20 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 10,
-    "fluxVents": 7,
+    "fluxVents": 5,
     "hullId": "shrike_pirates",
     "hullMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull",
         "comp_armor",
         "damaged_mounts",
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
-        "converted_hangar"
+        "missleracks"
     ],
     "permaMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull",
         "comp_armor",
         "damaged_mounts",
@@ -23,7 +23,7 @@
         "increased_maintenance"
     ],
     "sMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull"
     ],
     "variantId": "adversary_shrike_pirates_Attack",

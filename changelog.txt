@@ -1,7 +1,18 @@
+Version 5.2.1
+
+* MagicBounty changes:
+  - Changed ship loadouts and officer skills for most MagicBounties in preparation of Starsector 0.97
+  - Added [REDACTED PLUS] prerequisite for two [VERY REDACTED] Silly bounties
+  - The Silly station bounties now have far fewer fleetwide skills; to compensate, the stations now have additional ships to support them
+  - Some reward adjustments
+* Updated Adversary's Exotica configs to include Quick Jets
+
+
+
 Version 5.2.0 (Not save-compatible)
 
 * Fixed the LunaLib soft dependency
-    - This means this mod no longer requires either LunaLib or Java 8 to run
+  - This means this mod no longer requires either LunaLib or Java 8 to run
 * Removed "fleetDoctrine" and "shipSize" options for Adversary's Dynamic Doctrine
   - This is done as these options are barely used by default and can conflict with mods that dynamically increase NPC faction strength
 * Made officers in a certain Silly bounty count as sleeper officers

@@ -1,6 +1,6 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 16,
+    "fluxCapacitors": 6,
     "fluxVents": 30,
     "hullId": "eradicator_pirates",
     "hullMods": [
@@ -33,17 +33,17 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "heavymortar"}
+            "weapons": {"WS 006": "heavymauler"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "swarmer",
-                "WS 001": "swarmer",
-                "WS 002": "swarmer",
-                "WS 003": "swarmer",
-                "WS 004": "swarmer"
+                "WS 000": "harpoon",
+                "WS 001": "harpoon",
+                "WS 002": "harpoon",
+                "WS 003": "harpoon",
+                "WS 004": "harpoon"
             }
         },
         {

@@ -31,38 +31,42 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 012": "multineedler"}
+            "weapons": {"WS 013": "hephag"}
         },
         {
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 014": "phasecl",
-                "WS 015": "phasecl",
-                "WS 016": "phasecl"
+                "WS 014": "annihilatorpod",
+                "WS 015": "annihilatorpod",
+                "WS 016": "annihilatorpod"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 013": "hellbore"}
+            "weapons": {"WS 012": "multineedler"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "mininglaser",
-                "WS 007": "mininglaser"
+                "WS 002": "mininglaser",
+                "WS 003": "mininglaser",
+                "WS 005": "mininglaser",
+                "WS 006": "mininglaser",
+                "WS 007": "mininglaser",
+                "WS 008": "mininglaser",
+                "WS 009": "mininglaser"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "vulcan",
-                "WS 005": "vulcan",
-                "WS 010": "flak",
-                "WS 011": "flak"
+                "WS 010": "heavymg",
+                "WS 011": "heavymg"
             }
         }
     ]

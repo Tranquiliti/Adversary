@@ -16,7 +16,7 @@
         "missleracks",
         "fluxbreakers",
         "safetyoverrides",
-        "unstable_injector",
+        "unstable_injector"
     ],
     "permaMods": [
         "eccm",
@@ -37,8 +37,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "lightmortar",
-                "WS 006": "lightmortar"
+                "WS 005": "lightac",
+                "WS 006": "lightac"
             }
         },
         {
@@ -48,8 +48,7 @@
                 "WS 000": "gorgon",
                 "WS 001": "gorgon",
                 "WS 002": "gorgon",
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
+                "WS 007": "mininglaser"
             }
         }
     ]

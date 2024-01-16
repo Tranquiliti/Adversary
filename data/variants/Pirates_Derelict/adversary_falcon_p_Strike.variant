@@ -1,10 +1,10 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 15,
-    "fluxVents": 11,
+    "fluxVents": 10,
     "hullId": "falcon_p",
     "hullMods": [
-        "missleracks",
+        "hardenedshieldemitter",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -12,10 +12,10 @@
         "glitched_sensors",
         "increased_maintenance",
         "converted_hangar",
-        "hardenedshieldemitter"
+        "missleracks"
     ],
     "permaMods": [
-        "missleracks",
+        "hardenedshieldemitter",
         "reinforcedhull",
         "damaged_mounts",
         "degraded_life_support",
@@ -24,14 +24,14 @@
         "increased_maintenance"
     ],
     "sMods": [
-        "missleracks",
-        "reinforcedhull",
+        "hardenedshieldemitter",
+        "reinforcedhull"
     ],
     "variantId": "adversary_falcon_p_Strike",
     "weaponGroups": [
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
                 "WS 007": "phasecl",
                 "WS 008": "phasecl"
@@ -39,7 +39,7 @@
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
                 "WS 005": "phasecl",
                 "WS 006": "phasecl"
@@ -49,16 +49,16 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "swarmer",
-                "WS 002": "swarmer"
+                "WS 001": "gazer",
+                "WS 002": "gazer"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "lrpdlaser",
-                "WS 010": "lrpdlaser"
+                "WS 009": "mininglaser",
+                "WS 010": "mininglaser"
             }
         }
     ],

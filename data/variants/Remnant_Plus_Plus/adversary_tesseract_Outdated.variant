@@ -1,27 +1,27 @@
 {
     "displayName": "Outdated",
-    "fluxCapacitors": 0,
-    "fluxVents": 4,
+    "fluxCapacitors": 10,
+    "fluxVents": 0,
     "hullId": "tesseract",
     "hullMods": [
+        "turretgyros",
         "armoredweapons",
         "autorepair",
         "hardenedshieldemitter",
-        "auxiliarythrusters",
         "heavyarmor",
         "pointdefenseai",
         "targetingunit",
         "reinforcedhull"
     ],
     "permaMods": [
+        "turretgyros",
         "armoredweapons",
-        "autorepair",
-        "hardenedshieldemitter"
+        "autorepair"
     ],
     "sMods": [
+        "turretgyros",
         "armoredweapons",
-        "autorepair",
-        "hardenedshieldemitter"
+        "autorepair"
     ],
     "variantId": "adversary_tesseract_Outdated",
     "weaponGroups": [
@@ -44,12 +44,12 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "shockrepeater",
-                "WS 001": "shockrepeater",
-                "WS 002": "shockrepeater",
-                "WS 003": "shockrepeater",
-                "WS 004": "shockrepeater",
-                "WS 005": "shockrepeater"
+                "WS 000": "pdburst",
+                "WS 001": "pdburst",
+                "WS 002": "pdburst",
+                "WS 003": "pdburst",
+                "WS 004": "pdburst",
+                "WS 005": "pdburst"
             }
         }
     ]

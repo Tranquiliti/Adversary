@@ -1,30 +1,29 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 8,
-    "fluxVents": 20,
+    "fluxCapacitors": 10,
+    "fluxVents": 18,
     "hullId": "manticore_pirates",
     "hullMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull",
         "degraded_life_support",
         "degraded_shields",
         "erratic_injector",
         "faulty_auto",
         "increased_maintenance",
-        "armoredweapons",
         "targetingunit"
     ],
     "permaMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull",
         "degraded_life_support",
         "degraded_shields",
         "erratic_injector",
         "faulty_auto",
-        "increased_maintenance",
+        "increased_maintenance"
     ],
     "sMods": [
-        "missleracks",
+        "converted_hangar",
         "reinforcedhull"
     ],
     "variantId": "adversary_manticore_pirates_Close_Support",
@@ -51,5 +50,6 @@
                 "WS 003": "lightac"
             }
         }
-    ]
+    ],
+    "wings": ["claw_wing"]
 }
