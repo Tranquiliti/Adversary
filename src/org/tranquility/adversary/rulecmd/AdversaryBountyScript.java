@@ -3,6 +3,7 @@ package org.tranquility.adversary.rulecmd;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
+import com.fs.starfarer.api.campaign.FleetAssignment;
 import com.fs.starfarer.api.campaign.InteractionDialogAPI;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
@@ -12,7 +13,9 @@ import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.bounty.ActiveBounty;
 import org.magiclib.bounty.MagicBountyCoordinator;
+import org.magiclib.campaign.MagicFleetBuilder;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -266,7 +269,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("medusa")) {
-                        PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
@@ -277,7 +280,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                         person.getStats().setSkipRefresh(false);
                     } else if (member.getHullId().equals("aurora")) {
-                        PersonAPI person = createOfficer(faction, 7, Personalities.STEADY, member);
+                        PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
                         person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
@@ -302,17 +305,36 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
                 fleet.addTag(Tags.NEUTRINO_HIGH);
 
+                fleet.setStationMode(true);
+
                 fleet.clearAbilities();
                 fleet.addAbility(Abilities.TRANSPONDER);
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
                 fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
-                fleet.setStationMode(true);
-                // Only the Midline station should be funny; (un)fortunately, a bug (?) means all stations will be funny
-                if (!bountyId.equals("adversary_Station_Midline")) {
-                    // fleet.setAI(null); MagicLib's ActiveBounty despawn() lacks a null check for getAI()
-                    fleet.setCircularOrbitWithSpin(bounty.getFleetSpawnLocation(), 0f, bounty.getFleetSpawnLocation().getRadius() + 150f, 120f, 5f, 5f);
+                String escortVariant = null;
+                int count = 0;
+                switch (bountyId) {
+                    case "adversary_Station_Low_Tech":
+                        escortVariant = "adversary_omen_Fire_Support";
+                        count = 10;
+                        break;
+                    case "adversary_Station_Midline":
+                        escortVariant = "adversary_vanguard_pirates_DIE";
+                        count = 25;
+                        break;
+                    case "adversary_Station_High_Tech":
+                        escortVariant = "adversary_vigilance_DEM";
+                        count = 5;
+                        break;
+                    case "adversary_Station_Remnant":
+                        escortVariant = "adversary_glimmer_Omega";
+                        count = 5;
+                        break;
                 }
+                HashMap<String, Integer> escorts = new HashMap<>(1);
+                escorts.put(escortVariant, count);
+                new MagicFleetBuilder().setFleetFaction(fleet.getFaction().getId()).setSpawnLocation(bounty.getFleetSpawnLocation()).setAssignmentTarget(bounty.getFleet()).setAssignment(FleetAssignment.ORBIT_PASSIVE).setFleetType(FleetTypes.PATROL_SMALL).setSupportFleet(escorts).create();
                 break;
             default:
                 Global.getLogger(AdversaryBountyScript.class).info("Failed to set custom officers for MagicBounty: " + bountyId);

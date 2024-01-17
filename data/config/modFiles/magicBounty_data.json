@@ -383,7 +383,7 @@
 
         "location_distance":"CORE",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
+        "location_themes_blacklist":["theme_already_occupied","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Independent_Phase":{
         "trigger_marketFaction_any":["independent"],
@@ -579,7 +579,7 @@
         "fleet_no_retreat":true,
         "fleet_behavior":"AGGRESSIVE",
 
-        "location_distance":"CLOSE",
+        "location_distance":"FAR",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
         "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
@@ -663,8 +663,8 @@
         "fleet_behavior":"AGGRESSIVE",
 
         "location_distance":"FAR",
-        "location_themes":["theme_remnant","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_themes":["theme_remnant"],
+        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Remnant_Plus_Plus":{
         "trigger_marketFaction_any":["independent","player"],
@@ -753,8 +753,8 @@
         "fleet_behavior":"AGGRESSIVE",
 
         "location_distance":"FAR",
-        "location_themes":["theme_remnant","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_themes":["theme_remnant"],
+        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     },
     "adversary_Station_Low_Tech":{
         "trigger_marketFaction_any":["independent","hegemony","player"],
@@ -805,17 +805,15 @@
         "fleet_faction":"independent",
         "fleet_flagship_variant":"adversary_station3_Elite",
         "fleet_flagship_name":"Concordance",
-        "fleet_preset_ships":{
-            "adversary_omen_Fire_Support":10
-        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
         "fleet_behavior":"AGGRESSIVE",
 
-        "location_distance":"CORE",
-        "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_distance":"FAR",
+        "location_themes":["theme_ruins"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_entities":["planet"]
     },
     "adversary_Station_Midline":{
         "trigger_marketFaction_any":["independent","player"],
@@ -873,17 +871,15 @@
         "fleet_faction":"pirates",
         "fleet_flagship_variant":"adversary_station3_midline_Elite",
         "fleet_flagship_name":"Death Star",
-        "fleet_preset_ships":{
-            "adversary_vanguard_pirates_DIE":25
-        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
         "fleet_behavior":"AGGRESSIVE",
 
         "location_distance":"FAR",
-        "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_themes":["theme_ruins"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_entities":["planet"]
     },
     "adversary_Station_High_Tech":{
         "trigger_marketFaction_any":["independent","tritachyon","player"],
@@ -934,17 +930,15 @@
         "fleet_faction":"persean",
         "fleet_flagship_variant":"adversary_station3_hightech_Elite",
         "fleet_flagship_name":"Tech Lab 13",
-        "fleet_preset_ships":{
-            "adversary_vigilance_DEM":5
-        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
         "fleet_behavior":"AGGRESSIVE",
 
-        "location_distance":"CORE",
-        "location_themes":["theme_ruins","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_distance":"FAR",
+        "location_themes":["theme_ruins"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_entities":["planet"]
     },
     "adversary_Station_Remnant":{
         "trigger_marketFaction_any":["independent","remnant","player"],
@@ -1000,16 +994,14 @@
         "fleet_faction":"omega",
         "fleet_flagship_variant":"adversary_remnant_station2_Omega",
         "fleet_flagship_name":"[SUPER ALABASTER]",
-        "fleet_preset_ships":{
-            "adversary_glimmer_Omega":5
-        },
         "fleet_composition_quality":2,
         "fleet_transponder":true,
         "fleet_no_retreat":true,
         "fleet_behavior":"AGGRESSIVE",
 
-        "location_distance":"CORE",
-        "location_themes":["theme_remnant_destroyed","procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+        "location_distance":"FAR",
+        "location_themes":["theme_remnant_no_fleets","theme_remnant_destroyed"],
+        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+        "location_entities":["planet"]
     }
 }
