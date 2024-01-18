@@ -1,23 +1,24 @@
 {
     "displayName": "Command",
-    "fluxCapacitors": 18,
+    "fluxCapacitors": 7,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
-        "eccm",
+        "turretgyros",
         "operations_center",
+        "armoredweapons",
+        "eccm",
         "missleracks",
-        "fluxdistributor",
         "hardenedshieldemitter",
         "targetingunit",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "eccm",
+        "turretgyros",
         "operations_center"
     ],
     "sMods": [
-        "eccm",
+        "turretgyros",
         "operations_center"
     ],
     "variantId": "adversary_conquest_Command",
@@ -35,27 +36,28 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 011": "mjolnir"}
+            "weapons": {
+                "WS 011": "mjolnir",
+                "WS 012": "mjolnir"
+            }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 012": "mjolnir"}
+            "weapons": {"WS 022": "irautolance"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 015": "hveldriver",
-                "WS 016": "hveldriver",
-                "WS 022": "irautolance"
+                "WS 016": "hveldriver"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "lrpdlaser",
                 "WS 005": "lrpdlaser",
                 "WS 007": "lrpdlaser"
             }

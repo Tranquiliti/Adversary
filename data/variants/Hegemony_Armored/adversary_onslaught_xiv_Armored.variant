@@ -1,7 +1,7 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 42,
+    "fluxVents": 47,
     "hullId": "onslaught_xiv",
     "hullMods": [
         "autorepair",

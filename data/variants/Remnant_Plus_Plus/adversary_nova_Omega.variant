@@ -4,19 +4,19 @@
     "fluxVents": 50,
     "hullId": "nova",
     "hullMods": [
-        "auxiliarythrusters",
+        "fluxdistributor",
         "hardenedshieldemitter",
         "targetingunit",
-        "fluxdistributor",
+        "auxiliarythrusters",
         "adaptiveshields"
     ],
     "permaMods": [
-        "auxiliarythrusters",
+        "fluxdistributor",
         "hardenedshieldemitter",
         "targetingunit"
     ],
     "sMods": [
-        "auxiliarythrusters",
+        "fluxdistributor",
         "hardenedshieldemitter",
         "targetingunit"
     ],

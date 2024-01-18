@@ -891,7 +891,7 @@
         "job_name":"Persean Supremacy",
         "job_description":"League agents have recently taken control of an ==abandoned Tri-Tachyon black-site station==, repurposing it into a makeshift headquarters of the Persean League Fleet Intelligence Service. Unfortunately for them, a displeased Tri-Tachyon director has requested a kill-fleet to ==demolish== this unauthorized use of Company property.\nWill you rise up to this challenge?",
         "job_comm_reply":"\"Hello there, spacer! Do not come any closer, or we will burn your fleet off the face of this Sector!\"",
-        "job_intel_success":"From the burning hulk of a station comes blueprints for both a Pegasus-class ship and, surprisingly, a Remnant bomber wing. It seemed like the League had access to Tri-Tachyon's remaining automated arsenal and, thus, were keeping it a secret from the rest of the Sector.",
+        "job_intel_success":"From the burning hulk of a station comes blueprints for both an Invictus-class ship and, surprisingly, a Remnant bomber wing. It seemed like the League had access to Tri-Tachyon's remaining automated arsenal and, thus, were keeping it a secret from the rest of the Sector.",
         "job_forFaction":"tritachyon",
         "job_credit_reward":8000000,
         "job_item_reward":{

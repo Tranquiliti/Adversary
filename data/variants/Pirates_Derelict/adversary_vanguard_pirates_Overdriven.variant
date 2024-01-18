@@ -5,22 +5,22 @@
     "hullId": "vanguard_pirates",
     "hullMods": [
         "eccm",
-        "reinforcedhull",
+        "auxiliarythrusters",
         "damaged_mounts",
         "erratic_injector",
         "faulty_grid",
         "glitched_sensors",
         "fragile_subsystems",
         "armoredweapons",
-        "auxiliarythrusters",
         "missleracks",
+        "reinforcedhull",
         "fluxbreakers",
         "safetyoverrides",
         "unstable_injector"
     ],
     "permaMods": [
         "eccm",
-        "reinforcedhull",
+        "auxiliarythrusters",
         "damaged_mounts",
         "erratic_injector",
         "faulty_grid",
@@ -29,7 +29,7 @@
     ],
     "sMods": [
         "eccm",
-        "reinforcedhull"
+        "auxiliarythrusters"
     ],
     "variantId": "adversary_vanguard_pirates_Overdriven",
     "weaponGroups": [
