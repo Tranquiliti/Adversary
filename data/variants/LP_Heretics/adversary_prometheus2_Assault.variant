@@ -1,11 +1,12 @@
 {
     "displayName": "Assault",
     "fluxCapacitors": 0,
-    "fluxVents": 29,
+    "fluxVents": 23,
     "hullId": "prometheus2",
     "hullMods": [
         "targetingunit",
         "reinforcedhull",
+        "armoredweapons",
         "hardenedshieldemitter",
         "heavyarmor"
     ],
@@ -21,11 +22,8 @@
     "weaponGroups": [
         {
             "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 031": "gigacannon",
-                "WS 032": "gigacannon"
-            }
+            "mode": "LINKED",
+            "weapons": {"WS 031": "gigacannon"}
         },
         {
             "autofire": false,
@@ -36,9 +34,15 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 013": "railgun",
-                "WS 014": "railgun"
+                "WS 003": "lightac",
+                "WS 013": "lightac",
+                "WS 014": "lightac"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 032": "guardian"}
         },
         {
             "autofire": true,

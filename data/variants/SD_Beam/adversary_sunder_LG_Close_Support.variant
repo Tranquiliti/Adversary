@@ -1,6 +1,6 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 0,
+    "fluxCapacitors": 3,
     "fluxVents": 20,
     "hullId": "sunder_LG",
     "hullMods": [
@@ -10,8 +10,9 @@
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
+        "targetingunit",
         "reinforcedhull",
-        "targetingunit"
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
         "advancedoptics",
@@ -28,9 +29,9 @@
     "variantId": "adversary_sunder_LG_Close_Support",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 003": "tachyonlance"}
+            "weapons": {"WS 003": "hil"}
         },
         {
             "autofire": false,

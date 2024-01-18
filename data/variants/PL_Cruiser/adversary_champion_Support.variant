@@ -1,15 +1,16 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 0,
+    "fluxCapacitors": 2,
     "fluxVents": 30,
     "hullId": "champion",
     "hullMods": [
         "hardenedshieldemitter",
         "targetingunit",
         "advancedoptics",
+        "turretgyros",
         "missleracks",
-        "ecm",
-        "adaptiveshields"
+        "fluxbreakers",
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
         "hardenedshieldemitter",

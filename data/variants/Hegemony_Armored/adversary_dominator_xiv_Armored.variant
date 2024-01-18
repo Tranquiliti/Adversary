@@ -5,25 +5,25 @@
     "hullId": "dominator_xiv",
     "hullMods": [
         "autorepair",
-        "missleracks",
+        "reinforcedhull",
         "shield_shunt",
         "armoredweapons",
         "auxiliarythrusters",
         "blast_doors",
+        "missleracks",
         "heavyarmor",
         "insulatedengine",
         "pointdefenseai",
-        "targetingunit",
-        "reinforcedhull"
+        "targetingunit"
     ],
     "permaMods": [
         "autorepair",
-        "missleracks",
+        "reinforcedhull",
         "shield_shunt"
     ],
     "sMods": [
         "autorepair",
-        "missleracks",
+        "reinforcedhull",
         "shield_shunt"
     ],
     "variantId": "adversary_dominator_xiv_Armored",
@@ -31,7 +31,7 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 012": "multineedler"}
+            "weapons": {"WS 013": "hephag"}
         },
         {
             "autofire": false,
@@ -45,13 +45,15 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 013": "hellbore"}
+            "weapons": {"WS 012": "multineedler"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "mininglaser",
+                "WS 002": "mininglaser",
+                "WS 006": "mininglaser",
                 "WS 007": "mininglaser"
             }
         },
@@ -59,8 +61,6 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "vulcan",
-                "WS 005": "vulcan",
                 "WS 010": "flak",
                 "WS 011": "flak"
             }

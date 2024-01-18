@@ -1,6 +1,6 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 11,
+    "fluxCapacitors": 20,
     "fluxVents": 0,
     "hullId": "manticore_luddic_path",
     "hullMods": [
@@ -21,9 +21,13 @@
     "variantId": "adversary_manticore_luddic_path_Strike",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 004": "miningblaster"}
+            "weapons": {
+                "WS 001": "lightmortar",
+                "WS 002": "lightmortar",
+                "WS 003": "lightmortar"
+            }
         },
         {
             "autofire": false,
@@ -34,15 +38,9 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "lightdualac",
-                "WS 002": "lightdualac",
-                "WS 003": "lightdualac"
+                "WS 004": "heavymg",
+                "WS 005": "heavymg"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "heavymg"}
         }
     ]
 }

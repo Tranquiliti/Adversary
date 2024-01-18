@@ -1,7 +1,7 @@
 {
     "displayName": "Support",
     "fluxCapacitors": 0,
-    "fluxVents": 0,
+    "fluxVents": 1,
     "hullId": "hound_hegemony",
     "hullMods": [
         "auxiliarythrusters",
@@ -11,7 +11,8 @@
         "ecm",
         "heavyarmor",
         "insulatedengine",
-        "targetingunit"
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "auxiliarythrusters",
@@ -24,16 +25,9 @@
         "reinforcedhull"
     ],
     "variantId": "adversary_hound_hegemony_Support",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "hveldriver"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "vulcan"}
-        }
-    ]
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {"WS 001": "hveldriver"}
+    }]
 }

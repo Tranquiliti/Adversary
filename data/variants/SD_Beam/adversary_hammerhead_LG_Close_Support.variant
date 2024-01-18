@@ -1,7 +1,7 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 18,
+    "fluxCapacitors": 2,
+    "fluxVents": 20,
     "hullId": "hammerhead_LG",
     "hullMods": [
         "ecm",
@@ -11,8 +11,8 @@
         "erratic_injector",
         "increased_maintenance",
         "advancedoptics",
-        "reinforcedhull",
-        "targetingunit"
+        "targetingunit",
+        "reinforcedhull"
     ],
     "permaMods": [
         "ecm",

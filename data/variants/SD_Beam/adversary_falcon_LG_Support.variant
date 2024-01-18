@@ -1,7 +1,7 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 29,
+    "fluxCapacitors": 3,
+    "fluxVents": 30,
     "hullId": "falcon_LG",
     "hullMods": [
         "hardenedshieldemitter",
@@ -10,8 +10,8 @@
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
-        "adaptiveshields",
-        "reinforcedhull"
+        "reinforcedhull",
+        "adaptiveshields"
     ],
     "permaMods": [
         "hardenedshieldemitter",
@@ -36,8 +36,8 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "heatseeker",
-                "WS 001": "heatseeker"
+                "WS 001": "heatseeker",
+                "WS 002": "heatseeker"
             }
         },
         {

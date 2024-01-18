@@ -4,39 +4,39 @@
     "fluxVents": 10,
     "hullId": "brawler_tritachyon",
     "hullMods": [
-        "fluxdistributor",
         "hardenedshieldemitter",
-        "advancedoptics",
-        "adaptiveshields",
-        "stabilizedshieldemitter"
+        "stabilizedshieldemitter",
+        "fluxcoil",
+        "fluxdistributor",
+        "targetingunit"
     ],
     "permaMods": [
-        "fluxdistributor",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "stabilizedshieldemitter"
     ],
     "sMods": [
-        "fluxdistributor",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "stabilizedshieldemitter"
     ],
     "variantId": "adversary_brawler_tritachyon_Close_Support",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 002": "gravitonbeam"}
+            "weapons": {"WS 002": "pulselaser"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "breach",
+                "WS 004": "breach"
+            }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 001": "ionbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "taclaser",
-                "WS 004": "taclaser"
-            }
         }
     ]
 }

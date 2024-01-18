@@ -5,22 +5,22 @@
     "hullId": "vanguard_pirates",
     "hullMods": [
         "eccm",
-        "reinforcedhull",
+        "auxiliarythrusters",
         "damaged_mounts",
         "erratic_injector",
         "faulty_grid",
         "glitched_sensors",
         "fragile_subsystems",
         "armoredweapons",
-        "auxiliarythrusters",
         "missleracks",
+        "reinforcedhull",
         "fluxbreakers",
         "safetyoverrides",
-        "unstable_injector",
+        "unstable_injector"
     ],
     "permaMods": [
         "eccm",
-        "reinforcedhull",
+        "auxiliarythrusters",
         "damaged_mounts",
         "erratic_injector",
         "faulty_grid",
@@ -29,7 +29,7 @@
     ],
     "sMods": [
         "eccm",
-        "reinforcedhull"
+        "auxiliarythrusters"
     ],
     "variantId": "adversary_vanguard_pirates_Overdriven",
     "weaponGroups": [
@@ -37,8 +37,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "lightmortar",
-                "WS 006": "lightmortar"
+                "WS 005": "lightac",
+                "WS 006": "lightac"
             }
         },
         {
@@ -48,8 +48,7 @@
                 "WS 000": "gorgon",
                 "WS 001": "gorgon",
                 "WS 002": "gorgon",
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
+                "WS 007": "mininglaser"
             }
         }
     ]

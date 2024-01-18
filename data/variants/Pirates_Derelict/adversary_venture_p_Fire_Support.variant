@@ -1,7 +1,7 @@
 {
     "displayName": "Fire Support",
     "fluxCapacitors": 0,
-    "fluxVents": 17,
+    "fluxVents": 1,
     "hullId": "venture_p",
     "hullMods": [
         "missleracks",
@@ -10,6 +10,7 @@
         "degraded_shields",
         "erratic_injector",
         "fragile_subsystems",
+        "converted_hangar",
         "targetingunit",
         "missile_autoloader"
     ],
@@ -19,7 +20,7 @@
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
-        "fragile_subsystems",
+        "fragile_subsystems"
     ],
     "sMods": [
         "missleracks",
@@ -49,9 +50,10 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "hveldriver",
-                "WS 003": "hveldriver"
+                "WS 001": "heavymauler",
+                "WS 003": "heavymauler"
             }
         }
-    ]
+    ],
+    "wings": ["broadsword_wing"]
 }

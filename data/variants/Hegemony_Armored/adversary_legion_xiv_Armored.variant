@@ -1,7 +1,7 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 4,
+    "fluxVents": 0,
     "hullId": "legion_xiv",
     "hullMods": [
         "defensive_targeting_array",
@@ -30,8 +30,11 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "heavymauler",
-                "WS 003": "heavymauler"
+                "WS 004": "lightneedler",
+                "WS 005": "lightneedler",
+                "WS 007": "lightneedler",
+                "WS 018": "lightneedler",
+                "WS 019": "lightneedler"
             }
         },
         {
@@ -46,19 +49,16 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "heavyac",
-                "WS 005": "heavyac",
-                "WS 007": "heavyac"
+                "WS 002": "heavymauler",
+                "WS 003": "heavymauler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 008": "vulcan",
-                "WS 009": "vulcan",
-                "WS 020": "vulcan",
-                "WS 021": "vulcan"
+                "WS 020": "lightdualac",
+                "WS 021": "lightdualac"
             }
         }
     ],

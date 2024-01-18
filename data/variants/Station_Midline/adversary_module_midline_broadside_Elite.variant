@@ -11,52 +11,52 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 008": "hellbore",
-                "WS 004": "hellbore",
-                "WS 000": "hellbore"
+                "WS 000": "hephag",
+                "WS 004": "hephag",
+                "WS 008": "hephag"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 006": "multineedler",
-                "WS 007": "multineedler",
-                "WS 005": "multineedler",
+                "WS 001": "multineedler",
                 "WS 002": "multineedler",
                 "WS 003": "multineedler",
-                "WS 001": "multineedler"
+                "WS 005": "multineedler",
+                "WS 006": "multineedler",
+                "WS 007": "multineedler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 015": "ionpulser",
-                "WS 010": "ionpulser"
+                "WS 010": "irautolance",
+                "WS 015": "irautolance"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 013": "irautolance",
-                "WS 012": "irautolance"
+                "WS 012": "irautolance",
+                "WS 013": "irautolance"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 011": "gravitonbeam",
-                "WS 014": "gravitonbeam",
-                "WS 016": "lightdualmg",
-                "WS 017": "lightdualmg",
-                "WS 018": "lightdualmg",
-                "WS 019": "lightdualmg",
-                "WS 020": "lightdualmg",
-                "WS 021": "lightdualmg",
-                "WS 022": "lightdualmg"
+                "WS 011": "irautolance",
+                "WS 014": "irautolance",
+                "WS 016": "vulcan",
+                "WS 017": "vulcan",
+                "WS 018": "vulcan",
+                "WS 019": "vulcan",
+                "WS 020": "vulcan",
+                "WS 021": "vulcan",
+                "WS 022": "vulcan"
             }
         }
     ]

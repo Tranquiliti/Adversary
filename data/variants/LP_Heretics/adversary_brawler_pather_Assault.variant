@@ -1,20 +1,19 @@
 {
     "displayName": "Assault",
     "fluxCapacitors": 10,
-    "fluxVents": 5,
+    "fluxVents": 8,
     "hullId": "brawler_pather",
     "hullMods": [
-        "missleracks",
         "hardenedshieldemitter",
         "hardened_subsystems"
     ],
     "permaMods": [
-        "missleracks",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "hardened_subsystems"
     ],
     "sMods": [
-        "missleracks",
-        "hardenedshieldemitter"
+        "hardenedshieldemitter",
+        "hardened_subsystems"
     ],
     "suppressedMods": ["ill_advised"],
     "variantId": "adversary_brawler_pather_Assault",
@@ -26,10 +25,10 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
-                "WS 003": "gazer",
-                "WS 004": "gazer"
+                "WS 003": "ioncannon",
+                "WS 004": "ioncannon"
             }
         },
         {

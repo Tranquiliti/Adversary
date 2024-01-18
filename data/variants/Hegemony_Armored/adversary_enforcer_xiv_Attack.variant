@@ -1,6 +1,6 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 13,
+    "fluxCapacitors": 17,
     "fluxVents": 20,
     "hullId": "enforcer_xiv",
     "hullMods": [
@@ -8,7 +8,9 @@
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
-        "converted_hangar"
+        "pointdefenseai",
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "hardenedshieldemitter",
@@ -23,28 +25,26 @@
     "variantId": "adversary_enforcer_xiv_Attack",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 006": "atropos_single",
-                "WS 009": "atropos_single"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 007": "breach",
-                "WS 008": "breach"
+                "WS 002": "arbalest",
+                "WS 004": "arbalest"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
+            "weapons": {"WS 003": "arbalest"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 002": "arbalest",
-                "WS 003": "arbalest",
-                "WS 004": "arbalest"
+                "WS 006": "breach",
+                "WS 007": "breach",
+                "WS 008": "breach",
+                "WS 009": "breach"
             }
         },
         {
@@ -55,6 +55,5 @@
                 "WS 005": "flak"
             }
         }
-    ],
-    "wings": ["xyphos_wing"]
+    ]
 }

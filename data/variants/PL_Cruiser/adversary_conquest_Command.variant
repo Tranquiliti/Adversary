@@ -1,22 +1,24 @@
 {
     "displayName": "Command",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 7,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
-        "eccm",
+        "turretgyros",
         "operations_center",
+        "armoredweapons",
+        "eccm",
         "missleracks",
         "hardenedshieldemitter",
         "targetingunit",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "eccm",
+        "turretgyros",
         "operations_center"
     ],
     "sMods": [
-        "eccm",
+        "turretgyros",
         "operations_center"
     ],
     "variantId": "adversary_conquest_Command",
@@ -25,14 +27,8 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "hurricane",
-                "WS 002": "hurricane"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
+                "WS 001": "squall",
+                "WS 002": "locust",
                 "WS 019": "harpoonpod",
                 "WS 020": "harpoonpod"
             }
@@ -41,9 +37,14 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 011": "gauss",
-                "WS 012": "gauss"
+                "WS 011": "mjolnir",
+                "WS 012": "mjolnir"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 022": "irautolance"}
         },
         {
             "autofire": true,
@@ -56,21 +57,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 022": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
             "weapons": {
-                "WS 013": "devastator",
-                "WS 014": "devastator"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "lrpdlaser",
                 "WS 005": "lrpdlaser",
                 "WS 007": "lrpdlaser"
             }

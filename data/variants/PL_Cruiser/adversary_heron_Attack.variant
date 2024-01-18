@@ -19,23 +19,17 @@
         "missleracks"
     ],
     "variantId": "adversary_heron_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lrpdlaser",
-                "WS 002": "lrpdlaser",
-                "WS 003": "lrpdlaser",
-                "WS 004": "lrpdlaser"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "harpoonpod"}
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "lrpdlaser",
+            "WS 002": "lrpdlaser",
+            "WS 003": "lrpdlaser",
+            "WS 004": "lrpdlaser",
+            "WS 005": "harpoonpod"
         }
-    ],
+    }],
     "wings": [
         "gladius_wing",
         "gladius_wing",

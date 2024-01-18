@@ -1,0 +1,38 @@
+{
+    "displayName": "DIE",
+    "fluxCapacitors": 0,
+    "fluxVents": 9,
+    "hullId": "vanguard_pirates",
+    "hullMods": [
+        "missleracks",
+        "reinforcedhull",
+        "armoredweapons",
+        "auxiliarythrusters",
+        "heavyarmor",
+        "insulatedengine",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "sMods": [
+        "missleracks",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_vanguard_pirates_DIE",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 000": "hammer",
+            "WS 001": "hammer",
+            "WS 002": "hammer",
+            "WS 003": "vulcan",
+            "WS 004": "vulcan",
+            "WS 005": "railgun",
+            "WS 006": "railgun",
+            "WS 007": "lightmortar"
+        }
+    }]
+}

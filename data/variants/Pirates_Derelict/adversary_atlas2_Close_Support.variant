@@ -11,9 +11,9 @@
         "faulty_auto",
         "increased_maintenance",
         "fragile_subsystems",
-        "targetingunit",
+        "turretgyros",
         "fluxdistributor",
-        "turretgyros"
+        "targetingunit"
     ],
     "permaMods": [
         "missleracks",

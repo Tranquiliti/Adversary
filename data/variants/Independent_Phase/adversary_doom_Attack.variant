@@ -1,13 +1,13 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 4,
+    "fluxCapacitors": 11,
     "fluxVents": 0,
     "hullId": "doom",
     "hullMods": [
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
-        "missleracks",
+        "pointdefenseai",
         "targetingunit",
         "fluxbreakers"
     ],
@@ -33,8 +33,8 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "phasecl",
-                "WS 002": "phasecl"
+                "WS 001": "breachpod",
+                "WS 002": "breachpod"
             }
         },
         {
@@ -51,6 +51,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 009": "lrpdlaser",
+                "WS 010": "lrpdlaser",
                 "WS 011": "lrpdlaser",
                 "WS 012": "lrpdlaser"
             }

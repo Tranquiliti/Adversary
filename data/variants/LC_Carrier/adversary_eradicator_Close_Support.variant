@@ -12,9 +12,9 @@
         "increased_maintenance",
         "fragile_subsystems",
         "armoredweapons",
-        "autorepair",
-        "hardenedshieldemitter",
-        "targetingunit"
+        "missleracks",
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "heavyarmor",
@@ -59,14 +59,14 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "lightac",
-                "WS 010": "lightac"
+                "WS 008": "mininglaser",
+                "WS 009": "mininglaser",
+                "WS 010": "mininglaser",
+                "WS 011": "mininglaser",
+                "WS 012": "mininglaser",
+                "WS 013": "mininglaser",
+                "WS 014": "mininglaser"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 011": "lightac"}
         }
     ]
 }

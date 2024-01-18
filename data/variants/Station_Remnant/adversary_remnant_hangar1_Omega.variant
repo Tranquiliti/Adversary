@@ -10,16 +10,30 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "shockrepeater",
-                "WS 005": "shockrepeater",
-                "WS 002": "disintegrator",
-                "WS 001": "disintegrator"
+                "WS 001": "disintegrator",
+                "WS 002": "disintegrator"
             }
         },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "amsrm",
+                "WS 006": "amsrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "shockrepeater",
+                "WS 005": "shockrepeater"
+            }
+        }
     ],
     "wings": [
-        "aspect_missile_wing",
-        "aspect_missile_wing",
-        "aspect_missile_wing"
+        "aspect_attack_wing",
+        "aspect_attack_wing",
+        "aspect_attack_wing"
     ]
 }

@@ -1,23 +1,22 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 0,
-    "fluxVents": 4,
+    "fluxCapacitors": 6,
+    "fluxVents": 13,
     "hullId": "venture_pather",
     "hullMods": [
-        "missleracks",
+        "heavyarmor",
         "missile_autoloader",
         "armoredweapons",
-        "autorepair",
-        "heavyarmor",
+        "missleracks",
         "militarized_subsystems",
         "reinforcedhull"
     ],
     "permaMods": [
-        "missleracks",
+        "heavyarmor",
         "missile_autoloader"
     ],
     "sMods": [
-        "missleracks",
+        "heavyarmor",
         "missile_autoloader"
     ],
     "suppressedMods": ["ill_advised"],
@@ -43,14 +42,6 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 002": "kineticblaster"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lightmg",
-                "WS 003": "lightmg"
-            }
         }
     ]
 }
