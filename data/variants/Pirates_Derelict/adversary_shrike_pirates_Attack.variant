@@ -1,6 +1,6 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 10,
+    "fluxCapacitors": 13,
     "fluxVents": 5,
     "hullId": "shrike_pirates",
     "hullMods": [
@@ -41,14 +41,14 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 001": "lightdualac"}
+            "weapons": {"WS 001": "lightneedler"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "lrpdlaser",
-                "WS 002": "lrpdlaser"
+                "WS 000": "mininglaser",
+                "WS 002": "mininglaser"
             }
         }
     ],

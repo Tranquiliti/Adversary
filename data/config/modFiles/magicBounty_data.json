@@ -83,7 +83,7 @@
         "target_rank":"spaceCommander",
         "target_post":"agent",
         "target_personality":"reckless",
-        "target_level":7,
+        "target_level":6,
         "target_skills":{
             "combat_endurance":2,
             "impact_mitigation":2,
@@ -99,9 +99,9 @@
             #
             "navigation":1,
             "gunnery_implants":2,
-            "energy_weapon_mastery":2,
             "electronic_warfare":1,
-            "flux_regulation":1
+            "flux_regulation":1,
+            "cybernetic_augmentation":1
         },
 
         "fleet_name":"Adversary Righteous Flotilla",
