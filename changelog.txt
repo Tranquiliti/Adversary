@@ -6,6 +6,7 @@ Version 5.2.1
   - The Silly station bounties now have far fewer fleetwide skills; to compensate, the stations spawn a fleet of additional ships to support them
   - Some adjustments to rewards and bounty spawn locations
 * Updated Adversary's Exotica configs to include Quick Jets
+* HOTFIX: Fixed Tri-Tachyon bounty not appearing due to incorrect ship variant
 
 
 

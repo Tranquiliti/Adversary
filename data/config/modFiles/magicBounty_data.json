@@ -3,7 +3,7 @@
         "trigger_marketFaction_any":["independent","tritachyon"],
         "trigger_player_minLevel":15,
 
-        "job_name":"A troublesome mercenary",
+        "job_name":"A Troublesome Mercenary",
         "job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well; therefore, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
         "job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
         "job_intel_success":"Looks like a Tri-Tachyon representative heard word of your success, as you receive the promised payout shortly after the fight.",
@@ -47,7 +47,7 @@
         "fleet_flagship_name":"ADS Starbound",
         "fleet_preset_ships":{
             "adversary_hyperion_Assault":10,
-            "adversary_afflictor_Assault":4,
+            "adversary_afflictor_Strike":4,
             "adversary_tempest_Attack":4,
             "adversary_scarab_Attack":4,
             "adversary_omen_Support":4,
@@ -261,7 +261,7 @@
         "trigger_marketFaction_any":["independent","persean"],
         "trigger_player_minLevel":15,
 
-        "job_name":"A terrible gamble",
+        "job_name":"A Terrible Gamble",
         "job_description":"This one is less of an actual bounty and more of a farcical challenge. For some reason, a couple of League archons collectively decided it would be \"funny\" if they posted a bounty against the ==Adversary's greatest fleet commander==, knowing full well that no sane person would actually take up on the bounty, or at least live to tell the tale. The archons have bet ==a million credits== that no one could possibly ==take down the Adversary's grand fleet==.\nWill they be proven wrong?",
         "job_comm_reply":"The Adversary fleet commander speaks with a confident, yet weary tone, \"Another one seeking to best the Adversary's best? You would do well disengaging right now; I've had enough dealing with more spilled blood.\"",
         "job_intel_success":"Although you have dealt a major blow to the Adversary forces, it seems the League officials involved in the bet are upset that you actually did it. They'll attempt to slander your reputation with the Persean League at large, but at least those shady archons have begrudgingly parted with their million credits.",
@@ -452,7 +452,7 @@
         "trigger_marketFaction_any":["independent","sindrian_diktat"],
         "trigger_player_minLevel":15,
 
-        "job_name":"Rooting out Treason",
+        "job_name":"Rooting Out Treason",
         "job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems awfully misleading, and suggests that you reconsider taking on the bounty.",
         "job_comm_reply":"\"A hyena has come for my head? Know this, captain; your beast-master did not tell you everything. I suggest you scurry away right now, before the Lion's adopted cubs prey on your gullible mind.\"",
         "job_intel_success":"You have killed the treasonous criminal, and, when your TriPad chimes with a notification alert, you find your hard-earned reward of a few million credits. However, the notification also comes with a rather shocking revelation; a significant part of the Sindrian military, unaware of the deceased commander's crimes and desertion, have noticed your apparent \"treachery\" against the Supreme Executor and, thus, have disavowed your actions.",
