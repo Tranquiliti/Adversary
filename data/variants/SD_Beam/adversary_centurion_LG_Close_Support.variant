@@ -1,6 +1,6 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 2,
+    "fluxCapacitors": 4,
     "fluxVents": 10,
     "hullId": "centurion_LG",
     "hullMods": [
