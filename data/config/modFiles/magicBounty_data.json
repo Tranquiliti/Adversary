@@ -130,7 +130,7 @@
         "trigger_marketFaction_any":["independent","pirates"],
         "trigger_player_minLevel":15,
 
-        "job_name":"An infamous bounty hunter",
+        "job_name":"An Infamous Bounty Hunter",
         "job_description":"An Adversary bounty hunter has made a name for $himslefHerselfThemselves taking down several pirate warlords. Often called the \"Deranged Necromancer\" by the more superstitious pirates, $heIsSheIsTheyAre infamous for ==resurrecting defeated pirate ships into barely-recognizable skeletons==, sent to fight against their former owners. In a miraculous display of unity, pirates across the Sector have banded together to call for the ==complete erasure== of their dreaded archenemy; it seems that they will consider whoever accomplishes this task to be a ==savior of the pirates== and an equal to even Warlord Kanta herself.",
         "job_comm_reply":"\"Ah, your ships will make a fine addition to my collection!\"",
         "job_intel_success":"News of the fleet's destruction has reached the ears of the underworld. Soon, even the most distrustful pirate captains begin to welcome and respect you as a fellow pirate warlord.",

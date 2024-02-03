@@ -1,3 +1,10 @@
+Version 6.0.0 (Update for Starsector 0.97)
+
+* Updated to Starsector 0.97
+* Added Grendel to Adversary's known ship list
+
+
+
 Version 5.2.1
 
 * MagicBounty changes:
