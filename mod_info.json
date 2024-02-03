@@ -2,9 +2,9 @@
   "id":"adversary",
   "name":"Adversary",
   "author":"Tranquility",
-  "version":{"major":5,"minor":2,"patch":1},
+  "version":{"major":6,"minor":0,"patch":0},
   "description":"Adds an isolated, player-like faction, situated in a heavily-fortified star system.",
-  "gameVersion":"0.96a-RC10",
+  "gameVersion":"0.97a-RC6",
   "jars":["jars/Adversary.jar"],
   "modPlugin":"org.tranquility.adversary.AdversaryModPlugin",
   "dependencies":[{"id":"customizablestarsystems","name":"Customizable Star Systems"}]
