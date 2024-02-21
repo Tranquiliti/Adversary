@@ -1,3 +1,12 @@
+Version 6.1.0
+
+* Adjusted some MagicBounty ship variants and commander skills
+* Adjusted Adversary configs:
+  - Now uses the new 0.97a character portraits
+  - Now knows the Escort Package hullmod, and no longer knows the Neural Link hullmods
+
+
+
 Version 6.0.0 (Update for Starsector 0.97)
 
 * Updated to Starsector 0.97
@@ -25,34 +34,3 @@ Version 5.2.0 (Not save-compatible)
   - This is done as these options are barely used by default and can conflict with mods that dynamically increase NPC faction strength
 * Made officers in a certain Silly bounty count as sleeper officers
 * Added voices to the Adversary for more consistent dialogue
-
-
-
-Version 5.1.1
-
-* Added missing Missile Specialization skill to all Silly station bounty targets.
-  - Increased credit rewards to compensate
-* Added a thematic reward for a certain Silly bounty
-* Updated Adversary's Exotica configs to include Oversized Magazines
-
-
-
-Version 5.1.0
-
-* Add 4 silly MagicBounties centered around extremely lethal station battles.
-  - Requires MagicLib, as well as enabling "enableAdversarySillyBounties" in settings.json or LunaSettings
-  - These bounties have highly-valuable rewards, but with an extreme difficulty to match.
-* Fixed Paradiso system not being a Core system and having a misplaced sensor array.
-
-
-
-Version 5.0.0
-
-* Split off the custom star system feature to the Customizable Star Systems mod
-  - Adversary portion now has a dependency on this split-off mod
-  - Updated Adversary's customStarSystem.json with the updated format
-* Added a game-breaking, modded Adversary system to customStarSystems.json
-  - Disabled by default
-  - Requires both Industrial.Evolution and Unknown Skies to successfully enable
-  - Not for the faint-hearted
-* Changed source code and package names

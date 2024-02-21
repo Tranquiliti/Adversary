@@ -1,7 +1,7 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 15,
-    "fluxVents": 10,
+    "fluxCapacitors": 18,
+    "fluxVents": 13,
     "hullId": "falcon_p",
     "hullMods": [
         "hardenedshieldemitter",
@@ -41,16 +41,16 @@
             "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 005": "phasecl",
-                "WS 006": "phasecl"
+                "WS 001": "atropos",
+                "WS 002": "atropos"
             }
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "gazer",
-                "WS 002": "gazer"
+                "WS 005": "sabotpod",
+                "WS 006": "sabotpod"
             }
         },
         {

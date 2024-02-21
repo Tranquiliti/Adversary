@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 13,
-    "fluxVents": 5,
+    "fluxCapacitors": 20,
+    "fluxVents": 10,
     "hullId": "shrike_pirates",
     "hullMods": [
         "converted_hangar",
@@ -10,8 +10,7 @@
         "damaged_mounts",
         "degraded_life_support",
         "erratic_injector",
-        "increased_maintenance",
-        "missleracks"
+        "increased_maintenance"
     ],
     "permaMods": [
         "converted_hangar",

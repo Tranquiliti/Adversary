@@ -1,6 +1,6 @@
 {
     "displayName": "Fire Support",
-    "fluxCapacitors": 24,
+    "fluxCapacitors": 28,
     "fluxVents": 50,
     "hullId": "executor",
     "hullMods": [
@@ -14,7 +14,6 @@
         "fluxdistributor",
         "reinforcedhull",
         "fluxbreakers",
-        "adaptiveshields",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
@@ -70,8 +69,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "gravitonbeam",
-                "WS 005": "gravitonbeam"
+                "WS 004": "hveldriver",
+                "WS 005": "hveldriver"
             }
         }
     ]
