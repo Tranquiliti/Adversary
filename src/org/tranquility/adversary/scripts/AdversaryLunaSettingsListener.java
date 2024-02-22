@@ -10,6 +10,8 @@ import org.json.JSONException;
 
 import java.util.List;
 
+import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+
 public class AdversaryLunaSettingsListener implements LunaSettingsListener {
     @Override
     public void settingsChanged(String modId) {
@@ -22,7 +24,7 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
         } else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
 
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        String adversaryId = settings.getString("adversary", "faction_id_adversary");
+        String adversaryId = FACTION_ADVERSARY;
 
         Integer doctrineDelay = LunaSettings.getInt(modId, settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay"));
         assert doctrineDelay != null;

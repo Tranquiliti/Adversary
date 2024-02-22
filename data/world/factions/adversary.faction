@@ -573,9 +573,9 @@
 		"caresAboutAtrocities":false,
 		"fightToTheLast":true, # order a full assault instead of retreating, in most cases
 		"punitiveExpeditionData":{
-			"vsCompetitors":true,
-			"vsFreePort":true,
-			"canBombard":true,
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
 			"territorial":true,
 		},
 	},

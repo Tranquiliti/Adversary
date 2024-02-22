@@ -4,28 +4,25 @@ import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
-import com.fs.starfarer.api.campaign.StarSystemAPI;
-import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.ids.Industries;
+import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel;
 import org.json.JSONException;
 import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
 import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
 import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
+import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause;
+import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause2;
+import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 
-import java.util.Comparator;
 import java.util.List;
 import java.util.TreeSet;
 
+import static org.tranquility.adversary.AdversaryUtil.*;
+
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
-    private transient final String FACTION_ADVERSARY = Global.getSettings().getString("adversary", "faction_id_adversary");
-    private transient final String MOD_ID_ADVERSARY = Global.getSettings().getString("adversary", "mod_id_adversary"); // For LunaLib
-    private transient final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
-
     @Override
     public void onApplicationLoad() {
         if (LUNALIB_ENABLED) AdversaryLunaUtil.addSettingsListener();
@@ -43,6 +40,13 @@ public class AdversaryModPlugin extends BaseModPlugin {
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
 
         if (!newGame) addAdversaryListeners(false);
+
+        HostileActivityEventIntel intel = HostileActivityEventIntel.get();
+        if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null) {
+            AdversaryHostileActivityFactor adversaryFactor = new AdversaryHostileActivityFactor(intel);
+            intel.addActivity(adversaryFactor, new AdversaryActivityCause(intel));
+            intel.addActivity(adversaryFactor, new AdversaryActivityCause2(intel));
+        }
     }
 
     @Override
@@ -82,29 +86,29 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
 
         if (newGame) { // Called presumably after onNewGameAfterEconomyLoad()
-            if (dynaDoctrine) addAdversaryDynamicDoctrine(true, LUNALIB_ENABLED);
-            if (stealBlueprints) addAdversaryBlueprintStealer(true, LUNALIB_ENABLED);
+            if (dynaDoctrine) addAdversaryDynamicDoctrine(true);
+            if (stealBlueprints) addAdversaryBlueprintStealer(true);
         } else {
             ListenerManagerAPI listMan = Global.getSector().getListenerManager();
             if (dynaDoctrine) {
                 List<AdversaryDynamicDoctrine> doctrineListeners = listMan.getListeners(AdversaryDynamicDoctrine.class);
-                if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false, LUNALIB_ENABLED);
+                if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false);
                 else // Refresh needed since restarting Starsector also resets faction doctrines
                     doctrineListeners.get(0).refresh();
             } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 
             if (stealBlueprints && listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty())
-                addAdversaryBlueprintStealer(false, LUNALIB_ENABLED);
+                addAdversaryBlueprintStealer(false);
             else listMan.removeListenerOfClass(AdversaryBlueprintStealer.class); // Disable blueprint stealer
         }
     }
 
-    private void addAdversaryDynamicDoctrine(boolean newGame, boolean lunaLibEnabled) {
+    private void addAdversaryDynamicDoctrine(boolean newGame) {
         SettingsAPI settings = Global.getSettings();
 
         Integer doctrineDelay = null;
         String delayId = settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay");
-        if (lunaLibEnabled) doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
+        if (LUNALIB_ENABLED) doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
         if (doctrineDelay == null) doctrineDelay = settings.getInt(delayId);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
@@ -115,12 +119,12 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    private void addAdversaryBlueprintStealer(boolean newGame, boolean lunaLibEnabled) {
+    private void addAdversaryBlueprintStealer(boolean newGame) {
         SettingsAPI settings = Global.getSettings();
 
         Integer stealDelay = null;
         String delayId = settings.getString("adversary", "settings_adversaryBlueprintStealingDelay");
-        if (lunaLibEnabled) stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
+        if (LUNALIB_ENABLED) stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
         if (stealDelay == null) stealDelay = settings.getInt(delayId);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
@@ -132,30 +136,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     }
 
     private void addAdversaryPersonalFleet() {
-        TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
-            public int compare(MarketAPI m1, MarketAPI m2) {
-                int comp = Integer.compare(getScore(m1), getScore(m2));
-                if (comp != 0) return comp;
-                return Integer.compare(m1.getSize(), m2.getSize());
-            }
-
-            private int getScore(MarketAPI m) {
-                int score = 0;
-                if (m.hasIndustry(Industries.HIGHCOMMAND)) {
-                    score++;
-                    Industry hc = m.getIndustry(Industries.HIGHCOMMAND);
-                    if (hc.isImproved()) score++;
-                    if (hc.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
-                    if (hc.getSpecialItem() != null) score++;
-                }
-                return score;
-            }
-        });
-
-        for (StarSystemAPI system : Global.getSector().getEconomy().getStarSystemsWithMarkets())
-            for (MarketAPI market : Global.getSector().getEconomy().getMarkets(system))
-                if (market.getFactionId().equals(FACTION_ADVERSARY) && market.getPlanetEntity() != null && !market.isHidden())
-                    adversaryMarkets.add(market);
+        TreeSet<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMilitaryMarkets();
 
         if (!adversaryMarkets.isEmpty())
             new AdversaryPersonalFleet(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
