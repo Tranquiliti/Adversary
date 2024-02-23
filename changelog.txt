@@ -1,7 +1,9 @@
 Version 6.1.0 (Not save-compatible)
 
 * Added a Colony Crisis for the Adversary faction
-  - Requires one size 6 colony or at least 4 colonies with one being at least size 5 for the crisis to (normally) appear
+  - If hostile to the Adversary, will appear if you have one size 6 colony, or at least 4 colonies with one being at least size 5
+  - Adversary will no longer send non-CC punitive expeditions for any reason except territorial claims
+  - STILL A WIP: things may change - and break - fast between updates
 * Adjusted Adversary configs:
   - Now uses the new 0.97a character portraits
   - Now knows the Escort Package hullmod, and no longer knows the Neural Link hullmods

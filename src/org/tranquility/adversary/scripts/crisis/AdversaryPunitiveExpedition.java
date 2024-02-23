@@ -10,7 +10,6 @@ import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
 public class AdversaryPunitiveExpedition extends GenericRaidFGI {
-
     public static final String ADVERSARY_FLEET = "$AdversaryPE_fleet";
 
     public static String KEY = "$AdversaryPE_ref";

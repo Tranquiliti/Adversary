@@ -119,9 +119,9 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         info.addPara("You've received intel that the Adversary is planning a massive, full-scale saturation-bombardment campaign against one of your star systems.", small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
 
-        LabelAPI label = info.addPara("If this all-out attack is defeated, your standing with the independents will increase substantially, your colonies will permanently gain increased stability, and the Adversary will likely abandon further efforts against you.", opad);
-        label.setHighlight("independents", "increase substantially", "permanently gain increased stability", "Adversary");
-        label.setHighlightColors(Global.getSector().getFaction(Factions.INDEPENDENT).getBaseUIColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
+        LabelAPI label = info.addPara("If this all-out attack is defeated, your standing with most factions will increase substantially, your colonies will permanently gain increased stability, and the Adversary will likely abandon further efforts against you.", opad);
+        label.setHighlight("most factions", "increase substantially", "permanently gain increased stability", "Adversary");
+        label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
 
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
         stage.beginResetReqList(info, true, "crisis", opad);
@@ -149,7 +149,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     public float getEventFrequency(HostileActivityEventIntel intel, EventStageData stage) {
         if (stage.id == Stage.HA_EVENT) {
             if (wasAdversaryEverSatBombardedByPlayer())
-                return 666f; // Maybe you shouldn't have proven their point - just saying
+                return 666f; // Maybe you shouldn't have proven their point by blowing up one of their planets
 
             if (pickTargetSystem() != null && pickSourceMarket() != null)
                 return 1f; // Should make this crisis extremely rare to experience before dealing with most of the other crises
@@ -178,7 +178,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     public void reportFGIAborted(FleetGroupIntel intel) {
         setPlayerDefeatedAdversaryAttack();
 
-        Misc.adjustRep(Factions.INDEPENDENT, 100f, null);
+        Misc.adjustRep(Factions.INDEPENDENT, 0.6f, null);
+        Misc.adjustRep(Factions.HEGEMONY, 0.3f, null);
+        Misc.adjustRep(Factions.TRITACHYON, 0.3f, null);
+        Misc.adjustRep(Factions.PERSEAN, 0.3f, null);
+        Misc.adjustRep(Factions.DIKTAT, 0.3f, null);
+        Misc.adjustRep(Factions.LUDDIC_CHURCH, 0.3f, null);
+
+        new MutualTenacityScript();
     }
 
     @Override

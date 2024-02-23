@@ -23,7 +23,7 @@ public class AdversaryActivityCause2 extends BaseHostileActivityCause2 {
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara("Your saturation-bombardment against one of the Adversary's worlds has only pushed their collective resolve - and immense hatred - against you to the absolute maximum.", 0f, Misc.getHighlightColor(), "to the absolute maximum");
+                tooltip.addPara("Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.", 0f, Misc.getHighlightColor(), "to the absolute maximum");
 
                 tooltip.addPara("Defeating the Adversary's incoming attack is the only recourse available to you now.", opad, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
             }
@@ -56,7 +56,7 @@ public class AdversaryActivityCause2 extends BaseHostileActivityCause2 {
 
     @Override
     public String getDesc() {
-        return "Eternal revenge";
+        return "Lasting acrimony";
     }
 
     @Override

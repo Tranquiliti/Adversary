@@ -1,0 +1,2 @@
+name,id,planetary,decivRemove,script,desc,icon,order
+Mutual Tenacity,adversary_mutual_tenacity,,TRUE,org.tranquility.adversary.scripts.crisis.MutualTenacity,"Dealing with the Adversary - one way or another - has made this colony's inhabitants feel safer, owing to their newfound determination.",graphics/icons/markets/respite40.png,1376
