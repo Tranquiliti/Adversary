@@ -1,15 +1,13 @@
 package org.tranquility.adversary.scripts.crisis;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.StarSystemAPI;
 import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ListInfoMode;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.ids.Industries;
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
-import com.fs.starfarer.api.impl.campaign.ids.Stats;
+import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel.EventStageData;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip;
@@ -20,6 +18,7 @@ import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.group.FleetGroupIntel;
 import com.fs.starfarer.api.impl.campaign.intel.group.FleetGroupIntel.FGIEventListener;
 import com.fs.starfarer.api.impl.campaign.intel.group.GenericRaidFGI.GenericRaidParams;
+import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission.FleetStyle;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.MarketCMD;
 import com.fs.starfarer.api.ui.LabelAPI;
@@ -27,6 +26,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI.TooltipCreator;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.WeightedRandomPicker;
+import org.lwjgl.util.vector.Vector2f;
 import org.tranquility.adversary.AdversaryUtil;
 
 import java.awt.*;
@@ -79,10 +79,12 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara("A rival - and hostile - independent polity poses an existential threat to the Adversary, whose leaders view your growing colonies as nothing more than preparations to take over their \"perfect\" worlds.", 0f);
+                tooltip.addPara("A rival independent polity poses an existential threat to the Adversary, whose leaders view your growing colonies as nothing more than preparations to take over their \"perfect\" worlds.", 0f);
+
+                tooltip.addPara("Adversary-aligned scouts have been occasionally sighted around your colonies - though normally non-hostile, their presence alone bears ill tidings for nearby colonies.", opad);
 
                 if (!wasAdversaryEverSatBombardedByPlayer()) {
-                    LabelAPI label = tooltip.addPara("Although they are unlikely to harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.", opad);
+                    LabelAPI label = tooltip.addPara("While these scouts are unlikely to directly harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.", opad);
                     label.setHighlight("if not convinced of your benevolent intentions in time", "plan something far, far worse");
                     label.setHighlightColors(Misc.getHighlightColor(), Misc.getNegativeHighlightColor());
                 } else
@@ -98,8 +100,43 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public int getMaxNumFleets(StarSystemAPI system) {
-        return 0;
+        return 1;
     }
+
+    @Override
+    public float getSpawnInHyperProbability(StarSystemAPI system) {
+        return 0f;
+    }
+
+    @Override
+    public CampaignFleetAPI createFleet(StarSystemAPI system, Random random) {
+        // minimum is 0.66f for this factor due to it requiring some market presence
+        float f = intel.getMarketPresenceFactor(system);
+
+        int difficulty = (int) Math.max(1f, Math.round(f * 4f));
+        difficulty += random.nextInt(6);
+
+        FleetCreatorMission m = new FleetCreatorMission(random);
+        m.beginFleet();
+
+        Vector2f loc = system.getLocation();
+
+        m.createQualityFleet(difficulty, FACTION_ADVERSARY, loc);
+        m.triggerSetFleetDoctrineComp(0, 0, 5);
+        m.triggerFleetSetAvoidPlayerSlowly();
+        m.triggerSetFleetType(FleetTypes.MERC_SCOUT);
+        m.triggerSetPatrol();
+        m.triggerMakeNonHostile();
+        m.triggerSetFleetFlag("$adversaryScout");
+
+        m.triggerMakeLowRepImpact();
+
+        CampaignFleetAPI fleet = m.createFleet();
+        fleet.removeAbility(Abilities.TRANSPONDER);
+
+        return fleet;
+    }
+
 
     @Override
     public void addBulletPointForEvent(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {

@@ -1,6 +1,7 @@
 package org.tranquility.adversary.scripts.crisis;
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.comm.CommMessageAPI.MessageClickAction;
 import com.fs.starfarer.api.campaign.econ.EconomyAPI.EconomyUpdateListener;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
@@ -9,13 +10,10 @@ import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin;
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel;
 import com.fs.starfarer.api.util.Misc;
 
-public class MutualTenacityScript implements EconomyUpdateListener {
-    // TODO: add way to get Mutual Tenacity if either commissioned with the Adversary or at Cooperative relations
-    public static String KEY = "$adversary_mt_ref";
+import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
 
-    public static MutualTenacityScript get() {
-        return (MutualTenacityScript) Global.getSector().getMemoryWithoutUpdate().get(KEY);
-    }
+public class MutualTenacityScript implements EconomyUpdateListener {
+    public static String KEY = "$adversary_mt_ref";
 
     public MutualTenacityScript() {
         sendGainedMessage();
@@ -30,6 +28,38 @@ public class MutualTenacityScript implements EconomyUpdateListener {
         Global.getSector().getMemoryWithoutUpdate().set(KEY, this);
 
         economyUpdated();
+    }
+
+    @Override
+    public void commodityUpdated(String commodityId) {
+    }
+
+    @Override
+    public void economyUpdated() {
+        for (MarketAPI curr : Misc.getPlayerMarkets(false)) {
+            if (!curr.hasCondition("adversary_mutual_tenacity")) {
+                curr.addCondition("adversary_mutual_tenacity");
+            }
+        }
+    }
+
+    @Override
+    public boolean isEconomyListenerExpired() {
+        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) return false;
+
+        if (!isTrustworthyToAdversary()) {
+            cleanup();
+            return true;
+        }
+        return false;
+    }
+
+    public static boolean isTrustworthyToAdversary() {
+        return (Misc.getCommissionFactionId() != null && Misc.getCommissionFactionId().equals(FACTION_ADVERSARY)) || Global.getSector().getFaction(FACTION_ADVERSARY).getRelToPlayer().isAtWorst(RepLevel.COOPERATIVE);
+    }
+
+    public static MutualTenacityScript get() {
+        return (MutualTenacityScript) Global.getSector().getMemoryWithoutUpdate().get(KEY);
     }
 
     public void sendGainedMessage() {
@@ -51,19 +81,6 @@ public class MutualTenacityScript implements EconomyUpdateListener {
         Global.getSector().getCampaignUI().addMessage(msg, MessageClickAction.COLONY_INFO);
     }
 
-    @Override
-    public void commodityUpdated(String commodityId) {
-    }
-
-    @Override
-    public void economyUpdated() {
-        for (MarketAPI curr : Misc.getPlayerMarkets(false)) {
-            if (!curr.hasCondition("adversary_mutual_tenacity")) {
-                curr.addCondition("adversary_mutual_tenacity");
-            }
-        }
-    }
-
     public void cleanup() {
         if (Global.getSector().getMemoryWithoutUpdate().contains(KEY)) {
             sendExpiredMessage();
@@ -75,10 +92,4 @@ public class MutualTenacityScript implements EconomyUpdateListener {
             }
         }
     }
-
-    @Override
-    public boolean isEconomyListenerExpired() {
-        return false;
-    }
-
 }
