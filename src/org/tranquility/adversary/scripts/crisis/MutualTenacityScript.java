@@ -65,10 +65,9 @@ public class MutualTenacityScript implements EconomyUpdateListener {
     public void sendGainedMessage() {
         MessageIntel msg = new MessageIntel();
         msg.addLine("Mutual Tenacity gained", Misc.getBasePlayerColor());
-        msg.addLine(BaseIntelPlugin.BULLET + "Colonies receive %s to stability", Misc.getTextColor(), new String[]{"+" + (int) MutualTenacity.STABILITY_BONUS}, Misc.getHighlightColor());
+        msg.addLine(BaseIntelPlugin.BULLET + "Colonies receive a %s to stability", Misc.getTextColor(), new String[]{"bonus"}, Misc.getHighlightColor());
 
-        // TODO: replace placeholder sprite with something else
-        msg.setIcon(Global.getSettings().getSpriteName("events", "piracy_respite"));
+        msg.setIcon(Global.getSettings().getSpriteName("events", "stage_unknown_good"));
         msg.setSound(Sounds.REP_GAIN);
         Global.getSector().getCampaignUI().addMessage(msg, MessageClickAction.COLONY_INFO);
     }
@@ -76,7 +75,8 @@ public class MutualTenacityScript implements EconomyUpdateListener {
     public void sendExpiredMessage() {
         MessageIntel msg = new MessageIntel();
         msg.addLine("Mutual Tenacity removed", Misc.getBasePlayerColor());
-        msg.setIcon(Global.getSettings().getSpriteName("events", "piracy_respite"));
+        msg.addLine(BaseIntelPlugin.BULLET + "Due to deteriorating relations with the %s", Misc.getTextColor(), new String[]{"Adversary"}, Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
+        msg.setIcon(Global.getSettings().getSpriteName("events", "stage_unknown_bad"));
         msg.setSound(Sounds.REP_LOSS);
         Global.getSector().getCampaignUI().addMessage(msg, MessageClickAction.COLONY_INFO);
     }

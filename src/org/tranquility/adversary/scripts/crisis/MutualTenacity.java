@@ -11,20 +11,9 @@ public class MutualTenacity extends BaseMarketConditionPlugin {
     public MutualTenacity() {
     }
 
-    public static float getBonus() {
-        float bonus = STABILITY_BONUS;
-        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) {
-            bonus += STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK;
-        }
-        return bonus;
-    }
-
     @Override
     public void apply(String id) {
         String text = Misc.ucFirst(getName().toLowerCase());
-        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) {
-            text += " (Adversary threat thwarted)";
-        }
         market.getStability().modifyFlat(id, getBonus(), text);
     }
 
@@ -38,14 +27,22 @@ public class MutualTenacity extends BaseMarketConditionPlugin {
         super.createTooltipAfterDescription(tooltip, expanded);
 
         float opad = 10f;
-        tooltip.addPara("%s stability.", opad, Misc.getHighlightColor(), "+" + (int) getBonus());
+        tooltip.addPara("%s stability", opad, Misc.getHighlightColor(), "+" + (int) getBonus());
 
         if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack())
-            tooltip.addPara("The bonus is doubled due to the inhabitants " + market.getOnOrAt() + " " + market.getName() + " feeling empowered by the Adversary's defeat.", opad, Misc.getPositiveHighlightColor(), "doubled");
+            tooltip.addPara("The bonus is doubled due to the inhabitants " + market.getOnOrAt() + " " + market.getName() + " feeling empowered by the outcome of the Adversary conflict.", opad, Misc.getPositiveHighlightColor(), "doubled");
     }
 
     @Override
     public boolean hasCustomTooltip() {
         return true;
+    }
+
+    public static float getBonus() {
+        float bonus = STABILITY_BONUS;
+        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) {
+            bonus += STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK;
+        }
+        return bonus;
     }
 }

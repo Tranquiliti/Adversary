@@ -50,9 +50,8 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public int getProgress(BaseEventIntel intel) {
-        if (!checkFactionExists(FACTION_ADVERSARY, true)) {
-            return 0;
-        }
+        if (!checkFactionExists(FACTION_ADVERSARY, true)) return 0;
+
         return super.getProgress(intel);
     }
 
@@ -68,9 +67,8 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public Color getDescColor(BaseEventIntel intel) {
-        if (getProgress(intel) <= 0) {
-            return Misc.getGrayColor();
-        }
+        if (getProgress(intel) <= 0) return Misc.getGrayColor();
+
         return Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
     }
 
@@ -83,12 +81,13 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
                 tooltip.addPara("Adversary-aligned scouts have been occasionally sighted around your colonies - though normally non-hostile, their presence alone bears ill tidings for nearby colonies.", opad);
 
-                if (!wasAdversaryEverSatBombardedByPlayer()) {
+                if (wasAdversaryEverSatBombardedByPlayer()) {
+                    tooltip.addPara("It is all but certain that, due to your heinous actions against the Adversary worlds, the leaders of the Adversary will swiftly respond in kind against your colonies.", opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
+                } else {
                     LabelAPI label = tooltip.addPara("While these scouts are unlikely to directly harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.", opad);
                     label.setHighlight("if not convinced of your benevolent intentions in time", "plan something far, far worse");
                     label.setHighlightColors(Misc.getHighlightColor(), Misc.getNegativeHighlightColor());
-                } else
-                    tooltip.addPara("It is all but certain that, due to your heinous actions against the Adversary worlds, the leaders of the Adversary will swiftly respond in kind against your colonies.", opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
+                }
             }
         };
     }
@@ -156,18 +155,18 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         info.addPara("You've received intel that the Adversary is planning a massive, full-scale saturation-bombardment campaign against one of your star systems.", small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
 
+        Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
         LabelAPI label = info.addPara("If this all-out attack is defeated, your standing with most factions will increase substantially, your colonies will permanently gain increased stability, and the Adversary will likely abandon further efforts against you.", opad);
         label.setHighlight("most factions", "increase substantially", "permanently gain increased stability", "Adversary");
-        label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
+        label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), c);
 
-        Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
         stage.beginResetReqList(info, true, "crisis", opad);
         info.addPara("The %s has no functional military bases", 0f, c, "Adversary");
         if (!wasAdversaryEverSatBombardedByPlayer())
             info.addPara("You are no longer hostile with the %s", 0f, c, "Adversary");
         stage.endResetReqList(info, false, "crisis", -1, -1);
 
-        addBorder(info, Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
+        addBorder(info, c);
     }
 
     @Override
@@ -215,12 +214,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     public void reportFGIAborted(FleetGroupIntel intel) {
         setPlayerDefeatedAdversaryAttack();
 
-        Misc.adjustRep(Factions.INDEPENDENT, 0.6f, null);
         Misc.adjustRep(Factions.HEGEMONY, 0.3f, null);
-        Misc.adjustRep(Factions.TRITACHYON, 0.3f, null);
+        Misc.adjustRep(Factions.LUDDIC_CHURCH, 0.3f, null);
+        Misc.adjustRep(Factions.LUDDIC_PATH, 0.15f, null);
         Misc.adjustRep(Factions.PERSEAN, 0.3f, null);
         Misc.adjustRep(Factions.DIKTAT, 0.3f, null);
-        Misc.adjustRep(Factions.LUDDIC_CHURCH, 0.3f, null);
+        Misc.adjustRep(Factions.TRITACHYON, 0.3f, null);
+        Misc.adjustRep(Factions.INDEPENDENT, 0.6f, null);
+        Misc.adjustRep(Factions.PIRATES, 0.15f, null);
 
         new MutualTenacityScript();
     }
