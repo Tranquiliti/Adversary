@@ -188,7 +188,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
                 return 666f; // Maybe you shouldn't have proven their point by blowing up one of their planets
 
             if (pickTargetSystem() != null && pickSourceMarket() != null)
-                return 1f; // Should make this crisis extremely rare to experience before dealing with most of the other crises
+                return 1f; // Should make this crisis very rare to experience before dealing with most of the other crises
         }
         return 0f;
     }
@@ -313,10 +313,9 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         float f = intel.getMarketPresenceFactor(system);
 
-        boolean wasSatBombed = wasAdversaryEverSatBombardedByPlayer();
-
         float totalDifficulty = fleetSizeMult * 15f * (0.6f + 0.4f * f);
 
+        boolean wasSatBombed = wasAdversaryEverSatBombardedByPlayer();
         if (wasSatBombed) totalDifficulty *= 2f;
 
         if (totalDifficulty < 15) return false;
@@ -328,8 +327,8 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         params.fleetSizes.add(10);
 
         while (totalDifficulty > 0) {
-            int min = 6;
             int max = 10;
+            int min = wasSatBombed ? max : 6;
 
             int diff = min + random.nextInt(max - min + 1);
 
@@ -337,9 +336,9 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
             totalDifficulty -= diff;
         }
 
-        AdversaryPunitiveExpedition punex = new AdversaryPunitiveExpedition(params);
-        punex.setListener(this);
-        Global.getSector().getIntelManager().addIntel(punex);
+        AdversaryPunitiveExpedition punEx = new AdversaryPunitiveExpedition(params);
+        punEx.setListener(this);
+        Global.getSector().getIntelManager().addIntel(punEx);
 
         return true;
     }

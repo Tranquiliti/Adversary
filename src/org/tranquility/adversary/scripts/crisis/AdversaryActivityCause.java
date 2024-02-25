@@ -32,7 +32,11 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     public TooltipCreator getTooltip() {
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
-                tooltip.addPara(getAdvString("HA_activityCauseTooltip"), 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
+                if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer()) {
+                    tooltip.addPara(getAdvString("HA_activityCauseAltTooltip1"), 0f, Misc.getHighlightColor(), "to the absolute maximum");
+                    tooltip.addPara(getAdvString("HA_activityCauseAltTooltip2"), 10f, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
+                } else
+                    tooltip.addPara(getAdvString("HA_activityCauseTooltip"), 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
             }
         };
     }
@@ -54,8 +58,10 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
 
     @Override
     public int getProgress() {
-        if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() || AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack() || Global.getSector().getFaction(FACTION_ADVERSARY).getRelToPlayer().isAtWorst(RepLevel.INHOSPITABLE) || !isThreatToAdversary())
-            return 0;
+        if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer())
+            return AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack() ? 0 : HostileActivityEventIntel.MAX_PROGRESS;
+
+        if (!isThreateningToAdversary()) return 0;
 
         int score = 0;
         for (MarketAPI market : Misc.getPlayerMarkets(false)) {
@@ -77,26 +83,30 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
 
     @Override
     public String getDesc() {
-        return getAdvString("HA_activityCauseDesc");
+        return AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() ? getAdvString("HA_activityCauseAltDesc") : getAdvString("HA_activityCauseDesc");
     }
 
     @Override
     public float getMagnitudeContribution(StarSystemAPI system) {
         if (getProgress() <= 0) return 0f;
 
-        return (0.2f + 0.8f * intel.getMarketPresenceFactor(system)) * MAX_MAG;
+        return (0.2f + 0.8f * intel.getMarketPresenceFactor(system)) * (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() ? MAX_MAG * 2f : MAX_MAG);
     }
 
-    private boolean isThreatToAdversary() {
-        int large = 0;
-        int count = 0;
-        int medium = 0;
-        for (MarketAPI market : Misc.getPlayerMarkets(false)) {
-            int size = market.getSize();
-            if (size >= LARGE_COLONY) large++;
-            if (size >= MEDIUM_COLONY) medium++;
-            count++;
-        }
-        return large > 0 || (medium > 0 && count >= COUNT_IF_MEDIUM);
+    public static boolean isThreateningToAdversary() {
+        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) return false;
+
+        if (Global.getSector().getFaction(FACTION_ADVERSARY).getRelToPlayer().isAtBest(RepLevel.HOSTILE)) {
+            int large = 0;
+            int count = 0;
+            int medium = 0;
+            for (MarketAPI market : Misc.getPlayerMarkets(false)) {
+                int size = market.getSize();
+                if (size >= LARGE_COLONY) large++;
+                if (size >= MEDIUM_COLONY) medium++;
+                count++;
+            }
+            return large > 0 || (medium > 0 && count >= COUNT_IF_MEDIUM);
+        } else return false;
     }
 }

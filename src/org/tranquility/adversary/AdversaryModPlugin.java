@@ -12,7 +12,6 @@ import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
 import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
 import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
 import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause;
-import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause2;
 import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 
 import java.util.List;
@@ -68,11 +67,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     private void addAdversaryColonyCrisis() {
         HostileActivityEventIntel intel = HostileActivityEventIntel.get();
-        if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null) {
-            AdversaryHostileActivityFactor adversaryFactor = new AdversaryHostileActivityFactor(intel);
-            intel.addActivity(adversaryFactor, new AdversaryActivityCause(intel));
-            intel.addActivity(adversaryFactor, new AdversaryActivityCause2(intel));
-        }
+        if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null)
+            intel.addActivity(new AdversaryHostileActivityFactor(intel), new AdversaryActivityCause(intel));
     }
 
     // Recent history has made them cold and hateful against almost everyone

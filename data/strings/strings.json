@@ -43,9 +43,9 @@
 		"HA_stageTooltip":"Adversary bombardment campaign",
 		"HA_activityCauseTooltip":"Event progress value is based on the number and size of colonies under your control. Requires one size %s colony, or at least %s colonies with one being at least size %s.",
 		"HA_activityCauseDesc":"Colony presence and size",
-		"HA_activityCause2Tooltip1":"Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.",
-		"HA_activityCause2Tooltip2":"Defeating the Adversary's incoming attack is the only recourse available to you now.",
-		"HA_activityCause2Desc":"Lasting acrimony",
+		"HA_activityCauseAltTooltip1":"Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.",
+		"HA_activityCauseAltTooltip2":"Defeating the Adversary's incoming attack is the only recourse available to you now.",
+		"HA_activityCauseAltDesc":"Lasting acrimony",
 		"HA_punitiveExpeditionNoun":"bombardment campaign",
 		"HA_punitiveExpeditionBaseName":"Adversary Bombardment Campaign"
 	},
