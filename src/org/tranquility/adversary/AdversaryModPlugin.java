@@ -30,8 +30,9 @@ public class AdversaryModPlugin extends BaseModPlugin {
     public void onGameLoad(boolean newGame) {
         toggleSillyBounties();
 
-        // Doesn't immediately apply if Colony Crisis intel gets added mid-game; it only gets added in after a save & load
-        // (Should find or ask for a way to get the crisis added in as soon as the CC intel appears, but it's a low priority for now)
+        // Does not immediately apply if Colony Crisis intel gets (re)added mid-game; it only gets added in after a save & load
+        // If the CC intel is removed mid-game (e.g. by losing all colonies), the Adversary crisis gets removed too, leading to the above problem
+        // (Should find or ask for a way to get the crisis added whenever the CC intel shows up, but it's a low priority for now)
         addAdversaryColonyCrisis();
 
         if (!newGame) addAdversaryListeners(false);
