@@ -6,11 +6,13 @@ import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause;
 import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
+import org.tranquility.adversary.scripts.crisis.AdversaryPunitiveExpedition;
 import org.tranquility.adversary.scripts.crisis.MutualTenacityScript;
 
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class Adversary_HA_CMD extends BaseCommandPlugin {
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
@@ -31,11 +33,11 @@ public class Adversary_HA_CMD extends BaseCommandPlugin {
     }
 
     private boolean canConfrontCrisis() {
-        return !AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() && AdversaryActivityCause.isThreateningToAdversary();
+        return AdversaryPunitiveExpedition.get() == null && !AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() && AdversaryActivityCause.isThreateningToAdversary();
     }
 
     private boolean canMakeDeal() {
-        if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() || AdversaryActivityCause.isThreateningToAdversary())
+        if (AdversaryPunitiveExpedition.get() != null || AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() || AdversaryActivityCause.isThreateningToAdversary())
             return false;
 
         return MutualTenacityScript.isTrustworthyToAdversary() && MutualTenacityScript.get() == null;

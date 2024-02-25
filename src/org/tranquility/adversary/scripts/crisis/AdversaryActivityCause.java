@@ -71,7 +71,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
                     score += 2;
                     break;
                 case 6:
-                    score += 4;
+                    score += 5;
                     break;
                 default:
                     score += 1;

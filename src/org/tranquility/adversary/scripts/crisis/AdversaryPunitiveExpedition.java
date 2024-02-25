@@ -83,5 +83,4 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
     public static AdversaryPunitiveExpedition get() {
         return (AdversaryPunitiveExpedition) Global.getSector().getMemoryWithoutUpdate().get(KEY);
     }
-
 }
