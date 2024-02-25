@@ -14,7 +14,6 @@
         "armoredweapons",
         "missleracks",
         "reinforcedhull",
-        "fluxbreakers",
         "safetyoverrides",
         "unstable_injector"
     ],
@@ -32,24 +31,17 @@
         "auxiliarythrusters"
     ],
     "variantId": "adversary_vanguard_pirates_Overdriven",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "lightac",
-                "WS 006": "lightac"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "gorgon",
-                "WS 001": "gorgon",
-                "WS 002": "gorgon",
-                "WS 007": "mininglaser"
-            }
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 000": "gorgon",
+            "WS 001": "gorgon",
+            "WS 002": "gorgon",
+            "WS 003": "mininglaser",
+            "WS 004": "mininglaser",
+            "WS 005": "lightdualac",
+            "WS 006": "lightdualac"
         }
-    ]
+    }]
 }

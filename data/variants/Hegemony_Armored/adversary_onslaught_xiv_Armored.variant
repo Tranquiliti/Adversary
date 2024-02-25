@@ -1,35 +1,35 @@
 {
     "displayName": "Armored",
-    "fluxCapacitors": 0,
-    "fluxVents": 47,
+    "fluxCapacitors": 1,
+    "fluxVents": 50,
     "hullId": "onslaught_xiv",
     "hullMods": [
+        "turretgyros",
         "autorepair",
-        "reinforcedhull",
         "shield_shunt",
         "armoredweapons",
-        "auxiliarythrusters",
         "blast_doors",
         "heavyarmor",
         "insulatedengine",
         "pointdefenseai",
         "targetingunit",
+        "reinforcedhull",
         "fluxbreakers"
     ],
     "permaMods": [
+        "turretgyros",
         "autorepair",
-        "reinforcedhull",
         "shield_shunt"
     ],
     "sMods": [
+        "turretgyros",
         "autorepair",
-        "reinforcedhull",
         "shield_shunt"
     ],
     "variantId": "adversary_onslaught_xiv_Armored",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 016": "tpc",
@@ -37,34 +37,28 @@
             }
         },
         {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 021": "breachpod",
-                "WS 022": "breachpod",
-                "WS 023": "breachpod",
-                "WS 024": "breachpod"
-            }
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 018": "devastator"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 019": "mjolnir"}
+            "weapons": {"WS 019": "devastator"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 014": "lightac",
-                "WS 015": "lightac"
-            }
+            "weapons": {"WS 020": "devastator"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 018": "devastator",
-                "WS 020": "devastator"
+                "WS 021": "salamanderpod",
+                "WS 022": "salamanderpod",
+                "WS 023": "salamanderpod",
+                "WS 024": "salamanderpod"
             }
         },
         {
@@ -72,24 +66,26 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "heavymg",
+                "WS 002": "vulcan",
                 "WS 003": "heavymg",
+                "WS 004": "vulcan",
+                "WS 005": "vulcan",
+                "WS 006": "vulcan",
                 "WS 007": "heavymg",
+                "WS 008": "vulcan",
+                "WS 009": "vulcan",
                 "WS 010": "heavymg",
-                "WS 011": "heavymg",
-                "WS 012": "heavymg",
-                "WS 013": "heavymg"
+                "WS 011": "heavymg"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "mininglaser",
-                "WS 004": "mininglaser",
-                "WS 005": "mininglaser",
-                "WS 006": "mininglaser",
-                "WS 008": "mininglaser",
-                "WS 009": "mininglaser"
+                "WS 012": "lightac",
+                "WS 013": "lightac",
+                "WS 014": "lightac",
+                "WS 015": "lightac"
             }
         }
     ]

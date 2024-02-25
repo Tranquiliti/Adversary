@@ -1,7 +1,7 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 10,
-    "fluxVents": 18,
+    "fluxCapacitors": 14,
+    "fluxVents": 14,
     "hullId": "manticore_pirates",
     "hullMods": [
         "converted_hangar",

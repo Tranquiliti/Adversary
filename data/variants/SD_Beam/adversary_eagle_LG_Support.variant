@@ -1,7 +1,7 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 28,
+    "fluxCapacitors": 5,
+    "fluxVents": 30,
     "hullId": "eagle_LG",
     "hullMods": [
         "hardenedshieldemitter",
@@ -11,7 +11,6 @@
         "erratic_injector",
         "increased_maintenance",
         "reinforcedhull",
-        "adaptiveshields",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
@@ -33,7 +32,8 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 007": "hveldriver",
-                "WS 008": "hveldriver"
+                "WS 008": "hveldriver",
+                "WS 013": "hveldriver"
             }
         },
         {
@@ -43,11 +43,6 @@
                 "WS 001": "heatseeker",
                 "WS 002": "heatseeker"
             }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 013": "heavymauler"}
         },
         {
             "autofire": true,

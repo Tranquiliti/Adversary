@@ -1,10 +1,4 @@
-#-- Note for translators --#
-# A few Strings remain hard-coded, especially in AdversaryUtil.java,
-# due to switch statements requiring constant String objects or
-# the Strings only mattering in Dev Mode or debugging (hopefully).
-#
-# That said, let me know if there's anything that I can do to make your life a little easier.
-
+# Externalized strings for translation purposes
 {
 	"adversary":{
 		"mod_id_adversary":"adversary",
@@ -33,8 +27,29 @@
 		# Used for Adversary Personal Fleet
 		"person_id_adversary_personal_commander":"adversary_first_admiral",
 		"name_adversary_personal_fleet":"Sword of Destruction",
+
+		# Colony Crisis (highlights, and strings in MutualTenacity.java and MutualTenacityScript.java, are still hard-coded)
+		"Adversary":"Adversary",
+		"HA_mainRowTooltip1":"A rival independent polity poses an existential threat to the Adversary, whose leaders view your growing colonies as nothing more than preparations to take over their \"perfect\" worlds.",
+		"HA_mainRowTooltip2":"Adversary-aligned scouts have been occasionally sighted inside your systems - though normally non-hostile, their presence alone bears ill tidings for nearby colonies.",
+		"HA_mainRowTooltipEnd":"While these scouts are unlikely to directly harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.",
+		"HA_mainRowTooltipEndAlt":"It is all but certain that, due to your heinous actions against the Adversary worlds, the leaders of the Adversary will swiftly respond in kind against your colonies.",
+		"HA_bulletPointForEvent":"Impending Adversary bombardment campaign",
+		"HA_bulletPointForEventReset":"Adversary bombardment campaign averted",
+		"HA_stageDescriptionForEvent1":"You've received intel that the Adversary is planning a massive, full-scale saturation-bombardment campaign against one of your star systems.",
+		"HA_stageDescriptionForEvent2":"If this all-out attack is defeated, your standing with most factions will increase substantially, your colonies will permanently gain increased stability, and the Adversary will likely abandon further efforts against you.",
+		"HA_stageDescriptionForEventReqList1":"The %s has no functional military bases",
+		"HA_stageDescriptionForEventReqList2":"You are no longer hostile with the %s",
+		"HA_stageTooltip":"Adversary bombardment campaign",
+		"HA_activityCauseTooltip":"Event progress value is based on the number and size of colonies under your control. Requires one size %s colony, or at least %s colonies with one being at least size %s.",
+		"HA_activityCauseDesc":"Colony presence and size",
+		"HA_activityCauseAltTooltip1":"Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.",
+		"HA_activityCauseAltTooltip2":"Defeating the Adversary's incoming attack is the only recourse available to you now.",
+		"HA_activityCauseAltDesc":"Lasting acrimony",
+		"HA_punitiveExpeditionNoun":"bombardment campaign",
+		"HA_punitiveExpeditionBaseName":"Adversary Bombardment Campaign"
 	},
 	"CHM":{
-		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\"",
-	},
+		"chm_adversary":"\"Through adversity, we find strength. Through strength, we find peace.\""
+	}
 }

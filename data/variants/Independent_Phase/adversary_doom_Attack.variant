@@ -1,13 +1,12 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 11,
+    "fluxCapacitors": 8,
     "fluxVents": 0,
     "hullId": "doom",
     "hullMods": [
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
-        "pointdefenseai",
         "targetingunit",
         "fluxbreakers"
     ],
@@ -22,22 +21,6 @@
     "variantId": "adversary_doom_Attack",
     "weaponGroups": [
         {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "ionbeam",
-                "WS 008": "ionbeam"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "breachpod",
-                "WS 002": "breachpod"
-            }
-        },
-        {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
@@ -48,13 +31,29 @@
             }
         },
         {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "phasecl",
+                "WS 002": "phasecl"
+            }
+        },
+        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "lrpdlaser",
-                "WS 010": "lrpdlaser",
-                "WS 011": "lrpdlaser",
-                "WS 012": "lrpdlaser"
+                "WS 007": "ionbeam",
+                "WS 008": "ionbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 009": "pdburst",
+                "WS 010": "pdburst",
+                "WS 011": "pdburst",
+                "WS 012": "pdburst"
             }
         }
     ]

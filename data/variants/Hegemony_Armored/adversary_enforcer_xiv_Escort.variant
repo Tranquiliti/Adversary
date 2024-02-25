@@ -1,50 +1,52 @@
 {
-    "displayName": "Attack",
+    "displayName": "Escort",
     "fluxCapacitors": 17,
-    "fluxVents": 20,
+    "fluxVents": 16,
     "hullId": "enforcer_xiv",
     "hullMods": [
-        "hardenedshieldemitter",
+        "escort_package",
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
+        "hardenedshieldemitter",
         "pointdefenseai",
-        "targetingunit",
-        "fluxbreakers"
+        "targetingunit"
     ],
     "permaMods": [
-        "hardenedshieldemitter",
+        "escort_package",
         "heavyarmor",
         "reinforcedhull"
     ],
     "sMods": [
-        "hardenedshieldemitter",
+        "escort_package",
         "heavyarmor",
         "reinforcedhull"
     ],
-    "variantId": "adversary_enforcer_xiv_Attack",
+    "variantId": "adversary_enforcer_xiv_Escort",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "arbalest",
-                "WS 004": "arbalest"
+                "WS 006": "swarmer",
+                "WS 009": "swarmer"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "breach",
+                "WS 008": "breach"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 003": "arbalest"}
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
             "weapons": {
-                "WS 006": "breach",
-                "WS 007": "breach",
-                "WS 008": "breach",
-                "WS 009": "breach"
+                "WS 002": "lightneedler",
+                "WS 003": "lightneedler",
+                "WS 004": "lightneedler"
             }
         },
         {

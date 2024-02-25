@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 2,
-    "fluxVents": 30,
+    "fluxCapacitors": 9,
+    "fluxVents": 13,
     "hullId": "mora",
     "hullMods": [
         "heavyarmor",
@@ -29,14 +29,24 @@
         "reinforcedhull"
     ],
     "variantId": "adversary_mora_Attack",
-    "weaponGroups": [{
-        "autofire": false,
-        "mode": "ALTERNATING",
-        "weapons": {
-            "WS 003": "phasecl",
-            "WS 004": "phasecl"
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "lightdualac",
+                "WS 011": "lightdualac"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "phasecl",
+                "WS 004": "phasecl"
+            }
         }
-    }],
+    ],
     "wings": [
         "warthog_wing",
         "warthog_wing",

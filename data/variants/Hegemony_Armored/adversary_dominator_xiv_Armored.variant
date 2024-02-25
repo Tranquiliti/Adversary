@@ -10,11 +10,11 @@
         "armoredweapons",
         "auxiliarythrusters",
         "blast_doors",
-        "missleracks",
         "heavyarmor",
         "insulatedengine",
         "pointdefenseai",
-        "targetingunit"
+        "targetingunit",
+        "fluxbreakers"
     ],
     "permaMods": [
         "autorepair",
@@ -29,9 +29,13 @@
     "variantId": "adversary_dominator_xiv_Armored",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 013": "hephag"}
+            "weapons": {
+                "WS 003": "vulcan",
+                "WS 005": "vulcan",
+                "WS 012": "multineedler"
+            }
         },
         {
             "autofire": false,
@@ -45,7 +49,7 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 012": "multineedler"}
+            "weapons": {"WS 013": "hephag"}
         },
         {
             "autofire": true,
@@ -53,8 +57,11 @@
             "weapons": {
                 "WS 001": "mininglaser",
                 "WS 002": "mininglaser",
+                "WS 004": "mininglaser",
                 "WS 006": "mininglaser",
-                "WS 007": "mininglaser"
+                "WS 007": "mininglaser",
+                "WS 008": "mininglaser",
+                "WS 009": "mininglaser"
             }
         },
         {

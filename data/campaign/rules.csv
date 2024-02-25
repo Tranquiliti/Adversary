@@ -127,6 +127,89 @@ CMSNResignCancelled_adversary,CMSNResignCancelled,$faction.id == adversary,,"""G
 aiCores_turnInOptionSelAdversary,DialogOptionSelected,"$option == aiCores_startTurnIn
 $faction.id == adversary",FireAll PopulateCoresTurnInOptions,"""A fascinating find you have there. I would offer you more than the market rate for these cores, but we already have a surplus of these - and, before you ask, we are not disclosing our sources. Still, we can buy your excess cores if you truly insist.""",,
 ,,,,,,
+"# Talking to the Adversary scout, spawned due to Colony Crisis",,,,,,
+adversaryScoutComms,OpenCommLink,$entity.adversaryScout score:1000,$entity.ignorePlayerCommRequests = true 7,"""Oh, if it isn't you, $playerName,"" the Adversary $post seems intent on analyzing your movements, looking for any signs of weakness or hesitation.
+
+""You're lucky that we didn't attack you, isn't that right? Now move it, while you still have the chance.""","adversaryScout_askWhy:""First, tell me why you are here, then I'll move.""
+adversaryScout_askWhy2:""This is my domain. You have no right to be here!""
+adversaryScout_askWhySarcastic:""Yeah, you're lucky I didn't attack you yet. Now move it!""
+cutCommLink:Cut the comm link",
+adversaryScoutAskWhy,DialogOptionSelected,$option == adversaryScout_askWhy,FireAll AdversaryScoutResponse,"""Let me tell you what we stand for first. We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
+adversaryScoutAskWhy2,DialogOptionSelected,$option == adversaryScout_askWhy2,FireAll AdversaryScoutResponse,"""Your domain?"" The $post seems to ponder about this for a while, before $heOrShe then declares, ""Our domain now.""
+
+""Hmph, you still think otherwise? We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
+adversaryScoutAskWhySarcastic,DialogOptionSelected,$option == adversaryScout_askWhySarcastic,"$player.ethosSarcastic++
+FireAll AdversaryScoutResponse","The $post seems unfazed by your display of wit, ""Oh, that was funny, ha-ha. Next, you'll tell me you'll blast my fleet off if I don't comply? Such a great joke; I can't wait to watch your next holoshow soon!""
+
+Satisfied by $hisOrHer own comeback, the $post resumes the serious tone, ""We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
+adversaryScoutResponse,AdversaryScoutResponse,,,"""Right now, your settlements may be but a mere mimic with a fraction of our power, but we both know all too well that leaving a problem alone will only make it worse. Why do you think the other factions wanted a slice of your pie?"" $HeOrShe leaves this question hanging briefly, though the answer is anything but mysterious. 
+
+""As it has been for the Project, so too will you experience the same from us.","adversaryScout_responded:""So how can I stop being a 'problem' to your utopia?""
+adversaryScout_respondedThreat:""I think I'll just blast your fleet off instead.""
+cutCommLink:Cut the comm link",
+adversaryScoutResponded,DialogOptionSelected,$option == adversaryScout_responded,"RemoveOption adversaryScout_responded
+RemoveOption adversaryScout_respondedThreat","""Speak with my superiors back home. They'll tell you exactly what you need to do."" You know what $heOrShe is suggesting: visit one of the Adversary-controlled worlds and discuss with the scout's higher-ups to seek a possible resolution.
+
+""It's time we say goodbye, spacer. May we all unite in peace and prosperity."" The Adversary $post shuts off the comm link on their end.",,
+adversaryScoutRespondedThreat,DialogOptionSelected,$option == adversaryScout_respondedThreat,"RemoveOption adversaryScout_responded
+RemoveOption adversaryScout_respondedThreat
+AdjustRepActivePerson FAVORABLE 1","""Pff, of course you would say that. I would love to see you try,"" the Adversary $post goads.
+
+""Not that I can even make the first move. My orders are absolute, after all."" $HeOrShe seems utterly disappointed by this predicament, like $heOrShe missed out on a limited-time deal from the TriStore.
+
+The comms link dissipates shortly thereafter.",,
+,,,,,,
+# Talking to an Adversary official about the crisis,,,,,,
+adversaryConfrontCrisis,PopulateOptions,"$isPerson
+$personFaction.id == adversary
+$player.fcm_faction != adversary
+Commission personCanGiveCommission
+Adversary_HA_CMD canConfrontCrisis",,,"adversaryCrisis_askWhy:""Why are your scouts operating near my colonies? What's being planned here?""",
+adversaryConfrontCrisisAskedWhy,DialogOptionSelected,$option == adversaryCrisis_askWhy,,"The Adversary $post laughs at your question, like $heOrShe was told a funny inside joke. ""Why? Are you not aware of how populous and prosperous your little empire has become?"" $HisOrHer voice unintentionally leaks out a faint trace of envy.
+
+The $post continues, ""Obviously, our humble Project would take interest in such a fine piece of work. If you or the other... factions,"" $heOrShe uses the word almost as an insult directed to you, ""were to repurpose this budding flower into a hand-crafted poison, fit to slay a dragon, how would we know it will not be used against us?""
+
+""Let me speak more plainly: how will we know your colonies are not staging grounds made to burn down the last utopia on this Ludd-forsaken Sector? If we cannot find a satisfying answer to such a question ourselves, then we may consider... forcing that answer out and cutting it down to its roots."" You are quite certain the $heOrShe wasn't suggesting a peaceful resolution to the Adversary's self-imposed conflict against your holdings.",adversaryCrisis_askWhy2:Continue,
+adversaryConfrontCrisisAskedWhyCont,DialogOptionSelected,$option == adversaryCrisis_askWhy2,"Highlight ""you mean no harm to us"" ""leave your colonies alone"" ""worthy of our cooperation"" ""take a commission for our cause"" ""a mutual deal""","""However, you, $playerName, may indeed be the solution we hope to seek. If you demonstrate to us that you mean no harm to us, then we shall do the same and leave your colonies alone.""
+
+""Morever, if you went above and beyond to prove yourself worthy of our cooperation, or even take a commission for our cause, we could, perhaps, even work out a mutual deal for ourselves, thereby securing the future of our peoples and, thus, the Persean Sector?"" The $post seems quite excited at this particular prospect, despite the uncertainty of your current - or future - alliegance.
+
+""Until then?"" The Adversary $post immediately slams off the comms without leaving a proper farewell.",cutCommLink:Cut the comm link,
+,,,,,,
+# Getting (weakened) Colony Crisis reward from being trustworthy with the Adversary,,,,,,
+adversaryMakeDealCooperative,PopulateOptions,"$isPerson
+$personFaction.id == adversary
+$player.fcm_faction != adversary
+Commission personCanGiveCommission
+$player.numColonies > 0
+Adversary_HA_CMD canMakeDeal",,,"adversaryMakeDeal_doDeal:""I have done enough to gain your cooperation. Now where's my reward?""",
+adversaryMakeDealCommission,PopulateOptions,"$isPerson
+$personFaction.id == adversary
+$player.fcm_faction == adversary
+Commission personCanGiveCommission
+$player.numColonies > 0
+Adversary_HA_CMD canMakeDeal",,,"adversaryMakeDeal_doDealCom:""I have taken a commission with your Project. What will you offer in return?""",
+adversaryMakeDealAsked,DialogOptionSelected,$option == adversaryMakeDeal_doDeal,FireAll AdversaryMakeDealChoice,"""Very hasty, aren't you?"" The Adversary $post pauses for a moment, testing your patience. ""Well, we can make a deal for ourselves, can we? You won't need to be too concerned with the finer details; we - and I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
+adversaryMakeDealAskedCom,DialogOptionSelected,$option == adversaryMakeDeal_doDealCom,FireAll AdversaryMakeDealChoice,"The Adversary $post manages a wide smile, ""I am so glad you have dedicated yourself to upholding our cause. I do think we are finally ready to make a deal for ourselves. You won't need to be too concerned with the finer details; we - and I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
+adversaryMakeDealChoice,AdversaryMakeDealChoice,,"Highlight ""raise the stability of all colonies within your control"" ""remain cooperative with the Adversary"" ""maintain an Adversary commission""","The $post further discusses the deal in much detail, but what it amounts to is that the Adversary's leaders will send off their most prominent citizens and ""influencers"" - merely propagandists in all but name  -  to your colonies, with the aim of bolstering communal cohesion between populations. In effect, this will no doubt raise the stability of all colonies within your control.
+
+How the Adversary will directly benefit from this deal remains unclear, but you sense that, as long as you remain cooperative with the Adversary, or maintain an Adversary commission, all their leaders really care about is keeping you as a reliable ally - an immensely valuable resource, especially given the Adversary's tumultuous history and reputation with the Sector at large.","adversaryMakeDeal_dealConfirm:""It's a deal, then.""
+adversaryMakeDeal_dealNegotiate:""This isn't commensurate. I demand better!""
+adversaryMakeDeal_dealDeny:""Actually, I don't want this at all.""",
+adversaryMakeDealConfirm,DialogOptionSelected,$option == adversaryMakeDeal_dealConfirm,"RemoveOption adversaryMakeDeal_dealNegotiate
+RemoveOption adversaryMakeDeal_dealDeny
+Adversary_HA_CMD makeDeal
+AddTextSmall ""Your colonies have received the Mutual Tenacity condition."" good","The deal is closed; you and the Adversary $post make the proper arrangements accordingly, ensuring that the few Adversary citizens that will be sent off are equally distributed across your colonies. Certainly all of this was worth avoiding the full brunt of the Adversary's wrath, if nothing else.
+
+""A fine reward for one who has served our people's needs. May we all unite in peace and prosperity."" The $post then gracefully terminates their comm link.",cutCommLink:Cut the comm link,
+adversaryMakeDealNegotiate,DialogOptionSelected,$option == adversaryMakeDeal_dealNegotiate,RemoveOption adversaryMakeDeal_dealNegotiate," The $post's face flashes with amusement, almost like they expected this exact response, ""Well, too bad, you ain't getting any better from us.""
+ 
+ ""All you can do now is either accept, or decline the deal. No ifs, no ands, no buts.""",,
+adversaryMakeDealDeny,DialogOptionSelected,$option == adversaryMakeDeal_dealDeny,"RemoveOption adversaryMakeDeal_dealConfirm
+RemoveOption adversaryMakeDeal_dealNegotiate","""Well, it's your loss. We still very much appreicate your continued service to our glorious Project, no doubt about that.""
+
+""May we all unite in peace and prosperity."" The Adversary $post closes the comm link soon after.",cutCommLink:Cut the comm link,
+,,,,,,
 # MagicBounty scripts,,,,,,
 adversary_TT_Wolfpack_Picked,AdversaryTTWolfpackPicked,,"AdversaryBountyScript ""adversary_TT_Wolfpack""",,,
 adversary_LP_Heretics_Picked,AdversaryLPHereticsPicked,,"AdversaryBountyScript ""adversary_LP_Heretics""",,,

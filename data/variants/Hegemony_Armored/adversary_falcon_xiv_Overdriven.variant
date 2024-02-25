@@ -1,7 +1,7 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 20,
-    "fluxVents": 6,
+    "fluxCapacitors": 15,
+    "fluxVents": 9,
     "hullId": "falcon_xiv",
     "hullMods": [
         "magazines",
@@ -43,6 +43,14 @@
             "weapons": {
                 "WS 007": "heavymg",
                 "WS 008": "heavymg"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "mininglaser",
+                "WS 004": "mininglaser"
             }
         },
         {

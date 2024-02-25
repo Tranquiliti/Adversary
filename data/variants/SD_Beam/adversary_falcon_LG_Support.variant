@@ -1,6 +1,6 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 13,
     "fluxVents": 30,
     "hullId": "falcon_LG",
     "hullMods": [
@@ -10,8 +10,7 @@
         "degraded_life_support",
         "erratic_injector",
         "increased_maintenance",
-        "reinforcedhull",
-        "adaptiveshields"
+        "reinforcedhull"
     ],
     "permaMods": [
         "hardenedshieldemitter",
@@ -30,7 +29,10 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 008": "hveldriver"}
+            "weapons": {
+                "WS 007": "hveldriver",
+                "WS 008": "hveldriver"
+            }
         },
         {
             "autofire": false,
@@ -41,19 +43,12 @@
             }
         },
         {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "heavymauler"}
-        },
-        {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "ionbeam"}
+            "weapons": {
+                "WS 005": "gravitonbeam",
+                "WS 006": "gravitonbeam"
+            }
         },
         {
             "autofire": true,
