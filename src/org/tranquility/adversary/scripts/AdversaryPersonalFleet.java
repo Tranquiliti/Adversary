@@ -10,19 +10,18 @@ import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
 import com.fs.starfarer.api.impl.campaign.missions.hub.MissionFleetAutoDespawn;
 
+import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+
 public class AdversaryPersonalFleet extends PersonalFleetScript {
-    protected final String fleetName;
-    protected final String factionId;
     protected final String marketId;
 
-    public AdversaryPersonalFleet(String personId, String fleetName, String factionId, String marketId) {
-        super(personId);
-        this.fleetName = fleetName;
-        this.factionId = factionId;
+    public AdversaryPersonalFleet(String marketId) {
+        super(getAdvString("person_id_adversary_personal_commander"));
         this.marketId = marketId;
 
-        PersonAPI commander = Global.getSector().getFaction(factionId).createRandomPerson();
-        commander.setId(personId);
+        PersonAPI commander = Global.getSector().getFaction(FACTION_ADVERSARY).createRandomPerson();
+        commander.setId(getAdvString("person_id_adversary_personal_commander"));
         commander.setRankId(Ranks.SPACE_ADMIRAL);
         commander.setPostId(Ranks.POST_FLEET_COMMANDER);
         commander.setVoice(Voices.VILLAIN);
@@ -56,14 +55,14 @@ public class AdversaryPersonalFleet extends PersonalFleetScript {
         m.beginFleet();
 
         MarketAPI market = Global.getSector().getEconomy().getMarket(marketId);
-        m.createQualityFleet(10, factionId, market.getLocationInHyperspace());
+        m.createQualityFleet(10, FACTION_ADVERSARY, market.getLocationInHyperspace());
         m.triggerSetFleetCompositionNoSupportShips();
         m.triggerSetFleetCommander(getPerson());
-        m.triggerSetFleetFaction(factionId);
+        m.triggerSetFleetFaction(FACTION_ADVERSARY);
         m.triggerSetPatrol();
         m.triggerSetFleetMemoryValue(MemFlags.MEMORY_KEY_SOURCE_MARKET, market);
         m.triggerFleetSetNoFactionInName();
-        m.triggerFleetSetName(fleetName);
+        m.triggerFleetSetName(getAdvString("name_adversary_personal_fleet"));
         m.triggerOrderFleetPatrol(market.getStarSystem());
         m.triggerAddCommodityDrop(Commodities.ALPHA_CORE, 1, false);
 
@@ -80,7 +79,7 @@ public class AdversaryPersonalFleet extends PersonalFleetScript {
     public boolean canSpawnFleetNow() {
         MarketAPI market = Global.getSector().getEconomy().getMarket(marketId);
         if (market == null || market.hasCondition(Conditions.DECIVILIZED)) return false;
-        return market.getFactionId().equals(factionId);
+        return market.getFactionId().equals(FACTION_ADVERSARY);
     }
 
     @Override

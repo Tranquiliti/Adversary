@@ -15,6 +15,7 @@ import com.fs.starfarer.api.util.Misc;
 import java.awt.*;
 
 import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryUtil.getAdvString;
 
 public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     public static int LARGE_COLONY = 6;
@@ -31,7 +32,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     public TooltipCreator getTooltip() {
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
-                tooltip.addPara("Event progress value is based on the number and size of colonies under your control. Requires one size %s colony, or at least %s colonies with one being at least size %s.", 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
+                tooltip.addPara(getAdvString("HA_activityCauseTooltip"), 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
             }
         };
     }
@@ -76,7 +77,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
 
     @Override
     public String getDesc() {
-        return "Colony presence and size";
+        return getAdvString("HA_activityCauseDesc");
     }
 
     @Override

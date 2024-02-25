@@ -40,9 +40,9 @@ public class MutualTenacity extends BaseMarketConditionPlugin {
 
     public static float getBonus() {
         float bonus = STABILITY_BONUS;
-        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack()) {
+        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack())
             bonus += STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK;
-        }
+
         return bonus;
     }
 }

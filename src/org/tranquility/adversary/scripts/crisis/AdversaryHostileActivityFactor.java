@@ -33,6 +33,7 @@ import java.awt.*;
 import java.util.Random;
 
 import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryUtil.getAdvString;
 
 public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor implements FGIEventListener {
     public static String DEFEATED_ADVERSARY_ATTACK = "$defeatedAdversaryAttack";
@@ -57,12 +58,12 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public String getDesc(BaseEventIntel intel) {
-        return "Adversary";
+        return getAdvString("Adversary");
     }
 
     @Override
     public String getNameForThreatList(boolean first) {
-        return "Adversary";
+        return getAdvString("Adversary");
     }
 
     @Override
@@ -77,14 +78,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara("A rival independent polity poses an existential threat to the Adversary, whose leaders view your growing colonies as nothing more than preparations to take over their \"perfect\" worlds.", 0f);
+                tooltip.addPara(getAdvString("HA_mainRowTooltip1"), 0f);
 
-                tooltip.addPara("Adversary-aligned scouts have been occasionally sighted around your colonies - though normally non-hostile, their presence alone bears ill tidings for nearby colonies.", opad);
+                tooltip.addPara(getAdvString("HA_mainRowTooltip2"), opad);
 
                 if (wasAdversaryEverSatBombardedByPlayer()) {
-                    tooltip.addPara("It is all but certain that, due to your heinous actions against the Adversary worlds, the leaders of the Adversary will swiftly respond in kind against your colonies.", opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
+                    tooltip.addPara(getAdvString("HA_mainRowTooltipEndAlt"), opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
                 } else {
-                    LabelAPI label = tooltip.addPara("While these scouts are unlikely to directly harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.", opad);
+                    LabelAPI label = tooltip.addPara(getAdvString("HA_mainRowTooltipEnd"), opad);
                     label.setHighlight("if not convinced of your benevolent intentions in time", "plan something far, far worse");
                     label.setHighlightColors(Misc.getHighlightColor(), Misc.getNegativeHighlightColor());
                 }
@@ -99,7 +100,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public int getMaxNumFleets(StarSystemAPI system) {
-        return 1;
+        return Global.getSettings().getInt("adversaryMaxFleets");
     }
 
     @Override
@@ -136,16 +137,15 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return fleet;
     }
 
-
     @Override
     public void addBulletPointForEvent(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        info.addPara("Impending Adversary bombardment", initPad, tc, c, "Adversary");
+        info.addPara(getAdvString("HA_bulletPointForEvent"), initPad, tc, c, "Adversary");
     }
 
     @Override
     public void addBulletPointForEventReset(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
-        info.addPara("Adversary bombardment averted", tc, initPad);
+        info.addPara(getAdvString("HA_bulletPointForEventReset"), tc, initPad);
     }
 
     @Override
@@ -153,17 +153,17 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         float small = 8f;
         float opad = 10f;
 
-        info.addPara("You've received intel that the Adversary is planning a massive, full-scale saturation-bombardment campaign against one of your star systems.", small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
+        info.addPara(getAdvString("HA_stageDescriptionForEvent1"), small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
 
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        LabelAPI label = info.addPara("If this all-out attack is defeated, your standing with most factions will increase substantially, your colonies will permanently gain increased stability, and the Adversary will likely abandon further efforts against you.", opad);
+        LabelAPI label = info.addPara(getAdvString("HA_stageDescriptionForEvent2"), opad);
         label.setHighlight("most factions", "increase substantially", "permanently gain increased stability", "Adversary");
         label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), c);
 
         stage.beginResetReqList(info, true, "crisis", opad);
-        info.addPara("The %s has no functional military bases", 0f, c, "Adversary");
+        info.addPara(getAdvString("HA_stageDescriptionForEventReqList1"), 0f, c, "Adversary");
         if (!wasAdversaryEverSatBombardedByPlayer())
-            info.addPara("You are no longer hostile with the %s", 0f, c, "Adversary");
+            info.addPara(getAdvString("HA_stageDescriptionForEventReqList2"), 0f, c, "Adversary");
         stage.endResetReqList(info, false, "crisis", -1, -1);
 
         addBorder(info, c);
@@ -176,7 +176,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public TooltipCreator getStageTooltipImpl(final HostileActivityEventIntel intel, final EventStageData stage) {
-        if (stage.id == Stage.HA_EVENT) return getDefaultEventTooltip("Adversary bombardment", intel, stage);
+        if (stage.id == Stage.HA_EVENT) return getDefaultEventTooltip(getAdvString("HA_stageTooltip"), intel, stage);
 
         return null;
     }
@@ -308,6 +308,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         params.style = FleetStyle.QUALITY;
 
+        // The fleet size multiplier for an Adversary planet with all fleet size bonuses and no shortages/issues is around 431%
         float fleetSizeMult = source.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).computeEffective(0f);
 
         float f = intel.getMarketPresenceFactor(system);

@@ -2,7 +2,6 @@ package org.tranquility.adversary;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.SettingsAPI;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
@@ -30,17 +29,44 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     @Override
     public void onGameLoad(boolean newGame) {
+        toggleSillyBounties();
+
+        // Doesn't immediately apply if Colony Crisis intel gets added mid-game; it only gets added in after a save & load
+        // (Should find or ask for a way to get the crisis added in as soon as the CC intel appears, but it's a low priority for now)
+        addAdversaryColonyCrisis();
+
+        if (!newGame) addAdversaryListeners(false);
+    }
+
+    @Override
+    public void onNewGameAfterEconomyLoad() {
+        setAdversaryRelationship();
+        addAdversaryListeners(true);
+    }
+
+    @Override
+    public void onNewGameAfterTimePass() {
+        boolean doPersonalFleet;
+        String personalFleetId = getAdvString("settings_enableAdversaryPersonalFleet");
+        if (LUNALIB_ENABLED)
+            doPersonalFleet = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, personalFleetId));
+        else doPersonalFleet = Global.getSettings().getBoolean(personalFleetId);
+
+        if (doPersonalFleet) addAdversaryPersonalFleet();
+    }
+
+    private void toggleSillyBounties() {
         boolean enableSilliness;
-        String sillyBountyId = Global.getSettings().getString("adversary", "settings_enableAdversarySillyBounties");
+        String sillyBountyId = getAdvString("settings_enableAdversarySillyBounties");
         if (LUNALIB_ENABLED)
             enableSilliness = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, sillyBountyId));
         else enableSilliness = Global.getSettings().getBoolean(sillyBountyId);
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
+    }
 
-        if (!newGame) addAdversaryListeners(false);
-
+    private void addAdversaryColonyCrisis() {
         HostileActivityEventIntel intel = HostileActivityEventIntel.get();
         if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null) {
             AdversaryHostileActivityFactor adversaryFactor = new AdversaryHostileActivityFactor(intel);
@@ -49,34 +75,20 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    @Override
-    public void onNewGameAfterEconomyLoad() {
+    // Recent history has made them cold and hateful against almost everyone
+    private void setAdversaryRelationship() {
         FactionAPI adversary = Global.getSector().getFaction(FACTION_ADVERSARY);
-        // Recent history has made them cold and hateful against almost everyone
         for (FactionAPI faction : Global.getSector().getAllFactions())
             adversary.setRelationship(faction.getId(), -100f);
         adversary.setRelationship(FACTION_ADVERSARY, 100f);
         adversary.setRelationship(Factions.NEUTRAL, 0f);
-
-        addAdversaryListeners(true);
-    }
-
-    @Override
-    public void onNewGameAfterTimePass() {
-        boolean doPersonalFleet;
-        String personalFleetId = Global.getSettings().getString("adversary", "settings_enableAdversaryPersonalFleet");
-        if (LUNALIB_ENABLED)
-            doPersonalFleet = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, personalFleetId));
-        else doPersonalFleet = Global.getSettings().getBoolean(personalFleetId);
-
-        if (doPersonalFleet) addAdversaryPersonalFleet();
     }
 
     // Remove or add listeners to a game depending on currently-set settings
     private void addAdversaryListeners(boolean newGame) {
         boolean dynaDoctrine, stealBlueprints;
-        String doctrineId = Global.getSettings().getString("adversary", "settings_enableAdversaryDynamicDoctrine");
-        String blueprintId = Global.getSettings().getString("adversary", "settings_enableAdversaryBlueprintStealing");
+        String doctrineId = getAdvString("settings_enableAdversaryDynamicDoctrine");
+        String blueprintId = getAdvString("settings_enableAdversaryBlueprintStealing");
         if (LUNALIB_ENABLED) { // LunaLib settings overrides settings.json
             dynaDoctrine = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, doctrineId));
             stealBlueprints = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, blueprintId));
@@ -104,32 +116,28 @@ public class AdversaryModPlugin extends BaseModPlugin {
     }
 
     private void addAdversaryDynamicDoctrine(boolean newGame) {
-        SettingsAPI settings = Global.getSettings();
-
         Integer doctrineDelay = null;
-        String delayId = settings.getString("adversary", "settings_adversaryDynamicDoctrineDelay");
+        String delayId = getAdvString("settings_adversaryDynamicDoctrineDelay");
         if (LUNALIB_ENABLED) doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
-        if (doctrineDelay == null) doctrineDelay = settings.getInt(delayId);
+        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt(delayId);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryPossibleDoctrines"))));
+            Global.getSector().getListenerManager().addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), doctrineDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryPossibleDoctrines"))));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
     }
 
     private void addAdversaryBlueprintStealer(boolean newGame) {
-        SettingsAPI settings = Global.getSettings();
-
         Integer stealDelay = null;
-        String delayId = settings.getString("adversary", "settings_adversaryBlueprintStealingDelay");
+        String delayId = getAdvString("settings_adversaryBlueprintStealingDelay");
         if (LUNALIB_ENABLED) stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
-        if (stealDelay == null) stealDelay = settings.getInt(delayId);
+        if (stealDelay == null) stealDelay = Global.getSettings().getInt(delayId);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
-            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), stealDelay.byteValue(), settings.getJSONArray(settings.getString("adversary", "settings_adversaryStealsFromFactions"))));
+            Global.getSector().getListenerManager().addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) (newGame ? -1 : 0), stealDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryStealsFromFactions"))));
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -137,8 +145,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     private void addAdversaryPersonalFleet() {
         TreeSet<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMilitaryMarkets();
-
-        if (!adversaryMarkets.isEmpty())
-            new AdversaryPersonalFleet(Global.getSettings().getString("adversary", "person_id_adversary_personal_commander"), Global.getSettings().getString("adversary", "name_adversary_personal_fleet"), FACTION_ADVERSARY, adversaryMarkets.last().getId());
+        if (!adversaryMarkets.isEmpty()) new AdversaryPersonalFleet(adversaryMarkets.last().getId());
     }
 }

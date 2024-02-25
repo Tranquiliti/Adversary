@@ -11,6 +11,8 @@ import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 
+import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+
 public class AdversaryActivityCause2 extends BaseHostileActivityCause2 {
     public static float MAX_MAG = 1f;
 
@@ -23,9 +25,9 @@ public class AdversaryActivityCause2 extends BaseHostileActivityCause2 {
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara("Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.", 0f, Misc.getHighlightColor(), "to the absolute maximum");
+                tooltip.addPara(getAdvString("HA_activityCause2Tooltip1"), 0f, Misc.getHighlightColor(), "to the absolute maximum");
 
-                tooltip.addPara("Defeating the Adversary's incoming attack is the only recourse available to you now.", opad, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
+                tooltip.addPara(getAdvString("HA_activityCause2Tooltip2"), opad, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
             }
         };
     }
@@ -56,13 +58,13 @@ public class AdversaryActivityCause2 extends BaseHostileActivityCause2 {
 
     @Override
     public String getDesc() {
-        return "Lasting acrimony";
+        return getAdvString("HA_activityCause2Desc");
     }
 
     @Override
     public float getMagnitudeContribution(StarSystemAPI system) {
         if (getProgress() <= 0) return 0f;
 
-        return MAX_MAG;
+        return (0.2f + 0.8f * intel.getMarketPresenceFactor(system)) * MAX_MAG;
     }
 }
