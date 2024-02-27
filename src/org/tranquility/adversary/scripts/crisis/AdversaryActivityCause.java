@@ -67,6 +67,12 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
         for (MarketAPI market : Misc.getPlayerMarkets(false)) {
             int size = market.getSize();
             switch (size) {
+                case 1:
+                case 2:
+                case 3:
+                case 4:
+                    score += 1;
+                    break;
                 case 5:
                     score += 2;
                     break;
@@ -74,7 +80,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
                     score += 5;
                     break;
                 default:
-                    score += 1;
+                    score += 10;
                     break;
             }
         }

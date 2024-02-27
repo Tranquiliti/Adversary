@@ -22,14 +22,13 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
         } else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
 
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
-        String adversaryId = FACTION_ADVERSARY;
 
         Integer doctrineDelay = LunaSettings.getInt(modId, getAdvString("settings_adversaryDynamicDoctrineDelay"));
         assert doctrineDelay != null;
         if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, getAdvString("settings_enableAdversaryDynamicDoctrine")))) {
             List<AdversaryDynamicDoctrine> changers = listMan.getListeners(AdversaryDynamicDoctrine.class);
             if (changers.isEmpty()) try {
-                listMan.addListener(new AdversaryDynamicDoctrine(adversaryId, (byte) 0, doctrineDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryPossibleDoctrines"))));
+                listMan.addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) 0, doctrineDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryPossibleDoctrines"))));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
@@ -41,7 +40,7 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
         if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, getAdvString("settings_enableAdversaryBlueprintStealing")))) {
             List<AdversaryBlueprintStealer> steals = listMan.getListeners(AdversaryBlueprintStealer.class);
             if (steals.isEmpty()) try {
-                listMan.addListener(new AdversaryBlueprintStealer(adversaryId, (byte) 0, stealDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryStealsFromFactions"))));
+                listMan.addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) 0, stealDelay.byteValue(), Global.getSettings().getJSONArray(getAdvString("settings_adversaryStealsFromFactions"))));
             } catch (JSONException e) {
                 throw new RuntimeException(e);
             }
