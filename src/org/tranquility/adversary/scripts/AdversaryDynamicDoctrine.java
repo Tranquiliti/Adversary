@@ -14,6 +14,8 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
 
+import static org.tranquility.adversary.AdversaryUtil.addAdversaryColonyCrisis;
+
 public class AdversaryDynamicDoctrine implements EconomyTickListener {
     protected String factionId;
     protected byte elapsedMonths, delayInMonths;
@@ -38,14 +40,9 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         Global.getLogger(AdversaryDynamicDoctrine.class).info("Faction dynamic doctrine active for: " + factionId);
     }
 
-    public void setDelay(byte newDelay) {
-        delayInMonths = newDelay;
-        Global.getLogger(AdversaryDynamicDoctrine.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
-    }
-
-    // Unused
     @Override
     public void reportEconomyTick(int iterIndex) {
+        addAdversaryColonyCrisis(); // HACK: More convenient to just do this on an existing listener
     }
 
     @Override
@@ -55,6 +52,11 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             elapsedMonths = 0;
             setPriorityDoctrine(priorityDoctrinePicker.pick(factionSeed));
         }
+    }
+
+    public void setDelay(byte newDelay) {
+        delayInMonths = newDelay;
+        Global.getLogger(AdversaryDynamicDoctrine.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
     }
 
     // Sets this faction's priority lists to a specific priority doctrine

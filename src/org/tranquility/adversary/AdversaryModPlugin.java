@@ -6,13 +6,10 @@ import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel;
 import org.json.JSONException;
 import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
 import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
 import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
-import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause;
-import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 
 import java.util.List;
 import java.util.TreeSet;
@@ -32,7 +29,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // Does not immediately apply if Colony Crisis intel gets (re)added mid-game; it only gets added in after a save & load
         // If the CC intel is removed mid-game (e.g. by losing all colonies), the Adversary crisis gets removed too, leading to the above problem
-        // (Should find or ask for a way to get the crisis added whenever the CC intel shows up, but it's a low priority for now)
+        // (HACK: added this on AdversaryDynamicDoctrine's reportEconomyTick() so crisis can get applied mid-game)
         addAdversaryColonyCrisis();
 
         if (!newGame) addAdversaryListeners(false);
@@ -64,12 +61,6 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
-    }
-
-    private void addAdversaryColonyCrisis() {
-        HostileActivityEventIntel intel = HostileActivityEventIntel.get();
-        if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null)
-            intel.addActivity(new AdversaryHostileActivityFactor(intel), new AdversaryActivityCause(intel));
     }
 
     // Recent history has made them cold and hateful against almost everyone

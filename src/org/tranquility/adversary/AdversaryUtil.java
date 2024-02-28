@@ -5,6 +5,9 @@ import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Industries;
+import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel;
+import org.tranquility.adversary.scripts.crisis.AdversaryActivityCause;
+import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 
 import java.util.Comparator;
 import java.util.TreeSet;
@@ -18,6 +21,12 @@ public class AdversaryUtil {
 
     public static String getAdvString(String id) {
         return Global.getSettings().getString("adversary", id);
+    }
+
+    public static void addAdversaryColonyCrisis() {
+        HostileActivityEventIntel intel = HostileActivityEventIntel.get();
+        if (intel != null && intel.getActivityOfClass(AdversaryHostileActivityFactor.class) == null)
+            intel.addActivity(new AdversaryHostileActivityFactor(intel), new AdversaryActivityCause(intel));
     }
 
     public static TreeSet<MarketAPI> getAdversaryMilitaryMarkets() {

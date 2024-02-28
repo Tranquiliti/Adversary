@@ -1,0 +1,89 @@
+{
+    "displayName": "Custom",
+    "fluxCapacitors": 31,
+    "fluxVents": 50,
+    "hullId": "onslaught_xiv",
+    "hullMods": [
+        "turretgyros",
+        "fluxdistributor",
+        "heavyarmor",
+        "armoredweapons",
+        "ballistic_rangefinder",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "fluxdistributor",
+        "heavyarmor"
+    ],
+    "sMods": [
+        "turretgyros",
+        "fluxdistributor",
+        "heavyarmor"
+    ],
+    "variantId": "adversary_onslaught_xiv_Custom",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 016": "tpc",
+                "WS 017": "tpc"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 018": "hephag"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 019": "hephag"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 020": "hephag"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 021": "resonatormrm",
+                "WS 022": "resonatormrm",
+                "WS 023": "resonatormrm",
+                "WS 024": "resonatormrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "arbalest",
+                "WS 002": "lightac",
+                "WS 003": "arbalest",
+                "WS 004": "lightac",
+                "WS 005": "lightac",
+                "WS 006": "lightac",
+                "WS 007": "dualflak",
+                "WS 008": "lightac",
+                "WS 009": "lightac",
+                "WS 012": "arbalest",
+                "WS 013": "arbalest",
+                "WS 014": "vulcan",
+                "WS 015": "vulcan"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "shredder",
+                "WS 011": "shredder"
+            }
+        }
+    ]
+}

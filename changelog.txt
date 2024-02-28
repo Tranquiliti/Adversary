@@ -1,3 +1,13 @@
+Version 6.1.1
+
+* Added a new Silly MagicBounty
+* Fixed Adversary CC point contribution for size 7 or higher colonies (now +10 per size 7 or higher colony, from +1)
+* Made Adversary CC factor able to appear in main Colony Crisis intel in the middle of a game session
+  - Was previously only added-in/checked-for upon loading a save with an existing CC intel, and could be temporarily removed if CC intel disappeared (via losing all colonies) and then reappeared within the same game session
+  - Only applies if Adversary Dynamic Doctrine is enabled; else, the previous behavior still applies
+
+
+
 Version 6.1.0 (Not save-compatible with 6.0.0)
 
 * Added a Colony Crisis for the Adversary faction
