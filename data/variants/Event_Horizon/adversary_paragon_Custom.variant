@@ -1,0 +1,85 @@
+{
+    "displayName": "Custom",
+    "fluxCapacitors": 32,
+    "fluxVents": 50,
+    "hullId": "paragon",
+    "hullMods": [
+        "turretgyros",
+        "magazines",
+        "heavyarmor",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "pointdefenseai",
+        "fluxbreakers",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "magazines",
+        "heavyarmor"
+    ],
+    "sMods": [
+        "turretgyros",
+        "magazines",
+        "heavyarmor"
+    ],
+    "variantId": "adversary_paragon_Custom",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "autopulse"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 012": "amsrm",
+                "WS 014": "amsrm",
+                "WS 018": "amsrm",
+                "WS 020": "amsrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "autopulse"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 007": "resonatormrm",
+                "WS 008": "resonatormrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "autopulse",
+                "WS 004": "autopulse"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 011": "pdburst",
+                "WS 017": "pdburst"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "irautolance",
+                "WS 006": "irautolance",
+                "WS 009": "heavyburst",
+                "WS 010": "heavyburst",
+                "WS 013": "pdburst",
+                "WS 019": "pdburst"
+            }
+        }
+    ]
+}

@@ -1002,5 +1002,106 @@
         "location_themes":["theme_remnant_no_fleets","theme_remnant_destroyed"],
         "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
         "location_entities":["planet"]
+    },
+    "adversary_Event_Horizon":{
+        "trigger_marketFaction_any":["independent","hegemony","persean","luddic_church","sindrian_diktat","tritachyon"],
+        "trigger_player_minLevel":15,
+        "trigger_memKeys_all":{
+            "$adversary_sillyBountiesEnabled":true
+        },
+
+        "job_name":"A Paradoxical Event",
+        "job_description":"A rather interesting distress signal was spotted in an uncharted system, presumably sent by an explorer now long-gone.\nAlthough much of the info is of little note, it does seem to contain the coordinates of another fleet ==residing in a black hole system closest to the original distress location==. ==Extreme caution is advised== for anyone looking to find - and ==destroy== - this fleet.",
+        "job_comm_reply":"\"Oh, it seems you have found my fleet. How fortunate - for me. Now, you die.\"",
+        "job_intel_success":"With the last enemy ship down, your remaining crew momentarily celebrates their success against nigh-impossible odds. Your extraordinary feat will, without a doubt, be heard by most of the Sector's independent and mercenary groups.\nWhat's more, your salvage team reports the recovery of many one-of-a-kind blueprints from the deceased commander's personal quarters, with most being of Lion's Guard design. How these blueprints were even acquired in the first place will likely remain a lasting mystery.",
+        "job_forFaction":"independent",
+        "job_credit_reward":0,
+        "job_reputation_reward":100,
+        "job_item_reward":{
+            "ship_bp nova":1,
+            "ship_bp eagle_LG":1,
+            "ship_bp falcon_LG":1,
+            "ship_bp sunder_LG":1,
+            "ship_bp hammerhead_LG":1,
+            "ship_bp brawler_LG":1,
+            "ship_bp centurion_LG":1
+        },
+        "job_type":"obliteration",
+        "job_show_captain":false,
+        "job_show_fleet":"none",
+        "job_show_distance":"none",
+        "job_show_arrow":false,
+        "job_difficultyDescription":"none",
+        "job_pick_script":"AdversaryEventHorizonPicked",
+
+        "target_first_name":"Gabriella", # A reference to Ship/Weapon Pack (by Dark.Revenant) and its IBB bounty boss
+        "target_last_name":"Mosolov",
+        "target_portrait":"graphics/portraits/portrait_hegemony04.png",
+        "target_gender":"FEMALE",
+        "target_rank":"spaceCommander",
+        "target_post":"fleetCommander",
+        "target_personality":"steady",
+        "target_level":14,
+        "target_skills":{
+            "helmsmanship":2,
+            "combat_endurance":2,
+            "impact_mitigation":2,
+            "damage_control":2,
+            "field_modulation":2,
+            "point_defense":2,
+            "target_analysis":2,
+            "ballistic_mastery":2,
+            "systems_expertise":2,
+            "missile_specialization":2,
+            #,
+            "tactical_drills":1,
+            "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
+            "crew_training":1,
+            "carrier_group":1,
+            "fighter_uplink":1,
+            "officer_training":1,
+            "officer_management":1,
+            "best_of_the_best":1,
+            #
+            "sensors":1,
+            "gunnery_implants":2,
+            "energy_weapon_mastery":2,
+            "electronic_warfare":1,
+            "flux_regulation":1,
+            "phase_corps":1,
+            "cybernetic_augmentation":1,
+            #
+            "field_repairs":1,
+            "ordnance_expert":2,
+            "polarized_armor":2,
+            "containment_procedures":1,
+            "hull_restoration":1
+        },
+
+        "fleet_name":"Gabriella Mosolov",
+        "fleet_faction":"ML_bounty",
+        "fleet_flagship_variant":"adversary_paragon_Custom",
+        "fleet_flagship_name":"Jupiter",
+        "fleet_flagship_alwaysRecoverable":true,
+        "fleet_preset_ships":{
+            "adversary_onslaught_xiv_Custom":1,"adversary_conquest_Custom":1,"legion_xiv_Elite":1,
+            "invictus_Support":1,"pegasus_Strike":1,"executor_Standard":1,
+            "guardian_Standard":1,"radiant_Assault":1,"nova_Attack":1,
+            "retribution_Standard":1,"astral_Elite":1,"mora_Strike":1,
+            "atlas2_Standard":1,"prometheus2_Standard":1,"heron_Strike":1,
+            "dominator_XIV_Elite":1,"champion_Elite":1,"aurora_Strike":1,
+            "eradicator_Assault":1,"gryphon_DEM":1,"fury_Attack":1,
+            "doom_Attack":1,"grendel_Assault":1,"afflictor_Strike":1,
+            "manticore_Assault":1,"sunder_LG_Assault":1,"medusa_Attack":1,
+            "vanguard_Strike":1,"hyperion_Attack":1
+        },
+        "fleet_composition_quality":2,
+        "fleet_transponder":false,
+        "fleet_no_retreat":true,
+        "fleet_behavior":"GUARDED",
+
+        "location_themes_blacklist":["theme_already_colonized","theme_hidden"],
+        "location_entities":["jump_point"]
     }
 }

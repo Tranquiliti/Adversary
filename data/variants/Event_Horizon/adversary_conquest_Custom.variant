@@ -1,0 +1,61 @@
+{
+    "displayName": "Custom",
+    "fluxCapacitors": 18,
+    "fluxVents": 50,
+    "hullId": "conquest",
+    "hullMods": [
+        "turretgyros",
+        "armoredweapons",
+        "heavyarmor",
+        "eccm",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "armoredweapons",
+        "heavyarmor"
+    ],
+    "sMods": [
+        "turretgyros",
+        "armoredweapons",
+        "heavyarmor"
+    ],
+    "variantId": "adversary_conquest_Custom",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "rifttorpedo",
+                "WS 002": "rifttorpedo"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 019": "resonatormrm",
+                "WS 020": "resonatormrm"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "lrpdlaser",
+                "WS 007": "lrpdlaser",
+                "WS 011": "mjolnir",
+                "WS 012": "mjolnir",
+                "WS 015": "hveldriver",
+                "WS 016": "hveldriver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 022": "irautolance"}
+        }
+    ]
+}
