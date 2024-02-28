@@ -1011,7 +1011,7 @@
         },
 
         "job_name":"A Paradoxical Event",
-        "job_description":"A rather interesting distress signal was spotted in an uncharted system, presumably sent by an explorer now long-gone.\nAlthough much of the info is of little note, it does seem to contain the coordinates of another fleet ==residing in a black hole system closest to the original distress location==. ==Extreme caution is advised== for anyone looking to find - and ==destroy== - this fleet.",
+        "job_description":"A rather interesting distress signal was received from an uncharted system, presumably sent by an explorer now long-gone.\nAlthough much of the info is of little note, it does seem to contain the coordinates of another fleet ==residing in a black hole system closest to the original distress location==. ==Extreme caution is all but mandatory== for anyone looking to find - and ==take down== - this fleet.",
         "job_comm_reply":"\"Oh, it seems you have found my fleet. How fortunate - for me. Now, you die.\"",
         "job_intel_success":"With the last enemy ship down, your remaining crew momentarily celebrates their success against nigh-impossible odds. Your extraordinary feat will, without a doubt, be heard by most of the Sector's independent and mercenary groups.\nWhat's more, your salvage team reports the recovery of many one-of-a-kind blueprints from the deceased commander's personal quarters, with most being of Lion's Guard design and one for the feared Radiant-class battleship. How these blueprints were even acquired in the first place will likely remain a lasting mystery.",
         "job_forFaction":"independent",
@@ -1101,6 +1101,7 @@
         "fleet_no_retreat":true,
         "fleet_behavior":"GUARDED",
 
+        # A script relocates this bounty fleet to a nearby black-hole system
         "location_themes_blacklist":["theme_already_colonized","theme_hidden"],
         "location_entities":["jump_point"]
     }
