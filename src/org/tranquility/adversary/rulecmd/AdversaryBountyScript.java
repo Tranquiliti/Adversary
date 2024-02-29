@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
+import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
@@ -354,12 +355,17 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
                 FactionAPI faction = Global.getSector().getFaction(Factions.MERCENARY);
                 for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
-                    member.getVariant().addPermaMod(HullMods.INSULATEDENGINE, true);
-                    member.getVariant().addPermaMod(HullMods.SOLAR_SHIELDING, true);
+                    ShipVariantAPI variant = member.getVariant();
+                    variant.addPermaMod(HullMods.INSULATEDENGINE, true);
+                    if (member.getHullSpec().getManufacturer().equals("Lion's Guard")) {
+                        variant.getSModdedBuiltIns().add(HullMods.SOLAR_SHIELDING);
+                        variant.addPermaMod(HullMods.HARDENED_SHIELDS, true);
+                        variant.addSuppressedMod(HullMods.ANDRADA_MODS);
+                    } else variant.addPermaMod(HullMods.SOLAR_SHIELDING, true);
                     member.getRepairTracker().setCR(1f);
 
                     if (member.isFlagship()) {
-                        member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                        variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                         continue; // Don't replace the bounty target
                     }
 
@@ -369,22 +375,22 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         case "onslaught_xiv":
                             createSuperOfficer(faction, member, true);
                             member.setShipName("Mars");
-                            member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                            member.getVariant().addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
+                            variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                            variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
                             break;
                         case "conquest":
                             createSuperOfficer(faction, member, true);
                             member.setShipName("Victoria");
-                            member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                            member.getVariant().addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
+                            variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                            variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
                             break;
                         default:
                             createSuperOfficer(faction, member, false);
-                            if (member.getVariant().hasHullMod(HullMods.DEDICATED_TARGETING_CORE)) {
-                                member.getVariant().removeMod(HullMods.DEDICATED_TARGETING_CORE);
-                                member.getVariant().addMod(HullMods.INTEGRATED_TARGETING_UNIT);
+                            if (variant.hasHullMod(HullMods.DEDICATED_TARGETING_CORE)) {
+                                variant.removeMod(HullMods.DEDICATED_TARGETING_CORE);
+                                variant.addMod(HullMods.INTEGRATED_TARGETING_UNIT);
                             }
-                            member.getVariant().addPermaMod(HullMods.AUTOREPAIR, true);
+                            variant.addPermaMod(HullMods.AUTOREPAIR, true);
                             break;
                     }
                 }

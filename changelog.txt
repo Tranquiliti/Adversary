@@ -1,3 +1,9 @@
+Version 6.1.2
+
+* Minor fixes for the new MagicBounty
+
+
+
 Version 6.1.1
 
 * Added a new Silly MagicBounty
