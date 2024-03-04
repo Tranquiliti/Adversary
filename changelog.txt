@@ -1,6 +1,7 @@
 Version 6.1.2
 
 * Minor fixes for the new MagicBounty
+* Fixed a crash that could occur if at least one of the Adversary's High Command industries did not have an installed AI core.
 
 
 
