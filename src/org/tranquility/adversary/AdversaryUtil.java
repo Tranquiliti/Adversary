@@ -43,7 +43,8 @@ public class AdversaryUtil {
                     score += 2;
                     Industry highCommand = market.getIndustry(Industries.HIGHCOMMAND);
                     if (highCommand.isImproved()) score++;
-                    if (highCommand.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
+                    if (highCommand.getAICoreId() != null && highCommand.getAICoreId().equals(Commodities.ALPHA_CORE))
+                        score++;
                     if (highCommand.getSpecialItem() != null) score++;
                 } else if (market.hasIndustry(Industries.MILITARYBASE)) score++;
                 return score;
