@@ -1,7 +1,13 @@
+Version 6.2.0
+
+* Major code refactors
+
+
+
 Version 6.1.2
 
 * Minor fixes for the new MagicBounty
-* Fixed a crash that could occur if at least one of the Adversary's High Command industries did not have an installed AI core.
+* Fixed a crash that could occur if at least one of the Adversary's High Command industries did not have an installed AI core
 
 
 
@@ -32,26 +38,3 @@ Version 6.0.0 (Update for Starsector 0.97)
 
 * Updated to Starsector 0.97
 * Added Grendel to Adversary's known ship list
-
-
-
-Version 5.2.1
-
-* MagicBounty changes:
-  - Changed ship loadouts and officer skills for most MagicBounties in preparation of Starsector 0.97
-  - Added [REDACTED PLUS] prerequisite for two [VERY REDACTED] Silly bounties
-  - The Silly station bounties now have far fewer fleetwide skills; to compensate, the stations spawn a fleet of additional ships to support them
-  - Some adjustments to rewards and bounty spawn locations
-* Updated Adversary's Exotica configs to include Quick Jets
-* HOTFIX: Fixed Tri-Tachyon bounty not appearing due to incorrect ship variant
-
-
-
-Version 5.2.0 (Not save-compatible)
-
-* Fixed the LunaLib soft dependency
-  - This means this mod no longer requires either LunaLib or Java 8 to run
-* Removed "fleetDoctrine" and "shipSize" options for Adversary's Dynamic Doctrine
-  - This is done as these options are barely used by default and can conflict with mods that dynamically increase NPC faction strength
-* Made officers in a certain Silly bounty count as sleeper officers
-* Added voices to the Adversary for more consistent dialogue

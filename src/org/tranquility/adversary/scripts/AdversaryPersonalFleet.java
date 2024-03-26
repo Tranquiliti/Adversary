@@ -10,18 +10,17 @@ import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
 import com.fs.starfarer.api.impl.campaign.missions.hub.MissionFleetAutoDespawn;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
-import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryPersonalFleet extends PersonalFleetScript {
-    protected final String marketId;
+    protected final String marketId; // TODO: change access modifier to private if doing save-breaking update
 
     public AdversaryPersonalFleet(String marketId) {
-        super(getAdvString("person_id_adversary_personal_commander"));
+        super(PERSON_ID_ADVERSARY_PERSONAL_COMMANDER);
         this.marketId = marketId;
 
         PersonAPI commander = Global.getSector().getFaction(FACTION_ADVERSARY).createRandomPerson();
-        commander.setId(getAdvString("person_id_adversary_personal_commander"));
+        commander.setId(PERSON_ID_ADVERSARY_PERSONAL_COMMANDER);
         commander.setRankId(Ranks.SPACE_ADMIRAL);
         commander.setPostId(Ranks.POST_FLEET_COMMANDER);
         commander.setVoice(Voices.VILLAIN);
@@ -62,7 +61,7 @@ public class AdversaryPersonalFleet extends PersonalFleetScript {
         m.triggerSetPatrol();
         m.triggerSetFleetMemoryValue(MemFlags.MEMORY_KEY_SOURCE_MARKET, market);
         m.triggerFleetSetNoFactionInName();
-        m.triggerFleetSetName(getAdvString("name_adversary_personal_fleet"));
+        m.triggerFleetSetName(NAME_ADVERSARY_PERSONAL_FLEET);
         m.triggerOrderFleetPatrol(market.getStarSystem());
         m.triggerAddCommodityDrop(Commodities.ALPHA_CORE, 1, false);
 

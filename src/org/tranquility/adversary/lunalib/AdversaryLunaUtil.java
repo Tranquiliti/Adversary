@@ -1,11 +1,10 @@
-package org.tranquility.adversary;
+package org.tranquility.adversary.lunalib;
 
 import lunalib.lunaSettings.LunaSettings;
-import org.tranquility.adversary.scripts.AdversaryLunaSettingsListener;
 
 // Utility class to avoid a Java bug with importing LunaLib classes in an extended BaseModPlugin,
 // causing the LunaLib soft dependency to become a hard dependency
-public class AdversaryLunaUtil {
+public final class AdversaryLunaUtil {
     public static void addSettingsListener() {
         LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }

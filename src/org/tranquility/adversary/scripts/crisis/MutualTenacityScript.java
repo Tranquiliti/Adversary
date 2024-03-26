@@ -10,7 +10,7 @@ import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin;
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel;
 import com.fs.starfarer.api.util.Misc;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
 public class MutualTenacityScript implements EconomyUpdateListener {
     public static String KEY = "$adversary_mt_ref";

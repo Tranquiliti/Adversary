@@ -14,10 +14,11 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Set;
 
+import static org.tranquility.adversary.AdversaryStrings.*;
 import static org.tranquility.adversary.AdversaryUtil.addAdversaryColonyCrisis;
 
 public class AdversaryDynamicDoctrine implements EconomyTickListener {
-    protected String factionId;
+    protected String factionId; // TODO: change access modifier to private if doing save-breaking update
     protected byte elapsedMonths, delayInMonths;
     protected WeightedRandomPicker priorityDoctrinePicker;
     protected Random factionSeed;
@@ -32,7 +33,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         // Iterating in reverse order so that the first doctrine in JSONArray is considered the selected doctrine
         for (int i = possibleDoctrines.length() - 1; i >= 0; i--) {
             JSONObject doctrine = possibleDoctrines.getJSONObject(i);
-            int weight = doctrine.optInt(Global.getSettings().getString("adversary", "settings_weight"), 1);
+            int weight = doctrine.optInt(SETTINGS_WEIGHT, 1);
             if (weight > 0) priorityDoctrinePicker.add(new PriorityDoctrine(doctrine, weight));
         }
         priorityDoctrinePicker.ready(factionId);
@@ -42,7 +43,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
 
     @Override
     public void reportEconomyTick(int iterIndex) {
-        addAdversaryColonyCrisis(); // HACK: More convenient to just do this on an existing listener
+        addAdversaryColonyCrisis(); // HACK: More convenient to add the crisis mid-game using an existing listener
     }
 
     @Override
@@ -169,7 +170,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         public PriorityDoctrine(JSONObject priorityObject, int weight) throws JSONException {
             this.weight = weight;
 
-            String compId = Global.getSettings().getString("adversary", "settings_fleetComposition");
+            String compId = SETTINGS_FLEET_COMPOSITION;
             if (priorityObject.isNull(compId)) {
                 warships = 3;
                 carriers = 2;
@@ -181,29 +182,26 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
                 phaseShips = (byte) fleetComp.getInt(2);
             }
 
-            aggression = (byte) priorityObject.optInt(Global.getSettings().getString("adversary", "settings_aggression"), 5);
+            aggression = (byte) priorityObject.optInt(SETTINGS_AGGRESSION, 5);
 
-            String shipsId = Global.getSettings().getString("adversary", "settings_priorityShips");
-            if (!priorityObject.isNull(shipsId)) {
-                JSONArray shipList = priorityObject.getJSONArray(shipsId);
+            if (!priorityObject.isNull(SETTINGS_PRIORITY_SHIPS)) {
+                JSONArray shipList = priorityObject.getJSONArray(SETTINGS_PRIORITY_SHIPS);
                 if (shipList.length() > 0) {
                     priorityShips = new String[shipList.length()];
                     for (int i = 0; i < shipList.length(); i++) priorityShips[i] = shipList.getString(i);
                 }
             }
 
-            String weaponsId = Global.getSettings().getString("adversary", "settings_priorityWeapons");
-            if (!priorityObject.isNull(weaponsId)) {
-                JSONArray weaponList = priorityObject.getJSONArray(weaponsId);
+            if (!priorityObject.isNull(SETTINGS_PRIORITY_WEAPONS)) {
+                JSONArray weaponList = priorityObject.getJSONArray(SETTINGS_PRIORITY_WEAPONS);
                 if (weaponList.length() > 0) {
                     priorityWeapons = new String[weaponList.length()];
                     for (int i = 0; i < weaponList.length(); i++) priorityWeapons[i] = weaponList.getString(i);
                 }
             }
 
-            String fightersId = Global.getSettings().getString("adversary", "settings_priorityFighters");
-            if (!priorityObject.isNull(fightersId)) {
-                JSONArray fighterList = priorityObject.getJSONArray(fightersId);
+            if (!priorityObject.isNull(SETTINGS_PRIORITY_FIGHTERS)) {
+                JSONArray fighterList = priorityObject.getJSONArray(SETTINGS_PRIORITY_FIGHTERS);
                 if (fighterList.length() > 0) {
                     priorityFighters = new String[fighterList.length()];
                     for (int i = 0; i < fighterList.length(); i++) priorityFighters[i] = fighterList.getString(i);

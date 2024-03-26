@@ -16,7 +16,7 @@ import org.magiclib.campaign.MagicFleetBuilder;
 
 import java.util.*;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
 @SuppressWarnings("unused")
 public class AdversaryBountyScript extends BaseCommandPlugin {

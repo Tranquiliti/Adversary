@@ -32,8 +32,7 @@ import org.tranquility.adversary.AdversaryUtil;
 import java.awt.*;
 import java.util.Random;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
-import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor implements FGIEventListener {
     public static String DEFEATED_ADVERSARY_ATTACK = "$defeatedAdversaryAttack";
@@ -58,12 +57,12 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public String getDesc(BaseEventIntel intel) {
-        return getAdvString("Adversary");
+        return ADVERSARY;
     }
 
     @Override
     public String getNameForThreatList(boolean first) {
-        return getAdvString("Adversary");
+        return ADVERSARY;
     }
 
     @Override
@@ -78,14 +77,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara(getAdvString("HA_mainRowTooltip1"), 0f);
+                tooltip.addPara(HA_MAIN_ROW_TOOLTIP1, 0f);
 
-                tooltip.addPara(getAdvString("HA_mainRowTooltip2"), opad);
+                tooltip.addPara(HA_MAIN_ROW_TOOLTIP2, opad);
 
                 if (wasAdversaryEverSatBombardedByPlayer()) {
-                    tooltip.addPara(getAdvString("HA_mainRowTooltipEndAlt"), opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
+                    tooltip.addPara(HA_MAIN_ROW_TOOLTIP_END_ALT, opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
                 } else {
-                    LabelAPI label = tooltip.addPara(getAdvString("HA_mainRowTooltipEnd"), opad);
+                    LabelAPI label = tooltip.addPara(HA_MAIN_ROW_TOOLTIP_END, opad);
                     label.setHighlight("if not convinced of your benevolent intentions in time", "plan something far, far worse");
                     label.setHighlightColors(Misc.getHighlightColor(), Misc.getNegativeHighlightColor());
                 }
@@ -140,12 +139,12 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     @Override
     public void addBulletPointForEvent(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        info.addPara(getAdvString("HA_bulletPointForEvent"), initPad, tc, c, "Adversary");
+        info.addPara(HA_BULLET_POINT_FOR_EVENT, initPad, tc, c, "Adversary");
     }
 
     @Override
     public void addBulletPointForEventReset(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
-        info.addPara(getAdvString("HA_bulletPointForEventReset"), tc, initPad);
+        info.addPara(HA_BULLET_POINT_FOR_EVENT_RESET, tc, initPad);
     }
 
     @Override
@@ -153,17 +152,17 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         float small = 8f;
         float opad = 10f;
 
-        info.addPara(getAdvString("HA_stageDescriptionForEvent1"), small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
+        info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT1, small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
 
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        LabelAPI label = info.addPara(getAdvString("HA_stageDescriptionForEvent2"), opad);
+        LabelAPI label = info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT2, opad);
         label.setHighlight("most factions", "increase substantially", "permanently gain increased stability", "Adversary");
         label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), c);
 
         stage.beginResetReqList(info, true, "crisis", opad);
-        info.addPara(getAdvString("HA_stageDescriptionForEventReqList1"), 0f, c, "Adversary");
+        info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT_REQ_LIST_1, 0f, c, "Adversary");
         if (!wasAdversaryEverSatBombardedByPlayer())
-            info.addPara(getAdvString("HA_stageDescriptionForEventReqList2"), 0f, c, "Adversary");
+            info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT_REQ_LIST_2, 0f, c, "Adversary");
         stage.endResetReqList(info, false, "crisis", -1, -1);
 
         addBorder(info, c);
@@ -176,7 +175,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public TooltipCreator getStageTooltipImpl(final HostileActivityEventIntel intel, final EventStageData stage) {
-        if (stage.id == Stage.HA_EVENT) return getDefaultEventTooltip(getAdvString("HA_stageTooltip"), intel, stage);
+        if (stage.id == Stage.HA_EVENT) return getDefaultEventTooltip(HA_STAGE_TOOLTIP, intel, stage);
 
         return null;
     }

@@ -12,16 +12,10 @@ import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class AdversaryUtil {
-    public static final String FACTION_ADVERSARY = getAdvString("faction_id_adversary");
+import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
-    public static final String MOD_ID_ADVERSARY = getAdvString("mod_id_adversary"); // For LunaLib
-
+public final class AdversaryUtil {
     public static final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
-
-    public static String getAdvString(String id) {
-        return Global.getSettings().getString("adversary", id);
-    }
 
     public static void addAdversaryColonyCrisis() {
         HostileActivityEventIntel intel = HostileActivityEventIntel.get();
