@@ -453,7 +453,7 @@
         "trigger_player_minLevel":15,
 
         "job_name":"Rooting Out Treason",
-        "job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems awfully misleading, and suggests that you reconsider taking on the bounty.",
+        "job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems ==awfully misleading==, and suggests that you reconsider taking on the bounty.",
         "job_comm_reply":"\"A hyena has come for my head? Know this, captain; your beast-master did not tell you everything. I suggest you scurry away right now, before the Lion's adopted cubs prey on your gullible mind.\"",
         "job_intel_success":"You have killed the treasonous criminal, and, when your TriPad chimes with a notification alert, you find your hard-earned reward of a few million credits. However, the notification also comes with a rather shocking revelation; a significant part of the Sindrian military, unaware of the deceased commander's crimes and desertion, have noticed your apparent \"treachery\" against the Supreme Executor and, thus, have disavowed your actions.",
         "job_forFaction":"sindrian_diktat",
@@ -1050,7 +1050,7 @@
             "ballistic_mastery":2,
             "systems_expertise":2,
             "missile_specialization":2,
-            #,
+            #
             "tactical_drills":1,
             "coordinated_maneuvers":1,
             "wolfpack_tactics":1,
@@ -1111,7 +1111,7 @@
 
         "job_name":"From Scrap, To Scrap",
         "job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen\" and $hisHerTheir abominable fleet ==swept clean== from the Persean Sector.",
-        "job_comm_reply":"The Pather $rank laughs menacingly, \"I'll be sorting through your scraps!\"",
+        "job_comm_reply":"Inside what appears to be $hisHerTheir makeshift command bridge, the Pather laughs with menacing glee, \"I'll be sorting through your scraps!\"",
         "job_intel_success":"In a twist of fate, you, and not the now-deceased Pather, are the one sorting through the scraps. As luck would have it, your salvors have spotted and acquired, among the Derelict wrecks, a blueprint for the Rampart-class droneship.\nDespite this blueprint - whose very existence would no doubt send most Luddic extremists into a fervent rampage - falling into your cargo holds, the Luddic Path cell responsible for placing the bounty seem oblivious to this fact, as your quartermaster reports the payout of the expected bounty reward to your accounts.",
         "job_forFaction":"luddic_path",
         "job_credit_reward":1100000,

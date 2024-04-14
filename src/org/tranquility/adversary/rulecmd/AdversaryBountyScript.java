@@ -92,6 +92,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "falcon_p": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
@@ -101,6 +102,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -122,6 +124,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "onslaught_xiv": {
                             PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
@@ -132,6 +135,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -152,6 +156,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "champion": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
@@ -161,6 +166,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "pegasus": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
@@ -170,6 +176,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -190,6 +197,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "retribution": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
@@ -199,6 +207,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -220,6 +229,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "apogee": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
@@ -230,6 +240,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -250,6 +261,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "sunder_LG": {
                             PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
@@ -259,6 +271,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 1);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -298,6 +311,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "medusa": {
                             PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
@@ -310,6 +324,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                         case "aurora": {
                             PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
@@ -322,6 +337,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
                             person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                             person.getStats().setSkipRefresh(false);
+                            break;
                         }
                     }
                 }
@@ -433,23 +449,25 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     switch (member.getHullId()) {
                         case "rampart": {
                             PersonAPI person = aiPlugin.createPerson(Commodities.ALPHA_CORE, Factions.DERELICT, null);
+                            member.setCaptain(person);
                             person.getStats().setSkipRefresh(true);
                             person.getStats().setLevel(8);
                             person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 2);
                             person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 2);
                             person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 0);
                             person.getStats().setSkipRefresh(false);
-                            member.setCaptain(person);
+                            break;
                         }
                         case "sentry": {
                             PersonAPI person = aiPlugin.createPerson(Commodities.ALPHA_CORE, Factions.DERELICT, null);
+                            member.setCaptain(person);
                             person.getStats().setSkipRefresh(true);
                             person.getStats().setLevel(8);
                             person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
                             person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
                             person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 0);
                             person.getStats().setSkipRefresh(false);
-                            member.setCaptain(person);
+                            break;
                         }
                     }
                 }
