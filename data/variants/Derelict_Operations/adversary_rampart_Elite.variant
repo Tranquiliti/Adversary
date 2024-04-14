@@ -1,0 +1,60 @@
+{
+    "displayName": "Elite",
+    "fluxCapacitors": 0,
+    "fluxVents": 3,
+    "hullId": "rampart",
+    "hullMods": [
+        "autorepair",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_engines",
+        "erratic_injector",
+        "faulty_grid",
+        "fragile_subsystems",
+        "armoredweapons",
+        "targetingunit",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "autorepair",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_engines",
+        "erratic_injector",
+        "faulty_grid",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "autorepair",
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_rampart_Elite",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "multineedler"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "hydra"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "hephag"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "flak",
+                "WS 004": "flak"
+            }
+        }
+    ]
+}

@@ -1,5 +1,7 @@
 Version 6.2.0
 
+* Added a new Silly MagicBounty
+* Adjusted bounty fleet visibility for a few MagicBounties
 * Major code refactors
 
 

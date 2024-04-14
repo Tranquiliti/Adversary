@@ -11,7 +11,7 @@
         "job_credit_reward":900000,
         "job_reputation_reward":15,
         "job_type":"assassination",
-        "job_show_fleet":"flagshipText",
+        "job_show_fleet":"vanilla",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"auto",
         "job_pick_script":"AdversaryTTWolfpackPicked",
@@ -269,7 +269,7 @@
         "job_credit_reward":1000000,
         "job_reputation_reward":-5,
         "job_type":"neutralization",
-        "job_show_fleet":"all",
+        "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
         "job_pick_script":"AdversaryPLCruiserPicked",
@@ -334,7 +334,7 @@
         "job_credit_reward":1500000,
         "job_reputation_reward":10,
         "job_type":"obliteration",
-        "job_show_fleet":"all",
+        "job_show_fleet":"vanilla",
         "job_show_distance":"vanilla",
         "job_difficultyDescription":"auto",
         "job_pick_script":"AdversaryLCCarrierPicked",
@@ -773,7 +773,6 @@
             "fighter_bp spark_wing":1
         },
         "job_type":"obliteration",
-        "job_show_captain":false,
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
@@ -833,7 +832,6 @@
             "fighter_bp gladius_wing":1
         },
         "job_type":"obliteration",
-        "job_show_captain":false,
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
@@ -898,7 +896,6 @@
             "fighter_bp flash_wing":1
         },
         "job_type":"obliteration",
-        "job_show_captain":false,
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
@@ -1104,5 +1101,87 @@
         # A script relocates this bounty fleet to a nearby black-hole system
         "location_themes_blacklist":["theme_already_colonized","theme_hidden"],
         "location_entities":["jump_point"]
+    },
+    "adversary_Derelict_Operations":{
+        "trigger_marketFaction_any":["luddic_path"],
+        "trigger_player_minLevel":15,
+        "trigger_memKeys_all":{
+            "$adversary_sillyBountiesEnabled":true
+        },
+
+        "job_name":"From Scrap, To Scrap",
+        "job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen\" and $hisHerTheir abominable fleet ==swept clean== from the Persean Sector.",
+        "job_comm_reply":"The Pather $rank laughs menacingly, \"I'll be sorting through your scraps!\"",
+        "job_intel_success":"In a twist of fate, you, and not the now-deceased Pather, are the one sorting through the scraps. As luck would have it, your salvors have spotted and acquired, among the Derelict wrecks, a blueprint for the Rampart-class droneship.\nDespite this blueprint - whose very existence would no doubt send most Luddic extremists into a fervent rampage - falling into your cargo holds, the Luddic Path cell responsible for placing the bounty seem oblivious to this fact, as your quartermaster reports the payout of the expected bounty reward to your accounts.",
+        "job_forFaction":"luddic_path",
+        "job_credit_reward":1100000,
+        "job_reputation_reward":25,
+        "job_item_reward":{
+            "ship_bp rampart":1
+        },
+        "job_type":"obliteration",
+        "job_show_fleet":"none",
+        "job_show_distance":"vanilla",
+        "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryDerelictOperationsPicked",
+
+        "target_first_name":"Scrapstrike",
+        "target_last_name":"Thrax",
+        "target_portrait":"graphics/portraits/portrait_luddic12.png",
+        "target_gender":"MALE",
+        "target_rank":"spaceCommander",
+        "target_post":"fleetCommander",
+        "target_personality":"steady",
+        "target_level":14,
+        "target_skills":{
+            "helmsmanship":2,
+            "combat_endurance":2,
+            "impact_mitigation":2,
+            "damage_control":2,
+            "field_modulation":2,
+            "point_defense":2,
+            "target_analysis":2,
+            "ballistic_mastery":2,
+            "systems_expertise":2,
+            "missile_specialization":2,
+            #
+            "tactical_drills":1,
+            "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
+            "crew_training":1,
+            "best_of_the_best":1,
+            #
+            "navigation":1,
+            "sensors":1,
+            "gunnery_implants":2,
+            "energy_weapon_mastery":2,
+            "electronic_warfare":1,
+            "flux_regulation":1,
+            "cybernetic_augmentation":1,
+            "automated_ships":1,
+            #
+            "field_repairs":1,
+            "ordnance_expert":2,
+            "polarized_armor":2,
+            "containment_procedures":1,
+            "derelict_contingent":1
+        },
+
+        "fleet_name":"Derelict Mob",
+        "fleet_faction":"derelict",
+        "fleet_flagship_variant":"adversary_guardian_Assault",
+        "fleet_flagship_name":"DSS Marauder-Scorpion",
+        "fleet_preset_ships":{
+            "adversary_rampart_Elite":25,
+            "adversary_sentry_Support":4
+        },
+        "fleet_composition_quality":2,
+        "fleet_transponder":false,
+        "fleet_no_retreat":true,
+        "fleet_behavior":"AGGRESSIVE",
+
+        "location_distance":"FAR",
+        "location_themes":["theme_derelict"],
+        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     }
 }

@@ -32,7 +32,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
         // Does not immediately apply if Colony Crisis intel gets (re)added mid-game; it only gets added in after a save & load
         // If the CC intel is removed mid-game (e.g. by losing all colonies), the Adversary crisis gets removed too, leading to the above problem
-        // (HACK: added this on AdversaryDynamicDoctrine's reportEconomyTick() so crisis can get applied mid-game)
+        // (HACK: also added this on AdversaryDynamicDoctrine's reportEconomyTick() so crisis can get applied mid-game)
         addAdversaryColonyCrisis();
 
         if (!newGame) addAdversaryListeners(false);

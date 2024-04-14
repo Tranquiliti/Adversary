@@ -1,0 +1,103 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 9,
+    "fluxVents": 50,
+    "hullId": "guardian",
+    "hullMods": [
+        "turretgyros",
+        "autorepair",
+        "eccm",
+        "damaged_mounts",
+        "degraded_engines",
+        "degraded_shields",
+        "erratic_injector",
+        "fragile_subsystems",
+        "armoredweapons",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai",
+        "reinforcedhull",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "autorepair",
+        "eccm",
+        "damaged_mounts",
+        "degraded_engines",
+        "degraded_shields",
+        "erratic_injector",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "turretgyros",
+        "autorepair",
+        "eccm"
+    ],
+    "variantId": "adversary_guardian_Assault",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "multineedler",
+                "WS 008": "multineedler"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "hammerrack",
+                "WS 009": "hammerrack"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "dragon",
+                "WS 011": "dragon"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 012": "lightac",
+                "WS 013": "lightac",
+                "WS 018": "lightac",
+                "WS 019": "lightac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "shredder",
+                "WS 001": "shredder",
+                "WS 002": "shredder",
+                "WS 003": "shredder",
+                "WS 014": "lightac",
+                "WS 015": "lightac",
+                "WS 016": "lightac",
+                "WS 017": "lightac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 020": "devastator"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "dualflak",
+                "WS 005": "dualflak"
+            }
+        }
+    ]
+}

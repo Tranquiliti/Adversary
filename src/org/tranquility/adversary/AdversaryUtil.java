@@ -25,6 +25,7 @@ public final class AdversaryUtil {
 
     public static TreeSet<MarketAPI> getAdversaryMilitaryMarkets() {
         TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
+            @Override
             public int compare(MarketAPI m1, MarketAPI m2) {
                 int comp = Integer.compare(getScore(m1), getScore(m2));
                 if (comp != 0) return comp;

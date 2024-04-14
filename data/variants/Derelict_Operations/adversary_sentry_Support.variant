@@ -1,0 +1,43 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "sentry",
+    "hullMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "reinforcedhull",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems",
+        "insulatedengine",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "reinforcedhull",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "eccm",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_sentry_Support",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 001": "heatseeker",
+            "WS 002": "heatseeker",
+            "WS 003": "heatseeker"
+        }
+    }]
+}
