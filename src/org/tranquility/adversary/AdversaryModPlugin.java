@@ -47,20 +47,18 @@ public class AdversaryModPlugin extends BaseModPlugin {
     @Override
     public void onNewGameAfterTimePass() {
         boolean doPersonalFleet;
-        String personalFleetId = SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET;
         if (LUNALIB_ENABLED)
-            doPersonalFleet = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, personalFleetId));
-        else doPersonalFleet = Global.getSettings().getBoolean(personalFleetId);
+            doPersonalFleet = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET));
+        else doPersonalFleet = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET);
 
         if (doPersonalFleet) addAdversaryPersonalFleet();
     }
 
     private void toggleSillyBounties() {
         boolean enableSilliness;
-        String sillyBountyId = SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES;
         if (LUNALIB_ENABLED)
-            enableSilliness = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, sillyBountyId));
-        else enableSilliness = Global.getSettings().getBoolean(sillyBountyId);
+            enableSilliness = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES));
+        else enableSilliness = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES);
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
         else Global.getSector().getMemoryWithoutUpdate().unset("$adversary_sillyBountiesEnabled");
@@ -106,9 +104,10 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     private void addAdversaryDynamicDoctrine(boolean newGame) {
         Integer doctrineDelay = null;
-        String delayId = SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY;
-        if (LUNALIB_ENABLED) doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
-        if (doctrineDelay == null) doctrineDelay = Global.getSettings().getInt(delayId);
+        if (LUNALIB_ENABLED)
+            doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
+        if (doctrineDelay == null)
+            doctrineDelay = Global.getSettings().getInt(SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
@@ -120,9 +119,9 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     private void addAdversaryBlueprintStealer(boolean newGame) {
         Integer stealDelay = null;
-        String delayId = SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY;
-        if (LUNALIB_ENABLED) stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, delayId);
-        if (stealDelay == null) stealDelay = Global.getSettings().getInt(delayId);
+        if (LUNALIB_ENABLED)
+            stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
+        if (stealDelay == null) stealDelay = Global.getSettings().getInt(SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
         try {
@@ -133,7 +132,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     }
 
     private void addAdversaryPersonalFleet() {
-        TreeSet<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMilitaryMarkets();
+        TreeSet<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMarkets();
         if (!adversaryMarkets.isEmpty()) new AdversaryPersonalFleet(adversaryMarkets.last().getId());
     }
 }

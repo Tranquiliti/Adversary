@@ -23,7 +23,12 @@ public final class AdversaryUtil {
             intel.addActivity(new AdversaryHostileActivityFactor(intel), new AdversaryActivityCause(intel));
     }
 
-    public static TreeSet<MarketAPI> getAdversaryMilitaryMarkets() {
+    /**
+     * Returns a set of all Adversary markets, sorted by High Command/Military Base presence
+     *
+     * @return A TreeSet containing all Adversary markets, sorted by military power in ascending order
+     */
+    public static TreeSet<MarketAPI> getAdversaryMarkets() {
         TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
             @Override
             public int compare(MarketAPI m1, MarketAPI m2) {

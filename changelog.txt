@@ -5,6 +5,10 @@ Version 6.2.0
   - Adjusted bounty preview visibility for a few MagicBounties
   - Adjusted bounty rewards for some MagicBounties
   - Minor text changes
+* Slight adjustments to Adversary crisis:
+  - Can no longer trigger another attack while an existing Adversary attack is already underway
+  - More emphasis on system market presence when choosing a target system to attack
+  - Reduced Independent reputation gain for defeating the Adversary crisis attack
 * Major code refactors
 
 
