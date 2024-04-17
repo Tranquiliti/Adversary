@@ -12,16 +12,10 @@ import org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor;
 import java.util.Comparator;
 import java.util.TreeSet;
 
-public class AdversaryUtil {
-    public static final String FACTION_ADVERSARY = getAdvString("faction_id_adversary");
+import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
-    public static final String MOD_ID_ADVERSARY = getAdvString("mod_id_adversary"); // For LunaLib
-
+public final class AdversaryUtil {
     public static final boolean LUNALIB_ENABLED = Global.getSettings().getModManager().isModEnabled("lunalib");
-
-    public static String getAdvString(String id) {
-        return Global.getSettings().getString("adversary", id);
-    }
 
     public static void addAdversaryColonyCrisis() {
         HostileActivityEventIntel intel = HostileActivityEventIntel.get();
@@ -29,8 +23,14 @@ public class AdversaryUtil {
             intel.addActivity(new AdversaryHostileActivityFactor(intel), new AdversaryActivityCause(intel));
     }
 
-    public static TreeSet<MarketAPI> getAdversaryMilitaryMarkets() {
+    /**
+     * Returns a set of all Adversary markets, sorted by High Command/Military Base presence
+     *
+     * @return A TreeSet containing all Adversary markets, sorted by military power in ascending order
+     */
+    public static TreeSet<MarketAPI> getAdversaryMarkets() {
         TreeSet<MarketAPI> adversaryMarkets = new TreeSet<>(new Comparator<MarketAPI>() {
+            @Override
             public int compare(MarketAPI m1, MarketAPI m2) {
                 int comp = Integer.compare(getScore(m1), getScore(m2));
                 if (comp != 0) return comp;

@@ -8,11 +8,8 @@ import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ListInfoMode;
 import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
-import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel;
+import com.fs.starfarer.api.impl.campaign.intel.events.*;
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel.EventStageData;
-import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip;
-import com.fs.starfarer.api.impl.campaign.intel.events.BaseHostileActivityFactor;
-import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel;
 import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel.HAERandomEventData;
 import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel.Stage;
 import com.fs.starfarer.api.impl.campaign.intel.group.FleetGroupIntel;
@@ -25,15 +22,13 @@ import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI.TooltipCreator;
 import com.fs.starfarer.api.util.Misc;
-import com.fs.starfarer.api.util.WeightedRandomPicker;
 import org.lwjgl.util.vector.Vector2f;
 import org.tranquility.adversary.AdversaryUtil;
 
 import java.awt.*;
 import java.util.Random;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
-import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor implements FGIEventListener {
     public static String DEFEATED_ADVERSARY_ATTACK = "$defeatedAdversaryAttack";
@@ -51,26 +46,22 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public int getProgress(BaseEventIntel intel) {
-        if (!checkFactionExists(FACTION_ADVERSARY, true)) return 0;
-
-        return super.getProgress(intel);
+        return checkFactionExists(FACTION_ADVERSARY, true) ? super.getProgress(intel) : 0;
     }
 
     @Override
     public String getDesc(BaseEventIntel intel) {
-        return getAdvString("Adversary");
+        return ADVERSARY;
     }
 
     @Override
     public String getNameForThreatList(boolean first) {
-        return getAdvString("Adversary");
+        return ADVERSARY;
     }
 
     @Override
     public Color getDescColor(BaseEventIntel intel) {
-        if (getProgress(intel) <= 0) return Misc.getGrayColor();
-
-        return Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
+        return getProgress(intel) <= 0 ? Misc.getGrayColor() : Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
     }
 
     @Override
@@ -78,14 +69,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
-                tooltip.addPara(getAdvString("HA_mainRowTooltip1"), 0f);
+                tooltip.addPara(HA_MAIN_ROW_TOOLTIP1, 0f);
 
-                tooltip.addPara(getAdvString("HA_mainRowTooltip2"), opad);
+                tooltip.addPara(HA_MAIN_ROW_TOOLTIP2, opad);
 
                 if (wasAdversaryEverSatBombardedByPlayer()) {
-                    tooltip.addPara(getAdvString("HA_mainRowTooltipEndAlt"), opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
+                    tooltip.addPara(HA_MAIN_ROW_TOOLTIP_END_ALT, opad, Misc.getNegativeHighlightColor(), "swiftly respond in kind");
                 } else {
-                    LabelAPI label = tooltip.addPara(getAdvString("HA_mainRowTooltipEnd"), opad);
+                    LabelAPI label = tooltip.addPara(HA_MAIN_ROW_TOOLTIP_END, opad);
                     label.setHighlight("if not convinced of your benevolent intentions in time", "plan something far, far worse");
                     label.setHighlightColors(Misc.getHighlightColor(), Misc.getNegativeHighlightColor());
                 }
@@ -140,12 +131,12 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     @Override
     public void addBulletPointForEvent(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        info.addPara(getAdvString("HA_bulletPointForEvent"), initPad, tc, c, "Adversary");
+        info.addPara(HA_BULLET_POINT_FOR_EVENT, initPad, tc, c, "Adversary");
     }
 
     @Override
     public void addBulletPointForEventReset(HostileActivityEventIntel intel, EventStageData stage, TooltipMakerAPI info, ListInfoMode mode, boolean isUpdate, Color tc, float initPad) {
-        info.addPara(getAdvString("HA_bulletPointForEventReset"), tc, initPad);
+        info.addPara(HA_BULLET_POINT_FOR_EVENT_RESET, tc, initPad);
     }
 
     @Override
@@ -153,17 +144,17 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         float small = 8f;
         float opad = 10f;
 
-        info.addPara(getAdvString("HA_stageDescriptionForEvent1"), small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
+        info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT1, small, Misc.getNegativeHighlightColor(), "massive, full-scale saturation-bombardment campaign");
 
         Color c = Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor();
-        LabelAPI label = info.addPara(getAdvString("HA_stageDescriptionForEvent2"), opad);
+        LabelAPI label = info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT2, opad);
         label.setHighlight("most factions", "increase substantially", "permanently gain increased stability", "Adversary");
         label.setHighlightColors(Misc.getHighlightColor(), Misc.getPositiveHighlightColor(), Misc.getPositiveHighlightColor(), c);
 
         stage.beginResetReqList(info, true, "crisis", opad);
-        info.addPara(getAdvString("HA_stageDescriptionForEventReqList1"), 0f, c, "Adversary");
+        info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT_REQ_LIST_1, 0f, c, "Adversary");
         if (!wasAdversaryEverSatBombardedByPlayer())
-            info.addPara(getAdvString("HA_stageDescriptionForEventReqList2"), 0f, c, "Adversary");
+            info.addPara(HA_STAGE_DESCRIPTION_FOR_EVENT_REQ_LIST_2, 0f, c, "Adversary");
         stage.endResetReqList(info, false, "crisis", -1, -1);
 
         addBorder(info, c);
@@ -176,19 +167,22 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public TooltipCreator getStageTooltipImpl(final HostileActivityEventIntel intel, final EventStageData stage) {
-        if (stage.id == Stage.HA_EVENT) return getDefaultEventTooltip(getAdvString("HA_stageTooltip"), intel, stage);
-
-        return null;
+        return stage.id == Stage.HA_EVENT ? getDefaultEventTooltip(HA_STAGE_TOOLTIP, intel, stage) : null;
     }
 
     @Override
     public float getEventFrequency(HostileActivityEventIntel intel, EventStageData stage) {
         if (stage.id == Stage.HA_EVENT) {
-            if (wasAdversaryEverSatBombardedByPlayer())
-                return 666f; // Maybe you shouldn't have proven their point by blowing up one of their planets
+            if (isPlayerDefeatedAdversaryAttack()) return 0f;
 
-            if (pickTargetSystem() != null && pickSourceMarket() != null)
-                return 1f; // Should make this crisis very rare to experience before dealing with most of the other crises
+            if (AdversaryPunitiveExpedition.get() != null) return 0f;
+
+            if (pickTargetSystem(intel, stage) != null && pickSourceMarket() != null) {
+                if (wasAdversaryEverSatBombardedByPlayer())
+                    return 666f; // Maybe you shouldn't have proven their point by blowing up one of their planets
+                else
+                    return 1f; // Should make this crisis very rare to experience before dealing with most of the other crises
+            }
         }
         return 0f;
     }
@@ -202,7 +196,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
     @Override
     public boolean fireEvent(HostileActivityEventIntel intel, EventStageData stage) {
-        StarSystemAPI target = pickTargetSystem();
+        StarSystemAPI target = pickTargetSystem(intel, stage);
         MarketAPI source = pickSourceMarket();
         if (source == null || target == null) return false;
 
@@ -220,7 +214,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         Misc.adjustRep(Factions.PERSEAN, 0.3f, null);
         Misc.adjustRep(Factions.DIKTAT, 0.3f, null);
         Misc.adjustRep(Factions.TRITACHYON, 0.3f, null);
-        Misc.adjustRep(Factions.INDEPENDENT, 0.6f, null);
+        Misc.adjustRep(Factions.INDEPENDENT, 0.45f, null);
         Misc.adjustRep(Factions.PIRATES, 0.15f, null);
 
         new MutualTenacityScript();
@@ -262,29 +256,17 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         return false;
     }
 
-    public StarSystemAPI pickTargetSystem() {
-        WeightedRandomPicker<StarSystemAPI> picker = new WeightedRandomPicker<>(getRandomizedStageRandom(3));
-
-        for (StarSystemAPI system : Misc.getPlayerSystems(false)) {
-            float mag = getEffectMagnitude(system);
-            if (mag < 0.1f) continue;
-            picker.add(system, mag * mag);
-        }
-
-        return picker.pick();
+    public StarSystemAPI pickTargetSystem(HostileActivityEventIntel intel, EventStageData stage) {
+        return PerseanLeagueHostileActivityFactor.findBlockadeTarget(intel, stage);
     }
 
     public MarketAPI pickSourceMarket() {
-        MarketAPI source = null;
-        for (MarketAPI market : AdversaryUtil.getAdversaryMilitaryMarkets().descendingSet()) {
-            Industry hc = market.getIndustry(Industries.HIGHCOMMAND);
-            if (hc == null) hc = market.getIndustry(Industries.MILITARYBASE);
-            if (hc != null && !hc.isDisrupted() && hc.isFunctional()) {
-                source = market;
-                break;
-            }
+        for (MarketAPI market : AdversaryUtil.getAdversaryMarkets().descendingSet()) {
+            Industry b = market.getIndustry(Industries.HIGHCOMMAND);
+            if (b == null) b = market.getIndustry(Industries.MILITARYBASE);
+            if (b != null && !b.isDisrupted() && b.isFunctional()) return market;
         }
-        return source;
+        return null;
     }
 
     public boolean startAttack(MarketAPI source, StarSystemAPI system, Random random) {

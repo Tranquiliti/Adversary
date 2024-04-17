@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class AdversaryBlueprintStealer implements EconomyTickListener {
-    protected String factionId;
+    protected String factionId; // TODO: change access modifier to private if doing save-breaking update
     protected String[] targetIds;
     protected byte elapsedMonths, delayInMonths;
 

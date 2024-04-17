@@ -10,7 +10,7 @@
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
 		"settings_enableAdversaryPersonalFleet":"enableAdversaryPersonalFleet",
 
-		# Settings for the Adversary dynamic doctrine
+		# Settings for the Adversary Dynamic Doctrine
 		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",
 		"settings_adversaryPossibleDoctrines":"adversaryPossibleDoctrines",
 		"settings_weight":"weight",
@@ -20,7 +20,7 @@
 		"settings_priorityWeapons":"priorityWeapons",
 		"settings_priorityFighters":"priorityFighters",
 
-		# Settings for the Adversary blueprint stealing
+		# Settings for the Adversary Blueprint Stealing
 		"settings_adversaryBlueprintStealingDelay":"adversaryBlueprintStealingDelay",
 		"settings_adversaryStealsFromFactions":"adversaryStealsFromFactions",
 

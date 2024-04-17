@@ -10,7 +10,7 @@ import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin;
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel;
 import com.fs.starfarer.api.util.Misc;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
+import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
 public class MutualTenacityScript implements EconomyUpdateListener {
     public static String KEY = "$adversary_mt_ref";
@@ -62,7 +62,7 @@ public class MutualTenacityScript implements EconomyUpdateListener {
         return (MutualTenacityScript) Global.getSector().getMemoryWithoutUpdate().get(KEY);
     }
 
-    public void sendGainedMessage() {
+    private void sendGainedMessage() {
         MessageIntel msg = new MessageIntel();
         msg.addLine("Mutual Tenacity gained", Misc.getBasePlayerColor());
         msg.addLine(BaseIntelPlugin.BULLET + "Colonies receive a %s to stability", Misc.getTextColor(), new String[]{"bonus"}, Misc.getHighlightColor());
@@ -72,7 +72,7 @@ public class MutualTenacityScript implements EconomyUpdateListener {
         Global.getSector().getCampaignUI().addMessage(msg, MessageClickAction.COLONY_INFO);
     }
 
-    public void sendExpiredMessage() {
+    private void sendExpiredMessage() {
         MessageIntel msg = new MessageIntel();
         msg.addLine("Mutual Tenacity removed", Misc.getBasePlayerColor());
         msg.addLine(BaseIntelPlugin.BULLET + "Due to deteriorating relations with the %s", Misc.getTextColor(), new String[]{"Adversary"}, Global.getSector().getFaction(FACTION_ADVERSARY).getBaseUIColor());
@@ -81,7 +81,7 @@ public class MutualTenacityScript implements EconomyUpdateListener {
         Global.getSector().getCampaignUI().addMessage(msg, MessageClickAction.COLONY_INFO);
     }
 
-    public void cleanup() {
+    private void cleanup() {
         if (Global.getSector().getMemoryWithoutUpdate().contains(KEY)) {
             sendExpiredMessage();
         }

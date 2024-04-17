@@ -9,7 +9,8 @@ import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
-import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+import static org.tranquility.adversary.AdversaryStrings.HA_PUNITIVE_EXPEDITION_BASE_NAME;
+import static org.tranquility.adversary.AdversaryStrings.HA_PUNITIVE_EXPEDITION_NOUN;
 
 public class AdversaryPunitiveExpedition extends GenericRaidFGI {
     public static final String ADVERSARY_FLEET = "$AdversaryPE_fleet";
@@ -36,7 +37,7 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
 
     @Override
     public String getNoun() {
-        return getAdvString("HA_punitiveExpeditionNoun");
+        return HA_PUNITIVE_EXPEDITION_NOUN;
     }
 
     @Override
@@ -46,7 +47,7 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
 
     @Override
     public String getBaseName() {
-        return getAdvString("HA_punitiveExpeditionBaseName");
+        return HA_PUNITIVE_EXPEDITION_BASE_NAME;
     }
 
     @Override

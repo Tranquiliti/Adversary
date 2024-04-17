@@ -14,8 +14,7 @@ import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 
-import static org.tranquility.adversary.AdversaryUtil.FACTION_ADVERSARY;
-import static org.tranquility.adversary.AdversaryUtil.getAdvString;
+import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     public static int LARGE_COLONY = 6;
@@ -33,10 +32,10 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
         return new BaseFactorTooltip() {
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer()) {
-                    tooltip.addPara(getAdvString("HA_activityCauseAltTooltip1"), 0f, Misc.getHighlightColor(), "to the absolute maximum");
-                    tooltip.addPara(getAdvString("HA_activityCauseAltTooltip2"), 10f, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
+                    tooltip.addPara(HA_ACTIVITY_CAUSE_ALT_TOOLTIP1, 0f, Misc.getHighlightColor(), "to the absolute maximum");
+                    tooltip.addPara(HA_ACTIVITY_CAUSE_ALT_TOOLTIP2, 10f, Misc.getHighlightColor(), "Defeating the Adversary's incoming attack");
                 } else
-                    tooltip.addPara(getAdvString("HA_activityCauseTooltip"), 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
+                    tooltip.addPara(HA_ACTIVITY_CAUSE_TOOLTIP, 0f, Misc.getHighlightColor(), "" + LARGE_COLONY, "" + COUNT_IF_MEDIUM, "" + MEDIUM_COLONY);
             }
         };
     }
@@ -89,7 +88,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
 
     @Override
     public String getDesc() {
-        return AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() ? getAdvString("HA_activityCauseAltDesc") : getAdvString("HA_activityCauseDesc");
+        return AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() ? HA_ACTIVITY_CAUSE_ALT_DESC : HA_ACTIVITY_CAUSE_DESC;
     }
 
     @Override

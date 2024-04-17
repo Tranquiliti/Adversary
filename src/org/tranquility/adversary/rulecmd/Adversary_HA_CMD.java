@@ -19,7 +19,6 @@ public class Adversary_HA_CMD extends BaseCommandPlugin {
         if (dialog == null) return false;
 
         String action = params.get(0).getString(memoryMap);
-
         switch (action) {
             case "canConfrontCrisis":
                 return canConfrontCrisis();
