@@ -1,5 +1,5 @@
 {
-    "displayName": "Close Support",
+    "displayName": "Assault",
     "fluxCapacitors": 10,
     "fluxVents": 10,
     "hullId": "brawler_tritachyon",
@@ -18,12 +18,15 @@
         "hardenedshieldemitter",
         "stabilizedshieldemitter"
     ],
-    "variantId": "adversary_brawler_tritachyon_Close_Support",
+    "variantId": "adversary_brawler_tritachyon_Assault",
     "weaponGroups": [
         {
             "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "pulselaser"}
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "ionpulser",
+                "WS 002": "ionpulser"
+            }
         },
         {
             "autofire": false,
@@ -32,11 +35,6 @@
                 "WS 003": "breach",
                 "WS 004": "breach"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "ionbeam"}
         }
     ]
 }

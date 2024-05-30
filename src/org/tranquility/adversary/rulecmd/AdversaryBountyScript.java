@@ -46,11 +46,11 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     member.setCaptain(null);
                     if (member.getHullId().equals("hyperion")) {
                         PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
+                        person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
                         person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
                         person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
                         person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
                         person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
-                        person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
                         person.getStats().setSkipRefresh(false);
                     }
                 }
@@ -471,6 +471,27 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                         }
                     }
                 }
+                break;
+            }
+            case "adversary_TT_Wolfpack_Plus": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.SUPPORT_DOCTRINE, 0);
+                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
+                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    if (member.isFlagship()) continue; // Don't replace the bounty target
+                    // Assume custom mercenary officers (gained by reassigning skills away from Officer Training and Cybernetic Augmentation)
+                    member.setCaptain(null);
+                    if (member.getHullId().equals("hyperion")) {
+                        PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
+                        person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
+                        person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
+                        person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
+                        person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
+                        person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
+                        person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
+                        person.getStats().setSkipRefresh(false);
+                    }
+                }
+                Misc.makeHostile(bounty.getFleet());
                 break;
             }
             default: {
