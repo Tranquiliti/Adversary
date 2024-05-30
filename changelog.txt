@@ -1,3 +1,13 @@
+Version 6.2.1
+
+* Added a new Silly MagicBounty, available after defeating the Tri-Tachyon bounty
+* Adjusted the Tri-Tachyon bounty; should be harder overall
+* Added a new custom star system for the Adversary in customStarSystems.json
+  - Basically the Optimal system, but with Unknown Skies features
+  - Disabled by default; requires the Unknown Skies mod to successfully enable with no issues
+
+
+
 Version 6.2.0
 
 * MagicBounty changes:

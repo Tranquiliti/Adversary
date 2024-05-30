@@ -1,0 +1,44 @@
+{
+    "displayName": "Overdriven",
+    "fluxCapacitors": 7,
+    "fluxVents": 0,
+    "hullId": "hyperion",
+    "hullMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "comp_structure",
+        "extendedshieldemitter",
+        "safetyoverrides",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "hardened_subsystems",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "comp_structure"
+    ],
+    "sMods": [
+        "auxiliarythrusters",
+        "hardenedshieldemitter",
+        "hardened_subsystems"
+    ],
+    "variantId": "adversary_hyperion_Overdriven",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "ALTERNATING",
+        "weapons": {
+            "WS 001": "heavyblaster",
+            "WS 002": "heavyblaster",
+            "WS 003": "heavyblaster"
+        }
+    }]
+}

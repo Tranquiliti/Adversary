@@ -1,11 +1,12 @@
 {
-    "displayName": "Support",
+    "displayName": "Strike",
     "fluxCapacitors": 10,
-    "fluxVents": 9,
+    "fluxVents": 6,
     "hullId": "omen",
     "hullMods": [
         "hardenedshieldemitter",
         "missile_autoloader",
+        "magazines",
         "hardened_subsystems",
         "pointdefenseai"
     ],
@@ -17,22 +18,17 @@
         "hardenedshieldemitter",
         "missile_autoloader"
     ],
-    "variantId": "adversary_omen_Support",
+    "variantId": "adversary_omen_Strike",
     "weaponGroups": [
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 002": "irpulse"}
+            "weapons": {"WS 001": "amblaster"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 003": "breach"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "irpulse"}
+            "weapons": {"WS 003": "sabot"}
         }
     ]
 }

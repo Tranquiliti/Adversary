@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 10,
-    "fluxVents": 9,
+    "fluxVents": 6,
     "hullId": "hyperion",
     "hullMods": [
         "hardenedshieldemitter",
@@ -20,22 +20,20 @@
         "hardenedshieldemitter",
         "hardened_subsystems"
     ],
-    "variantId": "adversary_hyperion_Assault",
+    "variantId": "adversary_hyperion_Attack",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "phasebeam"}
+            "weapons": {"WS 002": "heavyblaster"}
         },
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 002": "pulselaser"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "arbalest"}
+            "weapons": {
+                "WS 001": "gravitonbeam",
+                "WS 003": "heavymg"
+            }
         }
     ]
 }
