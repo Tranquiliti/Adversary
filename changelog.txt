@@ -1,3 +1,13 @@
+Version 6.2.2
+
+* Slight adjustments to planetary orbits for the Optimal system (including the newly-added US version)
+* Significantly reduced the prep time for the enraged Adversary CC attack
+* Added "consistent weapon drop" tag to ship variants using Omega weapons in two Silly MagicBounties
+* Other minor MagicBounty fixes
+* Minor text changes
+
+
+
 Version 6.2.1
 
 * Added a new Silly MagicBounty, available after defeating the Tri-Tachyon bounty

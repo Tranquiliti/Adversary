@@ -296,6 +296,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             case "adversary_Ziggurat_Plus": {
                 FactionAPI faction = Global.getSector().getFaction(Factions.TRITACHYON);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     // Assume sleeper officers (a lot of them)
                     member.setCaptain(null);
@@ -343,6 +344,15 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             }
+            case "adversary_Remnant_Plus_Plus": {
+                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                    if (member.isFlagship()) member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
+
+                    // No need to replace officers since every ship in an Omega fleet gets an Omega core regardless
+                }
+                break;
+            }
             case "adversary_Station_Low_Tech":
             case "adversary_Station_Midline":
             case "adversary_Station_High_Tech":
@@ -362,28 +372,10 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
                 fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
-                String escortVariant = null;
-                int count = 0;
-                switch (bountyId) {
-                    case "adversary_Station_Low_Tech":
-                        escortVariant = "adversary_omen_Fire_Support";
-                        count = 10;
-                        break;
-                    case "adversary_Station_Midline":
-                        escortVariant = "adversary_vanguard_pirates_DIE";
-                        count = 25;
-                        break;
-                    case "adversary_Station_High_Tech":
-                        escortVariant = "adversary_vigilance_DEM";
-                        count = 5;
-                        break;
-                    case "adversary_Station_Remnant":
-                        escortVariant = "adversary_glimmer_Omega";
-                        count = 5;
-                        break;
-                }
-                HashMap<String, Integer> escorts = new HashMap<>(1);
-                escorts.put(escortVariant, count);
+                // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
+                // So, for now, the station fleet will slowly crawl around in the campaign map
+
+                HashMap<String, Integer> escorts = getEscortsForStationBounty(bountyId);
                 new MagicFleetBuilder().setFleetFaction(fleet.getFaction().getId()).setSpawnLocation(bounty.getFleetSpawnLocation()).setAssignmentTarget(bounty.getFleet()).setAssignment(FleetAssignment.ORBIT_PASSIVE).setFleetType(FleetTypes.PATROL_SMALL).setSupportFleet(escorts).create();
                 break;
             }
@@ -500,6 +492,10 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             }
         }
 
+        for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+            member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
+        }
+
         return true;
     }
 
@@ -537,6 +533,32 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         officer.getStats().setSkipRefresh(false);
     }
 
+    private HashMap<String, Integer> getEscortsForStationBounty(String bountyId) {
+        String escortVariant = null;
+        int count = 0;
+        switch (bountyId) {
+            case "adversary_Station_Low_Tech":
+                escortVariant = "adversary_omen_Fire_Support";
+                count = 10;
+                break;
+            case "adversary_Station_Midline":
+                escortVariant = "adversary_vanguard_pirates_DIE";
+                count = 25;
+                break;
+            case "adversary_Station_High_Tech":
+                escortVariant = "adversary_vigilance_DEM";
+                count = 5;
+                break;
+            case "adversary_Station_Remnant":
+                escortVariant = "adversary_glimmer_Omega";
+                count = 5;
+                break;
+        }
+        HashMap<String, Integer> escorts = new HashMap<>(1);
+        escorts.put(escortVariant, count);
+        return escorts;
+    }
+
     private void teleportFleetToPlanet(CampaignFleetAPI fleet, PlanetAPI planet) {
         fleet.clearAssignments();
         fleet.getContainingLocation().removeEntity(fleet);
@@ -555,6 +577,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             }
         });
 
+        // Not ideal for every black hole system (including those not proc-genned) to count here, as they might lack an
+        // event horizon, but then I'll have to explain the exceptions and/or spoil the fleet location in-text, so no.
         for (StarSystemAPI system : Global.getSector().getStarSystems())
             if (system.hasBlackHole() && !system.hasTag(Tags.THEME_HIDDEN)) systems.add(system);
 

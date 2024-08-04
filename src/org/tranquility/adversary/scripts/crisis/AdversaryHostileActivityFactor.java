@@ -277,8 +277,9 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         params.factionId = source.getFactionId();
         params.source = source;
 
-        params.prepDays = 14f + random.nextFloat() * 14f;
-        params.payloadDays = 27f + 7f * random.nextFloat();
+        boolean wasSatBombed = wasAdversaryEverSatBombardedByPlayer();
+        params.prepDays = wasSatBombed ? 3f : 14f + random.nextFloat() * 14f;
+        params.payloadDays = wasSatBombed ? 34f : 27f + 7f * random.nextFloat();
 
         params.raidParams.where = system;
         params.raidParams.tryToCaptureObjectives = false;
@@ -297,7 +298,6 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         float totalDifficulty = fleetSizeMult * 15f * (0.6f + 0.4f * f);
 
-        boolean wasSatBombed = wasAdversaryEverSatBombardedByPlayer();
         if (wasSatBombed) totalDifficulty *= 2f;
 
         if (totalDifficulty < 15) return false;
