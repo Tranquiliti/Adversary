@@ -137,6 +137,7 @@
         "job_comm_reply":"\"Ah, your ships will make a fine addition to my collection!\"",
         "job_intel_success":"News of the fleet's destruction has reached the ears of the underworld. Soon, even the most distrustful pirate captains begin to welcome and respect you as a fellow pirate warlord.",
         "job_forFaction":"pirates",
+        "job_credit_reward":0,
         "job_reputation_reward":80,
         "job_type":"obliteration",
         "job_show_fleet":"vanilla",
@@ -687,6 +688,7 @@
         "job_show_fleet":"flagship",
         "job_show_distance":"exact",
         "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryRemnantPlusPlusPicked",
 
         "target_first_name":"Omega",
         "target_last_name":"Core",
@@ -737,7 +739,7 @@
         "fleet_name":"Very Unusual Remnant Fleet",
         "fleet_faction":"omega",
         "fleet_flagship_variant":"adversary_tesseract_Outdated",
-        "fleet_flagship_name":"01001111 4F6D656761",
+        "fleet_flagship_name":"01001111 4f6d656761",
         "fleet_preset_ships":{
             "adversary_radiant_Omega":1,
             "adversary_nova_Omega":2,
@@ -951,6 +953,7 @@
         "job_comm_reply":"\"Intrusion detected: eliminate at all costs.\"",
         "job_intel_success":"The false Omega is now dead. Not a big surprise at all.",
         "job_forFaction":"remnant",
+        "job_credit_reward":0,
         "job_reputation_reward":55,
         "job_item_reward":{
             "ship_bp radiant":1

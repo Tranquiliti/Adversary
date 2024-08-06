@@ -31,8 +31,8 @@
 		# Colony Crisis (highlights, and strings in MutualTenacity.java and MutualTenacityScript.java, are still hard-coded)
 		"Adversary":"Adversary",
 		"HA_mainRowTooltip1":"A rival independent polity poses an existential threat to the Adversary, whose leaders view your growing colonies as nothing more than preparations to take over their \"perfect\" worlds.",
-		"HA_mainRowTooltip2":"Adversary-aligned scouts have been occasionally sighted inside your systems - though normally non-hostile, their presence alone bears ill tidings for nearby colonies.",
-		"HA_mainRowTooltipEnd":"While these scouts are unlikely to directly harass your colonies in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.",
+		"HA_mainRowTooltip2":"Adversary-aligned scouts have been occasionally sighted inside your systems. Although these fleets normally avoid direct confrontation, their presence alone bears ill tidings for nearby colonies.",
+		"HA_mainRowTooltipEnd":"While these scouts are unlikely to impede your interests in the short-term, it is almost certain that, if not convinced of your benevolent intentions in time, the Adversary's leaders will plan something far, far worse against your colonies.",
 		"HA_mainRowTooltipEndAlt":"It is all but certain that, due to your heinous actions against the Adversary worlds, the leaders of the Adversary will swiftly respond in kind against your colonies.",
 		"HA_bulletPointForEvent":"Impending Adversary bombardment campaign",
 		"HA_bulletPointForEventReset":"Adversary bombardment campaign averted",
@@ -43,8 +43,8 @@
 		"HA_stageTooltip":"Adversary bombardment campaign",
 		"HA_activityCauseTooltip":"Event progress value is based on the number and size of colonies under your control. Requires one size %s colony, or at least %s colonies with one being at least size %s.",
 		"HA_activityCauseDesc":"Colony presence and size",
-		"HA_activityCauseAltTooltip1":"Saturation-bombarding one of the Adversary's worlds has only pushed their collective resolve - and their immense hatred - against you to the absolute maximum.",
-		"HA_activityCauseAltTooltip2":"Defeating the Adversary's incoming attack is the only recourse available to you now.",
+		"HA_activityCauseAltTooltip1":"The saturation bombardment of an Adversary world has only pushed the inhabitants' collective resolve - and their immense hatred - against you to the absolute maximum.",
+		"HA_activityCauseAltTooltip2":"Defeating the Adversary's incoming attack is now your only available recourse.",
 		"HA_activityCauseAltDesc":"Lasting acrimony",
 		"HA_punitiveExpeditionNoun":"bombardment campaign",
 		"HA_punitiveExpeditionBaseName":"Adversary Bombardment Campaign"

@@ -43,7 +43,7 @@
 			{
 				"entity":"planet",
 				"type":"gas_giant",
-				"orbitRadius":5170,
+				"orbitRadius":5195,
 				"radius":250,
 				"conditions":["hot","high_gravity","volatiles_plentiful"],
 				"marketSize":6,
@@ -113,7 +113,7 @@
 			{
 				"entity":"planet",
 				"type":"jungle",
-				"orbitRadius":6770,
+				"orbitRadius":6765,
 				"radius":130,
 				"conditions":[
 					"habitable","hot","mild_climate",
@@ -138,7 +138,7 @@
 			{
 				"entity":"planet",
 				"type":"water",
-				"orbitRadius":7380,
+				"orbitRadius":7345,
 				"radius":130,
 				"conditions":[
 					"habitable",
@@ -157,14 +157,6 @@
 			{"entity":"jump_point","focus":[4,5],"name":"Inner System Jump-point"},
 			{"entity":"nav_buoy","focus":[7,4],"name":"Optimal Navigation Buoy","factionId":"adversary"},
 			{"entity":"sensor_array","focus":[7,5],"name":"Optimal Listening Station","factionId":"adversary"},
-			{"entity":"jump_point","orbitRadius":8410,"name":"Fringe Jump-point"},
-			{
-				"entity":"asteroid_belt",
-				"orbitRadius":7960,
-				"name":"Ring of Despair",
-				"innerBandIndex":1,
-				"outerBandIndex":3,
-			},
 			{
 				"entity":"ring",
 				"type":"rings_ice0",
@@ -173,6 +165,14 @@
 				"name":"Hope's Aura",
 				"bandIndex":3,
 			},
+			{
+				"entity":"asteroid_belt",
+				"orbitRadius":7995,
+				"name":"Ring of Despair",
+				"innerBandIndex":1,
+				"outerBandIndex":3,
+			},
+			{"entity":"jump_point","orbitRadius":8345,"name":"Fringe Jump-point"},
 		],
 	},
 
@@ -221,7 +221,7 @@
 			{
 				"entity":"planet",
 				"type":"US_gas_giantB",
-				"orbitRadius":5170,
+				"orbitRadius":5195,
 				"radius":250,
 				"conditions":["US_floating","hot","high_gravity","volatiles_plentiful"],
 				"marketSize":6,
@@ -292,7 +292,7 @@
 			{
 				"entity":"planet",
 				"type":"US_jungle",
-				"orbitRadius":6770,
+				"orbitRadius":6765,
 				"radius":130,
 				"conditions":[
 					"US_religious",
@@ -318,7 +318,7 @@
 			{
 				"entity":"planet",
 				"type":"US_water",
-				"orbitRadius":7380,
+				"orbitRadius":7345,
 				"radius":130,
 				"conditions":[
 					"US_religious",
@@ -338,14 +338,6 @@
 			{"entity":"jump_point","focus":[4,5],"name":"Inner System Jump-point"},
 			{"entity":"nav_buoy","focus":[7,4],"name":"Optimal Navigation Buoy","factionId":"adversary"},
 			{"entity":"sensor_array","focus":[7,5],"name":"Optimal Listening Station","factionId":"adversary"},
-			{"entity":"jump_point","orbitRadius":8410,"name":"Fringe Jump-point"},
-			{
-				"entity":"asteroid_belt",
-				"orbitRadius":7960,
-				"name":"Ring of Despair",
-				"innerBandIndex":1,
-				"outerBandIndex":3,
-			},
 			{
 				"entity":"ring",
 				"type":"rings_ice0",
@@ -354,6 +346,14 @@
 				"name":"Hope's Aura",
 				"bandIndex":3,
 			},
+			{
+				"entity":"asteroid_belt",
+				"orbitRadius":7995,
+				"name":"Ring of Despair",
+				"innerBandIndex":1,
+				"outerBandIndex":3,
+			},
+			{"entity":"jump_point","orbitRadius":8345,"name":"Fringe Jump-point"},
 		],
 	},
 
