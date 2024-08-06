@@ -5,6 +5,7 @@ Version 6.2.2
 * Added "consistent weapon drop" tag to ship variants using Omega weapons in two Silly MagicBounties
 * Other minor MagicBounty fixes
 * Minor text changes
+* Spelling fixes (contributed by Nissa)
 
 
 
