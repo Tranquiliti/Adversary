@@ -11,6 +11,7 @@ public final class AdversaryStrings {
     public static final String SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversaryDynamicDoctrine");
     public static final String SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversaryBlueprintStealing");
     public static final String SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversarySillyBounties");
+    public static final String SETTINGS_ENABLE_SC_SUPPORT_FOR_BOUNTIES = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableSCSupportForBounties");
     public static final String SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversaryPersonalFleet");
 
     // Settings for the Adversary Dynamic Doctrine

@@ -1,3 +1,13 @@
+Version 6.2.3
+
+* Added Second-in-Command mod support for MagicBounties
+  - Added "enableSCSupportForBounties" setting in settings.json
+  - Requires Second-in-Command version 1.1.2 or above to work perfectly (else you'll crash when accepting the bounties)
+  - When enabled, all MagicBounties from this mod now get fixed, custom-made SiC executive officers instead of random ones
+  - Due to the experimental nature, and as SiC is expected to develop rapidly, this support is currently disabled by default
+
+
+
 Version 6.2.2
 
 * Slight adjustments to planetary orbits for the Optimal system (including the newly-added US version)
