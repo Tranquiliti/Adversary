@@ -68,8 +68,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private void setAdversaryRelationship() {
         FactionAPI adversary = Global.getSector().getFaction(FACTION_ADVERSARY);
         for (FactionAPI faction : Global.getSector().getAllFactions())
-            adversary.setRelationship(faction.getId(), -100f);
-        adversary.setRelationship(FACTION_ADVERSARY, 100f);
+            adversary.setRelationship(faction.getId(), -1f);
+        adversary.setRelationship(FACTION_ADVERSARY, 1f);
         adversary.setRelationship(Factions.NEUTRAL, 0f);
     }
 

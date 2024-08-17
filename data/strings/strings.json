@@ -8,6 +8,7 @@
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
+		"settings_enableSCSupportForBounties":"enableSCSupportForBounties",
 		"settings_enableAdversaryPersonalFleet":"enableAdversaryPersonalFleet",
 
 		# Settings for the Adversary Dynamic Doctrine
