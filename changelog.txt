@@ -1,3 +1,28 @@
+Version 6.3.0
+
+* Adjusted Optimal system
+  - Adjusted the orbits and orbital positions for most orbiting entities in the system
+  - Optimal Gate now located further away from the center
+  - All High Commands now have SP improvements (from only the Gas Giant)
+  - Gas Giant: Heavy Batteries now has an SP improvement
+  - Toxic planet: Megaport now uses a Gamma Core (from Alpha Core)
+  - Barren planet: Replaced Fullerene Spool with a Hypershunt Tap; its Megaport now has an SP improvement
+  - Jungle planet: Removed Fullerene Spool and Combat Drone Replicator; its Megaport now has an SP improvement
+  - Adjusted planetary conditions for the Unknown Skies version
+* Added an optional Adversary custom star system in customStarSystems.json
+  - Requires both Unknown Skies and Industrial.Evolution to successfully enable with no issues
+  - Essentially a balanced version of the Paradiso system
+  - Contains most vanilla and Industrial.Evolution special items, as well as the [REDACTED] ruined buildings
+* Changed "enableSCSupportForBounties" setting to "enableAdversarySCSupport"
+  - Added the corresponding LunaSetting; still disabled by default
+  - Changed SiC skills for many MagicBounties
+* Adversary CC scout fleet no longer spawns with non-phase civilian ships
+* Fixed Mutual Tenacity stability tooltip showing the doubled bonus despite already being doubled
+  - Actual bonus still unchanged; this just aligns it with the vanilla tooltip for the boosted Luddic Majority condition
+* Some code refactors
+
+
+
 Version 6.2.3
 
 * Added Second-in-Command mod support for MagicBounties

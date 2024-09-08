@@ -16,6 +16,7 @@ import org.lwjgl.util.vector.Vector2f;
 import org.magiclib.bounty.ActiveBounty;
 import org.magiclib.bounty.MagicBountyCoordinator;
 import org.magiclib.campaign.MagicFleetBuilder;
+import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
 import second_in_command.SCData;
 import second_in_command.SCUtils;
 import second_in_command.specs.SCOfficer;
@@ -23,6 +24,7 @@ import second_in_command.specs.SCOfficer;
 import java.util.*;
 
 import static org.tranquility.adversary.AdversaryStrings.*;
+import static org.tranquility.adversary.AdversaryUtil.LUNALIB_ENABLED;
 
 @SuppressWarnings({"unused", "unchecked"})
 public class AdversaryBountyScript extends BaseCommandPlugin {
@@ -42,340 +44,91 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             return true;
         }
 
-        switch (bountyId) {
-            case "adversary_TT_Wolfpack": {
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
+        JSONObject officerData;
+        try {
+            officerData = Global.getSettings().loadJSON("data/config/modFiles/magicBounty_officers.json", MOD_ID_ADVERSARY).optJSONObject(bountyId);
+        } catch (Exception e) {
+            officerData = null;
+        }
 
-                setSecondInCommand(bountyId, faction, bounty);
+        // Yes, the code and configs are all over the place; no, this will not get any better unless
+        // MagicLib has native support for custom officers on bounty fleets
+        switch (bountyId) {
+            case "adversary_TT_Wolfpack":
+            case "adversary_PL_Cruiser":
+            case "adversary_LC_Carrier":
+            case "adversary_Independent_Phase": {
+                setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Officer Management and Cybernetic Augmentation
                     member.setCaptain(null);
-                    if (member.getHullId().equals("hyperion")) {
-                        PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
-                        person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
-                        person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                        person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                        person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
-                        person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
-                        person.getStats().setSkipRefresh(false);
-                    }
+
+                    setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_LP_Heretics": {
-                FactionAPI faction = Global.getSector().getFaction(Factions.LUDDIC_PATH);
-
-                setSecondInCommand(bountyId, faction, bounty);
+                setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.LUDDIC_PATH), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Cybernetic Augmentation
                     member.setCaptain(null);
-                    if (member.getHullId().equals("prometheus2")) {
-                        PersonAPI person = createOfficer(faction, 5, Personalities.RECKLESS, member);
-                        person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 2);
-                        person.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
-                        person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
-                        person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 1);
-                        person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
-                        person.getStats().setSkipRefresh(false);
-                    }
+
+                    setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_Pirates_Derelict": {
+                setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
+
                 byte atlasCount = 0;
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
-
-                setSecondInCommand(bountyId, faction, bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Cybernetic Augmentation
                     member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "atlas2": {
-                            if (atlasCount == 3) break;
-                            atlasCount++;
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "falcon_p": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
+
+                    if (member.getHullId().equals("atlas2")) {
+                        if (atlasCount == 3) break;
+                        else atlasCount++;
                     }
+                    setOfficers(officerData, member);
                 }
                 break;
             }
-            case "adversary_Hegemony_Armored": {
-                FactionAPI faction = Global.getSector().getFaction(Factions.HEGEMONY);
-
-                setSecondInCommand(bountyId, faction, bounty);
-
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Officer Training, Officer Management, and Cybernetic Augmentation
-                    member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "dominator_xiv": {
-                            PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
-                            person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 1);
-                            person.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "onslaught_xiv": {
-                            PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
-                            person.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 1);
-                            person.getStats().setSkillLevel(Skills.DAMAGE_CONTROL, 1);
-                            person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-            case "adversary_PL_Cruiser": {
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
-
-                setSecondInCommand(bountyId, faction, bounty);
+            case "adversary_Hegemony_Armored":
+            case "adversary_Kite_Swarm": {
+                setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.HEGEMONY), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Officer Management and Cybernetic Augmentation
                     member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "gryphon": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "champion": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 1);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "pegasus": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                            person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-            case "adversary_LC_Carrier": {
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
 
-                setSecondInCommand(bountyId, faction, bounty);
-
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume no fleet-wide officer skills
-                    member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "eradicator": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "retribution": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.AGGRESSIVE, member);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 1);
-                            person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-            case "adversary_Independent_Phase": {
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
-
-                setSecondInCommand(bountyId, faction, bounty);
-
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Officer Training and Cybernetic Augmentation
-                    member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "doom": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                            person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "apogee": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.STEADY, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
+                    setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_SD_Beam": {
-                FactionAPI faction = Global.getSector().getFaction(Factions.LIONS_GUARD);
-
-                setSecondInCommand(bountyId, faction, bounty);
+                setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.LIONS_GUARD), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume Officer Management and Cybernetic Augmentation
-                    member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "eagle_LG": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "sunder_LG": {
-                            PersonAPI person = createOfficer(faction, 5, Personalities.CAUTIOUS, member);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 1);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 1);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
-                }
-                break;
-            }
-            case "adversary_Kite_Swarm": {
-                FactionAPI faction = Global.getSector().getFaction(Factions.HEGEMONY);
-
-                setSecondInCommand(bountyId, faction, bounty);
-
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume everything, because this is a silly bounty, and it should stay that way
                     member.setCaptain(null);
 
-                    // It's literally just Kites; don't need to check ship type
-                    PersonAPI person = createOfficer(faction, 3, Personalities.STEADY, member);
-                    person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
-                    person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 2);
-                    person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                    person.getStats().setSkipRefresh(false);
+                    setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_Ziggurat_Plus": {
-                FactionAPI faction = Global.getSector().getFaction(Factions.TRITACHYON);
-
-                setSecondInCommand(bountyId, faction, bounty);
+                setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.TRITACHYON), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume sleeper officers (a lot of them)
                     member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "scarab": {
-                            PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                            person.getStats().setSkillLevel(Skills.POINT_DEFENSE, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 2);
-                            person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 1);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "medusa": {
-                            PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 1);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 2);
-                            person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "aurora": {
-                            PersonAPI person = createOfficer(faction, 7, Personalities.AGGRESSIVE, member);
-                            person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                            person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkillLevel(Skills.GUNNERY_IMPLANTS, 1);
-                            person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
-                            person.getStats().setSkillLevel(Skills.ORDNANCE_EXPERTISE, 2);
-                            person.getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
+
+                    setOfficers(officerData, member);
+                    if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
+                        member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                 }
                 break;
             }
@@ -385,8 +138,6 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
-
-                    // No need to replace officers since every ship in an Omega fleet gets an Omega core regardless
                 }
                 break;
             }
@@ -476,62 +227,27 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 break;
             }
             case "adversary_Derelict_Operations": {
-                AICoreOfficerPluginImpl aiPlugin = new AICoreOfficerPluginImpl();
-
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.DERELICT), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume integrated Alpha Cores with custom skills
                     member.setCaptain(null);
-                    switch (member.getHullId()) {
-                        case "rampart": {
-                            PersonAPI person = aiPlugin.createPerson(Commodities.ALPHA_CORE, Factions.DERELICT, null);
-                            member.setCaptain(person);
-                            person.getStats().setSkipRefresh(true);
-                            person.getStats().setLevel(8);
-                            person.getStats().setSkillLevel(Skills.BALLISTIC_MASTERY, 2);
-                            person.getStats().setSkillLevel(Skills.POLARIZED_ARMOR, 2);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 0);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                        case "sentry": {
-                            PersonAPI person = aiPlugin.createPerson(Commodities.ALPHA_CORE, Factions.DERELICT, null);
-                            member.setCaptain(person);
-                            person.getStats().setSkipRefresh(true);
-                            person.getStats().setLevel(8);
-                            person.getStats().setSkillLevel(Skills.MISSILE_SPECIALIZATION, 2);
-                            person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
-                            person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 0);
-                            person.getStats().setSkipRefresh(false);
-                            break;
-                        }
-                    }
+
+                    setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_TT_Wolfpack_Plus": {
-                bounty.getCaptain().getStats().setSkillLevel(Skills.SUPPORT_DOCTRINE, 0);
-                FactionAPI faction = Global.getSector().getFaction(FACTION_ADVERSARY);
-
-                setSecondInCommand(bountyId, faction, bounty);
+                setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    // Assume custom mercenary officers (gained by reassigning skills away from Officer Training and Cybernetic Augmentation)
                     member.setCaptain(null);
-                    if (member.getHullId().equals("hyperion")) {
-                        PersonAPI person = createOfficer(faction, 6, Personalities.RECKLESS, member);
-                        person.getStats().setSkillLevel(Skills.HELMSMANSHIP, 1);
-                        person.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 1);
-                        person.getStats().setSkillLevel(Skills.TARGET_ANALYSIS, 1);
-                        person.getStats().setSkillLevel(Skills.FIELD_MODULATION, 2);
-                        person.getStats().setSkillLevel(Skills.SYSTEMS_EXPERTISE, 2);
-                        person.getStats().setSkillLevel(Skills.ENERGY_WEAPON_MASTERY, 2);
-                        person.getStats().setSkipRefresh(false);
-                    }
+
+                    setOfficers(officerData, member);
                 }
+
+                bounty.getCaptain().getStats().setSkillLevel(Skills.SUPPORT_DOCTRINE, 0);
                 Misc.makeHostile(bounty.getFleet());
                 break;
             }
@@ -546,6 +262,37 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         }
 
         return true;
+    }
+
+    // Sets officers using a JSON config
+    // Thanks to wispborne for the suggested format; this is currently a watered-down version for personal use
+    private void setOfficers(JSONObject bountyConfig, FleetMemberAPI member) {
+        if (bountyConfig == null) return;
+
+        JSONObject officerConfig = bountyConfig.optJSONObject(member.getHullId());
+        if (officerConfig == null) return;
+
+        PersonAPI person;
+        String officerFaction = officerConfig.optString("officer_faction", Factions.NEUTRAL);
+        int level = officerConfig.optInt("officer_level", 1);
+        String aiCoreId = officerConfig.optString("officer_aiCoreId", null);
+        if (aiCoreId != null) {
+            // The AI core plugin also sets up officer skills depending on AI core, so make sure to account for that
+            person = new AICoreOfficerPluginImpl().createPerson(aiCoreId, officerFaction, null);
+            person.getStats().setSkipRefresh(true);
+            person.getStats().setLevel(level);
+            member.setCaptain(person);
+        } else {
+            String personality = officerConfig.optString("officer_personality", Personalities.STEADY);
+            person = createOfficer(Global.getSector().getFaction(officerFaction), level, personality, member);
+        }
+
+        JSONObject skills = officerConfig.optJSONObject("officer_skills");
+        for (Iterator<String> iterator = skills.keys(); iterator.hasNext(); ) {
+            String skillId = iterator.next();
+            person.getStats().setSkillLevel(skillId, skills.optInt(skillId, 1));
+        }
+        person.getStats().setSkipRefresh(false);
     }
 
     // Creates a human officer with no skills
@@ -635,16 +382,22 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         return picked.getStar().isBlackHole() ? picked.getStar() : picked.getSecondary().isBlackHole() ? picked.getSecondary() : picked.getTertiary().isBlackHole() ? picked.getTertiary() : picked.getStar();
     }
 
-    // Gives a bounty fleet fixed executive officers from the Second-in-Command mod
+    // Gives a bounty fleet pre-configured executive officers from the Second-in-Command mod
     private void setSecondInCommand(String bountyId, FactionAPI faction, ActiveBounty bounty) {
-        if (!Global.getSettings().getModManager().isModEnabled("second_in_command") || !Global.getSettings().getBoolean(SETTINGS_ENABLE_SC_SUPPORT_FOR_BOUNTIES))
-            return;
+        if (!Global.getSettings().getModManager().isModEnabled("second_in_command")) return;
 
-        SCData scData = SCUtils.getFleetData(bounty.getFleet());
+        boolean enableSC;
+        if (LUNALIB_ENABLED)
+            enableSC = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES));
+        else enableSC = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT);
+
+        if (!enableSC) return;
+
         try {
             JSONObject bountyJSON = Global.getSettings().loadJSON("data/config/secondInCommand/scBountySkills.json", MOD_ID_ADVERSARY).optJSONObject(bountyId);
             if (bountyJSON == null) return;
 
+            SCData scData = SCUtils.getFleetData(bounty.getFleet());
             int currentSlot = 0;
             for (Iterator<String> it = bountyJSON.keys(); it.hasNext(); ) {
                 String aptitudeId = it.next();
@@ -660,7 +413,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 currentSlot++;
             }
         } catch (Exception e) {
-            throw new RuntimeException("ERROR: Something went wrong setting the Second-in-Command skills for Adversary bounty! Please contact the Adversary mod author about this!");
+            throw new RuntimeException("ERROR: Something went wrong setting the Second-in-Command skills for Adversary bounty! Disable the Second-in-Command bounty support in settings.json or LunaSettings, and contact the Adversary mod author about this!\n");
         }
     }
 }

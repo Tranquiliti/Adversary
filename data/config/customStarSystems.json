@@ -1,5 +1,6 @@
 # Contains Adversary-related custom star systems
 # Toggle "isEnabled" to enable/disable individual star systems when making a new game
+# Consult Customizable Star System's "referenceStarSystem.json" if making significant changes
 
 {
 	"adversary_optimal":{
@@ -43,7 +44,7 @@
 			{
 				"entity":"planet",
 				"type":"gas_giant",
-				"orbitRadius":5195,
+				"orbitRadius":4895,
 				"radius":250,
 				"conditions":["hot","high_gravity","volatiles_plentiful"],
 				"marketSize":6,
@@ -53,7 +54,7 @@
 					["population","gamma_core","orbital_fusion_lamp",false],
 					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core",,false],
+					["heavybatteries","alpha_core",,true],
 					["highcommand","alpha_core","cryoarithmetic_engine",true],
 					["starfortress","alpha_core",,false],
 					["mining","gamma_core","plasma_dynamo",false],
@@ -64,7 +65,7 @@
 			{
 				"entity":"planet",
 				"type":"toxic",
-				"orbitRadius":625,
+				"orbitRadius":525,
 				"focus":4,
 				"radius":75,
 				"conditions":[
@@ -77,10 +78,10 @@
 				"aiCoreAdmin":true,
 				"industries":[
 					["population","gamma_core",,false],
-					["megaport","alpha_core","fullerene_spool",false],
+					["megaport","gamma_core","fullerene_spool",false],
 					["waystation","gamma_core",,false],
 					["heavybatteries","gamma_core",,false],
-					["highcommand","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress_mid","alpha_core",,false],
 					["mining","gamma_core","mantle_bore",false],
 					["refining","gamma_core",,false],
@@ -90,7 +91,7 @@
 			{
 				"entity":"planet",
 				"type":"barren-bombarded",
-				"orbitRadius":1060,
+				"orbitRadius":860,
 				"focus":4,
 				"radius":60,
 				"conditions":["no_atmosphere","ore_ultrarich","rare_ore_moderate","volatiles_trace"],
@@ -98,12 +99,12 @@
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
 				"industries":[
-					["population","alpha_core",,false],
-					["megaport","alpha_core","fullerene_spool",false],
+					["population","alpha_core","coronal_portal",false],
+					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
 					["heavybatteries","alpha_core","drone_replicator",false],
 					["planetaryshield","alpha_core",,false],
-					["highcommand","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress_high","alpha_core",,false],
 					["orbitalworks","alpha_core","pristine_nanoforge",false],
 					["refining","gamma_core","catalytic_core",false],
@@ -113,7 +114,7 @@
 			{
 				"entity":"planet",
 				"type":"jungle",
-				"orbitRadius":6765,
+				"orbitRadius":6265,
 				"radius":130,
 				"conditions":[
 					"habitable","hot","mild_climate",
@@ -125,10 +126,10 @@
 				"aiCoreAdmin":true,
 				"industries":[
 					["population","gamma_core",,true],
-					["megaport","alpha_core","fullerene_spool",false],
+					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core","drone_replicator",false],
-					["highcommand","alpha_core",,false],
+					["heavybatteries","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress","alpha_core",,true],
 					["farming","gamma_core","soil_nanites",false],
 					["lightindustry","gamma_core","biofactory_embryo",false],
@@ -138,48 +139,44 @@
 			{
 				"entity":"planet",
 				"type":"water",
-				"orbitRadius":7345,
+				"orbitRadius":6845,
 				"radius":130,
 				"conditions":[
-					"habitable",
-					"mild_climate",
-					"water_surface",
-					"ore_ultrarich",
-					"rare_ore_moderate",
-					"volatiles_diffuse",
-					"organics_plentiful",
-					"ruins_widespread",
-					"pollution",
+					"habitable","mild_climate","water_surface",
+					"ore_ultrarich","rare_ore_moderate",
+					"volatiles_diffuse","organics_plentiful",
+					"ruins_widespread","pollution",
 				],
 			},
-			{"entity":"comm_relay","focus":[4,3],"name":"Optimal Relay","factionId":"adversary"},
-			{"entity":"inactive_gate","focus":[4,4],"name":"Optimal Gate"},
+			{"entity":"comm_relay","focus":[4,4],"name":"Optimal Relay","factionId":"adversary"},
 			{"entity":"jump_point","focus":[4,5],"name":"Inner System Jump-point"},
 			{"entity":"nav_buoy","focus":[7,4],"name":"Optimal Navigation Buoy","factionId":"adversary"},
 			{"entity":"sensor_array","focus":[7,5],"name":"Optimal Listening Station","factionId":"adversary"},
 			{
 				"entity":"ring",
 				"type":"rings_ice0",
-				"orbitRadius":300,
+				"orbitRadius":250,
 				"focus":8,
 				"name":"Hope's Aura",
 				"bandIndex":3,
 			},
 			{
 				"entity":"asteroid_belt",
-				"orbitRadius":7995,
+				"orbitRadius":7425,
 				"name":"Ring of Despair",
 				"innerBandIndex":1,
 				"outerBandIndex":3,
 			},
-			{"entity":"jump_point","orbitRadius":8345,"name":"Fringe Jump-point"},
+			{"entity":"jump_point","orbitRadius":7725,"name":"Fringe Jump-point"},
+			{"entity":"inactive_gate","orbitRadius":8025,"name":"Optimal Gate"},
 		],
 	},
 
 
-	# Optimal system, but with Unknown Skies features
+
+	# Optimal system, but with Unknown Skies features and some slight condition changes
 	#
-	# By default, requires the Unknown Skies mod
+	# By default, requires the Unknown Skies (by Tartiflette, JamesTripleQ)
 	"adversary_optimal_US":{
 		"isEnabled":false, # Set this to true to enable
 		"isCoreWorldSystem":true,
@@ -221,7 +218,7 @@
 			{
 				"entity":"planet",
 				"type":"US_gas_giantB",
-				"orbitRadius":5195,
+				"orbitRadius":4895,
 				"radius":250,
 				"conditions":["US_floating","hot","high_gravity","volatiles_plentiful"],
 				"marketSize":6,
@@ -231,7 +228,7 @@
 					["population","gamma_core","orbital_fusion_lamp",false],
 					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core",,false],
+					["heavybatteries","alpha_core",,true],
 					["highcommand","alpha_core","cryoarithmetic_engine",true],
 					["starfortress","alpha_core",,false],
 					["mining","gamma_core","plasma_dynamo",false],
@@ -242,7 +239,7 @@
 			{
 				"entity":"planet",
 				"type":"US_green",
-				"orbitRadius":625,
+				"orbitRadius":525,
 				"focus":4,
 				"radius":75,
 				"conditions":[
@@ -256,10 +253,10 @@
 				"aiCoreAdmin":true,
 				"industries":[
 					["population","gamma_core",,false],
-					["megaport","alpha_core","fullerene_spool",false],
+					["megaport","gamma_core","fullerene_spool",false],
 					["waystation","gamma_core",,false],
 					["heavybatteries","gamma_core",,false],
-					["highcommand","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress_mid","alpha_core",,false],
 					["mining","gamma_core","mantle_bore",false],
 					["refining","gamma_core",,false],
@@ -269,20 +266,20 @@
 			{
 				"entity":"planet",
 				"type":"US_barrenF",
-				"orbitRadius":1060,
+				"orbitRadius":860,
 				"focus":4,
 				"radius":60,
-				"conditions":["US_crash","no_atmosphere","ore_ultrarich","rare_ore_moderate","volatiles_trace"],
+				"conditions":["US_tunnels","no_atmosphere","ore_rich","rare_ore_moderate","volatiles_trace"],
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
 				"industries":[
-					["population","alpha_core",,false],
-					["megaport","alpha_core","fullerene_spool",false],
+					["population","alpha_core","coronal_portal",false],
+					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
 					["heavybatteries","alpha_core","drone_replicator",false],
 					["planetaryshield","alpha_core",,false],
-					["highcommand","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress_high","alpha_core",,false],
 					["orbitalworks","alpha_core","pristine_nanoforge",false],
 					["refining","gamma_core","catalytic_core",false],
@@ -292,23 +289,23 @@
 			{
 				"entity":"planet",
 				"type":"US_jungle",
-				"orbitRadius":6765,
+				"orbitRadius":6265,
 				"radius":130,
 				"conditions":[
-					"US_religious",
+					"US_elevator",
 					"habitable","hot","mild_climate",
 					"ore_ultrarich","organics_plentiful",
-					"farmland_bountiful","ruins_vast","solar_array",
+					"farmland_bountiful","ruins_widespread","solar_array",
 				],
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
 				"industries":[
 					["population","gamma_core",,true],
-					["megaport","alpha_core","fullerene_spool",false],
+					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core","drone_replicator",false],
-					["highcommand","alpha_core",,false],
+					["heavybatteries","alpha_core",,false],
+					["highcommand","alpha_core",,true],
 					["starfortress","alpha_core",,true],
 					["farming","gamma_core","soil_nanites",false],
 					["lightindustry","gamma_core","biofactory_embryo",false],
@@ -318,49 +315,247 @@
 			{
 				"entity":"planet",
 				"type":"US_water",
-				"orbitRadius":7345,
+				"orbitRadius":6845,
 				"radius":130,
 				"conditions":[
 					"US_religious",
-					"habitable",
-					"mild_climate",
-					"water_surface",
-					"ore_ultrarich",
-					"rare_ore_moderate",
-					"volatiles_diffuse",
-					"organics_plentiful",
-					"ruins_widespread",
-					"pollution",
+					"habitable","mild_climate","water_surface",
+					"ore_ultrarich","rare_ore_moderate",
+					"volatiles_diffuse","organics_plentiful",
+					"ruins_vast","pollution",
 				],
 			},
-			{"entity":"comm_relay","focus":[4,3],"name":"Optimal Relay","factionId":"adversary"},
-			{"entity":"inactive_gate","focus":[4,4],"name":"Optimal Gate"},
+			{"entity":"comm_relay","focus":[4,4],"name":"Optimal Relay","factionId":"adversary"},
 			{"entity":"jump_point","focus":[4,5],"name":"Inner System Jump-point"},
 			{"entity":"nav_buoy","focus":[7,4],"name":"Optimal Navigation Buoy","factionId":"adversary"},
 			{"entity":"sensor_array","focus":[7,5],"name":"Optimal Listening Station","factionId":"adversary"},
 			{
 				"entity":"ring",
 				"type":"rings_ice0",
-				"orbitRadius":300,
+				"orbitRadius":250,
 				"focus":8,
 				"name":"Hope's Aura",
 				"bandIndex":3,
 			},
 			{
 				"entity":"asteroid_belt",
-				"orbitRadius":7995,
+				"orbitRadius":7425,
 				"name":"Ring of Despair",
 				"innerBandIndex":1,
 				"outerBandIndex":3,
 			},
-			{"entity":"jump_point","orbitRadius":8345,"name":"Fringe Jump-point"},
+			{"entity":"jump_point","orbitRadius":7725,"name":"Fringe Jump-point"},
+			{"entity":"inactive_gate","orbitRadius":8025,"name":"Optimal Gate"},
 		],
 	},
 
 
-	# A modded, nigh-impenetrable fortress system, occupied by the Adversary
-	# 
-	# By default, requires both Unknown Skies (by Tartiflette) 
+
+	# A more impervious star system occupied by the Adversary, with
+	# frequent Adversary raiders spawning via a Privateer Base.
+	#
+	# By default, requires both Unknown Skies (by Tartiflette, JamesTripleQ)
+	# and Industrial.Evolution (by SirHartley)
+	#
+	# Using this without Unknown Skies: Replace or remove anything containing "US_"
+	# Using this without Industrial.Evolution: Remove any entries containing "IndEvo_"
+	"adversary_opportunity":{
+		"isEnabled":false, # Set this to true to enable
+		"setLocation":1,
+		"isCoreWorldSystem":true,
+		"addCoronalHypershunt":false,
+		"addDomainCryosleeper":false,
+		"hasSystemwideNebula":true,
+		"systemBackground":"US_background133n.jpg",
+		"entities":[
+			{
+				"entity":"star",
+				"name":"New Opportunity",
+				"type":"US_star_blue_giant",
+				"radius":1100,
+				"coronaRadius":825,
+				"flareChance":0.0
+			},
+			{"entity":"inactive_gate","orbitRadius":2075},
+			{
+				"entity":"planet",
+				"name":"New Opportunity I",
+				"type":"US_gas_giantB",
+				"orbitRadius":3795,
+				"radius":250,
+				"conditions":[
+					"US_floating",
+					"hot",
+					"high_gravity",
+					"volatiles_plentiful"
+				],
+				"marketSize":6,
+				"factionId":"adversary",
+				"aiCoreAdmin":true,
+				"industries":[
+					["population","gamma_core","orbital_fusion_lamp",true],
+					["megaport","alpha_core",,true],
+					["waystation","gamma_core"],
+					["heavybatteries","alpha_core","drone_replicator",true],
+					["starfortress_mid","alpha_core",,true],
+					["IndEvo_Artillery_railgun",,,true],
+					"IndEvo_IntArray",
+					"IndEvo_Academy",
+					["IndEvo_AdInfra",,"IndEvo_log_core"],
+					["highcommand","alpha_core","cryoarithmetic_engine",true],
+					["IndEvo_pirateHaven","alpha_core"],
+					["mining","gamma_core","plasma_dynamo"]
+				]
+			},
+			{
+				"entity":"planet",
+				"name":"New Opportunity I-A",
+				"type":"US_waterHycean",
+				"orbitRadius":525,
+				"focus":2,
+				"radius":75,
+				"conditions":[
+					"US_religious",
+					"ruins_vast",
+					"water_surface",
+					"ore_rich",
+					"rare_ore_rich",
+					"volatiles_plentiful",
+					"organics_abundant"
+				],
+				"marketSize":6,
+				"factionId":"adversary",
+				"aiCoreAdmin":true,
+				"industries":[
+					["population","gamma_core","coronal_portal"],
+					["megaport","alpha_core"],
+					["waystation","gamma_core"],
+					"heavybatteries",
+					"planetaryshield",
+					["starfortress","alpha_core"],
+					"IndEvo_IntArray",
+					"IndEvo_HullDecon",
+					["mining","gamma_core","mantle_bore"],
+					["highcommand","alpha_core","IndEvo_transmitter",true],
+					["IndEvo_AdManuf",,"IndEvo_vpc_supply_fuel"],
+					["aquaculture","gamma_core"]
+				]
+			},
+			{
+				"entity":"planet",
+				"name":"New Opportunity I-B",
+				"type":"US_continent",
+				"orbitRadius":865,
+				"focus":2,
+				"radius":65,
+				"conditions":[
+					"US_elevator",
+					"ruins_widespread",
+					"habitable",
+					"mild_climate",
+					"ore_ultrarich",
+					"organics_plentiful",
+					"farmland_bountiful"
+				],
+				"marketMemoryKeys":{
+					"$IndEvo_LabBonusCommodityID":true,
+					"$IndEvo_LabBonusCommodityID_1":"organs",
+					"$IndEvo_LabBonusCommodityID_2":"drugs",
+					"$IndEvo_LabBonusCommodityID_3":"food"
+				},
+				"marketSize":6,
+				"factionId":"adversary",
+				"aiCoreAdmin":true,
+				"industries":[
+					["population","gamma_core",,true],
+					["megaport","alpha_core"],
+					["heavybatteries","alpha_core"],
+					"planetaryshield",
+					["starfortress","alpha_core",,true],
+					"IndEvo_IntArray",
+					"IndEvo_ResLab",
+					["IndEvo_senate",,"IndEvo_neurals"],
+					["farming",,"soil_nanites"],
+					["lightindustry",,"biofactory_embryo"],
+					["commerce",,"dealmaker_holosuite"],
+					["IndEvo_SupCom",,"IndEvo_simulator"]
+				]
+			},
+			{
+				"entity":"planet",
+				"name":"New Opportunity I-C",
+				"type":"US_barrenF",
+				"orbitRadius":1190,
+				"focus":2,
+				"radius":60,
+				"conditions":[
+					"US_tunnels",
+					"no_atmosphere",
+					"ore_rich",
+					"rare_ore_moderate",
+					"volatiles_trace"
+				],
+				"marketSize":6,
+				"factionId":"adversary",
+				"aiCoreAdmin":true,
+				"industries":[
+					["population","gamma_core",,true],
+					["megaport","alpha_core","fullerene_spool"],
+					["heavybatteries","alpha_core",,true],
+					"planetaryshield",
+					["starfortress_high","alpha_core",,true],
+					"IndEvo_IntArray",
+					"IndEvo_HullForge",
+					["refining","gamma_core","catalytic_core"],
+					["fuelprod","gamma_core","synchrotron"],
+					["IndEvo_AdManuf",,"IndEvo_vpc_marines_hand_weapons"]
+				]
+			},
+			{
+				"entity":"planet",
+				"name":"The Bunker",
+				"type":"irradiated",
+				"orbitRadius":1510,
+				"focus":2,
+				"radius":60,
+				"conditions":[
+					"US_base",
+					"ruins_vast",
+					"irradiated",
+					"ore_ultrarich",
+					"rare_ore_ultrarich"
+				],
+				"marketSize":6,
+				"factionId":"adversary",
+				"aiCoreAdmin":true,
+				"industries":[
+					["population","gamma_core"],
+					["megaport","alpha_core",,true],
+					["waystation","gamma_core"],
+					["heavybatteries","alpha_core",,true],
+					["planetaryshield","alpha_core",,true],
+					["starfortress_high","alpha_core",,true],
+					"IndEvo_IntArray",
+					["orbitalworks",,"pristine_nanoforge"],
+					["IndEvo_ScrapYard","alpha_core"],
+					["mining","gamma_core"],
+					["lightindustry","gamma_core"]
+				]
+			},
+			{"entity":"sensor_array","focus":[2,4],"factionId":"adversary"},
+			{"entity":"jump_point","focus":[2,5],"name":"Inner System Jump-point"},
+			{"entity":"jump_point","orbitRadius":5515,"name":"Fringe Jump-point"},
+			{"entity":"comm_relay","orbitRadius":5665,"factionId":"adversary"},
+			{"entity":"nav_buoy","orbitRadius":5815,"factionId":"adversary"}
+		]
+	},
+
+
+
+	# An unimaginable fortress system, occupied by the Adversary
+	# Now comes with more planets, all Artillery station types, minefields everywhere and two Privateer Bases!
+	#
+	# By default, requires both Unknown Skies (by Tartiflette, JamesTripleQ)
 	# and Industrial.Evolution (by SirHartley)
 	# No warranty provided; ENABLE AT YOUR OWN RISK
 	#
@@ -368,7 +563,7 @@
 	# Using this without Industrial.Evolution: Remove any entries containing "IndEvo_"
 	"adversary_paradiso":{
 		"isEnabled":false, # Set this to true to enable
-		"setLocation":2,
+		"setLocation":1,
 		"isCoreWorldSystem":true,
 		"addCoronalHypershunt":true,
 		"addDomainCryosleeper":false,
@@ -684,4 +879,7 @@
 			},
 		],
 	},
+
+
+
 }
