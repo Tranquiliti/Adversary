@@ -127,6 +127,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     member.setCaptain(null);
 
                     setOfficers(officerData, member);
+                    if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
+                        member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                 }
                 break;
             }
