@@ -113,6 +113,8 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
         Vector2f loc = system.getLocation();
 
         m.createQualityFleet(difficulty, FACTION_ADVERSARY, loc);
+        m.triggerSetFleetCompositionNoSupportShips();
+        m.triggerAddShips("revenant_Elite", "phantom_Elite");
         m.triggerSetFleetDoctrineComp(0, 0, 5);
         m.triggerFleetSetAvoidPlayerSlowly();
         m.triggerSetFleetType(FleetTypes.MERC_SCOUT);

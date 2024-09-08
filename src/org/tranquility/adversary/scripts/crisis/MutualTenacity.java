@@ -27,7 +27,7 @@ public class MutualTenacity extends BaseMarketConditionPlugin {
         super.createTooltipAfterDescription(tooltip, expanded);
 
         float opad = 10f;
-        tooltip.addPara("%s stability", opad, Misc.getHighlightColor(), "+" + (int) getBonus());
+        tooltip.addPara("%s stability", opad, Misc.getHighlightColor(), "+" + (int) STABILITY_BONUS);
 
         if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack())
             tooltip.addPara("The bonus is doubled due to the inhabitants " + market.getOnOrAt() + " " + market.getName() + " feeling empowered by the outcome of the Adversary conflict.", opad, Misc.getPositiveHighlightColor(), "doubled");
