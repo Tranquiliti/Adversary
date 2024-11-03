@@ -88,7 +88,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     member.setCaptain(null);
 
                     if (member.getHullId().equals("atlas2")) {
-                        if (atlasCount == 3) break;
+                        if (atlasCount == 3) continue;
                         else atlasCount++;
                     }
                     setOfficers(officerData, member);
@@ -295,7 +295,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         person.getStats().setSkipRefresh(false);
     }
 
-    // Creates a human officer with no skills
+    // Creates a human officer with no skills and assigns the officer to a ship member
     private PersonAPI createOfficer(FactionAPI faction, int level, String personality, FleetMemberAPI member) {
         PersonAPI person = faction.createRandomPerson();
         person.getStats().setSkipRefresh(true);
@@ -350,7 +350,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 count = 5;
                 break;
         }
-        HashMap<String, Integer> escorts = new HashMap<>(1);
+        HashMap<String, Integer> escorts = new HashMap<>(2);
         escorts.put(escortVariant, count);
         return escorts;
     }

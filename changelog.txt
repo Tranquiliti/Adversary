@@ -1,3 +1,13 @@
+Version 6.3.1
+
+* Added basic Ashes of the Domain: Question of Loyalty mod support
+  - Mainly just setting rank/points thresholds similar to the major vanilla factions; no special ranks yet
+* Fixed Pirate bounty not correctly configuring its officers
+* "enableAdversarySCSupport" is now enabled by default
+* Changed some SiC skills for some MagicBounties
+
+
+
 Version 6.3.0
 
 * Adjusted Optimal system
