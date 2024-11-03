@@ -10,6 +10,7 @@ import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 
+// TODO: move this to the org.tranquility.adversary.hullmods folder if doing save-breaking update
 public class CHM_adversary extends BaseHullMod {
     private static final float DEGRADE_REDUCTION_PERCENT = 33f;
 
@@ -20,7 +21,7 @@ public class CHM_adversary extends BaseHullMod {
 
     @Override
     public String getDescriptionParam(int index, HullSize hullSize) {
-        if (index == 0) return "" + (int) DEGRADE_REDUCTION_PERCENT + "%";
+        if (index == 0) return (int) DEGRADE_REDUCTION_PERCENT + "%";
         return null;
     }
 
