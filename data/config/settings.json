@@ -22,7 +22,7 @@
 
 	# Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers.
 	# Requires the Second-in-Command mod to work; does nothing otherwise
-	"enableAdversarySCSupport":false,
+	"enableAdversarySCSupport":true,
 
 	# Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
