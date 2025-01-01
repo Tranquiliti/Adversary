@@ -1,0 +1,5 @@
+faction_id,ranks,rank_threshold,iconMap,maxPoints,commisionPlugin,tags
+# id of faction,"# HERE SPECIFY rank ids from aotd_rank_data.csv, seperator for each rank is  "",""","# map of points needed for rank , order it ascending and it should look like this: 
+rank1:400,rank2:600,rank3:700","# map of icons displayed for each stage , if left unchecked it will show faction crest (NOTE IT MUST BE ID UNDER CATEGORY ""Aotd ranks"" specify that in your settings.json under ""graphics"" , example :
+rank1:icon_id_1,rank2:icon_id_2,rank3:icon_id_3",,"# Here you can specify your own plugin , it must extend AoTDCommIntelPlugin, if its not specified it will use default plugin with data specified in spec !",
+adversary,"mercenary,auxiliary,commander,admiral,planetary_governor,system_governor,grand_moff","mercenary:0,auxiliary:250,commander:500,admiral:750,planetary_governor:850,system_governor:1200,grand_moff:1700",,2000,,
