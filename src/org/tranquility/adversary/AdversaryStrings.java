@@ -19,6 +19,7 @@ public final class AdversaryStrings {
     public static final String SETTINGS_ADVERSARY_POSSIBLE_DOCTRINES = Global.getSettings().getString(STRINGS_CATEGORY, "settings_adversaryPossibleDoctrines");
     public static final String SETTINGS_WEIGHT = Global.getSettings().getString(STRINGS_CATEGORY, "settings_weight");
     public static final String SETTINGS_FLEET_COMPOSITION = Global.getSettings().getString(STRINGS_CATEGORY, "settings_fleetComposition");
+    public static final String SETTINGS_OFFICER_SKILLS = Global.getSettings().getString(STRINGS_CATEGORY, "settings_officerSkills");
     public static final String SETTINGS_AGGRESSION = Global.getSettings().getString(STRINGS_CATEGORY, "settings_aggression");
     public static final String SETTINGS_PRIORITY_SHIPS = Global.getSettings().getString(STRINGS_CATEGORY, "settings_priorityShips");
     public static final String SETTINGS_PRIORITY_WEAPONS = Global.getSettings().getString(STRINGS_CATEGORY, "settings_priorityWeapons");

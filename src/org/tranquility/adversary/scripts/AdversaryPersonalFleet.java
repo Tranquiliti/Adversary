@@ -13,7 +13,7 @@ import com.fs.starfarer.api.impl.campaign.missions.hub.MissionFleetAutoDespawn;
 import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryPersonalFleet extends PersonalFleetScript {
-    protected final String marketId; // TODO: change access modifier to private if doing save-breaking update
+    private final String marketId;
 
     public AdversaryPersonalFleet(String marketId) {
         super(PERSON_ID_ADVERSARY_PERSONAL_COMMANDER);

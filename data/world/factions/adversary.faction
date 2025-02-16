@@ -17,14 +17,14 @@
 	"crest":"graphics/factions/adversary_crest.png",
 	"shipNamePrefix":"ADS",
 	"shipNameSources":{
-		"SPACE":1,
+		"SPACE":1
 	},
 	"names":{
 		"old english":1,
 		"modern":1,
 		"world":1,
 		"future":1,
-		"myth":1,
+		"myth":1
 	},
 	"portraits":{
 		"standard_male":[
@@ -165,7 +165,7 @@
 			"graphics/portraits/portrait_diktat11.png",
 			"graphics/portraits/portrait_diktat13.png",
 			"graphics/portraits/portrait_diktat15.png",
-		],
+		]
 	},
 	"variantOverrides":{},
 	"shipsWhenImporting":{
@@ -192,7 +192,7 @@
 			"vanguard_pirates",
 			"venture_p",
 			"atlas2",
-		],
+		]
 	},
 	"knownShips":{
 		"tags":[],
@@ -312,11 +312,11 @@
 			"venture_pather",
 			"wolf_d_pirates",
 			"wolf_hegemony",
-		],
+		]
 	},
 	"priorityShips":{
 		"tags":[],
-		"hulls":[],
+		"hulls":[]
 	},
 	"knownFighters":{
 		"tags":[],
@@ -341,11 +341,11 @@
 			"longbow_wing",
 			#
 			"mining_drone_wing",
-		],
+		]
 	},
 	"priorityFighters":{
 		"tags":[],
-		"fighters":[],
+		"fighters":[]
 	},
 	"knownWeapons":{
 		"tags":[],
@@ -398,6 +398,8 @@
 			#
 			"harpoonpod",
 			"dragon",
+			"gorgonpod",
+			"gazerpod",
 			"breachpod",
 			"sabotpod",
 			"salamanderpod",
@@ -440,11 +442,11 @@
 			"autopulse",
 			"guardian",
 			"tachyonlance",
-		],
+		]
 	},
 	"priorityWeapons":{
 		"tags":[],
-		"weapons":[],
+		"weapons":[]
 	},
 	"knownHullMods":{
 		"tags":[],
@@ -523,12 +525,17 @@
 		"autofitRandomizeProbability":0,
 		"strictComposition":true, # warships/carriers/phase at 1 will be treated as 0, also no random factor
 
-		"commanderSkillsShuffleProbability":0.0,
+		"officerSkillsShuffleProbability":0,
+		"officerSkills":[
+			"combat_endurance"
+		],
+
+		"commanderSkillsShuffleProbability":0,
 		"commanderSkills":[
 			"support_doctrine",
 			"crew_training",
-			"best_of_the_best",
-		],
+			"cybernetic_augmentation"
+		]
 	},
 	#"shipRoles":{},
 	"illegalCommodities":[],
@@ -546,18 +553,18 @@
 		"LOW":{
 			"spacer":5,
 			"soldier":5,
-			"villain":5,
+			"villain":5
 		},
 		"MEDIUM":{
 			"spacer":5,
 			"soldier":10,
-			"villain":10,
+			"villain":10
 		},
 		"HIGH":{
 			"spacer":1,
 			"soldier":5,
-			"villain":20,
-		},
+			"villain":20
+		}
 	},	
 	"custom":{
 		"engageWhenEvenStrength":true,
@@ -577,6 +584,6 @@
 			"vsFreePort":false,
 			"canBombard":false,
 			"territorial":true,
-		},
-	},
+		}
+	}
 }

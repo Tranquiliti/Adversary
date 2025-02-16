@@ -26,7 +26,7 @@ $voice == soldier",$entity.ignorePlayerCommRequests = true 1,"""Hostile $shipOrF
 greetingAdversaryHostileWeakerVillian,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength < 0
-$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""We are but a cog in the grand machinery of the Project. You may take down one cog, but you cannot dismantle the entire machine. The Project shall live on, with or without us.""",cutCommLink:Cut the comm link,
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""We are but a cog in the grand machinery of the Project. You may take down one cog, but the machinery of the Project shall live on, with or without us.""",cutCommLink:Cut the comm link,
 greetingAdversaryHostileWeakerDefiantSpacer,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength < 0
@@ -71,7 +71,7 @@ FireAll PopulateOptions","""You have been scanned and identified, outsider. If I
 greetingAdversaryNeutralVillian,OpenCommLink,"$faction.id == adversary
 $faction.neutralToPlayer
 $voice == villian","$menuState = fleetConvMain 0
-FireAll PopulateOptions","The Adversary $personRank looks at you with disgust, ""Ugh, an outsider. Please consider moving away from us by at least a few light-years. Our duties are worth far more than your... mild $shipOrFleet.""",,
+FireAll PopulateOptions","The Adversary $personRank looks at you with disgust, ""Ugh, an outsider. Please consider moving away from us by at least a few light-years. Our duties are worth far more than your... middling $shipOrFleet.""",,
 ,,,,,,
 # relationship level descriptions,,,,,,
 relLevelCooperativeAdversary,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
@@ -100,7 +100,7 @@ $player.numColonies == 0
 $player.fleetPoints >= 120",FireAll RelLevelMoreDescription,"To the Adversary, you are just one of the many beasts attempting to take down the grand and mighty bulwark of their glorious Project. Adversary commanders will be more than obliged to obliterate your $shipOrFleet into nothingness - as they have always done against their foes for decades and will continue to do so for an eternity.",,
 relLevelVengefulAdversaryPlanet,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
-$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to wipe out both your $shipOrFleet and your fledgling empire - as their foes had once attempted against the then-newly-born polity.",,
+$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to wipe out both your $shipOrFleet and your fledgling empire - as their foes had once attempted against the once-newly-born polity.",,
 relLevelAdversaryPKRival,RelLevelMoreDescription,"$faction.id == adversary
 $player.turnedInPlanetkiller == true",,Adversary informants have taken notice of you turning in a planetkiller to a rival faction.,,
 ,,,,,,
@@ -169,7 +169,7 @@ adversaryConfrontCrisisAskedWhy,DialogOptionSelected,$option == adversaryCrisis_
 
 The $post continues, ""Obviously, our humble Project would take interest in such a fine piece of work. If you or the other... factions,"" $heOrShe uses the word almost as an insult directed to you, ""were to repurpose this budding flower into a hand-crafted poison, fit to slay a dragon, how would we know it will not be used against us?""
 
-""Let me speak more plainly: how will we know your colonies are not staging grounds made to burn down the last utopia on this Ludd-forsaken Sector? If we cannot find a satisfying answer to such a question ourselves, then we may consider... forcing that answer out and cutting it down to its roots."" You are quite certain the $heOrShe wasn't suggesting a peaceful resolution to the Adversary's self-imposed conflict against your holdings.",adversaryCrisis_askWhy2:Continue,
+""Let me speak more plainly: how will we know your colonies are not staging grounds made to burn down the last utopia on this Ludd-forsaken Sector? If we cannot find a satisfying answer to such a question ourselves, then we may consider... forcing that answer out and cutting it down to its roots."" You are quite certain that $heOrShe wasn't suggesting a peaceful resolution to the Adversary's self-imposed conflict against your holdings.",adversaryCrisis_askWhy2:Continue,
 adversaryConfrontCrisisAskedWhyCont,DialogOptionSelected,$option == adversaryCrisis_askWhy2,"Highlight ""you mean no harm to us"" ""leave your colonies alone"" ""worthy of our cooperation"" ""take a commission for our cause"" ""a mutual deal""","""However, you, $playerName, may indeed be the solution we hope to seek. If you demonstrate to us that you mean no harm to us, then we shall do the same and leave your colonies alone.""
 
 ""Moreover, if you went above and beyond to prove yourself worthy of our cooperation, or even take a commission for our cause, we could, perhaps, even work out a mutual deal for ourselves, thereby securing the future of our peoples and, thus, the Persean Sector?"" The $post seems quite excited at this particular prospect, despite the uncertainty of your current - or future - allegiance.

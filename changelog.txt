@@ -1,3 +1,19 @@
+Version 6.4.0
+
+* Adversary officers now always generate with at least 1 set skill
+  - All doctrines, including the default/base doctrine, always use Combat Endurance as the 1st skill
+  - Non-default Adversary doctrines will prioritize at least 3 officer skills, tailored towards the doctrine's ship choices
+  - Added "officerSkills" to "adversaryPossibleDoctrines" in settings.json
+* Adjusted the specialized Adversary doctrines:
+  - Much more selective and coherent with ship, weapon, and fighter choices
+  - Now prioritizes larger logistic ships (e.g., Atlas, Prometheus, Revenant, etc.)
+  - Should generally make those doctrines more interesting to face off against while they are active
+* Added Gorgon SRM Pod and Gazer SRM Pod to Adversary's known weapon list (I forgot)
+* Moved Commissioned Crews hullmod code to "org.tranquility.adversary.hullmods"
+  - If you have that mod installed, make sure to remove all CHM hullmods from your fleet before updating!
+
+
+
 Version 6.3.1
 
 * Added basic Ashes of the Domain: Question of Loyalty mod support

@@ -2,7 +2,7 @@ This Starsector mod adds the Adversary, a player-like challenge faction that use
 
 Requires the Customizable Star Systems mod, as it generates this mod's star systems.
 
-Includes Nexerelin, LunaLib, and Commissioned Crew support, as well as several MagicLib bounties.
+Includes Nexerelin, LunaLib, and Commissioned Crews support, as well as several MagicLib bounties.
 
 # Credits
 <b>Starsector Forums</b> - For the helpful modding tutorials and information<br>
