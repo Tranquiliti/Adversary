@@ -51,6 +51,10 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             officerData = null;
         }
 
+        // NOTE: Since Adversary has Officer Training as a commander skill, Adversary bounties will always have it.
+        // It could be removed from the non-Officer Training fleets, but these bounties already have set
+        // officers, and it's not like the +2 command points will do much for the Admiral AI.
+
         // Yes, the code and configs are all over the place; no, this will not get any better unless
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
