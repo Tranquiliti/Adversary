@@ -16,6 +16,7 @@
 		"settings_adversaryPossibleDoctrines":"adversaryPossibleDoctrines",
 		"settings_weight":"weight",
 		"settings_fleetComposition":"fleetComposition",
+		"settings_officerSkills":"officerSkills",
 		"settings_aggression":"aggression",
 		"settings_priorityShips":"priorityShips",
 		"settings_priorityWeapons":"priorityWeapons",
