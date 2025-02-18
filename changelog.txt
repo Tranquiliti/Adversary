@@ -1,3 +1,13 @@
+Version 6.4.1
+
+* Adversary doctrine changes:
+  - Officer quality/ship quality/fleet size distribution is now 5/1/1 (from 3/2/2)
+  - Commander skills changed to Officer Training and Crew Training (from Support Doctrine and Crew Training)
+  - This change should optimize both the Adversary's auto-resolve strength and in-combat strength
+* Minor code refactors
+
+
+
 Version 6.4.0
 
 * Adversary officers now always generate with at least 1 set skill

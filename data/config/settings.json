@@ -64,7 +64,7 @@
 			"aggression":5, # Defaults to 5 if this entry is omitted
 			"priorityShips":[], # Defaults to no priority if this entry is omitted
 			"priorityWeapons":[], # Defaults to no priority if this entry is omitted
-			"priorityFighters":[], # Defaults to no priority if this entry is omitted
+			"priorityFighters":[] # Defaults to no priority if this entry is omitted
 		},
 		{ # High Tech Warships
 			"weight":3,
@@ -72,7 +72,7 @@
 			"officerSkills":["combat_endurance","energy_weapon_mastery","target_analysis","field_modulation","helmsmanship"],
 			"priorityShips":["odyssey","fury","revenant","shrike","phantom","scarab"],
 			"priorityWeapons":["guardian","plasma","heavyblaster","ionbeam","amblaster","irpulse","pdlaser","cyclone","squall","phasecl","sabotpod","reaper","sabot"],
-			"priorityFighters":["xyphos_wing","claw_wing","wasp_wing","longbow_wing"],
+			"priorityFighters":["xyphos_wing","claw_wing","wasp_wing","longbow_wing"]
 		},
 		{ # Midline Warships
 			"weight":3,
@@ -81,7 +81,7 @@
 			"aggression":2,
 			"priorityShips":["pegasus","atlas","starliner","eagle","gemini","phaeton","monitor"],
 			"priorityWeapons":["irautolance","phasebeam","lrpdlaser","cyclone","hurricane","dragonpod","harpoonpod","harpoon","atropos","heavyac","heavymauler","flak","lightac"],
-			"priorityFighters":["sarissa_wing","gladius_wing","wasp_wing","cobra_wing"],
+			"priorityFighters":["sarissa_wing","gladius_wing","wasp_wing","cobra_wing"]
 		},
 		{ # Low Tech Warships
 			"weight":3,
@@ -89,12 +89,12 @@
 			"officerSkills":["combat_endurance","ballistic_mastery","target_analysis","impact_mitigation","gunnery_implants"],
 			"priorityShips":["onslaught","prometheus","eradicator","colossus","enforcer","vanguard"],
 			"priorityWeapons":["phasecl","gorgonpod","annihilatorpod","gorgon","annihilator","hammer","mjolnir","heavyac","heavymauler","flak","railgun","lightag","vulcan"],
-			"priorityFighters":["sarissa_wing","warthog_wing","talon_wing","perdition_wing"],
+			"priorityFighters":["sarissa_wing","warthog_wing","talon_wing","perdition_wing"]
 		},
 		{ # Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"officerSkills":["combat_endurance","target_analysis","gunnery_implants"],
+			"officerSkills":["combat_endurance","target_analysis","gunnery_implants"]
 		},
 		{ # High Tech/Midline Carriers
 			"weight":4,
@@ -103,16 +103,16 @@
 			"aggression":2,
 			"priorityShips":["astral","heron","revenant","starliner","drover","tempest"],
 			"priorityWeapons":["ionbeam","gravitonbeam","lrpdlaser","hydra","gazer","gorgon","heavyac","vulcan"],
-			"priorityFighters":["sarissa_wing","thunder_wing","wasp_wing","trident_wing"],
+			"priorityFighters":["sarissa_wing","thunder_wing","wasp_wing","trident_wing"]
 		},
 		{ # Low Tech Carriers
 			"weight":4,
 			"fleetComposition":[1,5,1],
-			"officerSkills":["combat_endurance","point_defense","missile_specialization","impact_mitigation""helmsmanship",],
+			"officerSkills":["combat_endurance","point_defense","missile_specialization","impact_mitigation","helmsmanship"],
 			"aggression":2,
 			"priorityShips":["legion","prometheus","mora","colossus","condor","shepherd"],
 			"priorityWeapons":["typhoon","jackhammer","salamanderpod","harpoonpod","swarmer","hephag","gauss","railgun","lightneedler","lightag","lightmg"],
-			"priorityFighters":["xyphos_wing","broadsword_wing","talon_wing","piranha_wing"],
+			"priorityFighters":["xyphos_wing","broadsword_wing","talon_wing","piranha_wing"]
 		},
 		{ # Carriers
 			"weight":4,
@@ -125,13 +125,13 @@
 			"officerSkills":["combat_endurance","field_modulation","systems_expertise","target_analysis","impact_mitigation"],
 			"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
 			"priorityWeapons":["ionbeam","ionpulser","phasebeam","amblaster","pdburst","irpulse","typhoon","harpoonpod","gazerpod","gazer","harpoon","railgun","lightneedler","lightag"],
-			"priorityFighters":[],
+			"priorityFighters":[]
 		},
 		{ # Phase Ships
 			"weight":6,
 			"fleetComposition":[1,1,5],
-			"officerSkills":["combat_endurance","field_modulation","systems_expertise"],
-		},
+			"officerSkills":["combat_endurance","field_modulation","systems_expertise"]
+		}
 	],
 
 	#--- Settings for the Adversary's blueprint stealing ---#
@@ -153,5 +153,5 @@
 
 	# Other
 	"designTypeColors":{"Adversary":[255,203,170,255]},
-	"ruleCommandPackages":["org.tranquility.adversary.rulecmd"],
+	"ruleCommandPackages":["org.tranquility.adversary.rulecmd"]
 }

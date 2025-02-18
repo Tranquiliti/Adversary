@@ -293,7 +293,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         params.style = FleetStyle.QUALITY;
 
-        // The fleet size multiplier for an Adversary planet with all fleet size bonuses and no shortages/issues is around 431%
+        // The fleet size multiplier for an Adversary planet with all fleet size bonuses and no shortages/issues is around 383%
         float fleetSizeMult = source.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).computeEffective(0f);
 
         float f = intel.getMarketPresenceFactor(system);

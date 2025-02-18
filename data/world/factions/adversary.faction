@@ -511,9 +511,9 @@
 		"carriers":2,
 		"phaseShips":2,
 
-		"officerQuality":3, # Gives most fast pickets and patrols one more commander skill
-		"shipQuality":2,
-		"numShips":2,
+		"officerQuality":5, # Maximizes effect of Officer Training
+		"shipQuality":1,
+		"numShips":1,
 
 		"shipSize":5,
 
@@ -532,7 +532,7 @@
 
 		"commanderSkillsShuffleProbability":0,
 		"commanderSkills":[
-			"support_doctrine",
+			"officer_training",
 			"crew_training",
 			"cybernetic_augmentation"
 		]
