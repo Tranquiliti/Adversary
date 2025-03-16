@@ -1,6 +1,6 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 0,
     "fluxVents": 20,
     "hullId": "sunder_LG",
     "hullMods": [
@@ -11,8 +11,7 @@
         "erratic_injector",
         "increased_maintenance",
         "targetingunit",
-        "reinforcedhull",
-        "stabilizedshieldemitter"
+        "reinforcedhull"
     ],
     "permaMods": [
         "advancedoptics",

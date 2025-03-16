@@ -13,7 +13,7 @@ import com.fs.starfarer.api.util.Misc;
 import static org.tranquility.adversary.AdversaryStrings.FACTION_ADVERSARY;
 
 public class MutualTenacityScript implements EconomyUpdateListener {
-    public static String KEY = "$adversary_mt_ref";
+    private static final String KEY = "$adversary_mt_ref";
 
     public MutualTenacityScript() {
         sendGainedMessage();
@@ -36,11 +36,8 @@ public class MutualTenacityScript implements EconomyUpdateListener {
 
     @Override
     public void economyUpdated() {
-        for (MarketAPI curr : Misc.getPlayerMarkets(false)) {
-            if (!curr.hasCondition("adversary_mutual_tenacity")) {
-                curr.addCondition("adversary_mutual_tenacity");
-            }
-        }
+        for (MarketAPI curr : Misc.getPlayerMarkets(false))
+            if (!curr.hasCondition("adversary_mutual_tenacity")) curr.addCondition("adversary_mutual_tenacity");
     }
 
     @Override
@@ -82,14 +79,10 @@ public class MutualTenacityScript implements EconomyUpdateListener {
     }
 
     private void cleanup() {
-        if (Global.getSector().getMemoryWithoutUpdate().contains(KEY)) {
-            sendExpiredMessage();
-        }
+        if (Global.getSector().getMemoryWithoutUpdate().contains(KEY)) sendExpiredMessage();
+
         Global.getSector().getMemoryWithoutUpdate().unset(KEY);
-        for (MarketAPI curr : Misc.getPlayerMarkets(false)) {
-            if (curr.hasCondition("adversary_mutual_tenacity")) {
-                curr.removeCondition("adversary_mutual_tenacity");
-            }
-        }
+        for (MarketAPI curr : Misc.getPlayerMarkets(false))
+            if (curr.hasCondition("adversary_mutual_tenacity")) curr.removeCondition("adversary_mutual_tenacity");
     }
 }

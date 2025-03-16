@@ -1,6 +1,6 @@
 {
     "displayName": "Omega",
-    "fluxCapacitors": 3,
+    "fluxCapacitors": 8,
     "fluxVents": 30,
     "hullId": "brilliant",
     "hullMods": [

@@ -5,22 +5,26 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
+import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
+import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
 import org.json.JSONException;
 import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
 import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
 import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
+import org.tranquility.adversary.scripts.AdversaryOptimal;
 import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
 
 import java.util.List;
-import java.util.TreeSet;
 
 import static org.tranquility.adversary.AdversaryStrings.*;
-import static org.tranquility.adversary.AdversaryUtil.LUNALIB_ENABLED;
-import static org.tranquility.adversary.AdversaryUtil.addAdversaryColonyCrisis;
+import static org.tranquility.adversary.AdversaryUtil.*;
 
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
+    // TODO: Add Anubis and other new weapons/ships for the Adversary faction
+    // TODO: set .version and mod_info.json files to 0.98a version when it releases
+    // TODO: If applicable, make use of new Java features, like lambda functions, since 0.98a will use Java 17
     @Override
     public void onApplicationLoad() {
         if (LUNALIB_ENABLED) AdversaryLunaUtil.addSettingsListener();
@@ -35,23 +39,54 @@ public class AdversaryModPlugin extends BaseModPlugin {
         // (HACK: also added this on AdversaryDynamicDoctrine's reportEconomyTick() so crisis can get applied mid-game)
         addAdversaryColonyCrisis();
 
-        if (!newGame) addAdversaryListeners(false);
+        if (!newGame) {
+            addAdversaryListeners(false);
+            if (canSpawnOptimal()) {
+                new AdversaryOptimal();
+                addAdversaryAIAdmins();
+                setAdversaryRelationship();
+                if (canDoPersonalFleet()) addAdversaryPersonalFleet();
+            }
+        }
+    }
+
+    @Override
+    public void onNewGameAfterProcGen() {
+        // Done in this step so people can be added via createInitialPeople() in CoreLifecyclePluginImpl.java
+        if (canSpawnOptimal()) new AdversaryOptimal();
     }
 
     @Override
     public void onNewGameAfterEconomyLoad() {
+        if (Global.getSector().getMemoryWithoutUpdate().contains(MEMKEY_SPAWNED_OPTIMAL))
+            addAdversaryAIAdmins(); // Needs to be done here to prevent createInitialPeople() from overriding AI admin
         setAdversaryRelationship();
         addAdversaryListeners(true);
     }
 
     @Override
     public void onNewGameAfterTimePass() {
-        boolean doPersonalFleet;
-        if (LUNALIB_ENABLED)
-            doPersonalFleet = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET));
-        else doPersonalFleet = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET);
+        if (canDoPersonalFleet()) addAdversaryPersonalFleet();
+    }
 
-        if (doPersonalFleet) addAdversaryPersonalFleet();
+    private boolean canSpawnOptimal() {
+        boolean spawnOptimal;
+        if (LUNALIB_ENABLED)
+            spawnOptimal = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_OPTIMAL));
+        else spawnOptimal = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_OPTIMAL);
+        return spawnOptimal && !Global.getSector().getMemoryWithoutUpdate().contains(MEMKEY_SPAWNED_OPTIMAL);
+    }
+
+    private void addAdversaryAIAdmins() {
+        final AICoreAdminPluginImpl impl = new AICoreAdminPluginImpl();
+        for (MarketAPI market : Global.getSector().getEconomy().getMarkets(Global.getSector().getStarSystem(NAME_STAR_1)))
+            market.setAdmin(impl.createPerson(Commodities.ALPHA_CORE, FACTION_ADVERSARY, 0));
+    }
+
+    private boolean canDoPersonalFleet() {
+        if (LUNALIB_ENABLED)
+            return Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET));
+        return Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET);
     }
 
     private void toggleSillyBounties() {
@@ -132,7 +167,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     }
 
     private void addAdversaryPersonalFleet() {
-        TreeSet<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMarkets();
-        if (!adversaryMarkets.isEmpty()) new AdversaryPersonalFleet(adversaryMarkets.last().getId());
+        List<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMarkets();
+        if (!adversaryMarkets.isEmpty()) new AdversaryPersonalFleet(adversaryMarkets.get(0).getId());
     }
 }

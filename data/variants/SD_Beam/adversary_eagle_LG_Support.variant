@@ -1,6 +1,6 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 5,
+    "fluxCapacitors": 3,
     "fluxVents": 30,
     "hullId": "eagle_LG",
     "hullMods": [
@@ -28,12 +28,11 @@
     "variantId": "adversary_eagle_LG_Support",
     "weaponGroups": [
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "hveldriver",
-                "WS 008": "hveldriver",
-                "WS 013": "hveldriver"
+                "WS 007": "gravitonbeam",
+                "WS 008": "gravitonbeam"
             }
         },
         {
@@ -43,6 +42,11 @@
                 "WS 001": "heatseeker",
                 "WS 002": "heatseeker"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 013": "heavymauler"}
         },
         {
             "autofire": true,

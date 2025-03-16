@@ -1,3 +1,28 @@
+Version 7.0.0 (update for Starsector 0.98a)
+
+* Removed dependency on Customizable Star Systems
+  - The Optimal system generation is now built into the Adversary mod
+  - The system now automatically supports Unknown Skies conditions and Industrial.Evolution industries
+  - The system can spawn mid-game if it does not already exist
+  - The one in the customStarSystems.json will be disabled by default
+  - Added "enableAdversaryOptimal", "enableAdversaryUSOptimal", and "enableAdversaryIndEvoOptimal" settings to settings.json and LunaSettings
+* Optimal Barren planet no longer has a Planetary Shield; its Heavy Batteries have been improved to partially compensate
+* Fixed "enableAdversarySCSupport" option wrongly using the "enableAdversarySillyBounties" value if LunaLib was enabled
+* Replaced Crew Training with Hull Restoration for Adversary commander skills
+* Changes to specialized Adversary doctrines:
+  - Now prioritizes the Hermes, Dram, and Mercury over the larger logistic ships to further bolster auto-resolve strength
+  - Now also prioritizes non-primary ship types (e.g., Low Tech Carrier doctrine now also prioritizes Grendels and Vanguards)
+* Sword of Destruction fleet now made a little more difficult
+* Adversary CC attack changes:
+  - Spawned fleets now focus on using more ships instead of higher-quality ships
+  - Smaller attack fleets now favor using smaller ship classes over larger ones
+  - Reduced reputation gain for defeating the attack
+  - The enraged version is now much, much harder
+* Modified some MagicBounty variants to account for 0.98a balance changes
+* Nexerelin change: Adversary faction no longer has the "Neutralist" trait
+
+
+
 Version 6.4.1
 
 * Adversary doctrine changes:
@@ -56,86 +81,3 @@ Version 6.3.0
 * Fixed Mutual Tenacity stability tooltip showing the doubled bonus despite already being doubled
   - Actual bonus still unchanged; this just aligns it with the vanilla tooltip for the boosted Luddic Majority condition
 * Some code refactors
-
-
-
-Version 6.2.3
-
-* Added Second-in-Command mod support for MagicBounties
-  - Added "enableSCSupportForBounties" setting in settings.json
-  - Requires Second-in-Command version 1.1.2 or above to work perfectly (else you'll crash when accepting the bounties)
-  - When enabled, all MagicBounties from this mod now get fixed, custom-made SiC executive officers instead of random ones
-  - Due to the experimental nature, and as SiC is expected to develop rapidly, this support is currently disabled by default
-
-
-
-Version 6.2.2
-
-* Slight adjustments to planetary orbits for the Optimal system (including the newly-added US version)
-* Significantly reduced the prep time for the enraged Adversary CC attack
-* Added "consistent weapon drop" tag to ship variants using Omega weapons in two Silly MagicBounties
-* Other minor MagicBounty fixes
-* Minor text changes
-* Spelling fixes (contributed by Nissa)
-
-
-
-Version 6.2.1
-
-* Added a new Silly MagicBounty, available after defeating the Tri-Tachyon bounty
-* Adjusted the Tri-Tachyon bounty; should be harder overall
-* Added a new custom star system for the Adversary in customStarSystems.json
-  - Basically the Optimal system, but with Unknown Skies features
-  - Disabled by default; requires the Unknown Skies mod to successfully enable with no issues
-
-
-
-Version 6.2.0
-
-* MagicBounty changes:
-  - Added a new Silly MagicBounty
-  - Adjusted bounty preview visibility for a few MagicBounties
-  - Adjusted bounty rewards for some MagicBounties
-  - Minor text changes
-* Slight adjustments to Adversary crisis:
-  - Can no longer trigger another attack while an existing Adversary attack is already underway
-  - More emphasis on system market presence when choosing a target system to attack
-  - Reduced Independent reputation gain for defeating the Adversary crisis attack
-* Major code refactors
-
-
-
-Version 6.1.2
-
-* Minor fixes for the new MagicBounty
-* Fixed a crash that could occur if at least one of the Adversary's High Command industries did not have an installed AI core
-
-
-
-Version 6.1.1
-
-* Added a new Silly MagicBounty
-* Fixed Adversary CC point contribution for size 7 or higher colonies (now +10 per size 7 or higher colony, from +1)
-* Made Adversary CC factor able to appear in main Colony Crisis intel in the middle of a game session
-  - Was previously only added-in/checked-for upon loading a save with an existing CC intel, and could be temporarily removed if CC intel disappeared (via losing all colonies) and then reappeared within the same game session
-  - Only applies if Adversary Dynamic Doctrine is enabled; else, the previous behavior still applies
-
-
-
-Version 6.1.0 (Not save-compatible with 6.0.0)
-
-* Added a Colony Crisis for the Adversary faction
-  - Will (normally) appear if you are hostile to the Adversary and either have one size 6 colony, or at least 4 colonies with one being at least size 5
-* Adjusted Adversary configs:
-  - Now uses the new 0.97a character portraits
-  - Now knows the Escort Package hullmod, and no longer knows the Neural Link hullmods
-  - Will no longer send punitive expeditions for any reason except Colony Crisis and territorial claims
-* Adjusted some MagicBounty ship variants and commander skills
-* Major code refactoring
-
-
-
-Version 6.0.0 (Update for Starsector 0.97)
-
-* Updated to Starsector 0.97
-* Added Grendel to Adversary's known ship list

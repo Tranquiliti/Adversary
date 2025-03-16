@@ -1,6 +1,6 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 9,
+    "fluxCapacitors": 13,
     "fluxVents": 50,
     "hullId": "guardian",
     "hullMods": [

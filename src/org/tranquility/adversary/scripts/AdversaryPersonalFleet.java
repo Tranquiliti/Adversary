@@ -8,6 +8,7 @@ import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.impl.campaign.fleets.PersonalFleetScript;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
+import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers;
 import com.fs.starfarer.api.impl.campaign.missions.hub.MissionFleetAutoDespawn;
 
 import static org.tranquility.adversary.AdversaryStrings.*;
@@ -54,7 +55,8 @@ public class AdversaryPersonalFleet extends PersonalFleetScript {
         m.beginFleet();
 
         MarketAPI market = Global.getSector().getEconomy().getMarket(marketId);
-        m.createQualityFleet(10, FACTION_ADVERSARY, market.getLocationInHyperspace());
+        m.createQuantityFleet(10, FACTION_ADVERSARY, market.getLocationInHyperspace());
+        m.triggerSetFleetQuality(HubMissionWithTriggers.FleetQuality.SMOD_3);
         m.triggerSetFleetCompositionNoSupportShips();
         m.triggerSetFleetCommander(getPerson());
         m.triggerSetFleetFaction(FACTION_ADVERSARY);

@@ -17,11 +17,11 @@ import java.awt.*;
 import static org.tranquility.adversary.AdversaryStrings.*;
 
 public class AdversaryActivityCause extends BaseHostileActivityCause2 {
-    public static int LARGE_COLONY = 6;
-    public static int MEDIUM_COLONY = 5;
-    public static int COUNT_IF_MEDIUM = 4;
+    private static final int LARGE_COLONY = 6;
+    private static final int MEDIUM_COLONY = 5;
+    private static final int COUNT_IF_MEDIUM = 4;
 
-    public static float MAX_MAG = 0.5f;
+    private static final float MAX_MAG = 0.5f;
 
     public AdversaryActivityCause(HostileActivityEventIntel intel) {
         super(intel);
@@ -59,7 +59,6 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     public int getProgress() {
         if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer())
             return AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack() ? 0 : HostileActivityEventIntel.MAX_PROGRESS;
-
         if (!isThreateningToAdversary()) return 0;
 
         int score = 0;
@@ -94,7 +93,6 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     @Override
     public float getMagnitudeContribution(StarSystemAPI system) {
         if (getProgress() <= 0) return 0f;
-
         return (0.2f + 0.8f * intel.getMarketPresenceFactor(system)) * (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer() ? MAX_MAG * 2f : MAX_MAG);
     }
 

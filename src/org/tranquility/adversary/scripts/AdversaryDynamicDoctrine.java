@@ -51,7 +51,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         elapsedMonths++;
         if (elapsedMonths >= delayInMonths) {
             elapsedMonths = 0;
-            setPriorityDoctrine(priorityDoctrinePicker.pick(factionSeed));
+            pick();
         }
     }
 
@@ -63,6 +63,11 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
     // Refreshes the currently-set doctrine
     public void refresh() {
         setPriorityDoctrine(priorityDoctrinePicker.items.get(priorityDoctrinePicker.items.size() - 1));
+    }
+
+    // Picks a new doctrine
+    public void pick() {
+        setPriorityDoctrine(priorityDoctrinePicker.pick(factionSeed));
     }
 
     // Sets this faction's priority lists to a specific priority doctrine
@@ -101,12 +106,12 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         faction.clearShipRoleCache(); // Required after any direct manipulation of faction ship lists
     }
 
-    private void infoPrioritySet(Logger thisLogger, Set<String> set, String text) {
-        if (set.isEmpty()) thisLogger.info(factionId + " has no priority " + text);
+    private void infoPrioritySet(Logger logger, Set<String> set, String text) {
+        if (set.isEmpty()) logger.info(factionId + " has no priority " + text);
         else {
             StringBuilder contents = new StringBuilder();
             for (String s : set) contents.append(s).append(',');
-            thisLogger.info(factionId + " priority " + text + ": [" + contents.deleteCharAt(contents.length() - 1) + "]");
+            logger.info(factionId + " priority " + text + ": [" + contents.deleteCharAt(contents.length() - 1) + "]");
         }
     }
 
@@ -123,7 +128,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             total += item.weight;
         }
 
-        // Readies the Picker for use; shouldn't add any more elements after calling this function
+        // Readies the Picker for use; should not add any more elements after calling this function
         public void ready(String factionId) {
             if (items.isEmpty())
                 add(new PriorityDoctrine(Global.getSettings().getFactionSpec(factionId).getFactionDoctrine()));

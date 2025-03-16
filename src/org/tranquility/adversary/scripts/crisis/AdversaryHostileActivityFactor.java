@@ -22,7 +22,6 @@ import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI.TooltipCreator;
 import com.fs.starfarer.api.util.Misc;
-import org.lwjgl.util.vector.Vector2f;
 import org.tranquility.adversary.AdversaryUtil;
 
 import java.awt.*;
@@ -102,21 +101,18 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     @Override
     public CampaignFleetAPI createFleet(StarSystemAPI system, Random random) {
         // minimum is 0.66f for this factor due to it requiring some market presence
-        float f = intel.getMarketPresenceFactor(system);
-
-        int difficulty = (int) Math.max(1f, Math.round(f * 4f));
+        int difficulty = (int) Math.max(1f, Math.round(intel.getMarketPresenceFactor(system) * 4f));
         difficulty += random.nextInt(6);
 
         FleetCreatorMission m = new FleetCreatorMission(random);
         m.beginFleet();
 
-        Vector2f loc = system.getLocation();
-
-        m.createQualityFleet(difficulty, FACTION_ADVERSARY, loc);
+        m.createQualityFleet(difficulty, FACTION_ADVERSARY, system.getLocation());
         m.triggerSetFleetCompositionNoSupportShips();
         m.triggerAddShips("revenant_Elite", "revenant_Elite", "phantom_Elite");
         m.triggerSetFleetDoctrineComp(0, 0, 5);
         m.triggerFleetSetAvoidPlayerSlowly();
+        m.triggerRemoveAbilities(Abilities.TRANSPONDER);
         m.triggerSetFleetType(FleetTypes.MERC_SCOUT);
         m.triggerSetPatrol();
         m.triggerMakeNonHostile();
@@ -124,10 +120,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         m.triggerMakeLowRepImpact();
 
-        CampaignFleetAPI fleet = m.createFleet();
-        fleet.removeAbility(Abilities.TRANSPONDER);
-
-        return fleet;
+        return m.createFleet();
     }
 
     @Override
@@ -210,14 +203,14 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     public void reportFGIAborted(FleetGroupIntel intel) {
         setPlayerDefeatedAdversaryAttack();
 
-        Misc.adjustRep(Factions.HEGEMONY, 0.3f, null);
-        Misc.adjustRep(Factions.LUDDIC_CHURCH, 0.3f, null);
-        Misc.adjustRep(Factions.LUDDIC_PATH, 0.15f, null);
-        Misc.adjustRep(Factions.PERSEAN, 0.3f, null);
-        Misc.adjustRep(Factions.DIKTAT, 0.3f, null);
-        Misc.adjustRep(Factions.TRITACHYON, 0.3f, null);
-        Misc.adjustRep(Factions.INDEPENDENT, 0.45f, null);
-        Misc.adjustRep(Factions.PIRATES, 0.15f, null);
+        Misc.adjustRep(Factions.HEGEMONY, 0.2f, null);
+        Misc.adjustRep(Factions.LUDDIC_CHURCH, 0.2f, null);
+        Misc.adjustRep(Factions.LUDDIC_PATH, 0.1f, null);
+        Misc.adjustRep(Factions.PERSEAN, 0.2f, null);
+        Misc.adjustRep(Factions.DIKTAT, 0.2f, null);
+        Misc.adjustRep(Factions.TRITACHYON, 0.2f, null);
+        Misc.adjustRep(Factions.INDEPENDENT, 0.3f, null);
+        Misc.adjustRep(Factions.PIRATES, 0.1f, null);
 
         new MutualTenacityScript();
     }
@@ -263,7 +256,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     }
 
     public MarketAPI pickSourceMarket() {
-        for (MarketAPI market : AdversaryUtil.getAdversaryMarkets().descendingSet()) {
+        for (MarketAPI market : AdversaryUtil.getAdversaryMarkets()) {
             Industry b = market.getIndustry(Industries.HIGHCOMMAND);
             if (b == null) b = market.getIndustry(Industries.MILITARYBASE);
             if (b != null && !b.isDisrupted() && b.isFunctional()) return market;
@@ -272,6 +265,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     }
 
     public boolean startAttack(MarketAPI source, StarSystemAPI system, Random random) {
+        // TODO: double-check this function when 0.98 hits due to bug fix with source quality
         GenericRaidParams params = new GenericRaidParams(new Random(random.nextLong()), true);
 
         params.makeFleetsHostile = true;
@@ -288,10 +282,9 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         params.raidParams.allowedTargets.addAll(Misc.getMarketsInLocation(system, Factions.PLAYER));
 
-        params.raidParams.allowNonHostileTargets = true;
         params.raidParams.setBombardment(MarketCMD.BombardType.SATURATION);
 
-        params.style = FleetStyle.QUALITY;
+        params.style = FleetStyle.QUANTITY;
 
         // The fleet size multiplier for an Adversary planet with all fleet size bonuses and no shortages/issues is around 383%
         float fleetSizeMult = source.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).computeEffective(0f);
@@ -306,9 +299,8 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
 
         if (totalDifficulty > 100 && !wasSatBombed) totalDifficulty = 100;
 
-        totalDifficulty -= 10;
-
         params.fleetSizes.add(10);
+        totalDifficulty -= 10;
 
         while (totalDifficulty > 0) {
             int max = 10;

@@ -8,25 +8,39 @@
 # Instead, use LunaLib's in-game UI configs to modify these.
 
 {
+	# Toggles whether the default Optimal system will spawn when
+	# starting a new game or loading an existing game that does
+	# not already have this Optimal system.
+	# Will also set Adversary relationship to Vengeful whenever this system spawns.
+	"enableAdversaryOptimal":true,
+
+	# Toggles whether the Optimal system will use textures/conditions from
+	# the Unknown Skies mod, if that mod is enabled.
+	"enableAdversaryUSOptimal":true,
+
+	# Toggles whether the Optimal system will use industries from
+	# the Industrial.Evolution mod, if that mod is enabled.
+	"enableAdversaryIndEvoOptimal":true,
+
 	# Allows the Adversary faction to change fleet doctrines after a specified number of months have passed
 	# Can be added to and/or removed from an existing game.
 	"enableAdversaryDynamicDoctrine":true,
 
-	# Allows the Adversary to "borrow" blueprints from specific factions every so often
-	# Can be added to and/or removed from an existing game
+	# Allows the Adversary to "borrow" blueprints from specific factions every so often.
+	# Can be added to and/or removed from an existing game.
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
-	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards
+	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards.
 	# Definitely not for those who value vanilla restraints!
-	# Requires MagicLib to work; does nothing otherwise
+	# Requires MagicLib to work; does nothing otherwise.
 	"enableAdversarySillyBounties":false,
 
 	# Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers.
-	# Requires the Second-in-Command mod to work; does nothing otherwise
+	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 
-	# Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command
+	# Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command.
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
 	"enableAdversaryPersonalFleet":true,
 
@@ -36,14 +50,14 @@
 	# setting "enableAdversaryDynamicDoctrine" to false.  #
 	#-----------------------------------------------------#
 
- 	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month
+ 	# How often, in months, will the Adversary switch doctrines, up to a minimum of every month.
 	"adversaryDynamicDoctrineDelay":6,
 
-	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine
-	# Note: The Adversary won't pick the same doctrine twice in a row, unless they only have one possible doctrine
-	# IDs can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder
+	# A list of possible Adversary doctrines; the first doctrine in this list is considered the default starting doctrine.
+	# The Adversary will not pick the same doctrine twice in a row, unless they only have one possible doctrine.
+	# IDs can be found in the ship_data.csv, wing_data.csv, and weapon_data.csv files, located in the starsector-core/data/hulls or /weapons folder.
 	# WARNING: Make sure to correctly spell the ship, weapon, and fighter IDs, and ensure the IDs are in the Adversary's known ships/weapons/fighters list!
-	# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction
+	# The Adversary's known ships/weapons/fighters list can be found in Adversary/data/world/factions/adversary.faction.
 	"adversaryPossibleDoctrines":[
 		{ # Default doctrine
 			 # The relative chance for this doctrine to be picked
@@ -70,7 +84,7 @@
 			"weight":3,
 			"fleetComposition":[5,1,1],
 			"officerSkills":["combat_endurance","energy_weapon_mastery","target_analysis","field_modulation","helmsmanship"],
-			"priorityShips":["odyssey","fury","revenant","shrike","phantom","scarab"],
+			"priorityShips":["astral","odyssey","fury","harbinger","shrike","scarab","hermes","dram","mercury"],
 			"priorityWeapons":["guardian","plasma","heavyblaster","ionbeam","amblaster","irpulse","pdlaser","cyclone","squall","phasecl","sabotpod","reaper","sabot"],
 			"priorityFighters":["xyphos_wing","claw_wing","wasp_wing","longbow_wing"]
 		},
@@ -79,7 +93,7 @@
 			"fleetComposition":[5,1,1],
 			"officerSkills":["combat_endurance","missile_specialization","target_analysis","field_modulation","point_defense"],
 			"aggression":2,
-			"priorityShips":["pegasus","atlas","starliner","eagle","gemini","phaeton","monitor"],
+			"priorityShips":["pegasus","doom","eagle","heron","gemini","monitor","hermes","dram","mercury"],
 			"priorityWeapons":["irautolance","phasebeam","lrpdlaser","cyclone","hurricane","dragonpod","harpoonpod","harpoon","atropos","heavyac","heavymauler","flak","lightac"],
 			"priorityFighters":["sarissa_wing","gladius_wing","wasp_wing","cobra_wing"]
 		},
@@ -87,7 +101,7 @@
 			"weight":3,
 			"fleetComposition":[5,1,1],
 			"officerSkills":["combat_endurance","ballistic_mastery","target_analysis","impact_mitigation","gunnery_implants"],
-			"priorityShips":["onslaught","prometheus","eradicator","colossus","enforcer","vanguard"],
+			"priorityShips":["onslaught","eradicator","mora","enforcer","vanguard","afflictor_d_pirates","hermes","dram","mercury"],
 			"priorityWeapons":["phasecl","gorgonpod","annihilatorpod","gorgon","annihilator","hammer","mjolnir","heavyac","heavymauler","flak","railgun","lightag","vulcan"],
 			"priorityFighters":["sarissa_wing","warthog_wing","talon_wing","perdition_wing"]
 		},
@@ -101,7 +115,7 @@
 			"fleetComposition":[1,5,1],
 			"officerSkills":["combat_endurance","point_defense","missile_specialization","systems_expertise","helmsmanship"],
 			"aggression":2,
-			"priorityShips":["astral","heron","revenant","starliner","drover","tempest"],
+			"priorityShips":["astral","doom","heron","drover","tempest","hermes","dram","mercury"],
 			"priorityWeapons":["ionbeam","gravitonbeam","lrpdlaser","hydra","gazer","gorgon","heavyac","vulcan"],
 			"priorityFighters":["sarissa_wing","thunder_wing","wasp_wing","trident_wing"]
 		},
@@ -110,7 +124,7 @@
 			"fleetComposition":[1,5,1],
 			"officerSkills":["combat_endurance","point_defense","missile_specialization","impact_mitigation","helmsmanship"],
 			"aggression":2,
-			"priorityShips":["legion","prometheus","mora","colossus","condor","shepherd"],
+			"priorityShips":["legion","mora","grendel","condor","vanguard","shepherd","hermes","dram","mercury"],
 			"priorityWeapons":["typhoon","jackhammer","salamanderpod","harpoonpod","swarmer","hephag","gauss","railgun","lightneedler","lightag","lightmg"],
 			"priorityFighters":["xyphos_wing","broadsword_wing","talon_wing","piranha_wing"]
 		},
@@ -123,9 +137,9 @@
 			"weight":6,
 			"fleetComposition":[1,1,5],
 			"officerSkills":["combat_endurance","field_modulation","systems_expertise","target_analysis","impact_mitigation"],
-			"priorityShips":["doom","revenant","harbinger","phantom","afflictor","shade"],
+			"priorityShips":["astral","doom","harbinger","afflictor","shade","omen","hermes","dram","mercury"],
 			"priorityWeapons":["ionbeam","ionpulser","phasebeam","amblaster","pdburst","irpulse","typhoon","harpoonpod","gazerpod","gazer","harpoon","railgun","lightneedler","lightag"],
-			"priorityFighters":[]
+			"priorityFighters":["xyphos_wing","gladius_wing","wasp_wing","piranha_wing"]
 		},
 		{ # Phase Ships
 			"weight":6,
@@ -140,11 +154,11 @@
 	# setting "enableAdversaryBlueprintStealing" to false.  #
 	#-------------------------------------------------------#
 
- 	# How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month
+ 	# How often, in months, to steal/sync blueprints with the target factions, up to a minimum of every month.
 	"adversaryBlueprintStealingDelay":12,
 
-	# List of factions from which the Adversary will steal blueprints
-	# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder
+	# List of factions from which the Adversary will steal blueprints.
+	# Faction ids are found in the .faction files located in the starsector-core/data/world/factions folder.
 	"adversaryStealsFromFactions":["player"],
 
 

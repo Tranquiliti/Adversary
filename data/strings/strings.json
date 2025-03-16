@@ -3,8 +3,28 @@
 	"adversary":{
 		"mod_id_adversary":"adversary",
 		"faction_id_adversary":"adversary",
+		"optimal_music_id":"music_diktat_market_hostile",
+
+		# Names in the Optimal system
+		"name_star1":"Optimal",
+		"name_star2":"Zenith",
+		"name_star3":"Pinnacle",
+		"name_innerJumpPoint":"Inner System Jump-point",
+		"name_commRelay":"Optimal Relay",
+		"name_navBuoy":"Optimal Navigation Buoy",
+		"name_sensorArray":"Optimal Listening Station",
+		"name_ringBand":"Hope's Aura",
+		"name_asteroidBelt":"Ring of Despair",
+		"name_fringeJumpPoint":"Fringe Jump-point",
+		"name_gate":"Optimal Gate",
+		"name_shade1":"Stellar Shade Omega",
+		"name_shade2":"Stellar Shade Psi",
+		"name_shade3":"Stellar Shade Chi",
 
 		# Settings in settings.json
+		"settings_enableAdversaryOptimal":"enableAdversaryOptimal",
+		"settings_enableAdversaryUSOptimal":"enableAdversaryUSOptimal",
+		"settings_enableAdversaryIndEvoOptimal":"enableAdversaryIndEvoOptimal",
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",

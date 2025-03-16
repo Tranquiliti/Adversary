@@ -1,7 +1,7 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 20,
-    "fluxVents": 3,
+    "fluxVents": 6,
     "hullId": "manticore_luddic_path",
     "hullMods": [
         "missleracks",

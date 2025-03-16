@@ -4,29 +4,30 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.impl.campaign.ids.FleetTypes;
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags;
+import com.fs.starfarer.api.impl.campaign.ids.Skills;
 import com.fs.starfarer.api.impl.campaign.intel.group.GenericRaidFGI;
 import com.fs.starfarer.api.impl.campaign.missions.FleetCreatorMission;
+import com.fs.starfarer.api.impl.campaign.missions.hub.HubMissionWithTriggers;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
 import static org.tranquility.adversary.AdversaryStrings.HA_PUNITIVE_EXPEDITION_BASE_NAME;
 import static org.tranquility.adversary.AdversaryStrings.HA_PUNITIVE_EXPEDITION_NOUN;
+import static org.tranquility.adversary.scripts.crisis.AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer;
 
 public class AdversaryPunitiveExpedition extends GenericRaidFGI {
-    public static final String ADVERSARY_FLEET = "$AdversaryPE_fleet";
-    public static String KEY = "$AdversaryPE_ref";
-    protected IntervalUtil interval = new IntervalUtil(0.1f, 0.3f);
+    private static final String ADVERSARY_FLEET = "$AdversaryPE_fleet";
+    private static final String KEY = "$AdversaryPE_ref";
+    private final IntervalUtil interval = new IntervalUtil(0.1f, 0.3f);
 
     public AdversaryPunitiveExpedition(GenericRaidParams params) {
         super(params);
-
         Global.getSector().getMemoryWithoutUpdate().set(KEY, this);
     }
 
     @Override
     protected void notifyEnding() {
         super.notifyEnding();
-
         Global.getSector().getMemoryWithoutUpdate().unset(KEY);
     }
 
@@ -58,7 +59,12 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
     @Override
     protected void configureFleet(int size, FleetCreatorMission m) {
         m.triggerSetFleetFlag(ADVERSARY_FLEET);
-        if (size >= 8) m.triggerSetFleetDoctrineOther(5, 0); // more capitals in large fleets
+        if (size < 8) m.triggerSetFleetDoctrineOther(1, -1); // more frigates/ships in small fleets
+        if (wasAdversaryEverSatBombardedByPlayer()) { // Die
+            m.triggerSetFleetQuality(HubMissionWithTriggers.FleetQuality.SMOD_3);
+            m.triggerSetFleetOfficers(HubMissionWithTriggers.OfficerNum.ALL_SHIPS, HubMissionWithTriggers.OfficerQuality.HIGHER);
+            m.triggerFleetAddCommanderSkill(Skills.CYBERNETIC_AUGMENTATION, 1);
+        }
     }
 
     @Override
@@ -71,14 +77,9 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
     @Override
     public void advance(float amount) {
         super.advance(amount);
-
         interval.advance(Misc.getDays(amount));
-
-        if (interval.intervalElapsed() && isCurrent(PAYLOAD_ACTION)) {
-            String reason = "AdversaryPunEx";
-            for (CampaignFleetAPI curr : getFleets())
-                Misc.setFlagWithReason(curr.getMemoryWithoutUpdate(), MemFlags.MEMORY_KEY_MAKE_HOSTILE, reason, true, 1f);
-        }
+        if (interval.intervalElapsed() && isCurrent(PAYLOAD_ACTION)) for (CampaignFleetAPI curr : getFleets())
+            Misc.setFlagWithReason(curr.getMemoryWithoutUpdate(), MemFlags.MEMORY_KEY_MAKE_HOSTILE, "AdversaryPunEx", true, 1f);
     }
 
     public static AdversaryPunitiveExpedition get() {

@@ -1,7 +1,7 @@
 {
     "displayName": "Assault",
     "fluxCapacitors": 23,
-    "fluxVents": 23,
+    "fluxVents": 26,
     "hullId": "prometheus2",
     "hullMods": [
         "targetingunit",
