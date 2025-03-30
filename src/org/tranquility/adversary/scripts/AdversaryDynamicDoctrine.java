@@ -15,7 +15,6 @@ import java.util.Random;
 import java.util.Set;
 
 import static org.tranquility.adversary.AdversaryStrings.*;
-import static org.tranquility.adversary.AdversaryUtil.addAdversaryColonyCrisis;
 
 public class AdversaryDynamicDoctrine implements EconomyTickListener {
     private final String factionId;
@@ -43,7 +42,6 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
 
     @Override
     public void reportEconomyTick(int iterIndex) {
-        addAdversaryColonyCrisis(); // HACK: More convenient to add the crisis mid-game using an existing listener
     }
 
     @Override

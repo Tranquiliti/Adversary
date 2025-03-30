@@ -40,9 +40,9 @@
 	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 
-	# Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command.
+	# Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the best High Command.
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
-	"enableAdversaryPersonalFleet":true,
+	"enableAdversarySDF":true,
 
 	#--- Settings for the Adversary's dynamic doctrine ---#
 	# Any changes here do not re-apply to existing saves; #

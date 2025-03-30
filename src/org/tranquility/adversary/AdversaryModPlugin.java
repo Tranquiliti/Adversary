@@ -8,44 +8,35 @@ import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import com.fs.starfarer.api.impl.campaign.AICoreAdminPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.Commodities;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONException;
-import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
-import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
-import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
-import org.tranquility.adversary.scripts.AdversaryOptimal;
-import org.tranquility.adversary.scripts.AdversaryPersonalFleet;
+import org.tranquility.adversary.scripts.*;
+import org.tranquility.adversary.scripts.crisis.AdversaryColonyCrisesSetupListener;
 
 import java.util.List;
 
 import static org.tranquility.adversary.AdversaryStrings.*;
-import static org.tranquility.adversary.AdversaryUtil.*;
+import static org.tranquility.adversary.AdversaryUtil.LUNALIB_ENABLED;
+import static org.tranquility.adversary.AdversaryUtil.MEMKEY_SPAWNED_OPTIMAL;
 
 @SuppressWarnings("unused")
 public class AdversaryModPlugin extends BaseModPlugin {
-    // TODO: Add Anubis and other new weapons/ships for the Adversary faction
-    // TODO: set .version and mod_info.json files to 0.98a version when it releases
-    // TODO: If applicable, make use of new Java features, like lambda functions, since 0.98a will use Java 17
     @Override
     public void onApplicationLoad() {
-        if (LUNALIB_ENABLED) AdversaryLunaUtil.addSettingsListener();
+        if (LUNALIB_ENABLED) LunaSettings.addSettingsListener(new AdversaryLunaSettingsListener());
     }
 
     @Override
     public void onGameLoad(boolean newGame) {
         toggleSillyBounties();
 
-        // Does not immediately apply if Colony Crisis intel gets (re)added mid-game; it only gets added in after a save & load
-        // If the CC intel is removed mid-game (e.g. by losing all colonies), the Adversary crisis gets removed too, leading to the above problem
-        // (HACK: also added this on AdversaryDynamicDoctrine's reportEconomyTick() so crisis can get applied mid-game)
-        addAdversaryColonyCrisis();
-
         if (!newGame) {
             addAdversaryListeners(false);
             if (canSpawnOptimal()) {
-                new AdversaryOptimal();
+                new AdversaryOptimal(true);
                 addAdversaryAIAdmins();
                 setAdversaryRelationship();
-                if (canDoPersonalFleet()) addAdversaryPersonalFleet();
+                if (canDoSDFAdversary()) addAdversarySDF();
             }
         }
     }
@@ -53,7 +44,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     @Override
     public void onNewGameAfterProcGen() {
         // Done in this step so people can be added via createInitialPeople() in CoreLifecyclePluginImpl.java
-        if (canSpawnOptimal()) new AdversaryOptimal();
+        if (canSpawnOptimal()) new AdversaryOptimal(false);
     }
 
     @Override
@@ -66,13 +57,13 @@ public class AdversaryModPlugin extends BaseModPlugin {
 
     @Override
     public void onNewGameAfterTimePass() {
-        if (canDoPersonalFleet()) addAdversaryPersonalFleet();
+        if (canDoSDFAdversary()) addAdversarySDF();
     }
 
     private boolean canSpawnOptimal() {
         boolean spawnOptimal;
         if (LUNALIB_ENABLED)
-            spawnOptimal = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_OPTIMAL));
+            spawnOptimal = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_OPTIMAL));
         else spawnOptimal = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_OPTIMAL);
         return spawnOptimal && !Global.getSector().getMemoryWithoutUpdate().contains(MEMKEY_SPAWNED_OPTIMAL);
     }
@@ -83,16 +74,16 @@ public class AdversaryModPlugin extends BaseModPlugin {
             market.setAdmin(impl.createPerson(Commodities.ALPHA_CORE, FACTION_ADVERSARY, 0));
     }
 
-    private boolean canDoPersonalFleet() {
+    private boolean canDoSDFAdversary() {
         if (LUNALIB_ENABLED)
-            return Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET));
-        return Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET);
+            return Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_SDF_ADVERSARY));
+        return Global.getSettings().getBoolean(SETTINGS_ENABLE_SDF_ADVERSARY);
     }
 
     private void toggleSillyBounties() {
         boolean enableSilliness;
         if (LUNALIB_ENABLED)
-            enableSilliness = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES));
+            enableSilliness = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES));
         else enableSilliness = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES);
 
         if (enableSilliness) Global.getSector().getMemoryWithoutUpdate().set("$adversary_sillyBountiesEnabled", true);
@@ -112,35 +103,39 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private void addAdversaryListeners(boolean newGame) {
         boolean dynaDoctrine, stealBlueprints;
         if (LUNALIB_ENABLED) {
-            dynaDoctrine = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE));
-            stealBlueprints = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING));
+            dynaDoctrine = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE));
+            stealBlueprints = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING));
         } else { // Load from settings.json
             dynaDoctrine = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE);
             stealBlueprints = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING);
         }
 
+        ListenerManagerAPI listenerManager = Global.getSector().getListenerManager();
         if (newGame) { // Called presumably after onNewGameAfterEconomyLoad()
             if (dynaDoctrine) addAdversaryDynamicDoctrine(true);
             if (stealBlueprints) addAdversaryBlueprintStealer(true);
         } else {
-            ListenerManagerAPI listMan = Global.getSector().getListenerManager();
             if (dynaDoctrine) {
-                List<AdversaryDynamicDoctrine> doctrineListeners = listMan.getListeners(AdversaryDynamicDoctrine.class);
+                List<AdversaryDynamicDoctrine> doctrineListeners = listenerManager.getListeners(AdversaryDynamicDoctrine.class);
                 if (doctrineListeners.isEmpty()) addAdversaryDynamicDoctrine(false);
                 else // Refresh needed since restarting Starsector also resets faction doctrines
                     doctrineListeners.get(0).refresh();
-            } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
+            } else listenerManager.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 
-            if (stealBlueprints && listMan.getListeners(AdversaryBlueprintStealer.class).isEmpty())
+            if (stealBlueprints && listenerManager.getListeners(AdversaryBlueprintStealer.class).isEmpty())
                 addAdversaryBlueprintStealer(false);
-            else listMan.removeListenerOfClass(AdversaryBlueprintStealer.class); // Disable blueprint stealer
+            else listenerManager.removeListenerOfClass(AdversaryBlueprintStealer.class); // Disable blueprint stealer
         }
+
+        // Add Colony Crisis listener
+        if (listenerManager.getListeners(AdversaryColonyCrisesSetupListener.class).isEmpty())
+            listenerManager.addListener(new AdversaryColonyCrisesSetupListener());
     }
 
     private void addAdversaryDynamicDoctrine(boolean newGame) {
         Integer doctrineDelay = null;
         if (LUNALIB_ENABLED)
-            doctrineDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
+            doctrineDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
         if (doctrineDelay == null)
             doctrineDelay = Global.getSettings().getInt(SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
 
@@ -155,7 +150,7 @@ public class AdversaryModPlugin extends BaseModPlugin {
     private void addAdversaryBlueprintStealer(boolean newGame) {
         Integer stealDelay = null;
         if (LUNALIB_ENABLED)
-            stealDelay = AdversaryLunaUtil.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
+            stealDelay = LunaSettings.getInt(MOD_ID_ADVERSARY, SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
         if (stealDelay == null) stealDelay = Global.getSettings().getInt(SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
 
         // Starting the time pass immediately calls reportEconomyMonthEnd(), hence the -1 to account for that
@@ -166,8 +161,8 @@ public class AdversaryModPlugin extends BaseModPlugin {
         }
     }
 
-    private void addAdversaryPersonalFleet() {
+    private void addAdversarySDF() {
         List<MarketAPI> adversaryMarkets = AdversaryUtil.getAdversaryMarkets();
-        if (!adversaryMarkets.isEmpty()) new AdversaryPersonalFleet(adversaryMarkets.get(0).getId());
+        if (!adversaryMarkets.isEmpty()) new SDFAdversary(adversaryMarkets.get(0).getId());
     }
 }

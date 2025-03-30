@@ -30,6 +30,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
     @Override
     public TooltipCreator getTooltip() {
         return new BaseFactorTooltip() {
+            @Override
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 if (AdversaryHostileActivityFactor.wasAdversaryEverSatBombardedByPlayer()) {
                     tooltip.addPara(HA_ACTIVITY_CAUSE_ALT_TOOLTIP1, 0f, Misc.getHighlightColor(), "to the absolute maximum");
@@ -65,10 +66,7 @@ public class AdversaryActivityCause extends BaseHostileActivityCause2 {
         for (MarketAPI market : Misc.getPlayerMarkets(false)) {
             int size = market.getSize();
             switch (size) {
-                case 1:
-                case 2:
-                case 3:
-                case 4:
+                case 1, 2, 3, 4:
                     score += 1;
                     break;
                 case 5:

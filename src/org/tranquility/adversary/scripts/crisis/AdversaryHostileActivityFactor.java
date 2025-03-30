@@ -66,6 +66,7 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     @Override
     public TooltipCreator getMainRowTooltip(BaseEventIntel intel) {
         return new BaseFactorTooltip() {
+            @Override
             public void createTooltip(TooltipMakerAPI tooltip, boolean expanded, Object tooltipParam) {
                 float opad = 10f;
                 tooltip.addPara(HA_MAIN_ROW_TOOLTIP1, 0f);
@@ -265,7 +266,6 @@ public class AdversaryHostileActivityFactor extends BaseHostileActivityFactor im
     }
 
     public boolean startAttack(MarketAPI source, StarSystemAPI system, Random random) {
-        // TODO: double-check this function when 0.98 hits due to bug fix with source quality
         GenericRaidParams params = new GenericRaidParams(new Random(random.nextLong()), true);
 
         params.makeFleetsHostile = true;

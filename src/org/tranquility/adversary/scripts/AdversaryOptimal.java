@@ -12,12 +12,13 @@ import com.fs.starfarer.api.impl.campaign.procgen.ProcgenUsedNames;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
+import lunalib.lunaSettings.LunaSettings;
 import org.lwjgl.util.vector.Vector2f;
-import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
 
 import java.awt.*;
 import java.util.HashSet;
 
+import static com.fs.starfarer.api.impl.campaign.CoreLifecyclePluginImpl.createInitialPeople;
 import static org.tranquility.adversary.AdversaryStrings.*;
 import static org.tranquility.adversary.AdversaryUtil.LUNALIB_ENABLED;
 import static org.tranquility.adversary.AdversaryUtil.MEMKEY_SPAWNED_OPTIMAL;
@@ -25,7 +26,7 @@ import static org.tranquility.adversary.AdversaryUtil.MEMKEY_SPAWNED_OPTIMAL;
 public class AdversaryOptimal {
     private final StarSystemAPI system;
 
-    public AdversaryOptimal() {
+    public AdversaryOptimal(boolean initPeople) {
         final String optimalName = NAME_STAR_1;
         system = Global.getSector().createStarSystem(optimalName);
         setLocation();
@@ -33,7 +34,7 @@ public class AdversaryOptimal {
         boolean enableUS = Global.getSettings().getModManager().isModEnabled("US");
         if (enableUS) {
             if (LUNALIB_ENABLED)
-                enableUS = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_US_OPTIMAL));
+                enableUS = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_US_OPTIMAL));
             else enableUS = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_US_OPTIMAL);
             // Key to prevent conditions from being overridden; Unknown Skies defines this tag in US_manualSystemFixer.java
             system.addTag("US_skipSystem");
@@ -65,7 +66,7 @@ public class AdversaryOptimal {
         boolean enableIndEvo = Global.getSettings().getModManager().isModEnabled("IndEvo");
         if (enableIndEvo) {
             if (LUNALIB_ENABLED)
-                enableIndEvo = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_INDEVO_OPTIMAL));
+                enableIndEvo = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_INDEVO_OPTIMAL));
             else enableIndEvo = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_INDEVO_OPTIMAL);
         }
 
@@ -74,7 +75,7 @@ public class AdversaryOptimal {
         PlanetAPI gasGiant = system.addPlanet("adversary_gas_giant", center, gasGiantName, enableUS ? "US_gas_giantB" : Planets.GAS_GIANT, 4f, 250f, 4895f, 217f);
         ProcgenUsedNames.notifyUsed(gasGiantName);
         setAdversaryMarket(gasGiant);
-        setPlanetMarket(gasGiant, enableIndEvo);
+        setPlanetMarket(gasGiant, initPeople, enableIndEvo);
 
         // Comm Relay in L4
         system.addCustomEntity(null, NAME_COMM_RELAY, Entities.COMM_RELAY, FACTION_ADVERSARY).setCircularOrbitPointingDown(center, gasGiant.getCircularOrbitAngle() + 60f, gasGiant.getCircularOrbitRadius(), gasGiant.getCircularOrbitPeriod());
@@ -89,21 +90,21 @@ public class AdversaryOptimal {
         PlanetAPI toxic = system.addPlanet("adversary_toxic", gasGiant, toxicName, enableUS ? "US_green" : "toxic", 13f, 75f, 525f, 23f);
         ProcgenUsedNames.notifyUsed(toxicName);
         setAdversaryMarket(toxic);
-        setPlanetMarket(toxic, enableIndEvo);
+        setPlanetMarket(toxic, initPeople, enableIndEvo);
 
         // Barren World orbiting Gas Giant
         String barrenName = ProcgenUsedNames.pickName(Tags.PLANET, optimalName, null).nameWithRomanSuffixIfAny;
         PlanetAPI barren = system.addPlanet("adversary_barren", gasGiant, barrenName, enableUS ? "US_barrenF" : Planets.BARREN_BOMBARDED, 42f, 60f, 860f, 38f);
         ProcgenUsedNames.notifyUsed(barrenName);
         setAdversaryMarket(barren);
-        setPlanetMarket(barren, enableIndEvo);
+        setPlanetMarket(barren, initPeople, enableIndEvo);
 
         // Jungle World
         String jungleName = ProcgenUsedNames.pickName(Tags.PLANET, optimalName, null).nameWithRomanSuffixIfAny;
         PlanetAPI jungle = system.addPlanet("adversary_jungle", center, jungleName, enableUS ? "US_jungle" : "jungle", 77f, 130f, 6265f, 278f);
         ProcgenUsedNames.notifyUsed(jungleName);
         setAdversaryMarket(jungle);
-        setPlanetMarket(jungle, enableIndEvo);
+        setPlanetMarket(jungle, initPeople, enableIndEvo);
         addSolarShades(jungle);
 
         // Nav Buoy in L4
@@ -273,7 +274,7 @@ public class AdversaryOptimal {
         market.addSubmarket(Submarkets.SUBMARKET_BLACK);
     }
 
-    private void setPlanetMarket(PlanetAPI planet, boolean enableIndEvo) {
+    private void setPlanetMarket(PlanetAPI planet, boolean initPeople, boolean enableIndEvo) {
         MarketAPI market = planet.getMarket();
 
         // Fall-through for US planet types is intended
@@ -398,5 +399,7 @@ public class AdversaryOptimal {
         for (Industry industry : market.getIndustries())
             if (industry.canInstallAICores() && industry.getAICoreId() == null)
                 industry.setAICoreId(Commodities.GAMMA_CORE);
+
+        if (initPeople) createInitialPeople(market, StarSystemGenerator.random);
     }
 }

@@ -32,7 +32,7 @@ public final class AdversaryStrings {
     public static final String SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversaryBlueprintStealing");
     public static final String SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversarySillyBounties");
     public static final String SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversarySCSupport");
-    public static final String SETTINGS_ENABLE_ADVERSARY_PERSONAL_FLEET = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversaryPersonalFleet");
+    public static final String SETTINGS_ENABLE_SDF_ADVERSARY = Global.getSettings().getString(STRINGS_CATEGORY, "settings_enableAdversarySDF");
 
     // Settings for the Adversary Dynamic Doctrine
     public static final String SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY = Global.getSettings().getString(STRINGS_CATEGORY, "settings_adversaryDynamicDoctrineDelay");
@@ -50,8 +50,7 @@ public final class AdversaryStrings {
     public static final String SETTINGS_ADVERSARY_STEALS_FROM_FACTIONS = Global.getSettings().getString(STRINGS_CATEGORY, "settings_adversaryStealsFromFactions");
 
     // Used for Adversary Personal Fleet
-    public static final String PERSON_ID_ADVERSARY_PERSONAL_COMMANDER = Global.getSettings().getString(STRINGS_CATEGORY, "person_id_adversary_personal_commander");
-    public static final String NAME_ADVERSARY_PERSONAL_FLEET = Global.getSettings().getString(STRINGS_CATEGORY, "name_adversary_personal_fleet");
+    public static final String NAME_SDF_ADVERSARY = Global.getSettings().getString(STRINGS_CATEGORY, "name_sdf_adversary");
 
     // Colony Crisis (highlights, and strings in MutualTenacity.java and MutualTenacityScript.java, are still hard-coded)
     public static final String ADVERSARY = Global.getSettings().getString(STRINGS_CATEGORY, "Adversary");

@@ -20,9 +20,7 @@ public class MutualTenacityScript implements EconomyUpdateListener {
 
         // to avoid duplicates
         MutualTenacityScript existing = get();
-        if (existing != null) {
-            return;
-        }
+        if (existing != null) return;
 
         Global.getSector().getEconomy().addUpdateListener(this);
         Global.getSector().getMemoryWithoutUpdate().set(KEY, this);

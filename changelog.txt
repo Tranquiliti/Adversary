@@ -1,5 +1,7 @@
-Version 7.0.0 (update for Starsector 0.98a)
+Version 7.0.0 (Update for Starsector 0.98a)
 
+* Compiled to Java 17
+* Added Anubis to Adversary faction
 * Removed dependency on Customizable Star Systems
   - The Optimal system generation is now built into the Adversary mod
   - The system now automatically supports Unknown Skies conditions and Industrial.Evolution industries
@@ -12,7 +14,9 @@ Version 7.0.0 (update for Starsector 0.98a)
 * Changes to specialized Adversary doctrines:
   - Now prioritizes the Hermes, Dram, and Mercury over the larger logistic ships to further bolster auto-resolve strength
   - Now also prioritizes non-primary ship types (e.g., Low Tech Carrier doctrine now also prioritizes Grendels and Vanguards)
-* Sword of Destruction fleet now made a little more difficult
+* "enableAdversaryPersonalFleet" and related settings renamed to "enableAdversarySDF"
+* Sword of Destruction fleet now made more difficult
+* Now uses ColonyCrisisSetupListener to add the Adversary Colony Crisis
 * Adversary CC attack changes:
   - Spawned fleets now focus on using more ships instead of higher-quality ships
   - Smaller attack fleets now favor using smaller ship classes over larger ones

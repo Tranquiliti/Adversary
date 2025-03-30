@@ -10,13 +10,13 @@ import com.fs.starfarer.api.impl.campaign.AICoreOfficerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
+import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.lwjgl.util.vector.Vector2f;
 import org.magiclib.bounty.ActiveBounty;
 import org.magiclib.bounty.MagicBountyCoordinator;
 import org.magiclib.campaign.MagicFleetBuilder;
-import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
 import second_in_command.SCData;
 import second_in_command.SCUtils;
 import second_in_command.specs.SCOfficer;
@@ -51,14 +51,10 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             officerData = null;
         }
 
-        // TODO: Modify ship variants once 0.98 hits
-
         // Yes, the code and configs are all over the place; no, this will not get any better unless
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
-            case "adversary_TT_Wolfpack":
-            case "adversary_PL_Cruiser":
-            case "adversary_LC_Carrier": {
+            case "adversary_TT_Wolfpack", "adversary_PL_Cruiser", "adversary_LC_Carrier": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
@@ -105,8 +101,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             }
-            case "adversary_Hegemony_Armored":
-            case "adversary_Kite_Swarm": {
+            case "adversary_Hegemony_Armored", "adversary_Kite_Swarm": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.HEGEMONY), bounty);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -145,10 +140,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             }
-            case "adversary_Station_Low_Tech":
-            case "adversary_Station_Midline":
-            case "adversary_Station_High_Tech":
-            case "adversary_Station_Remnant": {
+            case "adversary_Station_Low_Tech", "adversary_Station_Midline", "adversary_Station_High_Tech",
+                 "adversary_Station_Remnant": {
                 CampaignFleetAPI fleet = bounty.getFleet();
                 setSecondInCommand(bountyId, fleet.getFaction(), bounty);
                 fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
@@ -322,25 +315,25 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
     private HashMap<String, Integer> getEscortsForStationBounty(String bountyId) {
         String escortVariant = null;
-        int count = 0;
-        switch (bountyId) {
-            case "adversary_Station_Low_Tech":
+        int count = switch (bountyId) {
+            case "adversary_Station_Low_Tech" -> {
                 escortVariant = "adversary_omen_Fire_Support";
-                count = 10;
-                break;
-            case "adversary_Station_Midline":
+                yield 10;
+            }
+            case "adversary_Station_Midline" -> {
                 escortVariant = "adversary_vanguard_pirates_DIE";
-                count = 25;
-                break;
-            case "adversary_Station_High_Tech":
+                yield 25;
+            }
+            case "adversary_Station_High_Tech" -> {
                 escortVariant = "adversary_vigilance_DEM";
-                count = 5;
-                break;
-            case "adversary_Station_Remnant":
+                yield 5;
+            }
+            case "adversary_Station_Remnant" -> {
                 escortVariant = "adversary_glimmer_Omega";
-                count = 5;
-                break;
-        }
+                yield 5;
+            }
+            default -> 0;
+        };
         HashMap<String, Integer> escorts = new HashMap<>(2);
         escorts.put(escortVariant, count);
         return escorts;
@@ -356,12 +349,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
     private PlanetAPI getClosestBlackHole(LocationAPI location) {
         final Vector2f loc = location.getLocation();
-        TreeSet<StarSystemAPI> systems = new TreeSet<>(new Comparator<LocationAPI>() {
-            @Override
-            public int compare(LocationAPI l1, LocationAPI l2) {
-                if (l1 == l2) return 0;
-                return Float.compare(Misc.getDistance(loc, l1.getLocation()), Misc.getDistance(loc, l2.getLocation()));
-            }
+        TreeSet<StarSystemAPI> systems = new TreeSet<>((Comparator<LocationAPI>) (l1, l2) -> {
+            if (l1 == l2) return 0;
+            return Float.compare(Misc.getDistance(loc, l1.getLocation()), Misc.getDistance(loc, l2.getLocation()));
         });
 
         // Not ideal for every black hole system (including those not proc-genned) to count here, as they might lack an
@@ -379,7 +369,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
         boolean enableSC;
         if (LUNALIB_ENABLED)
-            enableSC = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT));
+            enableSC = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT));
         else enableSC = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT);
 
         if (!enableSC) return;

@@ -15,4 +15,4 @@ adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How ma
 otherHeader,Other Header,Header,Other,,,
 enableAdversarySillyBounties,Enable Silly MagicLib Bounties,Boolean,false,"Allows [ridiculous, vanilla-breaking MagicLib bounties] to spawn in the bounty board. [Not for those who value vanilla restraints!] Requires the [MagicLib] library mod to work.",,
 enableAdversarySCSupport,Enable Second-in-Command Support,Boolean,true,Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers. Requires the [Second-in-Command] mod to work.,,
-enableAdversaryPersonalFleet,Enable Adversary Personal Fleet,Boolean,true,"Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command. [Setting only applies to new games!]",,
+enableAdversarySDF,Enable Adversary System Defense Fleet,Boolean,true,"Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the best High Command. [Setting only applies to new games!]",,

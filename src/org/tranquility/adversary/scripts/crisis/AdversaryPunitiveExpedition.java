@@ -63,8 +63,8 @@ public class AdversaryPunitiveExpedition extends GenericRaidFGI {
         if (wasAdversaryEverSatBombardedByPlayer()) { // Die
             m.triggerSetFleetQuality(HubMissionWithTriggers.FleetQuality.SMOD_3);
             m.triggerSetFleetOfficers(HubMissionWithTriggers.OfficerNum.ALL_SHIPS, HubMissionWithTriggers.OfficerQuality.HIGHER);
-            m.triggerFleetAddCommanderSkill(Skills.CYBERNETIC_AUGMENTATION, 1);
         }
+        m.triggerFleetAddCommanderSkill(Skills.CYBERNETIC_AUGMENTATION, 1);
     }
 
     @Override
