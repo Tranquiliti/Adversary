@@ -10,13 +10,13 @@ import com.fs.starfarer.api.impl.campaign.AICoreOfficerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
+import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.lwjgl.util.vector.Vector2f;
 import org.magiclib.bounty.ActiveBounty;
 import org.magiclib.bounty.MagicBountyCoordinator;
 import org.magiclib.campaign.MagicFleetBuilder;
-import org.tranquility.adversary.lunalib.AdversaryLunaUtil;
 import second_in_command.SCData;
 import second_in_command.SCUtils;
 import second_in_command.specs.SCOfficer;
@@ -51,46 +51,48 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             officerData = null;
         }
 
-        // NOTE: Since Adversary has Officer Training as a commander skill, Adversary bounties will always have it.
-        // It could be removed from the non-Officer Training fleets, but these bounties already have set
-        // officers, and it's not like the +2 command points will do much for the Admiral AI.
-
         // Yes, the code and configs are all over the place; no, this will not get any better unless
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
-            case "adversary_TT_Wolfpack":
-            case "adversary_PL_Cruiser":
-            case "adversary_LC_Carrier":
-            case "adversary_Independent_Phase": {
+            case "adversary_TT_Wolfpack", "adversary_PL_Cruiser", "adversary_LC_Carrier": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
+                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
+                    setOfficers(officerData, member);
+                }
+                break;
+            }
+            case "adversary_Independent_Phase": {
+                setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
+                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    if (member.isFlagship()) continue; // Don't replace the bounty target
+                    member.setCaptain(null);
                     setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_LP_Heretics": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
+                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.LUDDIC_PATH), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_Pirates_Derelict": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
+                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
-
                 byte atlasCount = 0;
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     if (member.getHullId().equals("atlas2")) {
                         if (atlasCount == 3) continue;
                         else atlasCount++;
@@ -99,37 +101,31 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 }
                 break;
             }
-            case "adversary_Hegemony_Armored":
-            case "adversary_Kite_Swarm": {
+            case "adversary_Hegemony_Armored", "adversary_Kite_Swarm": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.HEGEMONY), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_SD_Beam": {
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.LIONS_GUARD), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_Ziggurat_Plus": {
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.TRITACHYON), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                     if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
                         member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
@@ -138,30 +134,23 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             }
             case "adversary_Remnant_Plus_Plus": {
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.OMEGA), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
                 }
                 break;
             }
-            case "adversary_Station_Low_Tech":
-            case "adversary_Station_Midline":
-            case "adversary_Station_High_Tech":
-            case "adversary_Station_Remnant": {
+            case "adversary_Station_Low_Tech", "adversary_Station_Midline", "adversary_Station_High_Tech",
+                 "adversary_Station_Remnant": {
                 CampaignFleetAPI fleet = bounty.getFleet();
-
                 setSecondInCommand(bountyId, fleet.getFaction(), bounty);
-
                 fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
                 fleet.addTag(Tags.NEUTRINO_HIGH);
-
                 fleet.setStationMode(true);
-
                 fleet.clearAbilities();
                 fleet.addAbility(Abilities.TRANSPONDER);
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
@@ -180,11 +169,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.clearAbilities();
                 fleet.addAbility(Abilities.GO_DARK);
                 fleet.getAbility(Abilities.GO_DARK).activate();
-
                 FactionAPI faction = Global.getSector().getFaction(Factions.MERCENARY);
-
                 setSecondInCommand(bountyId, faction, bounty);
-
                 for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
                     ShipVariantAPI variant = member.getVariant();
                     variant.addPermaMod(HullMods.INSULATEDENGINE, true);
@@ -225,33 +211,28 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             break;
                     }
                 }
-
                 teleportFleetToPlanet(fleet, getClosestBlackHole(fleet.getContainingLocation()));
                 Misc.makeHostile(fleet);
                 break;
             }
             case "adversary_Derelict_Operations": {
                 setSecondInCommand(bountyId, Global.getSector().getFaction(Factions.DERELICT), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                 }
                 break;
             }
             case "adversary_TT_Wolfpack_Plus": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
+                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 setSecondInCommand(bountyId, Global.getSector().getFaction(FACTION_ADVERSARY), bounty);
-
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-
                     setOfficers(officerData, member);
                 }
-
-                bounty.getCaptain().getStats().setSkillLevel(Skills.SUPPORT_DOCTRINE, 0);
                 Misc.makeHostile(bounty.getFleet());
                 break;
             }
@@ -261,9 +242,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             }
         }
 
-        for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+        for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy())
             member.getRepairTracker().setCR(member.getRepairTracker().getMaxCR());
-        }
 
         return true;
     }
@@ -335,25 +315,25 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
     private HashMap<String, Integer> getEscortsForStationBounty(String bountyId) {
         String escortVariant = null;
-        int count = 0;
-        switch (bountyId) {
-            case "adversary_Station_Low_Tech":
+        int count = switch (bountyId) {
+            case "adversary_Station_Low_Tech" -> {
                 escortVariant = "adversary_omen_Fire_Support";
-                count = 10;
-                break;
-            case "adversary_Station_Midline":
+                yield 10;
+            }
+            case "adversary_Station_Midline" -> {
                 escortVariant = "adversary_vanguard_pirates_DIE";
-                count = 25;
-                break;
-            case "adversary_Station_High_Tech":
+                yield 25;
+            }
+            case "adversary_Station_High_Tech" -> {
                 escortVariant = "adversary_vigilance_DEM";
-                count = 5;
-                break;
-            case "adversary_Station_Remnant":
+                yield 5;
+            }
+            case "adversary_Station_Remnant" -> {
                 escortVariant = "adversary_glimmer_Omega";
-                count = 5;
-                break;
-        }
+                yield 5;
+            }
+            default -> 0;
+        };
         HashMap<String, Integer> escorts = new HashMap<>(2);
         escorts.put(escortVariant, count);
         return escorts;
@@ -369,12 +349,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
     private PlanetAPI getClosestBlackHole(LocationAPI location) {
         final Vector2f loc = location.getLocation();
-        TreeSet<StarSystemAPI> systems = new TreeSet<>(new Comparator<LocationAPI>() {
-            @Override
-            public int compare(LocationAPI l1, LocationAPI l2) {
-                if (l1 == l2) return 0;
-                return Float.compare(Misc.getDistance(loc, l1.getLocation()), Misc.getDistance(loc, l2.getLocation()));
-            }
+        TreeSet<StarSystemAPI> systems = new TreeSet<>((Comparator<LocationAPI>) (l1, l2) -> {
+            if (l1 == l2) return 0;
+            return Float.compare(Misc.getDistance(loc, l1.getLocation()), Misc.getDistance(loc, l2.getLocation()));
         });
 
         // Not ideal for every black hole system (including those not proc-genned) to count here, as they might lack an
@@ -392,7 +369,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
 
         boolean enableSC;
         if (LUNALIB_ENABLED)
-            enableSC = Boolean.TRUE.equals(AdversaryLunaUtil.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SILLY_BOUNTIES));
+            enableSC = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT));
         else enableSC = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT);
 
         if (!enableSC) return;

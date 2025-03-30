@@ -1,6 +1,6 @@
 {
     "displayName": "Experimental",
-    "fluxCapacitors": 20,
+    "fluxCapacitors": 25,
     "fluxVents": 30,
     "hullId": "aurora",
     "hullMods": [

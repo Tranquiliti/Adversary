@@ -5,11 +5,8 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
 public class MutualTenacity extends BaseMarketConditionPlugin {
-    public static float STABILITY_BONUS = 1f;
-    public static float STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK = 1f;
-
-    public MutualTenacity() {
-    }
+    private static final float STABILITY_BONUS = 1f;
+    private static final float STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK = 1f;
 
     @Override
     public void apply(String id) {
@@ -33,16 +30,7 @@ public class MutualTenacity extends BaseMarketConditionPlugin {
             tooltip.addPara("The bonus is doubled due to the inhabitants " + market.getOnOrAt() + " " + market.getName() + " feeling empowered by the outcome of the Adversary conflict.", opad, Misc.getPositiveHighlightColor(), "doubled");
     }
 
-    @Override
-    public boolean hasCustomTooltip() {
-        return true;
-    }
-
     public static float getBonus() {
-        float bonus = STABILITY_BONUS;
-        if (AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack())
-            bonus += STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK;
-
-        return bonus;
+        return AdversaryHostileActivityFactor.isPlayerDefeatedAdversaryAttack() ? STABILITY_BONUS + STABILITY_BONUS_DEFEATED_ADVERSARY_ATTACK : STABILITY_BONUS;
     }
 }

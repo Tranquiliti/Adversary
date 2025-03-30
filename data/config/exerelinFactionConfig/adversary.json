@@ -6,7 +6,7 @@
 
     "morality":"amoral",
 
-    "diplomacyTraits":["predatory","irredentist","foreverwar","lowprofile","neutralist","helps_allies"],
+    "diplomacyTraits":["predatory","irredentist","foreverwar","lowprofile","helps_allies"],
 
     "difficultyString":"hard",
 
@@ -16,8 +16,8 @@
     "maxColonyDistance":5,        # ...the rock nearby looks nice?
 
     "vengeanceLevelNames":["Retribution","Extermination","Death"],
-    "vengeanceFleetNames":["Retribution Fleet","Extermination Fleet","Death-Fleet"],
-    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Extermination Fleet","a Death-Fleet"],
+    "vengeanceFleetNames":["Retribution Fleet","Extermination Fleet","Death Fleet"],
+    "vengeanceFleetNamesSingle":["a Retribution Fleet","an Extermination Fleet","a Death Fleet"],
 
     "startShipsSolo":[["centurion_Starting"],
       # tutorial start
@@ -34,7 +34,7 @@
     "startShipsCarrierSmall":[["drover_Strike","monitor_Escort","vigilance_AP"]],
     "startShipsCarrierLarge":[["heron_Strike","hammerhead_Balanced","brawler_Elite"]],
     "startShipsSuper":[["hyperion_Attack"]],
-	
+
     "defenceStations":[
         {"ids":["orbitalstation","battlestation","starfortress"]},
         {"ids":["orbitalstation_mid","battlestation_mid","starfortress_mid"]},
@@ -53,7 +53,7 @@
         {"id":"refining","mult":0.1},
         {"id":"fuelprod","mult":0.1}
     ],
-    
+
     "bonusSeeds":[
         {"id":"nanoforge_pristine","count":1},
         {"id":"aiCore_station","count":2,"mult":0.2},

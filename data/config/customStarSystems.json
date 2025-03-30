@@ -4,13 +4,13 @@
 
 {
 	"adversary_optimal":{
-		"isEnabled":true, # Set this to false to disable
-		"isCoreWorldSystem":true,
+		"isEnabled":false, # Set this to true to enable
 		"hasSystemwideNebula":false,
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
 		"setLocation":1,
 		"systemMusic":"music_diktat_market_hostile",
+		"systemTags":["theme_core","theme_core_populated"],
 		"entities":[
 			{
 				"entity":"empty_location",
@@ -102,8 +102,7 @@
 					["population","alpha_core","coronal_portal",false],
 					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core","drone_replicator",false],
-					["planetaryshield","alpha_core",,false],
+					["heavybatteries","alpha_core","drone_replicator",true],
 					["highcommand","alpha_core",,true],
 					["starfortress_high","alpha_core",,false],
 					["orbitalworks","alpha_core","pristine_nanoforge",false],
@@ -179,12 +178,16 @@
 	# By default, requires the Unknown Skies (by Tartiflette, JamesTripleQ)
 	"adversary_optimal_US":{
 		"isEnabled":false, # Set this to true to enable
-		"isCoreWorldSystem":true,
 		"hasSystemwideNebula":false,
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
 		"setLocation":1,
 		"systemMusic":"music_diktat_market_hostile",
+		"systemTags":[
+			"theme_core",
+			"theme_core_populated",
+			"US_skipSystem" # Tag to prevent Unknown Skies scripts from modifying this system
+		],
 		"entities":[
 			{
 				"entity":"empty_location",
@@ -220,7 +223,7 @@
 				"type":"US_gas_giantB",
 				"orbitRadius":4895,
 				"radius":250,
-				"conditions":["US_floating","hot","high_gravity","volatiles_plentiful"],
+				"conditions":["US_floating","ruins_extensive","hot","high_gravity","volatiles_plentiful"],
 				"marketSize":6,
 				"factionId":"adversary",
 				"aiCoreAdmin":true,
@@ -277,8 +280,7 @@
 					["population","alpha_core","coronal_portal",false],
 					["megaport","alpha_core",,true],
 					["waystation","gamma_core",,false],
-					["heavybatteries","alpha_core","drone_replicator",false],
-					["planetaryshield","alpha_core",,false],
+					["heavybatteries","alpha_core","drone_replicator",true],
 					["highcommand","alpha_core",,true],
 					["starfortress_high","alpha_core",,false],
 					["orbitalworks","alpha_core","pristine_nanoforge",false],
@@ -362,11 +364,15 @@
 	"adversary_opportunity":{
 		"isEnabled":false, # Set this to true to enable
 		"setLocation":1,
-		"isCoreWorldSystem":true,
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
 		"hasSystemwideNebula":true,
 		"systemBackground":"US_background133n.jpg",
+		"systemTags":[
+			"theme_core",
+			"theme_core_populated",
+			"US_skipSystem" # Tag to prevent Unknown Skies scripts from modifying this system
+		],
 		"entities":[
 			{
 				"entity":"star",
@@ -385,6 +391,7 @@
 				"radius":250,
 				"conditions":[
 					"US_floating",
+					"IndEvo_ArtilleryStationCondition",
 					"hot",
 					"high_gravity",
 					"volatiles_plentiful"
@@ -564,11 +571,16 @@
 	"adversary_paradiso":{
 		"isEnabled":false, # Set this to true to enable
 		"setLocation":1,
-		"isCoreWorldSystem":true,
 		"addCoronalHypershunt":true,
 		"addDomainCryosleeper":false,
 		"hasSystemwideNebula":true,
 		"systemBackground":"US_background133n.jpg",
+		"systemTags":[
+			"theme_core",
+			"theme_core_populated",
+			"has_coronal_tap",
+			"US_skipSystem" # Tag to prevent Unknown Skies scripts from modifying this system
+		],
 		"entities":[
 			{ # The Cooler Blue Giant
 				"entity":"star",

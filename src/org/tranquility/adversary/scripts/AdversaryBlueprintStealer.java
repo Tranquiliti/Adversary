@@ -42,13 +42,15 @@ public class AdversaryBlueprintStealer implements EconomyTickListener {
 
     // See com.fs.starfarer.api.impl.campaign.DelayedBlueprintLearnScript's doAction() for vanilla implementation
     protected void stealBlueprints(FactionAPI stealer, FactionAPI target) {
-        for (String id : target.getKnownShips())
-            if (!stealer.knowsShip(id)) {
-                stealer.addKnownShip(id, true);
-                stealer.addUseWhenImportingShip(id);
+        for (String shipId : target.getKnownShips())
+            if (!stealer.knowsShip(shipId)) {
+                stealer.addKnownShip(shipId, true);
+                stealer.addUseWhenImportingShip(shipId);
             }
-        for (String id : target.getKnownWeapons()) if (!stealer.knowsWeapon(id)) stealer.addKnownWeapon(id, true);
-        for (String id : target.getKnownFighters()) if (!stealer.knowsFighter(id)) stealer.addKnownFighter(id, true);
+        for (String weaponId : target.getKnownWeapons())
+            if (!stealer.knowsWeapon(weaponId)) stealer.addKnownWeapon(weaponId, true);
+        for (String fighterId : target.getKnownFighters())
+            if (!stealer.knowsFighter(fighterId)) stealer.addKnownFighter(fighterId, true);
         Global.getLogger(AdversaryBlueprintStealer.class).info(factionId + " has stolen blueprints from " + target.getId() + "!");
     }
 }

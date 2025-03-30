@@ -86,12 +86,16 @@
 			"graphics/portraits/portrait_luddic06.png",
 			"graphics/portraits/portrait_luddic09.png",
 			"graphics/portraits/portrait_luddic12.png",
+			"graphics/portraits/portrait_luddic13.png",
+			"graphics/portraits/portrait_luddic15.png",
 			"graphics/portraits/portrait_league01.png",
 			"graphics/portraits/portrait_league02.png",
 			"graphics/portraits/portrait_league03.png",
 			"graphics/portraits/portrait_league06.png",
 			"graphics/portraits/portrait_league07.png",
 			"graphics/portraits/portrait_league09.png",
+			"graphics/portraits/portrait_league11.png",
+			"graphics/portraits/portrait_league13.png",
 			"graphics/portraits/portrait_diktat01.png",
 			"graphics/portraits/portrait_diktat03.png",
 			"graphics/portraits/portrait_diktat04.png",
@@ -116,8 +120,9 @@
 			"graphics/portraits/portrait39.png",
 			"graphics/portraits/portrait41.png",
 			"graphics/portraits/portrait42.png",
-			"graphics/portraits/portrait45.png",
+			"graphics/portraits/portrait45.png",	
 			"graphics/portraits/portrait46.png",
+			"graphics/portraits/portrait49.png",
 			"graphics/portraits/portrait_mercenary02.png",
 			"graphics/portraits/portrait_mercenary05.png",
 			"graphics/portraits/portrait_mercenary07.png",
@@ -131,6 +136,7 @@
 			"graphics/portraits/portrait_pirate17.png",
 			"graphics/portraits/portrait_pirate18.png",
 			"graphics/portraits/portrait_pirate21.png",
+			"graphics/portraits/portrait_pirate22.png",
 			"graphics/portraits/characters/old_spacer01.png",
 			"graphics/portraits/portrait_hegemony03.png",
 			"graphics/portraits/portrait_hegemony04.png",
@@ -151,12 +157,16 @@
 			"graphics/portraits/portrait_league05.png",
 			"graphics/portraits/portrait_league08.png",
 			"graphics/portraits/portrait_league10.png",
+			"graphics/portraits/portrait_league12.png",
+			"graphics/portraits/portrait_league14.png",
 			"graphics/portraits/portrait_luddic01.png",
 			"graphics/portraits/portrait_luddic03.png",
 			"graphics/portraits/portrait_luddic07.png",
 			"graphics/portraits/portrait_luddic08.png",
 			"graphics/portraits/portrait_luddic10.png",
 			"graphics/portraits/portrait_luddic11.png",
+			"graphics/portraits/portrait_luddic14.png",
+			"graphics/portraits/portrait_luddic16.png",
 			"graphics/portraits/portrait_diktat02.png",
 			"graphics/portraits/portrait_diktat05.png",
 			"graphics/portraits/portrait_diktat06.png",
@@ -165,7 +175,8 @@
 			"graphics/portraits/portrait_diktat11.png",
 			"graphics/portraits/portrait_diktat13.png",
 			"graphics/portraits/portrait_diktat15.png",
-		]
+			
+		],
 	},
 	"variantOverrides":{},
 	"shipsWhenImporting":{
@@ -261,6 +272,7 @@
 			"colossus3",
 			"revenant",
 			"fury",
+			"anubis",
 			#
 			"onslaught",
 			"astral",
@@ -519,7 +531,7 @@
 
 		"aggression":5,
 
-		"combatFreighterProbability":1,                   # instead of some portion of the freighters in a fleet
+		"combatFreighterProbability":0,                   # instead of some portion of the freighters in a fleet
 		"combatFreighterCombatUseFraction":0,             # as part of the normal combat lineup
 		"combatFreighterCombatUseFractionWhenPriority":1, # as part of normal combat lineup, when marked as priority ship
 		"autofitRandomizeProbability":0,
@@ -533,7 +545,7 @@
 		"commanderSkillsShuffleProbability":0,
 		"commanderSkills":[
 			"officer_training",
-			"crew_training",
+			"hull_restoration",
 			"cybernetic_augmentation"
 		]
 	},

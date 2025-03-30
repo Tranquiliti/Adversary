@@ -1,13 +1,18 @@
 fieldID,fieldName,fieldType,defaultValue,fieldDescription,minValue,maxValue
+optimalHeader,Optimal Header,Header,Optimal,,,
+enableAdversaryOptimal,Enable Optimal Star System,Boolean,true,Toggles whether the default Optimal system will spawn [when starting a new game or loading an existing game that does not already have this Optimal system].,,
+enableAdversaryUSOptimal,Enable Unknown Skies Support,Boolean,true,Toggles whether the Optimal system will use conditions from the [Unknown Skies] mod, if that mod is enabled.,,
+enableAdversaryIndEvoOptimal,Enable Industrial.Evolution Support,Boolean,true,Toggles whether the Optimal system will use industries from the [Industrial.Evolution] mod, if that mod is enabled.,,
+,,,,,,
 dynamicDoctrineHeader,Dynamic Doctrine Header,Header,Dynamic Doctrine,,,
-enableAdversaryDynamicDoctrine,Enable Adversary Dynamic Doctrine,Boolean,true,"Enables the Adversary to switch fleet composition and doctrines mid-game. The list of possible doctrines can be found and modified via ""adversaryPossibleDoctrines"" in settings.json.",,
+enableAdversaryDynamicDoctrine,Enable Adversary Dynamic Doctrine,Boolean,true,"Enables the Adversary to [switch fleet composition and doctrines mid-game]. The list of possible doctrines can be found and modified via ""adversaryPossibleDoctrines"" in settings.json.",,
 adversaryDynamicDoctrineDelay,Adversary Dynamic Doctrine Delay,Int,6,How many months between each Adversary doctrine change?,1,120
 ,,,,,,
 blueprintStealingHeader,Blueprint Stealing Header,Header,Blueprint Stealing,,,
 enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,false,"Enables the Adversary to steal and use blueprints from certain factions. [Disabling this feature mid-game will not stop the Adversary faction from using already-stolen blueprints.] The targeted factions can be found and modified via ""adversaryStealsFromFactions"" in settings.json.",,
 adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steal attempt?,1,120
 ,,,,,,
-OtherHeader,Other Header,Header,Other,,,
+otherHeader,Other Header,Header,Other,,,
 enableAdversarySillyBounties,Enable Silly MagicLib Bounties,Boolean,false,"Allows [ridiculous, vanilla-breaking MagicLib bounties] to spawn in the bounty board. [Not for those who value vanilla restraints!] Requires the [MagicLib] library mod to work.",,
 enableAdversarySCSupport,Enable Second-in-Command Support,Boolean,true,Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers. Requires the [Second-in-Command] mod to work.,,
-enableAdversaryPersonalFleet,Enable Adversary Personal Fleet,Boolean,true,"Allows a special, respawning Adversary fleet to spawn on an Adversary planet with the best High Command. [Setting only applies to new games!]",,
+enableAdversarySDF,Enable Adversary System Defense Fleet,Boolean,true,"Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the best High Command. [Setting only applies to new games!]",,

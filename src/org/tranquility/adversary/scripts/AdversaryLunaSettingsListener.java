@@ -1,4 +1,4 @@
-package org.tranquility.adversary.lunalib;
+package org.tranquility.adversary.scripts;
 
 import com.fs.starfarer.api.GameState;
 import com.fs.starfarer.api.Global;
@@ -6,8 +6,6 @@ import com.fs.starfarer.api.campaign.listeners.ListenerManagerAPI;
 import lunalib.lunaSettings.LunaSettings;
 import lunalib.lunaSettings.LunaSettingsListener;
 import org.json.JSONException;
-import org.tranquility.adversary.scripts.AdversaryBlueprintStealer;
-import org.tranquility.adversary.scripts.AdversaryDynamicDoctrine;
 
 import java.util.List;
 

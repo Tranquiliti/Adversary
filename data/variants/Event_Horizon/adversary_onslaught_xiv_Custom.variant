@@ -1,6 +1,6 @@
 {
     "displayName": "Custom",
-    "fluxCapacitors": 31,
+    "fluxCapacitors": 21,
     "fluxVents": 50,
     "hullId": "onslaught_xiv",
     "hullMods": [
@@ -28,10 +28,12 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 016": "tpc",
-                "WS 017": "tpc"
-            }
+            "weapons": {"WS 016": "tpc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 017": "tpc"}
         },
         {
             "autofire": true,
@@ -62,27 +64,19 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "arbalest",
-                "WS 002": "lightac",
-                "WS 003": "arbalest",
-                "WS 004": "lightac",
-                "WS 005": "lightac",
-                "WS 006": "lightac",
+                "WS 001": "lightneedler",
+                "WS 002": "lightneedler",
+                "WS 003": "lightneedler",
+                "WS 004": "lightneedler",
                 "WS 007": "dualflak",
-                "WS 008": "lightac",
-                "WS 009": "lightac",
-                "WS 012": "arbalest",
-                "WS 013": "arbalest",
+                "WS 008": "lightneedler",
+                "WS 009": "lightneedler",
+                "WS 010": "lightneedler",
+                "WS 011": "lightneedler",
+                "WS 012": "lightneedler",
+                "WS 013": "lightneedler",
                 "WS 014": "vulcan",
                 "WS 015": "vulcan"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "shredder",
-                "WS 011": "shredder"
             }
         }
     ]

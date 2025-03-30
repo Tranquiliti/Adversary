@@ -19,16 +19,12 @@ public class Adversary_HA_CMD extends BaseCommandPlugin {
         if (dialog == null) return false;
 
         String action = params.get(0).getString(memoryMap);
-        switch (action) {
-            case "canConfrontCrisis":
-                return canConfrontCrisis();
-            case "canMakeDeal":
-                return canMakeDeal();
-            case "makeDeal":
-                return makeDeal();
-            default:
-                return false;
-        }
+        return switch (action) {
+            case "canConfrontCrisis" -> canConfrontCrisis();
+            case "canMakeDeal" -> canMakeDeal();
+            case "makeDeal" -> makeDeal();
+            default -> false;
+        };
     }
 
     private boolean canConfrontCrisis() {

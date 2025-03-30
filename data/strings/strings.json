@@ -3,13 +3,33 @@
 	"adversary":{
 		"mod_id_adversary":"adversary",
 		"faction_id_adversary":"adversary",
+		"optimal_music_id":"music_diktat_market_hostile",
+
+		# Names in the Optimal system
+		"name_star1":"Optimal",
+		"name_star2":"Zenith",
+		"name_star3":"Pinnacle",
+		"name_innerJumpPoint":"Inner System Jump-point",
+		"name_commRelay":"Optimal Relay",
+		"name_navBuoy":"Optimal Navigation Buoy",
+		"name_sensorArray":"Optimal Listening Station",
+		"name_ringBand":"Hope's Aura",
+		"name_asteroidBelt":"Ring of Despair",
+		"name_fringeJumpPoint":"Fringe Jump-point",
+		"name_gate":"Optimal Gate",
+		"name_shade1":"Stellar Shade Omega",
+		"name_shade2":"Stellar Shade Psi",
+		"name_shade3":"Stellar Shade Chi",
 
 		# Settings in settings.json
+		"settings_enableAdversaryOptimal":"enableAdversaryOptimal",
+		"settings_enableAdversaryUSOptimal":"enableAdversaryUSOptimal",
+		"settings_enableAdversaryIndEvoOptimal":"enableAdversaryIndEvoOptimal",
 		"settings_enableAdversaryDynamicDoctrine":"enableAdversaryDynamicDoctrine",
 		"settings_enableAdversaryBlueprintStealing":"enableAdversaryBlueprintStealing",
 		"settings_enableAdversarySillyBounties":"enableAdversarySillyBounties",
 		"settings_enableAdversarySCSupport":"enableAdversarySCSupport",
-		"settings_enableAdversaryPersonalFleet":"enableAdversaryPersonalFleet",
+		"settings_enableAdversarySDF":"enableAdversarySDF",
 
 		# Settings for the Adversary Dynamic Doctrine
 		"settings_adversaryDynamicDoctrineDelay":"adversaryDynamicDoctrineDelay",
@@ -26,9 +46,8 @@
 		"settings_adversaryBlueprintStealingDelay":"adversaryBlueprintStealingDelay",
 		"settings_adversaryStealsFromFactions":"adversaryStealsFromFactions",
 
-		# Used for Adversary Personal Fleet
-		"person_id_adversary_personal_commander":"adversary_first_admiral",
-		"name_adversary_personal_fleet":"Sword of Destruction",
+		# Used for Adversary System Defense Fleet
+		"name_sdf_adversary":"Sword of Destruction",
 
 		# Colony Crisis (highlights, and strings in MutualTenacity.java and MutualTenacityScript.java, are still hard-coded)
 		"Adversary":"Adversary",
