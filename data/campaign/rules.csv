@@ -229,3 +229,6 @@ adversary_Station_Remnant_Picked,AdversaryStationRemnantPicked,,"AdversaryBounty
 adversary_Event_Horizon_Picked,AdversaryEventHorizonPicked,,"AdversaryBountyScript ""adversary_Event_Horizon""",,,
 adversary_Derelict_Operations_Picked,AdversaryDerelictOperationsPicked,,"AdversaryBountyScript ""adversary_Derelict_Operations""",,,
 adversary_TT_Wolfpack_Plus_Picked,AdversaryTTWolfpackPlusPicked,,"AdversaryBountyScript ""adversary_TT_Wolfpack_Plus""",,,
+adversary_Ultra_Omega_Picked,AdversaryUltraOmegaPicked,,"AdversaryBountyScript ""adversary_Ultra_Omega""",,,
+adversary_Ultra_Threat_Picked,AdversaryUltraThreatPicked,,"AdversaryBountyScript ""adversary_Ultra_Threat""",,,
+adversary_Ultra_Shrouded_Picked,AdversaryUltraShroudedPicked,,"AdversaryBountyScript ""adversary_Ultra_Shrouded""",,,

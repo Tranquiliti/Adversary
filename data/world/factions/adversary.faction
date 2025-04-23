@@ -596,6 +596,10 @@
 			"vsFreePort":false,
 			"canBombard":false,
 			"territorial":true,
+		},
+		"simulatorData":{
+			"showInSimulatorDevModeOnly":true,
+			"includeCivShipsWithFaction":true,
 		}
 	}
 }

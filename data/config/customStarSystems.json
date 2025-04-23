@@ -426,9 +426,9 @@
 					"ruins_vast",
 					"water_surface",
 					"ore_rich",
-					"rare_ore_rich",
+					"rare_ore_abundant",
 					"volatiles_plentiful",
-					"organics_abundant"
+					"organics_common"
 				],
 				"marketSize":6,
 				"factionId":"adversary",

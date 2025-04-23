@@ -640,7 +640,7 @@
             "flux_regulation":1,
             "phase_corps":1,
             "cybernetic_augmentation":1,
-            #,
+            #
             "bulk_transport":1,
             "field_repairs":1,
             "ordnance_expert":2,
@@ -1248,6 +1248,239 @@
         "fleet_behavior":"AGGRESSIVE",
 
         "location_distance":"CLOSE",
+        "location_themes":["procgen_no_theme_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+    },
+    "adversary_Ultra_Omega":{
+        "trigger_marketFaction_any":["player"],
+        "trigger_player_minLevel":15,
+        "trigger_memKeys_all":{
+            "$adversary_sillyBountiesEnabled":true,
+            "$CBRemnantPlus_accepted":true
+        },
+
+        "job_name":"Rifts Ahead",
+        "job_forFaction":"player",
+        "job_credit_reward":0,
+        "job_reputation_reward":0,
+        "job_type":"obliteration",
+        "job_show_fleet":"none",
+        "job_show_distance":"vanilla",
+        "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryUltraOmegaPicked",
+
+        "target_gender":"ANY",
+        "target_rank":"spaceCommander",
+        "target_post":"fleetCommander",
+        "target_personality":"cautious",
+        "target_level":14,
+        "target_skills":{
+            "helmsmanship":2,
+            "combat_endurance":2,
+            "impact_mitigation":2,
+            "damage_control":2,
+            "field_modulation":2,
+            "point_defense":2,
+            "target_analysis":2,
+            "ballistic_mastery":2,
+            "systems_expertise":2,
+            "missile_specialization":2,
+            #
+            "tactical_drills":1,
+            "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
+            "crew_training":1,
+            "best_of_the_best":1,
+            #
+            "sensors":1,
+            "gunnery_implants":2,
+            "energy_weapon_mastery":2,
+            "electronic_warfare":1,
+            "flux_regulation":1,
+            "cybernetic_augmentation":1,
+            #
+            "field_repairs":1,
+            "ordnance_expert":2,
+            "polarized_armor":2,
+            "containment_procedures":1,
+            "derelict_contingent":1
+        },
+
+        "fleet_name":"Profaned Flock",
+        "fleet_faction":"tritachyon",
+        "fleet_flagship_variant":"adversary_anubis_Omega",
+        "fleet_flagship_name":"TTS Omega Invictus",
+        "fleet_preset_ships":{
+            "adversary_anubis_Omega":18
+        },
+        "fleet_composition_quality":2,
+        "fleet_transponder":false,
+        "fleet_no_retreat":true,
+        "fleet_behavior":"PASSIVE",
+
+        "location_entitiesID":["limbo_hades"],
+        "location_distance":"FAR",
+        "location_themes":["procgen_no_theme_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+    },
+    "adversary_Ultra_Threat":{
+        "trigger_marketFaction_any":["player"],
+        "trigger_player_minLevel":15,
+        "trigger_memKeys_all":{
+            "$adversary_sillyBountiesEnabled":true,
+            "$foundOneslaught":true
+        },
+
+        "job_name":"Swarm Rush",
+        "job_forFaction":"player",
+        "job_credit_reward":0,
+        "job_reputation_reward":0,
+        "job_item_reward":{
+            "weapon_bp neoferric_quadcoil":1,
+            "weapon_bp swarm_launcher":1
+        },
+        "job_type":"obliteration",
+        "job_show_fleet":"none",
+        "job_show_distance":"vanilla",
+        "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryUltraThreatPicked",
+
+        "target_gender":"ANY",
+        "target_rank":"spaceCommander",
+        "target_post":"fleetCommander",
+        "target_personality":"steady",
+        "target_level":14,
+        "target_skills":{
+            "helmsmanship":2,
+            "combat_endurance":2,
+            "impact_mitigation":2,
+            "damage_control":2,
+            "field_modulation":2,
+            "point_defense":2,
+            "target_analysis":2,
+            "ballistic_mastery":2,
+            "systems_expertise":2,
+            "missile_specialization":2,
+            #
+            "tactical_drills":1,
+            "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
+            "crew_training":1,
+            "carrier_group":1,
+            "fighter_uplink":1,
+            "officer_training":1,
+            "officer_management":1,
+            "best_of_the_best":1,
+            "support_doctrine":1,
+            #
+            "sensors":1,
+            "gunnery_implants":2,
+            "energy_weapon_mastery":2,
+            "electronic_warfare":1,
+            "flux_regulation":1,
+            "cybernetic_augmentation":1,
+            #
+            "field_repairs":1,
+            "ordnance_expert":2,
+            "polarized_armor":2,
+            "containment_procedures":1,
+            "derelict_contingent":1
+        },
+
+        "fleet_name":"Heart of the Swarm",
+        "fleet_faction":"independent",
+        "fleet_flagship_variant":"adversary_vanguard_Fragmented",
+        "fleet_flagship_name":"ISS Unfabricate",
+        "fleet_preset_ships":{
+            "adversary_vanguard_Fragmented":10,
+            "adversary_buffalo2_Swarm":49
+        },
+        "fleet_composition_quality":2,
+        "fleet_transponder":false,
+        "fleet_no_retreat":true,
+        "fleet_behavior":"PASSIVE",
+
+        "location_entitiesID":["limbo_hades"],
+        "location_distance":"FAR",
+        "location_themes":["procgen_no_theme_pulsar_blackhole"],
+        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+    },
+    "adversary_Ultra_Shrouded":{
+        "trigger_marketFaction_any":["player"],
+        "trigger_player_minLevel":15,
+        "trigger_memKeys_all":{
+            "$adversary_sillyBountiesEnabled":true,
+            "$foundOneslaught":true # The Dweller-related MemKeys are unfortunately set in player memory, not global
+        },
+
+        "job_name":"Shroud in the Machine",
+        "job_forFaction":"player",
+        "job_credit_reward":0,
+        "job_reputation_reward":0,
+        "job_item_reward":{
+            "weapon_bp abyssal_glare":1,
+            "weapon_bp rift_lightning":1
+        },
+        "job_type":"obliteration",
+        "job_show_fleet":"none",
+        "job_show_distance":"vanilla",
+        "job_difficultyDescription":"auto",
+        "job_pick_script":"AdversaryUltraShroudedPicked",
+
+        "target_first_name":"Shrouded",
+        "target_last_name":"Core",
+        "target_portrait":"graphics/portraits/characters/dwelller.png",
+        "target_rank":"spaceCommander",
+        "target_post":"fleetCommander",
+        "target_personality":"reckless",
+        "target_aiCoreId":"alpha_core",
+        "target_level":12,
+        "target_skills":{
+            "helmsmanship":2,
+            "combat_endurance":2,
+            "impact_mitigation":2,
+            "damage_control":2,
+            "field_modulation":2,
+            "point_defense":2,
+            "target_analysis":2,
+            "systems_expertise":2,
+            "missile_specialization":2,
+            #
+            "tactical_drills":1,
+            "coordinated_maneuvers":1,
+            "wolfpack_tactics":1,
+            "crew_training":1,
+            "best_of_the_best":1,
+            #
+            "sensors":1,
+            "gunnery_implants":2,
+            "electronic_warfare":1,
+            "flux_regulation":1,
+            #
+            "field_repairs":1,
+            "ordnance_expert":2,
+            "polarized_armor":2,
+            "containment_procedures":1,
+            "derelict_contingent":1
+        },
+
+        "fleet_name":"Shrouded Ordo",
+        "fleet_faction":"remnant",
+        "fleet_flagship_variant":"adversary_nova_Hungering",
+        "fleet_flagship_name":"TTDS Unclean One",
+        "fleet_preset_ships":{
+            "adversary_brilliant_Thundering":10,
+            "adversary_fulgent_Mantling":15,
+            "adversary_lumen_Lensing":4
+        },
+        "fleet_composition_faction":"remnant",
+        "fleet_composition_quality":2,
+        "fleet_transponder":false,
+        "fleet_no_retreat":true,
+        "fleet_behavior":"PASSIVE",
+
+        "location_entitiesID":["limbo_hades"],
+        "location_distance":"FAR",
         "location_themes":["procgen_no_theme_pulsar_blackhole"],
         "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
     }

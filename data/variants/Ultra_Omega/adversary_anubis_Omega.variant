@@ -1,0 +1,56 @@
+{
+    "displayName": "Omega",
+    "fluxCapacitors": 15,
+    "fluxVents": 14,
+    "hullId": "anubis",
+    "hullMods": [
+        "converted_hangar",
+        "eccm",
+        "hardenedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "malfunctioning_comms",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "converted_hangar",
+        "eccm",
+        "hardenedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "malfunctioning_comms"
+    ],
+    "sMods": [
+        "converted_hangar",
+        "eccm",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_anubis_Omega",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "resonatormrm",
+                "WS 004": "resonatormrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 000": "rifttorpedo",
+                "WS 001": "rifttorpedo",
+                "WS 002": "rifttorpedo"
+            }
+        }
+    ],
+    "wings": [
+        "wasp_wing",
+        "wasp_wing"
+    ]
+}
