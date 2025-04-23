@@ -1,0 +1,57 @@
+{
+    "displayName": "Mantling",
+    "fluxCapacitors": 5,
+    "fluxVents": 20,
+    "hullId": "fulgent",
+    "hullMods": [
+        "escort_package",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "fragile_subsystems",
+        "targetingunit",
+        "shrouded_mantle"
+    ],
+    "permaMods": [
+        "escort_package",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "escort_package",
+        "fluxdistributor",
+        "hardenedshieldemitter"
+    ],
+    "variantId": "adversary_fulgent_Mantling",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 003": "rift_lightning",
+                "WS 004": "rift_lightning"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "rift_lightning"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 009": "heatseeker",
+                "WS 010": "heatseeker"
+            }
+        }
+    ]
+}

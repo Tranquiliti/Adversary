@@ -137,7 +137,7 @@
 			"weight":6,
 			"fleetComposition":[1,1,5],
 			"officerSkills":["combat_endurance","field_modulation","systems_expertise","target_analysis","impact_mitigation"],
-			"priorityShips":["astral","doom","harbinger","afflictor","shade","omen","hermes","dram","mercury"],
+			"priorityShips":["astral","doom","anubis","harbinger","afflictor","shade","hermes","dram","mercury"],
 			"priorityWeapons":["ionbeam","ionpulser","phasebeam","amblaster","pdburst","irpulse","typhoon","harpoonpod","gazerpod","gazer","harpoon","railgun","lightneedler","lightag"],
 			"priorityFighters":["xyphos_wing","gladius_wing","wasp_wing","piranha_wing"]
 		},

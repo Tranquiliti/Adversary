@@ -1,3 +1,12 @@
+Version 7.1.0
+
+* Added 3 ultra-difficult Silly MagicBounties that use end-game weapons
+* Elite Phase Ship doctrine now prioritizes Anubis (instead of Omen) as its warship
+* Fixed Adversary crisis factor not being added mid-game if the Colony Crisis intel already exists
+* Adjusted New Opportunity Hycean planet to account for Unknown Skies nerf
+
+
+
 Version 7.0.0 (Update for Starsector 0.98a)
 
 * Compiled to Java 17

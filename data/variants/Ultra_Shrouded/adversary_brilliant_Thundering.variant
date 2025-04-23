@@ -1,0 +1,48 @@
+{
+    "displayName": "Thundering",
+    "fluxCapacitors": 30,
+    "fluxVents": 12,
+    "hullId": "brilliant",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "shrouded_thunderhead",
+        "stabilizedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "safetyoverrides"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "shrouded_thunderhead",
+        "stabilizedshieldemitter",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "shrouded_thunderhead",
+        "stabilizedshieldemitter"
+    ],
+    "variantId": "adversary_brilliant_Thundering",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "abyssal_glare"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "mininglaser",
+                "WS 005": "pseudoparticle_jet"
+            }
+        }
+    ]
+}

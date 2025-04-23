@@ -1,0 +1,49 @@
+{
+    "displayName": "Hungering",
+    "fluxCapacitors": 34,
+    "fluxVents": 50,
+    "hullId": "nova",
+    "hullMods": [
+        "eccm",
+        "heavyarmor",
+        "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems",
+        "armoredweapons",
+        "hardenedshieldemitter",
+        "adaptiveshields"
+    ],
+    "permaMods": [
+        "eccm",
+        "heavyarmor",
+        "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "eccm",
+        "heavyarmor",
+        "shrouded_mantle"
+    ],
+    "variantId": "adversary_nova_Hungering",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 002": "assaying_rift",
+            "WS 003": "assaying_rift",
+            "WS 004": "assaying_rift",
+            "WS 005": "assaying_rift",
+            "WS 006": "assaying_rift",
+            "WS 007": "assaying_rift",
+            "WS 008": "assaying_rift",
+            "WS 009": "assaying_rift"
+        }
+    }]
+}

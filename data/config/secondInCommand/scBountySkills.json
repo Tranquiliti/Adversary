@@ -1,92 +1,128 @@
 {
     "adversary_TT_Wolfpack":{
+        "factionId":"adversary",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_management","sc_management_in_good_hands"],
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"]
     },
     "adversary_LP_Heretics":{
+        "factionId":"luddic_path",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
         "sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_reinforced_grid","sc_technology_optimised_shields"]
     },
     "adversary_Pirates_Derelict":{
+        "factionId":"adversary",
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
         "sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_reconfiguration"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
     },
     "adversary_Hegemony_Armored":{
+        "factionId":"hegemony",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_defensive_protocols"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_best_of_the_best"],
         "sc_improvisation":["sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_mobilization","sc_improvisation_enhanced_overrides","sc_improvisation_redistribution"]
     },
     "adversary_PL_Cruiser":{
+        "factionId":"adversary",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
         "sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_advanced_maneuvers"]
     },
     "adversary_LC_Carrier":{
+        "factionId":"adversary",
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
         "sc_strikecraft":["sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_system_proficiency","sc_strikecraft_advanced_maneuvers"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
     },
     "adversary_Independent_Phase":{
+        "factionId":"adversary",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_defensive_protocols"],
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
         "sc_technology":["sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_deep_dive","sc_technology_reinforced_grid","sc_technology_phase_coil_tuning"]
     },
     "adversary_SD_Beam":{
+        "factionId":"lions_guard",
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
         "sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_focused_lenses"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
     },
     "adversary_Kite_Swarm":{
+        "factionId":"hegemony",
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
         "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_mobilization","sc_improvisation_derelict_operations"]
     },
     "adversary_Ziggurat_Plus":{
+        "factionId":"tritachyon",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_technology":["sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_deep_dive","sc_technology_reinforced_grid","sc_technology_phase_coil_tuning"]
     },
     "adversary_Remnant_Plus_Plus":{
+        "factionId":"omega",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_focused_lenses"],
         "sc_automated":["sc_automated_magnetic_shielding","sc_automated_overclock","sc_automated_electronic_warfare","sc_automated_deadly_persistence","sc_automated_wide_range"]
     },
     "adversary_Station_Low_Tech":{
+        "factionId":"independent",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_mass_bombardment"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_overwhelming_force"]
     },
     "adversary_Station_Midline":{
+        "factionId":"pirates",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_mass_bombardment"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_overwhelming_force"]
     },
     "adversary_Station_High_Tech":{
+        "factionId":"persean",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_mass_bombardment"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_overwhelming_force"]
     },
     "adversary_Station_Remnant":{
+        "factionId":"omega",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_mass_bombardment"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_overwhelming_force"]
     },
     "adversary_Event_Horizon":{
+        "factionId":"mercenary",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
         "sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_reinforced_grid","sc_technology_optimised_shields"]
     },
     "adversary_Derelict_Operations":{
+        "factionId":"derelict",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_defensive_protocols"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"],
         "sc_automated":["sc_automated_magnetic_shielding","sc_automated_electronic_warfare","sc_automated_specialised_equipment","sc_automated_deadly_persistence","sc_automated_expertise"]
     },
     "adversary_TT_Wolfpack_Plus":{
+        "factionId":"adversary",
         "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_accelerated_barrels"],
         "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
         "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_secured_mounts","sc_improvisation_enhanced_overrides","sc_improvisation_derelict_operations"]
+    },
+    "adversary_Ultra_Omega":{
+        "factionId":"tritachyon",
+        "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_full_throttle","sc_tactical_mass_bombardment"],
+        "sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_overwhelming_force"],
+        "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+    },
+    "adversary_Ultra_Threat":{
+        "factionId":"independent",
+        "sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
+        "sc_strikecraft":["sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_swarm_deployment","sc_strikecraft_reconfiguration","sc_strikecraft_advanced_maneuvers"],
+        "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+    },
+    "adversary_Ultra_Shrouded":{
+        "factionId":"remnant",
+        "sc_tactical":["sc_tactical_pristine_condition","sc_tactical_tactical_drills","sc_tactical_efficient_ordnance","sc_tactical_accelerated_barrels","sc_tactical_full_throttle"],
+        "sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"],
+        "sc_automated":["sc_automated_magnetic_shielding","sc_automated_overclock","sc_automated_electronic_warfare","sc_automated_deadly_persistence","sc_automated_limit_breaker"]
     }
 }

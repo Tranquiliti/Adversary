@@ -1,0 +1,52 @@
+{
+    "displayName": "Fragmented",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "vanguard",
+    "hullMods": [
+        "autorepair",
+        "auxiliarythrusters",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors",
+        "fragment_swarm",
+        "safetyoverrides",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "autorepair",
+        "auxiliarythrusters",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "autorepair",
+        "auxiliarythrusters",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_vanguard_Fragmented",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 000": "unstable_fragment",
+            "WS 001": "unstable_fragment",
+            "WS 002": "unstable_fragment",
+            "WS 003": "lightmg",
+            "WS 004": "lightmg",
+            "WS 005": "lightmortar",
+            "WS 006": "lightmortar",
+            "WS 007": "lightac"
+        }
+    }]
+}

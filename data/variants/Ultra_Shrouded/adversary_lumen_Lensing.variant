@@ -1,0 +1,42 @@
+{
+    "displayName": "Lensing",
+    "fluxCapacitors": 10,
+    "fluxVents": 3,
+    "hullId": "lumen",
+    "hullMods": [
+        "eccm",
+        "missleracks",
+        "shrouded_lens",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "permaMods": [
+        "eccm",
+        "missleracks",
+        "shrouded_lens",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "fragile_subsystems"
+    ],
+    "sMods": [
+        "eccm",
+        "missleracks",
+        "shrouded_lens"
+    ],
+    "variantId": "adversary_lumen_Lensing",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 006": "harpoon",
+            "WS 007": "inimical_emanation",
+            "WS 008": "harpoon",
+            "WS 009": "harpoon"
+        }
+    }]
+}
