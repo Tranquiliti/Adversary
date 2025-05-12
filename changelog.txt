@@ -1,3 +1,10 @@
+Version 7.1.1
+
+* Updated the Unknown Skies support for the Optimal system to work with the newest v3.0.0 update
+  - Also changed a few planet types and the background for the US Optimal system
+
+
+
 Version 7.1.0
 
 * Added 3 ultra-difficult Silly MagicBounties that use end-game weapons

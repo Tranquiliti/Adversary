@@ -40,7 +40,7 @@ public class AdversaryOptimal {
             system.addTag("US_skipSystem");
         }
 
-        system.setBackgroundTextureFilename("graphics/backgrounds/" + (enableUS ? "US_background135n.jpg" : "background1.jpg"));
+        system.setBackgroundTextureFilename("graphics/backgrounds/" + (enableUS ? "US_background151.jpg" : "background1.jpg"));
 
         SectorEntityToken center = system.initNonStarCenter();
         center.setId("adversary_optimal_center");
@@ -48,17 +48,31 @@ public class AdversaryOptimal {
         final float starOrbitRadius = 1850f;
         final float starOrbitDays = 82f;
 
-        PlanetAPI optimal = system.addPlanet("adversary_optimal", center, optimalName, enableUS ? "US_star_blue_giant" : StarTypes.BLUE_GIANT, 0f, 1100f, starOrbitRadius - 2f, starOrbitDays);
+        PlanetAPI optimal = system.addPlanet("adversary_optimal", center, optimalName, StarTypes.BLUE_GIANT, 0f, 1100f, starOrbitRadius - 2f, starOrbitDays);
         system.addCorona(optimal, 825f, 15f, 0f, 5f);
         system.setStar(optimal);
+        if (enableUS) { // From US_utils.java
+            optimal.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_blue_giant_2"));
+            optimal.getSpec().setCoronaTexture(Global.getSettings().getSpriteName("coronas", "US_halo_intense"));
+            optimal.applySpecChanges();
+        }
 
-        PlanetAPI zenith = system.addPlanet("adversary_zenith", center, NAME_STAR_2, enableUS ? "US_star_yellow" : StarTypes.YELLOW, 120f, 800f, starOrbitRadius - 1f, starOrbitDays);
+        PlanetAPI zenith = system.addPlanet("adversary_zenith", center, NAME_STAR_2, StarTypes.YELLOW, 120f, 800f, starOrbitRadius - 1f, starOrbitDays);
         system.addCorona(zenith, 600f, 10f, 0f, 3f);
         system.setSecondary(zenith);
+        if (enableUS) { // From US_utils.java
+            zenith.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_yellow_2"));
+            zenith.getSpec().setCoronaTexture(Global.getSettings().getSpriteName("coronas", "US_halo_unstable"));
+            zenith.applySpecChanges();
+        }
 
-        PlanetAPI pinnacle = system.addPlanet("adversary_pinnacle", center, NAME_STAR_3, enableUS ? "US_star_orange" : StarTypes.ORANGE, 240f, 650f, starOrbitRadius, starOrbitDays);
+        PlanetAPI pinnacle = system.addPlanet("adversary_pinnacle", center, NAME_STAR_3, StarTypes.ORANGE, 240f, 650f, starOrbitRadius, starOrbitDays);
         system.addCorona(pinnacle, 488f, 10f, 0f, 3f);
         system.setTertiary(pinnacle);
+        if (enableUS) { // From US_utils.java
+            pinnacle.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_orange_2"));
+            pinnacle.applySpecChanges();
+        }
 
         system.setType(StarSystemGenerator.StarSystemType.TRINARY_2CLOSE);
         system.getMemoryWithoutUpdate().set(MusicPlayerPluginImpl.MUSIC_SET_MEM_KEY, OPTIMAL_MUSIC_ID);
@@ -101,7 +115,7 @@ public class AdversaryOptimal {
 
         // Jungle World
         String jungleName = ProcgenUsedNames.pickName(Tags.PLANET, optimalName, null).nameWithRomanSuffixIfAny;
-        PlanetAPI jungle = system.addPlanet("adversary_jungle", center, jungleName, enableUS ? "US_jungle" : "jungle", 77f, 130f, 6265f, 278f);
+        PlanetAPI jungle = system.addPlanet("adversary_jungle", center, jungleName, enableUS ? "US_savannah" : "jungle", 77f, 130f, 6265f, 278f);
         ProcgenUsedNames.notifyUsed(jungleName);
         setAdversaryMarket(jungle);
         setPlanetMarket(jungle, initPeople, enableIndEvo);
@@ -114,7 +128,7 @@ public class AdversaryOptimal {
 
         // Water World with a ring band
         String waterName = ProcgenUsedNames.pickName(Tags.PLANET, optimalName, null).nameWithRomanSuffixIfAny;
-        PlanetAPI water = system.addPlanet("adversary_water", center, waterName, enableUS ? "US_water" : Planets.PLANET_WATER, 121f, 130f, 6845f, 304f);
+        PlanetAPI water = system.addPlanet("adversary_water", center, waterName, enableUS ? "US_waterAtoll" : Planets.PLANET_WATER, 121f, 130f, 6845f, 304f);
         ProcgenUsedNames.notifyUsed(waterName);
         setWaterWorld(water);
         system.addRingBand(water, "misc", "rings_ice0", 256f, 3, Color.white, 256f, 259, 14f, Terrain.RING, NAME_RING_BAND);
@@ -235,7 +249,7 @@ public class AdversaryOptimal {
         Misc.initConditionMarket(planet);
         MarketAPI market = planet.getMarket();
 
-        if (planet.getTypeId().equals("US_water")) {
+        if (planet.getTypeId().equals("US_waterAtoll")) {
             market.addCondition("US_religious");
             market.addCondition(Conditions.RUINS_VAST);
         } else market.addCondition(Conditions.RUINS_WIDESPREAD);
@@ -359,7 +373,7 @@ public class AdversaryOptimal {
                     market.addIndustry("IndEvo_Academy");
                 }
                 break;
-            case "US_jungle":
+            case "US_savannah":
                 market.addCondition("US_elevator");
             case "jungle":
                 market.addCondition(Conditions.HABITABLE);
@@ -368,7 +382,7 @@ public class AdversaryOptimal {
                 market.addCondition(Conditions.ORE_ULTRARICH);
                 market.addCondition(Conditions.ORGANICS_PLENTIFUL);
                 market.addCondition(Conditions.FARMLAND_BOUNTIFUL);
-                if (planet.getTypeId().equals("US_jungle"))
+                if (planet.getTypeId().equals("US_savannah"))
                     market.addCondition(Conditions.RUINS_WIDESPREAD); // US_elevator cannot appear on Vast Ruins
                 else market.addCondition(Conditions.RUINS_VAST);
                 market.addCondition(Conditions.SOLAR_ARRAY);

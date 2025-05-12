@@ -197,26 +197,35 @@
 			{
 				"entity":"star",
 				"name":"Optimal",
-				"type":"US_star_blue_giant",
+				"type":"star_blue_giant",
 				"radius":1100,
 				"coronaRadius":825,
 				"flareChance":0.0,
+				"specChanges":{
+					"texture":"US_star_textureCustomBlue_2.jpg"
+				}
 			},
 			{
 				"entity":"star",
 				"name":"Zenith",
-				"type":"US_star_yellow",
+				"type":"star_yellow",
 				"radius":800,
 				"coronaRadius":600,
 				"flareChance":0.0,
+				"specChanges":{
+					"texture":"US_star_textureCustomYellow_2.jpg"
+				}
 			},
 			{
 				"entity":"star",
 				"name":"Pinnacle",
-				"type":"US_star_orange",
+				"type":"star_orange",
 				"radius":650,
 				"coronaRadius":488,
 				"flareChance":0.0,
+				"specChanges":{
+					"texture":"US_star_textureCustomOrange_2.jpg"
+				}
 			},
 			{
 				"entity":"planet",
@@ -290,7 +299,7 @@
 			},
 			{
 				"entity":"planet",
-				"type":"US_jungle",
+				"type":"US_savannah",
 				"orbitRadius":6265,
 				"radius":130,
 				"conditions":[
@@ -316,7 +325,7 @@
 			},
 			{
 				"entity":"planet",
-				"type":"US_water",
+				"type":"US_waterAtoll",
 				"orbitRadius":6845,
 				"radius":130,
 				"conditions":[
@@ -367,7 +376,7 @@
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
 		"hasSystemwideNebula":true,
-		"systemBackground":"US_background133n.jpg",
+		"systemBackground":"US_background151.jpg",
 		"systemTags":[
 			"theme_core",
 			"theme_core_populated",
@@ -377,10 +386,13 @@
 			{
 				"entity":"star",
 				"name":"New Opportunity",
-				"type":"US_star_blue_giant",
+				"type":"star_blue_giant",
 				"radius":1100,
 				"coronaRadius":825,
-				"flareChance":0.0
+				"flareChance":0.0,
+				"specChanges":{
+					"texture":"US_star_textureCustomBlue_2.jpg"
+				}
 			},
 			{"entity":"inactive_gate","orbitRadius":2075},
 			{
@@ -574,7 +586,7 @@
 		"addCoronalHypershunt":true,
 		"addDomainCryosleeper":false,
 		"hasSystemwideNebula":true,
-		"systemBackground":"US_background133n.jpg",
+		"systemBackground":"US_background151.jpg",
 		"systemTags":[
 			"theme_core",
 			"theme_core_populated",
@@ -585,10 +597,13 @@
 			{ # The Cooler Blue Giant
 				"entity":"star",
 				"name":"Paradiso",
-				"type":"US_star_blue_giant",
+				"type":"star_blue_giant",
 				"radius":1100,
 				"coronaRadius":825,
 				"flareChance":0.0,
+				"specChanges":{
+					"texture":"US_star_textureCustomBlue_2.jpg"
+				}
 			},
 			{ # Best Gas Giant
 				"entity":"planet",
