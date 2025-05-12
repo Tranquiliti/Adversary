@@ -2,7 +2,7 @@
   "id":"adversary",
   "name":"Adversary",
   "author":"Tranquility",
-  "version":{"major":7,"minor":1,"patch":0},
+  "version":{"major":7,"minor":1,"patch":1},
   "description":"Adds an isolated, player-like faction, situated in a heavily-fortified star system.",
   "gameVersion":"0.98a-RC8",
   "jars":["jars/Adversary.jar"],
