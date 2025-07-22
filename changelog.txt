@@ -1,3 +1,15 @@
+Version 7.1.2
+
+* Changed some MagicBounty variants and officers
+* Changes to station Silly MagicBounties:
+  - Adjusted credit rewards for the Low Tech and High Tech station bounties
+  - Folded support fleet into the main station fleet; defeating the support ships is now required for bounty completion
+* Adjusted Unknown Skies support for Optimal and other custom star systems
+  - This should allow the Floating Continent condition to reliably spawn for the Gas Giant planet
+  - For the Adversary custom star systems, this requires Customizable Star Systems v3.0.2 to work
+
+
+
 Version 7.1.1
 
 * Updated the Unknown Skies support for the Optimal system to work with the newest v3.0.0 update
@@ -66,38 +78,3 @@ Version 6.4.0
 * Added Gorgon SRM Pod and Gazer SRM Pod to Adversary's known weapon list (I forgot)
 * Moved Commissioned Crews hullmod code to "org.tranquility.adversary.hullmods"
   - If you have that mod installed, make sure to remove all CHM hullmods from your fleet before updating!
-
-
-
-Version 6.3.1
-
-* Added basic Ashes of the Domain: Question of Loyalty mod support
-  - Mainly just setting rank/points thresholds similar to the major vanilla factions; no special ranks yet
-* Fixed Pirate bounty not correctly configuring its officers
-* "enableAdversarySCSupport" is now enabled by default
-* Changed some SiC skills for some MagicBounties
-
-
-
-Version 6.3.0
-
-* Adjusted Optimal system
-  - Adjusted the orbits and orbital positions for most orbiting entities in the system
-  - Optimal Gate now located further away from the center
-  - All High Commands now have SP improvements (from only the Gas Giant)
-  - Gas Giant: Heavy Batteries now has an SP improvement
-  - Toxic planet: Megaport now uses a Gamma Core (from Alpha Core)
-  - Barren planet: Replaced Fullerene Spool with a Hypershunt Tap; its Megaport now has an SP improvement
-  - Jungle planet: Removed Fullerene Spool and Combat Drone Replicator; its Megaport now has an SP improvement
-  - Adjusted planetary conditions for the Unknown Skies version
-* Added an optional Adversary custom star system in customStarSystems.json
-  - Requires both Unknown Skies and Industrial.Evolution to successfully enable with no issues
-  - Essentially a balanced version of the Paradiso system
-  - Contains most vanilla and Industrial.Evolution special items, as well as the [REDACTED] ruined buildings
-* Changed "enableSCSupportForBounties" setting to "enableAdversarySCSupport"
-  - Added the corresponding LunaSetting; still disabled by default
-  - Changed SiC skills for many MagicBounties
-* Adversary CC scout fleet no longer spawns with non-phase civilian ships
-* Fixed Mutual Tenacity stability tooltip showing the doubled bonus despite already being doubled
-  - Actual bonus still unchanged; this just aligns it with the vanilla tooltip for the boosted Luddic Majority condition
-* Some code refactors

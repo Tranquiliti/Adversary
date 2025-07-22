@@ -1,13 +1,13 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 15,
-    "fluxVents": 6,
+    "fluxCapacitors": 12,
+    "fluxVents": 4,
     "hullId": "drover",
     "hullMods": [
         "expanded_deck_crew",
         "missleracks",
-        "hardenedshieldemitter",
-        "adaptiveshields"
+        "eccm",
+        "missile_autoloader"
     ],
     "permaMods": [
         "expanded_deck_crew",
@@ -24,10 +24,10 @@
         "weapons": {
             "WS 000": "vulcan",
             "WS 001": "vulcan",
-            "WS 002": "gorgon",
-            "WS 003": "gorgon",
-            "WS 004": "gorgon",
-            "WS 005": "gorgon"
+            "WS 002": "harpoon",
+            "WS 003": "harpoon",
+            "WS 004": "harpoon",
+            "WS 005": "harpoon"
         }
     }],
     "wings": [

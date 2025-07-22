@@ -5,18 +5,17 @@
     "hullId": "gryphon",
     "hullMods": [
         "eccm",
-        "hardenedshieldemitter",
         "missile_autoloader",
-        "nav_relay",
-        "adaptiveshields"
+        "missleracks",
+        "nav_relay"
     ],
     "permaMods": [
         "eccm",
-        "hardenedshieldemitter"
+        "missile_autoloader"
     ],
     "sMods": [
         "eccm",
-        "hardenedshieldemitter"
+        "missile_autoloader"
     ],
     "variantId": "adversary_gryphon_Fire_Support",
     "weaponGroups": [
@@ -35,7 +34,10 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 002": "flak"}
+            "weapons": {
+                "WS 002": "dualflak",
+                "WS 007": "vulcan"
+            }
         }
     ]
 }

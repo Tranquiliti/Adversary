@@ -1,7 +1,7 @@
 {
     "displayName": "DIE",
     "fluxCapacitors": 0,
-    "fluxVents": 9,
+    "fluxVents": 7,
     "hullId": "vanguard_pirates",
     "hullMods": [
         "missleracks",
@@ -10,6 +10,7 @@
         "auxiliarythrusters",
         "heavyarmor",
         "insulatedengine",
+        "pointdefenseai",
         "fluxbreakers"
     ],
     "permaMods": [
@@ -30,9 +31,9 @@
             "WS 002": "hammer",
             "WS 003": "vulcan",
             "WS 004": "vulcan",
-            "WS 005": "railgun",
-            "WS 006": "railgun",
-            "WS 007": "lightmortar"
+            "WS 005": "lightdualac",
+            "WS 006": "lightdualac",
+            "WS 007": "lightag"
         }
     }]
 }

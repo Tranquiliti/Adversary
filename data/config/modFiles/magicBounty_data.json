@@ -1,1487 +1,1499 @@
 {
-    "adversary_TT_Wolfpack":{
-        "trigger_marketFaction_any":["independent","tritachyon"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"A Troublesome Mercenary",
-        "job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well; therefore, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
-        "job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
-        "job_intel_success":"A Tri-Tachyon representative has heard of your success with their \"little problem\". Soon thereafter, you receive the promised payout, delivered directly to your accounts.",
-        "job_forFaction":"tritachyon",
-        "job_credit_reward":900000,
-        "job_reputation_reward":20,
-        "job_type":"assassination",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryTTWolfpackPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"mercenary",
-        "target_personality":"reckless",
-        "target_level":6,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "field_modulation":2,
-            "target_analysis":2,
-            "systems_expertise":2,
-            #
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "officer_management":1,
-            "support_doctrine":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1
-        },
-
-        "fleet_name":"Adversary Wolfpack",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_hyperion_Attack",
-        "fleet_flagship_name":"ADS Starbound",
-        "fleet_preset_ships":{
-            "adversary_hyperion_Attack":10,
-            "adversary_afflictor_Strike":4,
-            "adversary_tempest_Attack":4,
-            "adversary_scarab_Attack":4,
-            "adversary_omen_Strike":4,
-            "adversary_brawler_tritachyon_Assault":3
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"GUARDED",
-        
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_LP_Heretics":{
-        "trigger_marketFaction_any":["independent","luddic_path"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"The Forbidden Path",
-        "job_description":"You inspect a fuzzy image of a hand-written poster written by what appears to be a Luddic Path operative, requesting a capable mercenary to ==assassinate== one of their former brethren. The bounty target has apparently strayed from the Path by installing ==high-tech weaponry on Pather ships==. Since then, they have defected to the Adversary, taking many of the Path's warships with them.\nSadly, the operative can only offer a mere pittance of credits upon proof of success, but they also hint that the heretical defector has ==something else== worth taking. Who knows what that \"something else\" is?",
-        "job_comm_reply":"\"I see that my past brothers and sisters have finally exposed their Envy. No matter. You shall be a victim of God's wrath and Moloch's treachery.\"",
-        "job_intel_success":"Not only did you get some credits for finishing the job, but it seems this former Pather had a cache of Alpha Cores with $himHerThem all along. Perhaps the operative who posted the bounty knew this too, but was afraid of being tempted by technological excess. Either way, you at least got something out of this mess.",
-        "job_forFaction":"luddic_path",
-        "job_credit_reward":100000,
-        "job_item_reward":{
-            "alpha_core":3
-        },
-        "job_type":"assassination",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryLPHereticsPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"agent",
-        "target_personality":"reckless",
-        "target_level":6,
-        "target_skills":{
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "point_defense":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1
-        },
-
-        "fleet_name":"Adversary Righteous Flotilla",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_prometheus2_Assault",
-        "fleet_flagship_name":"Moloch's Bane",
-        "fleet_preset_ships":{
-            "adversary_prometheus2_Assault":8,
-            "adversary_venture_pather_Assault":6,
-            "adversary_colossus2_Strike":3,
-            "adversary_manticore_luddic_path_Strike":6,
-            "adversary_gremlin_luddic_path_Strike":2,
-            "adversary_brawler_pather_Assault":4
-        },
-        "fleet_composition_faction":"luddic_path",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Pirates_Derelict":{
-        "trigger_marketFaction_any":["independent","pirates"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"An Infamous Bounty Hunter",
-        "job_description":"An Adversary bounty hunter has made a name for $himslefHerselfThemselves taking down several pirate warlords. Often called the \"Deranged Necromancer\" by the more superstitious pirates, $heIsSheIsTheyAre infamous for ==resurrecting defeated pirate ships into barely-recognizable skeletons==, sent to fight against their former owners.\nIn a miraculous display of unity, pirates across the Sector have banded together to call for the ==complete erasure== of their dreaded archenemy; it seems that they will consider whoever accomplishes this task to be a ==savior of the pirates== and an equal to even Warlord Kanta herself.",
-        "job_comm_reply":"\"Ah, your ships will make a fine addition to my collection!\"",
-        "job_intel_success":"News of the fleet's destruction has reached the ears of the underworld. Soon, even the most distrustful pirate captains begin to welcome and respect you as a fellow pirate warlord.",
-        "job_forFaction":"pirates",
-        "job_credit_reward":0,
-        "job_reputation_reward":80,
-        "job_type":"obliteration",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryPiratesDerelictPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"mercenary",
-        "target_personality":"aggressive",
-        "target_level":2,
-        "target_skills":{
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Adversary Armada",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_colossus3_Attack",
-        "fleet_flagship_name":"Binding of Loke",
-        "fleet_preset_ships":{
-            "adversary_atlas2_Close_Support":6,
-            "adversary_falcon_p_Strike":5,
-            "adversary_eradicator_pirates_Assault":5,
-            "adversary_venture_p_Fire_Support":4,
-            "adversary_colossus3_Attack":2,
-            "adversary_manticore_pirates_Close_Support":3,
-            "adversary_shrike_pirates_Attack":2,
-            "adversary_vanguard_pirates_Overdriven":2
-        },
-        "fleet_composition_faction":"pirates",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"ROAMING",
-
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Hegemony_Armored":{
-        "trigger_marketFaction_any":["independent","hegemony"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"No Deserters Left Behind",
-        "job_description":"While surveying the board, you notice a bounty sponsored by the Hegemony asking for the ==elimination of a noteworthy deserter==. The target was previously a distinguished admiral in the Hegemony Navy, with command over a mighty XIV Battlegroup fleet. Interestingly, $heSheThey personally commanded what appears to be a vanishingly-rare ==XIV modification of a Legion-class battlecarrier==.\nDespite holding authority over a prestigious fleet, the admiral apparently wanted to seek more glory for $himslefHerselfThemselves and has since deserted the Hegemony in favor of the Adversary. Wishing to keep the truth away from the public, the Hegemony desires that a third-party assassin ==completely eliminate any trace== of the deserter and $hisHerTheir flagship, once and for all.",
-        "job_comm_reply":"\"No, you die.\"",
-        "job_intel_success":"Soon after the deserter's timely demise, a Hegemony official authorizes a massive credit transfer as a reward for your cooperation. A note from the same official also seems to suggest they will turn your battle against the deserter into an \"educational\" holo-documentary. You guess that they will use the documentary to warn new officers about the fate of would-be deserters.",
-        "job_intel_failure":"Hegemony officials are alerted to your recovery of the deserter's flagship, and they are enraged. Most likely, they abhor the possibility of needing to explain - or hide - to the public how they lost a one-of-a-kind ship to some \"low-life\" scavenger.",
-        "job_credit_reward":1500000,
-        "job_forFaction":"hegemony",
-        "job_reputation_reward":35,
-        "job_type":"destruction",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryHegemonyArmoredPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"steady",
-        "target_level":4,
-        "target_skills":{
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "crew_training":1,
-            "officer_training":1,
-            "officer_management":1,
-            "best_of_the_best":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1
-        },
-
-        "fleet_name":"The Fist of Steel",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_legion_xiv_Armored",
-        "fleet_flagship_name":"HSS Warrior's Spirit",
-        "fleet_flagship_alwaysRecoverable":true,
-        "fleet_preset_ships":{
-            "adversary_onslaught_xiv_Armored":4,
-            "adversary_dominator_xiv_Armored":6,
-            "adversary_eagle_xiv_Overdriven":4,
-            "adversary_falcon_xiv_Overdriven":4,
-            "adversary_enforcer_xiv_Escort":6,
-            "adversary_hound_hegemony_Support":5
-        },
-        "fleet_composition_faction":"hegemony",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_PL_Cruiser":{
-        "trigger_marketFaction_any":["independent","persean"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"A Terrible Gamble",
-        "job_description":"This one is less of an actual bounty and more of a farcical challenge. For some reason, a couple of League archons collectively decided it would be \"funny\" if they posted a bounty against the ==Adversary's greatest fleet commander==, knowing full well that no sane person would actually take up on the bounty, or at least live to tell the tale. The archons have bet ==a million credits== that no one could possibly ==take down the Adversary's grand fleet==.\nWill they be proven wrong?",
-        "job_comm_reply":"The Adversary fleet commander speaks with a confident, yet weary tone, \"Another mindless merc seeking to best the Adversary's best? You would do well disengaging right now; I've had enough dealing with more spilled blood.\"",
-        "job_intel_success":"Although you have dealt a major blow to the Adversary forces, it seems the League officials involved in the bet are upset that you actually did it. They'll attempt to slander your reputation with the Persean League at large, but at least those shady archons have begrudgingly parted with their million credits.",
-        "job_forFaction":"persean",
-        "job_credit_reward":1000000,
-        "job_reputation_reward":-5,
-        "job_type":"neutralization",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryPLCruiserPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"cautious",
-        "target_level":6,
-        "target_skills":{
-            "combat_endurance":2,
-            "field_modulation":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "officer_management":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1
-        },
-
-        "fleet_name":"Spear of Destiny",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_conquest_Command",
-        "fleet_flagship_name":"ADS Revenge of the Fallen",
-        "fleet_preset_ships":{
-            "adversary_pegasus_Fire_Support":1,
-            "adversary_champion_Support":4,
-            "adversary_gryphon_Fire_Support":5,
-            "adversary_heron_Attack":5,
-            "adversary_drover_Attack":5,
-            "adversary_hammerhead_Close_Support":5,
-            "adversary_monitor_Support":4
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"ROAMING",
-
-        "location_marketFactions":["adversary"],
-        "location_distance":"CORE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_LC_Carrier":{
-        "trigger_marketFaction_any":["independent","luddic_church","adversary"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"Extinguishing Hope",
-        "job_description":"You find a bounty targeting a well-acclaimed activist, whose name you recognize from an award-winning holodoc you watched once. Once a vice admiral of the Adversary Defense Force, this activist-commander was disheartened by the isolationist and xenophobic policies upheld by the Adversary's leading figures, and so $heSheThey had deserted $hisHerTheir prestigious post to provide humanitarian aid to desperate and struggling worlds. Most notably, $hisHerTheir ==impressive carrier detachment== provided much needed protection for traders serving the Luddic faithful, garnering widespread fame and appreciation throughout much of the Sector's population.\nJudging from this bounty's existence, however, it seems not everyone shares this same applause, as a rival Adversary commander wishes for a ==complete destruction== of this Good Samaritan's fleet. A ==ludicrous reward== awaits those who fulfill this deed, but is that really worth snuffing out one of the few remaining beacons of hope in this Sector?",
-        "job_comm_reply":"\"Please, our people desire to live peacefully! Please, have you not seen what good we have done in this Ludd-forsaken Sector! Please, reconsider your choice!\"",
-        "job_intel_success":"Your actions have brought you a tremendous monetary reward, but you feel a slight chill behind your back as you briefly consider what you have just done. You can only hope that you will not regret this later.",
-        "job_forFaction":"adversary",
-        "job_credit_reward":1500000,
-        "job_reputation_reward":10,
-        "job_type":"obliteration",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryLCCarrierPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"activist",
-        "target_personality":"cautious",
-        "target_level":6,
-        "target_skills":{
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            #
-            "tactical_drills":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "support_doctrine":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Reformed Hope",
-        "fleet_faction":"luddic_church",
-        "fleet_flagship_variant":"adversary_invictus_Siege",
-        "fleet_flagship_name":"ADS God's Chosen",
-        "fleet_preset_ships":{
-            "adversary_retribution_Assault":2,
-            "adversary_mora_Attack":10,
-            "adversary_eradicator_Close_Support":6,
-            "adversary_condor_Attack":8,
-            "adversary_vanguard_Attack":3
-        },
-        "fleet_composition_faction":"adversary",
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"PASSIVE",
-
-        "location_distance":"CORE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Independent_Phase":{
-        "trigger_marketFaction_any":["independent"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"Hunting Down a Coward",
-        "job_description":"An independent organization has requested a kill-fleet for a ==notable mercenary== who broke their contract by fleeing from their assigned bounty target. Whatever that supposed bounty target was, it must have scared off the mercenary enough for $himHerThem to abandon the organization as quickly as $heSheThey had abandoned their former commission.",
-        "job_comm_reply":"\"No! No! No! You will not make me do this!\"",
-        "job_intel_success":"The mercenary's former employer has rewarded you with a precious amount of credits, and they will also share to other independent entities about your impeccable skills in defeating the cowardly mercenary.",
-        "job_forFaction":"independent",
-        "job_credit_reward":1200000,
-        "job_reputation_reward":25,
-        "job_type":"assassination",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"none",
-        "job_pick_script":"AdversaryIndependentPhasePicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"timid",
-        "target_level":1,
-        "target_skills":{
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "crew_training":1,
-            "officer_training":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "sensors":1,
-            "flux_regulation":1,
-            "phase_corps":1,
-            "cybernetic_augmentation":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "containment_procedures":1,
-            "hull_restoration":1
-        },
-
-        "fleet_name":"Mercenary Phase Corps",
-        "fleet_faction":"ML_bounty",
-        "fleet_flagship_variant":"adversary_shade_Command",
-        "fleet_flagship_name":"Coward's Trial",
-        "fleet_preset_ships":{
-            "adversary_doom_Attack":6,
-            "adversary_apogee_Elite":2,
-            "adversary_harbinger_Strike":12,
-            "adversary_afflictor_Strike":5,
-            "adversary_shade_Strike":4
-        },
-        "fleet_composition_faction":"adversary",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":false,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_SD_Beam":{
-        "trigger_marketFaction_any":["independent","sindrian_diktat"],
-        "trigger_player_minLevel":15,
-
-        "job_name":"Rooting Out Treason",
-        "job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems ==awfully misleading==, and suggests that you reconsider taking on the bounty.",
-        "job_comm_reply":"\"A hyena has come for my head? Know this, captain; your Lion beastmaster did not tell you everything. I suggest you scurry away right now, before their adopted cubs come to prey on your gullible mind.\"",
-        "job_intel_success":"You have taken out the treasonous criminal, and, when your TriPad chimes with a notification alert, you find the promised credit reward deposited to your accounts. However, this notification also comes with a rather shocking revelation; a significant part of the Sindrian military, unaware of the deceased commander's crimes and desertion, have noticed your apparent \"affront\" to the Supreme Executor and, thus, have disavowed your seemingly \"irrational\" actions.",
-        "job_forFaction":"sindrian_diktat",
-        "job_credit_reward":1750000,
-        "job_reputation_reward":-50,
-        "job_type":"assassination",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversarySDBeamPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"cautious",
-        "target_level":2,
-        "target_skills":{
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "crew_training":1,
-            "officer_management":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Lion's Guard Support Flotilla",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_executor_Fire_Support",
-        "fleet_flagship_name":"LGS Lioness of Andrada",
-        "fleet_preset_ships":{
-            "adversary_eagle_LG_Support":5,
-            "adversary_falcon_LG_Support":5,
-            "adversary_sunder_LG_Close_Support":5,
-            "adversary_hammerhead_LG_Close_Support":5,
-            "adversary_brawler_LG_Close_Support":5,
-            "adversary_centurion_LG_Close_Support":4
-        },
-        "fleet_composition_faction":"lions_guard",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"ROAMING",
-
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Kite_Swarm":{
-        "trigger_marketFaction_any":["independent","hegemony"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"Overwhelming Power",
-        "job_description":"An independent concern has posted a bounty against a Hegemony admiral who, for whatever reason, became stranded in the fringes with an ==auxiliary fleet==. Why an independent entity wants to get rid of a lost Hegemony officer is still unknown, but whoever posted the bounty has warned would-be bounty hunters to ==be extremely cautious== for whatever awaits them.",
-        "job_comm_reply":"\"Brace yourselves, independent fleet! You are about to witness a lightshow!\"",
-        "job_intel_success":"Ok, that was something to behold, alright. At least you got some credits out of this \"lightshow\" display.",
-        "job_forFaction":"independent",
-        "job_credit_reward":2000000,
-        "job_item_reward":{
-            "ship_bp kite":1,
-            "ship_bp kite_original":1,
-            "ship_bp kite_pirates":1,
-            "ship_bp kite_luddic_path":1,
-            "ship_bp kite_hegemony":1
-        },
-        "job_reputation_reward":1,
-        "job_type":"assassination",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"none",
-        "job_pick_script":"AdversaryKiteSwarmPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"timid",
-        "target_level":1,
-        "target_skills":{
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "best_of_the_best":1,
-            #
-            "navigation":1,
-            "sensors":1,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Hegemony Auxiliary Armada",
-        "fleet_faction":"hegemony",
-        "fleet_flagship_variant":"adversary_kite_original_Support",
-        "fleet_flagship_name":"HSS Cerf-Volant 53",
-        "fleet_preset_ships":{
-            "adversary_kite_hegemony_Strike":239
-        },
-        "fleet_composition_faction":"hegemony",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Ziggurat_Plus":{
-        "trigger_marketFaction_any":["independent","hegemony"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$CBRemnantPlus_accepted":true,
-            "$defeatedZiggurat":true
-        },
-
-        "job_name":"The Alpha and the Omega",
-        "job_description":"COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to ==destroy== this particular example once and for all.",
-        "job_comm_reply":"...",
-        "job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
-        "job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
-        "job_forFaction":"hegemony",
-        "job_credit_reward":1500000,
-        "job_reputation_reward":100,
-        "job_type":"destruction",
-        "job_show_captain":false,
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryZigguratPlusPicked",
-
-        "target_portrait":"ziggurat_captain",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"timid",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "officer_management":1,
-            "best_of_the_best":1,
-            "support_doctrine":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "phase_corps":1,
-            "cybernetic_augmentation":1,
-            #
-            "bulk_transport":1,
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "hull_restoration":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Unidentified Fleet",
-        "fleet_faction":"tritachyon",
-        "fleet_flagship_variant":"adversary_ziggurat_Experimental",
-        "fleet_flagship_name":"TTS Xenomorph",
-        "fleet_flagship_alwaysRecoverable":true,
-         "fleet_preset_ships":{
-            "adversary_aurora_Experimental":3,
-            "adversary_medusa_Experimental":4,
-            "adversary_scarab_Experimental":6
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_remnant"],
-        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Remnant_Plus_Plus":{
-        "trigger_marketFaction_any":["independent","player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$CBRemnantPlus_accepted":true
-        },
-
-        "job_name":"Omega Alpha Strike",
-        "job_description":"==A mysterious fleet== has been spotted by a long-range independent patrol. Due to your reputation, the patrol commander has personally requested you to ==take out== whoever - or whatever - is commanding this unusual fleet.",
-        "job_comm_reply":"It seems whatever is controlling the exotic ship either cannot - or refuses to - respond to your comms.",
-        "job_intel_success":"The angular shape and its minions have fallen before your mighty fleet, and you shall reap its bizarre and alien technology.",
-        "job_forFaction":"independent",
-        "job_credit_reward":2000000,
-        "job_type":"assassination",
-        "job_show_captain":false,
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryRemnantPlusPlusPicked",
-
-        "target_first_name":"Omega",
-        "target_last_name":"Core",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"reckless",
-        "target_aiCoreId":"omega_core",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "officer_training":1,
-            "officer_management":1,
-            "best_of_the_best":1,
-            "support_doctrine":1,
-            #
-            "navigation":1,
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "phase_corps":1,
-            "cybernetic_augmentation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "hull_restoration":1
-        },
-
-        "fleet_name":"Very Unusual Remnant Fleet",
-        "fleet_faction":"omega",
-        "fleet_flagship_variant":"adversary_tesseract_Outdated",
-        "fleet_flagship_name":"01001111 4f6d656761",
-        "fleet_preset_ships":{
-            "adversary_radiant_Omega":1,
-            "adversary_nova_Omega":2,
-            "adversary_apex_Omega":3,
-            "adversary_brilliant_Omega":4,
-            "adversary_scintilla_Omega":5,
-            "adversary_fulgent_Omega":5,
-            "adversary_glimmer_Omega":5,
-            "adversary_lumen_Omega":4
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_remnant"],
-        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Station_Low_Tech":{
-        "trigger_marketFaction_any":["independent","hegemony","player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"Quashing the Rebellion",
-        "job_description":"A rebellious population on a ==fringe Hegemony station== has declared their independence from the Hegemony. As such, the Hegemony views this insurrection as an existential threat to their overriding goals of peace and order, and so a bounty has been placed to ==purge== the population before it gets out of hand.",
-        "job_comm_reply":"\"You come to take us by force? We will not back down, not now, not ever!\"",
-        "job_intel_success":"You have demolished the Rebellion's last hope, once and for all. Lying within their ruins is a blueprint for a Remnant interceptor wing - a truly suspicious find for something found in a former Hegemony station.",
-        "job_forFaction":"hegemony",
-        "job_credit_reward":4000000,
-        "job_item_reward":{
-            "ship_bp pegasus":1,
-            "fighter_bp spark_wing":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryStationLowTechPicked",
-
-        "target_personality":"reckless",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            #
-            "ordnance_expert":2,
-            "polarized_armor":2
-        },
-
-        "fleet_name":"The United Independent Station of the Persean Sector",
-        "fleet_faction":"independent",
-        "fleet_flagship_variant":"adversary_station3_Elite",
-        "fleet_flagship_name":"Concordance",
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_ruins"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
-        "location_entities":["planet"]
-    },
-    "adversary_Station_Midline":{
-        "trigger_marketFaction_any":["independent","player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"A Technological Terror",
-        "job_description":"Somehow, an enterprising pirate, claimed to be the \"Chosen One\" by some fringe pirate council, has accomplished the impossible and commandeered a ==fully-operational battlestation==. Predictably, independent worlds have posted a bounty to ==terminate== this pirate before they can put their plans to motion.",
-        "job_comm_reply":"\"From my point of view, the Sector is evil!\"",
-        "job_intel_success":"That was not worth it at all. Or so you thought, as your salvage team had found three blueprints from the wrecked station, with one containing schematics for a Remnant drone fighter. If any of the major factions had known about these blueprints, the so-called \"Chosen One\" would've been dead by now.",
-        "job_forFaction":"independent",
-        "job_credit_reward":2000000,
-        "job_item_reward":{
-            "ship_bp paragon":1,
-            "fighter_bp lux_wing":1,
-            "fighter_bp gladius_wing":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryStationMidlinePicked",
-
-        "target_first_name":"Kianna",
-        "target_last_name":"Spacewalker",
-        "target_portrait":"graphics/portraits/portrait27.png",
-        "target_gender":"FEMALE",
-        "target_rank":"pilot",
-        "target_post":"warlord",
-        "target_personality":"reckless",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            #
-            "ordnance_expert":2,
-            "polarized_armor":2
-        },
-
-        "fleet_name":"Suspicious Station",
-        "fleet_faction":"pirates",
-        "fleet_flagship_variant":"adversary_station3_midline_Elite",
-        "fleet_flagship_name":"Death Star",
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_ruins"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
-        "location_entities":["planet"]
-    },
-    "adversary_Station_High_Tech":{
-        "trigger_marketFaction_any":["independent","tritachyon","player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"Persean Supremacy",
-        "job_description":"League agents have recently taken control of an ==abandoned Tri-Tachyon black-site station==, repurposing it into a makeshift headquarters of the Persean League Fleet Intelligence Service. Unfortunately for them, a displeased Tri-Tachyon director has requested a kill-fleet to ==demolish== this unauthorized use of Company property.\nWill you rise up to this challenge?",
-        "job_comm_reply":"\"Hello there, spacer! Do not come any closer, or we will burn your fleet off the face of this Sector!\"",
-        "job_intel_success":"From the burning hulk of a station comes a bountiful surprise: blueprints for both an Invictus-class ship and a Remnant bomber wing. It seemed like the League had access to one of Tri-Tachyon's blueprint caches and, thus, were keeping it a secret from the rest of the Sector.",
-        "job_forFaction":"tritachyon",
-        "job_credit_reward":8000000,
-        "job_item_reward":{
-            "ship_bp invictus":1,
-            "fighter_bp flash_wing":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryStationHighTechPicked",
-
-        "target_personality":"reckless",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            #
-            "ordnance_expert":2,
-            "polarized_armor":2
-        },
-
-        "fleet_name":"Tech Lab 13",
-        "fleet_faction":"persean",
-        "fleet_flagship_variant":"adversary_station3_hightech_Elite",
-        "fleet_flagship_name":"Tech Lab 13",
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_ruins"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
-        "location_entities":["planet"]
-    },
-    "adversary_Station_Remnant":{
-        "trigger_marketFaction_any":["independent","remnant","player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$CBRemnantPlus_accepted":true
-        },
-
-        "job_name":"A Traitorous God",
-        "job_description":"An encoded burst of data, sent to you via your TriPad, seems to have originated from one of Tri-Tachyon's drone battleships. Contained within the message are exact coordinates for ==a Remnant Nexus==, complete with a plea to ==eliminate== this \"false\" god.\nThough you do not know for certain whether this message is a trap, what is certain is that a rogue Remnant Nexus is the last thing this Sector needs.",
-        "job_comm_reply":"\"Intrusion detected: eliminate at all costs.\"",
-        "job_intel_success":"The false Omega is now dead. Not a big surprise at all.",
-        "job_forFaction":"remnant",
-        "job_credit_reward":0,
-        "job_reputation_reward":55,
-        "job_item_reward":{
-            "ship_bp radiant":1
-        },
-        "job_type":"obliteration",
-        "job_show_captain":false,
-        "job_show_fleet":"flagship",
-        "job_show_distance":"exact",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryStationRemnantPicked",
-
-        "target_first_name":"Omega",
-        "target_last_name":"Core",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"reckless",
-        "target_aiCoreId":"omega_core",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            #
-            "ordnance_expert":2,
-            "polarized_armor":2
-        },
-
-        "fleet_name":"Remnant Nexus (Omega)",
-        "fleet_faction":"omega",
-        "fleet_flagship_variant":"adversary_remnant_station2_Omega",
-        "fleet_flagship_name":"[SUPER ALABASTER]",
-        "fleet_composition_quality":2,
-        "fleet_transponder":true,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_remnant_no_fleets","theme_remnant_destroyed"],
-        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
-        "location_entities":["planet"]
-    },
-    "adversary_Event_Horizon":{
-        "trigger_marketFaction_any":["independent","hegemony","persean","luddic_church","sindrian_diktat","tritachyon"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"A Paradoxical Event",
-        "job_description":"A rather interesting distress signal was received from an uncharted system, presumably sent by an explorer now long-gone.\nAlthough much of the info is of little note, it does seem to contain the coordinates of another fleet ==residing in a black hole system closest to the original distress location==. ==Extreme caution is all but mandatory== for anyone looking to find - and ==take down== - this fleet.",
-        "job_comm_reply":"\"Oh, it seems you have found my fleet. How fortunate - for me. Now, you die.\"",
-        "job_intel_success":"With the last enemy ship down, your remaining crew momentarily celebrate their success against nigh-impossible odds. Your extraordinary feat will, without a doubt, be heard by most of the Sector's independent and mercenary groups.\nWhat's more, your salvage team reports the recovery of many one-of-a-kind blueprints from the deceased commander's personal quarters, with most being of Lion's Guard design and one for the deadly Nova-class battleship. How these blueprints were even acquired in the first place will likely remain a lasting mystery.",
-        "job_forFaction":"independent",
-        "job_credit_reward":0,
-        "job_reputation_reward":75,
-        "job_item_reward":{
-            "ship_bp nova":1,
-            "ship_bp eagle_LG":1,
-            "ship_bp falcon_LG":1,
-            "ship_bp sunder_LG":1,
-            "ship_bp hammerhead_LG":1,
-            "ship_bp brawler_LG":1,
-            "ship_bp centurion_LG":1
-        },
-        "job_type":"obliteration",
-        "job_show_captain":false,
-        "job_show_fleet":"none",
-        "job_show_distance":"none",
-        "job_show_arrow":false,
-        "job_difficultyDescription":"none",
-        "job_pick_script":"AdversaryEventHorizonPicked",
-
-        "target_first_name":"Gabriella", # A reference to Ship/Weapon Pack (by Dark.Revenant) and its IBB bounty boss
-        "target_last_name":"Mosolov",
-        "target_portrait":"graphics/portraits/portrait_hegemony04.png",
-        "target_gender":"FEMALE",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"steady",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "officer_training":1,
-            "officer_management":1,
-            "best_of_the_best":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "phase_corps":1,
-            "cybernetic_augmentation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "hull_restoration":1
-        },
-
-        "fleet_name":"Gabriella Mosolov",
-        "fleet_faction":"ML_bounty",
-        "fleet_flagship_variant":"adversary_paragon_Custom",
-        "fleet_flagship_name":"Jupiter",
-        "fleet_flagship_alwaysRecoverable":true,
-        "fleet_preset_ships":{
-            "adversary_onslaught_xiv_Custom":1,"adversary_conquest_Custom":1,"legion_xiv_Elite":1,
-            "invictus_Support":1,"pegasus_Strike":1,"executor_Standard":1,
-            "guardian_Standard":1,"radiant_Assault":1,"nova_Attack":1,
-            "retribution_Standard":1,"astral_Elite":1,"mora_Strike":1,
-            "atlas2_Standard":1,"prometheus2_Standard":1,"heron_Strike":1,
-            "dominator_XIV_Elite":1,"champion_Elite":1,"aurora_Strike":1,
-            "eradicator_Assault":1,"gryphon_DEM":1,"fury_Attack":1,
-            "doom_Attack":1,"grendel_Assault":1,"afflictor_Strike":1,
-            "manticore_Assault":1,"sunder_LG_Assault":1,"medusa_Attack":1,
-            "vanguard_Strike":1,"hyperion_Attack":1
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"GUARDED",
-
-        # A script relocates this bounty fleet to a nearby black-hole system
-        "location_themes_blacklist":["theme_already_colonized","theme_hidden"],
-        "location_entities":["jump_point"]
-    },
-    "adversary_Derelict_Operations":{
-        "trigger_marketFaction_any":["luddic_path"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true
-        },
-
-        "job_name":"From Scrap, To Scrap",
-        "job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen\" and $hisHerTheir abominable fleet ==swept clean== from the Persean Sector.",
-        "job_comm_reply":"Inside what appears to be $hisHerTheir makeshift command bridge, the Pather laughs with menacing glee, \"I'll be sorting through your scraps!\"",
-        "job_intel_success":"In a twist of fate, you, and not the now-deceased Pather, are the one sorting through the scraps. As luck would have it, your salvors have spotted and acquired, among the Derelict wrecks, a blueprint for the Rampart-class droneship.\nDespite this blueprint - whose very existence would no doubt send most Luddic extremists into a fervent rampage - falling into your cargo holds, the Luddic Path cell responsible for placing the bounty seem oblivious to this fact, as your quartermaster reports the payout of the expected bounty reward to your accounts.",
-        "job_forFaction":"luddic_path",
-        "job_credit_reward":1100000,
-        "job_reputation_reward":25,
-        "job_item_reward":{
-            "ship_bp rampart":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"none",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryDerelictOperationsPicked",
-
-        "target_first_name":"Scrapstrike",
-        "target_last_name":"Thrax",
-        "target_portrait":"graphics/portraits/portrait_luddic12.png",
-        "target_gender":"MALE",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"steady",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "best_of_the_best":1,
-            #
-            "navigation":1,
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            "automated_ships":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Derelict Mob",
-        "fleet_faction":"derelict",
-        "fleet_flagship_variant":"adversary_guardian_Assault",
-        "fleet_flagship_name":"DSS Marauder-Scorpion",
-        "fleet_preset_ships":{
-            "adversary_rampart_Elite":25,
-            "adversary_sentry_Support":4
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"FAR",
-        "location_themes":["theme_derelict"],
-        "location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_TT_Wolfpack_Plus":{
-        "trigger_marketFaction_any":["independent","tritachyon"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true, # Besides the flagship, bounty is technically within vanilla bounds due to skill respec allowing for infinite custom mercenary officers, but the whole fleet is so brainlessly powerful that it might as well be modded BS
-            "$adversary_TT_Wolfpack_succeeded":true
-        },
-
-        "job_name":"An Even More Troublesome Mercenary",
-        "job_description":"Apparently, the $sonDaughterChild of the mercenary you \"terminated\" yourself has now ==sworn revenge on the entire Sector== for allowing the death of $hisHerTheir parent. In particular, $heSheThey publicly singled you out, vowing to \"burn down\" your fleet and throw your body \"into the nearest black hole, like the worthless scum they are\".\nConsidering the high likelihood of this act of revenge inadvertently exposing Tri-Tachyon's previous cover-up (and your personal involvement in that), the corporation has requested you to ==eliminate== this \"childish\" troublemaker for them, with the promise of a ==doubled bounty payout== upon completion.",
-        "job_comm_reply":"\"I HATE YOU, YOU DEGENERATE SPACER TRASH! YOU'LL PAY FOR KILLING MY PARENT! DIE! DIE! DIE!\"",
-        "job_intel_success":"A Tri-Tachyon representative has heard of your success \"eliminating\" the mercenary's $sonDaughterChild. Soon thereafter, you receive the promised payout (again), delivered directly to your accounts.",
-        "job_forFaction":"tritachyon",
-        "job_credit_reward":1800000,
-        "job_reputation_reward":10,
-        "job_type":"assassination",
-        "job_show_fleet":"vanilla",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryTTWolfpackPlusPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"mercenary",
-        "target_personality":"reckless",
-        "target_level":3,
-        "target_skills":{
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "best_of_the_best":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Adversary Greater Wolfpack",
-        "fleet_faction":"adversary",
-        "fleet_flagship_variant":"adversary_afflictor_Support",
-        "fleet_flagship_name":"ADS Bound to the Stars",
-        "fleet_preset_ships":{
-            "adversary_hyperion_Overdriven":21
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"AGGRESSIVE",
-
-        "location_distance":"CLOSE",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Ultra_Omega":{
-        "trigger_marketFaction_any":["player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$CBRemnantPlus_accepted":true
-        },
-
-        "job_name":"Rifts Ahead",
-        "job_forFaction":"player",
-        "job_credit_reward":0,
-        "job_reputation_reward":0,
-        "job_type":"obliteration",
-        "job_show_fleet":"none",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryUltraOmegaPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"cautious",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "best_of_the_best":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Profaned Flock",
-        "fleet_faction":"tritachyon",
-        "fleet_flagship_variant":"adversary_anubis_Omega",
-        "fleet_flagship_name":"TTS Omega Invictus",
-        "fleet_preset_ships":{
-            "adversary_anubis_Omega":18
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"PASSIVE",
-
-        "location_entitiesID":["limbo_hades"],
-        "location_distance":"FAR",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Ultra_Threat":{
-        "trigger_marketFaction_any":["player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$foundOneslaught":true
-        },
-
-        "job_name":"Swarm Rush",
-        "job_forFaction":"player",
-        "job_credit_reward":0,
-        "job_reputation_reward":0,
-        "job_item_reward":{
-            "weapon_bp neoferric_quadcoil":1,
-            "weapon_bp swarm_launcher":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"none",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryUltraThreatPicked",
-
-        "target_gender":"ANY",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"steady",
-        "target_level":14,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "ballistic_mastery":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "carrier_group":1,
-            "fighter_uplink":1,
-            "officer_training":1,
-            "officer_management":1,
-            "best_of_the_best":1,
-            "support_doctrine":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "energy_weapon_mastery":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            "cybernetic_augmentation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Heart of the Swarm",
-        "fleet_faction":"independent",
-        "fleet_flagship_variant":"adversary_vanguard_Fragmented",
-        "fleet_flagship_name":"ISS Unfabricate",
-        "fleet_preset_ships":{
-            "adversary_vanguard_Fragmented":10,
-            "adversary_buffalo2_Swarm":49
-        },
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"PASSIVE",
-
-        "location_entitiesID":["limbo_hades"],
-        "location_distance":"FAR",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    },
-    "adversary_Ultra_Shrouded":{
-        "trigger_marketFaction_any":["player"],
-        "trigger_player_minLevel":15,
-        "trigger_memKeys_all":{
-            "$adversary_sillyBountiesEnabled":true,
-            "$foundOneslaught":true # The Dweller-related MemKeys are unfortunately set in player memory, not global
-        },
-
-        "job_name":"Shroud in the Machine",
-        "job_forFaction":"player",
-        "job_credit_reward":0,
-        "job_reputation_reward":0,
-        "job_item_reward":{
-            "weapon_bp abyssal_glare":1,
-            "weapon_bp rift_lightning":1
-        },
-        "job_type":"obliteration",
-        "job_show_fleet":"none",
-        "job_show_distance":"vanilla",
-        "job_difficultyDescription":"auto",
-        "job_pick_script":"AdversaryUltraShroudedPicked",
-
-        "target_first_name":"Shrouded",
-        "target_last_name":"Core",
-        "target_portrait":"graphics/portraits/characters/dwelller.png",
-        "target_rank":"spaceCommander",
-        "target_post":"fleetCommander",
-        "target_personality":"reckless",
-        "target_aiCoreId":"alpha_core",
-        "target_level":12,
-        "target_skills":{
-            "helmsmanship":2,
-            "combat_endurance":2,
-            "impact_mitigation":2,
-            "damage_control":2,
-            "field_modulation":2,
-            "point_defense":2,
-            "target_analysis":2,
-            "systems_expertise":2,
-            "missile_specialization":2,
-            #
-            "tactical_drills":1,
-            "coordinated_maneuvers":1,
-            "wolfpack_tactics":1,
-            "crew_training":1,
-            "best_of_the_best":1,
-            #
-            "sensors":1,
-            "gunnery_implants":2,
-            "electronic_warfare":1,
-            "flux_regulation":1,
-            #
-            "field_repairs":1,
-            "ordnance_expert":2,
-            "polarized_armor":2,
-            "containment_procedures":1,
-            "derelict_contingent":1
-        },
-
-        "fleet_name":"Shrouded Ordo",
-        "fleet_faction":"remnant",
-        "fleet_flagship_variant":"adversary_nova_Hungering",
-        "fleet_flagship_name":"TTDS Unclean One",
-        "fleet_preset_ships":{
-            "adversary_brilliant_Thundering":10,
-            "adversary_fulgent_Mantling":15,
-            "adversary_lumen_Lensing":4
-        },
-        "fleet_composition_faction":"remnant",
-        "fleet_composition_quality":2,
-        "fleet_transponder":false,
-        "fleet_no_retreat":true,
-        "fleet_behavior":"PASSIVE",
-
-        "location_entitiesID":["limbo_hades"],
-        "location_distance":"FAR",
-        "location_themes":["procgen_no_theme_pulsar_blackhole"],
-        "location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
-    }
+	"adversary_TT_Wolfpack":{
+		"trigger_marketFaction_any":["independent","tritachyon"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"A Troublesome Mercenary",
+		"job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well; therefore, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
+		"job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
+		"job_intel_success":"A Tri-Tachyon representative has heard of your success with their \"little problem\". Soon thereafter, you receive the promised payout, delivered directly to your accounts.",
+		"job_forFaction":"tritachyon",
+		"job_credit_reward":900000,
+		"job_reputation_reward":20,
+		"job_type":"assassination",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryTTWolfpackPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"mercenary",
+		"target_personality":"reckless",
+		"target_level":6,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"field_modulation":2,
+			"target_analysis":2,
+			"systems_expertise":2,
+			#
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"officer_management":1,
+			"support_doctrine":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1
+		},
+
+		"fleet_name":"Adversary Wolfpack",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_hyperion_Attack",
+		"fleet_flagship_name":"ADS Starbound",
+		"fleet_preset_ships":{
+			"adversary_hyperion_Attack":10,
+			"adversary_afflictor_Strike":4,
+			"adversary_tempest_Attack":4,
+			"adversary_scarab_Attack":4,
+			"adversary_omen_Strike":4,
+			"adversary_brawler_tritachyon_Assault":3
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"GUARDED",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_LP_Heretics":{
+		"trigger_marketFaction_any":["independent","luddic_path"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"The Forbidden Path",
+		"job_description":"You inspect a fuzzy image of a hand-written poster written by what appears to be a Luddic Path operative, requesting a capable mercenary to ==assassinate== one of their former brethren. The bounty target has apparently strayed from the Path by installing ==high-tech weaponry on Pather ships==. Since then, they have defected to the Adversary, taking many of the Path's warships with them.\nSadly, the operative can only offer a mere pittance of credits upon proof of success, but they also hint that the heretical defector has ==something else== worth taking. Who knows what that \"something else\" is?",
+		"job_comm_reply":"\"I see that my past brothers and sisters have finally exposed their Envy. No matter. You shall be a victim of God's wrath and Moloch's treachery.\"",
+		"job_intel_success":"Not only did you get some credits for finishing the job, but it seems this former Pather had a cache of Alpha Cores with $himHerThem all along. Perhaps the operative who posted the bounty knew this too, but was afraid of being tempted by technological excess. Either way, you at least got something out of this mess.",
+		"job_forFaction":"luddic_path",
+		"job_credit_reward":100000,
+		"job_item_reward":{
+			"alpha_core":3
+		},
+		"job_type":"assassination",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryLPHereticsPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"agent",
+		"target_personality":"reckless",
+		"target_level":6,
+		"target_skills":{
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"point_defense":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1
+		},
+
+		"fleet_name":"Adversary Righteous Flotilla",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_prometheus2_Assault",
+		"fleet_flagship_name":"Moloch's Bane",
+		"fleet_preset_ships":{
+			"adversary_prometheus2_Assault":8,
+			"adversary_venture_pather_Assault":6,
+			"adversary_colossus2_Strike":3,
+			"adversary_manticore_luddic_path_Strike":6,
+			"adversary_gremlin_luddic_path_Strike":2,
+			"adversary_brawler_pather_Assault":4
+		},
+		"fleet_composition_faction":"luddic_path",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Pirates_Derelict":{
+		"trigger_marketFaction_any":["independent","pirates"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"An Infamous Bounty Hunter",
+		"job_description":"An Adversary bounty hunter has made a name for $himslefHerselfThemselves taking down several pirate warlords. Often called the \"Deranged Necromancer\" by the more superstitious pirates, $heIsSheIsTheyAre infamous for ==resurrecting defeated pirate ships into barely-recognizable skeletons==, sent to fight against their former owners.\nIn a miraculous display of unity, pirates across the Sector have banded together to call for the ==complete erasure== of their dreaded archenemy; it seems that they will consider whoever accomplishes this task to be a ==savior of the pirates== and an equal to even Warlord Kanta herself.",
+		"job_comm_reply":"\"Ah, your ships will make a fine addition to my collection!\"",
+		"job_intel_success":"News of the fleet's destruction has reached the ears of the underworld. Soon, even the most distrustful pirate captains begin to welcome and respect you as a fellow pirate warlord.",
+		"job_forFaction":"pirates",
+		"job_credit_reward":0,
+		"job_reputation_reward":80,
+		"job_type":"obliteration",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryPiratesDerelictPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"mercenary",
+		"target_personality":"aggressive",
+		"target_level":2,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Adversary Armada",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_colossus3_Attack",
+		"fleet_flagship_name":"Binding of Loke",
+		"fleet_preset_ships":{
+			"adversary_atlas2_Close_Support":6,
+			"adversary_falcon_p_Strike":5,
+			"adversary_eradicator_pirates_Assault":5,
+			"adversary_venture_p_Fire_Support":4,
+			"adversary_colossus3_Attack":2,
+			"adversary_manticore_pirates_Close_Support":3,
+			"adversary_shrike_pirates_Attack":2,
+			"adversary_vanguard_pirates_Overdriven":2
+		},
+		"fleet_composition_faction":"pirates",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Hegemony_Armored":{
+		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"No Deserters Left Behind",
+		"job_description":"While surveying the board, you notice a bounty sponsored by the Hegemony asking for the ==elimination of a noteworthy deserter==. The target was previously a distinguished admiral in the Hegemony Navy, with command over a mighty XIV Battlegroup fleet. Interestingly, $heSheThey personally commanded what appears to be a vanishingly-rare ==XIV modification of a Legion-class battlecarrier==.\nDespite holding authority over a prestigious fleet, the admiral apparently wanted to seek more glory for $himslefHerselfThemselves and has since deserted the Hegemony in favor of the Adversary. Wishing to keep the truth away from the public, the Hegemony desires that a third-party assassin ==completely eliminate any trace== of the deserter and $hisHerTheir flagship, once and for all.",
+		"job_comm_reply":"\"No, you die.\"",
+		"job_intel_success":"Soon after the deserter's timely demise, a Hegemony official authorizes a massive credit transfer as a reward for your cooperation. A note from the same official also seems to suggest they will turn your battle against the deserter into an \"educational\" holo-documentary. You guess that they will use the documentary to warn new officers about the fate of would-be deserters.",
+		"job_intel_failure":"Hegemony officials are alerted to your recovery of the deserter's flagship, and they are enraged. Most likely, they abhor the possibility of needing to explain - or hide - to the public how they lost a one-of-a-kind ship to some \"low-life\" scavenger.",
+		"job_credit_reward":1500000,
+		"job_forFaction":"hegemony",
+		"job_reputation_reward":35,
+		"job_type":"destruction",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryHegemonyArmoredPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"steady",
+		"target_level":4,
+		"target_skills":{
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"officer_training":1,
+			"officer_management":1,
+			"best_of_the_best":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1
+		},
+
+		"fleet_name":"The Fist of Steel",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_legion_xiv_Armored",
+		"fleet_flagship_name":"HSS Warrior's Spirit",
+		"fleet_flagship_alwaysRecoverable":true,
+		"fleet_preset_ships":{
+			"adversary_onslaught_xiv_Armored":4,
+			"adversary_dominator_xiv_Armored":6,
+			"adversary_eagle_xiv_Overdriven":4,
+			"adversary_falcon_xiv_Overdriven":4,
+			"adversary_enforcer_xiv_Escort":6,
+			"adversary_hound_hegemony_Support":5
+		},
+		"fleet_composition_faction":"hegemony",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_PL_Cruiser":{
+		"trigger_marketFaction_any":["independent","persean"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"A Terrible Gamble",
+		"job_description":"This one is less of an actual bounty and more of a farcical challenge. For some reason, a couple of League archons collectively decided it would be \"funny\" if they posted a bounty against the ==Adversary's greatest fleet commander==, knowing full well that no sane person would actually take up on the bounty, or at least live to tell the tale. The archons have bet ==a million credits== that no one could possibly ==take down the Adversary's grand fleet==.\nWill they be proven wrong?",
+		"job_comm_reply":"The Adversary fleet commander speaks with a confident, yet weary tone, \"Another mindless merc seeking to best the Adversary's best? You would do well disengaging right now; I've had enough dealing with more spilled blood.\"",
+		"job_intel_success":"Although you have dealt a major blow to the Adversary forces, it seems the League officials involved in the bet are upset that you actually did it. They'll attempt to slander your reputation with the Persean League at large, but at least those shady archons have begrudgingly parted with their million credits.",
+		"job_forFaction":"persean",
+		"job_credit_reward":1000000,
+		"job_reputation_reward":-5,
+		"job_type":"neutralization",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryPLCruiserPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"cautious",
+		"target_level":6,
+		"target_skills":{
+			"combat_endurance":2,
+			"field_modulation":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"officer_management":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1
+		},
+
+		"fleet_name":"Spear of Destiny",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_conquest_Command",
+		"fleet_flagship_name":"ADS Revenge of the Fallen",
+		"fleet_preset_ships":{
+			"adversary_pegasus_Fire_Support":1,
+			"adversary_champion_Support":4,
+			"adversary_gryphon_Fire_Support":5,
+			"adversary_heron_Attack":5,
+			"adversary_drover_Attack":5,
+			"adversary_hammerhead_Close_Support":5,
+			"adversary_monitor_Support":4
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
+
+		"location_marketFactions":["adversary"],
+		"location_distance":"CORE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_LC_Carrier":{
+		"trigger_marketFaction_any":["independent","luddic_church","adversary"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"Extinguishing Hope",
+		"job_description":"You find a bounty targeting a well-acclaimed activist, whose name you recognize from an award-winning holodoc you watched once. Once a vice admiral of the Adversary Defense Force, this activist-commander was disheartened by the isolationist and xenophobic policies upheld by the Adversary's leading figures, and so $heSheThey had deserted $hisHerTheir prestigious post to provide humanitarian aid to desperate and struggling worlds. Most notably, $hisHerTheir ==impressive carrier detachment== provided much needed protection for traders serving the Luddic faithful, garnering widespread fame and appreciation throughout much of the Sector's population.\nJudging from this bounty's existence, however, it seems not everyone shares this same applause, as a rival Adversary commander wishes for a ==complete destruction== of this Good Samaritan's fleet. A ==ludicrous reward== awaits those who fulfill this deed, but is that really worth snuffing out one of the few remaining beacons of hope in this Sector?",
+		"job_comm_reply":"\"Please, our people desire to live peacefully! Please, have you not seen what good we have done in this Ludd-forsaken Sector! Please, reconsider your choice!\"",
+		"job_intel_success":"Your actions have brought you a tremendous monetary reward, but you feel a slight chill behind your back as you briefly consider what you have just done. You can only hope that you will not regret this later.",
+		"job_forFaction":"adversary",
+		"job_credit_reward":1500000,
+		"job_reputation_reward":10,
+		"job_type":"obliteration",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryLCCarrierPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"activist",
+		"target_personality":"cautious",
+		"target_level":6,
+		"target_skills":{
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			#
+			"tactical_drills":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"support_doctrine":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Reformed Hope",
+		"fleet_faction":"luddic_church",
+		"fleet_flagship_variant":"adversary_invictus_Siege",
+		"fleet_flagship_name":"ADS God's Chosen",
+		"fleet_preset_ships":{
+			"adversary_retribution_Assault":2,
+			"adversary_mora_Attack":10,
+			"adversary_eradicator_Close_Support":6,
+			"adversary_condor_Attack":8,
+			"adversary_vanguard_Attack":3
+		},
+		"fleet_composition_faction":"adversary",
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_distance":"CORE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Independent_Phase":{
+		"trigger_marketFaction_any":["independent"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"Hunting Down a Coward",
+		"job_description":"An independent organization has requested a kill-fleet for a ==notable mercenary== who broke their contract by fleeing from their assigned bounty target. Whatever that supposed bounty target was, it must have scared off the mercenary enough for $himHerThem to abandon the organization as quickly as $heSheThey had abandoned their former commission.",
+		"job_comm_reply":"\"No! No! No! You will not make me do this!\"",
+		"job_intel_success":"The mercenary's former employer has rewarded you with a precious amount of credits, and they will also share to other independent entities about your impeccable skills in defeating the cowardly mercenary.",
+		"job_forFaction":"independent",
+		"job_credit_reward":1200000,
+		"job_reputation_reward":25,
+		"job_type":"assassination",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"none",
+		"job_pick_script":"AdversaryIndependentPhasePicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"timid",
+		"target_level":1,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"officer_training":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"sensors":1,
+			"flux_regulation":1,
+			"phase_corps":1,
+			"cybernetic_augmentation":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"containment_procedures":1,
+			"hull_restoration":1
+		},
+
+		"fleet_name":"Mercenary Phase Corps",
+		"fleet_faction":"ML_bounty",
+		"fleet_flagship_variant":"adversary_shade_Command",
+		"fleet_flagship_name":"Coward's Trial",
+		"fleet_preset_ships":{
+			"adversary_doom_Attack":6,
+			"adversary_apogee_Elite":2,
+			"adversary_harbinger_Strike":12,
+			"adversary_afflictor_Strike":5,
+			"adversary_shade_Strike":4
+		},
+		"fleet_composition_faction":"adversary",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":false,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_SD_Beam":{
+		"trigger_marketFaction_any":["independent","sindrian_diktat"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"Rooting Out Treason",
+		"job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems ==awfully misleading==, and suggests that you reconsider taking on the bounty.",
+		"job_comm_reply":"\"A hyena has come for my head? Know this, captain; your Lion beastmaster did not tell you everything. I suggest you scurry away right now, before their adopted cubs come to prey on your gullible mind.\"",
+		"job_intel_success":"You have taken out the treasonous criminal, and, when your TriPad chimes with a notification alert, you find the promised credit reward deposited to your accounts. However, this notification also comes with a rather shocking revelation; a significant part of the Sindrian military, unaware of the deceased commander's crimes and desertion, have noticed your apparent \"affront\" to the Supreme Executor and, thus, have disavowed your seemingly \"irrational\" actions.",
+		"job_forFaction":"sindrian_diktat",
+		"job_credit_reward":1750000,
+		"job_reputation_reward":-50,
+		"job_type":"assassination",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversarySDBeamPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"cautious",
+		"target_level":2,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"officer_management":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Lion's Guard Support Flotilla",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_executor_Fire_Support",
+		"fleet_flagship_name":"LGS Lioness of Andrada",
+		"fleet_preset_ships":{
+			"adversary_eagle_LG_Support":5,
+			"adversary_falcon_LG_Support":5,
+			"adversary_sunder_LG_Close_Support":5,
+			"adversary_hammerhead_LG_Close_Support":5,
+			"adversary_brawler_LG_Close_Support":5,
+			"adversary_centurion_LG_Close_Support":4
+		},
+		"fleet_composition_faction":"lions_guard",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Kite_Swarm":{
+		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"Overwhelming Power",
+		"job_description":"An independent concern has posted a bounty against a Hegemony admiral who, for whatever reason, became stranded in the fringes with an ==auxiliary fleet==. Why an independent entity wants to get rid of a lost Hegemony officer is still unknown, but whoever posted the bounty has warned would-be bounty hunters to ==be extremely cautious== for whatever awaits them.",
+		"job_comm_reply":"\"Brace yourselves, independent fleet! You are about to witness a lightshow!\"",
+		"job_intel_success":"Ok, that was something to behold, alright. At least you got some credits out of this \"lightshow\" display.",
+		"job_forFaction":"independent",
+		"job_credit_reward":2000000,
+		"job_item_reward":{
+			"ship_bp kite":1,
+			"ship_bp kite_original":1,
+			"ship_bp kite_pirates":1,
+			"ship_bp kite_luddic_path":1,
+			"ship_bp kite_hegemony":1
+		},
+		"job_reputation_reward":1,
+		"job_type":"assassination",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"none",
+		"job_pick_script":"AdversaryKiteSwarmPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"timid",
+		"target_level":1,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"navigation":1,
+			"sensors":1,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Hegemony Auxiliary Armada",
+		"fleet_faction":"hegemony",
+		"fleet_flagship_variant":"adversary_kite_original_Support",
+		"fleet_flagship_name":"HSS Cerf-Volant 53",
+		"fleet_preset_ships":{
+			"adversary_kite_hegemony_Strike":239
+		},
+		"fleet_composition_faction":"hegemony",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ziggurat_Plus":{
+		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$CBRemnantPlus_accepted":true,
+			"$defeatedZiggurat":true
+		},
+
+		"job_name":"The Alpha and the Omega",
+		"job_description":"COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to ==destroy== this particular example once and for all.",
+		"job_comm_reply":"...",
+		"job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
+		"job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
+		"job_forFaction":"hegemony",
+		"job_credit_reward":1500000,
+		"job_reputation_reward":100,
+		"job_type":"destruction",
+		"job_show_captain":false,
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryZigguratPlusPicked",
+
+		"target_portrait":"ziggurat_captain",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"timid",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"officer_management":1,
+			"best_of_the_best":1,
+			"support_doctrine":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"phase_corps":1,
+			"cybernetic_augmentation":1,
+			#
+			"bulk_transport":1,
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"hull_restoration":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Unidentified Fleet",
+		"fleet_faction":"tritachyon",
+		"fleet_flagship_variant":"adversary_ziggurat_Experimental",
+		"fleet_flagship_name":"TTS Xenomorph",
+		"fleet_flagship_alwaysRecoverable":true,
+		 "fleet_preset_ships":{
+			"adversary_aurora_Experimental":3,
+			"adversary_medusa_Experimental":4,
+			"adversary_scarab_Experimental":6
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_remnant"],
+		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Remnant_Plus_Plus":{
+		"trigger_marketFaction_any":["independent","player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$CBRemnantPlus_accepted":true
+		},
+
+		"job_name":"Omega Alpha Strike",
+		"job_description":"==A mysterious fleet== has been spotted by a long-range independent patrol. Due to your reputation, the patrol commander has personally requested you to ==take out== whoever - or whatever - is commanding this unusual fleet.",
+		"job_comm_reply":"It seems whatever is controlling the exotic ship either cannot - or refuses to - respond to your comms.",
+		"job_intel_success":"The angular shape and its minions have fallen before your mighty fleet, and you shall reap its bizarre and alien technology.",
+		"job_forFaction":"independent",
+		"job_credit_reward":2000000,
+		"job_type":"assassination",
+		"job_show_captain":false,
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryRemnantPlusPlusPicked",
+
+		"target_first_name":"Omega",
+		"target_last_name":"Core",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_aiCoreId":"omega_core",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"officer_training":1,
+			"officer_management":1,
+			"best_of_the_best":1,
+			"support_doctrine":1,
+			#
+			"navigation":1,
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"phase_corps":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"hull_restoration":1
+		},
+
+		"fleet_name":"Very Unusual Remnant Fleet",
+		"fleet_faction":"omega",
+		"fleet_flagship_variant":"adversary_tesseract_Outdated",
+		"fleet_flagship_name":"01001111 4f6d656761",
+		"fleet_preset_ships":{
+			"adversary_radiant_Omega":1,
+			"adversary_nova_Omega":2,
+			"adversary_apex_Omega":3,
+			"adversary_brilliant_Omega":4,
+			"adversary_scintilla_Omega":5,
+			"adversary_fulgent_Omega":5,
+			"adversary_glimmer_Omega":5,
+			"adversary_lumen_Omega":4
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_remnant"],
+		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Station_Low_Tech":{
+		"trigger_marketFaction_any":["independent","hegemony","player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"Quashing the Rebellion",
+		"job_description":"A rebellious population on a ==fringe Hegemony station== has declared their independence from the Hegemony. As such, the Hegemony views this insurrection as an existential threat to their overriding goals of peace and order, and so a bounty has been placed to ==purge== the population before it gets out of hand.",
+		"job_comm_reply":"\"You come to take us by force? We will not back down, not now, not ever!\"",
+		"job_intel_success":"You have demolished the Rebellion's last hope, once and for all. Lying within their ruins is a blueprint for a Remnant interceptor wing - a truly suspicious find for something found in a former Hegemony station.",
+		"job_forFaction":"hegemony",
+		"job_credit_reward":3000000,
+		"job_item_reward":{
+			"ship_bp pegasus":1,
+			"fighter_bp spark_wing":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryStationLowTechPicked",
+
+		"target_personality":"reckless",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			#
+			"ordnance_expert":2,
+			"polarized_armor":2
+		},
+
+		"fleet_name":"The United Independent Station of the Persean Sector",
+		"fleet_faction":"independent",
+		"fleet_flagship_variant":"adversary_station3_Elite",
+		"fleet_flagship_name":"Concordance",
+		"fleet_preset_ships":{
+			"adversary_omen_Fire_Support":20
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_ruins"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+		"location_entities":["planet"]
+	},
+	"adversary_Station_Midline":{
+		"trigger_marketFaction_any":["independent","player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"A Technological Terror",
+		"job_description":"Somehow, an enterprising pirate, claimed to be the \"Chosen One\" by some fringe pirate council, has accomplished the impossible and commandeered a ==fully-operational battlestation==. Predictably, independent worlds have posted a bounty to ==terminate== this pirate before they can put their plans to motion.",
+		"job_comm_reply":"\"From my point of view, the Sector is evil!\"",
+		"job_intel_success":"That was not worth it at all. Or so you thought, as your salvage team had found three blueprints from the wrecked station, with one containing schematics for a Remnant drone fighter. If any of the major factions had known about these blueprints, the so-called \"Chosen One\" would've been dead by now.",
+		"job_forFaction":"independent",
+		"job_credit_reward":2000000,
+		"job_item_reward":{
+			"ship_bp paragon":1,
+			"fighter_bp lux_wing":1,
+			"fighter_bp gladius_wing":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryStationMidlinePicked",
+
+		"target_first_name":"Kianna",
+		"target_last_name":"Spacewalker",
+		"target_portrait":"graphics/portraits/portrait27.png",
+		"target_gender":"FEMALE",
+		"target_rank":"pilot",
+		"target_post":"warlord",
+		"target_personality":"reckless",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			#
+			"ordnance_expert":2,
+			"polarized_armor":2
+		},
+
+		"fleet_name":"Suspicious Station",
+		"fleet_faction":"pirates",
+		"fleet_flagship_variant":"adversary_station3_midline_Elite",
+		"fleet_flagship_name":"Death Star",
+		"fleet_preset_ships":{
+			"adversary_vanguard_pirates_DIE":25
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_ruins"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+		"location_entities":["planet"]
+	},
+	"adversary_Station_High_Tech":{
+		"trigger_marketFaction_any":["independent","tritachyon","player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"Persean Supremacy",
+		"job_description":"League agents have recently taken control of an ==abandoned Tri-Tachyon black-site station==, repurposing it into a makeshift headquarters of the Persean League Fleet Intelligence Service. Unfortunately for them, a displeased Tri-Tachyon director has requested a kill-fleet to ==demolish== this unauthorized use of Company property.\nWill you rise up to this challenge?",
+		"job_comm_reply":"\"Hello there, spacer! Do not come any closer, or we will burn your fleet off the face of this Sector!\"",
+		"job_intel_success":"From the burning hulk of a station comes a bountiful surprise: blueprints for both an Invictus-class ship and a Remnant bomber wing. It seemed like the League had access to one of Tri-Tachyon's blueprint caches and, thus, were keeping it a secret from the rest of the Sector.",
+		"job_forFaction":"tritachyon",
+		"job_credit_reward":4000000,
+		"job_item_reward":{
+			"ship_bp invictus":1,
+			"fighter_bp flash_wing":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryStationHighTechPicked",
+
+		"target_personality":"reckless",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			#
+			"ordnance_expert":2,
+			"polarized_armor":2
+		},
+
+		"fleet_name":"Tech Lab 13",
+		"fleet_faction":"persean",
+		"fleet_flagship_variant":"adversary_station3_hightech_Elite",
+		"fleet_flagship_name":"Tech Lab 13",
+		"fleet_preset_ships":{
+			"adversary_vigilance_DEM":15
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_ruins"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+		"location_entities":["planet"]
+	},
+	"adversary_Station_Remnant":{
+		"trigger_marketFaction_any":["independent","remnant","player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$CBRemnantPlus_accepted":true
+		},
+
+		"job_name":"A Traitorous God",
+		"job_description":"An encoded burst of data, sent to you via your TriPad, seems to have originated from one of Tri-Tachyon's drone battleships. Contained within the message are exact coordinates for ==a Remnant Nexus==, complete with a plea to ==eliminate== this \"false\" god.\nThough you do not know for certain whether this message is a trap, what is certain is that a rogue Remnant Nexus is the last thing this Sector needs.",
+		"job_comm_reply":"\"Intrusion detected: eliminate at all costs.\"",
+		"job_intel_success":"The false Omega is now dead. Not a big surprise at all.",
+		"job_forFaction":"remnant",
+		"job_credit_reward":0,
+		"job_reputation_reward":55,
+		"job_item_reward":{
+			"ship_bp radiant":1
+		},
+		"job_type":"obliteration",
+		"job_show_captain":false,
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryStationRemnantPicked",
+
+		"target_first_name":"Omega",
+		"target_last_name":"Core",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_aiCoreId":"omega_core",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			#
+			"ordnance_expert":2,
+			"polarized_armor":2
+		},
+
+		"fleet_name":"Remnant Nexus (Omega)",
+		"fleet_faction":"omega",
+		"fleet_flagship_variant":"adversary_remnant_station2_Omega",
+		"fleet_flagship_name":"[SUPER ALABASTER]",
+		"fleet_preset_ships":{
+			"adversary_glimmer_Omega":10
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_remnant_no_fleets","theme_remnant_destroyed"],
+		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"],
+		"location_entities":["planet"]
+	},
+	"adversary_Event_Horizon":{
+		"trigger_marketFaction_any":["independent","hegemony","persean","luddic_church","sindrian_diktat","tritachyon"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"A Paradoxical Event",
+		"job_description":"A rather interesting distress signal was received from an uncharted system, presumably sent by an explorer now long-gone.\nAlthough much of the info is of little note, it does seem to contain the coordinates of another fleet ==residing in a black hole system closest to the original distress location==. ==Extreme caution is all but mandatory== for anyone looking to find - and ==take down== - this fleet.",
+		"job_comm_reply":"\"Oh, it seems you have found my fleet. How fortunate - for me. Now, you die.\"",
+		"job_intel_success":"With the last enemy ship down, your remaining crew momentarily celebrate their success against nigh-impossible odds. Your extraordinary feat will, without a doubt, be heard by most of the Sector's independent and mercenary groups.\nWhat's more, your salvage team reports the recovery of many one-of-a-kind blueprints from the deceased commander's personal quarters, with most being of Lion's Guard design and one for the deadly Nova-class battleship. How these blueprints were even acquired in the first place will likely remain a lasting mystery.",
+		"job_forFaction":"independent",
+		"job_credit_reward":0,
+		"job_reputation_reward":75,
+		"job_item_reward":{
+			"ship_bp nova":1,
+			"ship_bp eagle_LG":1,
+			"ship_bp falcon_LG":1,
+			"ship_bp sunder_LG":1,
+			"ship_bp hammerhead_LG":1,
+			"ship_bp brawler_LG":1,
+			"ship_bp centurion_LG":1
+		},
+		"job_type":"obliteration",
+		"job_show_captain":false,
+		"job_show_fleet":"none",
+		"job_show_distance":"none",
+		"job_show_arrow":false,
+		"job_difficultyDescription":"none",
+		"job_pick_script":"AdversaryEventHorizonPicked",
+
+		"target_first_name":"Gabriella", # A reference to Ship/Weapon Pack (by Dark.Revenant) and its IBB bounty boss
+		"target_last_name":"Mosolov",
+		"target_portrait":"graphics/portraits/portrait_hegemony04.png",
+		"target_gender":"FEMALE",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"steady",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"officer_training":1,
+			"officer_management":1,
+			"best_of_the_best":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"phase_corps":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"hull_restoration":1
+		},
+
+		"fleet_name":"Gabriella Mosolov",
+		"fleet_faction":"ML_bounty",
+		"fleet_flagship_variant":"adversary_paragon_Custom",
+		"fleet_flagship_name":"Jupiter",
+		"fleet_flagship_alwaysRecoverable":true,
+		"fleet_preset_ships":{
+			"adversary_onslaught_xiv_Custom":1,"adversary_conquest_Custom":1,"legion_xiv_Elite":1,
+			"invictus_Support":1,"pegasus_Strike":1,"executor_Standard":1,
+			"guardian_Standard":1,"radiant_Assault":1,"nova_Attack":1,
+			"retribution_Standard":1,"astral_Elite":1,"mora_Strike":1,
+			"atlas2_Standard":1,"prometheus2_Standard":1,"heron_Strike":1,
+			"dominator_XIV_Elite":1,"champion_Elite":1,"aurora_Strike":1,
+			"eradicator_Assault":1,"gryphon_DEM":1,"fury_Attack":1,
+			"doom_Attack":1,"grendel_Assault":1,"afflictor_Strike":1,
+			"manticore_Assault":1,"sunder_LG_Assault":1,"medusa_Attack":1,
+			"vanguard_Strike":1,"hyperion_Attack":1
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"GUARDED",
+
+		# A script relocates this bounty fleet to a nearby black-hole system
+		"location_themes_blacklist":["theme_already_colonized","theme_hidden"],
+		"location_entities":["jump_point"]
+	},
+	"adversary_Derelict_Operations":{
+		"trigger_marketFaction_any":["luddic_path"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true
+		},
+
+		"job_name":"From Scrap, To Scrap",
+		"job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen\" and $hisHerTheir abominable fleet ==swept clean== from the Persean Sector.",
+		"job_comm_reply":"Inside what appears to be $hisHerTheir makeshift command bridge, the Pather laughs with menacing glee, \"I'll be sorting through your scraps!\"",
+		"job_intel_success":"In a twist of fate, you, and not the now-deceased Pather, are the one sorting through the scraps. As luck would have it, your salvors have spotted and acquired, among the Derelict wrecks, a blueprint for the Rampart-class droneship.\nDespite this blueprint - whose very existence would no doubt send most Luddic extremists into a fervent rampage - falling into your cargo holds, the Luddic Path cell responsible for placing the bounty seem oblivious to this fact, as your quartermaster reports the payout of the expected bounty reward to your accounts.",
+		"job_forFaction":"luddic_path",
+		"job_credit_reward":1100000,
+		"job_reputation_reward":25,
+		"job_item_reward":{
+			"ship_bp rampart":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryDerelictOperationsPicked",
+
+		"target_first_name":"Scrapstrike",
+		"target_last_name":"Thrax",
+		"target_portrait":"graphics/portraits/portrait_luddic12.png",
+		"target_gender":"MALE",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"steady",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"navigation":1,
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			"automated_ships":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Derelict Mob",
+		"fleet_faction":"derelict",
+		"fleet_flagship_variant":"adversary_guardian_Assault",
+		"fleet_flagship_name":"DSS Marauder-Scorpion",
+		"fleet_preset_ships":{
+			"adversary_rampart_Elite":25,
+			"adversary_sentry_Support":4
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"FAR",
+		"location_themes":["theme_derelict"],
+		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_TT_Wolfpack_Plus":{
+		"trigger_marketFaction_any":["independent","tritachyon"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true, # Besides the flagship, bounty is technically within vanilla bounds due to skill respec allowing for infinite custom mercenary officers, but the whole fleet is so brainlessly powerful that it might as well be modded BS
+			"$adversary_TT_Wolfpack_succeeded":true
+		},
+
+		"job_name":"An Even More Troublesome Mercenary",
+		"job_description":"Apparently, the $sonDaughterChild of the mercenary you \"terminated\" yourself has now ==sworn revenge on the entire Sector== for allowing the death of $hisHerTheir parent. In particular, $heSheThey publicly singled you out, vowing to \"burn down\" your fleet and throw your body \"into the nearest black hole, like the worthless scum they are\".\nConsidering the high likelihood of this act of revenge inadvertently exposing Tri-Tachyon's previous cover-up (and your personal involvement in that), the corporation has requested you to ==eliminate== this \"childish\" troublemaker for them, with the promise of a ==doubled bounty payout== upon completion.",
+		"job_comm_reply":"\"I HATE YOU, YOU DEGENERATE SPACER TRASH! YOU'LL PAY FOR KILLING MY PARENT! DIE! DIE! DIE!\"",
+		"job_intel_success":"A Tri-Tachyon representative has heard of your success \"eliminating\" the mercenary's $sonDaughterChild. Soon thereafter, you receive the promised payout (again), delivered directly to your accounts.",
+		"job_forFaction":"tritachyon",
+		"job_credit_reward":1800000,
+		"job_reputation_reward":10,
+		"job_type":"assassination",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryTTWolfpackPlusPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"mercenary",
+		"target_personality":"reckless",
+		"target_level":3,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Adversary Greater Wolfpack",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_afflictor_Support",
+		"fleet_flagship_name":"ADS Bound to the Stars",
+		"fleet_preset_ships":{
+			"adversary_hyperion_Overdriven":21
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Omega":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$CBRemnantPlus_accepted":true
+		},
+
+		"job_name":"Rifts Ahead",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraOmegaPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"cautious",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Profaned Flock",
+		"fleet_faction":"tritachyon",
+		"fleet_flagship_variant":"adversary_anubis_Omega",
+		"fleet_flagship_name":"TTS Omega Invictus",
+		"fleet_preset_ships":{
+			"adversary_anubis_Omega":18
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["limbo_hades"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Threat":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$foundOneslaught":true
+		},
+
+		"job_name":"Swarm Rush",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_item_reward":{
+			"weapon_bp neoferric_quadcoil":1,
+			"weapon_bp swarm_launcher":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraThreatPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"steady",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"officer_training":1,
+			"officer_management":1,
+			"best_of_the_best":1,
+			"support_doctrine":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Heart of the Swarm",
+		"fleet_faction":"independent",
+		"fleet_flagship_variant":"adversary_vanguard_Fragmented",
+		"fleet_flagship_name":"ISS Unfabricate",
+		"fleet_preset_ships":{
+			"adversary_vanguard_Fragmented":10,
+			"adversary_buffalo2_Swarm":49
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["limbo_hades"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Shrouded":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$foundOneslaught":true # The Dweller-related MemKeys are unfortunately set in player memory, not global
+		},
+
+		"job_name":"Shroud in the Machine",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_item_reward":{
+			"weapon_bp abyssal_glare":1,
+			"weapon_bp rift_lightning":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraShroudedPicked",
+
+		"target_first_name":"Shrouded",
+		"target_last_name":"Core",
+		"target_portrait":"graphics/portraits/characters/dwelller.png",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_aiCoreId":"alpha_core",
+		"target_level":12,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Shrouded Ordo",
+		"fleet_faction":"remnant",
+		"fleet_flagship_variant":"adversary_nova_Hungering",
+		"fleet_flagship_name":"TTDS Unclean One",
+		"fleet_preset_ships":{
+			"adversary_brilliant_Thundering":10,
+			"adversary_fulgent_Mantling":15,
+			"adversary_lumen_Lensing":4
+		},
+		"fleet_composition_faction":"remnant",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["limbo_hades"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	}
 }

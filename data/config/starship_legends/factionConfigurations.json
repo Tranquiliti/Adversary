@@ -34,7 +34,7 @@
 			"ballistics_rof":5,
 			"energy_cost":5,
 			"pd_range":0,
-			"pd_damage":5,
+			"pd_damage":5
 		},
 		"badTraitFrequency":{ # ...but less staying power, less defenses
 			"peak_cr_time":5,
@@ -71,7 +71,7 @@
 			"pd_range":0,
 			"pd_damage":0,
 			"cursed":0,
-			"phase_mad":5,
-		},
-	},
+			"phase_mad":5
+		}
+	}
 }

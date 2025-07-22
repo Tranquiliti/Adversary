@@ -29,6 +29,9 @@
         "missleracks",
         "pointdefenseai"
     ],
+    "sModdedBuiltIns": [
+        "militarized_subsystems"
+    ],
     "variantId": "adversary_kite_hegemony_Strike",
     "weaponGroups": [{
         "autofire": true,

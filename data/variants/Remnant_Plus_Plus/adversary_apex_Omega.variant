@@ -1,7 +1,7 @@
 {
     "displayName": "Omega",
     "fluxCapacitors": 0,
-    "fluxVents": 20,
+    "fluxVents": 22,
     "hullId": "apex",
     "hullMods": [
         "defensive_targeting_array",
@@ -25,8 +25,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "cryoflux",
-                "WS 003": "cryoflux"
+                "WS 000": "disintegrator",
+                "WS 003": "disintegrator"
             }
         },
         {

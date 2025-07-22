@@ -1,7 +1,7 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 21,
-    "fluxVents": 6,
+    "fluxCapacitors": 27,
+    "fluxVents": 0,
     "hullId": "eagle_xiv",
     "hullMods": [
         "magazines",
