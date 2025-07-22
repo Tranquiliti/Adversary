@@ -1,7 +1,7 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 15,
-    "fluxVents": 9,
+    "fluxCapacitors": 24,
+    "fluxVents": 0,
     "hullId": "falcon_xiv",
     "hullMods": [
         "magazines",

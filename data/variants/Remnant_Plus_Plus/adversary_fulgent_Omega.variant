@@ -1,29 +1,29 @@
 {
     "displayName": "Omega",
-    "fluxCapacitors": 8,
-    "fluxVents": 20,
+    "fluxCapacitors": 20,
+    "fluxVents": 7,
     "hullId": "fulgent",
     "hullMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "targetingunit",
-        "reinforcedhull"
+        "targetingunit"
     ],
     "permaMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "targetingunit",
-        "reinforcedhull"
+        "targetingunit"
     ],
     "sMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "targetingunit",
-        "reinforcedhull"
+        "targetingunit"
     ],
     "variantId": "adversary_fulgent_Omega",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "cryoflux"}
+            "weapons": {"WS 001": "cryoblaster"}
         },
         {
             "autofire": false,

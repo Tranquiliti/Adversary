@@ -23,6 +23,9 @@
         "armoredweapons",
         "autorepair"
     ],
+    "sModdedBuiltIns": [
+        "fluxbreakers"
+    ],
     "variantId": "adversary_tesseract_Outdated",
     "weaponGroups": [
         {

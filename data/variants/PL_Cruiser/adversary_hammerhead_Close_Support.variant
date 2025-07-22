@@ -1,12 +1,11 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 16,
-    "fluxVents": 20,
+    "fluxCapacitors": 18,
+    "fluxVents": 13,
     "hullId": "hammerhead",
     "hullMods": [
         "missleracks",
         "hardenedshieldemitter",
-        "adaptiveshields",
         "pointdefenseai",
         "targetingunit"
     ],
@@ -30,18 +29,14 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 003": "breach",
-                "WS 004": "breach"
-            }
-        },
-        {
-            "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 003": "harpoon",
+                "WS 004": "harpoon",
                 "WS 005": "lrpdlaser",
-                "WS 006": "lrpdlaser"
+                "WS 006": "lrpdlaser",
+                "WS 007": "lrpdlaser",
+                "WS 008": "lrpdlaser"
             }
         }
     ]

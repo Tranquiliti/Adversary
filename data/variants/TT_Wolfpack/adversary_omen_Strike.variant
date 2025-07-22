@@ -18,6 +18,10 @@
         "hardenedshieldemitter",
         "missile_autoloader"
     ],
+    "sModdedBuiltIns": [
+        "eccm",
+        "hiressensors"
+    ],
     "variantId": "adversary_omen_Strike",
     "weaponGroups": [
         {

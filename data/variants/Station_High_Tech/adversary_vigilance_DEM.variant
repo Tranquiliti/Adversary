@@ -1,12 +1,12 @@
 {
     "displayName": "DEM",
     "fluxCapacitors": 10,
-    "fluxVents": 9,
+    "fluxVents": 7,
     "hullId": "vigilance",
     "hullMods": [
         "eccm",
         "missleracks",
-        "stabilizedshieldemitter"
+        "hardenedshieldemitter"
     ],
     "permaMods": [
         "eccm",

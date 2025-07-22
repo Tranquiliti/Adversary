@@ -19,6 +19,10 @@
         "missleracks",
         "nav_relay"
     ],
+    "sModdedBuiltIns": [
+        "hiressensors",
+        "surveying_equipment"
+    ],
     "variantId": "adversary_apogee_Elite",
     "weaponGroups": [
         {

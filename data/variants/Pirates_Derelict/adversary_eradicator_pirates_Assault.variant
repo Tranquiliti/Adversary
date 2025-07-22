@@ -1,6 +1,6 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 6,
+    "fluxCapacitors": 19,
     "fluxVents": 30,
     "hullId": "eradicator_pirates",
     "hullMods": [
@@ -33,34 +33,39 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "heavymauler"}
+            "weapons": {"WS 006": "arbalest"}
         },
         {
             "autofire": false,
-            "mode": "LINKED",
+            "mode": "ALTERNATING",
             "weapons": {
-                "WS 000": "harpoon",
-                "WS 001": "harpoon",
-                "WS 002": "harpoon",
-                "WS 003": "harpoon",
-                "WS 004": "harpoon"
+                "WS 000": "atropos",
+                "WS 001": "atropos",
+                "WS 002": "atropos",
+                "WS 003": "atropos",
+                "WS 004": "atropos"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "arbalest",
-                "WS 007": "arbalest"
+                "WS 005": "heavymortar",
+                "WS 007": "heavymortar"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 009": "railgun",
-                "WS 010": "railgun"
+                "WS 009": "lightac",
+                "WS 010": "lightac"
             }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 011": "lightac"}
         }
     ],
     "wings": ["xyphos_wing"]

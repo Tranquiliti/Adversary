@@ -181,12 +181,14 @@
 		"hasSystemwideNebula":false,
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
+		"memoryKeys":{
+			"$US_skipSystem":true # Memory key to prevent Unknown Skies scripts from modifying this system
+		},
 		"setLocation":1,
 		"systemMusic":"music_diktat_market_hostile",
 		"systemTags":[
 			"theme_core",
 			"theme_core_populated",
-			"US_skipSystem" # Tag to prevent Unknown Skies scripts from modifying this system
 		],
 		"entities":[
 			{
@@ -201,6 +203,9 @@
 				"radius":1100,
 				"coronaRadius":825,
 				"flareChance":0.0,
+				"memoryKeys":{
+					"$US_starVariant":2
+				},
 				"specChanges":{
 					"texture":"US_star_textureCustomBlue_2.jpg"
 				}
@@ -212,6 +217,9 @@
 				"radius":800,
 				"coronaRadius":600,
 				"flareChance":0.0,
+				"memoryKeys":{
+					"$US_starVariant":2
+				},
 				"specChanges":{
 					"texture":"US_star_textureCustomYellow_2.jpg"
 				}
@@ -223,6 +231,9 @@
 				"radius":650,
 				"coronaRadius":488,
 				"flareChance":0.0,
+				"memoryKeys":{
+					"$US_starVariant":2
+				},
 				"specChanges":{
 					"texture":"US_star_textureCustomOrange_2.jpg"
 				}
@@ -375,12 +386,14 @@
 		"setLocation":1,
 		"addCoronalHypershunt":false,
 		"addDomainCryosleeper":false,
+		"memoryKeys":{
+			"$US_skipSystem":true # Memory key to prevent Unknown Skies scripts from modifying this system
+		},
 		"hasSystemwideNebula":true,
 		"systemBackground":"US_background151.jpg",
 		"systemTags":[
 			"theme_core",
 			"theme_core_populated",
-			"US_skipSystem" # Tag to prevent Unknown Skies scripts from modifying this system
 		],
 		"entities":[
 			{
@@ -390,6 +403,9 @@
 				"radius":1100,
 				"coronaRadius":825,
 				"flareChance":0.0,
+				"memoryKeys":{
+					"$US_starVariant":2
+				},
 				"specChanges":{
 					"texture":"US_star_textureCustomBlue_2.jpg"
 				}
@@ -601,6 +617,9 @@
 				"radius":1100,
 				"coronaRadius":825,
 				"flareChance":0.0,
+				"memoryKeys":{
+					"$US_starVariant":2
+				},
 				"specChanges":{
 					"texture":"US_star_textureCustomBlue_2.jpg"
 				}
@@ -732,9 +751,9 @@
 				"specChanges":{
 					"planetColor":[255,255,255,255],
 					"atmosphereThickness":0,
-				    "texture":"US_planet_textureArtificial.jpg",
-				    "iconColor":[100,100,75,255],
-				    "typeOverride":["US_artificial","Artificial"],
+					"texture":"US_planet_textureArtificial.jpg",
+					"iconColor":[100,100,75,255],
+					"typeOverride":["US_artificial","Artificial"],
 				},
 				"marketSize":6,
 				"factionId":"adversary",
@@ -774,15 +793,15 @@
 				],
 				"specChanges":{
 					"planetColor":[255,255,255,255],
-				    "atmosphereThickness":0.1,
-				    "atmosphereThicknessMin":40,
-				    "atmosphereColor":[140,150,165,140],
-				    "texture":"US_planet_textureMagnetic.jpg",
-				    "iconColor":[220,200,145,255],
-				    "cloudTexture":"US_clouds_textureMedium.png",
-				    "cloudColor":[190,180,170,240],
-				    "cloudRotation":-2,
-				    "typeOverride":["US_magnetic","Magnetic"],
+					"atmosphereThickness":0.1,
+					"atmosphereThicknessMin":40,
+					"atmosphereColor":[140,150,165,140],
+					"texture":"US_planet_textureMagnetic.jpg",
+					"iconColor":[220,200,145,255],
+					"cloudTexture":"US_clouds_textureMedium.png",
+					"cloudColor":[190,180,170,240],
+					"cloudRotation":-2,
+					"typeOverride":["US_magnetic","Magnetic"],
 				},
 				"marketSize":6,
 				"factionId":"adversary",
@@ -822,15 +841,15 @@
 				],
 				"specChanges":{
 					"planetColor":[255,255,255,255],
-				    "atmosphereThickness":0.1,
-				    "atmosphereThicknessMin":40,
-				    "atmosphereColor":[150,150,145,130],
-				    "texture":"US_planet_textureStorm.jpg",
-				    "iconColor":[200,180,105,255],
-				    "cloudTexture":"US_clouds_textureSwept.png",
-				    "cloudColor":[220,190,160,200],
-				    "cloudRotation":-8,
-				    "typeOverride":["US_storm","Windy Arid"],
+					"atmosphereThickness":0.1,
+					"atmosphereThicknessMin":40,
+					"atmosphereColor":[150,150,145,130],
+					"texture":"US_planet_textureStorm.jpg",
+					"iconColor":[200,180,105,255],
+					"cloudTexture":"US_clouds_textureSwept.png",
+					"cloudColor":[220,190,160,200],
+					"cloudRotation":-8,
+					"typeOverride":["US_storm","Windy Arid"],
 				},
 				"marketSize":6,
 				"factionId":"adversary",

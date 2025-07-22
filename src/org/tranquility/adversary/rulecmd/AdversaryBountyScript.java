@@ -12,16 +12,20 @@ import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
 import lunalib.lunaSettings.LunaSettings;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.lwjgl.util.vector.Vector2f;
 import org.magiclib.bounty.ActiveBounty;
 import org.magiclib.bounty.MagicBountyCoordinator;
-import org.magiclib.campaign.MagicFleetBuilder;
 import second_in_command.SCData;
 import second_in_command.SCUtils;
 import second_in_command.specs.SCOfficer;
 
-import java.util.*;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
 import static org.tranquility.adversary.AdversaryStrings.MOD_ID_ADVERSARY;
 import static org.tranquility.adversary.AdversaryStrings.SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT;
@@ -129,7 +133,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
                 fleet.addTag(Tags.NEUTRINO_HIGH);
-                fleet.setStationMode(true);
+                fleet.setStationMode(true); // Will cause UI issues, but also prevents objectives from spawning
                 fleet.clearAbilities();
                 fleet.addAbility(Abilities.TRANSPONDER);
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
@@ -138,8 +142,6 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
                 // So, for now, the station fleet will slowly crawl around in the campaign map
 
-                HashMap<String, Integer> escorts = getEscortsForStationBounty(bountyId);
-                new MagicFleetBuilder().setFleetFaction(fleet.getFaction().getId()).setSpawnLocation(bounty.getFleetSpawnLocation()).setAssignmentTarget(bounty.getFleet()).setAssignment(FleetAssignment.ORBIT_PASSIVE).setFleetType(FleetTypes.PATROL_SMALL).setSupportFleet(escorts).create();
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
@@ -173,12 +175,14 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                             member.setShipName("Mars");
                             variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                             variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
+                            variant.addTag(Tags.TAG_RETAIN_SMODS_ON_RECOVERY);
                             break;
                         case "conquest":
                             createSuperOfficer(faction, member, true);
                             member.setShipName("Victoria");
                             variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                             variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
+                            variant.addTag(Tags.TAG_RETAIN_SMODS_ON_RECOVERY);
                             break;
                         default:
                             createSuperOfficer(faction, member, false);
@@ -297,32 +301,6 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         officer.getStats().setSkipRefresh(false);
     }
 
-    private HashMap<String, Integer> getEscortsForStationBounty(String bountyId) {
-        String escortVariant = null;
-        int count = switch (bountyId) {
-            case "adversary_Station_Low_Tech" -> {
-                escortVariant = "adversary_omen_Fire_Support";
-                yield 10;
-            }
-            case "adversary_Station_Midline" -> {
-                escortVariant = "adversary_vanguard_pirates_DIE";
-                yield 25;
-            }
-            case "adversary_Station_High_Tech" -> {
-                escortVariant = "adversary_vigilance_DEM";
-                yield 5;
-            }
-            case "adversary_Station_Remnant" -> {
-                escortVariant = "adversary_glimmer_Omega";
-                yield 5;
-            }
-            default -> 0;
-        };
-        HashMap<String, Integer> escorts = new HashMap<>(2);
-        escorts.put(escortVariant, count);
-        return escorts;
-    }
-
     private void teleportFleetToPlanet(CampaignFleetAPI fleet, PlanetAPI planet) {
         fleet.clearAssignments();
         fleet.getContainingLocation().removeEntity(fleet);
@@ -366,6 +344,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             SCData scData = SCUtils.getFleetData(bounty.getFleet());
             FactionAPI faction = Global.getSector().getFaction(bountyJSON.getString("factionId"));
 
+            // Exact slot placement may result in duplicate XOs if 4 or more XOs are allowed
             int currentSlot = 0;
             for (Iterator<String> iterator = bountyJSON.sortedKeys(); iterator.hasNext(); ) {
                 String aptitudeId = iterator.next();
@@ -381,7 +360,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 scData.setOfficerInSlot(currentSlot, officer);
                 currentSlot++;
             }
-        } catch (Exception e) {
+        } catch (JSONException | IOException e) {
             throw new RuntimeException(e + "ERROR: Something went wrong setting the Second-in-Command skills for Adversary bounty! Disable the Second-in-Command bounty support in settings.json or LunaSettings, and contact the Adversary mod author about this!\n");
         }
     }

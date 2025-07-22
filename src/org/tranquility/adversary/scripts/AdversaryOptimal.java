@@ -36,8 +36,8 @@ public class AdversaryOptimal {
             if (LUNALIB_ENABLED)
                 enableUS = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_US_OPTIMAL));
             else enableUS = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_US_OPTIMAL);
-            // Key to prevent conditions from being overridden; Unknown Skies defines this tag in US_manualSystemFixer.java
-            system.addTag("US_skipSystem");
+            // Key to prevent conditions from being overridden; Unknown Skies (probably) defines this MemKey in US_manualSystemFixer.java
+            system.getMemoryWithoutUpdate().set("$US_skipSystem", true);
         }
 
         system.setBackgroundTextureFilename("graphics/backgrounds/" + (enableUS ? "US_background151.jpg" : "background1.jpg"));
@@ -55,6 +55,7 @@ public class AdversaryOptimal {
             optimal.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_blue_giant_2"));
             optimal.getSpec().setCoronaTexture(Global.getSettings().getSpriteName("coronas", "US_halo_intense"));
             optimal.applySpecChanges();
+            optimal.getMemoryWithoutUpdate().set("$US_starVariant", 2); // To allow US to override specs if needed
         }
 
         PlanetAPI zenith = system.addPlanet("adversary_zenith", center, NAME_STAR_2, StarTypes.YELLOW, 120f, 800f, starOrbitRadius - 1f, starOrbitDays);
@@ -64,6 +65,7 @@ public class AdversaryOptimal {
             zenith.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_yellow_2"));
             zenith.getSpec().setCoronaTexture(Global.getSettings().getSpriteName("coronas", "US_halo_unstable"));
             zenith.applySpecChanges();
+            zenith.getMemoryWithoutUpdate().set("$US_starVariant", 2);
         }
 
         PlanetAPI pinnacle = system.addPlanet("adversary_pinnacle", center, NAME_STAR_3, StarTypes.ORANGE, 240f, 650f, starOrbitRadius, starOrbitDays);
@@ -72,6 +74,7 @@ public class AdversaryOptimal {
         if (enableUS) { // From US_utils.java
             pinnacle.getSpec().setTexture(Global.getSettings().getSpriteName("stars", "US_star_orange_2"));
             pinnacle.applySpecChanges();
+            pinnacle.getMemoryWithoutUpdate().set("$US_starVariant", 2);
         }
 
         system.setType(StarSystemGenerator.StarSystemType.TRINARY_2CLOSE);

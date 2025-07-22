@@ -1,15 +1,13 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 2,
+    "fluxCapacitors": 4,
     "fluxVents": 30,
     "hullId": "champion",
     "hullMods": [
         "hardenedshieldemitter",
         "targetingunit",
-        "advancedoptics",
-        "turretgyros",
+        "eccm",
         "missleracks",
-        "fluxbreakers",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
@@ -25,7 +23,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 008": "hil"}
+            "weapons": {"WS 008": "tachyonlance"}
         },
         {
             "autofire": false,
@@ -36,18 +34,18 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "taclaser",
-                "WS 001": "taclaser",
-                "WS 010": "taclaser",
-                "WS 011": "taclaser"
+                "WS 006": "hveldriver",
+                "WS 007": "hveldriver"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 006": "gravitonbeam",
-                "WS 007": "gravitonbeam"
+                "WS 000": "lrpdlaser",
+                "WS 001": "lrpdlaser",
+                "WS 010": "lrpdlaser",
+                "WS 011": "lrpdlaser"
             }
         }
     ]
