@@ -1,13 +1,14 @@
 {
     "displayName": "DIE",
     "fluxCapacitors": 0,
-    "fluxVents": 7,
+    "fluxVents": 2,
     "hullId": "vanguard_pirates",
     "hullMods": [
         "missleracks",
         "reinforcedhull",
         "armoredweapons",
         "auxiliarythrusters",
+        "eccm",
         "heavyarmor",
         "insulatedengine",
         "pointdefenseai",

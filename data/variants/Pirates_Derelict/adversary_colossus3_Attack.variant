@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 17,
-    "fluxVents": 2,
+    "fluxVents": 10,
     "hullId": "colossus3",
     "hullMods": [
         "reinforcedhull",
@@ -26,32 +26,16 @@
         "adaptiveshields"
     ],
     "variantId": "adversary_colossus3_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "mininglaser",
-                "WS 002": "mininglaser",
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser",
-                "WS 009": "mininglaser",
-                "WS 010": "mininglaser",
-                "WS 015": "mininglaser",
-                "WS 016": "mininglaser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 011": "vulcan",
-                "WS 012": "vulcan",
-                "WS 013": "vulcan",
-                "WS 014": "vulcan"
-            }
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 011": "vulcan",
+            "WS 012": "vulcan",
+            "WS 013": "vulcan",
+            "WS 014": "vulcan"
         }
-    ],
+    }],
     "wings": [
         "gladius_wing",
         "gladius_wing"

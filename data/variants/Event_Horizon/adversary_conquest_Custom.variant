@@ -1,32 +1,32 @@
 {
     "displayName": "Custom",
-    "fluxCapacitors": 18,
+    "fluxCapacitors": 12,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
         "turretgyros",
-        "armoredweapons",
-        "heavyarmor",
-        "eccm",
         "hardenedshieldemitter",
+        "heavyarmor",
+        "ballistic_rangefinder",
+        "eccm",
         "targetingunit",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
         "turretgyros",
-        "armoredweapons",
+        "hardenedshieldemitter",
         "heavyarmor"
     ],
     "sMods": [
         "turretgyros",
-        "armoredweapons",
+        "hardenedshieldemitter",
         "heavyarmor"
     ],
     "variantId": "adversary_conquest_Custom",
     "weaponGroups": [
         {
-            "autofire": true,
-            "mode": "ALTERNATING",
+            "autofire": false,
+            "mode": "LINKED",
             "weapons": {
                 "WS 001": "rifttorpedo",
                 "WS 002": "rifttorpedo"
@@ -34,6 +34,16 @@
         },
         {
             "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 011": "neoferric_quadcoil"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 012": "neoferric_quadcoil"}
+        },
+        {
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {
                 "WS 019": "resonatormrm",
@@ -45,17 +55,10 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 005": "lrpdlaser",
-                "WS 007": "lrpdlaser",
-                "WS 011": "mjolnir",
-                "WS 012": "mjolnir",
-                "WS 015": "hveldriver",
-                "WS 016": "hveldriver"
+                "WS 015": "heavy_mass_driver",
+                "WS 016": "heavy_mass_driver",
+                "WS 022": "pseudoparticle_jet"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 022": "irautolance"}
         }
     ]
 }

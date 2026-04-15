@@ -46,10 +46,10 @@
 		"fleet_flagship_variant":"adversary_hyperion_Attack",
 		"fleet_flagship_name":"ADS Starbound",
 		"fleet_preset_ships":{
-			"adversary_hyperion_Attack":10,
+			"adversary_hyperion_Attack":12,
 			"adversary_afflictor_Strike":4,
-			"adversary_tempest_Attack":4,
-			"adversary_scarab_Attack":4,
+			"adversary_tempest_Attack":3,
+			"adversary_scarab_Attack":3,
 			"adversary_omen_Strike":4,
 			"adversary_brawler_tritachyon_Assault":3
 		},
@@ -111,8 +111,8 @@
 		"fleet_flagship_variant":"adversary_prometheus2_Assault",
 		"fleet_flagship_name":"Moloch's Bane",
 		"fleet_preset_ships":{
-			"adversary_prometheus2_Assault":8,
-			"adversary_venture_pather_Assault":6,
+			"adversary_prometheus2_Assault":9,
+			"adversary_venture_pather_Assault":5,
 			"adversary_colossus2_Strike":3,
 			"adversary_manticore_luddic_path_Strike":6,
 			"adversary_gremlin_luddic_path_Strike":2,
@@ -175,10 +175,10 @@
 		"fleet_flagship_variant":"adversary_colossus3_Attack",
 		"fleet_flagship_name":"Binding of Loke",
 		"fleet_preset_ships":{
-			"adversary_atlas2_Close_Support":6,
-			"adversary_falcon_p_Strike":5,
-			"adversary_eradicator_pirates_Assault":5,
-			"adversary_venture_p_Fire_Support":4,
+			"adversary_atlas2_Close_Support":5,
+			"adversary_falcon_p_Strike":4,
+			"adversary_eradicator_pirates_Assault":6,
+			"adversary_venture_p_Fire_Support":5,
 			"adversary_colossus3_Attack":2,
 			"adversary_manticore_pirates_Close_Support":3,
 			"adversary_shrike_pirates_Attack":2,
@@ -243,12 +243,12 @@
 		"fleet_flagship_name":"HSS Warrior's Spirit",
 		"fleet_flagship_alwaysRecoverable":true,
 		"fleet_preset_ships":{
-			"adversary_onslaught_xiv_Armored":4,
-			"adversary_dominator_xiv_Armored":6,
+			"adversary_onslaught_xiv_Armored":5,
+			"adversary_dominator_xiv_Armored":7,
 			"adversary_eagle_xiv_Overdriven":4,
 			"adversary_falcon_xiv_Overdriven":4,
-			"adversary_enforcer_xiv_Escort":6,
-			"adversary_hound_hegemony_Support":5
+			"adversary_enforcer_xiv_Escort":5,
+			"adversary_hound_hegemony_Support":4
 		},
 		"fleet_composition_faction":"hegemony",
 		"fleet_composition_quality":2,
@@ -308,12 +308,12 @@
 		"fleet_flagship_name":"ADS Revenge of the Fallen",
 		"fleet_preset_ships":{
 			"adversary_pegasus_Fire_Support":1,
-			"adversary_champion_Support":4,
-			"adversary_gryphon_Fire_Support":5,
+			"adversary_champion_Support":5,
+			"adversary_gryphon_Fire_Support":6,
 			"adversary_heron_Attack":5,
 			"adversary_drover_Attack":5,
-			"adversary_hammerhead_Close_Support":5,
-			"adversary_monitor_Support":4
+			"adversary_hammerhead_Close_Support":4,
+			"adversary_monitor_Support":3
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":true,
@@ -372,8 +372,8 @@
 		"fleet_flagship_variant":"adversary_invictus_Siege",
 		"fleet_flagship_name":"ADS God's Chosen",
 		"fleet_preset_ships":{
-			"adversary_retribution_Assault":2,
-			"adversary_mora_Attack":10,
+			"adversary_retribution_Assault":3,
+			"adversary_mora_Attack":9,
 			"adversary_eradicator_Close_Support":6,
 			"adversary_condor_Attack":8,
 			"adversary_vanguard_Attack":3
@@ -436,8 +436,8 @@
 		"fleet_flagship_name":"Coward's Trial",
 		"fleet_preset_ships":{
 			"adversary_doom_Attack":6,
-			"adversary_apogee_Elite":2,
-			"adversary_harbinger_Strike":12,
+			"adversary_apogee_Elite":3,
+			"adversary_harbinger_Strike":11,
 			"adversary_afflictor_Strike":5,
 			"adversary_shade_Strike":4
 		},
@@ -500,8 +500,8 @@
 		"fleet_preset_ships":{
 			"adversary_eagle_LG_Support":5,
 			"adversary_falcon_LG_Support":5,
-			"adversary_sunder_LG_Close_Support":5,
-			"adversary_hammerhead_LG_Close_Support":5,
+			"adversary_sunder_LG_Close_Support":7,
+			"adversary_hammerhead_LG_Close_Support":3,
 			"adversary_brawler_LG_Close_Support":5,
 			"adversary_centurion_LG_Close_Support":4
 		},
@@ -739,7 +739,7 @@
 		"fleet_name":"Very Unusual Remnant Fleet",
 		"fleet_faction":"omega",
 		"fleet_flagship_variant":"adversary_tesseract_Outdated",
-		"fleet_flagship_name":"01001111 4f6d656761",
+		"fleet_flagship_name":"01011001 4f6d656761",
 		"fleet_preset_ships":{
 			"adversary_radiant_Omega":1,
 			"adversary_nova_Omega":2,
@@ -1108,7 +1108,9 @@
 			"eradicator_Assault":1,"gryphon_DEM":1,"fury_Attack":1,
 			"doom_Attack":1,"grendel_Assault":1,"afflictor_Strike":1,
 			"manticore_Assault":1,"sunder_LG_Assault":1,"medusa_Attack":1,
-			"vanguard_Strike":1,"hyperion_Attack":1
+			"enforcer_XIV_Elite":1,"gemini_Standard":1,"shrike_Attack":1,
+			"vanguard_Strike":1,"monitor_Escort":1,"hyperion_Attack":1,
+			"lasher_Strike":1,"centurion_Assault":1,"omen_PD":1
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,

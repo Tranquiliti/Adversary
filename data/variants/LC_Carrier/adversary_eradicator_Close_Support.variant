@@ -1,7 +1,7 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 6,
-    "fluxVents": 30,
+    "fluxCapacitors": 15,
+    "fluxVents": 23,
     "hullId": "eradicator",
     "hullMods": [
         "heavyarmor",
@@ -34,38 +34,22 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "hveldriver"}
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 000": "breach",
-                "WS 001": "breach",
-                "WS 002": "breach",
-                "WS 003": "breach",
-                "WS 004": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
             "weapons": {
                 "WS 005": "hveldriver",
-                "WS 007": "hveldriver"
+                "WS 006": "heavymauler",
+                "WS 007": "hveldriver",
+                "WS 009": "mininglaser"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 008": "mininglaser",
-                "WS 009": "mininglaser",
-                "WS 010": "mininglaser",
-                "WS 011": "mininglaser",
-                "WS 012": "mininglaser",
-                "WS 013": "mininglaser",
-                "WS 014": "mininglaser"
+                "WS 000": "gorgon",
+                "WS 001": "gorgon",
+                "WS 002": "gorgon",
+                "WS 003": "gorgon",
+                "WS 004": "gorgon"
             }
         }
     ]

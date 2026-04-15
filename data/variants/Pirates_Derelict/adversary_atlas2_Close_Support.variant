@@ -1,6 +1,6 @@
 {
     "displayName": "Close Support",
-    "fluxCapacitors": 15,
+    "fluxCapacitors": 25,
     "fluxVents": 50,
     "hullId": "atlas2",
     "hullMods": [

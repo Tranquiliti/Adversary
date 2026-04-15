@@ -1,10 +1,8 @@
 package org.tranquility.adversary;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.campaign.econ.Industry;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Commodities;
-import com.fs.starfarer.api.impl.campaign.ids.Industries;
+import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.util.Misc;
 
 import java.util.List;
@@ -16,7 +14,7 @@ public final class AdversaryUtil {
     public static final String MEMKEY_SPAWNED_OPTIMAL = "$adversary_spawnedOptimal";
 
     /**
-     * Returns a set of all Adversary markets, sorted by High Command/Military Base presence
+     * Returns a set of all Adversary markets, sorted by overall fleet strength (ship quality * fleet size multiplier)
      *
      * @return A List containing all Adversary markets, sorted by military power in descending order
      */
@@ -24,7 +22,7 @@ public final class AdversaryUtil {
         List<MarketAPI> adversaryMarkets = Misc.getFactionMarkets(FACTION_ADVERSARY);
 
         adversaryMarkets.sort((m1, m2) -> {
-            int comp = Integer.compare(getScore(m2), getScore(m1));
+            int comp = Float.compare(getScore(m2), getScore(m1));
             if (comp != 0) return comp;
             return Integer.compare(m2.getSize(), m1.getSize());
         });
@@ -32,15 +30,7 @@ public final class AdversaryUtil {
         return adversaryMarkets;
     }
 
-    private static int getScore(MarketAPI market) {
-        int score = 0;
-        if (market.hasIndustry(Industries.HIGHCOMMAND)) {
-            score += 2;
-            Industry highCommand = market.getIndustry(Industries.HIGHCOMMAND);
-            if (highCommand.isImproved()) score++;
-            if (highCommand.getAICoreId() != null && highCommand.getAICoreId().equals(Commodities.ALPHA_CORE)) score++;
-            if (highCommand.getSpecialItem() != null) score++;
-        } else if (market.hasIndustry(Industries.MILITARYBASE)) score++;
-        return score;
+    private static float getScore(MarketAPI market) {
+        return Misc.getShipQuality(market, market.getFactionId()) * market.getStats().getDynamic().getMod(Stats.COMBAT_FLEET_SIZE_MULT).computeEffective(0f);
     }
 }

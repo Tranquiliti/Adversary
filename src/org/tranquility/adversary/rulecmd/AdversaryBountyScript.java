@@ -51,14 +51,15 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         JSONObject officerData;
         try {
             officerData = Global.getSettings().loadJSON("data/config/modFiles/magicBounty_officers.json", MOD_ID_ADVERSARY).optJSONObject(bountyId);
-        } catch (Exception e) {
+        } catch (JSONException | IOException e) {
             officerData = null;
         }
 
         // Yes, the code and configs are all over the place; no, this will not get any better unless
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
-            case "adversary_TT_Wolfpack", "adversary_PL_Cruiser", "adversary_LC_Carrier", "adversary_LP_Heretics": {
+            case "adversary_TT_Wolfpack", "adversary_Pirates_Derelict", "adversary_PL_Cruiser", "adversary_LC_Carrier",
+                 "adversary_LP_Heretics": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -73,22 +74,6 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
-                    setOfficers(officerData, member);
-                }
-                setSecondInCommand(bountyId, bounty);
-                break;
-            }
-            case "adversary_Pirates_Derelict": {
-                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
-                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
-                byte atlasCount = 0;
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    if (member.getHullId().equals("atlas2")) {
-                        if (atlasCount == 3) continue;
-                        else atlasCount++;
-                    }
                     setOfficers(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
@@ -153,7 +138,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 fleet.getAbility(Abilities.GO_DARK).activate();
                 FactionAPI faction = Global.getSector().getFaction(Factions.MERCENARY);
                 for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
-                    ShipVariantAPI variant = member.getVariant();
+                    ShipVariantAPI variant = member.getVariant().clone(); // Cloning variant to avoid modifying vanilla variants
                     variant.addPermaMod(HullMods.INSULATEDENGINE, true);
                     if (member.getHullSpec().getManufacturer().equals("Lion's Guard")) {
                         variant.getSModdedBuiltIns().add(HullMods.SOLAR_SHIELDING);

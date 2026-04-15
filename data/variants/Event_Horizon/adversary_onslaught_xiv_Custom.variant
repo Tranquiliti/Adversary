@@ -1,6 +1,6 @@
 {
     "displayName": "Custom",
-    "fluxCapacitors": 21,
+    "fluxCapacitors": 23,
     "fluxVents": 50,
     "hullId": "onslaught_xiv",
     "hullMods": [
@@ -38,17 +38,17 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 018": "hephag"}
+            "weapons": {"WS 018": "neoferric_quadcoil"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 019": "hephag"}
+            "weapons": {"WS 019": "neoferric_quadcoil"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 020": "hephag"}
+            "weapons": {"WS 020": "neoferric_quadcoil"}
         },
         {
             "autofire": true,
@@ -75,8 +75,8 @@
                 "WS 011": "lightneedler",
                 "WS 012": "lightneedler",
                 "WS 013": "lightneedler",
-                "WS 014": "vulcan",
-                "WS 015": "vulcan"
+                "WS 014": "lightmg",
+                "WS 015": "lightmg"
             }
         }
     ]

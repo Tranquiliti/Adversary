@@ -1,3 +1,17 @@
+Version 8.0.0 (Update for Starsector 0.98.5a)
+
+* "enableAdversarySillyBounties" setting now defaults to "true" (from "false")
+  - This means all Silly MagicBounties are now enabled by default
+* Changes to MagicBounties:
+  - Adjusted bounty variants to account for 0.98.5a balance changes
+  - Adjusted ship compositions for non-Silly bounties to account for officer number changes
+  - Modified Second-in-Command XO skills to account for v2.0.0 changes
+  - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
+* Changed Adversary market scoring to prioritize ship quality and fleet size multiplier (from prioritizing High Command/Military Base)
+  - This affects the spawn location of the Adversary system defense fleet and crisis fleets
+
+
+
 Version 7.1.2
 
 * Changed some MagicBounty variants and officers
@@ -52,29 +66,3 @@ Version 7.0.0 (Update for Starsector 0.98a)
   - The enraged version is now much, much harder
 * Modified some MagicBounty variants to account for 0.98a balance changes
 * Nexerelin change: Adversary faction no longer has the "Neutralist" trait
-
-
-
-Version 6.4.1
-
-* Adversary doctrine changes:
-  - Officer quality/ship quality/fleet size distribution is now 5/1/1 (from 3/2/2)
-  - Commander skills changed to Officer Training and Crew Training (from Support Doctrine and Crew Training)
-  - This change should optimize both the Adversary's auto-resolve strength and in-combat strength
-* Minor code refactors
-
-
-
-Version 6.4.0
-
-* Adversary officers now always generate with at least 1 set skill
-  - All doctrines, including the default/base doctrine, always use Combat Endurance as the 1st skill
-  - Non-default Adversary doctrines will prioritize at least 3 officer skills, tailored towards the doctrine's ship choices
-  - Added "officerSkills" to "adversaryPossibleDoctrines" in settings.json
-* Adjusted the specialized Adversary doctrines:
-  - Much more selective and coherent with ship, weapon, and fighter choices
-  - Now prioritizes larger logistic ships (e.g., Atlas, Prometheus, Revenant, etc.)
-  - Should generally make those doctrines more interesting to face off against while they are active
-* Added Gorgon SRM Pod and Gazer SRM Pod to Adversary's known weapon list (I forgot)
-* Moved Commissioned Crews hullmod code to "org.tranquility.adversary.hullmods"
-  - If you have that mod installed, make sure to remove all CHM hullmods from your fleet before updating!

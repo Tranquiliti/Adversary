@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 0,
-    "fluxVents": 5,
+    "fluxVents": 1,
     "hullId": "vanguard",
     "hullMods": [
         "pointdefenseai",
@@ -15,10 +15,11 @@
         "autorepair",
         "auxiliarythrusters",
         "blast_doors",
+        "missleracks",
         "heavyarmor",
         "insulatedengine",
-        "targetingunit",
-        "fluxbreakers"
+        "fluxbreakers",
+        "solar_shielding"
     ],
     "permaMods": [
         "pointdefenseai",
@@ -36,20 +37,29 @@
     "variantId": "adversary_vanguard_Attack",
     "weaponGroups": [
         {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "reaper",
+                "WS 001": "reaper",
+                "WS 002": "reaper"
+            }
+        },
+        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "railgun",
-                "WS 006": "railgun"
+                "WS 003": "lightmortar",
+                "WS 004": "lightmortar",
+                "WS 007": "lightmortar"
             }
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
-                "WS 000": "swarmer",
-                "WS 001": "swarmer",
-                "WS 002": "swarmer"
+                "WS 005": "lightac",
+                "WS 006": "lightac"
             }
         }
     ]

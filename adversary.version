@@ -3,11 +3,11 @@
 	"modName": "Adversary",
 	"modThreadId": 25821,
 	"modVersion": {
-		"major": 7,
-		"minor": 1,
-		"patch": 2
+		"major": 8,
+		"minor": 0,
+		"patch": 0
 	},
-	"starsectorVersion": "0.98a-RC8",
-	"directDownloadURL": "https://github.com/Tranquiliti/Adversary/releases/download/v7.1.2/Adversary-v7.1.2.zip",
+	"starsectorVersion": "0.98.5a",
+	"directDownloadURL": "https://github.com/Tranquiliti/Adversary/releases/latest/download/Adversary.zip",
 	"changelogURL": "https://raw.githubusercontent.com/Tranquiliti/Adversary/main/changelog.txt"
 }

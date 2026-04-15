@@ -1,11 +1,11 @@
-#-- Note for LunaLib users --#
-# LunaLib settings will override the following settings in this settings.json:
+#--- Note for LunaLib users ---#
+# LunaLib will override the following settings:
+# "enableAdversaryOptimal", "enableAdversaryUSOptimal", "enableAdversaryIndEvoOptimal",
 # "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
 # "adversaryDynamicDoctrineDelay", "adversaryBlueprintStealingDelay"
-# "enableAdversarySillyBounties", "enableAdversarySCSupport", amd
-# "enableAdversaryPersonalFleet"
-#
-# Instead, use LunaLib's in-game UI configs to modify these.
+# "enableAdversarySillyBounties", "enableAdversarySCSupport", and
+# "enableAdversarySDF".
+# Instead, use LunaLib's in-game UI configs to modify these settings.
 
 {
 	# Toggles whether the default Optimal system will spawn when
@@ -32,15 +32,15 @@
 	"enableAdversaryBlueprintStealing":false,
 
 	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards.
-	# Definitely not for those who value vanilla restraints!
+	# Disabling this option will prevent those bounties from appearing.
 	# Requires MagicLib to work; does nothing otherwise.
-	"enableAdversarySillyBounties":false,
+	"enableAdversarySillyBounties":true,
 
 	# Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers.
 	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 
-	# Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the best High Command.
+	# Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the highest ship quality and fleet size multiplier.
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
 	"enableAdversarySDF":true,
 
