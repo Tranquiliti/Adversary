@@ -196,7 +196,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Shrouded": {
+            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Shrouded", "adversary_Ultra_Maw": {
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {

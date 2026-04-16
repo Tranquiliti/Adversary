@@ -1433,7 +1433,7 @@
 		"job_reputation_reward":0,
 		"job_item_reward":{
 			"weapon_bp abyssal_glare":1,
-			"weapon_bp rift_lightning":1
+			"weapon_bp pseudoparticle_jet":1
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
@@ -1494,6 +1494,86 @@
 		"fleet_behavior":"PASSIVE",
 
 		"location_entitiesID":["limbo_hades"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Maw":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$adversary_Ultra_Shrouded_succeeded":true
+		},
+
+		"job_name":"Legacy of the Abyss",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_item_reward":{
+			"weapon_bp rifttorpedo":1,
+			"weapon_bp riftcascade":1,
+			"weapon_bp assaying_rift":1,
+			"weapon_bp rift_lightning":1
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraMawPicked",
+
+		"target_first_name":"Amaw",
+		"target_last_name":"the Shrouded One",
+		"target_portrait":"graphics/portraits/characters/dwelller.png",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"steady",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"sensors":1,
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Divine Manifestation",
+		"fleet_faction":"dweller",
+		"fleet_flagship_variant":"adversary_shrouded_maw_Unending",
+		"fleet_flagship_name":"",
+		"fleet_preset_ships":{
+			"adversary_shrouded_maw_Unending":4
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]

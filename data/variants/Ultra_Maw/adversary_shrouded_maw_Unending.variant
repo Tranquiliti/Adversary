@@ -1,0 +1,95 @@
+{
+    "displayName": "Unending",
+    "fluxCapacitors": 50,
+    "fluxVents": 50,
+    "hullId": "shrouded_maw",
+    "hullMods": [
+        "turretgyros",
+        "armoredweapons",
+        "shrouded_mantle",
+        "advancedshieldemitter",
+        "autorepair",
+        "auxiliarythrusters",
+        "blast_doors",
+        "eccm",
+        "ecm",
+        "missleracks",
+        "fluxcoil",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai",
+        "targetingunit",
+        "nav_relay",
+        "reinforcedhull",
+        "fluxbreakers",
+        "shrouded_lens",
+        "shrouded_thunderhead",
+        "solar_shielding",
+        "stabilizedshieldemitter",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "armoredweapons",
+        "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance"
+    ],
+    "sMods": [
+        "turretgyros",
+        "armoredweapons",
+        "shrouded_mantle",
+    ],
+    "variantId": "adversary_shrouded_maw_Unending",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 015": "rifttorpedo",
+                "WS 016": "rifttorpedo",
+                "WS 017": "rifttorpedo",
+                "WS 018": "rifttorpedo"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 001": "pseudoparticle_jet",
+                "WS 002": "pseudoparticle_jet"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "inimical_emanation",
+                "WS 006": "inimical_emanation",
+                "WS 007": "inimical_emanation",
+                "WS 008": "inimical_emanation",
+                "WS 009": "inimical_emanation",
+                "WS 010": "inimical_emanation",
+                "WS 011": "inimical_emanation",
+                "WS 012": "inimical_emanation",
+                "WS 013": "inimical_emanation",
+                "WS 014": "inimical_emanation",
+                "WS 019": "assaying_rift",
+                "WS 020": "assaying_rift",
+                "WS 021": "assaying_rift",
+                "WS 022": "assaying_rift",
+                "WS 023": "assaying_rift",
+                "WS 024": "assaying_rift"
+            }
+        }
+    ]
+}
