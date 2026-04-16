@@ -1,54 +1,45 @@
 {
-    "displayName": "Elite",
+    "displayName": "Support",
     "fluxCapacitors": 0,
-    "fluxVents": 18,
+    "fluxVents": 7,
     "hullId": "apogee",
     "hullMods": [
-        "missleracks",
+        "ecm",
         "nav_relay",
+        "advancedoptics",
         "hardenedshieldemitter",
         "insulatedengine",
         "targetingunit",
         "stabilizedshieldemitter"
     ],
     "permaMods": [
-        "missleracks",
+        "ecm",
         "nav_relay"
     ],
     "sMods": [
-        "missleracks",
+        "ecm",
         "nav_relay"
     ],
     "sModdedBuiltIns": [
         "hiressensors",
         "surveying_equipment"
     ],
-    "variantId": "adversary_apogee_Elite",
+    "variantId": "adversary_apogee_Support",
     "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 008": "autopulse"}
-        },
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {"WS 009": "locust"}
         },
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 005": "gazer"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 006": "kineticblaster"}
+            "weapons": {"WS 008": "hil"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 007": "taclaser"}
+            "weapons": {"WS 006": "gravitonbeam"}
         },
         {
             "autofire": true,
@@ -57,6 +48,16 @@
                 "WS 001": "irautolance",
                 "WS 002": "irautolance"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "swarmer"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 007": "taclaser"}
         }
     ]
 }

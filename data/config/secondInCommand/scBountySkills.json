@@ -1,34 +1,10 @@
 # Note: this file is not actually used by Second-in-Command; it is only placed here for organization purposes
 {
-	"adversary_TriTachyon_Wolfpack":{
-		"factionId":"adversary",
-		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
-		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_phase_coil_tuning"]
-	},
-	"adversary_LuddicPath_Heretics":{
-		"factionId":"luddic_path",
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
-		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_reinforced_grid","sc_technology_optimised_shields"],
-		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"]
-	},
-	"adversary_Pirates_Derelict":{
-		"factionId":"adversary",
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
-		"sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_reconfiguration"],
-		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
-	},
 	"adversary_Hegemony_Armored":{
 		"factionId":"hegemony",
 		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_best_of_the_best"],
 		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"],
 		"sc_improvisation":["sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_mobilization","sc_improvisation_enhanced_overrides","sc_improvisation_redistribution"]
-	},
-	"adversary_Persean_Cruiser":{
-		"factionId":"adversary",
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
-		"sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_advanced_maneuvers"],
-		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"]
 	},
 	"adversary_LuddicChurch_Carrier":{
 		"factionId":"adversary",
@@ -36,17 +12,47 @@
 		"sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_advanced_maneuvers"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
 	},
-	"adversary_Independent_Phase":{
+	"adversary_Persean_Cruiser":{
 		"factionId":"adversary",
-		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
-		"sc_technology":["sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_deep_dive","sc_technology_reinforced_grid","sc_technology_phase_coil_tuning"]
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
+		"sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_advanced_maneuvers"],
+		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"]
 	},
 	"adversary_SindrianDiktat_Beam":{
 		"factionId":"lions_guard",
 		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
 		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_focused_lenses"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+	},
+	"adversary_TriTachyon_Wolfpack":{
+		"factionId":"adversary",
+		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
+		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_phase_coil_tuning"]
+	},
+	"adversary_Independent_Phase":{
+		"factionId":"adversary",
+		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
+		"sc_technology":["sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_deep_dive","sc_technology_reinforced_grid","sc_technology_phase_coil_tuning"]
+	},
+	"adversary_Pirates_Derelict":{
+		"factionId":"adversary",
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
+		"sc_strikecraft":["sc_strikecraft_mobile_defenses","sc_strikecraft_huntsman","sc_strikecraft_carrier_group","sc_strikecraft_distanced_support","sc_strikecraft_reconfiguration"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+	},
+	"adversary_LuddicPath_Heretics":{
+		"factionId":"luddic_path",
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_support_doctrine"],
+		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_reinforced_grid","sc_technology_optimised_shields"],
+		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"]
+	},
+	"adversary_TriTachyon_Wolfpack_Plus":{
+		"factionId":"adversary",
+		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_secured_mounts","sc_improvisation_enhanced_overrides","sc_improvisation_derelict_operations"]
 	},
 	"adversary_Kite_Swarm":{
 		"factionId":"hegemony",
@@ -101,12 +107,6 @@
 		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"],
 		"sc_automated":["sc_automated_magnetic_shielding","sc_automated_overclock","sc_automated_electronic_warfare","sc_automated_deadly_persistence","sc_automated_limit_breaker"]
-	},
-	"adversary_TriTachyon_Wolfpack_Plus":{
-		"factionId":"adversary",
-		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
-		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
-		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_secured_mounts","sc_improvisation_enhanced_overrides","sc_improvisation_derelict_operations"]
 	},
 	"adversary_Ultra_Omega":{
 		"factionId":"tritachyon",

@@ -1,7 +1,7 @@
 {
     "displayName": "Armored",
     "fluxCapacitors": 0,
-    "fluxVents": 2,
+    "fluxVents": 1,
     "hullId": "legion_xiv",
     "hullMods": [
         "defensive_targeting_array",
@@ -10,6 +10,7 @@
         "armoredweapons",
         "autorepair",
         "blast_doors",
+        "eccm",
         "heavyarmor",
         "insulatedengine",
         "targetingunit"
@@ -27,40 +28,34 @@
     "variantId": "adversary_legion_xiv_Armored",
     "weaponGroups": [
         {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "heavymauler",
-                "WS 003": "heavymauler",
-                "WS 004": "heavymauler",
-                "WS 005": "heavymauler",
-                "WS 007": "heavymauler"
-            }
-        },
-        {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
-                "WS 000": "locust",
-                "WS 001": "locust"
+                "WS 000": "cyclone",
+                "WS 001": "cyclone"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 018": "lightdualac",
-                "WS 019": "lightdualac",
-                "WS 020": "lightdualac",
-                "WS 021": "lightdualac"
+                "WS 002": "shredder",
+                "WS 003": "shredder",
+                "WS 004": "shredder",
+                "WS 005": "shredder",
+                "WS 007": "shredder"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 008": "vulcan",
-                "WS 009": "vulcan"
+                "WS 008": "mininglaser",
+                "WS 009": "mininglaser",
+                "WS 018": "lightac",
+                "WS 019": "lightac",
+                "WS 020": "lightac",
+                "WS 021": "lightac"
             }
         }
     ],

@@ -10,6 +10,7 @@
         "armoredweapons",
         "auxiliarythrusters",
         "blast_doors",
+        "missleracks",
         "heavyarmor",
         "insulatedengine",
         "pointdefenseai",
@@ -32,44 +33,30 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 002": "lightmg",
                 "WS 003": "vulcan",
+                "WS 004": "lightmg",
                 "WS 005": "vulcan",
-                "WS 012": "multineedler"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 014": "phasecl",
-                "WS 015": "phasecl",
-                "WS 016": "phasecl"
+                "WS 006": "lightmg",
+                "WS 012": "mark9",
+                "WS 013": "mark9"
             }
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 013": "hephag"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
             "weapons": {
-                "WS 001": "mininglaser",
-                "WS 002": "mininglaser",
-                "WS 004": "mininglaser",
-                "WS 006": "mininglaser",
-                "WS 007": "mininglaser",
-                "WS 008": "mininglaser",
-                "WS 009": "mininglaser"
+                "WS 014": "jackhammer",
+                "WS 015": "jackhammer",
+                "WS 016": "jackhammer"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 010": "flak",
-                "WS 011": "flak"
+                "WS 010": "heavymauler",
+                "WS 011": "heavymauler"
             }
         }
     ]

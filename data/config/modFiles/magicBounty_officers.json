@@ -1,71 +1,17 @@
 # Note: this file is not actually used by MagicLib; it is only placed here for organization purposes
 {
-	"adversary_TriTachyon_Wolfpack":{ # Officer Management, Cybernetic Augmentation
-		"hyperion":{
-			"officer_personality":"reckless",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":1,
-				"combat_endurance":1,
-				"field_modulation":2,
-				"target_analysis":1,
-				"systems_expertise":2
-			}
-		}
-	},
-	"adversary_LuddicPath_Heretics":{ # Cybernetic Augmentation
-		"prometheus2":{
-			"officer_personality":"reckless",
-			"officer_faction":"luddic_path",
-			"officer_level":5,
-			"officer_skills":{
-				"impact_mitigation":2,
-				"damage_control":1,
-				"point_defense":2,
-				"ordnance_expert":1,
-				"polarized_armor":1
-			}
-		}
-	},
-	"adversary_Pirates_Derelict":{ # Cybernetic Augmentation
-		"atlas2":{
-			"officer_personality":"cautious",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":2,
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"missile_specialization":2,
-				"gunnery_implants":1
-			}
-		},
-		"falcon_p":{
-			"officer_personality":"aggressive",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":1,
-				"combat_endurance":1,
-				"field_modulation":1,
-				"target_analysis":2,
-				"missile_specialization":2
-			}
-		}
-	},
 	"adversary_Hegemony_Armored":{ # Officer Management, Officer Training, Cybernetic Augmentation
 		"dominator_xiv":{
-			"officer_personality":"reckless",
+			"officer_personality":"steady",
 			"officer_faction":"hegemony",
 			"officer_level":6,
 			"officer_skills":{
 				"helmsmanship":2,
 				"combat_endurance":2,
-				"impact_mitigation":1,
+				"impact_mitigation":2,
 				"damage_control":1,
-				"missile_specialization":2,
-				"polarized_armor":1
+				"ballistic_mastery":1,
+				"missile_specialization":1
 			}
 		},
 		"onslaught_xiv":{
@@ -77,8 +23,34 @@
 				"impact_mitigation":1,
 				"damage_control":2,
 				"point_defense":2,
+				"ballistic_mastery":1,
+				"gunnery_implants":1
+			}
+		}
+	},
+	"adversary_LuddicChurch_Carrier":{ # No fleet-wide officer skills
+		"eradicator":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"combat_endurance":2,
+				"target_analysis":1,
+				"ballistic_mastery":1,
 				"gunnery_implants":1,
 				"polarized_armor":1
+			}
+		},
+		"retribution":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"target_analysis":1,
+				"ballistic_mastery":1,
+				"point_defense":2,
+				"gunnery_implants":1,
+				"ordnance_expert":1
 			}
 		}
 	},
@@ -120,60 +92,6 @@
 			}
 		}
 	},
-	"adversary_LuddicChurch_Carrier":{ # No fleet-wide officer skills
-		"eradicator":{
-			"officer_personality":"steady",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"combat_endurance":2,
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"gunnery_implants":1,
-				"polarized_armor":1
-			}
-		},
-		"retribution":{
-			"officer_personality":"aggressive",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"point_defense":2,
-				"gunnery_implants":1,
-				"ordnance_expert":1
-			}
-		}
-	},
-	"adversary_Independent_Phase":{ # Officer Training, Cybernetic Augmentation
-		"doom":{
-			"officer_personality":"steady",
-			"officer_faction":"adversary",
-			"officer_level":6,
-			"officer_skills":{
-				"helmsmanship":1,
-				"field_modulation":2,
-				"target_analysis":2,
-				"systems_expertise":1,
-				"ordnance_expert":2,
-				"polarized_armor":1
-			}
-		},
-		"apogee":{
-			"officer_personality":"steady",
-			"officer_faction":"adversary",
-			"officer_level":6,
-			"officer_skills":{
-				"helmsmanship":1,
-				"field_modulation":2,
-				"target_analysis":1,
-				"gunnery_implants":1,
-				"ordnance_expert":2,
-				"missile_specialization":2
-			}
-		}
-	},
 	"adversary_SindrianDiktat_Beam":{ # Officer Management, Cybernetic Augmentation
 		"eagle_LG":{
 			"officer_personality":"cautious",
@@ -199,6 +117,103 @@
 				"ordnance_expert":2
 			}
 		},
+	},
+	"adversary_TriTachyon_Wolfpack":{ # Officer Management, Cybernetic Augmentation
+		"hyperion":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"target_analysis":1,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Independent_Phase":{ # Officer Training, Cybernetic Augmentation
+		"doom":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":1,
+				"systems_expertise":1,
+				"missile_specialization":2,
+				"gunnery_implants":1
+			}
+		},
+		"apogee":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"field_modulation":1,
+				"target_analysis":1,
+				"gunnery_implants":1,
+				"ordnance_expert":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_Pirates_Derelict":{ # Cybernetic Augmentation
+		"atlas2":{
+			"officer_personality":"cautious",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":2,
+				"target_analysis":1,
+				"ballistic_mastery":1,
+				"missile_specialization":2,
+				"gunnery_implants":1
+			}
+		},
+		"falcon_p":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"target_analysis":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_LuddicPath_Heretics":{ # Cybernetic Augmentation
+		"prometheus2":{
+			"officer_personality":"reckless",
+			"officer_faction":"luddic_path",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"impact_mitigation":2,
+				"point_defense":2,
+				"ordnance_expert":1,
+			}
+		}
+	},
+	"adversary_TriTachyon_Wolfpack_Plus":{ # Maxed mercenary officers
+		"hyperion":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"field_modulation":2,
+				"target_analysis":1,
+				"missile_specialization":2,
+				"energy_weapon_mastery":1
+			}
+		}
 	},
 	"adversary_Kite_Swarm":{ # Silly
 		"kite_hegemony":{
@@ -288,21 +303,6 @@
 				"missile_specialization":2,
 				"systems_expertise":2,
 				"field_modulation":0
-			}
-		}
-	},
-	"adversary_TriTachyon_Wolfpack_Plus":{ # Maxed mercenary officers
-		"hyperion":{
-			"officer_personality":"reckless",
-			"officer_faction":"adversary",
-			"officer_level":6,
-			"officer_skills":{
-				"combat_endurance":1,
-				"field_modulation":2,
-				"target_analysis":1,
-				"systems_expertise":2,
-				"missile_specialization":2,
-				"energy_weapon_mastery":1
 			}
 		}
 	},

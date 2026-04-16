@@ -1,23 +1,21 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 8,
+    "fluxCapacitors": 9,
     "fluxVents": 0,
     "hullId": "gremlin_luddic_path",
     "hullMods": [
         "missleracks",
-        "heavyarmor",
-        "adaptive_coils",
-        "armoredweapons",
         "hardened_subsystems",
-        "reinforcedhull"
+        "adaptive_coils",
+        "armoredweapons"
     ],
     "permaMods": [
         "missleracks",
-        "heavyarmor"
+        "hardened_subsystems"
     ],
     "sMods": [
         "missleracks",
-        "heavyarmor"
+        "hardened_subsystems"
     ],
     "suppressedMods": ["ill_advised"],
     "variantId": "adversary_gremlin_luddic_path_Strike",
@@ -25,7 +23,8 @@
         "autofire": true,
         "mode": "LINKED",
         "weapons": {
-            "WS 000": "mininglaser",
+            "WS 000": "lightdualmg",
+            "WS 001": "lightdualmg",
             "WS 002": "gorgon",
             "WS 003": "gorgon"
         }

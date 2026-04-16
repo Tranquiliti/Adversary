@@ -1,7 +1,7 @@
 {
     "displayName": "Close Support",
     "fluxCapacitors": 14,
-    "fluxVents": 14,
+    "fluxVents": 16,
     "hullId": "manticore_pirates",
     "hullMods": [
         "converted_hangar",
@@ -51,5 +51,5 @@
             }
         }
     ],
-    "wings": ["claw_wing"]
+    "wings": ["gladius_wing"]
 }

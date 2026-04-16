@@ -1,6 +1,6 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 19,
+    "fluxCapacitors": 23,
     "fluxVents": 30,
     "hullId": "eradicator_pirates",
     "hullMods": [
@@ -33,22 +33,6 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 006": "arbalest"}
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 000": "atropos",
-                "WS 001": "atropos",
-                "WS 002": "atropos",
-                "WS 003": "atropos",
-                "WS 004": "atropos"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
             "weapons": {
                 "WS 005": "heavymortar",
                 "WS 007": "heavymortar"
@@ -58,15 +42,25 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 006": "arbalest",
+                "WS 008": "mininglaser",
                 "WS 009": "lightac",
-                "WS 010": "lightac"
+                "WS 010": "lightac",
+                "WS 011": "lightac",
+                "WS 012": "mininglaser"
             }
         },
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 011": "lightac"}
+            "weapons": {
+                "WS 000": "atropos",
+                "WS 001": "atropos",
+                "WS 002": "atropos",
+                "WS 003": "atropos",
+                "WS 004": "atropos"
+            }
         }
     ],
-    "wings": ["xyphos_wing"]
+    "wings": ["sarissa_wing"]
 }

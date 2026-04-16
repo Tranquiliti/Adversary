@@ -1,49 +1,49 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 8,
-    "fluxVents": 0,
+    "fluxCapacitors": 7,
+    "fluxVents": 9,
     "hullId": "doom",
     "hullMods": [
-        "heavyarmor",
-        "reinforcedhull",
-        "armoredweapons",
+        "pointdefenseai",
         "targetingunit",
+        "advancedoptics",
+        "armoredweapons",
         "fluxbreakers"
     ],
     "permaMods": [
-        "heavyarmor",
-        "reinforcedhull"
+        "pointdefenseai",
+        "targetingunit"
     ],
     "sMods": [
-        "heavyarmor",
-        "reinforcedhull"
+        "pointdefenseai",
+        "targetingunit"
     ],
     "variantId": "adversary_doom_Attack",
     "weaponGroups": [
         {
             "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler",
-                "WS 005": "lightneedler",
-                "WS 006": "lightneedler"
-            }
-        },
-        {
-            "autofire": false,
             "mode": "ALTERNATING",
             "weapons": {
-                "WS 001": "phasecl",
-                "WS 002": "phasecl"
+                "WS 001": "annihilatorpod",
+                "WS 002": "annihilatorpod"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "ionbeam",
-                "WS 008": "ionbeam"
+                "WS 007": "phasebeam",
+                "WS 008": "phasebeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "lightneedler",
+                "WS 004": "lightneedler",
+                "WS 005": "lightneedler",
+                "WS 006": "lightneedler"
             }
         },
         {

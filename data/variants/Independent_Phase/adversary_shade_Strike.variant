@@ -1,38 +1,38 @@
 {
     "displayName": "Strike",
-    "fluxCapacitors": 9,
-    "fluxVents": 0,
+    "fluxCapacitors": 10,
+    "fluxVents": 3,
     "hullId": "shade",
     "hullMods": [
-        "heavyarmor",
-        "reinforcedhull",
         "adaptive_coils",
-        "armoredweapons",
         "hardened_subsystems",
+        "armoredweapons",
+        "autorepair",
+        "pointdefenseai",
         "fluxbreakers"
     ],
     "permaMods": [
-        "heavyarmor",
-        "reinforcedhull"
+        "adaptive_coils",
+        "hardened_subsystems"
     ],
     "sMods": [
-        "heavyarmor",
-        "reinforcedhull"
+        "adaptive_coils",
+        "hardened_subsystems"
     ],
     "variantId": "adversary_shade_Strike",
     "weaponGroups": [
         {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 004": "amblaster"}
-        },
-        {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "lightneedler",
                 "WS 002": "lightneedler"
             }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "amblaster"}
         }
     ]
 }

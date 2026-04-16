@@ -1,7 +1,7 @@
 {
     "displayName": "Attack",
     "fluxCapacitors": 20,
-    "fluxVents": 10,
+    "fluxVents": 6,
     "hullId": "shrike_pirates",
     "hullMods": [
         "converted_hangar",
@@ -28,26 +28,22 @@
     "variantId": "adversary_shrike_pirates_Attack",
     "weaponGroups": [
         {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 005": "jackhammer"}
+        },
+        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 003": "ionpulser"}
         },
         {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "phasecl"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "lightneedler"}
-        },
-        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "mininglaser",
-                "WS 002": "mininglaser"
+                "WS 000": "pdburst",
+                "WS 001": "lightneedler",
+                "WS 002": "pdburst"
             }
         }
     ],

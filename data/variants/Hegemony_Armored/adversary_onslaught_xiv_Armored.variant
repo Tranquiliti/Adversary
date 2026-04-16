@@ -31,10 +31,12 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 016": "tpc",
-                "WS 017": "tpc"
-            }
+            "weapons": {"WS 016": "tpc"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 017": "tpc"}
         },
         {
             "autofire": true,
@@ -52,13 +54,13 @@
             "weapons": {"WS 020": "devastator"}
         },
         {
-            "autofire": true,
+            "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 021": "salamanderpod",
-                "WS 022": "salamanderpod",
-                "WS 023": "salamanderpod",
-                "WS 024": "salamanderpod"
+                "WS 021": "jackhammer",
+                "WS 022": "jackhammer",
+                "WS 023": "jackhammer",
+                "WS 024": "jackhammer"
             }
         },
         {
@@ -75,13 +77,7 @@
                 "WS 008": "vulcan",
                 "WS 009": "vulcan",
                 "WS 010": "heavymg",
-                "WS 011": "heavymg"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
+                "WS 011": "heavymg",
                 "WS 012": "lightac",
                 "WS 013": "lightac",
                 "WS 014": "lightac",

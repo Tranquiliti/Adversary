@@ -1,23 +1,24 @@
 {
     "displayName": "Overdriven",
-    "fluxCapacitors": 24,
+    "fluxCapacitors": 20,
     "fluxVents": 0,
     "hullId": "falcon_xiv",
     "hullMods": [
         "magazines",
+        "fluxcoil",
         "hardenedshieldemitter",
-        "reinforcedhull",
+        "pointdefenseai",
         "safetyoverrides"
     ],
     "permaMods": [
         "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
+        "fluxcoil",
+        "hardenedshieldemitter"
     ],
     "sMods": [
         "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
+        "fluxcoil",
+        "hardenedshieldemitter"
     ],
     "variantId": "adversary_falcon_xiv_Overdriven",
     "weaponGroups": [
@@ -25,8 +26,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 005": "ionpulser",
-                "WS 006": "miningblaster"
+                "WS 005": "heavyburst",
+                "WS 006": "heavyburst"
             }
         },
         {
@@ -43,14 +44,6 @@
             "weapons": {
                 "WS 007": "heavymg",
                 "WS 008": "heavymg"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
             }
         },
         {

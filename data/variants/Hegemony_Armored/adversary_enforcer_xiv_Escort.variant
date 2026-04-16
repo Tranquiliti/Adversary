@@ -1,14 +1,13 @@
 {
     "displayName": "Escort",
-    "fluxCapacitors": 17,
-    "fluxVents": 16,
+    "fluxCapacitors": 14,
+    "fluxVents": 15,
     "hullId": "enforcer_xiv",
     "hullMods": [
         "escort_package",
         "heavyarmor",
         "reinforcedhull",
         "armoredweapons",
-        "hardenedshieldemitter",
         "pointdefenseai",
         "targetingunit"
     ],
@@ -25,36 +24,28 @@
     "variantId": "adversary_enforcer_xiv_Escort",
     "weaponGroups": [
         {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "swarmer",
-                "WS 009": "swarmer"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "breach",
-                "WS 008": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "lightneedler",
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler"
-            }
-        },
-        {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "flak",
+                "WS 002": "hveldriver",
+                "WS 004": "hveldriver",
                 "WS 005": "flak"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "heavymauler"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 006": "breach",
+                "WS 007": "breach",
+                "WS 008": "breach",
+                "WS 009": "breach"
             }
         }
     ]

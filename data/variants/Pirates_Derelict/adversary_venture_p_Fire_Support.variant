@@ -1,30 +1,31 @@
 {
     "displayName": "Fire Support",
     "fluxCapacitors": 0,
-    "fluxVents": 1,
+    "fluxVents": 3,
     "hullId": "venture_p",
     "hullMods": [
+        "eccm",
         "missleracks",
-        "reinforcedhull",
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
         "fragile_subsystems",
         "converted_hangar",
         "targetingunit",
-        "missile_autoloader"
+        "missile_autoloader",
+        "reinforcedhull"
     ],
     "permaMods": [
+        "eccm",
         "missleracks",
-        "reinforcedhull",
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
         "fragile_subsystems"
     ],
     "sMods": [
-        "missleracks",
-        "reinforcedhull"
+        "eccm",
+        "missleracks"
     ],
     "variantId": "adversary_venture_p_Fire_Support",
     "weaponGroups": [
@@ -34,26 +35,21 @@
             "weapons": {"WS 009": "squall"}
         },
         {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightneedler",
+                "WS 003": "lightneedler"
+            }
+        },
+        {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
                 "WS 004": "harpoon",
                 "WS 007": "harpoon"
             }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "heavymauler",
-                "WS 003": "heavymauler"
-            }
         }
     ],
-    "wings": ["broadsword_wing"]
+    "wings": ["claw_wing"]
 }

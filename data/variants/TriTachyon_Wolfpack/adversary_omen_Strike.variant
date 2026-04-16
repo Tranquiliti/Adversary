@@ -1,12 +1,11 @@
 {
     "displayName": "Strike",
     "fluxCapacitors": 10,
-    "fluxVents": 6,
+    "fluxVents": 5,
     "hullId": "omen",
     "hullMods": [
         "hardenedshieldemitter",
         "missile_autoloader",
-        "magazines",
         "hardened_subsystems",
         "pointdefenseai"
     ],
@@ -27,12 +26,17 @@
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 001": "amblaster"}
+            "weapons": {"WS 003": "sabot"}
         },
         {
             "autofire": false,
             "mode": "LINKED",
-            "weapons": {"WS 003": "sabot"}
+            "weapons": {"WS 001": "amblaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "irpulse"}
         }
     ]
 }
