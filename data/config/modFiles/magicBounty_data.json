@@ -1,5 +1,5 @@
 {
-	"adversary_TT_Wolfpack":{
+	"adversary_TriTachyon_Wolfpack":{
 		"trigger_marketFaction_any":["independent","tritachyon"],
 		"trigger_player_minLevel":15,
 
@@ -14,7 +14,7 @@
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryTTWolfpackPicked",
+		"job_pick_script":"AdversaryTriTachyonWolfpackPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -62,7 +62,7 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_LP_Heretics":{
+	"adversary_LuddicPath_Heretics":{
 		"trigger_marketFaction_any":["independent","luddic_path"],
 		"trigger_player_minLevel":15,
 
@@ -79,7 +79,7 @@
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryLPHereticsPicked",
+		"job_pick_script":"AdversaryLuddicPathHereticsPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -260,7 +260,7 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_PL_Cruiser":{
+	"adversary_Persean_Cruiser":{
 		"trigger_marketFaction_any":["independent","persean"],
 		"trigger_player_minLevel":15,
 
@@ -275,7 +275,7 @@
 		"job_show_fleet":"flagship",
 		"job_show_distance":"exact",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryPLCruiserPicked",
+		"job_pick_script":"AdversaryPerseanCruiserPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -325,7 +325,7 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_LC_Carrier":{
+	"adversary_LuddicChurch_Carrier":{
 		"trigger_marketFaction_any":["independent","luddic_church","adversary"],
 		"trigger_player_minLevel":15,
 
@@ -340,7 +340,7 @@
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryLCCarrierPicked",
+		"job_pick_script":"AdversaryLuddicChurchCarrierPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -451,7 +451,7 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_SD_Beam":{
+	"adversary_SindrianDiktat_Beam":{
 		"trigger_marketFaction_any":["independent","sindrian_diktat"],
 		"trigger_player_minLevel":15,
 
@@ -466,7 +466,7 @@
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversarySDBeamPicked",
+		"job_pick_script":"AdversarySindrianDiktatBeamPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -1203,12 +1203,12 @@
 		"location_themes":["theme_derelict"],
 		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_TT_Wolfpack_Plus":{
+	"adversary_TriTachyon_Wolfpack_Plus":{
 		"trigger_marketFaction_any":["independent","tritachyon"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true, # Besides the flagship, bounty is technically within vanilla bounds due to skill respec allowing for infinite custom mercenary officers, but the whole fleet is so brainlessly powerful that it might as well be modded BS
-			"$adversary_TT_Wolfpack_succeeded":true
+			"$adversary_TriTachyon_Wolfpack_succeeded":true
 		},
 
 		"job_name":"An Even More Troublesome Mercenary",
@@ -1222,7 +1222,7 @@
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryTTWolfpackPlusPicked",
+		"job_pick_script":"AdversaryTriTachyonWolfpackPlusPicked",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -1419,7 +1419,7 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
-	"adversary_Ultra_Shrouded":{
+	"adversary_Ultra_Dweller":{
 		"trigger_marketFaction_any":["player"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
@@ -1439,7 +1439,7 @@
 		"job_show_fleet":"none",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
-		"job_pick_script":"AdversaryUltraShroudedPicked",
+		"job_pick_script":"AdversaryUltraDwellerPicked",
 
 		"target_first_name":"Shrouded",
 		"target_last_name":"Core",
@@ -1503,7 +1503,7 @@
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
-			"$adversary_Ultra_Shrouded_succeeded":true
+			"$adversary_Ultra_Dweller_succeeded":true
 		},
 
 		"job_name":"Legacy of the Abyss",

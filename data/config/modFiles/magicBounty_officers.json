@@ -1,6 +1,6 @@
 # Note: this file is not actually used by MagicLib; it is only placed here for organization purposes
 {
-	"adversary_TT_Wolfpack":{ # Officer Management, Cybernetic Augmentation
+	"adversary_TriTachyon_Wolfpack":{ # Officer Management, Cybernetic Augmentation
 		"hyperion":{
 			"officer_personality":"reckless",
 			"officer_faction":"adversary",
@@ -14,7 +14,7 @@
 			}
 		}
 	},
-	"adversary_LP_Heretics":{ # Cybernetic Augmentation
+	"adversary_LuddicPath_Heretics":{ # Cybernetic Augmentation
 		"prometheus2":{
 			"officer_personality":"reckless",
 			"officer_faction":"luddic_path",
@@ -82,7 +82,7 @@
 			}
 		}
 	},
-	"adversary_PL_Cruiser":{ # Officer Management, Cybernetic Augmentation
+	"adversary_Persean_Cruiser":{ # Officer Management, Cybernetic Augmentation
 		"gryphon":{
 			"officer_personality":"cautious",
 			"officer_faction":"adversary",
@@ -120,7 +120,7 @@
 			}
 		}
 	},
-	"adversary_LC_Carrier":{ # No fleet-wide officer skills
+	"adversary_LuddicChurch_Carrier":{ # No fleet-wide officer skills
 		"eradicator":{
 			"officer_personality":"steady",
 			"officer_faction":"adversary",
@@ -174,7 +174,7 @@
 			}
 		}
 	},
-	"adversary_SD_Beam":{ # Officer Management, Cybernetic Augmentation
+	"adversary_SindrianDiktat_Beam":{ # Officer Management, Cybernetic Augmentation
 		"eagle_LG":{
 			"officer_personality":"cautious",
 			"officer_faction":"lions_guard",
@@ -291,7 +291,7 @@
 			}
 		}
 	},
-	"adversary_TT_Wolfpack_Plus":{ # Maxed mercenary officers
+	"adversary_TriTachyon_Wolfpack_Plus":{ # Maxed mercenary officers
 		"hyperion":{
 			"officer_personality":"reckless",
 			"officer_faction":"adversary",
@@ -338,7 +338,7 @@
 			}
 		}
 	},
-	"adversary_Ultra_Shrouded":{ # Integrated Alpha Cores
+	"adversary_Ultra_Dweller":{ # Integrated Alpha Cores
 		"brilliant":{
 			"officer_aiCoreId":"alpha_core",
 			"officer_faction":"remnant",

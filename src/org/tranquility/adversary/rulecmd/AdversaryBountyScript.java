@@ -58,8 +58,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         // Yes, the code and configs are all over the place; no, this will not get any better unless
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
-            case "adversary_TT_Wolfpack", "adversary_Pirates_Derelict", "adversary_PL_Cruiser", "adversary_LC_Carrier",
-                 "adversary_LP_Heretics": {
+            case "adversary_TriTachyon_Wolfpack", "adversary_Pirates_Derelict", "adversary_Persean_Cruiser", "adversary_LuddicChurch_Carrier",
+                 "adversary_LuddicPath_Heretics": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -70,7 +70,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Independent_Phase", "adversary_SD_Beam", "adversary_Derelict_Operations": {
+            case "adversary_Independent_Phase", "adversary_SindrianDiktat_Beam", "adversary_Derelict_Operations": {
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
@@ -184,7 +184,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 teleportFleetToPlanet(fleet, getClosestBlackHole(fleet.getContainingLocation()));
                 break;
             }
-            case "adversary_TT_Wolfpack_Plus": {
+            case "adversary_TriTachyon_Wolfpack_Plus": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -196,7 +196,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Shrouded", "adversary_Ultra_Maw": {
+            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Dweller", "adversary_Ultra_Maw": {
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
