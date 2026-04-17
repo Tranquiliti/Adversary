@@ -1,32 +1,34 @@
 {
-    "displayName": "Close Support",
-    "fluxCapacitors": 0,
+    "displayName": "Escort",
+    "fluxCapacitors": 18,
     "fluxVents": 20,
     "hullId": "sunder_LG",
     "hullMods": [
         "advancedoptics",
+        "escort_package",
         "hardenedshieldemitter",
+        "comp_armor",
         "damaged_mounts",
-        "degraded_life_support",
         "erratic_injector",
-        "increased_maintenance",
-        "targetingunit",
-        "reinforcedhull"
+        "comp_structure",
+        "targetingunit"
     ],
     "permaMods": [
         "advancedoptics",
+        "escort_package",
         "hardenedshieldemitter",
+        "comp_armor",
         "damaged_mounts",
-        "degraded_life_support",
         "erratic_injector",
-        "increased_maintenance"
+        "comp_structure"
     ],
     "sMods": [
         "advancedoptics",
+        "escort_package",
         "hardenedshieldemitter"
     ],
     "sModdedBuiltIns": ["solar_shielding"],
-    "variantId": "adversary_sunder_LG_Close_Support",
+    "variantId": "adversary_sunder_LG_Escort",
     "weaponGroups": [
         {
             "autofire": true,
@@ -37,16 +39,8 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "heatseeker",
-                "WS 005": "heatseeker"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "gravitonbeam",
-                "WS 004": "gravitonbeam"
+                "WS 002": "irautolance",
+                "WS 004": "irautolance"
             }
         },
         {

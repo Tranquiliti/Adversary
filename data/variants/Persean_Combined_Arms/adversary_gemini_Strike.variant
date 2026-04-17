@@ -1,0 +1,41 @@
+{
+    "displayName": "Strike",
+    "fluxCapacitors": 20,
+    "fluxVents": 19,
+    "hullId": "gemini",
+    "hullMods": [
+        "eccm",
+        "expanded_deck_crew",
+        "missleracks",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "comp_structure",
+        "fluxcoil",
+        "hardenedshieldemitter",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "eccm",
+        "expanded_deck_crew",
+        "missleracks",
+        "comp_armor",
+        "damaged_mounts",
+        "erratic_injector",
+        "glitched_sensors",
+        "comp_structure"
+    ],
+    "sMods": [
+        "eccm",
+        "expanded_deck_crew",
+        "missleracks"
+    ],
+    "variantId": "adversary_gemini_Strike",
+    "weaponGroups": [{
+        "autofire": false,
+        "mode": "LINKED",
+        "weapons": {"WS 003": "harpoonpod"}
+    }],
+    "wings": ["flash_wing"]
+}

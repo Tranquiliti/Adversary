@@ -1,6 +1,6 @@
 {
 	"adversary_Hegemony_Armored":{
-		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_marketFaction_any":["player","hegemony"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"No Deserters Left Behind",
@@ -66,7 +66,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_LuddicChurch_Carrier":{
-		"trigger_marketFaction_any":["independent","luddic_church","adversary"],
+		"trigger_marketFaction_any":["player","luddic_church","adversary"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"Extinguishing Hope",
@@ -116,7 +116,7 @@
 			"adversary_mora_Attack":9,
 			"adversary_eradicator_Close_Support":6,
 			"adversary_condor_Attack":8,
-			"adversary_vanguard_Attack":3
+			"adversary_vanguard_Strike":3
 		},
 		"fleet_composition_faction":"adversary",
 		"fleet_composition_quality":2,
@@ -129,7 +129,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Persean_Cruiser":{
-		"trigger_marketFaction_any":["independent","persean"],
+		"trigger_marketFaction_any":["player","persean"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"A Terrible Gamble",
@@ -194,7 +194,7 @@
 		"location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_SindrianDiktat_Beam":{
-		"trigger_marketFaction_any":["independent","sindrian_diktat"],
+		"trigger_marketFaction_any":["player","sindrian_diktat"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"Rooting Out Treason",
@@ -258,7 +258,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_TriTachyon_Wolfpack":{
-		"trigger_marketFaction_any":["independent","tritachyon"],
+		"trigger_marketFaction_any":["player","tritachyon"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"A Troublesome Mercenary",
@@ -321,7 +321,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Independent_Phase":{
-		"trigger_marketFaction_any":["independent"],
+		"trigger_marketFaction_any":["player","independent"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"Hunting Down a Coward",
@@ -384,7 +384,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Pirates_Derelict":{
-		"trigger_marketFaction_any":["independent","pirates"],
+		"trigger_marketFaction_any":["player","pirates"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"An Infamous Bounty Hunter",
@@ -450,7 +450,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_LuddicPath_Heretics":{
-		"trigger_marketFaction_any":["independent","luddic_path"],
+		"trigger_marketFaction_any":["player","luddic_path"],
 		"trigger_player_minLevel":15,
 
 		"job_name":"The Forbidden Path",
@@ -515,8 +515,76 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
+	"adversary_Persean_Combined_Arms":{
+		"trigger_marketFaction_any":["player","persean"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_Persean_Cruiser_succeeded":true,
+			"$adversary_SindrianDiktat_Beam_succeeded":true
+		},
+
+		"job_name":"Certainty of Victory",
+		"job_description":"Despite your past win against the Adversary's esteemed fleet commander, your contacts have reported that the Adversary has replaced the now-disgraced commander with another, similarly-experienced admiral to helm the faction's newest grand fleet. The latest intel suggests this fleet ==specializes in combined-arms tactics== to counter and crush any foe it observes.\nWhat's more, your contacts also suggest certain League archons - the same archons you've upset from your previous involvement - appear genuinely worried about this reborn threat and, consequently, have posted a real bounty this time. If you rise up to meet the challenge once more, the League may finally ==respect your strength and tenacity== as a fleet captain, with a reward to match.",
+		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like a Reaper through your skull.\"",
+		"job_intel_success":"At last, the Spirit of Destiny joins its spearheaded cousin in the vacuum of space. Your accomplishment in besting the Adversary's best twice will not go unnoticed by the League, for the archons have willingly parted ways with their credits this time. Perhaps even the gens will take note too and treat you more favorably in future dealings; whether this favor is born out of fear or of respect, you know the result is all the same.",
+		"job_forFaction":"persean",
+		"job_credit_reward":2000000,
+		"job_reputation_reward":30,
+		"job_type":"obliteration",
+		"job_show_fleet":"flagship",
+		"job_show_distance":"exact",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryPerseanCombinedArmsPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"cautious",
+		"target_level":6,
+		"target_skills":{
+			"tactical_drills":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"best_of_the_best":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"phase_corps":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Spirit of Destiny",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_afflictor_d_pirates_Support",
+		"fleet_flagship_name":"ADS Fallen Avenger",
+		"fleet_preset_ships":{
+			"adversary_onslaught_xiv_Elite":6,
+			"adversary_anubis_Escort":4,
+			"adversary_sunder_LG_Escort":4,
+			"adversary_gemini_Strike":4,
+			"adversary_afflictor_d_pirates_Support":5,
+			"adversary_vanguard_Attack":6
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":true,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
+
+		"location_marketFactions":["adversary"],
+		"location_distance":"CORE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_hidden","no_pulsar_blackhole"]
+	},
 	"adversary_TriTachyon_Wolfpack_Plus":{
-		"trigger_marketFaction_any":["independent","tritachyon"],
+		"trigger_marketFaction_any":["player","tritachyon"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_TriTachyon_Wolfpack_succeeded":true,
@@ -566,7 +634,8 @@
 		"fleet_flagship_variant":"adversary_afflictor_Support",
 		"fleet_flagship_name":"ADS Bound to the Stars",
 		"fleet_preset_ships":{
-			"adversary_hyperion_Overdriven":21
+			"adversary_hyperion_Overdriven":21,
+			"adversary_afflictor_d_pirates_Support":8
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,
@@ -578,7 +647,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Kite_Swarm":{
-		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_marketFaction_any":["player","hegemony"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true
@@ -647,7 +716,7 @@
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Ziggurat_Plus":{
-		"trigger_marketFaction_any":["independent","hegemony"],
+		"trigger_marketFaction_any":["player","hegemony"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
@@ -732,7 +801,7 @@
 		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Remnant_Plus_Plus":{
-		"trigger_marketFaction_any":["independent","player"],
+		"trigger_marketFaction_any":["player","independent"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
@@ -822,7 +891,7 @@
 		"location_themes_blacklist":["theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
 	"adversary_Station_Low_Tech":{
-		"trigger_marketFaction_any":["independent","hegemony","player"],
+		"trigger_marketFaction_any":["player","hegemony"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true
@@ -883,7 +952,7 @@
 		"location_entities":["planet"]
 	},
 	"adversary_Station_Midline":{
-		"trigger_marketFaction_any":["independent","player"],
+		"trigger_marketFaction_any":["player","independent"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true
@@ -951,7 +1020,7 @@
 		"location_entities":["planet"]
 	},
 	"adversary_Station_High_Tech":{
-		"trigger_marketFaction_any":["independent","tritachyon","player"],
+		"trigger_marketFaction_any":["player","tritachyon"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true
@@ -1012,7 +1081,7 @@
 		"location_entities":["planet"]
 	},
 	"adversary_Station_Remnant":{
-		"trigger_marketFaction_any":["independent","remnant","player"],
+		"trigger_marketFaction_any":["player","independent","remnant"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
@@ -1080,7 +1149,7 @@
 		"location_entities":["planet"]
 	},
 	"adversary_Event_Horizon":{
-		"trigger_marketFaction_any":["independent","hegemony","persean","luddic_church","sindrian_diktat","tritachyon"],
+		"trigger_marketFaction_any":["hegemony","independent","luddic_church","persean","sindrian_diktat","tritachyon"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true
@@ -1184,7 +1253,7 @@
 		"location_entities":["jump_point"]
 	},
 	"adversary_Derelict_Operations":{
-		"trigger_marketFaction_any":["luddic_path"],
+		"trigger_marketFaction_any":["player","luddic_path"],
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true

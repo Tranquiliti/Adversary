@@ -27,6 +27,7 @@
         "ecm",
         "nav_relay"
     ],
+    "sModdedBuiltIns": ["solar_shielding"],
     "variantId": "adversary_centurion_LG_Close_Support",
     "weaponGroups": [
         {

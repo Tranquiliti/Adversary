@@ -26,6 +26,7 @@
         "ecm",
         "nav_relay"
     ],
+    "sModdedBuiltIns": ["solar_shielding"],
     "variantId": "adversary_brawler_LG_Close_Support",
     "weaponGroups": [
         {

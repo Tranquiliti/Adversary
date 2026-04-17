@@ -26,6 +26,7 @@
         "ecm",
         "hardenedshieldemitter"
     ],
+    "sModdedBuiltIns": ["solar_shielding"],
     "variantId": "adversary_hammerhead_LG_Close_Support",
     "weaponGroups": [
         {

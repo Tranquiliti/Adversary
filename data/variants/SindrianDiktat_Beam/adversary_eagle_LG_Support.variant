@@ -25,6 +25,7 @@
         "hardenedshieldemitter",
         "targetingunit"
     ],
+    "sModdedBuiltIns": ["solar_shielding"],
     "variantId": "adversary_eagle_LG_Support",
     "weaponGroups": [
         {

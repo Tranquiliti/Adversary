@@ -1,0 +1,44 @@
+{
+    "displayName": "Support",
+    "fluxCapacitors": 10,
+    "fluxVents": 0,
+    "hullId": "afflictor_d_pirates",
+    "hullMods": [
+        "adaptive_coils",
+        "hardened_subsystems",
+        "pointdefenseai",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
+        "armoredweapons",
+        "targetingunit",
+        "fluxbreakers"
+    ],
+    "permaMods": [
+        "adaptive_coils",
+        "hardened_subsystems",
+        "pointdefenseai",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance"
+    ],
+    "sMods": [
+        "adaptive_coils",
+        "hardened_subsystems",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_afflictor_d_pirates_Support",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 002": "lightneedler",
+            "WS 003": "lightneedler",
+            "WS 006": "lrpdlaser"
+        }
+    }]
+}

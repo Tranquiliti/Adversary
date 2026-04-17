@@ -200,6 +200,86 @@
 			}
 		}
 	},
+	"adversary_Persean_Combined_Arms":{ # Maxed mercenary officers
+		"onslaught_xiv":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"field_modulation":1,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"missile_specialization":2,
+				"gunnery_implants":1,
+				"ordnance_expert":1,
+			}
+		},
+		"anubis":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"point_defense":2,
+				"target_analysis":2,
+				"gunnery_implants":1
+			}
+		},
+		"sunder_LG":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"target_analysis":2,
+				"systems_expertise":2,
+				"gunnery_implants":2
+			}
+		},
+		"gemini":{
+			"officer_personality":"cautious",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"point_defense":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"afflictor_d_pirates":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"combat_endurance":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"ballistic_mastery":1,
+				"systems_expertise":1,
+				"gunnery_implants":1
+			}
+		},
+		"vanguard":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
+	},
 	"adversary_TriTachyon_Wolfpack_Plus":{ # Maxed mercenary officers
 		"hyperion":{
 			"officer_personality":"reckless",
@@ -212,6 +292,19 @@
 				"target_analysis":1,
 				"missile_specialization":2,
 				"energy_weapon_mastery":1
+			}
+		},
+		"afflictor_d_pirates":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"combat_endurance":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"ballistic_mastery":1,
+				"systems_expertise":1,
+				"gunnery_implants":1
 			}
 		}
 	},

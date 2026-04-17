@@ -24,6 +24,7 @@
         "hardenedshieldemitter",
         "targetingunit"
     ],
+    "sModdedBuiltIns": ["solar_shielding"],
     "variantId": "adversary_falcon_LG_Support",
     "weaponGroups": [
         {
