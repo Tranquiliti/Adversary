@@ -1,0 +1,60 @@
+{
+    "displayName": "Fire Support",
+    "fluxCapacitors": 0,
+    "fluxVents": 22,
+    "hullId": "grendel",
+    "hullMods": [
+        "armoredweapons",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
+        "autorepair",
+        "phase_anchor"
+    ],
+    "permaMods": [
+        "armoredweapons",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance"
+    ],
+    "sMods": [
+        "armoredweapons",
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "variantId": "adversary_grendel_Fire_Support",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "vulcan",
+                "WS 004": "vulcan",
+                "WS 005": "vulcan",
+                "WS 006": "vulcan",
+                "WS 010": "hveldriver",
+                "WS 011": "hveldriver",
+                "WS 012": "heavymauler",
+                "WS 013": "hveldriver",
+                "WS 014": "hveldriver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 007": "heatseeker",
+                "WS 008": "heatseeker",
+                "WS 009": "heatseeker"
+            }
+        }
+    ]
+}

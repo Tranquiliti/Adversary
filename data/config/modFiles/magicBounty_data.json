@@ -515,6 +515,75 @@
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
 		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
 	},
+	"adversary_Hegemony_Penal":{
+		"trigger_marketFaction_any":["player","hegemony"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_Hegemony_Armored_succeeded":true,
+			"$adversary_LuddicChurch_Carrier_succeeded":true
+		},
+
+		"job_name":"Under Penalty of Death",
+		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, with most of the escaped prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships and weapons from a nearby Hegemony armory, left the atmosphere with their looted arsenal, and then hunted down several Luddic Church trading fleets before leaving the Core Worlds altogether.\nMost worryingly, it appears that \"The Throwaways\" have been receiving material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it. And so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==.\nShould you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered ships and technology== from the gang's cargo holds.",
+		"job_comm_reply":"\"I've got nothin' to say to you, mate,\" remarks $name. \"Boys and girls, lets rip this one open like a Tachyon Lance!\"",
+		"job_intel_success":"With the debris settled, you alone remain afloat atop the burning wreckage of the thown-away ships. Salvage operations have discovered a valuable set of blueprints for the Hegemony's coveted Fourteenth Battlegroup designs - a highly-auspicious find, especially given how tightly-secured such blueprints are in Hegemony industrial worlds.",
+		"job_credit_reward":2000000,
+		"job_item_reward":{
+			"XIV_package":1
+		},
+		"job_forFaction":"hegemony",
+		"job_reputation_reward":10,
+		"job_type":"obliteration",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryHegemonyPenalPicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_level":3,
+		"target_skills":{
+			"coordinated_maneuvers":1,
+			"crew_training":1,
+			"carrier_group":1,
+			"fighter_uplink":1,
+			"best_of_the_best":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"The Eviction Notice",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_vanguard_Assault",
+		"fleet_flagship_name":"Family Business",
+		"fleet_flagship_alwaysRecoverable":true,
+		"fleet_preset_ships":{
+			"adversary_grendel_Fire_Support":12,
+			"adversary_mora_Assault2":12,
+			"adversary_vanguard_Assault":5
+		},
+		"fleet_composition_faction":"pirates",
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
+
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
 	"adversary_Persean_Combined_Arms":{
 		"trigger_marketFaction_any":["player","persean"],
 		"trigger_player_minLevel":15,
@@ -540,7 +609,7 @@
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
 		"target_personality":"cautious",
-		"target_level":6,
+		"target_level":3,
 		"target_skills":{
 			"tactical_drills":1,
 			"crew_training":1,
@@ -596,7 +665,7 @@
 		"job_comm_reply":"\"I HATE YOU, YOU DEGENERATE SPACER TRASH! YOU'LL PAY FOR KILLING MY PARENT! DIE! DIE! DIE!\"",
 		"job_intel_success":"A Tri-Tachyon representative has heard of your success \"eliminating\" the mercenary's $sonDaughterChild. Soon thereafter, you receive the promised payout (again), delivered directly to your accounts.",
 		"job_forFaction":"tritachyon",
-		"job_credit_reward":2700000,
+		"job_credit_reward":2750000,
 		"job_reputation_reward":10,
 		"job_type":"assassination",
 		"job_show_fleet":"vanilla",
@@ -641,6 +710,71 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+
+		"location_distance":"CLOSE",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_LuddicPath_Missile":{
+		"trigger_marketFaction_any":["player","luddic_path"],
+		"trigger_player_minLevel":15,
+
+		"job_name":"Missiles O'Plenty",
+		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. This kill-fleet, the so-called \"Missiletoe Rocketeers\", relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested an end to this Adversary operation, before it too obliterates the militant's own station.",
+		"job_comm_reply":"\"Haha, yes, more test subjects for our glorious fleet. We'll see how long you can last against our explosive barrage!\"",
+		"job_intel_success":"You have successfully survived the onslaught of missiles and dealt a fatal blow to the Adversary kill-fleet, crippling their base-hunting operations. Curiously, your salvage teams have recovered a cache of unknown, exotic missile armaments from an intact cargo hold. You briefly ponder about how the Rocketeers could have acquired such technology; surely there's no reason why they wouldn't have already deployed these weapons?",
+		"job_forFaction":"luddic_path",
+		"job_credit_reward":1250000,
+		"job_reputation_reward":30,
+		"job_item_reward":{
+			"amsrm":6,
+			"resonatormrm":4,
+			"rifttorpedo":2
+		},
+		"job_type":"neutralization",
+		"job_show_fleet":"vanilla",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryLuddicPathMissilePicked",
+
+		"target_gender":"ANY",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_level":3,
+		"target_skills":{
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"navigation":1,
+			"gunnery_implants":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Adversary Missiletoe Rocketeers",
+		"fleet_faction":"adversary",
+		"fleet_flagship_variant":"adversary_brawler_pather_Assault2",
+		"fleet_flagship_name":"ADS Target-Rich Environment",
+		"fleet_preset_ships":{
+			"adversary_venture_p_Missile":14,
+			"adversary_manticore_luddic_path_Strike2":12,
+			"adversary_brawler_pather_Assault2":3
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"ROAMING",
 
 		"location_distance":"CLOSE",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -726,7 +860,7 @@
 
 		"job_name":"The Alpha and the Omega",
 		"job_description":"COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to ==destroy== this particular example once and for all.",
-		"job_comm_reply":"...",
+		"job_comm_reply":"\"...\"",
 		"job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
 		"job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
 		"job_forFaction":"hegemony",

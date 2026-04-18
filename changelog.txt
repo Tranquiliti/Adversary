@@ -2,10 +2,12 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
 
 * All Silly MagicBounties are now enabled by default
   - "enableAdversarySillyBounties" setting now defaults to "true" (previously defaulted to "false")
-* Added a new MagicBounty
-  - Requires completing both the Persean League and the Sindrian Diktat bounties
-* "An Even More Troublesome Mercenary" is no longer considered a Silly MagicBounty
-  - Now requires completing both the Tri-Tachyon and the Independent bounties (previously only needed the Tri-Tachyon bounty)
+* Added three new MagicBounties
+  - Each bounty is available upon completing one of these bounty pairs: Hegemony/Luddic Church, Persean League/Sindrian Diktat, or Pirates/Luddic Path
+* Changes to "An Even More Troublesome Mercenary" MagicBounty
+  - No longer considered a Silly bounty
+  - Modified to closely match the three newly-added MagicBounties
+  - Now requires completing the Tri-Tachyon/Independent bounty pair (previously only needed the Tri-Tachyon bounty)
   - Added Afflictor (P) ships to the bounty fleet
   - Increased credit reward
 * Added a super-ultra-difficult Silly MagicBounty, requiring a certain ultra-difficult MagicBounty to be defeated first

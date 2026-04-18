@@ -200,6 +200,47 @@
 			}
 		}
 	},
+	"adversary_Hegemony_Penal":{ # Maxed "mercenary" officers
+		"grendel":{
+			"officer_personality":"steady",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"target_analysis":2,
+				"ballistic_mastery":1,
+				"gunnery_implants":1,
+				"polarized_armor":1
+			}
+		},
+		"mora":{
+			"officer_personality":"reckless",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":1
+			}
+		},
+		"vanguard":{
+			"officer_personality":"reckless",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
+	},
 	"adversary_Persean_Combined_Arms":{ # Maxed mercenary officers
 		"onslaught_xiv":{
 			"officer_personality":"steady",
@@ -305,6 +346,47 @@
 				"ballistic_mastery":1,
 				"systems_expertise":1,
 				"gunnery_implants":1
+			}
+		}
+	},
+	"adversary_LuddicPath_Missile":{ # Maxed mercenary officers
+		"venture_p":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"target_analysis":2,
+				"missile_specialization":2,
+				"gunnery_implants":1
+			}
+		},
+		"manticore_luddic_path":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":1,
+				"missile_specialization":2
+			}
+		},
+		"brawler_pather":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"target_analysis":1,
+				"systems_expertise":2,
+				"missile_specialization":2
 			}
 		}
 	},

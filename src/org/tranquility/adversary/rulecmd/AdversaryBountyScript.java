@@ -59,7 +59,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
         // MagicLib has native support for custom officers on bounty fleets
         switch (bountyId) {
             case "adversary_TriTachyon_Wolfpack", "adversary_Pirates_Derelict", "adversary_Persean_Cruiser",
-                 "adversary_LuddicChurch_Carrier", "adversary_LuddicPath_Heretics", "adversary_Persean_Combined_Arms": {
+                 "adversary_LuddicChurch_Carrier", "adversary_LuddicPath_Heretics", "adversary_Hegemony_Penal",
+                 "adversary_Persean_Combined_Arms", "adversary_LuddicPath_Missile": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {

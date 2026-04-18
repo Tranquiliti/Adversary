@@ -48,6 +48,12 @@
 		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_reinforced_grid","sc_technology_optimised_shields"],
 		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"]
 	},
+	"adversary_Hegemony_Penal":{
+		"factionId":"pirates",
+		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_warfare":["sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_redundant_bays","sc_warfare_deflective_plating"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+	},
 	"adversary_Persean_Combined_Arms":{
 		"factionId":"adversary",
 		"sc_tactical":["sc_tactical_suppression_tactics","sc_tactical_vanguard_tactics","sc_tactical_bulwark_tactics","sc_tactical_anchor_tactics","sc_tactical_doctrine_tactics"],
@@ -59,6 +65,12 @@
 		"sc_management":["sc_management_top_condition","sc_management_authority","sc_management_re_entry","sc_management_officer_training","sc_management_in_good_hands"],
 		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_secured_mounts","sc_improvisation_enhanced_overrides","sc_improvisation_derelict_operations"]
+	},
+	"adversary_LuddicPath_Missile":{
+		"factionId":"adversary",
+		"sc_smallcraft":["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_together_as_one","sc_smallcraft_quick_as_the_wind"],
+		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_enhanced_overrides","sc_improvisation_derelict_operations"]
 	},
 	"adversary_Kite_Swarm":{
 		"factionId":"hegemony",
