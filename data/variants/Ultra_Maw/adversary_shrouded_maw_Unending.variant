@@ -7,6 +7,11 @@
         "turretgyros",
         "armoredweapons",
         "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
         "advancedshieldemitter",
         "autorepair",
         "auxiliarythrusters",
@@ -27,12 +32,7 @@
         "shrouded_lens",
         "shrouded_thunderhead",
         "solar_shielding",
-        "stabilizedshieldemitter",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance"
+        "stabilizedshieldemitter"
     ],
     "permaMods": [
         "turretgyros",

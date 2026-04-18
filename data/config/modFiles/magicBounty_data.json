@@ -718,6 +718,10 @@
 	"adversary_LuddicPath_Missile":{
 		"trigger_marketFaction_any":["player","luddic_path"],
 		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_Pirates_Derelict_succeeded":true,
+			"$adversary_LuddicPath_Heretics_succeeded":true
+		},
 
 		"job_name":"Missiles O'Plenty",
 		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. This kill-fleet, the so-called \"Missiletoe Rocketeers\", relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested an end to this Adversary operation, before it too obliterates the militant's own station.",
@@ -1750,7 +1754,7 @@
 			"crew_training":1,
 			"best_of_the_best":1,
 			#
-			"sensors":1,
+			"navigation":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
@@ -1769,12 +1773,13 @@
 		"fleet_flagship_variant":"adversary_shrouded_maw_Unending",
 		"fleet_flagship_name":"",
 		"fleet_preset_ships":{
-			"adversary_shrouded_maw_Unending":4
+			"adversary_shrouded_maw_Unending":2,
+			"adversary_shrouded_tendril_Unending":5
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
-		"fleet_behavior":"PASSIVE",
+		"fleet_behavior":"AGGRESSIVE",
 
 		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",
