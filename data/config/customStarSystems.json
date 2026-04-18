@@ -474,7 +474,8 @@
 					["highcommand","alpha_core","IndEvo_transmitter",true],
 					["IndEvo_AdManuf",,"IndEvo_vpc_supply_fuel"],
 					["aquaculture","gamma_core"]
-				]
+				],
+				"tags":["IndEvo_RuinsAlways"]
 			},
 			{
 				"entity":"planet",
@@ -514,7 +515,8 @@
 					["lightindustry",,"biofactory_embryo"],
 					["commerce",,"dealmaker_holosuite"],
 					["IndEvo_SupCom",,"IndEvo_simulator"]
-				]
+				],
+				"tags":["IndEvo_RuinsAlways"]
 			},
 			{
 				"entity":"planet",
@@ -544,7 +546,8 @@
 					["refining","gamma_core","catalytic_core"],
 					["fuelprod","gamma_core","synchrotron"],
 					["IndEvo_AdManuf",,"IndEvo_vpc_marines_hand_weapons"]
-				]
+				],
+				"tags":["IndEvo_RuinsAlways"]
 			},
 			{
 				"entity":"planet",
@@ -820,6 +823,7 @@
 					"IndEvo_HullDecon",
 					["IndEvo_IntArray",,"IndEvo_transmitter"],
 				],
+				"tags":["IndEvo_RuinsAlways"]
 			},
 			{ # Best Windy Arid planet
 				"entity":"planet",
@@ -905,6 +909,7 @@
 					"IndEvo_HullForge",
 					["IndEvo_ScrapYard","alpha_core"],
 				],
+				"tags":["IndEvo_RuinsAlways"]
 			},
 			{"entity":"comm_relay","focus":[1,3]},
 			{"entity":"inactive_gate","focus":[1,4],"name":"Paradiso Gate"},

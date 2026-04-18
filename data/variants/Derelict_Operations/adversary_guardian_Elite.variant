@@ -1,6 +1,6 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 13,
+    "displayName": "Elite",
+    "fluxCapacitors": 12,
     "fluxVents": 50,
     "hullId": "guardian",
     "hullMods": [
@@ -17,7 +17,6 @@
         "hardenedshieldemitter",
         "heavyarmor",
         "insulatedengine",
-        "pointdefenseai",
         "reinforcedhull",
         "stabilizedshieldemitter"
     ],
@@ -36,67 +35,47 @@
         "autorepair",
         "eccm"
     ],
-    "variantId": "adversary_guardian_Assault",
+    "variantId": "adversary_guardian_Elite",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "multineedler",
-                "WS 008": "multineedler"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "hammerrack",
-                "WS 009": "hammerrack"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
+                "WS 006": "dragonpod",
+                "WS 009": "dragonpod",
                 "WS 010": "dragon",
                 "WS 011": "dragon"
             }
         },
         {
-            "autofire": false,
+            "autofire": true,
             "mode": "LINKED",
-            "weapons": {
-                "WS 012": "lightac",
-                "WS 013": "lightac",
-                "WS 018": "lightac",
-                "WS 019": "lightac"
-            }
+            "weapons": {"WS 007": "mjolnir"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 008": "mjolnir"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "shredder",
-                "WS 001": "shredder",
-                "WS 002": "shredder",
-                "WS 003": "shredder",
-                "WS 014": "lightac",
-                "WS 015": "lightac",
-                "WS 016": "lightac",
-                "WS 017": "lightac"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 020": "devastator"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "dualflak",
-                "WS 005": "dualflak"
+                "WS 000": "irautolance",
+                "WS 001": "irautolance",
+                "WS 002": "irautolance",
+                "WS 003": "irautolance",
+                "WS 004": "hveldriver",
+                "WS 005": "hveldriver",
+                "WS 012": "taclaser",
+                "WS 013": "taclaser",
+                "WS 014": "taclaser",
+                "WS 015": "taclaser",
+                "WS 016": "taclaser",
+                "WS 017": "taclaser",
+                "WS 018": "taclaser",
+                "WS 019": "taclaser",
+                "WS 020": "devastator"
             }
         }
     ]

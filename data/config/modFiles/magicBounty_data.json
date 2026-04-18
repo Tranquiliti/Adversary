@@ -86,13 +86,13 @@
 		"target_rank":"spaceCommander",
 		"target_post":"activist",
 		"target_personality":"cautious",
-		"target_level":6,
+		"target_level":7,
 		"target_skills":{
 			"combat_endurance":2,
 			"impact_mitigation":2,
 			"damage_control":2,
+			"target_analysis":2,
 			"ballistic_mastery":2,
-			"systems_expertise":2,
 			#
 			"tactical_drills":1,
 			"crew_training":1,
@@ -100,8 +100,8 @@
 			"fighter_uplink":1,
 			"support_doctrine":1,
 			#
-			"bulk_transport":1,
 			"field_repairs":1,
+			"ordnance_expert":2,
 			"polarized_armor":2,
 			"containment_procedures":1,
 			"derelict_contingent":1
@@ -113,8 +113,8 @@
 		"fleet_flagship_name":"ADS God's Chosen",
 		"fleet_preset_ships":{
 			"adversary_retribution_Assault":3,
-			"adversary_mora_Attack":9,
-			"adversary_eradicator_Close_Support":6,
+			"adversary_mora_Assault":9,
+			"adversary_eradicator_Assault":6,
 			"adversary_condor_Attack":8,
 			"adversary_vanguard_Strike":3
 		},
@@ -427,14 +427,14 @@
 
 		"fleet_name":"Adversary Armada",
 		"fleet_faction":"adversary",
-		"fleet_flagship_variant":"adversary_colossus3_Attack",
+		"fleet_flagship_variant":"adversary_colossus3_Strike",
 		"fleet_flagship_name":"Binding of Loke",
 		"fleet_preset_ships":{
 			"adversary_atlas2_Close_Support":5,
 			"adversary_falcon_p_Strike":4,
 			"adversary_eradicator_pirates_Assault":6,
 			"adversary_venture_p_Fire_Support":5,
-			"adversary_colossus3_Attack":2,
+			"adversary_colossus3_Strike":2,
 			"adversary_manticore_pirates_Close_Support":3,
 			"adversary_shrike_pirates_Attack":2,
 			"adversary_vanguard_pirates_Overdriven":2
@@ -592,11 +592,11 @@
 		},
 
 		"job_name":"An Even More Troublesome Mercenary",
-		"job_description":"Apparently, the $sonDaughterChild of the mercenary you \"terminated\" yourself has now ==sworn revenge on the entire Sector== for allowing the death of $hisHerTheir parent. In particular, $heSheThey publicly singled you out, vowing to \"burn down\" your fleet and throw your body \"into the nearest black hole, like the worthless scum they are\".\nConsidering the high likelihood of this act of revenge inadvertently exposing Tri-Tachyon's previous cover-up (and your personal involvement in that), the corporation has requested you to ==eliminate== this \"childish\" troublemaker for them, with the promise of a ==doubled bounty payout== upon completion.",
+		"job_description":"Apparently, the $sonDaughterChild of the mercenary you \"terminated\" yourself has now ==sworn revenge on the entire Sector== for allowing the death of $hisHerTheir parent. In particular, $heSheThey publicly singled you out, vowing to \"burn down\" your fleet and throw your body \"into the nearest black hole, like the worthless scum they are\".\nConsidering the high likelihood of this act of revenge inadvertently exposing Tri-Tachyon's previous cover-up (and your personal involvement in that), the corporation has requested you to ==eliminate== this \"childish\" troublemaker for them, with the promise of a ==tripled bounty payout== upon completion.",
 		"job_comm_reply":"\"I HATE YOU, YOU DEGENERATE SPACER TRASH! YOU'LL PAY FOR KILLING MY PARENT! DIE! DIE! DIE!\"",
 		"job_intel_success":"A Tri-Tachyon representative has heard of your success \"eliminating\" the mercenary's $sonDaughterChild. Soon thereafter, you receive the promised payout (again), delivered directly to your accounts.",
 		"job_forFaction":"tritachyon",
-		"job_credit_reward":1800000,
+		"job_credit_reward":2700000,
 		"job_reputation_reward":10,
 		"job_type":"assassination",
 		"job_show_fleet":"vanilla",
@@ -1319,7 +1319,7 @@
 
 		"fleet_name":"Derelict Mob",
 		"fleet_faction":"derelict",
-		"fleet_flagship_variant":"adversary_guardian_Assault",
+		"fleet_flagship_variant":"adversary_guardian_Elite",
 		"fleet_flagship_name":"DSS Marauder-Scorpion",
 		"fleet_preset_ships":{
 			"adversary_rampart_Elite":25,

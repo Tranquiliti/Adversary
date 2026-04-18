@@ -3,21 +3,24 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
 * All Silly MagicBounties are now enabled by default
   - "enableAdversarySillyBounties" setting now defaults to "true" (previously defaulted to "false")
 * Added a new MagicBounty
-  - Requires completing both the Persean League and Sindrian Diktat bounties
+  - Requires completing both the Persean League and the Sindrian Diktat bounties
 * "An Even More Troublesome Mercenary" is no longer considered a Silly MagicBounty
   - Now requires completing both the Tri-Tachyon and the Independent bounties (previously only needed the Tri-Tachyon bounty)
   - Added Afflictor (P) ships to the bounty fleet
+  - Increased credit reward
 * Added a super-ultra-difficult Silly MagicBounty, requiring a certain ultra-difficult MagicBounty to be defeated first
   - You will be consumed...
 * Other changes to MagicBounties:
-  - Adjusted bounty variants to account for 0.98.5a balance changes
+  - Adjusted many bounty ship variants to account for 0.98.5a balance changes
+  - Adjusted several bounty/officer skillsets to account for changes to bounty ship variants
   - Adjusted ship compositions for non-Silly bounties to account for officer number changes
   - Adjusted bounty faction spawn requirements, with most bounties now showing up in the bounty board if near a player market
   - Modified Second-in-Command XO skills to account for v2.0.0 changes
-  - Lion's Guard bounty variants now s-mod their built-in Solar Shielding
+  - All bounty variants now have s-modded built-ins (e.g., LG variants having s-modded Solar Shielding)
   - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
 * Changed Adversary market scoring to prioritize ship quality and fleet size multiplier (previously was prioritizing High Command/Military Base presence)
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
+* Added "IndEvo_RuinsAlways" tag to Customizable Star Systems planets with Ind.Evo ruins to ensure they do not get removed
 
 
 

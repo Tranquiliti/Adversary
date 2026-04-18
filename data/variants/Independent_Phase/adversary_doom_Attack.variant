@@ -1,21 +1,21 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 7,
-    "fluxVents": 9,
+    "fluxCapacitors": 0,
+    "fluxVents": 18,
     "hullId": "doom",
     "hullMods": [
-        "pointdefenseai",
-        "targetingunit",
         "advancedoptics",
+        "targetingunit",
         "armoredweapons",
+        "pointdefenseai",
         "fluxbreakers"
     ],
     "permaMods": [
-        "pointdefenseai",
+        "advancedoptics",
         "targetingunit"
     ],
     "sMods": [
-        "pointdefenseai",
+        "advancedoptics",
         "targetingunit"
     ],
     "variantId": "adversary_doom_Attack",
@@ -32,8 +32,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 007": "phasebeam",
-                "WS 008": "phasebeam"
+                "WS 007": "ionbeam",
+                "WS 008": "ionbeam"
             }
         },
         {

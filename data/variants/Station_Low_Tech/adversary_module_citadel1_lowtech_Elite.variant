@@ -11,27 +11,27 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
+                "WS 001": "multineedler",
+                "WS 002": "vulcan",
+                "WS 005": "vulcan",
+                "WS 007": "vulcan",
+                "WS 008": "vulcan",
+                "WS 012": "vulcan",
+                "WS 014": "multineedler",
                 "WS 015": "multineedler",
-                "WS 016": "multineedler",
-                "WS 000": "heavymg",
-                "WS 004": "heavymg",
-                "WS 006": "heavymg",
-                "WS 009": "heavymg",
-                "WS 010": "heavymg",
-                "WS 013": "heavymg",
-                "WS 002": "lightdualmg",
-                "WS 005": "lightdualmg",
-                "WS 007": "lightdualmg",
-                "WS 008": "lightdualmg",
-                "WS 012": "lightdualmg"
+                "WS 016": "multineedler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "hellbore",
-                "WS 014": "hellbore"
+                "WS 000": "shredder",
+                "WS 004": "shredder",
+                "WS 006": "shredder",
+                "WS 009": "shredder",
+                "WS 010": "shredder",
+                "WS 013": "shredder"
             }
         }
     ]

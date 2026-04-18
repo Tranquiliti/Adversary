@@ -1,41 +1,48 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 6,
-    "fluxVents": 13,
+    "fluxCapacitors": 5,
+    "fluxVents": 5,
     "hullId": "venture_pather",
     "hullMods": [
-        "heavyarmor",
         "missile_autoloader",
+        "reinforcedhull",
         "armoredweapons",
         "missleracks",
-        "militarized_subsystems",
-        "reinforcedhull"
+        "heavyarmor",
+        "militarized_subsystems"
     ],
     "permaMods": [
-        "heavyarmor",
-        "missile_autoloader"
+        "missile_autoloader",
+        "reinforcedhull"
     ],
     "sMods": [
-        "heavyarmor",
-        "missile_autoloader"
+        "missile_autoloader",
+        "reinforcedhull"
     ],
     "suppressedMods": ["ill_advised"],
+    "sModdedBuiltIns": ["surveying_equipment"],
     "variantId": "adversary_venture_pather_Assault",
     "weaponGroups": [
         {
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 004": "gorgon",
-                "WS 005": "gorgonpod",
-                "WS 006": "gorgonpod",
-                "WS 007": "gorgon"
+                "WS 005": "phasecl",
+                "WS 006": "phasecl"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {"WS 002": "kineticblaster"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "sabot",
+                "WS 007": "sabot"
+            }
         }
     ]
 }

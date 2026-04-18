@@ -27,6 +27,7 @@
         "eccm",
         "missleracks"
     ],
+    "sModdedBuiltIns": ["surveying_equipment"],
     "variantId": "adversary_venture_p_Fire_Support",
     "weaponGroups": [
         {
@@ -38,8 +39,16 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 001": "lightneedler",
-                "WS 003": "lightneedler"
+                "WS 005": "lightac",
+                "WS 006": "lightac"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "lightac",
+                "WS 003": "lightac"
             }
         },
         {

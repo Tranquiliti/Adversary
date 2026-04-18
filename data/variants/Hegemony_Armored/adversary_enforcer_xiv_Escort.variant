@@ -1,7 +1,7 @@
 {
     "displayName": "Escort",
-    "fluxCapacitors": 14,
-    "fluxVents": 15,
+    "fluxCapacitors": 15,
+    "fluxVents": 20,
     "hullId": "enforcer_xiv",
     "hullMods": [
         "escort_package",
@@ -28,8 +28,8 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "flak",
-                "WS 002": "hveldriver",
-                "WS 004": "hveldriver",
+                "WS 002": "heavyac",
+                "WS 004": "heavyac",
                 "WS 005": "flak"
             }
         },

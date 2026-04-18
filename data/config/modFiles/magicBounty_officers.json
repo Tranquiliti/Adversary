@@ -34,11 +34,11 @@
 			"officer_faction":"adversary",
 			"officer_level":5,
 			"officer_skills":{
-				"combat_endurance":2,
+				"helmsmanship":1,
 				"target_analysis":1,
-				"ballistic_mastery":1,
+				"ballistic_mastery":2,
 				"gunnery_implants":1,
-				"polarized_armor":1
+				"ordnance_expert":1
 			}
 		},
 		"retribution":{
@@ -46,10 +46,10 @@
 			"officer_faction":"adversary",
 			"officer_level":5,
 			"officer_skills":{
+				"helmsmanship":1,
 				"target_analysis":1,
 				"ballistic_mastery":1,
 				"point_defense":2,
-				"gunnery_implants":1,
 				"ordnance_expert":1
 			}
 		}
@@ -138,9 +138,9 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
+				"helmsmanship":1,
 				"field_modulation":2,
-				"point_defense":2,
-				"target_analysis":1,
+				"target_analysis":2,
 				"systems_expertise":1,
 				"missile_specialization":2,
 				"gunnery_implants":1
@@ -153,10 +153,10 @@
 			"officer_skills":{
 				"helmsmanship":2,
 				"field_modulation":1,
-				"target_analysis":1,
+				"target_analysis":2,
 				"gunnery_implants":1,
 				"ordnance_expert":2,
-				"missile_specialization":2
+				"missile_specialization":1
 			}
 		}
 	},
@@ -166,9 +166,9 @@
 			"officer_faction":"adversary",
 			"officer_level":5,
 			"officer_skills":{
-				"helmsmanship":2,
+				"helmsmanship":1,
 				"target_analysis":1,
-				"ballistic_mastery":1,
+				"ballistic_mastery":2,
 				"missile_specialization":2,
 				"gunnery_implants":1
 			}
@@ -178,10 +178,10 @@
 			"officer_faction":"adversary",
 			"officer_level":5,
 			"officer_skills":{
-				"helmsmanship":1,
+				"helmsmanship":2,
 				"combat_endurance":1,
 				"field_modulation":1,
-				"target_analysis":2,
+				"target_analysis":1,
 				"missile_specialization":2
 			}
 		}

@@ -1,26 +1,26 @@
 {
     "displayName": "Close Support",
     "fluxCapacitors": 14,
-    "fluxVents": 16,
+    "fluxVents": 20,
     "hullId": "manticore_pirates",
     "hullMods": [
         "converted_hangar",
         "reinforcedhull",
-        "degraded_life_support",
+        "comp_armor",
+        "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
+        "fragile_subsystems",
         "targetingunit"
     ],
     "permaMods": [
         "converted_hangar",
         "reinforcedhull",
-        "degraded_life_support",
+        "comp_armor",
+        "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance"
+        "fragile_subsystems"
     ],
     "sMods": [
         "converted_hangar",
@@ -31,7 +31,7 @@
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 000": "hellbore"}
+            "weapons": {"WS 000": "mjolnir"}
         },
         {
             "autofire": false,
@@ -39,15 +39,6 @@
             "weapons": {
                 "WS 004": "gazerpod",
                 "WS 005": "gazerpod"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lightac",
-                "WS 002": "lightac",
-                "WS 003": "lightac"
             }
         }
     ],

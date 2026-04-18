@@ -1,11 +1,11 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 13,
-    "fluxVents": 11,
+    "displayName": "Assault",
+    "fluxCapacitors": 14,
+    "fluxVents": 15,
     "hullId": "mora",
     "hullMods": [
+        "missleracks",
         "heavyarmor",
-        "reinforcedhull",
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
@@ -13,12 +13,11 @@
         "glitched_sensors",
         "armoredweapons",
         "expanded_deck_crew",
-        "missleracks",
-        "insulatedengine"
+        "reinforcedhull"
     ],
     "permaMods": [
+        "missleracks",
         "heavyarmor",
-        "reinforcedhull",
         "damaged_mounts",
         "degraded_shields",
         "erratic_injector",
@@ -26,16 +25,17 @@
         "glitched_sensors"
     ],
     "sMods": [
-        "heavyarmor",
-        "reinforcedhull"
+        "missleracks",
+        "heavyarmor"
     ],
-    "variantId": "adversary_mora_Attack",
+    "variantId": "adversary_mora_Assault",
     "weaponGroups": [{
         "autofire": false,
         "mode": "LINKED",
         "weapons": {
-            "WS 003": "jackhammer",
-            "WS 004": "jackhammer"
+            "WS 003": "sabotpod",
+            "WS 004": "sabotpod",
+            "WS 014": "mininglaser"
         }
     }],
     "wings": [

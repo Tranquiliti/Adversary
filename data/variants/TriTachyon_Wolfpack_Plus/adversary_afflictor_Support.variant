@@ -1,6 +1,6 @@
 {
     "displayName": "Support",
-    "fluxCapacitors": 15,
+    "fluxCapacitors": 10,
     "fluxVents": 0,
     "hullId": "afflictor",
     "hullMods": [
@@ -8,7 +8,12 @@
         "hardened_subsystems",
         "phase_anchor",
         "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance",
         "advancedoptics",
+        "eccm",
         "missleracks",
         "targetingunit",
         "fluxbreakers"
@@ -17,7 +22,11 @@
         "adaptive_coils",
         "hardened_subsystems",
         "phase_anchor",
-        "damaged_mounts"
+        "damaged_mounts",
+        "degraded_life_support",
+        "erratic_injector",
+        "faulty_auto",
+        "increased_maintenance"
     ],
     "sMods": [
         "adaptive_coils",
@@ -36,7 +45,7 @@
         },
         {
             "autofire": false,
-            "mode": "ALTERNATING",
+            "mode": "LINKED",
             "weapons": {
                 "WS 001": "gazer",
                 "WS 004": "gazer"

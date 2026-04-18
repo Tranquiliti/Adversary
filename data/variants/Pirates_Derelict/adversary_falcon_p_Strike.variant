@@ -6,22 +6,22 @@
     "hullMods": [
         "hardenedshieldemitter",
         "reinforcedhull",
+        "comp_armor",
         "damaged_mounts",
-        "degraded_life_support",
         "erratic_injector",
         "glitched_sensors",
-        "increased_maintenance",
+        "fragile_subsystems",
         "converted_hangar",
         "missleracks"
     ],
     "permaMods": [
         "hardenedshieldemitter",
         "reinforcedhull",
+        "comp_armor",
         "damaged_mounts",
-        "degraded_life_support",
         "erratic_injector",
         "glitched_sensors",
-        "increased_maintenance"
+        "fragile_subsystems"
     ],
     "sMods": [
         "hardenedshieldemitter",

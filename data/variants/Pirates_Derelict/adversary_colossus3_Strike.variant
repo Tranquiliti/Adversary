@@ -1,5 +1,5 @@
 {
-    "displayName": "Attack",
+    "displayName": "Strike",
     "fluxCapacitors": 10,
     "fluxVents": 7,
     "hullId": "colossus3",
@@ -7,25 +7,25 @@
         "reinforcedhull",
         "adaptiveshields",
         "damaged_mounts",
-        "degraded_life_support",
+        "degraded_shields",
         "erratic_injector",
         "glitched_sensors",
-        "increased_maintenance"
+        "fragile_subsystems"
     ],
     "permaMods": [
         "reinforcedhull",
         "adaptiveshields",
         "damaged_mounts",
-        "degraded_life_support",
+        "degraded_shields",
         "erratic_injector",
         "glitched_sensors",
-        "increased_maintenance"
+        "fragile_subsystems"
     ],
     "sMods": [
         "reinforcedhull",
         "adaptiveshields"
     ],
-    "variantId": "adversary_colossus3_Attack",
+    "variantId": "adversary_colossus3_Strike",
     "weaponGroups": [{
         "autofire": true,
         "mode": "LINKED",

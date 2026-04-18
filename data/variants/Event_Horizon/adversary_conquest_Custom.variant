@@ -1,6 +1,6 @@
 {
     "displayName": "Custom",
-    "fluxCapacitors": 12,
+    "fluxCapacitors": 10,
     "fluxVents": 50,
     "hullId": "conquest",
     "hullMods": [
@@ -53,11 +53,15 @@
         {
             "autofire": true,
             "mode": "LINKED",
+            "weapons": {"WS 022": "pseudoparticle_jet"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
             "weapons": {
                 "WS 005": "lrpdlaser",
                 "WS 015": "heavy_mass_driver",
-                "WS 016": "heavy_mass_driver",
-                "WS 022": "pseudoparticle_jet"
+                "WS 016": "heavy_mass_driver"
             }
         }
     ]

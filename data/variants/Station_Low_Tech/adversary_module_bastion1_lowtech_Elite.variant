@@ -6,25 +6,17 @@
     "hullMods": [],
     "permaMods": [],
     "variantId": "adversary_module_bastion1_lowtech_Elite",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "lightneedler",
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler",
-                "WS 005": "lightneedler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "heavymg",
-                "WS 002": "heavymg",
-                "WS 008": "harpoon"
-            }
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 000": "lightdualmg",
+            "WS 001": "shredder",
+            "WS 002": "shredder",
+            "WS 003": "lightdualmg",
+            "WS 004": "lightdualmg",
+            "WS 005": "lightdualmg",
+            "WS 008": "harpoon"
         }
-    ]
+    }]
 }

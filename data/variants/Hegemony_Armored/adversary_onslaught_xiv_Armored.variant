@@ -1,7 +1,7 @@
 {
     "displayName": "Armored",
-    "fluxCapacitors": 1,
-    "fluxVents": 50,
+    "fluxCapacitors": 0,
+    "fluxVents": 49,
     "hullId": "onslaught_xiv",
     "hullMods": [
         "turretgyros",
@@ -57,10 +57,10 @@
             "autofire": false,
             "mode": "LINKED",
             "weapons": {
-                "WS 021": "jackhammer",
-                "WS 022": "jackhammer",
-                "WS 023": "jackhammer",
-                "WS 024": "jackhammer"
+                "WS 021": "phasecl",
+                "WS 022": "phasecl",
+                "WS 023": "phasecl",
+                "WS 024": "phasecl"
             }
         },
         {
@@ -68,20 +68,16 @@
             "mode": "LINKED",
             "weapons": {
                 "WS 001": "heavymg",
-                "WS 002": "vulcan",
+                "WS 002": "lightmg",
                 "WS 003": "heavymg",
-                "WS 004": "vulcan",
-                "WS 005": "vulcan",
-                "WS 006": "vulcan",
+                "WS 004": "lightmg",
+                "WS 005": "lightmg",
+                "WS 006": "lightmg",
                 "WS 007": "heavymg",
-                "WS 008": "vulcan",
-                "WS 009": "vulcan",
+                "WS 008": "lightmg",
+                "WS 009": "lightmg",
                 "WS 010": "heavymg",
-                "WS 011": "heavymg",
-                "WS 012": "lightac",
-                "WS 013": "lightac",
-                "WS 014": "lightac",
-                "WS 015": "lightac"
+                "WS 011": "heavymg"
             }
         }
     ]
