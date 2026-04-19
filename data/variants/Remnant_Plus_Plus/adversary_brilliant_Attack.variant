@@ -1,0 +1,53 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 23,
+    "fluxVents": 30,
+    "hullId": "brilliant",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp",
+        "targetingunit",
+        "pointdefenseai",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp",
+        "targetingunit"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "high_scatter_amp",
+        "targetingunit"
+    ],
+    "variantId": "adversary_brilliant_Attack",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 004": "gravitonbeam",
+                "WS 005": "gravitonbeam",
+                "WS 006": "gravitonbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "tachyonlance"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "gravitonbeam"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "lrpdlaser",
+                "WS 003": "lrpdlaser"
+            }
+        }
+    ]
+}

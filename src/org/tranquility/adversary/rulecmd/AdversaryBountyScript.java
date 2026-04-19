@@ -102,44 +102,17 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Ziggurat_Plus": {
+            case "adversary_Remnant_Plus_Plus": {
+                bounty.getCaptain().getStats().setSkillLevel(Skills.CREW_TRAINING, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
+                    if (member.isFlagship()) {
+                        member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                        member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
+                        continue; // Don't replace the bounty target
+                    }
                     member.setCaptain(null);
                     setOfficers(officerData, member);
-                    if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
-                        member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                 }
-                setSecondInCommand(bountyId, bounty);
-                break;
-            }
-            case "adversary_Remnant_Plus_Plus": {
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                    if (member.isFlagship()) member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
-                }
-                setSecondInCommand(bountyId, bounty);
-                break;
-            }
-            case "adversary_Station_Low_Tech", "adversary_Station_Midline", "adversary_Station_High_Tech",
-                 "adversary_Station_Remnant": {
-                CampaignFleetAPI fleet = bounty.getFleet();
-                fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
-                fleet.addTag(Tags.NEUTRINO_HIGH);
-                fleet.setStationMode(true); // Will cause UI issues, but also prevents objectives from spawning
-                fleet.clearAbilities();
-                fleet.addAbility(Abilities.TRANSPONDER);
-                fleet.getAbility(Abilities.TRANSPONDER).activate();
-                fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
-
-                // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
-                // So, for now, the station fleet will slowly crawl around in the campaign map
-
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
@@ -152,6 +125,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 FactionAPI faction = Global.getSector().getFaction(Factions.MERCENARY);
                 for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
                     ShipVariantAPI variant = member.getVariant().clone(); // Cloning variant to avoid modifying vanilla variants
+                    member.setVariant(variant, false, false);
                     variant.addPermaMod(HullMods.INSULATEDENGINE, true);
                     if (member.getHullSpec().getManufacturer().equals("Lion's Guard")) {
                         variant.getSModdedBuiltIns().add(HullMods.SOLAR_SHIELDING);
@@ -197,6 +171,44 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 teleportFleetToPlanet(fleet, getClosestBlackHole(fleet.getContainingLocation()));
                 break;
             }
+            case "adversary_Ziggurat_Plus": {
+                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                    if (member.isFlagship()) continue; // Don't replace the bounty target
+                    member.setCaptain(null);
+                    setOfficers(officerData, member);
+                    if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
+                        member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
+                }
+                setSecondInCommand(bountyId, bounty);
+                break;
+            }
+            case "adversary_Station_Low_Tech", "adversary_Station_Midline", "adversary_Station_High_Tech",
+                 "adversary_Station_Remnant": {
+                CampaignFleetAPI fleet = bounty.getFleet();
+                fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
+                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
+                fleet.addTag(Tags.NEUTRINO_HIGH);
+                fleet.setStationMode(true); // Will cause UI issues, but also prevents objectives from spawning
+                fleet.clearAbilities();
+                fleet.addAbility(Abilities.TRANSPONDER);
+                fleet.getAbility(Abilities.TRANSPONDER).activate();
+                fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
+
+                // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
+                // So, for now, the station fleet will slowly crawl around in the campaign map
+
+                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    if (member.isFlagship()) continue; // Don't replace the bounty target
+                    member.setCaptain(null);
+                    setOfficers(officerData, member);
+                }
+                setSecondInCommand(bountyId, bounty);
+                break;
+            }
             case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Dweller", "adversary_Ultra_Maw": {
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
@@ -205,6 +217,9 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
                     setOfficers(officerData, member);
+                    // Has a sleeper officer, so give them the appropriate tag
+                    if (member.getCaptain() != null && member.getCaptain().getStats().getLevel() == 7)
+                        member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;

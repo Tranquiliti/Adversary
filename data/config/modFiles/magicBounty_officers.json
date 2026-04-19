@@ -390,6 +390,118 @@
 			}
 		}
 	},
+	"adversary_Derelict_Operations":{ # Integrated Alpha Cores
+		"rampart":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"derelict",
+			"officer_level":8,
+			"officer_skills":{
+				"ballistic_mastery":2,
+				"polarized_armor":2,
+				"field_modulation":0
+			}
+		},
+		"sentry":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"derelict",
+			"officer_level":8,
+			"officer_skills":{
+				"missile_specialization":2,
+				"systems_expertise":2,
+				"field_modulation":0
+			}
+		}
+	},
+	"adversary_Remnant_Plus_Plus":{ # Integrated Alpha Cores
+		"radiant":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"systems_expertise":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"nova":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":0,
+				"energy_weapon_mastery":2
+			}
+		},
+		"apex":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"missile_specialization":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"brilliant":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"systems_expertise":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"scintilla":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"fulgent":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"glimmer":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"lumen":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"impact_mitigation":0,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
+	},
 	"adversary_Kite_Swarm":{ # Silly
 		"kite_hegemony":{
 			"officer_personality":"steady",
@@ -402,6 +514,8 @@
 				"missile_specialization":2
 			}
 		}
+	},
+	"adversary_Event_Horizon":{ # High-level officers on *all* ships (too many to enumerate here)
 	},
 	"adversary_Ziggurat_Plus":{ # Sleeper officers
 		"scarab":{
@@ -447,37 +561,62 @@
 			}
 		}
 	},
-	"adversary_Remnant_Plus_Plus":{ # All ships already get Omega Cores
-	},
-	"adversary_Station_Low_Tech":{ # Station
-	},
-	"adversary_Station_Midline":{ # Station
-	},
-	"adversary_Station_High_Tech":{ # Station
-	},
-	"adversary_Station_Remnant":{ # Station
-	},
-	"adversary_Event_Horizon":{ # High-level officers on *all* ships
-	},
-	"adversary_Derelict_Operations":{ # Integrated Alpha Cores
-		"rampart":{
-			"officer_aiCoreId":"alpha_core",
-			"officer_faction":"derelict",
-			"officer_level":8,
+	"adversary_Station_Low_Tech":{ # Station, with maxed mercenary support
+		"omen":{
+			"officer_personality":"aggressive",
+			"officer_faction":"independent",
+			"officer_level":6,
 			"officer_skills":{
-				"ballistic_mastery":2,
-				"polarized_armor":2,
-				"field_modulation":0
-			}
-		},
-		"sentry":{
-			"officer_aiCoreId":"alpha_core",
-			"officer_faction":"derelict",
-			"officer_level":8,
-			"officer_skills":{
+				"helmsmanship":1,
+				"field_modulation":1,
+				"point_defense":1,
+				"target_analysis":2,
 				"missile_specialization":2,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_Midline":{ # Station, with maxed mercenary support
+		"vanguard_pirates":{
+			"officer_personality":"aggressive",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"impact_mitigation":1,
+				"target_analysis":1,
 				"systems_expertise":2,
-				"field_modulation":0
+				"missile_specialization":2,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_High_Tech":{ # Station, with maxed mercenary support
+		"vigilance":{
+			"officer_personality":"cautious",
+			"officer_faction":"persean",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"target_analysis":2,
+				"ballistic_mastery":1,
+				"missile_specialization":2,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_Remnant":{ # Station, with Alpha Core support
+		"glimmer":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
 			}
 		}
 	},

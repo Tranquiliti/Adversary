@@ -1,0 +1,54 @@
+{
+    "displayName": "Assault",
+    "fluxCapacitors": 16,
+    "fluxVents": 30,
+    "hullId": "apex",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "pointdefenseai",
+        "targetingunit",
+        "missleracks"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "pointdefenseai",
+        "targetingunit"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "pointdefenseai",
+        "targetingunit"
+    ],
+    "variantId": "adversary_apex_Assault",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 004": "phasecl",
+                "WS 005": "phasecl",
+                "WS 006": "phasecl",
+                "WS 007": "phasecl"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "pulselaser",
+                "WS 003": "pulselaser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 010": "irpulse",
+                "WS 011": "irpulse",
+                "WS 012": "irpulse",
+                "WS 013": "irpulse"
+            }
+        }
+    ],
+    "wings": []
+}

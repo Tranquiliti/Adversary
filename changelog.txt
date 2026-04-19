@@ -4,7 +4,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - "enableAdversarySillyBounties" setting now defaults to "true" (previously defaulted to "false")
 * Added three new MagicBounties
   - Each bounty is available upon completing one of these bounty pairs: Hegemony/Luddic Church, Persean League/Sindrian Diktat, or Pirates/Luddic Path
-* Changes to "An Even More Troublesome Mercenary" MagicBounty
+* Changes to "An Even More Troublesome Mercenary" MagicBounty:
   - No longer considered a Silly bounty
   - Modified to closely match the three newly-added MagicBounties
   - Now requires completing the Tri-Tachyon/Independent bounty pair (previously only needed the Tri-Tachyon bounty)
@@ -12,6 +12,11 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Increased credit reward
 * Added a super-ultra-difficult Silly MagicBounty, requiring a certain ultra-difficult MagicBounty to be defeated first
   - You will be consumed...
+* Changes to "Omega Alpha Strike" Silly MagicBounty:
+  - Revamped Remnant ship variants to no longer use Omega weapons
+  - Tesseract variant now uses Omega weapons (from using ballistic PD loadout)
+  - No longer requires accepting the vanilla Remnant+ bounty to be made available
+  - Now awards the Fulgent blueprint upon completion
 * Other changes to MagicBounties:
   - Adjusted many bounty ship variants to account for 0.98.5a balance changes
   - Adjusted several bounty/officer skillsets to account for changes to bounty ship variants
@@ -19,6 +24,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Adjusted bounty faction spawn requirements, with most bounties now showing up in the bounty board if near a player market
   - Modified Second-in-Command XO skills to account for v2.0.0 changes
   - All bounty variants now have s-modded built-ins (e.g., LG variants having s-modded Solar Shielding)
+  - Support ships in station bounties now have officers commanding them
   - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
 * Changed Adversary market scoring to prioritize ship quality and fleet size multiplier (previously was prioritizing High Command/Military Base presence)
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
