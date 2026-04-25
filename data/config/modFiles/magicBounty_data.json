@@ -724,9 +724,9 @@
 		},
 
 		"job_name":"Missiles O'Plenty",
-		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. This kill-fleet, the so-called \"Missiletoe Rocketeers\", relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested an end to this Adversary operation, before it too obliterates the militant's own station.",
+		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. This kill-fleet - the so-called \"Missiletoe Rocketeers\" - relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested ==an end== to this Adversary operation, before it too obliterates the militant's own station.",
 		"job_comm_reply":"\"Haha, yes, more test subjects for our glorious fleet. We'll see how long you can last against our explosive barrage!\"",
-		"job_intel_success":"You have successfully survived the onslaught of missiles and dealt a fatal blow to the Adversary kill-fleet, crippling their base-hunting operations. Curiously, your salvage teams have recovered a cache of unknown, exotic missile armaments from an intact cargo hold. You briefly ponder about how the Rocketeers could have acquired such technology; surely there's no reason why they wouldn't have already deployed these weapons?",
+		"job_intel_success":"You have successfully survived the onslaught of missiles and dealt a fatal blow to the Adversary kill-fleet, crippling their base-hunting operations. Curiously, your salvage teams have recovered a cache of unknown, exotic missile armaments from an intact cargo hold. You briefly ponder about how the Rocketeers could have acquired such technology, for why wouldn't they have already deployed these weapons in battle?",
 		"job_forFaction":"luddic_path",
 		"job_credit_reward":1250000,
 		"job_reputation_reward":30,
@@ -771,8 +771,8 @@
 		"fleet_flagship_variant":"adversary_brawler_pather_Assault2",
 		"fleet_flagship_name":"ADS Target-Rich Environment",
 		"fleet_preset_ships":{
-			"adversary_venture_p_Missile":14,
-			"adversary_manticore_luddic_path_Strike2":12,
+			"adversary_venture_p_Missile":13,
+			"adversary_manticore_luddic_path_Attack":13,
 			"adversary_brawler_pather_Assault2":3
 		},
 		"fleet_composition_quality":2,

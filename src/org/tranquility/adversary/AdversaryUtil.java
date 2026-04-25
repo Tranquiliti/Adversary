@@ -14,7 +14,8 @@ public final class AdversaryUtil {
     public static final String MEMKEY_SPAWNED_OPTIMAL = "$adversary_spawnedOptimal";
 
     /**
-     * Returns a set of all Adversary markets, sorted by overall fleet strength (ship quality * fleet size multiplier)
+     * Returns a set of all Adversary markets, sorted by overall fleet strength (ship quality * fleet size multiplier),
+     * military presence, and market size
      *
      * @return A List containing all Adversary markets, sorted by military power in descending order
      */
@@ -24,6 +25,10 @@ public final class AdversaryUtil {
         adversaryMarkets.sort((m1, m2) -> {
             int comp = Float.compare(getScore(m2), getScore(m1));
             if (comp != 0) return comp;
+
+            comp = Boolean.compare(Misc.isMilitary(m2), Misc.isMilitary(m1));
+            if (comp != 0) return comp;
+
             return Integer.compare(m2.getSize(), m1.getSize());
         });
 

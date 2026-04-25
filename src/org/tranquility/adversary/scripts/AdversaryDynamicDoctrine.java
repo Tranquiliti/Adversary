@@ -126,7 +126,11 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
             total += item.weight;
         }
 
-        // Readies the Picker for use; should not add any more elements after calling this function
+        /**
+         * Readies the Picker for use; should not add any more elements after calling this function
+         *
+         * @param factionId Faction ID to set doctrine
+         */
         public void ready(String factionId) {
             if (items.isEmpty())
                 add(new PriorityDoctrine(Global.getSettings().getFactionSpec(factionId).getFactionDoctrine()));

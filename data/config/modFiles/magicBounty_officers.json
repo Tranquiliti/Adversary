@@ -502,7 +502,7 @@
 			}
 		}
 	},
-	"adversary_Kite_Swarm":{ # Silly
+	"adversary_Kite_Swarm":{ # Kites with Gamma "cores"
 		"kite_hegemony":{
 			"officer_personality":"steady",
 			"officer_faction":"hegemony",

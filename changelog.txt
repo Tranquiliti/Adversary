@@ -24,9 +24,9 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Adjusted bounty faction spawn requirements, with most bounties now showing up in the bounty board if near a player market
   - Modified Second-in-Command XO skills to account for v2.0.0 changes
   - All bounty variants now have s-modded built-ins (e.g., LG variants having s-modded Solar Shielding)
-  - Support ships in station bounties now have officers commanding them
+  - All support ships in station bounties now have officers commanding them
   - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
-* Changed Adversary market scoring to prioritize ship quality and fleet size multiplier (previously was prioritizing High Command/Military Base presence)
+* Changed Adversary market scoring to prioritize markets with higher ship quality and fleet size multiplier
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
 * Added "IndEvo_RuinsAlways" tag to Customizable Star Systems planets with Ind.Evo ruins to ensure they do not get removed
 
