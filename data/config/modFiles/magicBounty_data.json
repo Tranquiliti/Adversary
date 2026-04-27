@@ -214,7 +214,7 @@
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
 		"target_personality":"cautious",
-		"target_level":2,
+		"target_level":3,
 		"target_skills":{
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
@@ -228,9 +228,9 @@
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
 			#
-			"bulk_transport":1,
 			"field_repairs":1,
 			"ordnance_expert":2,
+			"polarized_armor":2,
 			"containment_procedures":1,
 			"derelict_contingent":1
 		},
@@ -404,7 +404,7 @@
 		"target_rank":"spaceCommander",
 		"target_post":"mercenary",
 		"target_personality":"aggressive",
-		"target_level":2,
+		"target_level":3,
 		"target_skills":{
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
@@ -418,9 +418,9 @@
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
 			#
-			"bulk_transport":1,
 			"field_repairs":1,
 			"ordnance_expert":2,
+			"polarized_armor":2,
 			"containment_procedures":1,
 			"derelict_contingent":1
 		},
@@ -532,7 +532,7 @@
 			"XIV_package":1
 		},
 		"job_forFaction":"hegemony",
-		"job_reputation_reward":10,
+		"job_reputation_reward":20,
 		"job_type":"obliteration",
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"vanilla",
@@ -565,16 +565,14 @@
 		},
 
 		"fleet_name":"The Eviction Notice",
-		"fleet_faction":"adversary",
+		"fleet_faction":"pirates",
 		"fleet_flagship_variant":"adversary_vanguard_Assault",
 		"fleet_flagship_name":"Family Business",
-		"fleet_flagship_alwaysRecoverable":true,
 		"fleet_preset_ships":{
 			"adversary_grendel_Fire_Support":12,
 			"adversary_mora_Assault2":12,
 			"adversary_vanguard_Assault":5
 		},
-		"fleet_composition_faction":"pirates",
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
@@ -637,10 +635,10 @@
 		"fleet_preset_ships":{
 			"adversary_onslaught_xiv_Elite":6,
 			"adversary_anubis_Escort":4,
-			"adversary_sunder_LG_Escort":4,
+			"adversary_sunder_LG_Escort":5,
 			"adversary_gemini_Strike":4,
 			"adversary_afflictor_d_pirates_Support":5,
-			"adversary_vanguard_Attack":6
+			"adversary_vanguard_Attack":5
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":true,
@@ -702,6 +700,7 @@
 		"fleet_faction":"adversary",
 		"fleet_flagship_variant":"adversary_afflictor_Support",
 		"fleet_flagship_name":"ADS Bound to the Stars",
+		"fleet_flagship_alwaysRecoverable":true,
 		"fleet_preset_ships":{
 			"adversary_hyperion_Overdriven":21,
 			"adversary_afflictor_d_pirates_Support":8
@@ -893,10 +892,11 @@
 		"target_post":"fleetCommander",
 		"target_personality":"reckless",
 		"target_aiCoreId":"omega_core",
-		"target_level":9,
+		"target_level":10,
 		"target_skills":{
 			"helmsmanship":2,
 			"combat_endurance":2,
+			"impact_mitigation":2,
 			"field_modulation":2,
 			"target_analysis":2,
 			"systems_expertise":2,
@@ -1121,7 +1121,10 @@
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
-			"$CBRemnantPlus_accepted":true,
+			"$adversary_Hegemony_Penal_succeeded":true,
+			"$adversary_Persean_Combined_Arms_succeeded":true,
+			"$adversary_TriTachyon_Wolfpack_Plus_succeeded":true,
+			"$adversary_LuddicPath_Missile_succeeded":true,
 			"$defeatedZiggurat":true
 		},
 
@@ -1131,7 +1134,7 @@
 		"job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
 		"job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
 		"job_forFaction":"hegemony",
-		"job_credit_reward":1500000,
+		"job_credit_reward":3000000,
 		"job_reputation_reward":100,
 		"job_type":"destruction",
 		"job_show_captain":false,
@@ -1576,12 +1579,9 @@
 			"crew_training":1,
 			"carrier_group":1,
 			"fighter_uplink":1,
-			"officer_training":1,
-			"officer_management":1,
 			"best_of_the_best":1,
 			"support_doctrine":1,
 			#
-			"sensors":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
@@ -1741,7 +1741,6 @@
 			"crew_training":1,
 			"best_of_the_best":1,
 			#
-			"navigation":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,

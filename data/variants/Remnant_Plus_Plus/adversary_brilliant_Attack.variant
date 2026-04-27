@@ -1,23 +1,21 @@
 {
     "displayName": "Attack",
-    "fluxCapacitors": 23,
+    "fluxCapacitors": 27,
     "fluxVents": 30,
     "hullId": "brilliant",
     "hullMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "high_scatter_amp",
-        "targetingunit",
-        "pointdefenseai",
-        "stabilizedshieldemitter"
+        "targetingunit"
     ],
     "permaMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "high_scatter_amp",
         "targetingunit"
     ],
     "sMods": [
+        "fluxdistributor",
         "hardenedshieldemitter",
-        "high_scatter_amp",
         "targetingunit"
     ],
     "variantId": "adversary_brilliant_Attack",
@@ -25,28 +23,32 @@
         {
             "autofire": true,
             "mode": "LINKED",
+            "weapons": {"WS 000": "hil"}
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "gazerpod"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
             "weapons": {
-                "WS 004": "gravitonbeam",
-                "WS 005": "gravitonbeam",
-                "WS 006": "gravitonbeam"
+                "WS 005": "heavyneedler",
+                "WS 006": "heavyneedler"
             }
         },
         {
             "autofire": true,
             "mode": "LINKED",
-            "weapons": {"WS 000": "tachyonlance"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "gravitonbeam"}
+            "weapons": {"WS 001": "ionbeam"}
         },
         {
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 002": "lrpdlaser",
-                "WS 003": "lrpdlaser"
+                "WS 002": "pdburst",
+                "WS 003": "pdburst"
             }
         }
     ]

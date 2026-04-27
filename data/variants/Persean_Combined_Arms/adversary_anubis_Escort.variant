@@ -1,6 +1,6 @@
 {
     "displayName": "Escort",
-    "fluxCapacitors": 15,
+    "fluxCapacitors": 21,
     "fluxVents": 30,
     "hullId": "anubis",
     "hullMods": [
@@ -46,8 +46,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 003": "hveldriver",
-                "WS 004": "hveldriver"
+                "WS 003": "heavyac",
+                "WS 004": "heavyac"
             }
         }
     ],

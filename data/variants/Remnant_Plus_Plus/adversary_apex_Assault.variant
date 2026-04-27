@@ -1,6 +1,6 @@
 {
     "displayName": "Assault",
-    "fluxCapacitors": 16,
+    "fluxCapacitors": 14,
     "fluxVents": 30,
     "hullId": "apex",
     "hullMods": [
@@ -35,8 +35,8 @@
             "autofire": true,
             "mode": "LINKED",
             "weapons": {
-                "WS 000": "pulselaser",
-                "WS 003": "pulselaser"
+                "WS 000": "ionpulser",
+                "WS 003": "ionpulser"
             }
         },
         {
