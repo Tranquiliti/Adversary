@@ -10,7 +10,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Now requires completing the Tri-Tachyon/Independent bounty pair (previously only needed the Tri-Tachyon bounty)
   - Added Afflictor (P) ships to the bounty fleet
   - Increased credit reward
-* Added a super-ultra-difficult Silly MagicBounty, requiring a certain ultra-difficult MagicBounty to be defeated first
+* Added two super-ultra-difficult Silly MagicBounties, each requiring their respective ultra-difficult MagicBounty to be defeated first
   - You will be consumed...
 * Changes to "Omega Alpha Strike" Silly MagicBounty:
   - Revamped Remnant ship variants to no longer use Omega weapons

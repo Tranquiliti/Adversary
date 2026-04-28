@@ -13,7 +13,6 @@
         "faulty_auto",
         "increased_maintenance",
         "advancedshieldemitter",
-        "autorepair",
         "auxiliarythrusters",
         "blast_doors",
         "eccm",
@@ -31,8 +30,7 @@
         "fluxbreakers",
         "shrouded_lens",
         "shrouded_thunderhead",
-        "solar_shielding",
-        "stabilizedshieldemitter"
+        "solar_shielding"
     ],
     "permaMods": [
         "turretgyros",
@@ -47,7 +45,7 @@
     "sMods": [
         "turretgyros",
         "armoredweapons",
-        "shrouded_mantle",
+        "shrouded_mantle"
     ],
     "variantId": "adversary_shrouded_maw_Unending",
     "weaponGroups": [

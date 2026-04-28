@@ -1,0 +1,66 @@
+{
+    "displayName": "Unending",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "hullId": "shrouded_maelstrom",
+    "hullMods": [
+        "turretgyros",
+        "adaptiveshields",
+        "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_life_support",
+        "faulty_auto",
+        "glitched_sensors",
+        "increased_maintenance",
+        "advancedshieldemitter",
+        "armoredweapons",
+        "auxiliarythrusters",
+        "blast_doors",
+        "eccm",
+        "ecm",
+        "escort_package",
+        "extendedshieldemitter",
+        "fluxcoil",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai",
+        "nav_relay",
+        "reinforcedhull",
+        "fluxbreakers",
+        "safetyoverrides",
+        "shrouded_lens",
+        "shrouded_thunderhead",
+        "solar_shielding",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "adaptiveshields",
+        "shrouded_mantle",
+        "damaged_mounts",
+        "degraded_life_support",
+        "faulty_auto",
+        "glitched_sensors",
+        "increased_maintenance"
+    ],
+    "sMods": [
+        "turretgyros",
+        "adaptiveshields",
+        "shrouded_mantle"
+    ],
+    "variantId": "adversary_shrouded_maelstrom_Unending",
+    "weaponGroups": [{
+        "autofire": true,
+        "mode": "LINKED",
+        "weapons": {
+            "WS 009": "assaying_rift",
+            "WS 010": "assaying_rift",
+            "WS 011": "assaying_rift",
+            "WS 012": "assaying_rift",
+            "WS 013": "assaying_rift",
+            "WS 014": "assaying_rift"
+        }
+    }]
+}

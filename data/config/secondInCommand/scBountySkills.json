@@ -149,5 +149,11 @@
 		"sc_management":["sc_management_authority","sc_management_re_entry","sc_management_command_and_conquer","sc_management_officer_training","sc_management_in_good_hands"],
 		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_immovable_object","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_overwhelming_force"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_fortifications"]
+	},
+	"adversary_Ultra_Fabricator":{
+		"factionId":"threat",
+		"sc_management":["sc_management_authority","sc_management_re_entry","sc_management_command_and_conquer","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
 	}
 }

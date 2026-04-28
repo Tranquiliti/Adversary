@@ -1,0 +1,74 @@
+{
+    "displayName": "Type 01010101",
+    "fluxCapacitors": 10,
+    "fluxVents": 10,
+    "hullId": "skirmish_unit",
+    "hullMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "glitched_sensors",
+        "advancedshieldemitter",
+        "armoredweapons",
+        "autorepair",
+        "auxiliarythrusters",
+        "blast_doors",
+        "eccm",
+        "ecm",
+        "magazines",
+        "missleracks",
+        "extendedshieldemitter",
+        "fluxcoil",
+        "fluxdistributor",
+        "fragment_swarm",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "targetingunit",
+        "nav_relay",
+        "reinforcedhull",
+        "fluxbreakers",
+        "safetyoverrides",
+        "secondary_fabricator",
+        "adaptiveshields",
+        "solar_shielding",
+        "stabilizedshieldemitter",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_skirmish_unit_Type_U",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "voidblaster"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "light_mass_driver",
+                "WS 002": "light_mass_driver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "kinetic_fragments"}
+        }
+    ]
+}

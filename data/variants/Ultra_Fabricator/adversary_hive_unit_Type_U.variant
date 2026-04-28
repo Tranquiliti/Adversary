@@ -1,0 +1,89 @@
+{
+    "displayName": "Type 01010101",
+    "fluxCapacitors": 30,
+    "fluxVents": 30,
+    "hullId": "hive_unit",
+    "hullMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "secondary_fabricator",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors",
+        "advancedshieldemitter",
+        "armoredweapons",
+        "autorepair",
+        "auxiliarythrusters",
+        "blast_doors",
+        "eccm",
+        "ecm",
+        "escort_package",
+        "missleracks",
+        "extendedshieldemitter",
+        "fluxcoil",
+        "fluxdistributor",
+        "fragment_swarm",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "pointdefenseai",
+        "nav_relay",
+        "reinforcedhull",
+        "fluxbreakers",
+        "safetyoverrides",
+        "adaptiveshields",
+        "solar_shielding",
+        "stabilizedshieldemitter",
+        "unstable_injector"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "secondary_fabricator",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "faulty_grid",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "turretgyros",
+        "fragment_coordinator",
+        "secondary_fabricator"
+    ],
+    "variantId": "adversary_hive_unit_Type_U",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "swarm_launcher",
+                "WS 001": "swarm_launcher"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "kinetic_fragments",
+                "WS 003": "kinetic_fragments",
+                "WS 004": "kinetic_fragments",
+                "WS 005": "kinetic_fragments",
+                "WS 006": "kinetic_fragments",
+                "WS 007": "kinetic_fragments"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 008": "devouring_swarm",
+                "WS 009": "devouring_swarm",
+                "WS 010": "devouring_swarm",
+                "WS 011": "devouring_swarm"
+            }
+        }
+    ]
+}

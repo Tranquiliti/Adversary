@@ -1759,13 +1759,101 @@
 		"fleet_flagship_variant":"adversary_shrouded_maw_Unending",
 		"fleet_flagship_name":"",
 		"fleet_preset_ships":{
-			"adversary_shrouded_maw_Unending":2,
-			"adversary_shrouded_tendril_Unending":5
+			"adversary_shrouded_maw_Unending":1,
+			"adversary_shrouded_eye_Unending":2,
+			"adversary_shrouded_maelstrom_Unending":3,
+			"adversary_shrouded_tendril_Unending":15
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
-		"fleet_behavior":"AGGRESSIVE",
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["nameless_ice_giant"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Fabricator":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$adversary_Ultra_Threat_succeeded":true
+		},
+
+		"job_name":"An Unseen Threat",
+		"job_comm_reply":"\"Unfabricate! Unfabricate! UNFABRICATE!\"",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_item_reward":{
+			"pristine_nanoforge":1,
+			"planetkiller":1,
+			"fragment_fabricator":25,
+			"threat_processing_unit":25
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraFabricatorPicked",
+
+		"target_first_name":"Absolute",
+		"target_last_name":"Fabricator",
+		"target_portrait":"graphics/portraits/threat.png",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_aiCoreId":"alpha_core",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Fourth Strike",
+		"fleet_faction":"threat",
+		"fleet_flagship_variant":"adversary_fabricator_unit_Type_U",
+		"fleet_flagship_name":"",
+		"fleet_preset_ships":{
+			"adversary_fabricator_unit_Type_U":3,
+			"adversary_hive_unit_Type_U":4,
+			"adversary_standoff_unit_Type_U":5,
+			"adversary_assault_unit_Type_U":6,
+			"adversary_overseer_unit_Type_U":5,
+			"adversary_skirmish_unit_Type_U":6
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
 
 		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",

@@ -1,0 +1,84 @@
+{
+    "displayName": "Type 01010101",
+    "fluxCapacitors": 20,
+    "fluxVents": 20,
+    "hullId": "assault_unit",
+    "hullMods": [
+        "turretgyros",
+        "magazines",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "advancedshieldemitter",
+        "armoredweapons",
+        "autorepair",
+        "auxiliarythrusters",
+        "blast_doors",
+        "eccm",
+        "ecm",
+        "escort_package",
+        "extendedshieldemitter",
+        "fluxcoil",
+        "fluxdistributor",
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "insulatedengine",
+        "targetingunit",
+        "nav_relay",
+        "reinforcedhull",
+        "fluxbreakers",
+        "adaptiveshields",
+        "solar_shielding",
+        "stabilizedshieldemitter"
+    ],
+    "permaMods": [
+        "turretgyros",
+        "magazines",
+        "pointdefenseai",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "turretgyros",
+        "magazines",
+        "pointdefenseai"
+    ],
+    "variantId": "adversary_assault_unit_Type_U",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 001": "voidblaster",
+                "WS 002": "voidblaster"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "light_mass_driver",
+                "WS 006": "light_mass_driver",
+                "WS 007": "light_mass_driver",
+                "WS 008": "light_mass_driver",
+                "WS 009": "light_mass_driver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 003": "voltaic_cannon"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 004": "voltaic_cannon"}
+        }
+    ]
+}
