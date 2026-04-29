@@ -1,0 +1,72 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 30,
+    "fluxVents": 13,
+    "hullId": "tesseract",
+    "hullMods": [
+        "magazines",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "extendedshieldemitter",
+        "frontemitter"
+    ],
+    "permaMods": [
+        "magazines",
+        "hardenedshieldemitter",
+        "targetingunit",
+        "comp_armor",
+        "damaged_mounts",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "magazines",
+        "hardenedshieldemitter",
+        "targetingunit"
+    ],
+    "sModdedBuiltIns": ["fluxbreakers"],
+    "variantId": "adversary_tesseract_Attack2",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 008": "ionpulser"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 009": "vpdriver"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 006": "voidblaster",
+                "WS 007": "voidblaster",
+                "WS 010": "voidblaster"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 000": "minipulser",
+                "WS 005": "minipulser"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 002": "pdburst",
+                "WS 003": "pdburst"
+            }
+        }
+    ]
+}

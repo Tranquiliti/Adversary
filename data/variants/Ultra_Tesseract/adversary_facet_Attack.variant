@@ -1,0 +1,77 @@
+{
+    "displayName": "Attack",
+    "fluxCapacitors": 20,
+    "fluxVents": 11,
+    "hullId": "facet",
+    "hullMods": [
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_engines",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors",
+        "extendedshieldemitter",
+        "targetingunit",
+        "frontemitter"
+    ],
+    "permaMods": [
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "reinforcedhull",
+        "damaged_mounts",
+        "degraded_engines",
+        "degraded_shields",
+        "erratic_injector",
+        "glitched_sensors"
+    ],
+    "sMods": [
+        "hardenedshieldemitter",
+        "heavyarmor",
+        "reinforcedhull"
+    ],
+    "sModdedBuiltIns": ["fluxbreakers"],
+    "variantId": "adversary_facet_Attack",
+    "weaponGroups": [
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 000": "disintegrator"}
+        },
+        {
+            "autofire": false,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "WS 006": "amsrm",
+                "WS 007": "amsrm"
+            }
+        },
+        {
+            "autofire": false,
+            "mode": "LINKED",
+            "weapons": {"WS 001": "light_mass_driver"}
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 005": "light_mass_driver",
+                "WS 008": "light_mass_driver"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "WS 003": "riftbeam",
+                "WS 004": "riftbeam"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {"WS 002": "inimical_emanation"}
+        }
+    ]
+}

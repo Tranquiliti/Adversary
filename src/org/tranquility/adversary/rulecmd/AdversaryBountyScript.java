@@ -209,7 +209,8 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Dweller": {
+            case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Dweller", "adversary_Ultra_Maw",
+                 "adversary_Ultra_Fabricator", "adversary_Ultra_Tesseract": {
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -220,18 +221,6 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                     // Has a sleeper officer, so give them the appropriate tag
                     if (member.getCaptain() != null && member.getCaptain().getStats().getLevel() == 7)
                         member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
-                }
-                setSecondInCommand(bountyId, bounty);
-                break;
-            }
-            case "adversary_Ultra_Maw", "adversary_Ultra_Fabricator": {
-                bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
-                bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;

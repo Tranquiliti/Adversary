@@ -1708,7 +1708,11 @@
 			"weapon_bp rifttorpedo":1,
 			"weapon_bp riftcascade":1,
 			"weapon_bp assaying_rift":1,
-			"weapon_bp rift_lightning":1
+			"weapon_bp rift_lightning":1,
+			"shrouded_substrate":100,
+			"shrouded_thunderhead":10,
+			"shrouded_mantle":10,
+			"shrouded_lens":10
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
@@ -1788,7 +1792,7 @@
 		"job_credit_reward":0,
 		"job_reputation_reward":0,
 		"job_item_reward":{
-			"pristine_nanoforge":1,
+			"pristine_nanoforge":4,
 			"planetkiller":1,
 			"fragment_fabricator":25,
 			"threat_processing_unit":25
@@ -1849,6 +1853,91 @@
 			"adversary_assault_unit_Type_U":6,
 			"adversary_overseer_unit_Type_U":5,
 			"adversary_skirmish_unit_Type_U":6
+		},
+		"fleet_composition_quality":2,
+		"fleet_transponder":false,
+		"fleet_no_retreat":true,
+		"fleet_behavior":"PASSIVE",
+
+		"location_entitiesID":["nameless_ice_giant"],
+		"location_distance":"FAR",
+		"location_themes":["procgen_no_theme_pulsar_blackhole"],
+		"location_themes_blacklist":["theme_already_occupied","theme_already_colonized","theme_hidden","no_pulsar_blackhole"]
+	},
+	"adversary_Ultra_Tesseract":{
+		"trigger_marketFaction_any":["player"],
+		"trigger_player_minLevel":15,
+		"trigger_memKeys_all":{
+			"$adversary_sillyBountiesEnabled":true,
+			"$adversary_Ultra_Omega_succeeded":true
+		},
+
+		"job_name":"Fractal Complex",
+		"job_comm_reply":"\"I! AM! OMEGA!\"",
+		"job_forFaction":"player",
+		"job_credit_reward":0,
+		"job_reputation_reward":0,
+		"job_item_reward":{
+			"weapon_bp vpdriver":1,
+			"weapon_bp realitydisruptor":1,
+			"weapon_bp resonatormrm":1,
+			"weapon_bp cryoblaster":1,
+			"omega_core":3
+		},
+		"job_type":"obliteration",
+		"job_show_fleet":"none",
+		"job_show_distance":"vanilla",
+		"job_difficultyDescription":"auto",
+		"job_pick_script":"AdversaryUltraTesseractPicked",
+
+		"target_first_name":"OMEGA",
+		"target_last_name":"9001",
+		"target_portrait":"graphics/portraits/characters/omega.png",
+		"target_rank":"spaceCommander",
+		"target_post":"fleetCommander",
+		"target_personality":"reckless",
+		"target_aiCoreId":"omega_core",
+		"target_level":14,
+		"target_skills":{
+			"helmsmanship":2,
+			"combat_endurance":2,
+			"impact_mitigation":2,
+			"damage_control":2,
+			"field_modulation":2,
+			"point_defense":2,
+			"target_analysis":2,
+			"ballistic_mastery":2,
+			"systems_expertise":2,
+			"missile_specialization":2,
+			#
+			"tactical_drills":1,
+			"coordinated_maneuvers":1,
+			"wolfpack_tactics":1,
+			"crew_training":1,
+			"best_of_the_best":1,
+			#
+			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
+			"electronic_warfare":1,
+			"flux_regulation":1,
+			"cybernetic_augmentation":1,
+			#
+			"field_repairs":1,
+			"ordnance_expert":2,
+			"polarized_armor":2,
+			"containment_procedures":1,
+			"derelict_contingent":1
+		},
+
+		"fleet_name":"Omega Master Incursion",
+		"fleet_faction":"omega",
+		"fleet_flagship_variant":"adversary_tesseract_Attack2",
+		"fleet_flagship_name":"01011001 OMEGA",
+		"fleet_preset_ships":{
+			"adversary_tesseract_Attack2":9,
+			"adversary_facet_Attack":10,
+			"adversary_shard_left_Attack":5,
+			"adversary_shard_right_Attack":5
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,

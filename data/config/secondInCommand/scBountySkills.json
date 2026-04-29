@@ -85,7 +85,7 @@
 		"sc_technology":["sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_deep_dive","sc_technology_reinforced_grid","sc_technology_phase_coil_tuning"]
 	},
 	"adversary_Remnant_Plus_Plus":{
-		"factionId":"omega",
+		"factionId":"remnant",
 		"sc_tactical":["sc_tactical_wing_tactics","sc_tactical_vanguard_tactics","sc_tactical_bulwark_tactics","sc_tactical_anchor_tactics","sc_tactical_doctrine_tactics"],
 		"sc_technology":["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_focused_lenses"],
 		"sc_automated":["sc_automated_magnetic_shielding","sc_automated_overclock","sc_automated_electronic_warfare","sc_automated_deadly_persistence","sc_automated_wide_range"]
@@ -155,5 +155,11 @@
 		"sc_management":["sc_management_authority","sc_management_re_entry","sc_management_command_and_conquer","sc_management_officer_training","sc_management_in_good_hands"],
 		"sc_warfare":["sc_warfare_reserve_thrusters","sc_warfare_stabilised_targeting","sc_warfare_surefire_impact","sc_warfare_tenacity","sc_warfare_deflective_plating"],
 		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"]
+	},
+	"adversary_Ultra_Tesseract":{
+		"factionId":"omega",
+		"sc_management":["sc_management_authority","sc_management_re_entry","sc_management_command_and_conquer","sc_management_officer_training","sc_management_in_good_hands"],
+		"sc_improvisation":["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"],
+		"sc_automated":["sc_automated_magnetic_shielding","sc_automated_overclock","sc_automated_electronic_warfare","sc_automated_deadly_persistence","sc_automated_wide_range"]
 	}
 }
