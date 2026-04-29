@@ -18,6 +18,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - No longer requires accepting the vanilla Remnant+ bounty to be made available
   - Now awards the Fulgent blueprint upon completion
 * Changes to Ziggurat Silly MagicBounty:
+  - Changed the bounty name (previously was "The Alpha and the Omega")
   - No longer requires accepting the vanilla Remnant+ bounty to be made available
   - Now requires defeating all 4 paired MagicBounties (in addition to defeating the vanilla Ziggurat) before being made available
   - Doubled the credit reward for destroying the ship
@@ -33,6 +34,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
 * Changed Adversary market scoring to prioritize markets with higher ship quality and fleet size multiplier
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
+* Added Ship Mastery System support for the Adversary faction (will have same mastery difficulty as mercenaries)
 * Added "IndEvo_RuinsAlways" tag to Customizable Star Systems planets with Ind.Evo ruins to ensure they do not get removed
 
 

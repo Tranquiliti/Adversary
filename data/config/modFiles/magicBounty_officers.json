@@ -717,9 +717,10 @@
 			}
 		}
 	},
-	"adversary_Ultra_Maw":{ # Get snacked upon, silly
-		"shrouded_maw":{
-			"officer_faction":"dweller",
+	"adversary_Ultra_Tesseract":{ # An AI core who says it is a god, is no true god
+		"tesseract":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -738,8 +739,9 @@
 				"polarized_armor":2
 			}
 		},
-		"shrouded_eye":{
-			"officer_faction":"dweller",
+		"facet":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -758,8 +760,9 @@
 				"polarized_armor":2
 			}
 		},
-		"shrouded_maelstrom":{
-			"officer_faction":"dweller",
+		"shard_left":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -778,8 +781,9 @@
 				"polarized_armor":2
 			}
 		},
-		"shrouded_tendril":{
-			"officer_faction":"dweller",
+		"shard_right":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -927,10 +931,9 @@
 			}
 		}
 	},
-	"adversary_Ultra_Tesseract":{ # An AI core who says it is a god, is no true god
-		"tesseract":{
-			"officer_aiCoreId":"omega_core",
-			"officer_faction":"omega",
+	"adversary_Ultra_Maw":{ # Get snacked upon, silly
+		"shrouded_maw":{
+			"officer_faction":"dweller",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -949,9 +952,8 @@
 				"polarized_armor":2
 			}
 		},
-		"facet":{
-			"officer_aiCoreId":"omega_core",
-			"officer_faction":"omega",
+		"shrouded_eye":{
+			"officer_faction":"dweller",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -970,9 +972,8 @@
 				"polarized_armor":2
 			}
 		},
-		"shard_left":{
-			"officer_aiCoreId":"omega_core",
-			"officer_faction":"omega",
+		"shrouded_maelstrom":{
+			"officer_faction":"dweller",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
@@ -991,9 +992,8 @@
 				"polarized_armor":2
 			}
 		},
-		"shard_right":{
-			"officer_aiCoreId":"omega_core",
-			"officer_faction":"omega",
+		"shrouded_tendril":{
+			"officer_faction":"dweller",
 			"officer_level":14,
 			"officer_skills":{
 				"helmsmanship":2,
