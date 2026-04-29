@@ -32,7 +32,7 @@ import static org.tranquility.adversary.AdversaryStrings.SETTINGS_ENABLE_ADVERSA
 import static org.tranquility.adversary.AdversaryUtil.LUNALIB_ENABLED;
 
 @SuppressWarnings("unused")
-public class AdversaryBountyScript extends BaseCommandPlugin {
+public class AdversaryBountyPick extends BaseCommandPlugin {
     @Override
     public boolean execute(String ruleId, InteractionDialogAPI dialog, List<Misc.Token> params, Map<String, MemoryAPI> memoryMap) {
         if (!Global.getSettings().getModManager().isModEnabled("MagicLib")) return true;
@@ -44,7 +44,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
             bounty = MagicBountyCoordinator.getInstance().getActiveBounty(bountyId);
             if (bounty == null) throw new NullPointerException();
         } catch (Exception e) {
-            Global.getLogger(AdversaryBountyScript.class).error("Unable to get MagicBounty: " + bountyId, e);
+            Global.getLogger(AdversaryBountyPick.class).error("Unable to get MagicBounty: " + bountyId, e);
             return true;
         }
 
@@ -226,7 +226,7 @@ public class AdversaryBountyScript extends BaseCommandPlugin {
                 break;
             }
             default: {
-                Global.getLogger(AdversaryBountyScript.class).info("Failed to set custom officers for MagicBounty: " + bountyId);
+                Global.getLogger(AdversaryBountyPick.class).info("Failed to set custom officers for MagicBounty: " + bountyId);
                 break;
             }
         }

@@ -538,6 +538,7 @@
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryHegemonyPenalPicked",
+		"job_conclusion_script":"AdversaryHegemonyPenalConcluded",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -602,6 +603,7 @@
 		"job_show_distance":"exact",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryPerseanCombinedArmsPicked",
+		"job_conclusion_script":"AdversaryPerseanCombinedArmsConcluded",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -670,6 +672,7 @@
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryTriTachyonWolfpackPlusPicked",
+		"job_conclusion_script":"AdversaryTriTachyonWolfpackPlusConcluded",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -739,6 +742,7 @@
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryLuddicPathMissilePicked",
+		"job_conclusion_script":"AdversaryLuddicPathMissileConcluded",
 
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
@@ -1717,6 +1721,7 @@
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryUltraTesseractPicked",
+		"job_conclusion_script":"AdversaryUltraTesseractConcluded",
 
 		"target_first_name":"OMEGA",
 		"target_last_name":"9001",
@@ -1793,14 +1798,15 @@
 		"job_item_reward":{
 			"pristine_nanoforge":4,
 			"planetkiller":1,
-			"fragment_fabricator":25,
-			"threat_processing_unit":25
+			"fragment_fabricator":30,
+			"threat_processing_unit":30
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryUltraFabricatorPicked",
+		"job_conclusion_script":"AdversaryUltraFabricatorConcluded",
 
 		"target_first_name":"Absolute",
 		"target_last_name":"Fabricator",
@@ -1891,6 +1897,7 @@
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
 		"job_pick_script":"AdversaryUltraMawPicked",
+		"job_conclusion_script":"AdversaryUltraMawConcluded",
 
 		"target_first_name":"Amaw",
 		"target_last_name":"the Shrouded One",
