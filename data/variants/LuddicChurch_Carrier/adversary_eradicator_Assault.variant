@@ -1,66 +1,66 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 8,
-    "fluxVents": 20,
-    "hullId": "eradicator",
-    "hullMods": [
-        "missleracks",
-        "heavyarmor",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
-        "fragile_subsystems",
-        "armoredweapons",
-        "hardenedshieldemitter",
-        "targetingunit",
-        "reinforcedhull"
-    ],
-    "permaMods": [
-        "missleracks",
-        "heavyarmor",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "missleracks",
-        "heavyarmor"
-    ],
-    "variantId": "adversary_eradicator_Assault",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "heavymauler",
-                "WS 007": "heavymauler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "heavyac",
-                "WS 009": "lightac",
-                "WS 010": "lightac",
-                "WS 011": "lightac",
-                "WS 013": "mininglaser",
-                "WS 014": "mininglaser"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "gorgon",
-                "WS 001": "gorgon",
-                "WS 002": "gorgon",
-                "WS 003": "gorgon",
-                "WS 004": "gorgon"
-            }
-        }
-    ]
+	"displayName":"Assault",
+	"fluxCapacitors":8,
+	"fluxVents":20,
+	"hullId":"eradicator",
+	"hullMods":[
+		"missleracks",
+		"heavyarmor",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance",
+		"fragile_subsystems",
+		"armoredweapons",
+		"hardenedshieldemitter",
+		"targetingunit",
+		"reinforcedhull"
+	],
+	"permaMods":[
+		"missleracks",
+		"heavyarmor",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"missleracks",
+		"heavyarmor"
+	],
+	"variantId":"adversary_eradicator_Assault",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"heavymauler",
+				"WS 007":"heavymauler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 006":"heavyac",
+				"WS 009":"lightac",
+				"WS 010":"lightac",
+				"WS 011":"lightac",
+				"WS 013":"mininglaser",
+				"WS 014":"mininglaser"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"gorgon",
+				"WS 001":"gorgon",
+				"WS 002":"gorgon",
+				"WS 003":"gorgon",
+				"WS 004":"gorgon"
+			}
+		}
+	]
 }

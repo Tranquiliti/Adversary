@@ -1,71 +1,71 @@
 {
-    "displayName": "Fire Support",
-    "fluxCapacitors": 35,
-    "fluxVents": 50,
-    "hullId": "pegasus",
-    "hullMods": [
-        "eccm",
-        "missleracks",
-        "armoredweapons",
-        "fluxdistributor",
-        "hardenedshieldemitter",
-        "targetingunit",
-        "adaptiveshields"
-    ],
-    "permaMods": [
-        "eccm",
-        "missleracks"
-    ],
-    "sMods": [
-        "eccm",
-        "missleracks"
-    ],
-    "variantId": "adversary_pegasus_Fire_Support",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "hurricane",
-                "WS 001": "hurricane",
-                "WS 012": "hurricane",
-                "WS 013": "hurricane"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "hveldriver",
-                "WS 005": "hveldriver"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "gravitonbeam",
-                "WS 003": "ionbeam",
-                "WS 006": "gravitonbeam",
-                "WS 007": "gravitonbeam"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 008": "heavyac",
-                "WS 009": "heavyac",
-                "WS 010": "heavyac"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 014": "lrpdlaser",
-                "WS 015": "lrpdlaser"
-            }
-        }
-    ]
+	"displayName":"Fire Support",
+	"fluxCapacitors":35,
+	"fluxVents":50,
+	"hullId":"pegasus",
+	"hullMods":[
+		"eccm",
+		"missleracks",
+		"armoredweapons",
+		"fluxdistributor",
+		"hardenedshieldemitter",
+		"targetingunit",
+		"adaptiveshields"
+	],
+	"permaMods":[
+		"eccm",
+		"missleracks"
+	],
+	"sMods":[
+		"eccm",
+		"missleracks"
+	],
+	"variantId":"adversary_pegasus_Fire_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"hurricane",
+				"WS 001":"hurricane",
+				"WS 012":"hurricane",
+				"WS 013":"hurricane"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"hveldriver",
+				"WS 005":"hveldriver"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"gravitonbeam",
+				"WS 003":"ionbeam",
+				"WS 006":"gravitonbeam",
+				"WS 007":"gravitonbeam"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 008":"heavyac",
+				"WS 009":"heavyac",
+				"WS 010":"heavyac"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 014":"lrpdlaser",
+				"WS 015":"lrpdlaser"
+			}
+		}
+	]
 }

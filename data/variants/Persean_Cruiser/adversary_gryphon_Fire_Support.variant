@@ -1,43 +1,43 @@
 {
-    "displayName": "Fire Support",
-    "fluxCapacitors": 15,
-    "fluxVents": 17,
-    "hullId": "gryphon",
-    "hullMods": [
-        "eccm",
-        "missile_autoloader",
-        "missleracks",
-        "nav_relay"
-    ],
-    "permaMods": [
-        "eccm",
-        "missile_autoloader"
-    ],
-    "sMods": [
-        "eccm",
-        "missile_autoloader"
-    ],
-    "variantId": "adversary_gryphon_Fire_Support",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "squall",
-                "WS 008": "harpoonpod",
-                "WS 009": "harpoonpod",
-                "WS 010": "harpoon",
-                "WS 011": "harpoon",
-                "WS 012": "harpoon"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "dualflak",
-                "WS 007": "vulcan"
-            }
-        }
-    ]
+	"displayName":"Fire Support",
+	"fluxCapacitors":15,
+	"fluxVents":17,
+	"hullId":"gryphon",
+	"hullMods":[
+		"eccm",
+		"missile_autoloader",
+		"missleracks",
+		"nav_relay"
+	],
+	"permaMods":[
+		"eccm",
+		"missile_autoloader"
+	],
+	"sMods":[
+		"eccm",
+		"missile_autoloader"
+	],
+	"variantId":"adversary_gryphon_Fire_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"squall",
+				"WS 008":"harpoonpod",
+				"WS 009":"harpoonpod",
+				"WS 010":"harpoon",
+				"WS 011":"harpoon",
+				"WS 012":"harpoon"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"dualflak",
+				"WS 007":"vulcan"
+			}
+		}
+	]
 }

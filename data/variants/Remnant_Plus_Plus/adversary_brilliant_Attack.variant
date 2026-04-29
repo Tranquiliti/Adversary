@@ -1,55 +1,55 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 27,
-    "fluxVents": 30,
-    "hullId": "brilliant",
-    "hullMods": [
-        "fluxdistributor",
-        "hardenedshieldemitter",
-        "targetingunit"
-    ],
-    "permaMods": [
-        "fluxdistributor",
-        "hardenedshieldemitter",
-        "targetingunit"
-    ],
-    "sMods": [
-        "fluxdistributor",
-        "hardenedshieldemitter",
-        "targetingunit"
-    ],
-    "variantId": "adversary_brilliant_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 000": "hil"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 004": "gazerpod"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "heavyneedler",
-                "WS 006": "heavyneedler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "ionbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "pdburst",
-                "WS 003": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":27,
+	"fluxVents":30,
+	"hullId":"brilliant",
+	"hullMods":[
+		"fluxdistributor",
+		"hardenedshieldemitter",
+		"targetingunit"
+	],
+	"permaMods":[
+		"fluxdistributor",
+		"hardenedshieldemitter",
+		"targetingunit"
+	],
+	"sMods":[
+		"fluxdistributor",
+		"hardenedshieldemitter",
+		"targetingunit"
+	],
+	"variantId":"adversary_brilliant_Attack",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 000":"hil"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 004":"gazerpod"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"heavyneedler",
+				"WS 006":"heavyneedler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"ionbeam"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"pdburst",
+				"WS 003":"pdburst"
+			}
+		}
+	]
 }

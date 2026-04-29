@@ -1,61 +1,61 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 25,
-    "fluxVents": 0,
-    "hullId": "eagle_xiv",
-    "hullMods": [
-        "magazines",
-        "fluxcoil",
-        "hardenedshieldemitter",
-        "pointdefenseai",
-        "safetyoverrides"
-    ],
-    "permaMods": [
-        "magazines",
-        "fluxcoil",
-        "hardenedshieldemitter"
-    ],
-    "sMods": [
-        "magazines",
-        "fluxcoil",
-        "hardenedshieldemitter"
-    ],
-    "variantId": "adversary_eagle_xiv_Overdriven",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "heavyburst",
-                "WS 006": "heavyburst",
-                "WS 009": "heavyburst"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "heavymg",
-                "WS 008": "heavymg",
-                "WS 013": "heavymg"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "breach",
-                "WS 002": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "pdburst",
-                "WS 011": "pdburst",
-                "WS 012": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Overdriven",
+	"fluxCapacitors":25,
+	"fluxVents":0,
+	"hullId":"eagle_xiv",
+	"hullMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter",
+		"pointdefenseai",
+		"safetyoverrides"
+	],
+	"permaMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"sMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_eagle_xiv_Overdriven",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"heavyburst",
+				"WS 006":"heavyburst",
+				"WS 009":"heavyburst"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 007":"heavymg",
+				"WS 008":"heavymg",
+				"WS 013":"heavymg"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"breach",
+				"WS 002":"breach"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 010":"pdburst",
+				"WS 011":"pdburst",
+				"WS 012":"pdburst"
+			}
+		}
+	]
 }

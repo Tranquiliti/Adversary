@@ -1,82 +1,82 @@
 {
-    "displayName": "Elite",
-    "fluxCapacitors": 12,
-    "fluxVents": 50,
-    "hullId": "guardian",
-    "hullMods": [
-        "turretgyros",
-        "autorepair",
-        "eccm",
-        "damaged_mounts",
-        "degraded_engines",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems",
-        "armoredweapons",
-        "fluxdistributor",
-        "hardenedshieldemitter",
-        "heavyarmor",
-        "insulatedengine",
-        "reinforcedhull",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "autorepair",
-        "eccm",
-        "damaged_mounts",
-        "degraded_engines",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "turretgyros",
-        "autorepair",
-        "eccm"
-    ],
-    "variantId": "adversary_guardian_Elite",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "dragonpod",
-                "WS 009": "dragonpod",
-                "WS 010": "dragon",
-                "WS 011": "dragon"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "mjolnir"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 008": "mjolnir"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "irautolance",
-                "WS 001": "irautolance",
-                "WS 002": "irautolance",
-                "WS 003": "irautolance",
-                "WS 004": "hveldriver",
-                "WS 005": "hveldriver",
-                "WS 012": "taclaser",
-                "WS 013": "taclaser",
-                "WS 014": "taclaser",
-                "WS 015": "taclaser",
-                "WS 016": "taclaser",
-                "WS 017": "taclaser",
-                "WS 018": "taclaser",
-                "WS 019": "taclaser",
-                "WS 020": "devastator"
-            }
-        }
-    ]
+	"displayName":"Elite",
+	"fluxCapacitors":12,
+	"fluxVents":50,
+	"hullId":"guardian",
+	"hullMods":[
+		"turretgyros",
+		"autorepair",
+		"eccm",
+		"damaged_mounts",
+		"degraded_engines",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems",
+		"armoredweapons",
+		"fluxdistributor",
+		"hardenedshieldemitter",
+		"heavyarmor",
+		"insulatedengine",
+		"reinforcedhull",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"turretgyros",
+		"autorepair",
+		"eccm",
+		"damaged_mounts",
+		"degraded_engines",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"turretgyros",
+		"autorepair",
+		"eccm"
+	],
+	"variantId":"adversary_guardian_Elite",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 006":"dragonpod",
+				"WS 009":"dragonpod",
+				"WS 010":"dragon",
+				"WS 011":"dragon"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 007":"mjolnir"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 008":"mjolnir"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"irautolance",
+				"WS 001":"irautolance",
+				"WS 002":"irautolance",
+				"WS 003":"irautolance",
+				"WS 004":"hveldriver",
+				"WS 005":"hveldriver",
+				"WS 012":"taclaser",
+				"WS 013":"taclaser",
+				"WS 014":"taclaser",
+				"WS 015":"taclaser",
+				"WS 016":"taclaser",
+				"WS 017":"taclaser",
+				"WS 018":"taclaser",
+				"WS 019":"taclaser",
+				"WS 020":"devastator"
+			}
+		}
+	]
 }

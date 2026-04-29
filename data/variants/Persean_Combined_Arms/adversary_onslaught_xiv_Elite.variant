@@ -1,92 +1,92 @@
 {
-    "displayName": "Elite",
-    "fluxCapacitors": 48,
-    "fluxVents": 50,
-    "hullId": "onslaught_xiv",
-    "hullMods": [
-        "turretgyros",
-        "ballistic_rangefinder",
-        "targetingunit",
-        "degraded_engines",
-        "degraded_life_support",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems",
-        "armoredweapons",
-        "autorepair",
-        "eccm",
-        "magazines",
-        "missleracks",
-        "hardenedshieldemitter",
-        "fluxbreakers",
-        "adaptiveshields"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "ballistic_rangefinder",
-        "targetingunit",
-        "degraded_engines",
-        "degraded_life_support",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "turretgyros",
-        "ballistic_rangefinder",
-        "targetingunit"
-    ],
-    "variantId": "adversary_onslaught_xiv_Elite",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 016": "tpc"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 017": "tpc"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 018": "hephag"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 019": "hephag"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 020": "hephag"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 021": "jackhammer",
-                "WS 022": "jackhammer",
-                "WS 023": "jackhammer",
-                "WS 024": "jackhammer"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lightneedler",
-                "WS 003": "lightneedler",
-                "WS 007": "dualflak",
-                "WS 008": "lightneedler",
-                "WS 009": "lightneedler",
-                "WS 010": "lightneedler",
-                "WS 011": "lightneedler",
-                "WS 012": "lightneedler",
-                "WS 013": "lightneedler"
-            }
-        }
-    ]
+	"displayName":"Elite",
+	"fluxCapacitors":48,
+	"fluxVents":50,
+	"hullId":"onslaught_xiv",
+	"hullMods":[
+		"turretgyros",
+		"ballistic_rangefinder",
+		"targetingunit",
+		"degraded_engines",
+		"degraded_life_support",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"eccm",
+		"magazines",
+		"missleracks",
+		"hardenedshieldemitter",
+		"fluxbreakers",
+		"adaptiveshields"
+	],
+	"permaMods":[
+		"turretgyros",
+		"ballistic_rangefinder",
+		"targetingunit",
+		"degraded_engines",
+		"degraded_life_support",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"turretgyros",
+		"ballistic_rangefinder",
+		"targetingunit"
+	],
+	"variantId":"adversary_onslaught_xiv_Elite",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 016":"tpc"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 017":"tpc"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 018":"hephag"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 019":"hephag"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 020":"hephag"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 021":"jackhammer",
+				"WS 022":"jackhammer",
+				"WS 023":"jackhammer",
+				"WS 024":"jackhammer"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"lightneedler",
+				"WS 003":"lightneedler",
+				"WS 007":"dualflak",
+				"WS 008":"lightneedler",
+				"WS 009":"lightneedler",
+				"WS 010":"lightneedler",
+				"WS 011":"lightneedler",
+				"WS 012":"lightneedler",
+				"WS 013":"lightneedler"
+			}
+		}
+	]
 }

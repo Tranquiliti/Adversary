@@ -1,46 +1,46 @@
 {
-    "displayName": "Close Support",
-    "fluxCapacitors": 14,
-    "fluxVents": 20,
-    "hullId": "manticore_pirates",
-    "hullMods": [
-        "converted_hangar",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems",
-        "targetingunit"
-    ],
-    "permaMods": [
-        "converted_hangar",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "converted_hangar",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_manticore_pirates_Close_Support",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 000": "mjolnir"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "gazerpod",
-                "WS 005": "gazerpod"
-            }
-        }
-    ],
-    "wings": ["gladius_wing"]
+	"displayName":"Close Support",
+	"fluxCapacitors":14,
+	"fluxVents":20,
+	"hullId":"manticore_pirates",
+	"hullMods":[
+		"converted_hangar",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems",
+		"targetingunit"
+	],
+	"permaMods":[
+		"converted_hangar",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"converted_hangar",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_manticore_pirates_Close_Support",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 000":"mjolnir"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"gazerpod",
+				"WS 005":"gazerpod"
+			}
+		}
+	],
+	"wings":["gladius_wing"]
 }

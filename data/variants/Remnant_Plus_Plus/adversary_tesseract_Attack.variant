@@ -1,58 +1,58 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 30,
-    "fluxVents": 30,
-    "hullId": "tesseract",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "frontemitter",
-        "turretgyros",
-        "extendedshieldemitter"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "frontemitter"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "targetingunit",
-        "frontemitter"
-    ],
-    "sModdedBuiltIns": ["fluxbreakers"],
-    "variantId": "adversary_tesseract_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 009": "vpdriver"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 008": "disintegrator"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "cryoblaster",
-                "WS 010": "cryoblaster"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "riftbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "minipulser",
-                "WS 005": "minipulser"
-            }
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":30,
+	"fluxVents":30,
+	"hullId":"tesseract",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"targetingunit",
+		"frontemitter",
+		"turretgyros",
+		"extendedshieldemitter"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"targetingunit",
+		"frontemitter"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"targetingunit",
+		"frontemitter"
+	],
+	"sModdedBuiltIns":["fluxbreakers"],
+	"variantId":"adversary_tesseract_Attack",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 009":"vpdriver"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 008":"disintegrator"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 006":"cryoblaster",
+				"WS 010":"cryoblaster"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 007":"riftbeam"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"minipulser",
+				"WS 005":"minipulser"
+			}
+		}
+	]
 }

@@ -1,40 +1,40 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 10,
-    "fluxVents": 8,
-    "hullId": "brawler_pather",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems"
-    ],
-    "suppressedMods": ["ill_advised"],
-    "variantId": "adversary_brawler_pather_Assault",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "chaingun"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "ioncannon",
-                "WS 004": "ioncannon"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "heavymg"}
-        }
-    ]
+	"displayName":"Assault",
+	"fluxCapacitors":10,
+	"fluxVents":8,
+	"hullId":"brawler_pather",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems"
+	],
+	"suppressedMods":["ill_advised"],
+	"variantId":"adversary_brawler_pather_Assault",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"chaingun"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"ioncannon",
+				"WS 004":"ioncannon"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"heavymg"}
+		}
+	]
 }

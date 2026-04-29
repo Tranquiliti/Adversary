@@ -1,49 +1,49 @@
 {
-    "displayName": "Close Support",
-    "fluxCapacitors": 2,
-    "fluxVents": 7,
-    "hullId": "brawler_LG",
-    "hullMods": [
-        "ecm",
-        "nav_relay",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "increased_maintenance",
-        "advancedoptics",
-        "targetingunit",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "ecm",
-        "nav_relay",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "increased_maintenance"
-    ],
-    "sMods": [
-        "ecm",
-        "nav_relay"
-    ],
-    "sModdedBuiltIns": ["solar_shielding"],
-    "variantId": "adversary_brawler_LG_Close_Support",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "gravitonbeam",
-                "WS 002": "gravitonbeam"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "taclaser",
-                "WS 004": "taclaser"
-            }
-        }
-    ]
+	"displayName":"Close Support",
+	"fluxCapacitors":2,
+	"fluxVents":7,
+	"hullId":"brawler_LG",
+	"hullMods":[
+		"ecm",
+		"nav_relay",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"increased_maintenance",
+		"advancedoptics",
+		"targetingunit",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"ecm",
+		"nav_relay",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"increased_maintenance"
+	],
+	"sMods":[
+		"ecm",
+		"nav_relay"
+	],
+	"sModdedBuiltIns":["solar_shielding"],
+	"variantId":"adversary_brawler_LG_Close_Support",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"gravitonbeam",
+				"WS 002":"gravitonbeam"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"taclaser",
+				"WS 004":"taclaser"
+			}
+		}
+	]
 }

@@ -1,42 +1,42 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 10,
-    "fluxVents": 5,
-    "hullId": "omen",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "missile_autoloader",
-        "hardened_subsystems",
-        "pointdefenseai"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "missile_autoloader"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "missile_autoloader"
-    ],
-    "sModdedBuiltIns": [
-        "eccm",
-        "hiressensors"
-    ],
-    "variantId": "adversary_omen_Strike",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "sabot"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "amblaster"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "irpulse"}
-        }
-    ]
+	"displayName":"Strike",
+	"fluxCapacitors":10,
+	"fluxVents":5,
+	"hullId":"omen",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader",
+		"hardened_subsystems",
+		"pointdefenseai"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader"
+	],
+	"sModdedBuiltIns":[
+		"eccm",
+		"hiressensors"
+	],
+	"variantId":"adversary_omen_Strike",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"sabot"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"amblaster"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"irpulse"}
+		}
+	]
 }

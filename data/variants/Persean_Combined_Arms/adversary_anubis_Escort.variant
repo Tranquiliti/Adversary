@@ -1,55 +1,55 @@
 {
-    "displayName": "Escort",
-    "fluxCapacitors": 21,
-    "fluxVents": 30,
-    "hullId": "anubis",
-    "hullMods": [
-        "advancedoptics",
-        "turretgyros",
-        "hardenedshieldemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "malfunctioning_comms",
-        "comp_structure",
-        "pointdefenseai",
-        "targetingunit",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "advancedoptics",
-        "turretgyros",
-        "hardenedshieldemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "malfunctioning_comms",
-        "comp_structure"
-    ],
-    "sMods": [
-        "advancedoptics",
-        "turretgyros",
-        "hardenedshieldemitter"
-    ],
-    "variantId": "adversary_anubis_Escort",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "guardian",
-                "WS 001": "guardian",
-                "WS 002": "guardian"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "heavyac",
-                "WS 004": "heavyac"
-            }
-        }
-    ],
-    "wings": ["warthog_wing"]
+	"displayName":"Escort",
+	"fluxCapacitors":21,
+	"fluxVents":30,
+	"hullId":"anubis",
+	"hullMods":[
+		"advancedoptics",
+		"turretgyros",
+		"hardenedshieldemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"malfunctioning_comms",
+		"comp_structure",
+		"pointdefenseai",
+		"targetingunit",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"advancedoptics",
+		"turretgyros",
+		"hardenedshieldemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"malfunctioning_comms",
+		"comp_structure"
+	],
+	"sMods":[
+		"advancedoptics",
+		"turretgyros",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_anubis_Escort",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"guardian",
+				"WS 001":"guardian",
+				"WS 002":"guardian"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"heavyac",
+				"WS 004":"heavyac"
+			}
+		}
+	],
+	"wings":["warthog_wing"]
 }

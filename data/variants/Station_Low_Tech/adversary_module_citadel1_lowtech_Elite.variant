@@ -1,38 +1,38 @@
 {
-    "displayName": "Elite",
-    "fluxCapacitors": 10,
-    "fluxVents": 10,
-    "hullId": "module_citadel1_lowtech",
-    "hullMods": [],
-    "permaMods": [],
-    "variantId": "adversary_module_citadel1_lowtech_Elite",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "multineedler",
-                "WS 002": "vulcan",
-                "WS 005": "vulcan",
-                "WS 007": "vulcan",
-                "WS 008": "vulcan",
-                "WS 012": "vulcan",
-                "WS 014": "multineedler",
-                "WS 015": "multineedler",
-                "WS 016": "multineedler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "shredder",
-                "WS 004": "shredder",
-                "WS 006": "shredder",
-                "WS 009": "shredder",
-                "WS 010": "shredder",
-                "WS 013": "shredder"
-            }
-        }
-    ]
+	"displayName":"Elite",
+	"fluxCapacitors":10,
+	"fluxVents":10,
+	"hullId":"module_citadel1_lowtech",
+	"hullMods":[],
+	"permaMods":[],
+	"variantId":"adversary_module_citadel1_lowtech_Elite",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"multineedler",
+				"WS 002":"vulcan",
+				"WS 005":"vulcan",
+				"WS 007":"vulcan",
+				"WS 008":"vulcan",
+				"WS 012":"vulcan",
+				"WS 014":"multineedler",
+				"WS 015":"multineedler",
+				"WS 016":"multineedler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"shredder",
+				"WS 004":"shredder",
+				"WS 006":"shredder",
+				"WS 009":"shredder",
+				"WS 010":"shredder",
+				"WS 013":"shredder"
+			}
+		}
+	]
 }

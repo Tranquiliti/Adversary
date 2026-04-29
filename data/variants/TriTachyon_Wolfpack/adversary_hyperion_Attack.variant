@@ -1,39 +1,39 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 10,
-    "fluxVents": 2,
-    "hullId": "hyperion",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems",
-        "auxiliarythrusters",
-        "extendedshieldemitter",
-        "targetingunit",
-        "fluxbreakers",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "hardened_subsystems"
-    ],
-    "variantId": "adversary_hyperion_Attack",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "phasebeam",
-                "WS 002": "phasebeam"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "heavyneedler"}
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":10,
+	"fluxVents":2,
+	"hullId":"hyperion",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems",
+		"auxiliarythrusters",
+		"extendedshieldemitter",
+		"targetingunit",
+		"fluxbreakers",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"hardened_subsystems"
+	],
+	"variantId":"adversary_hyperion_Attack",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"phasebeam",
+				"WS 002":"phasebeam"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"heavyneedler"}
+		}
+	]
 }

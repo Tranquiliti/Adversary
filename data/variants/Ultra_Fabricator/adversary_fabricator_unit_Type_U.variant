@@ -1,101 +1,101 @@
 {
-    "displayName": "Type 01010101",
-    "fluxCapacitors": 50,
-    "fluxVents": 50,
-    "hullId": "fabricator_unit",
-    "hullMods": [
-        "turretgyros",
-        "fragment_coordinator",
-        "secondary_fabricator",
-        "damaged_mounts",
-        "degraded_engines",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors",
-        "advancedshieldemitter",
-        "armoredweapons",
-        "autorepair",
-        "auxiliarythrusters",
-        "blast_doors",
-        "eccm",
-        "ecm",
-        "missleracks",
-        "extendedshieldemitter",
-        "fluxcoil",
-        "fluxdistributor",
-        "fragment_swarm",
-        "hardenedshieldemitter",
-        "heavyarmor",
-        "insulatedengine",
-        "pointdefenseai",
-        "nav_relay",
-        "reinforcedhull",
-        "fluxbreakers",
-        "solar_shielding",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "fragment_coordinator",
-        "secondary_fabricator",
-        "damaged_mounts",
-        "degraded_engines",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors"
-    ],
-    "sMods": [
-        "turretgyros",
-        "fragment_coordinator",
-        "secondary_fabricator"
-    ],
-    "variantId": "adversary_fabricator_unit_Type_U",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "heavy_mass_driver",
-                "WS 003": "heavy_mass_driver",
-                "WS 007": "heavy_mass_driver",
-                "WS 010": "heavy_mass_driver"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "light_mass_driver",
-                "WS 004": "light_mass_driver",
-                "WS 008": "light_mass_driver",
-                "WS 009": "light_mass_driver"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "light_mass_driver",
-                "WS 006": "light_mass_driver",
-                "WS 011": "light_mass_driver",
-                "WS 012": "light_mass_driver"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 013": "devouring_swarm",
-                "WS 014": "devouring_swarm",
-                "WS 015": "devouring_swarm",
-                "WS 018": "devouring_swarm",
-                "WS 019": "devouring_swarm",
-                "WS 020": "devouring_swarm",
-                "WS 021": "devouring_swarm",
-                "WS 022": "devouring_swarm",
-                "WS 023": "devouring_swarm",
-                "WS 024": "devouring_swarm"
-            }
-        }
-    ]
+	"displayName":"Type 01010101",
+	"fluxCapacitors":50,
+	"fluxVents":50,
+	"hullId":"fabricator_unit",
+	"hullMods":[
+		"turretgyros",
+		"fragment_coordinator",
+		"secondary_fabricator",
+		"damaged_mounts",
+		"degraded_engines",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors",
+		"advancedshieldemitter",
+		"armoredweapons",
+		"autorepair",
+		"auxiliarythrusters",
+		"blast_doors",
+		"eccm",
+		"ecm",
+		"missleracks",
+		"extendedshieldemitter",
+		"fluxcoil",
+		"fluxdistributor",
+		"fragment_swarm",
+		"hardenedshieldemitter",
+		"heavyarmor",
+		"insulatedengine",
+		"pointdefenseai",
+		"nav_relay",
+		"reinforcedhull",
+		"fluxbreakers",
+		"solar_shielding",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"turretgyros",
+		"fragment_coordinator",
+		"secondary_fabricator",
+		"damaged_mounts",
+		"degraded_engines",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors"
+	],
+	"sMods":[
+		"turretgyros",
+		"fragment_coordinator",
+		"secondary_fabricator"
+	],
+	"variantId":"adversary_fabricator_unit_Type_U",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"heavy_mass_driver",
+				"WS 003":"heavy_mass_driver",
+				"WS 007":"heavy_mass_driver",
+				"WS 010":"heavy_mass_driver"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"light_mass_driver",
+				"WS 004":"light_mass_driver",
+				"WS 008":"light_mass_driver",
+				"WS 009":"light_mass_driver"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"light_mass_driver",
+				"WS 006":"light_mass_driver",
+				"WS 011":"light_mass_driver",
+				"WS 012":"light_mass_driver"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 013":"devouring_swarm",
+				"WS 014":"devouring_swarm",
+				"WS 015":"devouring_swarm",
+				"WS 018":"devouring_swarm",
+				"WS 019":"devouring_swarm",
+				"WS 020":"devouring_swarm",
+				"WS 021":"devouring_swarm",
+				"WS 022":"devouring_swarm",
+				"WS 023":"devouring_swarm",
+				"WS 024":"devouring_swarm"
+			}
+		}
+	]
 }

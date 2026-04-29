@@ -1,40 +1,40 @@
 {
-    "displayName": "DIE",
-    "fluxCapacitors": 0,
-    "fluxVents": 2,
-    "hullId": "vanguard_pirates",
-    "hullMods": [
-        "missleracks",
-        "reinforcedhull",
-        "armoredweapons",
-        "auxiliarythrusters",
-        "eccm",
-        "heavyarmor",
-        "insulatedengine",
-        "pointdefenseai",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "missleracks",
-        "reinforcedhull"
-    ],
-    "sMods": [
-        "missleracks",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_vanguard_pirates_DIE",
-    "weaponGroups": [{
-        "autofire": true,
-        "mode": "LINKED",
-        "weapons": {
-            "WS 000": "hammer",
-            "WS 001": "hammer",
-            "WS 002": "hammer",
-            "WS 003": "vulcan",
-            "WS 004": "vulcan",
-            "WS 005": "lightdualac",
-            "WS 006": "lightdualac",
-            "WS 007": "lightag"
-        }
-    }]
+	"displayName":"DIE",
+	"fluxCapacitors":0,
+	"fluxVents":2,
+	"hullId":"vanguard_pirates",
+	"hullMods":[
+		"missleracks",
+		"reinforcedhull",
+		"armoredweapons",
+		"auxiliarythrusters",
+		"eccm",
+		"heavyarmor",
+		"insulatedengine",
+		"pointdefenseai",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"missleracks",
+		"reinforcedhull"
+	],
+	"sMods":[
+		"missleracks",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_vanguard_pirates_DIE",
+	"weaponGroups":[{
+		"autofire":true,
+		"mode":"LINKED",
+		"weapons":{
+			"WS 000":"hammer",
+			"WS 001":"hammer",
+			"WS 002":"hammer",
+			"WS 003":"vulcan",
+			"WS 004":"vulcan",
+			"WS 005":"lightdualac",
+			"WS 006":"lightdualac",
+			"WS 007":"lightag"
+		}
+	}]
 }

@@ -1,60 +1,60 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 0,
-    "fluxVents": 18,
-    "hullId": "doom",
-    "hullMods": [
-        "advancedoptics",
-        "targetingunit",
-        "armoredweapons",
-        "pointdefenseai",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "advancedoptics",
-        "targetingunit"
-    ],
-    "sMods": [
-        "advancedoptics",
-        "targetingunit"
-    ],
-    "variantId": "adversary_doom_Attack",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "annihilatorpod",
-                "WS 002": "annihilatorpod"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "ionbeam",
-                "WS 008": "ionbeam"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler",
-                "WS 005": "lightneedler",
-                "WS 006": "lightneedler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 009": "pdburst",
-                "WS 010": "pdburst",
-                "WS 011": "pdburst",
-                "WS 012": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":0,
+	"fluxVents":18,
+	"hullId":"doom",
+	"hullMods":[
+		"advancedoptics",
+		"targetingunit",
+		"armoredweapons",
+		"pointdefenseai",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"advancedoptics",
+		"targetingunit"
+	],
+	"sMods":[
+		"advancedoptics",
+		"targetingunit"
+	],
+	"variantId":"adversary_doom_Attack",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 001":"annihilatorpod",
+				"WS 002":"annihilatorpod"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 007":"ionbeam",
+				"WS 008":"ionbeam"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"lightneedler",
+				"WS 004":"lightneedler",
+				"WS 005":"lightneedler",
+				"WS 006":"lightneedler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 009":"pdburst",
+				"WS 010":"pdburst",
+				"WS 011":"pdburst",
+				"WS 012":"pdburst"
+			}
+		}
+	]
 }

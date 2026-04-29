@@ -1,48 +1,48 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 5,
-    "fluxVents": 5,
-    "hullId": "venture_pather",
-    "hullMods": [
-        "missile_autoloader",
-        "reinforcedhull",
-        "armoredweapons",
-        "missleracks",
-        "heavyarmor",
-        "militarized_subsystems"
-    ],
-    "permaMods": [
-        "missile_autoloader",
-        "reinforcedhull"
-    ],
-    "sMods": [
-        "missile_autoloader",
-        "reinforcedhull"
-    ],
-    "suppressedMods": ["ill_advised"],
-    "sModdedBuiltIns": ["surveying_equipment"],
-    "variantId": "adversary_venture_pather_Assault",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "phasecl",
-                "WS 006": "phasecl"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "kineticblaster"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "sabot",
-                "WS 007": "sabot"
-            }
-        }
-    ]
+	"displayName":"Assault",
+	"fluxCapacitors":5,
+	"fluxVents":5,
+	"hullId":"venture_pather",
+	"hullMods":[
+		"missile_autoloader",
+		"reinforcedhull",
+		"armoredweapons",
+		"missleracks",
+		"heavyarmor",
+		"militarized_subsystems"
+	],
+	"permaMods":[
+		"missile_autoloader",
+		"reinforcedhull"
+	],
+	"sMods":[
+		"missile_autoloader",
+		"reinforcedhull"
+	],
+	"suppressedMods":["ill_advised"],
+	"sModdedBuiltIns":["surveying_equipment"],
+	"variantId":"adversary_venture_pather_Assault",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"phasecl",
+				"WS 006":"phasecl"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"kineticblaster"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"sabot",
+				"WS 007":"sabot"
+			}
+		}
+	]
 }

@@ -1,68 +1,68 @@
 {
-    "displayName": "Custom",
-    "fluxCapacitors": 10,
-    "fluxVents": 50,
-    "hullId": "conquest",
-    "hullMods": [
-        "turretgyros",
-        "hardenedshieldemitter",
-        "heavyarmor",
-        "ballistic_rangefinder",
-        "eccm",
-        "targetingunit",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "hardenedshieldemitter",
-        "heavyarmor"
-    ],
-    "sMods": [
-        "turretgyros",
-        "hardenedshieldemitter",
-        "heavyarmor"
-    ],
-    "variantId": "adversary_conquest_Custom",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "rifttorpedo",
-                "WS 002": "rifttorpedo"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 011": "neoferric_quadcoil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 012": "neoferric_quadcoil"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 019": "resonatormrm",
-                "WS 020": "resonatormrm"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 022": "pseudoparticle_jet"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "lrpdlaser",
-                "WS 015": "heavy_mass_driver",
-                "WS 016": "heavy_mass_driver"
-            }
-        }
-    ]
+	"displayName":"Custom",
+	"fluxCapacitors":10,
+	"fluxVents":50,
+	"hullId":"conquest",
+	"hullMods":[
+		"turretgyros",
+		"hardenedshieldemitter",
+		"heavyarmor",
+		"ballistic_rangefinder",
+		"eccm",
+		"targetingunit",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"turretgyros",
+		"hardenedshieldemitter",
+		"heavyarmor"
+	],
+	"sMods":[
+		"turretgyros",
+		"hardenedshieldemitter",
+		"heavyarmor"
+	],
+	"variantId":"adversary_conquest_Custom",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"rifttorpedo",
+				"WS 002":"rifttorpedo"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 011":"neoferric_quadcoil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 012":"neoferric_quadcoil"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 019":"resonatormrm",
+				"WS 020":"resonatormrm"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 022":"pseudoparticle_jet"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"lrpdlaser",
+				"WS 015":"heavy_mass_driver",
+				"WS 016":"heavy_mass_driver"
+			}
+		}
+	]
 }

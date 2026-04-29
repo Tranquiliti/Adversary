@@ -1,79 +1,79 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 21,
-    "fluxVents": 50,
-    "hullId": "retribution",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
-        "fragile_subsystems",
-        "armoredweapons",
-        "autorepair",
-        "auxiliarythrusters",
-        "heavyarmor"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_retribution_Assault",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "devastator",
-                "WS 001": "devastator",
-                "WS 002": "devastator"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "heavymg",
-                "WS 004": "heavymg",
-                "WS 005": "heavymg",
-                "WS 006": "heavymg"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "breach",
-                "WS 008": "breach",
-                "WS 009": "breach",
-                "WS 010": "breach",
-                "WS 020": "breach",
-                "WS 021": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 011": "lightmg",
-                "WS 012": "lightmg",
-                "WS 013": "lightmg",
-                "WS 014": "lightmg",
-                "WS 015": "lightmg",
-                "WS 016": "lightmg",
-                "WS 017": "lightmg"
-            }
-        }
-    ]
+	"displayName":"Assault",
+	"fluxCapacitors":21,
+	"fluxVents":50,
+	"hullId":"retribution",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance",
+		"fragile_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"auxiliarythrusters",
+		"heavyarmor"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_retribution_Assault",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"devastator",
+				"WS 001":"devastator",
+				"WS 002":"devastator"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"heavymg",
+				"WS 004":"heavymg",
+				"WS 005":"heavymg",
+				"WS 006":"heavymg"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 007":"breach",
+				"WS 008":"breach",
+				"WS 009":"breach",
+				"WS 010":"breach",
+				"WS 020":"breach",
+				"WS 021":"breach"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 011":"lightmg",
+				"WS 012":"lightmg",
+				"WS 013":"lightmg",
+				"WS 014":"lightmg",
+				"WS 015":"lightmg",
+				"WS 016":"lightmg",
+				"WS 017":"lightmg"
+			}
+		}
+	]
 }

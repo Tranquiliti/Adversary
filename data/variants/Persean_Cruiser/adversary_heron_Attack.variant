@@ -1,37 +1,37 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 25,
-    "fluxVents": 7,
-    "hullId": "heron",
-    "hullMods": [
-        "expanded_deck_crew",
-        "missleracks",
-        "pointdefenseai",
-        "targetingunit"
-    ],
-    "permaMods": [
-        "expanded_deck_crew",
-        "missleracks"
-    ],
-    "sMods": [
-        "expanded_deck_crew",
-        "missleracks"
-    ],
-    "variantId": "adversary_heron_Attack",
-    "weaponGroups": [{
-        "autofire": true,
-        "mode": "LINKED",
-        "weapons": {
-            "WS 001": "lrpdlaser",
-            "WS 002": "lrpdlaser",
-            "WS 003": "lrpdlaser",
-            "WS 004": "lrpdlaser",
-            "WS 005": "harpoonpod"
-        }
-    }],
-    "wings": [
-        "gladius_wing",
-        "gladius_wing",
-        "gladius_wing"
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":25,
+	"fluxVents":7,
+	"hullId":"heron",
+	"hullMods":[
+		"expanded_deck_crew",
+		"missleracks",
+		"pointdefenseai",
+		"targetingunit"
+	],
+	"permaMods":[
+		"expanded_deck_crew",
+		"missleracks"
+	],
+	"sMods":[
+		"expanded_deck_crew",
+		"missleracks"
+	],
+	"variantId":"adversary_heron_Attack",
+	"weaponGroups":[{
+		"autofire":true,
+		"mode":"LINKED",
+		"weapons":{
+			"WS 001":"lrpdlaser",
+			"WS 002":"lrpdlaser",
+			"WS 003":"lrpdlaser",
+			"WS 004":"lrpdlaser",
+			"WS 005":"harpoonpod"
+		}
+	}],
+	"wings":[
+		"gladius_wing",
+		"gladius_wing",
+		"gladius_wing"
+	]
 }

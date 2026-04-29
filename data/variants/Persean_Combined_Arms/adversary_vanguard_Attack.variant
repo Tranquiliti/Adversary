@@ -1,66 +1,66 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "hullId": "vanguard",
-    "hullMods": [
-        "auxiliarythrusters",
-        "missleracks",
-        "reinforcedhull",
-        "damaged_mounts",
-        "erratic_injector",
-        "fragile_subsystems",
-        "armoredweapons",
-        "autorepair",
-        "heavyarmor",
-        "insulatedengine",
-        "fluxbreakers",
-        "unstable_injector"
-    ],
-    "permaMods": [
-        "auxiliarythrusters",
-        "missleracks",
-        "reinforcedhull",
-        "damaged_mounts",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "auxiliarythrusters",
-        "missleracks",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_vanguard_Attack",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "gorgon",
-                "WS 001": "gorgon",
-                "WS 002": "gorgon"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "mininglaser",
-                "WS 006": "mininglaser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "lightag"}
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":0,
+	"fluxVents":0,
+	"hullId":"vanguard",
+	"hullMods":[
+		"auxiliarythrusters",
+		"missleracks",
+		"reinforcedhull",
+		"damaged_mounts",
+		"erratic_injector",
+		"fragile_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"heavyarmor",
+		"insulatedengine",
+		"fluxbreakers",
+		"unstable_injector"
+	],
+	"permaMods":[
+		"auxiliarythrusters",
+		"missleracks",
+		"reinforcedhull",
+		"damaged_mounts",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"auxiliarythrusters",
+		"missleracks",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_vanguard_Attack",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"gorgon",
+				"WS 001":"gorgon",
+				"WS 002":"gorgon"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"lightneedler",
+				"WS 004":"lightneedler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"mininglaser",
+				"WS 006":"mininglaser"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 007":"lightag"}
+		}
+	]
 }

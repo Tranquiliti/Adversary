@@ -1,32 +1,32 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 10,
-    "fluxVents": 3,
-    "hullId": "afflictor",
-    "hullMods": [
-        "adaptive_coils",
-        "hardened_subsystems",
-        "armoredweapons",
-        "targetingunit",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "adaptive_coils",
-        "hardened_subsystems"
-    ],
-    "sMods": [
-        "adaptive_coils",
-        "hardened_subsystems"
-    ],
-    "variantId": "adversary_afflictor_Strike",
-    "weaponGroups": [{
-        "autofire": false,
-        "mode": "ALTERNATING",
-        "weapons": {
-            "WS 001": "lightneedler",
-            "WS 002": "lightneedler",
-            "WS 003": "lightneedler",
-            "WS 004": "lightneedler"
-        }
-    }]
+	"displayName":"Strike",
+	"fluxCapacitors":10,
+	"fluxVents":3,
+	"hullId":"afflictor",
+	"hullMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"armoredweapons",
+		"targetingunit",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"sMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"variantId":"adversary_afflictor_Strike",
+	"weaponGroups":[{
+		"autofire":false,
+		"mode":"ALTERNATING",
+		"weapons":{
+			"WS 001":"lightneedler",
+			"WS 002":"lightneedler",
+			"WS 003":"lightneedler",
+			"WS 004":"lightneedler"
+		}
+	}]
 }

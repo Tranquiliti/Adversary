@@ -1,72 +1,72 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 17,
-    "fluxVents": 50,
-    "hullId": "radiant",
-    "hullMods": [
-        "turretgyros",
-        "magazines",
-        "hardenedshieldemitter",
-        "advancedshieldemitter",
-        "autorepair",
-        "pointdefenseai",
-        "targetingunit",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "magazines",
-        "hardenedshieldemitter"
-    ],
-    "sMods": [
-        "turretgyros",
-        "magazines",
-        "hardenedshieldemitter"
-    ],
-    "variantId": "adversary_radiant_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "autopulse",
-                "WS 004": "autopulse"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "autopulse",
-                "WS 001": "autopulse"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "hil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "irautolance",
-                "WS 006": "irautolance",
-                "WS 007": "irautolance",
-                "WS 008": "irautolance"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "pdburst",
-                "WS 012": "pdburst",
-                "WS 013": "pdburst",
-                "WS 014": "pdburst",
-                "WS 015": "pdburst",
-                "WS 017": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":17,
+	"fluxVents":50,
+	"hullId":"radiant",
+	"hullMods":[
+		"turretgyros",
+		"magazines",
+		"hardenedshieldemitter",
+		"advancedshieldemitter",
+		"autorepair",
+		"pointdefenseai",
+		"targetingunit",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"turretgyros",
+		"magazines",
+		"hardenedshieldemitter"
+	],
+	"sMods":[
+		"turretgyros",
+		"magazines",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_radiant_Attack",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"autopulse",
+				"WS 004":"autopulse"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"autopulse",
+				"WS 001":"autopulse"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"hil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"irautolance",
+				"WS 006":"irautolance",
+				"WS 007":"irautolance",
+				"WS 008":"irautolance"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 010":"pdburst",
+				"WS 012":"pdburst",
+				"WS 013":"pdburst",
+				"WS 014":"pdburst",
+				"WS 015":"pdburst",
+				"WS 017":"pdburst"
+			}
+		}
+	]
 }

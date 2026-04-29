@@ -1,52 +1,52 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 16,
-    "fluxVents": 0,
-    "hullId": "shrike_pirates",
-    "hullMods": [
-        "converted_hangar",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "glitched_sensors",
-        "fragile_subsystems",
-        "hardenedshieldemitter"
-    ],
-    "permaMods": [
-        "converted_hangar",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "glitched_sensors",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "converted_hangar",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_shrike_pirates_Attack",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "phasecl"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "ionpulser"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "pdlaser",
-                "WS 001": "lightneedler",
-                "WS 002": "pdlaser"
-            }
-        }
-    ],
-    "wings": ["sarissa_wing"]
+	"displayName":"Attack",
+	"fluxCapacitors":16,
+	"fluxVents":0,
+	"hullId":"shrike_pirates",
+	"hullMods":[
+		"converted_hangar",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"fragile_subsystems",
+		"hardenedshieldemitter"
+	],
+	"permaMods":[
+		"converted_hangar",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"converted_hangar",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_shrike_pirates_Attack",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 005":"phasecl"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"ionpulser"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"pdlaser",
+				"WS 001":"lightneedler",
+				"WS 002":"pdlaser"
+			}
+		}
+	],
+	"wings":["sarissa_wing"]
 }

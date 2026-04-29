@@ -1,30 +1,30 @@
 {
-    "displayName": "Elite",
-    "fluxCapacitors": 10,
-    "fluxVents": 10,
-    "hullId": "module_large2_lowtech",
-    "hullMods": [],
-    "permaMods": [],
-    "variantId": "adversary_module_large2_lowtech_Elite",
-    "weaponGroups": [{
-        "autofire": true,
-        "mode": "LINKED",
-        "weapons": {
-            "WS 000": "shredder",
-            "WS 001": "harpoonpod",
-            "WS 002": "shredder",
-            "WS 003": "harpoonpod",
-            "WS 004": "shredder",
-            "WS 005": "lightdualmg",
-            "WS 007": "lightdualmg",
-            "WS 008": "harpoonpod",
-            "WS 009": "harpoonpod",
-            "WS 010": "lightdualmg",
-            "WS 012": "lightdualmg"
-        }
-    }],
-    "wings": [
-        "warthog_wing",
-        "warthog_wing"
-    ]
+	"displayName":"Elite",
+	"fluxCapacitors":10,
+	"fluxVents":10,
+	"hullId":"module_large2_lowtech",
+	"hullMods":[],
+	"permaMods":[],
+	"variantId":"adversary_module_large2_lowtech_Elite",
+	"weaponGroups":[{
+		"autofire":true,
+		"mode":"LINKED",
+		"weapons":{
+			"WS 000":"shredder",
+			"WS 001":"harpoonpod",
+			"WS 002":"shredder",
+			"WS 003":"harpoonpod",
+			"WS 004":"shredder",
+			"WS 005":"lightdualmg",
+			"WS 007":"lightdualmg",
+			"WS 008":"harpoonpod",
+			"WS 009":"harpoonpod",
+			"WS 010":"lightdualmg",
+			"WS 012":"lightdualmg"
+		}
+	}],
+	"wings":[
+		"warthog_wing",
+		"warthog_wing"
+	]
 }

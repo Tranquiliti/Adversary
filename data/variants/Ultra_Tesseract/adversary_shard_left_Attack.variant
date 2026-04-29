@@ -1,51 +1,51 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 10,
-    "fluxVents": 4,
-    "hullId": "shard_left",
-    "hullMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "frontemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors",
-        "extendedshieldemitter",
-    ],
-    "permaMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "frontemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors"
-    ],
-    "sMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "frontemitter"
-    ],
-    "sModdedBuiltIns": ["fluxbreakers"],
-    "variantId": "adversary_shard_left_Attack",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 000": "voidblaster"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "minipulser"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "minipulser"}
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":10,
+	"fluxVents":4,
+	"hullId":"shard_left",
+	"hullMods":[
+		"magazines",
+		"hardenedshieldemitter",
+		"frontemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors",
+		"extendedshieldemitter",
+	],
+	"permaMods":[
+		"magazines",
+		"hardenedshieldemitter",
+		"frontemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors"
+	],
+	"sMods":[
+		"magazines",
+		"hardenedshieldemitter",
+		"frontemitter"
+	],
+	"sModdedBuiltIns":["fluxbreakers"],
+	"variantId":"adversary_shard_left_Attack",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 000":"voidblaster"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"minipulser"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"minipulser"}
+		}
+	]
 }

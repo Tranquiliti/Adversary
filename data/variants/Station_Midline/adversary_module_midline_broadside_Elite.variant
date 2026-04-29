@@ -1,57 +1,57 @@
 {
-    "displayName": "Elite",
-    "fluxCapacitors": 10,
-    "fluxVents": 10,
-    "hullId": "module_midline_broadside",
-    "hullMods": [],
-    "permaMods": [],
-    "variantId": "adversary_module_midline_broadside_Elite",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "devastator",
-                "WS 001": "devastator",
-                "WS 002": "devastator",
-                "WS 004": "devastator",
-                "WS 006": "devastator",
-                "WS 007": "devastator",
-                "WS 008": "devastator"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "hephag",
-                "WS 005": "hephag"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "irautolance",
-                "WS 011": "irautolance",
-                "WS 012": "irautolance",
-                "WS 013": "irautolance",
-                "WS 014": "irautolance",
-                "WS 015": "irautolance"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 016": "lightneedler",
-                "WS 017": "lightneedler",
-                "WS 018": "lightneedler",
-                "WS 019": "lightneedler",
-                "WS 020": "lightneedler",
-                "WS 021": "lightneedler",
-                "WS 022": "lightneedler"
-            }
-        }
-    ]
+	"displayName":"Elite",
+	"fluxCapacitors":10,
+	"fluxVents":10,
+	"hullId":"module_midline_broadside",
+	"hullMods":[],
+	"permaMods":[],
+	"variantId":"adversary_module_midline_broadside_Elite",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"devastator",
+				"WS 001":"devastator",
+				"WS 002":"devastator",
+				"WS 004":"devastator",
+				"WS 006":"devastator",
+				"WS 007":"devastator",
+				"WS 008":"devastator"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 003":"hephag",
+				"WS 005":"hephag"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 010":"irautolance",
+				"WS 011":"irautolance",
+				"WS 012":"irautolance",
+				"WS 013":"irautolance",
+				"WS 014":"irautolance",
+				"WS 015":"irautolance"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 016":"lightneedler",
+				"WS 017":"lightneedler",
+				"WS 018":"lightneedler",
+				"WS 019":"lightneedler",
+				"WS 020":"lightneedler",
+				"WS 021":"lightneedler",
+				"WS 022":"lightneedler"
+			}
+		}
+	]
 }

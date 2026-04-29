@@ -1,47 +1,47 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "hullId": "vanguard_pirates",
-    "hullMods": [
-        "eccm",
-        "auxiliarythrusters",
-        "damaged_mounts",
-        "erratic_injector",
-        "faulty_grid",
-        "glitched_sensors",
-        "fragile_subsystems",
-        "armoredweapons",
-        "missleracks",
-        "reinforcedhull",
-        "safetyoverrides",
-        "unstable_injector"
-    ],
-    "permaMods": [
-        "eccm",
-        "auxiliarythrusters",
-        "damaged_mounts",
-        "erratic_injector",
-        "faulty_grid",
-        "glitched_sensors",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "eccm",
-        "auxiliarythrusters"
-    ],
-    "variantId": "adversary_vanguard_pirates_Overdriven",
-    "weaponGroups": [{
-        "autofire": true,
-        "mode": "LINKED",
-        "weapons": {
-            "WS 000": "gorgon",
-            "WS 001": "gorgon",
-            "WS 002": "gorgon",
-            "WS 003": "mininglaser",
-            "WS 004": "mininglaser",
-            "WS 005": "lightdualac",
-            "WS 006": "lightdualac"
-        }
-    }]
+	"displayName":"Overdriven",
+	"fluxCapacitors":0,
+	"fluxVents":0,
+	"hullId":"vanguard_pirates",
+	"hullMods":[
+		"eccm",
+		"auxiliarythrusters",
+		"damaged_mounts",
+		"erratic_injector",
+		"faulty_grid",
+		"glitched_sensors",
+		"fragile_subsystems",
+		"armoredweapons",
+		"missleracks",
+		"reinforcedhull",
+		"safetyoverrides",
+		"unstable_injector"
+	],
+	"permaMods":[
+		"eccm",
+		"auxiliarythrusters",
+		"damaged_mounts",
+		"erratic_injector",
+		"faulty_grid",
+		"glitched_sensors",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"eccm",
+		"auxiliarythrusters"
+	],
+	"variantId":"adversary_vanguard_pirates_Overdriven",
+	"weaponGroups":[{
+		"autofire":true,
+		"mode":"LINKED",
+		"weapons":{
+			"WS 000":"gorgon",
+			"WS 001":"gorgon",
+			"WS 002":"gorgon",
+			"WS 003":"mininglaser",
+			"WS 004":"mininglaser",
+			"WS 005":"lightdualac",
+			"WS 006":"lightdualac"
+		}
+	}]
 }

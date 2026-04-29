@@ -1,63 +1,63 @@
 {
-    "displayName": "Missile",
-    "fluxCapacitors": 3,
-    "fluxVents": 5,
-    "hullId": "venture_p",
-    "hullMods": [
-        "eccm",
-        "missleracks",
-        "missile_autoloader",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems",
-        "converted_hangar",
-        "targetingunit",
-        "militarized_subsystems"
-    ],
-    "permaMods": [
-        "eccm",
-        "missleracks",
-        "missile_autoloader",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "eccm",
-        "missleracks",
-        "missile_autoloader"
-    ],
-    "sModdedBuiltIns": ["surveying_equipment"],
-    "variantId": "adversary_venture_p_Missile",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 009": "hurricane"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "irautolance"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "hveldriver",
-                "WS 003": "hveldriver"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "harpoon",
-                "WS 007": "harpoon"
-            }
-        }
-    ],
-    "wings": ["broadsword_wing"]
+	"displayName":"Missile",
+	"fluxCapacitors":3,
+	"fluxVents":5,
+	"hullId":"venture_p",
+	"hullMods":[
+		"eccm",
+		"missleracks",
+		"missile_autoloader",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems",
+		"converted_hangar",
+		"targetingunit",
+		"militarized_subsystems"
+	],
+	"permaMods":[
+		"eccm",
+		"missleracks",
+		"missile_autoloader",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"eccm",
+		"missleracks",
+		"missile_autoloader"
+	],
+	"sModdedBuiltIns":["surveying_equipment"],
+	"variantId":"adversary_venture_p_Missile",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 009":"hurricane"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"irautolance"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"hveldriver",
+				"WS 003":"hveldriver"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"harpoon",
+				"WS 007":"harpoon"
+			}
+		}
+	],
+	"wings":["broadsword_wing"]
 }

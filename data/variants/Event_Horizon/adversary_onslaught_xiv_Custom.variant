@@ -1,83 +1,83 @@
 {
-    "displayName": "Custom",
-    "fluxCapacitors": 23,
-    "fluxVents": 50,
-    "hullId": "onslaught_xiv",
-    "hullMods": [
-        "turretgyros",
-        "fluxdistributor",
-        "heavyarmor",
-        "armoredweapons",
-        "ballistic_rangefinder",
-        "hardenedshieldemitter",
-        "targetingunit",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "turretgyros",
-        "fluxdistributor",
-        "heavyarmor"
-    ],
-    "sMods": [
-        "turretgyros",
-        "fluxdistributor",
-        "heavyarmor"
-    ],
-    "variantId": "adversary_onslaught_xiv_Custom",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 016": "tpc"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 017": "tpc"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 018": "neoferric_quadcoil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 019": "neoferric_quadcoil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 020": "neoferric_quadcoil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 021": "resonatormrm",
-                "WS 022": "resonatormrm",
-                "WS 023": "resonatormrm",
-                "WS 024": "resonatormrm"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lightneedler",
-                "WS 002": "lightneedler",
-                "WS 003": "lightneedler",
-                "WS 004": "lightneedler",
-                "WS 007": "dualflak",
-                "WS 008": "lightneedler",
-                "WS 009": "lightneedler",
-                "WS 010": "lightneedler",
-                "WS 011": "lightneedler",
-                "WS 012": "lightneedler",
-                "WS 013": "lightneedler",
-                "WS 014": "lightmg",
-                "WS 015": "lightmg"
-            }
-        }
-    ]
+	"displayName":"Custom",
+	"fluxCapacitors":23,
+	"fluxVents":50,
+	"hullId":"onslaught_xiv",
+	"hullMods":[
+		"turretgyros",
+		"fluxdistributor",
+		"heavyarmor",
+		"armoredweapons",
+		"ballistic_rangefinder",
+		"hardenedshieldemitter",
+		"targetingunit",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"turretgyros",
+		"fluxdistributor",
+		"heavyarmor"
+	],
+	"sMods":[
+		"turretgyros",
+		"fluxdistributor",
+		"heavyarmor"
+	],
+	"variantId":"adversary_onslaught_xiv_Custom",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 016":"tpc"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 017":"tpc"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 018":"neoferric_quadcoil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 019":"neoferric_quadcoil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 020":"neoferric_quadcoil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 021":"resonatormrm",
+				"WS 022":"resonatormrm",
+				"WS 023":"resonatormrm",
+				"WS 024":"resonatormrm"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"lightneedler",
+				"WS 002":"lightneedler",
+				"WS 003":"lightneedler",
+				"WS 004":"lightneedler",
+				"WS 007":"dualflak",
+				"WS 008":"lightneedler",
+				"WS 009":"lightneedler",
+				"WS 010":"lightneedler",
+				"WS 011":"lightneedler",
+				"WS 012":"lightneedler",
+				"WS 013":"lightneedler",
+				"WS 014":"lightmg",
+				"WS 015":"lightmg"
+			}
+		}
+	]
 }

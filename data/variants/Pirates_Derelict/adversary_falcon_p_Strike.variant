@@ -1,66 +1,66 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 18,
-    "fluxVents": 13,
-    "hullId": "falcon_p",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "glitched_sensors",
-        "fragile_subsystems",
-        "converted_hangar",
-        "missleracks"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "comp_armor",
-        "damaged_mounts",
-        "erratic_injector",
-        "glitched_sensors",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_falcon_p_Strike",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 007": "phasecl",
-                "WS 008": "phasecl"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "atropos",
-                "WS 002": "atropos"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 005": "sabotpod",
-                "WS 006": "sabotpod"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 009": "mininglaser",
-                "WS 010": "mininglaser"
-            }
-        }
-    ],
-    "wings": ["sarissa_wing"]
+	"displayName":"Strike",
+	"fluxCapacitors":18,
+	"fluxVents":13,
+	"hullId":"falcon_p",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"fragile_subsystems",
+		"converted_hangar",
+		"missleracks"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_falcon_p_Strike",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 007":"phasecl",
+				"WS 008":"phasecl"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 001":"atropos",
+				"WS 002":"atropos"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 005":"sabotpod",
+				"WS 006":"sabotpod"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 009":"mininglaser",
+				"WS 010":"mininglaser"
+			}
+		}
+	],
+	"wings":["sarissa_wing"]
 }

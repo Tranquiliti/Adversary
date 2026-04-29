@@ -1,63 +1,63 @@
 {
-    "displayName": "Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 7,
-    "hullId": "apogee",
-    "hullMods": [
-        "ecm",
-        "nav_relay",
-        "advancedoptics",
-        "hardenedshieldemitter",
-        "insulatedengine",
-        "targetingunit",
-        "stabilizedshieldemitter"
-    ],
-    "permaMods": [
-        "ecm",
-        "nav_relay"
-    ],
-    "sMods": [
-        "ecm",
-        "nav_relay"
-    ],
-    "sModdedBuiltIns": [
-        "hiressensors",
-        "surveying_equipment"
-    ],
-    "variantId": "adversary_apogee_Support",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 009": "locust"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 008": "hil"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 006": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "irautolance",
-                "WS 002": "irautolance"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 005": "swarmer"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 007": "taclaser"}
-        }
-    ]
+	"displayName":"Support",
+	"fluxCapacitors":0,
+	"fluxVents":7,
+	"hullId":"apogee",
+	"hullMods":[
+		"ecm",
+		"nav_relay",
+		"advancedoptics",
+		"hardenedshieldemitter",
+		"insulatedengine",
+		"targetingunit",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"ecm",
+		"nav_relay"
+	],
+	"sMods":[
+		"ecm",
+		"nav_relay"
+	],
+	"sModdedBuiltIns":[
+		"hiressensors",
+		"surveying_equipment"
+	],
+	"variantId":"adversary_apogee_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 009":"locust"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 008":"hil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 006":"gravitonbeam"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"irautolance",
+				"WS 002":"irautolance"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 005":"swarmer"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 007":"taclaser"}
+		}
+	]
 }

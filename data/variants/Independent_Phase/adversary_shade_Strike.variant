@@ -1,38 +1,38 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 10,
-    "fluxVents": 3,
-    "hullId": "shade",
-    "hullMods": [
-        "adaptive_coils",
-        "hardened_subsystems",
-        "armoredweapons",
-        "autorepair",
-        "pointdefenseai",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "adaptive_coils",
-        "hardened_subsystems"
-    ],
-    "sMods": [
-        "adaptive_coils",
-        "hardened_subsystems"
-    ],
-    "variantId": "adversary_shade_Strike",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "lightneedler",
-                "WS 002": "lightneedler"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 004": "amblaster"}
-        }
-    ]
+	"displayName":"Strike",
+	"fluxCapacitors":10,
+	"fluxVents":3,
+	"hullId":"shade",
+	"hullMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"pointdefenseai",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"sMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"variantId":"adversary_shade_Strike",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"lightneedler",
+				"WS 002":"lightneedler"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 004":"amblaster"}
+		}
+	]
 }

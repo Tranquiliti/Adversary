@@ -1,34 +1,34 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 10,
-    "fluxVents": 2,
-    "hullId": "lumen",
-    "hullMods": [
-        "eccm",
-        "missleracks",
-        "hardenedshieldemitter",
-        "fluxcoil",
-        "frontemitter"
-    ],
-    "permaMods": [
-        "eccm",
-        "missleracks",
-        "hardenedshieldemitter"
-    ],
-    "sMods": [
-        "eccm",
-        "missleracks",
-        "hardenedshieldemitter"
-    ],
-    "variantId": "adversary_lumen_Strike",
-    "weaponGroups": [{
-        "autofire": false,
-        "mode": "LINKED",
-        "weapons": {
-            "WS 006": "gorgon",
-            "WS 007": "gorgon",
-            "WS 008": "gorgon",
-            "WS 009": "gorgon"
-        }
-    }]
+	"displayName":"Strike",
+	"fluxCapacitors":10,
+	"fluxVents":2,
+	"hullId":"lumen",
+	"hullMods":[
+		"eccm",
+		"missleracks",
+		"hardenedshieldemitter",
+		"fluxcoil",
+		"frontemitter"
+	],
+	"permaMods":[
+		"eccm",
+		"missleracks",
+		"hardenedshieldemitter"
+	],
+	"sMods":[
+		"eccm",
+		"missleracks",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_lumen_Strike",
+	"weaponGroups":[{
+		"autofire":false,
+		"mode":"LINKED",
+		"weapons":{
+			"WS 006":"gorgon",
+			"WS 007":"gorgon",
+			"WS 008":"gorgon",
+			"WS 009":"gorgon"
+		}
+	}]
 }

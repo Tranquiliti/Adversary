@@ -1,54 +1,54 @@
 {
-    "displayName": "Attack",
-    "fluxCapacitors": 10,
-    "fluxVents": 0,
-    "hullId": "shard_right",
-    "hullMods": [
-        "armoredweapons",
-        "hardenedshieldemitter",
-        "frontemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors",
-        "extendedshieldemitter"
-    ],
-    "permaMods": [
-        "armoredweapons",
-        "hardenedshieldemitter",
-        "frontemitter",
-        "comp_armor",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "glitched_sensors"
-    ],
-    "sMods": [
-        "armoredweapons",
-        "hardenedshieldemitter",
-        "frontemitter"
-    ],
-    "sModdedBuiltIns": ["fluxbreakers"],
-    "variantId": "adversary_shard_right_Attack",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "riftlance"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "amsrm"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "light_mass_driver",
-                "WS 001": "light_mass_driver"
-            }
-        }
-    ]
+	"displayName":"Attack",
+	"fluxCapacitors":10,
+	"fluxVents":0,
+	"hullId":"shard_right",
+	"hullMods":[
+		"armoredweapons",
+		"hardenedshieldemitter",
+		"frontemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors",
+		"extendedshieldemitter"
+	],
+	"permaMods":[
+		"armoredweapons",
+		"hardenedshieldemitter",
+		"frontemitter",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"glitched_sensors"
+	],
+	"sMods":[
+		"armoredweapons",
+		"hardenedshieldemitter",
+		"frontemitter"
+	],
+	"sModdedBuiltIns":["fluxbreakers"],
+	"variantId":"adversary_shard_right_Attack",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"riftlance"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"amsrm"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"light_mass_driver",
+				"WS 001":"light_mass_driver"
+			}
+		}
+	]
 }

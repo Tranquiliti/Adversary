@@ -1,60 +1,60 @@
 {
-    "displayName": "Support",
-    "fluxCapacitors": 10,
-    "fluxVents": 0,
-    "hullId": "afflictor",
-    "hullMods": [
-        "adaptive_coils",
-        "hardened_subsystems",
-        "phase_anchor",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance",
-        "advancedoptics",
-        "eccm",
-        "missleracks",
-        "targetingunit",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "adaptive_coils",
-        "hardened_subsystems",
-        "phase_anchor",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "faulty_auto",
-        "increased_maintenance"
-    ],
-    "sMods": [
-        "adaptive_coils",
-        "hardened_subsystems",
-        "phase_anchor"
-    ],
-    "variantId": "adversary_afflictor_Support",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "taclaser",
-                "WS 003": "taclaser"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "gazer",
-                "WS 004": "gazer"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 006": "taclaser"}
-        }
-    ]
+	"displayName":"Support",
+	"fluxCapacitors":10,
+	"fluxVents":0,
+	"hullId":"afflictor",
+	"hullMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"phase_anchor",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance",
+		"advancedoptics",
+		"eccm",
+		"missleracks",
+		"targetingunit",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"phase_anchor",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"faulty_auto",
+		"increased_maintenance"
+	],
+	"sMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"phase_anchor"
+	],
+	"variantId":"adversary_afflictor_Support",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"taclaser",
+				"WS 003":"taclaser"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"gazer",
+				"WS 004":"gazer"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 006":"taclaser"}
+		}
+	]
 }

@@ -1,67 +1,67 @@
 {
-    "displayName": "Siege",
-    "fluxCapacitors": 9,
-    "fluxVents": 50,
-    "hullId": "invictus",
-    "hullMods": [
-        "auxiliarythrusters",
-        "reinforcedhull",
-        "damaged_mounts",
-        "erratic_injector",
-        "faulty_grid",
-        "glitched_sensors",
-        "fragile_subsystems",
-        "armoredweapons",
-        "autorepair",
-        "blast_doors",
-        "insulatedengine",
-        "fluxbreakers",
-        "solar_shielding"
-    ],
-    "permaMods": [
-        "auxiliarythrusters",
-        "reinforcedhull",
-        "damaged_mounts",
-        "erratic_injector",
-        "faulty_grid",
-        "glitched_sensors",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "auxiliarythrusters",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_invictus_Siege",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "locust",
-                "WS 007": "locust"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "hellbore"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "mark9",
-                "WS 009": "mark9",
-                "WS 010": "mark9"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 000": "devastator",
-                "WS 026": "devastator"
-            }
-        }
-    ]
+	"displayName":"Siege",
+	"fluxCapacitors":9,
+	"fluxVents":50,
+	"hullId":"invictus",
+	"hullMods":[
+		"auxiliarythrusters",
+		"reinforcedhull",
+		"damaged_mounts",
+		"erratic_injector",
+		"faulty_grid",
+		"glitched_sensors",
+		"fragile_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"blast_doors",
+		"insulatedengine",
+		"fluxbreakers",
+		"solar_shielding"
+	],
+	"permaMods":[
+		"auxiliarythrusters",
+		"reinforcedhull",
+		"damaged_mounts",
+		"erratic_injector",
+		"faulty_grid",
+		"glitched_sensors",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"auxiliarythrusters",
+		"reinforcedhull"
+	],
+	"variantId":"adversary_invictus_Siege",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"locust",
+				"WS 007":"locust"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"hellbore"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"mark9",
+				"WS 009":"mark9",
+				"WS 010":"mark9"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"devastator",
+				"WS 026":"devastator"
+			}
+		}
+	]
 }

@@ -1,40 +1,40 @@
 {
-    "displayName": "Assault",
-    "fluxCapacitors": 10,
-    "fluxVents": 10,
-    "hullId": "brawler_tritachyon",
-    "hullMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter",
-        "fluxcoil",
-        "fluxdistributor",
-        "targetingunit"
-    ],
-    "permaMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter"
-    ],
-    "sMods": [
-        "hardenedshieldemitter",
-        "stabilizedshieldemitter"
-    ],
-    "variantId": "adversary_brawler_tritachyon_Assault",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "ionpulser",
-                "WS 002": "ionpulser"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 003": "breach",
-                "WS 004": "breach"
-            }
-        }
-    ]
+	"displayName":"Assault",
+	"fluxCapacitors":10,
+	"fluxVents":10,
+	"hullId":"brawler_tritachyon",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"stabilizedshieldemitter",
+		"fluxcoil",
+		"fluxdistributor",
+		"targetingunit"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"stabilizedshieldemitter"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"stabilizedshieldemitter"
+	],
+	"variantId":"adversary_brawler_tritachyon_Assault",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 001":"ionpulser",
+				"WS 002":"ionpulser"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 003":"breach",
+				"WS 004":"breach"
+			}
+		}
+	]
 }

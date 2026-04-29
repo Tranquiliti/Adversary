@@ -1,61 +1,61 @@
 {
-    "displayName": "Close Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 20,
-    "hullId": "sunder_LG",
-    "hullMods": [
-        "advancedoptics",
-        "hardenedshieldemitter",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "increased_maintenance",
-        "targetingunit",
-        "reinforcedhull"
-    ],
-    "permaMods": [
-        "advancedoptics",
-        "hardenedshieldemitter",
-        "damaged_mounts",
-        "degraded_life_support",
-        "erratic_injector",
-        "increased_maintenance"
-    ],
-    "sMods": [
-        "advancedoptics",
-        "hardenedshieldemitter"
-    ],
-    "sModdedBuiltIns": ["solar_shielding"],
-    "variantId": "adversary_sunder_LG_Close_Support",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 003": "hil"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "heatseeker",
-                "WS 005": "heatseeker"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "gravitonbeam",
-                "WS 004": "gravitonbeam"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 006": "taclaser",
-                "WS 007": "taclaser"
-            }
-        }
-    ]
+	"displayName":"Close Support",
+	"fluxCapacitors":0,
+	"fluxVents":20,
+	"hullId":"sunder_LG",
+	"hullMods":[
+		"advancedoptics",
+		"hardenedshieldemitter",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"increased_maintenance",
+		"targetingunit",
+		"reinforcedhull"
+	],
+	"permaMods":[
+		"advancedoptics",
+		"hardenedshieldemitter",
+		"damaged_mounts",
+		"degraded_life_support",
+		"erratic_injector",
+		"increased_maintenance"
+	],
+	"sMods":[
+		"advancedoptics",
+		"hardenedshieldemitter"
+	],
+	"sModdedBuiltIns":["solar_shielding"],
+	"variantId":"adversary_sunder_LG_Close_Support",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"hil"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"heatseeker",
+				"WS 005":"heatseeker"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"gravitonbeam",
+				"WS 004":"gravitonbeam"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 006":"taclaser",
+				"WS 007":"taclaser"
+			}
+		}
+	]
 }
