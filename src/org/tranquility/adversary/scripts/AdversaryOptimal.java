@@ -12,6 +12,7 @@ import com.fs.starfarer.api.impl.campaign.procgen.ProcgenUsedNames;
 import com.fs.starfarer.api.impl.campaign.procgen.StarSystemGenerator;
 import com.fs.starfarer.api.impl.campaign.terrain.HyperspaceTerrainPlugin;
 import com.fs.starfarer.api.util.Misc;
+import com.fs.starfarer.campaign.econ.reach.CommodityMarketData;
 import lunalib.lunaSettings.LunaSettings;
 import org.lwjgl.util.vector.Vector2f;
 
@@ -169,20 +170,12 @@ public class AdversaryOptimal {
     }
 
     private void setLocation() {
-        // Find centroid point of The Core Worlds
+        // Starting centroid point is the market center of mass (usually in middle of Core Worlds)
+        Vector2f centroidPoint = CommodityMarketData.computeCenterOfMass(null, null);
+
         HashSet<Constellation> constellations = new HashSet<>();
-        float centroidX = 0;
-        float centroidY = 0;
-        int centroidCount = 0;
-        for (StarSystemAPI system : Global.getSector().getStarSystems()) {
-            if (system.hasTag(Tags.THEME_CORE)) {
-                centroidX += system.getLocation().getX();
-                centroidY += system.getLocation().getY();
-                centroidCount++;
-            }
+        for (StarSystemAPI system : Global.getSector().getStarSystems())
             if (system.isProcgen() && system.isInConstellation()) constellations.add(system.getConstellation());
-        }
-        Vector2f centroidPoint = centroidCount == 0 ? new Vector2f(0f, 0f) : new Vector2f(centroidX / centroidCount, centroidY / centroidCount);
 
         // Find constellation closest to The Core Worlds
         Constellation closestConstellation = null;
@@ -195,11 +188,16 @@ public class AdversaryOptimal {
             }
         }
 
+        // Fallback to Core World centroid point if no constellations exist
+        if (closestConstellation == null) {
+            system.getLocation().set(centroidPoint);
+            return;
+        }
+
         // Find centroid point of the closest constellation
-        centroidX = 0;
-        centroidY = 0;
-        centroidCount = 0;
-        assert closestConstellation != null;
+        float centroidX = 0;
+        float centroidY = 0;
+        int centroidCount = 0;
         for (StarSystemAPI system : closestConstellation.getSystems()) {
             centroidX += system.getLocation().getX();
             centroidY += system.getLocation().getY();

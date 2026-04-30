@@ -23,8 +23,7 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
         ListenerManagerAPI listMan = Global.getSector().getListenerManager();
 
         Integer doctrineDelay = LunaSettings.getInt(modId, SETTINGS_ADVERSARY_DYNAMIC_DOCTRINE_DELAY);
-        assert doctrineDelay != null;
-        if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE))) {
+        if (doctrineDelay != null && Boolean.TRUE.equals(LunaSettings.getBoolean(modId, SETTINGS_ENABLE_ADVERSARY_DYNAMIC_DOCTRINE))) {
             List<AdversaryDynamicDoctrine> changers = listMan.getListeners(AdversaryDynamicDoctrine.class);
             if (changers.isEmpty()) try {
                 listMan.addListener(new AdversaryDynamicDoctrine(FACTION_ADVERSARY, (byte) 0, doctrineDelay.byteValue(), Global.getSettings().getJSONArray(SETTINGS_ADVERSARY_POSSIBLE_DOCTRINES)));
@@ -35,8 +34,7 @@ public class AdversaryLunaSettingsListener implements LunaSettingsListener {
         } else listMan.removeListenerOfClass(AdversaryDynamicDoctrine.class); // Disable dynamic doctrine
 
         Integer stealDelay = LunaSettings.getInt(modId, SETTINGS_ADVERSARY_BLUEPRINT_STEALING_DELAY);
-        assert stealDelay != null;
-        if (Boolean.TRUE.equals(LunaSettings.getBoolean(modId, SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING))) {
+        if (stealDelay != null && Boolean.TRUE.equals(LunaSettings.getBoolean(modId, SETTINGS_ENABLE_ADVERSARY_BLUEPRINT_STEALING))) {
             List<AdversaryBlueprintStealer> steals = listMan.getListeners(AdversaryBlueprintStealer.class);
             if (steals.isEmpty()) try {
                 listMan.addListener(new AdversaryBlueprintStealer(FACTION_ADVERSARY, (byte) 0, stealDelay.byteValue(), Global.getSettings().getJSONArray(SETTINGS_ADVERSARY_STEALS_FROM_FACTIONS)));

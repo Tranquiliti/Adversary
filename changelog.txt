@@ -37,6 +37,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
 * Added Ship Mastery System support for the Adversary faction (will have same mastery difficulty as mercenaries)
 * Added "IndEvo_RuinsAlways" tag to Customizable Star Systems planets with Ind.Evo ruins to ensure they do not get removed
+* Optimal system placement now uses market center of mass to calculate the closest constellation (previously used Core World centroid point)
 
 
 
