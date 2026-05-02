@@ -1,11 +1,11 @@
 id,name,description,tooltip,script,image,spoilerLevel,rarity
 # Epic,,,,,,,
-adversary_Hegemony_Penal_Completed,Lethal Arrest,Defeated the Eviction Notice,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
-adversary_Persean_Combined_Arms_Completed,Destined Rivals,Defeated the Spirit of Destiny,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
-adversary_TriTachyon_Wolfpack_Plus_Completed,Wolfpack Slayer,Defeated the Greater Wolfpack,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
-adversary_LuddicPath_Missile_Completed,On-Point Defense,Defeated the Missiletoe Rocketeers,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
+adversary_Hegemony_Penal_Completed,Lethal Arrest,Defeated the Eviction Notice.,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
+adversary_Persean_Combined_Arms_Completed,Destined Rivals,Defeated the Spirit of Destiny.,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
+adversary_TriTachyon_Wolfpack_Plus_Completed,Wolfpack Slayer,Defeated the Greater Wolfpack.,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
+adversary_LuddicPath_Missile_Completed,On-Point Defense,Defeated the Missiletoe Rocketeers.,,org.magiclib.achievements.MagicAchievement,,VISIBLE,EPIC
 ,,,,,,,
 # Legendary,,,,,,,
-adversary_Ultra_Tesseract_Completed,Fractals All Around,Defeated the OMEGA 9001 with battle size at 400 and max ships in fleet at most 30,The Mandlebrot set marked the true gods of this world; an imitation could never bear such a mark.,org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY
-adversary_Ultra_Fabricator_Completed,Defragmented Programming,Defeated the Absolute Fabricator with battle size at 400 and max ships in fleet at most 30,"Has it considered a bow, tho?",org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY
-adversary_Ultra_Maw_Completed,Salvation Denied,Defeated Amaw the Shrouded One with battle size at 400 and max ships in fleet at most 30,"Wrong real-time strategy game, buddy.",org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY
+adversary_Ultra_Tesseract_Completed,Fractals All Around,"Defeated the OMEGA 9001 within vanilla restraints (battle size at 400, max ships in fleet at most 30, and max level at most 15).","""The Mandlebrot set marked the true gods of this universe; a mere imitation could never bear such a mark.""",org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY
+adversary_Ultra_Fabricator_Completed,Defragmented Programming,"Defeated the Absolute Fabricator within vanilla restraints (battle size at 400, max ships in fleet at most 30, and max level at most 15).","""Has it considered a bow, tho?""",org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY
+adversary_Ultra_Maw_Completed,Salvation Denied,"Defeated Amaw the Shrouded One within vanilla restraints (battle size at 400, max ships in fleet at most 30, and max level at most 15).","""Wrong real-time strategy game, buddy.""",org.magiclib.achievements.MagicAchievement,,HIDDEN,LEGENDARY

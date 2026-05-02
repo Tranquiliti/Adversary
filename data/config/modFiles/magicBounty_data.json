@@ -262,7 +262,7 @@
 		"trigger_player_minLevel":15,
 
 		"job_name":"A Troublesome Mercenary",
-		"job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well; therefore, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
+		"job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well. Thus, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
 		"job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
 		"job_intel_success":"A Tri-Tachyon representative has heard of your success with their \"little problem\". Soon thereafter, you receive the promised payout, delivered directly to your accounts.",
 		"job_forFaction":"tritachyon",
@@ -388,7 +388,7 @@
 		"trigger_player_minLevel":15,
 
 		"job_name":"An Infamous Bounty Hunter",
-		"job_description":"An Adversary bounty hunter has made a name for $himslefHerselfThemselves taking down several pirate warlords. Often called the \"Deranged Necromancer\" by the more superstitious pirates, $heIsSheIsTheyAre infamous for ==resurrecting defeated pirate ships into barely-recognizable skeletons==, sent to fight against their former owners.\nIn a miraculous display of unity, pirates across the Sector have banded together to call for the ==complete erasure== of their dreaded archenemy; it seems that they will consider whoever accomplishes this task to be a ==savior of the pirates== and an equal to even Warlord Kanta herself.",
+		"job_description":"An Adversary bounty hunter has made a name for $himslefHerselfThemselves taking down several pirate warlords. Often called the \"Deranged Necromancer\" by the more superstitious pirates, $heIsSheIsTheyAre infamous for ==resurrecting defeated pirate ships into barely-recognizable skeletons==, sent to fight against their former owners.\nIn a miraculous display of unity, pirates across the Sector have banded together to call for the ==complete erasure== of their dreaded archenemy. It appears that they will consider whoever accomplishes this task to be a ==savior of the pirates== and an equal to even Warlord Kanta herself.",
 		"job_comm_reply":"\"Ah, your ships will make a fine addition to my collection!\"",
 		"job_intel_success":"News of the fleet's destruction has reached the ears of the underworld. Soon, even the most distrustful pirate captains begin to welcome and respect you as a fellow pirate warlord.",
 		"job_forFaction":"pirates",
@@ -524,7 +524,7 @@
 		},
 
 		"job_name":"Under Penalty of Death",
-		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, with most of the escaped prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships and weapons from a nearby Hegemony armory, left the atmosphere with their looted arsenal, and then hunted down several Luddic Church trading fleets before leaving the Core Worlds altogether.\nMost worryingly, it appears that \"The Throwaways\" have been receiving material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it. And so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==.\nShould you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered ships and technology== from the gang's cargo holds.",
+		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, with most of the escaped prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships, weapons, and blueprints from a nearby Hegemony armory, left the atmosphere with their acquired arsenal, and then hunted down several Luddic Church trading fleets before leaving the Core Worlds altogether.\nMost worryingly, it appears that \"The Throwaways\" have been receiving material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it. And so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==.\nShould you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered goods== from the gang's cargo holds (in addition to the bounty payout, of course).",
 		"job_comm_reply":"\"I've got nothin' to say to you, mate,\" remarks $name. \"Boys and girls, lets rip this one open like a Tachyon Lance!\"",
 		"job_intel_success":"With the debris settled, you alone remain afloat atop the burning wreckage of the thown-away ships. Salvage operations have discovered a valuable set of blueprints for the Hegemony's coveted Fourteenth Battlegroup designs - a highly-auspicious find, especially given how tightly-secured such blueprints are in Hegemony industrial worlds.",
 		"job_credit_reward":2000000,
@@ -665,7 +665,7 @@
 		"job_comm_reply":"\"I HATE YOU, YOU DEGENERATE SPACER TRASH! YOU'LL PAY FOR KILLING MY PARENT! DIE! DIE! DIE!\"",
 		"job_intel_success":"A Tri-Tachyon representative has heard of your success \"eliminating\" the mercenary's $sonDaughterChild. Soon thereafter, you receive the promised payout (again), delivered directly to your accounts.",
 		"job_forFaction":"tritachyon",
-		"job_credit_reward":2750000,
+		"job_credit_reward":2700000,
 		"job_reputation_reward":10,
 		"job_type":"assassination",
 		"job_show_fleet":"vanilla",
@@ -883,7 +883,7 @@
 			"ship_bp fulgent":1
 		},
 		"job_type":"assassination",
-		"job_show_captain":false,
+		"job_show_captain":true,
 		"job_show_fleet":"vanilla",
 		"job_show_distance":"exact",
 		"job_difficultyDescription":"auto",
@@ -1141,7 +1141,7 @@
 		"job_credit_reward":3000000,
 		"job_reputation_reward":100,
 		"job_type":"destruction",
-		"job_show_captain":false,
+		"job_show_captain":true,
 		"job_show_fleet":"flagship",
 		"job_show_distance":"exact",
 		"job_difficultyDescription":"auto",
@@ -1417,7 +1417,7 @@
 			"ship_bp radiant":1
 		},
 		"job_type":"obliteration",
-		"job_show_captain":false,
+		"job_show_captain":true,
 		"job_show_fleet":"flagship",
 		"job_show_distance":"exact",
 		"job_difficultyDescription":"auto",
@@ -1796,6 +1796,10 @@
 		"job_credit_reward":0,
 		"job_reputation_reward":0,
 		"job_item_reward":{
+			"weapon_bp voidblaster":1,
+			"weapon_bp heavy_mass_driver":1,
+			"weapon_bp light_mass_driver":1,
+			"weapon_bp neutron_torpedo":1,
 			"pristine_nanoforge":4,
 			"planetkiller":1,
 			"fragment_fabricator":30,
