@@ -6,7 +6,6 @@
 # "enableAdversarySillyBounties", "enableAdversarySCSupport", and
 # "enableAdversarySDF".
 # Instead, use LunaLib's in-game UI configs to modify these settings.
-
 {
 	# Toggles whether the default Optimal system will spawn when
 	# starting a new game or loading an existing game that does

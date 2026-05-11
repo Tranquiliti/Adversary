@@ -23,7 +23,7 @@
 		"damaged_mounts",
 		"erratic_injector",
 		"glitched_sensors",
-		"comp_structure",
+		"comp_structure"
 	],
 	"sMods":[
 		"hardenedshieldemitter",

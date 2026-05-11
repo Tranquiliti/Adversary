@@ -1,5 +1,5 @@
 {
-	"adversary":{ # More damage, more speed...
+	"adversary":{
 		"goodTraitFrequency":{
 			"peak_cr_time":0,
 			"repair":0,
@@ -36,7 +36,7 @@
 			"pd_range":0,
 			"pd_damage":5
 		},
-		"badTraitFrequency":{ # ...but less staying power, less defenses
+		"badTraitFrequency":{
 			"peak_cr_time":5,
 			"repair":5,
 			"malfunction":0,

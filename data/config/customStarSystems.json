@@ -1,7 +1,6 @@
 # Contains Adversary-related custom star systems
 # Toggle "isEnabled" to enable/disable individual star systems when making a new game
 # Consult Customizable Star System's "referenceStarSystem.json" if making significant changes
-
 {
 	"adversary_optimal":{
 		"isEnabled":false, # Set this to true to enable

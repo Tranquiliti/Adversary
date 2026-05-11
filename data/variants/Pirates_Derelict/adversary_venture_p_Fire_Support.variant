@@ -33,7 +33,11 @@
 		{
 			"autofire":false,
 			"mode":"LINKED",
-			"weapons":{"WS 009":"squall"}
+			"weapons":{
+				"WS 004":"harpoon",
+				"WS 007":"harpoon",
+				"WS 009":"squall"
+			}
 		},
 		{
 			"autofire":true,
@@ -49,14 +53,6 @@
 			"weapons":{
 				"WS 001":"lightac",
 				"WS 003":"lightac"
-			}
-		},
-		{
-			"autofire":false,
-			"mode":"LINKED",
-			"weapons":{
-				"WS 004":"harpoon",
-				"WS 007":"harpoon"
 			}
 		}
 	],

@@ -108,6 +108,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.CREW_TRAINING, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) {
+                        member.setVariant(member.getVariant().clone(), false, false);
                         member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                         member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
                         continue; // Don't replace the bounty target
@@ -175,6 +176,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
             }
             case "adversary_Ziggurat_Plus": {
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    member.setVariant(member.getVariant().clone(), false, false);
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);
@@ -188,6 +190,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
             case "adversary_Station_Low_Tech", "adversary_Station_Midline", "adversary_Station_High_Tech",
                  "adversary_Station_Remnant": {
                 CampaignFleetAPI fleet = bounty.getFleet();
+                fleet.getFlagship().setVariant(fleet.getFlagship().getVariant().clone(), false, false);
                 fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
                 fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
@@ -200,8 +203,9 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 fleet.getAbility(Abilities.TRANSPONDER).activate();
                 fleet.getDetectedRangeMod().modifyFlat("gen", 1000f);
 
-                // fleet.setAI(null); MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
+                // MagicLib doesn't have null check for getAI() in its ActiveBounty despawn() script
                 // So, for now, the station fleet will slowly crawl around in the campaign map
+                // fleet.setAI(null);
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
@@ -216,6 +220,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
                 bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
+                    member.setVariant(member.getVariant().clone(), false, false);
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
                     member.setCaptain(null);

@@ -35,7 +35,11 @@
 		{
 			"autofire":false,
 			"mode":"LINKED",
-			"weapons":{"WS 009":"hurricane"}
+			"weapons":{
+				"WS 004":"harpoon",
+				"WS 007":"harpoon",
+				"WS 009":"hurricane"
+			}
 		},
 		{
 			"autofire":true,
@@ -48,14 +52,6 @@
 			"weapons":{
 				"WS 001":"hveldriver",
 				"WS 003":"hveldriver"
-			}
-		},
-		{
-			"autofire":false,
-			"mode":"LINKED",
-			"weapons":{
-				"WS 004":"harpoon",
-				"WS 007":"harpoon"
 			}
 		}
 	],

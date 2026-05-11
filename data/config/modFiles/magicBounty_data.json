@@ -26,7 +26,7 @@
 			"combat_endurance":2,
 			"impact_mitigation":2,
 			"damage_control":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"crew_training":1,
@@ -34,7 +34,7 @@
 			"officer_management":1,
 			"best_of_the_best":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
@@ -93,13 +93,13 @@
 			"damage_control":2,
 			"target_analysis":2,
 			"ballistic_mastery":2,
-			#
+
 			"tactical_drills":1,
 			"crew_training":1,
 			"carrier_group":1,
 			"fighter_uplink":1,
 			"support_doctrine":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -156,13 +156,13 @@
 			"target_analysis":2,
 			"ballistic_mastery":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"crew_training":1,
 			"carrier_group":1,
 			"officer_management":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
@@ -221,13 +221,13 @@
 			"crew_training":1,
 			"officer_management":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -285,13 +285,13 @@
 			"field_modulation":2,
 			"target_analysis":2,
 			"systems_expertise":2,
-			#
+
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"officer_management":1,
 			"support_doctrine":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
@@ -348,13 +348,13 @@
 			"crew_training":1,
 			"officer_training":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"sensors":1,
 			"flux_regulation":1,
 			"phase_corps":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"bulk_transport":1,
 			"field_repairs":1,
 			"ordnance_expert":2,
@@ -411,13 +411,13 @@
 			"crew_training":1,
 			"carrier_group":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -479,13 +479,13 @@
 			"impact_mitigation":2,
 			"point_defense":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"crew_training":1,
 			"carrier_group":1,
 			"support_doctrine":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
@@ -551,13 +551,13 @@
 			"carrier_group":1,
 			"fighter_uplink":1,
 			"best_of_the_best":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -616,13 +616,13 @@
 			"carrier_group":1,
 			"fighter_uplink":1,
 			"best_of_the_best":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"phase_corps":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -685,13 +685,13 @@
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -733,9 +733,9 @@
 		"job_credit_reward":1250000,
 		"job_reputation_reward":30,
 		"job_item_reward":{
-			"amsrm":6,
-			"resonatormrm":4,
-			"rifttorpedo":2
+			"amsrm":3,
+			"resonatormrm":2,
+			"rifttorpedo":1
 		},
 		"job_type":"neutralization",
 		"job_show_fleet":"vanilla",
@@ -755,13 +755,13 @@
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"navigation":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -829,19 +829,19 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -911,25 +911,25 @@
 			"field_modulation":2,
 			"target_analysis":2,
 			"systems_expertise":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"carrier_group":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
 			"containment_procedures":1,
 			"hull_restoration":1,
-			#
+
 			"omega_ecm":2
 		},
 
@@ -987,7 +987,8 @@
 		"job_difficultyDescription":"none",
 		"job_pick_script":"AdversaryEventHorizonPicked",
 
-		"target_first_name":"Gabriella", # A reference to Ship/Weapon Pack (by Dark.Revenant) and its IBB bounty boss
+		# "A reference to Ship/Weapon Pack (by Dark.Revenant) and its IBB bounty boss"
+		"target_first_name":"Gabriella",
 		"target_last_name":"Mosolov",
 		"target_portrait":"graphics/portraits/portrait_hegemony04.png",
 		"target_gender":"FEMALE",
@@ -1006,7 +1007,7 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
@@ -1014,7 +1015,7 @@
 			"carrier_group":1,
 			"fighter_uplink":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
@@ -1022,7 +1023,7 @@
 			"flux_regulation":1,
 			"phase_corps":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1054,7 +1055,7 @@
 		"fleet_no_retreat":true,
 		"fleet_behavior":"GUARDED",
 
-		# A script relocates this bounty fleet to a nearby black-hole system
+		# "A script relocates this bounty fleet to a nearby black-hole system"
 		"location_themes_blacklist":["theme_already_colonized","theme_hidden"],
 		"location_entities":["jump_point"]
 	},
@@ -1103,13 +1104,13 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
@@ -1117,7 +1118,7 @@
 			"flux_regulation":1,
 			"phase_corps":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1184,13 +1185,13 @@
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"navigation":1,
 			"sensors":1,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"bulk_transport":1,
 			"field_repairs":1,
 			"ordnance_expert":2,
@@ -1250,13 +1251,13 @@
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1317,10 +1318,10 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
-			#
+
 			"ordnance_expert":2,
 			"polarized_armor":2
 		},
@@ -1385,10 +1386,10 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
-			#
+
 			"ordnance_expert":2,
 			"polarized_armor":2
 		},
@@ -1446,10 +1447,10 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
-			#
+
 			"ordnance_expert":2,
 			"polarized_armor":2
 		},
@@ -1514,10 +1515,10 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
-			#
+
 			"ordnance_expert":2,
 			"polarized_armor":2
 		},
@@ -1573,19 +1574,19 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1648,7 +1649,7 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
@@ -1657,13 +1658,13 @@
 			"fighter_uplink":1,
 			"best_of_the_best":1,
 			"support_doctrine":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1694,7 +1695,8 @@
 		"trigger_player_minLevel":15,
 		"trigger_memKeys_all":{
 			"$adversary_sillyBountiesEnabled":true,
-			"$foundOneslaught":true # The Dweller-related MemKeys are unfortunately set in player memory, not global
+			# "The Dweller-related MemKeys are unfortunately set in player memory, not global"
+			"$foundOneslaught":true
 		},
 
 		"job_name":"Shroud in the Machine",
@@ -1729,18 +1731,18 @@
 			"target_analysis":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"sensors":1,
 			"gunnery_implants":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1814,19 +1816,19 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1903,19 +1905,19 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
@@ -1993,19 +1995,19 @@
 			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
-			#
+
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
 			"best_of_the_best":1,
-			#
+
 			"gunnery_implants":2,
 			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
-			#
+
 			"field_repairs":1,
 			"ordnance_expert":2,
 			"polarized_armor":2,
