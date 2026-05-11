@@ -552,7 +552,7 @@
 	},
 	"adversary_Swarm_Kite":{ # Kites with integrated "Gamma cores"
 		"kite_hegemony":{
-			"officer_personality":"steady",
+			"officer_personality":"aggressive",
 			"officer_faction":"hegemony",
 			"officer_level":4,
 			"officer_skills":{
@@ -565,7 +565,7 @@
 	},
 	"adversary_Swarm_Omen":{ # Exceptional officers
 		"omen":{
-			"officer_personality":"aggressive",
+			"officer_personality":"reckless",
 			"officer_faction":"mercenary",
 			"officer_level":7,
 			"officer_skills":{

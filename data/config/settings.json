@@ -31,12 +31,12 @@
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
-	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards.
+	# Allows the most broken, ridiculous MagicBounties to spawn in in-game bounty boards.
 	# Disabling this option will prevent those bounties from appearing.
 	# Requires MagicLib to work; does nothing otherwise.
 	"enableAdversarySillyBounties":true,
 
-	# Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers.
+	# Forces Adversary MagicBounties to spawn with pre-configured Second-in-Command executive officers.
 	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 

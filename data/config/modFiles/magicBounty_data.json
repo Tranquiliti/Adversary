@@ -1224,7 +1224,7 @@
 		},
 
 		"job_name":"Power Overwhelming",
-		"job_description":"A Hegemony officer has posted a bounty against an independent admiral who, for whatever reason, became stranded in the fringes with an ==technologically-terrifying fleet==. Why a Hegemony officer wants to get rid of a lost independent fleet is still unknown, but whoever posted the bounty has warned would-be bounty hunters to ==be overwhelmingly cautious== for whatever awaits them.",
+		"job_description":"A Hegemony officer has posted a bounty against an independent admiral who, for whatever reason, became stranded in the fringes with a ==technologically-terrifying fleet==. Why a Hegemony officer wants to get rid of a lost independent fleet is still unknown, but whoever posted the bounty has warned would-be bounty hunters to ==be overwhelmingly cautious== for whatever awaits them.",
 		"job_comm_reply":"\"Brace yourselves, independent operator! You are about to witness... UNLIMITED POWER!\"",
 		"job_intel_success":"Ok, that was an awe-inspiring sight, no doubt about it. At least you got even more credits - and a blueprint - out of this display of power.",
 		"job_forFaction":"hegemony",
@@ -1242,7 +1242,7 @@
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
-		"target_personality":"aggressive",
+		"target_personality":"reckless",
 		"target_level":3,
 		"target_skills":{
 			"tactical_drills":1,
