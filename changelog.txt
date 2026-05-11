@@ -10,14 +10,16 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Now requires completing the Tri-Tachyon/Independent bounty pair (previously only needed the Tri-Tachyon bounty)
   - Added Afflictor (P) ships to the bounty fleet
   - Increased credit reward
+* Added one Silly MagicBounty, available after completing "Overwhelming Power"
 * Added three super-ultra-difficult Silly MagicBounties, each requiring their respective ultra-difficult MagicBounty to be defeated first
-  - Failure is almost always guaranteed...
+  - Failure is almost always expected...
 * Added 7 new MagicAchievements (4 visible, 3 hidden)
 * Changes to "Omega Alpha Strike" Silly MagicBounty:
   - Revamped Remnant ship variants to no longer use Omega weapons
   - Tesseract variant now uses Omega weapons (from using ballistic PD loadout)
   - No longer requires accepting the vanilla Remnant+ bounty to be made available
-  - Now awards the Fulgent blueprint upon completion
+  - Now requires defeating any of the starting Silly MagicBounties (those that only require level 15 or above) before being made available
+  - Now awards the Scintilla blueprint upon completion
 * Changes to Ziggurat Silly MagicBounty:
   - Changed the bounty name (previously was "The Alpha and the Omega")
   - No longer requires accepting the vanilla Remnant+ bounty to be made available
@@ -29,6 +31,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Adjusted ship compositions for non-Silly bounties to account for officer number changes
   - Adjusted bounty faction spawn requirements, with most bounties now showing up in the bounty board if near a player market
   - Adjusted bounty rewards
+  - "Overwhelming Power" now awards the Lumen blueprint upon completion
   - Modified Second-in-Command XO skills to account for v2.0.0 changes
   - All bounty variants now have s-modded built-ins (e.g., LG variants having s-modded Solar Shielding)
   - All support ships in station bounties now have officers commanding them

@@ -428,11 +428,13 @@
 			"officer_faction":"remnant",
 			"officer_level":8,
 			"officer_skills":{
+				"impact_mitigation":0,
 				"damage_control":0,
 				"systems_expertise":2,
 				"missile_specialization":2,
 				"gunnery_implants":0,
-				"energy_weapon_mastery":2
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2
 			}
 		},
 		"apex":{
@@ -502,19 +504,6 @@
 			}
 		}
 	},
-	"adversary_Kite_Swarm":{ # Kites with Gamma "cores"
-		"kite_hegemony":{
-			"officer_personality":"steady",
-			"officer_faction":"hegemony",
-			"officer_level":4,
-			"officer_skills":{
-				"combat_endurance":2,
-				"point_defense":2,
-				"target_analysis":2,
-				"missile_specialization":2
-			}
-		}
-	},
 	"adversary_Event_Horizon":{ # High-level officers on *all* ships (too many to enumerate here)
 	},
 	"adversary_Ziggurat_Plus":{ # Sleeper officers
@@ -558,6 +547,35 @@
 				"gunnery_implants":1,
 				"energy_weapon_mastery":2,
 				"ordnance_expert":2
+			}
+		}
+	},
+	"adversary_Swarm_Kite":{ # Kites with integrated "Gamma cores"
+		"kite_hegemony":{
+			"officer_personality":"steady",
+			"officer_faction":"hegemony",
+			"officer_level":4,
+			"officer_skills":{
+				"combat_endurance":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_Swarm_Omen":{ # Exceptional officers
+		"omen":{
+			"officer_personality":"aggressive",
+			"officer_faction":"mercenary",
+			"officer_level":7,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"systems_expertise":2,
+				"missile_specialization":1
 			}
 		}
 	},

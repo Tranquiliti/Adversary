@@ -60,7 +60,8 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
         switch (bountyId) {
             case "adversary_TriTachyon_Wolfpack", "adversary_Pirates_Derelict", "adversary_Persean_Cruiser",
                  "adversary_LuddicChurch_Carrier", "adversary_LuddicPath_Heretics", "adversary_Hegemony_Penal",
-                 "adversary_Persean_Combined_Arms", "adversary_LuddicPath_Missile": {
+                 "adversary_Persean_Combined_Arms", "adversary_LuddicPath_Missile", "adversary_Swarm_Kite",
+                 "adversary_Swarm_Omen": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
@@ -80,7 +81,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_Hegemony_Armored", "adversary_Kite_Swarm": {
+            case "adversary_Hegemony_Armored": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target

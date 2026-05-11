@@ -1,24 +1,23 @@
 {
 	"displayName":"Assault",
-	"fluxCapacitors":33,
+	"fluxCapacitors":48,
 	"fluxVents":50,
 	"hullId":"nova",
 	"hullMods":[
 		"turretgyros",
-		"missleracks",
+		"magazines",
 		"extendedshieldemitter",
-		"autorepair",
 		"hardenedshieldemitter",
 		"targetingunit"
 	],
 	"permaMods":[
 		"turretgyros",
-		"missleracks",
+		"magazines",
 		"extendedshieldemitter"
 	],
 	"sMods":[
 		"turretgyros",
-		"missleracks",
+		"magazines",
 		"extendedshieldemitter"
 	],
 	"variantId":"adversary_nova_Assault",
@@ -27,8 +26,8 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 000":"hil",
-				"WS 001":"hil"
+				"WS 000":"autopulse",
+				"WS 001":"autopulse"
 			}
 		},
 		{
@@ -42,13 +41,19 @@
 			}
 		},
 		{
-			"autofire":false,
+			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 002":"kineticblaster",
-				"WS 003":"kineticblaster",
-				"WS 004":"kineticblaster",
-				"WS 005":"kineticblaster"
+				"WS 002":"irautolance",
+				"WS 003":"irautolance"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"ionpulser",
+				"WS 005":"ionpulser"
 			}
 		},
 		{
@@ -56,9 +61,15 @@
 			"mode":"LINKED",
 			"weapons":{
 				"WS 010":"mininglaser",
-				"WS 011":"mininglaser",
-				"WS 012":"mininglaser",
 				"WS 013":"mininglaser"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 011":"pdburst",
+				"WS 012":"pdburst"
 			}
 		}
 	]

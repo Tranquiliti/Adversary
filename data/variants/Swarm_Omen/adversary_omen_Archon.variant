@@ -1,0 +1,55 @@
+{
+	"displayName":"Archon",
+	"fluxCapacitors":10,
+	"fluxVents":7,
+	"hullId":"omen",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader",
+		"shrouded_lens",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"comp_structure",
+		"fluxcoil",
+		"pointdefenseai"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader",
+		"shrouded_lens",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"glitched_sensors",
+		"comp_structure",
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"missile_autoloader",
+		"shrouded_lens"
+	],
+	"sModdedBuiltIns":[
+		"eccm",
+		"hiressensors"
+	],
+	"variantId":"adversary_omen_Archon",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"neutron_torpedo"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"inimical_emanation"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 002":"voltaic_cannon"}
+		}
+	]
+}
