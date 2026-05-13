@@ -14,7 +14,8 @@
 		"increased_maintenance",
 		"fragment_swarm",
 		"fragment_coordinator",
-		"frontshield"
+		"frontshield",
+		"militarized_subsystems"
 	],
 	"permaMods":[
 		"converted_hangar",
@@ -36,21 +37,21 @@
 		{
 			"autofire":false,
 			"mode":"LINKED",
-			"weapons":{
-				"WS 005":"harpoon",
-				"WS 006":"harpoon"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{"WS 004":"unstable_fragment"}
+			"weapons":{"WS 008":"swarm_launcher"}
 		},
 		{
 			"autofire":false,
 			"mode":"LINKED",
-			"weapons":{"WS 008":"swarm_launcher"}
+			"weapons":{"WS 004":"harpoon_single"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"breach",
+				"WS 006":"breach"
+			}
 		}
 	],
-	"wings":["flash_wing"]
+	"wings":["gladius_wing"]
 }

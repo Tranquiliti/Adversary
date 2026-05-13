@@ -96,8 +96,8 @@
 
 			"tactical_drills":1,
 			"crew_training":1,
-			"carrier_group":1,
 			"fighter_uplink":1,
+			"carrier_group":1,
 			"support_doctrine":1,
 
 			"field_repairs":1,
@@ -198,7 +198,7 @@
 		"trigger_player_minLevel":15,
 
 		"job_name":"Rooting Out Treason",
-		"job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander had stolen most of the Guard's support ships and fled under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems ==awfully misleading==, and suggests that you reconsider taking on the bounty.",
+		"job_description":"A high-ranking official from the elite Lion's Guard has placed a bounty on a \"treasonous\" commander accused of ==intentionally \"destroying\" Lion's Guard ships and equipment== and, supposedly, \"offending Andrada's sensibilities\". To avoid the obvious penalty of execution, the criminal commander stole most of the Guard's support ships, fleeing under the protection of the Adversary flag.\nThe anonymous official promises ==incomprehensible wealth and influence== for whoever wipes the target off the face of the Sector. However, one of your senior officers believes such a massive payout seems ==awfully misleading==, and suggests that you reconsider taking on the bounty.",
 		"job_comm_reply":"\"A hyena has come for my head? Know this, captain; your Lion beastmaster did not tell you everything. I suggest you scurry away right now, before their adopted cubs come to prey on your gullible mind.\"",
 		"job_intel_success":"You have taken out the treasonous criminal, and, when your TriPad chimes with a notification alert, you find the promised credit reward deposited to your accounts. However, this notification also comes with a rather shocking revelation; a significant part of the Sindrian military, unaware of the deceased commander's crimes and desertion, have noticed your apparent \"affront\" to the Supreme Executor and, thus, have disavowed your seemingly \"irrational\" actions.",
 		"job_forFaction":"sindrian_diktat",
@@ -548,8 +548,8 @@
 		"target_skills":{
 			"coordinated_maneuvers":1,
 			"crew_training":1,
-			"carrier_group":1,
 			"fighter_uplink":1,
+			"carrier_group":1,
 			"best_of_the_best":1,
 
 			"navigation":1,
@@ -592,7 +592,7 @@
 		},
 
 		"job_name":"Certainty of Victory",
-		"job_description":"Despite your past win against the Adversary's esteemed fleet commander, your contacts have reported that the Adversary has replaced the now-disgraced commander with another, similarly-experienced admiral to helm the faction's newest grand fleet. The latest intel suggests this fleet ==specializes in combined-arms tactics== to counter and crush any foe it observes.\nWhat's more, your contacts also suggest certain League archons - the same archons you've upset from your previous involvement - appear genuinely worried about this reborn threat and, consequently, have posted a real bounty this time. If you rise up to meet the challenge once more, the League may finally ==respect your strength and tenacity== as a fleet captain, with a reward to match.",
+		"job_description":"Despite your past win against the Adversary's esteemed fleet commander, your contacts have reported that the Adversary has replaced the now-disgraced commander with another, similarly-experienced admiral to helm the faction's newest grand fleet. The latest intel suggests this fleet ==specializes in combined-arms tactics== to counter and crush any foe it observes.\nWhat's more, your contacts point out that certain League archons - the same archons you've upset from your previous involvement - appear genuinely worried about this reborn threat and, consequently, have posted a real bounty this time. If you rise up to meet the challenge once more, the League may finally ==respect your strength and tenacity== as a fleet captain, with a reward to match.",
 		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like a Reaper through your skull.\"",
 		"job_intel_success":"At last, the Spirit of Destiny joins its spearheaded cousin in the vacuum of space. Your accomplishment in besting the Adversary's best twice will not go unnoticed by the League, for the archons have willingly parted ways with their credits this time. Perhaps even the gens will take note too and treat you more favorably in future dealings; whether this favor is born out of fear or of respect, you know the result is all the same.",
 		"job_forFaction":"persean",
@@ -613,8 +613,8 @@
 		"target_skills":{
 			"tactical_drills":1,
 			"crew_training":1,
-			"carrier_group":1,
 			"fighter_uplink":1,
+			"carrier_group":1,
 			"best_of_the_best":1,
 
 			"navigation":1,
@@ -1012,8 +1012,8 @@
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
-			"carrier_group":1,
 			"fighter_uplink":1,
+			"carrier_group":1,
 			"best_of_the_best":1,
 
 			"sensors":1,
@@ -1562,7 +1562,7 @@
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
 		"target_personality":"cautious",
-		"target_level":14,
+		"target_level":12,
 		"target_skills":{
 			"helmsmanship":2,
 			"combat_endurance":2,
@@ -1571,7 +1571,6 @@
 			"field_modulation":2,
 			"point_defense":2,
 			"target_analysis":2,
-			"ballistic_mastery":2,
 			"systems_expertise":2,
 			"missile_specialization":2,
 
@@ -1579,10 +1578,11 @@
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
+			"carrier_group":1,
 			"best_of_the_best":1,
 
+			"navigation":1,
 			"gunnery_implants":2,
-			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
@@ -1637,30 +1637,27 @@
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
 		"target_personality":"steady",
-		"target_level":14,
+		"target_level":10,
 		"target_skills":{
 			"helmsmanship":2,
 			"combat_endurance":2,
 			"impact_mitigation":2,
 			"damage_control":2,
-			"field_modulation":2,
 			"point_defense":2,
-			"target_analysis":2,
 			"ballistic_mastery":2,
 			"systems_expertise":2,
-			"missile_specialization":2,
 
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"wolfpack_tactics":1,
 			"crew_training":1,
-			"carrier_group":1,
 			"fighter_uplink":1,
+			"carrier_group":1,
 			"best_of_the_best":1,
 			"support_doctrine":1,
 
+			"navigation":1,
 			"gunnery_implants":2,
-			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
 			"cybernetic_augmentation":1,
@@ -1675,10 +1672,10 @@
 		"fleet_name":"Heart of the Swarm",
 		"fleet_faction":"independent",
 		"fleet_flagship_variant":"adversary_vanguard_Fragmented",
-		"fleet_flagship_name":"ISS Unfabricate",
+		"fleet_flagship_name":"ISS Queen of Fragments",
 		"fleet_preset_ships":{
 			"adversary_vanguard_Fragmented":10,
-			"adversary_buffalo2_Swarm":49
+			"adversary_buffalo2_Swarm":69
 		},
 		"fleet_composition_quality":2,
 		"fleet_transponder":false,
@@ -1720,7 +1717,7 @@
 		"target_post":"fleetCommander",
 		"target_personality":"reckless",
 		"target_aiCoreId":"alpha_core",
-		"target_level":12,
+		"target_level":13,
 		"target_skills":{
 			"helmsmanship":2,
 			"combat_endurance":2,
@@ -1740,8 +1737,10 @@
 
 			"sensors":1,
 			"gunnery_implants":2,
+			"energy_weapon_mastery":2,
 			"electronic_warfare":1,
 			"flux_regulation":1,
+			"cybernetic_augmentation":1,
 
 			"field_repairs":1,
 			"ordnance_expert":2,
