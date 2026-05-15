@@ -1,33 +1,33 @@
 {
-	"displayName":"Close Support",
-	"fluxCapacitors":2,
-	"fluxVents":7,
+	"displayName":"Support",
+	"fluxCapacitors":5,
+	"fluxVents":4,
 	"hullId":"brawler_LG",
 	"hullMods":[
-		"ecm",
-		"nav_relay",
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
 		"damaged_mounts",
-		"degraded_life_support",
+		"degraded_shields",
 		"erratic_injector",
-		"increased_maintenance",
 		"advancedoptics",
 		"targetingunit",
 		"stabilizedshieldemitter"
 	],
 	"permaMods":[
-		"ecm",
-		"nav_relay",
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
 		"damaged_mounts",
-		"degraded_life_support",
-		"erratic_injector",
-		"increased_maintenance"
+		"degraded_shields",
+		"erratic_injector"
 	],
 	"sMods":[
-		"ecm",
-		"nav_relay"
+		"hardenedshieldemitter",
+		"reinforcedhull"
 	],
 	"sModdedBuiltIns":["solar_shielding"],
-	"variantId":"adversary_brawler_LG_Close_Support",
+	"variantId":"adversary_brawler_LG_Support",
 	"weaponGroups":[
 		{
 			"autofire":true,

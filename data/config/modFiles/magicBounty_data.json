@@ -213,7 +213,7 @@
 		"target_gender":"ANY",
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
-		"target_personality":"cautious",
+		"target_personality":"steady",
 		"target_level":3,
 		"target_skills":{
 			"tactical_drills":1,
@@ -237,15 +237,15 @@
 
 		"fleet_name":"Lion's Guard Support Flotilla",
 		"fleet_faction":"adversary",
-		"fleet_flagship_variant":"adversary_executor_Fire_Support",
+		"fleet_flagship_variant":"adversary_executor_Support",
 		"fleet_flagship_name":"LGS Lioness of Andrada",
 		"fleet_preset_ships":{
 			"adversary_eagle_LG_Support":5,
 			"adversary_falcon_LG_Support":5,
-			"adversary_sunder_LG_Close_Support":7,
-			"adversary_hammerhead_LG_Close_Support":3,
-			"adversary_brawler_LG_Close_Support":5,
-			"adversary_centurion_LG_Close_Support":4
+			"adversary_sunder_LG_Support":7,
+			"adversary_hammerhead_LG_Support":3,
+			"adversary_brawler_LG_Support":5,
+			"adversary_centurion_LG_Support":4
 		},
 		"fleet_composition_faction":"lions_guard",
 		"fleet_composition_quality":2,

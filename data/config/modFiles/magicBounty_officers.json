@@ -94,27 +94,27 @@
 	},
 	"adversary_SindrianDiktat_Beam":{ # Officer Management, Cybernetic Augmentation
 		"eagle_LG":{
-			"officer_personality":"cautious",
+			"officer_personality":"steady",
 			"officer_faction":"lions_guard",
 			"officer_level":5,
 			"officer_skills":{
+				"helmsmanship":2,
 				"combat_endurance":1,
-				"field_modulation":1,
 				"target_analysis":2,
 				"gunnery_implants":1,
-				"ordnance_expert":2
+				"ordnance_expert":1
 			}
 		},
 		"sunder_LG":{
-			"officer_personality":"cautious",
+			"officer_personality":"steady",
 			"officer_faction":"lions_guard",
 			"officer_level":5,
 			"officer_skills":{
-				"field_modulation":1,
+				"helmsmanship":2,
+				"combat_endurance":1,
 				"target_analysis":2,
 				"gunnery_implants":1,
-				"energy_weapon_mastery":1,
-				"ordnance_expert":2
+				"ordnance_expert":1
 			}
 		},
 	},

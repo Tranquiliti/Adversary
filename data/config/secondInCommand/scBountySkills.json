@@ -33,7 +33,7 @@
 			["sc_smallcraft_coordinated_maneuvers","sc_smallcraft_jumpstart","sc_smallcraft_trapped_prey","sc_smallcraft_leader_of_the_pack","sc_smallcraft_support_doctrine"],
 			["sc_technology_countermeasures","sc_technology_unlocked_engines","sc_technology_advanced_weaponry","sc_technology_optimised_shields","sc_technology_focused_lenses"],
 			["sc_improvisation_preservation","sc_improvisation_scrappy_maintenance","sc_improvisation_defensive_configuration","sc_improvisation_secured_mounts","sc_improvisation_derelict_operations"],
-			["sc_tactical_suppression_tactics","sc_tactical_vanguard_tactics","sc_tactical_bulwark_tactics","sc_tactical_anchor_tactics","sc_tactical_doctrine_tactics"]
+			["sc_tactical_strike_tactics","sc_tactical_vanguard_tactics","sc_tactical_bulwark_tactics","sc_tactical_anchor_tactics","sc_tactical_doctrine_tactics"]
 		]
 	},
 	"adversary_TriTachyon_Wolfpack":{

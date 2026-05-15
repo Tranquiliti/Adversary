@@ -1,0 +1,48 @@
+{
+	"displayName":"Support",
+	"fluxCapacitors":10,
+	"fluxVents":10,
+	"hullId":"centurion_LG",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"advancedoptics",
+		"fluxdistributor",
+		"targetingunit"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"reinforcedhull"
+	],
+	"sModdedBuiltIns":["solar_shielding"],
+	"variantId":"adversary_centurion_LG_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"heatseeker"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"taclaser",
+				"WS 002":"taclaser",
+				"WS 004":"taclaser",
+				"WS 005":"taclaser"
+			}
+		}
+	]
+}

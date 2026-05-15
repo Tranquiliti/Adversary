@@ -13,6 +13,6 @@ enableAdversaryBlueprintStealing,Enable Adversary Blueprint Stealing,Boolean,fal
 adversaryBlueprintStealingDelay,Adversary Blueprint Stealing Delay,Int,12,How many months between each Adversary blueprint steal attempt?,1,120,
 ,,,,,,,
 otherHeader,Other Header,Header,Other,,,,
-enableAdversarySillyBounties,Enable Silly MagicLib Bounties,Boolean,true,"Allows [ridiculous, vanilla-breaking MagicBounties] to spawn in the bounty board. Disabling this option will prevent those bounties from appearing. Requires the [MagicLib] library mod to work.",,,
+enableAdversarySillyBounties,Enable Silly MagicBounties,Boolean,true,"Allows [ridiculous, vanilla-breaking MagicBounties] to spawn in the bounty board. Disabling this option will prevent those bounties from appearing. Requires the [MagicLib] library mod to work.",,,
 enableAdversarySCSupport,Enable Second-in-Command Support,Boolean,true,Forces Adversary MagicBounties to spawn with pre-configured Second-in-Command executive officers. Requires the [Second-in-Command] mod to work.,,,
 enableAdversarySDF,Enable Adversary System Defense Fleet,Boolean,true,Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the highest ship quality and fleet size multiplier. [Setting only applies to new games!],,,
