@@ -138,8 +138,8 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
-				"helmsmanship":1,
-				"field_modulation":2,
+				"helmsmanship":2,
+				"combat_endurance":1,
 				"target_analysis":2,
 				"systems_expertise":1,
 				"missile_specialization":2,
@@ -152,7 +152,7 @@
 			"officer_level":6,
 			"officer_skills":{
 				"helmsmanship":2,
-				"field_modulation":1,
+				"combat_endurance":1,
 				"target_analysis":2,
 				"gunnery_implants":1,
 				"ordnance_expert":2,

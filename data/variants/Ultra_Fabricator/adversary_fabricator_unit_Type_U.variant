@@ -56,41 +56,29 @@
 			"mode":"LINKED",
 			"weapons":{
 				"WS 001":"heavy_mass_driver",
-				"WS 003":"heavy_mass_driver",
-				"WS 007":"heavy_mass_driver",
-				"WS 010":"heavy_mass_driver"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{
 				"WS 002":"light_mass_driver",
+				"WS 003":"heavy_mass_driver",
 				"WS 004":"light_mass_driver",
-				"WS 008":"light_mass_driver",
-				"WS 009":"light_mass_driver"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{
 				"WS 005":"light_mass_driver",
 				"WS 006":"light_mass_driver",
+				"WS 007":"heavy_mass_driver",
+				"WS 008":"light_mass_driver",
+				"WS 009":"light_mass_driver",
+				"WS 010":"heavy_mass_driver",
 				"WS 011":"light_mass_driver",
-				"WS 012":"light_mass_driver"
+				"WS 012":"light_mass_driver",
+				"WS 013":"voltaic_discharge",
+				"WS 018":"voltaic_discharge",
+				"WS 019":"voltaic_discharge",
+				"WS 020":"voltaic_discharge"
 			}
 		},
 		{
 			"autofire":false,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 013":"devouring_swarm",
 				"WS 014":"devouring_swarm",
 				"WS 015":"devouring_swarm",
-				"WS 018":"devouring_swarm",
-				"WS 019":"devouring_swarm",
-				"WS 020":"devouring_swarm",
 				"WS 021":"devouring_swarm",
 				"WS 022":"devouring_swarm",
 				"WS 023":"devouring_swarm",

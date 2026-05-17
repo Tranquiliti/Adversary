@@ -1,7 +1,7 @@
 {
 	"displayName":"Strike",
-	"fluxCapacitors":10,
-	"fluxVents":7,
+	"fluxCapacitors":8,
+	"fluxVents":5,
 	"hullId":"colossus3",
 	"hullMods":[
 		"reinforcedhull",
@@ -39,7 +39,7 @@
 		}
 	}],
 	"wings":[
-		"piranha_wing",
-		"piranha_wing"
+		"hoplon_wing",
+		"hoplon_wing"
 	]
 }

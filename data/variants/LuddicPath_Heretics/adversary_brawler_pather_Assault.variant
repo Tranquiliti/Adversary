@@ -19,22 +19,22 @@
 	"variantId":"adversary_brawler_pather_Assault",
 	"weaponGroups":[
 		{
-			"autofire":false,
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"heavymg"}
+		},
+		{
+			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{"WS 002":"chaingun"}
 		},
 		{
-			"autofire":false,
+			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
 				"WS 003":"ioncannon",
 				"WS 004":"ioncannon"
 			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{"WS 001":"heavymg"}
 		}
 	]
 }

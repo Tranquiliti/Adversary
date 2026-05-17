@@ -36,18 +36,18 @@ greetingAdversaryHostileWeakerDefiantSoldier,OpenCommLink,"$faction.id == advers
 $entity.isHostile
 $entity.relativeStrength < 0
 $entity.weakerThanPlayerButHolding
-$voice == soldier",$entity.ignorePlayerCommRequests = true 1,"The Adversary $personRank glances at something above their screen, and then stares at you, ""You know not what your actions will bring forth. Soon, you will suffer the wrath of the Adversary.""",cutCommLink:Cut the comm link,
+$voice == soldier",$entity.ignorePlayerCommRequests = true 1,"The Adversary $personRank glances at something above their screen, then meets your stare, ""You know not what your actions will bring forth. Soon, you will suffer the wrath of the Adversary.""",cutCommLink:Cut the comm link,
 greetingAdversaryHostileWeakerDefiantVillian,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength < 0
 $entity.weakerThanPlayerButHolding
-$voice == villian",$entity.ignorePlayerCommRequests = true 1,"The enemy $personRank looks grim but defiant. ""You will not take away our hope and our legacy, you vermin! May your crimes be your undoing!""",cutCommLink:Cut the comm link,
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"The enemy $personRank looks grim yet defiant, ""You will not take away our hope and our legacy, you vermin! May your crimes be your undoing!""",cutCommLink:Cut the comm link,
 greetingAdversaryHostileStrongerSpacer,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength >= 0
 $voice == spacer",$entity.ignorePlayerCommRequests = true 1,"""Why are we even doing this,"" the Adversary $personRank sighs, with a look of regret in $hisOrHer face.
 
-Then, $heOrShe leans in to their screen and whispers, ""Run away, independent captain, if you still can. I cannot stop my fleet from attacking yours, but I can still hope you'll listen and avoid a bloodshed today.""",cutCommLink:Cut the comm link,
+Leaning foward to $hisOrHer screen, $heOrShe whispers, ""Run away, independent captain, if you still can. I cannot stop my fleet from attacking yours, but I can still hope you'll listen and avoid a bloodshed today.""",cutCommLink:Cut the comm link,
 greetingAdversaryHostileStrongerSoldier,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength >= 0
@@ -57,7 +57,7 @@ The Adversary $personRank laughs at you, ""This is all you've got! How silly of 
 greetingAdversaryHostileStrongerVillian,OpenCommLink,"$faction.id == adversary
 $entity.isHostile
 $entity.relativeStrength >= 0
-$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""Do not contest our great Project, pest. We shall swat you aside for your insolence.""
+$voice == villian",$entity.ignorePlayerCommRequests = true 1,"""Do not contest our perfect place, pest. We shall swat you aside for your insolence.""
 
 The comm-link abruptly shuts off, leaving behind the symbol of the Adversary.",cutCommLink:Cut the comm link,
 greetingAdversaryNeutralSpacer,OpenCommLink,"$faction.id == adversary
@@ -75,9 +75,9 @@ FireAll PopulateOptions","The Adversary $personRank looks at you with disgust, "
 ,,,,,,
 # relationship level descriptions,,,,,,
 relLevelCooperativeAdversary,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
-$faction.id == adversary",FireAll RelLevelMoreDescription,"High-ranking Adversary officials extol your invaluable and irreplaceable service to the ""Utopian Project"" and have granted you complete access to the unfathomably vast arsenal of the Adversary Defense Force. Even the most nativist and unwelcoming port authorities are more than willing to comply with your requests, and citizens within Adversary worlds treat you not only as their savior, but also as a savior of the entire Persean Sector indeed.",,
+$faction.id == adversary",FireAll RelLevelMoreDescription,"High-ranking Adversary officials extol your invaluable and irreplaceable service to the ""Utopian Project"" and have granted you complete access to the unfathomably vast arsenal of the Adversary Defense Force. Even the most nativist and unwelcoming port authorities are more than willing to comply with your requests, and citizens of the Adversary worlds treat you not only as their savior, but also as a savior of the entire Persean Sector indeed.",,
 relLevelFriendlyAdversary,RelationshipLevelDesc,"$faction.rel == FRIENDLY
-$faction.id == adversary",FireAll RelLevelMoreDescription,"No longer seen as an outsider by most Adversary officials, you may now freely roam Adversary worlds without any significant pushback from either port authorities or system patrols. A wide range of military equipment is made available to you through the gratitude of the Adversary Defense Force.",,
+$faction.id == adversary",FireAll RelLevelMoreDescription,"No longer seen as an outsider by most Adversary officials, you may freely roam Adversary worlds without any significant pushback from either port authorities or system patrols. A wide range of military equipment is made available to you through the gratitude of the Adversary Defense Force.",,
 relLevelWelcomingAdversary,RelationshipLevelDesc,"$faction.rel == WELCOMING
 $faction.id == adversary",FireAll RelLevelMoreDescription,"Your name is known to some high-level Adversary officials, with a few of the more xenophobic figures starting to treat you with more respect than they do with their own peers. As such, patrol fleets of the Adversary Defense Force will prefer not to harass you if they can help it.",,
 relLevelFavorableAdversary,RelationshipLevelDesc,"$faction.rel == FAVORABLE
@@ -93,14 +93,14 @@ $faction.id == adversary",FireAll RelLevelMoreDescription,Adversary fleets are a
 relLevelVengefulAdversary,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
 $player.numColonies == 0
-$player.fleetPoints < 120",FireAll RelLevelMoreDescription,"To the Adversary, you are nothing more than a gnat buzzing around the grand and mighty bulwark of their glorious Project. No Adversary commander will pay you any heed should their fleets obliterate yours into nothingness - as they have always done against their foes for decades and will continue to do so for an eternity.",,
+$player.fleetPoints < 120",FireAll RelLevelMoreDescription,"To the Adversary, you are nothing more than a gnat buzzing around the grand and mighty bulwark of their glorious Project. No Adversary commander will pay you any heed should their fleets obliterate yours into nothingness - as they have always done against their foes for cycles and will continue to do so for an eternity.",,
 relLevelVengefulAdversaryFleet,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
 $player.numColonies == 0
-$player.fleetPoints >= 120",FireAll RelLevelMoreDescription,"To the Adversary, you are just one of the many beasts attempting to take down the grand and mighty bulwark of their glorious Project. Adversary commanders will be more than obliged to obliterate your $shipOrFleet into nothingness - as they have always done against their foes for decades and will continue to do so for an eternity.",,
+$player.fleetPoints >= 120",FireAll RelLevelMoreDescription,"To the Adversary, you are just one of the many beasts attempting to topple the grand and mighty bulwark of their glorious Project. Adversary commanders will be more than obliged to obliterate your $shipOrFleet into nothingness - as they have always done against their foes for cycles and will continue to do so for an eternity.",,
 relLevelVengefulAdversaryPlanet,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
-$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to wipe out both your $shipOrFleet and your fledgling empire - as their foes had once attempted against the once-newly-born polity.",,
+$player.numColonies > 0",FireAll RelLevelMoreDescription,"To the Adversary, you pose an existential threat to the grand and mighty bulwark of their glorious Project. It won't be long before a zealous Adversary commander assembles a kill-fleet to obliterate both your $shipOrFleet and your fledgling empire - as was once attempted by the polity's enemies.",,
 relLevelAdversaryPKRival,RelLevelMoreDescription,"$faction.id == adversary
 $player.turnedInPlanetkiller == true",,Adversary informants have taken notice of you turning in a planetkiller to a rival faction.,,
 ,,,,,,
@@ -112,7 +112,7 @@ CMSNTextSuitedPart1_adversary,CMSNTextSuitedPart1,$faction.id == adversary,,"""W
 
 I don't think you need to be reminded of this, independent captain, but accepting this commission is a serious matter. You will be required to defend our sacred utopia from any and all would-be invaders and interlopers. We will demand that you devote your entire existence to furthering our great Project, no matter the means and no matter the cost. Which, if I may put it bluntly, may mean sacrificing your life and your crew's life if that is required to fulfill your end of the pledge.
 
-Now, uh, you could just resign your commission at any moment, but I'd bet my own life that, if you were to do so, someone somewhere within our Project will be... unhappy with this and rally their supporters in the Adversary Defense Force just to ruin your life. So, I wouldn't recommend doing that at all.",,
+Now, you could just resign your commission at any moment, but I'd bet my own life that, if you were to do so, someone somewhere within our Project will be... unhappy with this and rally their supporters in the Adversary Defense Force just to ruin your life. So, I wouldn't recommend doing that at all.",,
 CMSNTextSuitedPart2_adversary,CMSNTextSuitedPart2,$faction.id == adversary,,"""That being said, will you accept our offer and join our glorious Project? We shall await your response.""",,
 CMSNTextWelcomePart1_adversary,CMSNTextWelcomePart1,$faction.id == adversary,,"""Welcome to the Project, $playerName. May we all unite in peace and prosperity.""",,
 CMSNTextWelcomePart2_adversary,CMSNTextWelcomePart2,$faction.id == adversary,,"""Is there anything else you need, before some smuggler in hyperspace attacks you out of spite?""",,
@@ -135,16 +135,16 @@ adversaryScout_askWhy2:""This is my domain. You have no right to be here!""
 adversaryScout_askWhySarcastic:""Yeah, you're lucky I didn't attack you yet. Now move it!""
 cutCommLink:Cut the comm link",
 adversaryScoutAskWhy,DialogOptionSelected,$option == adversaryScout_askWhy,FireAll AdversaryScoutResponse,"""Let me tell you what we stand for first. We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
-adversaryScoutAskWhy2,DialogOptionSelected,$option == adversaryScout_askWhy2,FireAll AdversaryScoutResponse,"""Your domain?"" The $post seems to ponder about this for a while, before $heOrShe then declares, ""Our domain now.""
+adversaryScoutAskWhy2,DialogOptionSelected,$option == adversaryScout_askWhy2,FireAll AdversaryScoutResponse,"""Your domain?"" The $post seems to ponder about this for a while, before $heOrShe then declares, ""This is our domain now.""
 
 ""Hmph, you still think otherwise? We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
 adversaryScoutAskWhySarcastic,DialogOptionSelected,$option == adversaryScout_askWhySarcastic,"$player.ethosSarcastic++
-FireAll AdversaryScoutResponse","The $post seems unfazed by your display of wit, ""Oh, that was funny, ha-ha. Next, you'll tell me you'll blast my fleet off if I don't comply? Such a great joke; I can't wait to watch your next holoshow soon!""
+FireAll AdversaryScoutResponse","The $post seems unfazed by your display of wit, faking a laugh, ""Oh, that was funny. Next, you'll tell me you'll blast my fleet off if I don't comply? Such a great joke; I can't wait to watch your next comedy holoshow soon!""
 
 Satisfied by $hisOrHer own comeback, the $post resumes the serious tone, ""We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
-adversaryScoutResponse,AdversaryScoutResponse,,,"""Right now, your settlements may be but a mere mimic with a fraction of our power, but we both know all too well that leaving a problem alone will only make it worse. Why do you think the other factions wanted a slice of your pie?"" $HeOrShe leaves this question hanging briefly, though the answer is anything but mysterious. 
+adversaryScoutResponse,AdversaryScoutResponse,,,"""Right now, your settlements may be but a mere mimic with a fraction of our power, but we both know all too well that a problem left alone is a grand problem indeed. After all, why do you think the other factions wanted a slice of your pie?"" $HeOrShe leaves this question hanging briefly, though the answer is anything but mysterious. 
 
-""As it has been for the Project, so too will you experience the same from us.","adversaryScout_responded:""So how can I stop being a 'problem' to your utopia?""
+""As it has been for the Project, so too will you experience the same from us.""","adversaryScout_responded:""So how can I stop being a 'problem' to your utopia?""
 adversaryScout_respondedThreat:""I think I'll just blast your fleet off instead.""
 cutCommLink:Cut the comm link",
 adversaryScoutResponded,DialogOptionSelected,$option == adversaryScout_responded,"RemoveOption adversaryScout_responded
@@ -153,9 +153,9 @@ RemoveOption adversaryScout_respondedThreat","""Speak with my superiors back hom
 ""It's time we say goodbye, spacer. May we all unite in peace and prosperity."" The Adversary $post shuts off the comm link on their end.",,
 adversaryScoutRespondedThreat,DialogOptionSelected,$option == adversaryScout_respondedThreat,"RemoveOption adversaryScout_responded
 RemoveOption adversaryScout_respondedThreat
-AdjustRepActivePerson FAVORABLE 1","""Pff, of course you would say that. I would love to see you try,"" the Adversary $post goads.
+AdjustRepActivePerson FAVORABLE 1","""Of course you would say that. I would love to see you try,"" the Adversary $post goads.
 
-""Not that I can even make the first move. My orders are absolute, after all."" $HeOrShe seems utterly disappointed by this predicament, like $heOrShe missed out on a limited-time deal from the TriStore.
+""Not that I can even make the first move. My orders are absolute."" $HeOrShe seems utterly disappointed by this predicament, like $heOrShe missed out on a limited-time deal from a local TriStore.
 
 The comms link dissipates shortly thereafter.",,
 ,,,,,,
@@ -164,12 +164,12 @@ adversaryConfrontCrisis,PopulateOptions,"$isPerson
 $personFaction.id == adversary
 $player.fcm_faction != adversary
 Commission personCanGiveCommission
-Adversary_HA_CMD canConfrontCrisis",,,"adversaryCrisis_askWhy:""Why are your scouts operating near my colonies? What's being planned here?""",
+Adversary_HA_CMD canConfrontCrisis",,,"adversaryCrisis_askWhy:""Your scouts are operating in my territory. Why is that?""",
 adversaryConfrontCrisisAskedWhy,DialogOptionSelected,$option == adversaryCrisis_askWhy,,"The Adversary $post laughs at your question, like $heOrShe was told a funny inside joke. ""Why? Are you not aware of how populous and prosperous your little empire has become?"" $HisOrHer voice unintentionally leaks out a faint trace of envy.
 
-The $post continues, ""Obviously, our humble Project would take interest in such a fine piece of work. If you or the other... factions,"" $heOrShe uses the word almost as an insult directed to you, ""were to repurpose this budding flower into a hand-crafted poison, fit to slay a dragon, how would we know it will not be used against us?""
+The $post continues, ""Obviously, our humble Project would take interest in such a fine piece of work. If you or the other... factions,"" $heOrShe lingers on that word, almost as an insult directed to you, ""were to repurpose this budding flower into a hand-crafted poison, fit to slay a dragon, how would we know it will not be used against us?""
 
-""Let me speak more plainly: how will we know your colonies are not staging grounds made to burn down the last utopia on this Ludd-forsaken Sector? If we cannot find a satisfying answer to such a question ourselves, then we may consider... forcing that answer out and cutting it down to its roots."" You are quite certain that $heOrShe wasn't suggesting a peaceful resolution to the Adversary's self-imposed conflict against your holdings.",adversaryCrisis_askWhy2:Continue,
+""Let me speak more plainly: how will we know your colonies are not staging grounds made to burn down the last utopia on this Ludd-forsaken Sector? If we cannot find a satisfying answer to such a question ourselves, then we may consider... forcing that answer out and cut it down to its roots."" You are quite certain that $heOrShe wasn't suggesting a peaceful resolution to the Adversary's self-imposed conflict against your holdings.",adversaryCrisis_askWhy2:Continue,
 adversaryConfrontCrisisAskedWhyCont,DialogOptionSelected,$option == adversaryCrisis_askWhy2,"Highlight ""you mean no harm to us"" ""leave your colonies alone"" ""worthy of our cooperation"" ""take a commission for our cause"" ""a mutual deal""","""However, you, $playerName, may indeed be the solution we hope to seek. If you demonstrate to us that you mean no harm to us, then we shall do the same and leave your colonies alone.""
 
 ""Moreover, if you went above and beyond to prove yourself worthy of our cooperation, or even take a commission for our cause, we could, perhaps, even work out a mutual deal for ourselves, thereby securing the future of our peoples and, thus, the Persean Sector?"" The $post seems quite excited at this particular prospect, despite the uncertainty of your current - or future - allegiance.
@@ -189,8 +189,8 @@ $player.fcm_faction == adversary
 Commission personCanGiveCommission
 $player.numColonies > 0
 Adversary_HA_CMD canMakeDeal",,,"adversaryMakeDeal_doDealCom:""I have taken a commission with your Project. What will you offer in return?""",
-adversaryMakeDealAsked,DialogOptionSelected,$option == adversaryMakeDeal_doDeal,FireAll AdversaryMakeDealChoice,"""Very hasty, aren't you?"" The Adversary $post pauses for a moment, testing your patience. ""Well, we can make a deal for ourselves, can we? You won't need to be too concerned with the finer details; we - and I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
-adversaryMakeDealAskedCom,DialogOptionSelected,$option == adversaryMakeDeal_doDealCom,FireAll AdversaryMakeDealChoice,"The Adversary $post manages a wide smile, ""I am so glad you have dedicated yourself to upholding our cause. I do think we are finally ready to make a deal for ourselves. You won't need to be too concerned with the finer details; we - and I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
+adversaryMakeDealAsked,DialogOptionSelected,$option == adversaryMakeDeal_doDeal,FireAll AdversaryMakeDealChoice,"""Very hasty, aren't you?"" The Adversary $post pauses for a moment, testing your patience. ""Well, we can make a deal for ourselves, can we? You won't need to be too concerned with the finer details; we - and, by that, I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
+adversaryMakeDealAskedCom,DialogOptionSelected,$option == adversaryMakeDeal_doDealCom,FireAll AdversaryMakeDealChoice,"The Adversary $post manages a wide smile, ""I am so glad you have dedicated yourself to upholding our cause. I do think we are finally ready to make a deal for ourselves. You won't need to be too concerned with the finer details; we - and, by that, I mean both us Project leaders and the High Command of the Adversary Defense Forces - can handle those for you.""",,
 adversaryMakeDealChoice,AdversaryMakeDealChoice,,"Highlight ""raise the stability of all colonies within your control"" ""remain cooperative with the Adversary"" ""maintain an Adversary commission""","The $post further discusses the deal in much detail, but what it amounts to is that the Adversary's leaders will send off their most prominent citizens and ""influencers"" - merely propagandists in all but name  -  to your colonies, with the aim of bolstering communal cohesion between populations. In effect, this will no doubt raise the stability of all colonies within your control.
 
 How the Adversary will directly benefit from this deal remains unclear, but you sense that, as long as you remain cooperative with the Adversary, or maintain an Adversary commission, all their leaders really care about is keeping you as a reliable ally - an immensely valuable resource, especially given the Adversary's tumultuous history and reputation with the Sector at large.","adversaryMakeDeal_dealConfirm:""It's a deal, then.""
@@ -199,12 +199,12 @@ adversaryMakeDeal_dealDeny:""Actually, I don't want this at all.""",
 adversaryMakeDealConfirm,DialogOptionSelected,$option == adversaryMakeDeal_dealConfirm,"RemoveOption adversaryMakeDeal_dealNegotiate
 RemoveOption adversaryMakeDeal_dealDeny
 Adversary_HA_CMD makeDeal
-AddTextSmall ""Your colonies have received the Mutual Tenacity condition."" good","The deal is closed; you and the Adversary $post make the proper arrangements accordingly, ensuring that the few Adversary citizens that will be sent off are equally distributed across your colonies. Certainly all of this was worth avoiding the full brunt of the Adversary's wrath, if nothing else.
+AddTextSmall ""Your colonies have received the Mutual Tenacity condition."" good","The deal is closed; you and the Adversary $post make the proper arrangements accordingly, ensuring that the few Adversary citizens that will be sent off are equally distributed across your colonies. Certainly, all of this was worth avoiding the full brunt of the Adversary's wrath, if nothing else.
 
 ""A fine reward for one who has served our people's needs. May we all unite in peace and prosperity."" The $post then gracefully terminates their comm link.",cutCommLink:Cut the comm link,
 adversaryMakeDealNegotiate,DialogOptionSelected,$option == adversaryMakeDeal_dealNegotiate,RemoveOption adversaryMakeDeal_dealNegotiate," The $post's face flashes with amusement, almost like they expected this exact response, ""Well, too bad, you ain't getting any better from us.""
  
- ""All you can do now is either accept, or decline the deal. No ifs, no ands, no buts.""",,
+ ""All you can do now is either accept our deal, or decline your reward. No ifs, no ands, no buts.""",,
 adversaryMakeDealDeny,DialogOptionSelected,$option == adversaryMakeDeal_dealDeny,"RemoveOption adversaryMakeDeal_dealConfirm
 RemoveOption adversaryMakeDeal_dealNegotiate","""Well, it's your loss. We still very much appreciate your continued service to our glorious Project, no doubt about that.""
 

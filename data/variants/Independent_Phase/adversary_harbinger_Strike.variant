@@ -24,7 +24,7 @@
 		{
 			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 001":"miningblaster"}
+			"weapons":{"WS 001":"phasebeam"}
 		},
 		{
 			"autofire":true,

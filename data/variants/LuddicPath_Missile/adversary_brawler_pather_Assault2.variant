@@ -35,14 +35,14 @@
 	"variantId":"adversary_brawler_pather_Assault2",
 	"weaponGroups":[
 		{
-			"autofire":false,
+			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 001":"chaingun"}
+			"weapons":{"WS 001":"heavymg"}
 		},
 		{
-			"autofire":false,
+			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 002":"heavymg"}
+			"weapons":{"WS 002":"chaingun"}
 		},
 		{
 			"autofire":true,

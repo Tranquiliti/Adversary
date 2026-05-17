@@ -24,16 +24,16 @@
 			"autofire":false,
 			"mode":"ALTERNATING",
 			"weapons":{
-				"WS 001":"annihilatorpod",
-				"WS 002":"annihilatorpod"
+				"WS 001":"phasecl",
+				"WS 002":"phasecl"
 			}
 		},
 		{
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 007":"ionbeam",
-				"WS 008":"ionbeam"
+				"WS 007":"phasebeam",
+				"WS 008":"phasebeam"
 			}
 		},
 		{
@@ -43,13 +43,7 @@
 				"WS 003":"lightneedler",
 				"WS 004":"lightneedler",
 				"WS 005":"lightneedler",
-				"WS 006":"lightneedler"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{
+				"WS 006":"lightneedler",
 				"WS 009":"pdburst",
 				"WS 010":"pdburst",
 				"WS 011":"pdburst",
