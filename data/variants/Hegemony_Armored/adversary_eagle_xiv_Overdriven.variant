@@ -1,6 +1,6 @@
 {
 	"displayName":"Overdriven",
-	"fluxCapacitors":25,
+	"fluxCapacitors":23,
 	"fluxVents":0,
 	"hullId":"eagle_xiv",
 	"hullMods":[
@@ -28,33 +28,25 @@
 			"weapons":{
 				"WS 005":"heavyburst",
 				"WS 006":"heavyburst",
-				"WS 009":"heavyburst"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{
 				"WS 007":"heavymg",
 				"WS 008":"heavymg",
+				"WS 010":"pdburst",
+				"WS 011":"pdburst",
+				"WS 012":"pdburst",
 				"WS 013":"heavymg"
 			}
 		},
 		{
-			"autofire":false,
+			"autofire":true,
 			"mode":"LINKED",
+			"weapons":{"WS 009":"ionpulser"}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
 			"weapons":{
 				"WS 001":"breach",
 				"WS 002":"breach"
-			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{
-				"WS 010":"pdburst",
-				"WS 011":"pdburst",
-				"WS 012":"pdburst"
 			}
 		}
 	]

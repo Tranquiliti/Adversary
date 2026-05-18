@@ -1,6 +1,6 @@
 {
 	"displayName":"Custom",
-	"fluxCapacitors":4,
+	"fluxCapacitors":9,
 	"fluxVents":50,
 	"hullId":"paragon",
 	"hullMods":[

@@ -38,7 +38,7 @@
 		},
 		{
 			"autofire":false,
-			"mode":"LINKED",
+			"mode":"ALTERNATING",
 			"weapons":{
 				"WS 014":"phasecl",
 				"WS 015":"phasecl",

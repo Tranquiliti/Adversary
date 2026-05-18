@@ -21,14 +21,6 @@
 	"variantId":"adversary_medusa_Experimental",
 	"weaponGroups":[
 		{
-			"autofire":false,
-			"mode":"LINKED",
-			"weapons":{
-				"WS 008":"minipulser",
-				"WS 009":"minipulser"
-			}
-		},
-		{
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{"WS 006":"cryoblaster"}
@@ -37,6 +29,14 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{"WS 007":"disintegrator"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 008":"minipulser",
+				"WS 009":"minipulser"
+			}
 		},
 		{
 			"autofire":true,

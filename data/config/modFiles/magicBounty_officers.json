@@ -247,12 +247,12 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
-				"field_modulation":1,
 				"target_analysis":2,
 				"ballistic_mastery":2,
 				"missile_specialization":2,
 				"gunnery_implants":1,
 				"ordnance_expert":1,
+				"polarized_armor":1
 			}
 		},
 		"anubis":{
@@ -506,30 +506,30 @@
 	},
 	"adversary_Event_Horizon":{ # High-level officers on *all* ships (too many to enumerate here)
 	},
-	"adversary_Ziggurat_Plus":{ # Sleeper officers
+	"adversary_Ziggurat_Plus":{ # Exceptional officers
 		"scarab":{
 			"officer_personality":"aggressive",
 			"officer_faction":"tritachyon",
 			"officer_level":7,
 			"officer_skills":{
-				"helmsmanship":2,
+				"helmsmanship":1,
 				"field_modulation":2,
 				"point_defense":2,
-				"target_analysis":1,
+				"target_analysis":2,
 				"gunnery_implants":2,
 				"energy_weapon_mastery":1,
 				"ordnance_expert":2
 			}
 		},
 		"medusa":{
-			"officer_personality":"aggressive",
+			"officer_personality":"steady",
 			"officer_faction":"tritachyon",
 			"officer_level":7,
 			"officer_skills":{
 				"helmsmanship":2,
-				"field_modulation":2,
+				"field_modulation":1,
 				"target_analysis":1,
-				"systems_expertise":1,
+				"systems_expertise":2,
 				"gunnery_implants":2,
 				"energy_weapon_mastery":2,
 				"ordnance_expert":2
