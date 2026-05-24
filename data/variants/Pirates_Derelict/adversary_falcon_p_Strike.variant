@@ -27,6 +27,7 @@
 		"hardenedshieldemitter",
 		"reinforcedhull"
 	],
+	"sModdedBuiltIns":["augmentedengines"],
 	"variantId":"adversary_falcon_p_Strike",
 	"weaponGroups":[
 		{

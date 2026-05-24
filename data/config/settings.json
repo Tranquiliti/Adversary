@@ -43,7 +43,7 @@
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
 	"enableAdversarySDF":true,
 
-	#--- Settings for the Adversary's dynamic doctrine ---#
+	#--- Settings for the Adversary's Dynamic Doctrine ---#
 	# Any changes here do not re-apply to existing saves; #
 	# those saves must remove the old settings first by   #
 	# setting "enableAdversaryDynamicDoctrine" to false.  #
@@ -147,7 +147,7 @@
 		}
 	],
 
-	#--- Settings for the Adversary's blueprint stealing ---#
+	#--- Settings for the Adversary's Blueprint Stealing ---#
 	# Any changes here do not re-apply to existing saves;   #
 	# those saves must remove the old settings first by     #
 	# setting "enableAdversaryBlueprintStealing" to false.  #

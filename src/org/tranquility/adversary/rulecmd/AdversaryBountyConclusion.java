@@ -25,7 +25,7 @@ public class AdversaryBountyConclusion extends BaseCommandPlugin {
                     MagicAchievementManager.getInstance().completeAchievement("%s_Completed".formatted(bountyId));
                 break;
             case "adversary_Ultra_Maw", "adversary_Ultra_Fabricator", "adversary_Ultra_Tesseract":
-                if (Global.getSector().getMemoryWithoutUpdate().contains("$%s_succeeded".formatted(bountyId)) && Global.getSettings().getBattleSize() == 400 && Global.getSettings().getMaxShipsInFleet() <= 30 && Global.getSettings().getLevelupPlugin().getMaxLevel() <= 15)
+                if (Global.getSector().getMemoryWithoutUpdate().contains("$%s_succeeded".formatted(bountyId)) && Global.getSettings().getBattleSize() == 400 && Global.getSettings().getMaxShipsInFleet() <= 30 && Global.getSettings().getLevelupPlugin().getMaxLevel() <= 15 && Misc.MAX_PERMA_MODS <= 2)
                     MagicAchievementManager.getInstance().completeAchievement("%s_Completed".formatted(bountyId));
                 break;
             default:
