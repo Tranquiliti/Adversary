@@ -21,15 +21,15 @@
 		"target_rank":"spaceCommander",
 		"target_post":"fleetCommander",
 		"target_personality":"steady",
-		"target_level":4,
+		"target_level":3,
 		"target_skills":{
 			"combat_endurance":2,
 			"impact_mitigation":2,
-			"damage_control":2,
 
 			"tactical_drills":1,
 			"coordinated_maneuvers":1,
 			"crew_training":1,
+			"carrier_group":1,
 			"officer_training":1,
 			"officer_management":1,
 			"best_of_the_best":1,

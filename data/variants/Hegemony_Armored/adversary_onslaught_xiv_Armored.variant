@@ -1,7 +1,7 @@
 {
 	"displayName":"Armored",
 	"fluxCapacitors":0,
-	"fluxVents":49,
+	"fluxVents":37,
 	"hullId":"onslaught_xiv",
 	"hullMods":[
 		"turretgyros",
@@ -55,12 +55,12 @@
 		},
 		{
 			"autofire":false,
-			"mode":"LINKED",
+			"mode":"ALTERNATING",
 			"weapons":{
-				"WS 021":"phasecl",
-				"WS 022":"phasecl",
-				"WS 023":"phasecl",
-				"WS 024":"phasecl"
+				"WS 021":"breachpod",
+				"WS 022":"breachpod",
+				"WS 023":"breachpod",
+				"WS 024":"breachpod"
 			}
 		},
 		{
@@ -77,7 +77,9 @@
 				"WS 008":"lightmg",
 				"WS 009":"lightmg",
 				"WS 010":"heavymg",
-				"WS 011":"heavymg"
+				"WS 011":"heavymg",
+				"WS 012":"heavymg",
+				"WS 013":"heavymg"
 			}
 		}
 	]
