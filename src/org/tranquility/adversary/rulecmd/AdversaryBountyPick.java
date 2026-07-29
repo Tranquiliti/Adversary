@@ -6,7 +6,6 @@ import com.fs.starfarer.api.campaign.rules.MemoryAPI;
 import com.fs.starfarer.api.characters.PersonAPI;
 import com.fs.starfarer.api.combat.ShipVariantAPI;
 import com.fs.starfarer.api.fleet.FleetMemberAPI;
-import com.fs.starfarer.api.impl.campaign.AICoreOfficerPluginImpl;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin;
 import com.fs.starfarer.api.util.Misc;
@@ -61,23 +60,13 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
         switch (bountyId) {
             case "adversary_TriTachyon_Wolfpack", "adversary_Pirates_Derelict", "adversary_Persean_Cruiser",
                  "adversary_LuddicChurch_Carrier", "adversary_LuddicPath_Heretics", "adversary_Hegemony_Penal",
-                 "adversary_Persean_Combined_Arms", "adversary_LuddicPath_Missile", "adversary_Swarm_Kite",
-                 "adversary_Swarm_Omen": {
+                 "adversary_Persean_Combined_Arms", "adversary_TriTachyon_Wolfpack_Plus",
+                 "adversary_LuddicPath_Missile", "adversary_Swarm_Kite", "adversary_Swarm_Omen": {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
-                }
-                setSecondInCommand(bountyId, bounty);
-                break;
-            }
-            case "adversary_Independent_Phase", "adversary_SindrianDiktat_Beam", "adversary_Derelict_Operations": {
-                for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
-                    if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;
@@ -86,21 +75,16 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
-            case "adversary_TriTachyon_Wolfpack_Plus": {
-                bounty.getCaptain().getStats().setSkillLevel(Skills.OFFICER_TRAINING, 0);
-                bounty.getCaptain().getStats().setSkillLevel(Skills.HULL_RESTORATION, 0);
+            case "adversary_Independent_Phase", "adversary_SindrianDiktat_Beam", "adversary_Derelict_Operations": {
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                 }
-                Misc.makeHostile(bounty.getFleet());
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
@@ -113,8 +97,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                         member.getVariant().addTag(Tags.SHIP_LIMITED_TOOLTIP);
                         continue; // Don't replace the bounty target
                     }
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;
@@ -125,7 +108,6 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 fleet.clearAbilities();
                 fleet.addAbility(Abilities.GO_DARK);
                 fleet.getAbility(Abilities.GO_DARK).activate();
-                FactionAPI faction = Global.getSector().getFaction(Factions.MERCENARY);
                 for (FleetMemberAPI member : fleet.getFleetData().getMembersListCopy()) {
                     ShipVariantAPI variant = member.getVariant().clone(); // Cloning variant to avoid modifying vanilla variants
                     member.setVariant(variant, false, false);
@@ -143,24 +125,23 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                     }
 
                     // Assume overpowered officers
-                    member.setCaptain(null);
                     switch (member.getHullId()) {
                         case "onslaught_xiv":
-                            createSuperOfficer(faction, member, true);
+                            setSuperOfficer(member, true);
                             member.setShipName("Mars");
                             variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                             variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
                             variant.addTag(Tags.TAG_RETAIN_SMODS_ON_RECOVERY);
                             break;
                         case "conquest":
-                            createSuperOfficer(faction, member, true);
+                            setSuperOfficer(member, true);
                             member.setShipName("Victoria");
                             variant.addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                             variant.addTag(Tags.VARIANT_ALWAYS_RECOVERABLE);
                             variant.addTag(Tags.TAG_RETAIN_SMODS_ON_RECOVERY);
                             break;
                         default:
-                            createSuperOfficer(faction, member, false);
+                            setSuperOfficer(member, false);
                             if (variant.hasHullMod(HullMods.DEDICATED_TARGETING_CORE)) {
                                 variant.removeMod(HullMods.DEDICATED_TARGETING_CORE);
                                 variant.addMod(HullMods.INTEGRATED_TARGETING_UNIT);
@@ -169,7 +150,6 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                             break;
                     }
                 }
-                Misc.makeHostile(fleet);
                 setSecondInCommand(bountyId, bounty);
                 teleportFleetToPlanet(fleet, getClosestBlackHole(fleet.getContainingLocation()));
                 break;
@@ -179,8 +159,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                     member.setVariant(member.getVariant().clone(), false, false);
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                     if (member.getCaptain() != null) // Has a sleeper officer, so give them the appropriate tag
                         member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
                 }
@@ -192,10 +171,6 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
                 CampaignFleetAPI fleet = bounty.getFleet();
                 fleet.getFlagship().setVariant(fleet.getFlagship().getVariant().clone(), false, false);
                 fleet.getFlagship().getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_AGGRESSIVE, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_JUMP, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_MAKE_ALLOW_DISENGAGE, true);
-                fleet.getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_LOW_REP_IMPACT, true);
                 fleet.addTag(Tags.NEUTRINO_HIGH);
                 fleet.setStationMode(true); // Will cause UI issues, but also prevents objectives from spawning
                 fleet.clearAbilities();
@@ -209,22 +184,18 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
 
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                 }
                 setSecondInCommand(bountyId, bounty);
                 break;
             }
             case "adversary_Ultra_Omega", "adversary_Ultra_Threat", "adversary_Ultra_Dweller", "adversary_Ultra_Maw",
                  "adversary_Ultra_Fabricator", "adversary_Ultra_Tesseract": {
-                bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_REP_IMPACT, true);
-                bounty.getFleet().getMemoryWithoutUpdate().set(MemFlags.MEMORY_KEY_NO_SHIP_RECOVERY, true);
                 for (FleetMemberAPI member : bounty.getFleet().getFleetData().getMembersListCopy()) {
                     member.setVariant(member.getVariant().clone(), false, false);
                     member.getVariant().addTag(Tags.VARIANT_CONSISTENT_WEAPON_DROPS);
                     if (member.isFlagship()) continue; // Don't replace the bounty target
-                    member.setCaptain(null);
-                    setOfficers(officerData, member);
+                    setOfficer(officerData, member);
                     // Has a sleeper officer, so give them the appropriate tag
                     if (member.getCaptain() != null && member.getCaptain().getStats().getLevel() == 7)
                         member.getCaptain().getMemoryWithoutUpdate().set(MemFlags.EXCEPTIONAL_SLEEPER_POD_OFFICER, true);
@@ -244,29 +215,24 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
         return true;
     }
 
-    // Sets officers using a JSON config
+    // Sets a ship's officer using a JSON config
     // Thanks to wispborne for the suggested format; this is currently a watered-down version for personal use
     @SuppressWarnings("unchecked")
-    private void setOfficers(JSONObject bountyConfig, FleetMemberAPI member) {
+    private void setOfficer(JSONObject bountyConfig, FleetMemberAPI member) {
         if (bountyConfig == null) return;
 
         JSONObject officerConfig = bountyConfig.optJSONObject(member.getHullId());
-        if (officerConfig == null) return;
+        if (officerConfig == null) {
+            member.setCaptain(null);
+            return;
+        }
 
         PersonAPI person;
         String officerFaction = officerConfig.optString("officer_faction", Factions.NEUTRAL);
         int level = officerConfig.optInt("officer_level", 1);
+        String personality = officerConfig.optString("officer_personality", Personalities.STEADY);
         String aiCoreId = officerConfig.optString("officer_aiCoreId", null);
-        if (aiCoreId != null) {
-            // The AI core plugin also sets up officer skills depending on AI core, so make sure to account for that
-            person = new AICoreOfficerPluginImpl().createPerson(aiCoreId, officerFaction, null);
-            person.getStats().setSkipRefresh(true);
-            person.getStats().setLevel(level);
-            member.setCaptain(person);
-        } else {
-            String personality = officerConfig.optString("officer_personality", Personalities.STEADY);
-            person = createOfficer(Global.getSector().getFaction(officerFaction), level, personality, member);
-        }
+        person = createOfficer(member, officerFaction, level, personality, aiCoreId);
 
         JSONObject skills = officerConfig.optJSONObject("officer_skills");
         for (Iterator<String> iterator = skills.keys(); iterator.hasNext(); ) {
@@ -276,20 +242,25 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
         person.getStats().setSkipRefresh(false);
     }
 
-    // Creates a human officer with no skills and assigns the officer to a ship member
-    private PersonAPI createOfficer(FactionAPI faction, int level, String personality, FleetMemberAPI member) {
-        PersonAPI person = faction.createRandomPerson();
-        person.getStats().setSkipRefresh(true);
-        person.getStats().setLevel(level);
-        person.setPersonality(personality);
-        person.setRankId(Ranks.SPACE_LIEUTENANT);
-        person.setPostId(Ranks.POST_OFFICER);
-        member.setCaptain(person);
-        return person;
+    // Creates an officer and assigns the officer to a ship member
+    // Officer stats are set to skip refresh; should be set to true when finished with modifying stats
+    private PersonAPI createOfficer(FleetMemberAPI member, String faction, int level, String personality, String aiCoreId) {
+        PersonAPI officer;
+        if (aiCoreId == null) {
+            officer = Global.getSector().getFaction(faction).createRandomPerson();
+            officer.setPersonality(personality);
+            officer.setRankId(Ranks.SPACE_LIEUTENANT);
+            officer.setPostId(Ranks.POST_OFFICER);
+        } else officer = Misc.getAICoreOfficerPlugin(aiCoreId).createPerson(aiCoreId, faction, null);
+
+        officer.getStats().setSkipRefresh(true);
+        officer.getStats().setLevel(level);
+        member.setCaptain(officer);
+        return officer;
     }
 
-    private void createSuperOfficer(FactionAPI faction, FleetMemberAPI member, boolean ultimate) {
-        PersonAPI officer = createOfficer(faction, ultimate ? 14 : 10, Personalities.STEADY, member);
+    private void setSuperOfficer(FleetMemberAPI member, boolean ultimate) {
+        PersonAPI officer = createOfficer(member, Factions.MERCENARY, ultimate ? 14 : 10, Personalities.STEADY, null);
         officer.getStats().setSkillLevel(Skills.HELMSMANSHIP, 2);
         officer.getStats().setSkillLevel(Skills.COMBAT_ENDURANCE, 2);
         officer.getStats().setSkillLevel(Skills.IMPACT_MITIGATION, 2);

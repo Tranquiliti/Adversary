@@ -262,7 +262,7 @@
 		"trigger_player_minLevel":15,
 
 		"job_name":"A Troublesome Mercenary",
-		"job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary fleet commander, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well. Thus, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
+		"job_description":"Sounds like Tri-Tachyon has placed a bounty on a ==particularly dangerous== mercenary they had recently hired. Apparently, this mercenary, a former Adversary system defense fleet commander turned loosely-affiliated bounty hunter, was tasked with covertly harassing Hegemony trade convoys in hyperspace, presumably to lure the Hegemony into skirmishes with Tri-Tachyon's competitors.\nAccording to the many after-battle reports appended alongside this bounty, $heSheThey did the job a little TOO well. Thus, the Tri-Tachyon Corporation would like to provide ==a hefty payout== to whoever makes their little troublemaker \"disappear\".",
 		"job_comm_reply":"\"What! I thought the Tachies told me to destroy them! They didn't tell me anything else!\"",
 		"job_intel_success":"A Tri-Tachyon representative has heard of your success with their \"little problem\". Soon thereafter, you receive the promised payout, delivered directly to your accounts.",
 		"job_forFaction":"tritachyon",
@@ -378,6 +378,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":false,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$noRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -460,7 +461,7 @@
 		"job_forFaction":"luddic_path",
 		"job_credit_reward":100000,
 		"job_item_reward":{
-			"alpha_core":3
+			"$commodity alpha_core":3
 		},
 		"job_type":"assassination",
 		"job_show_fleet":"vanilla",
@@ -529,7 +530,7 @@
 		"job_intel_success":"With the debris settled, you alone remain afloat atop the burning wreckage of the thown-away ships. Salvage operations have discovered a valuable set of blueprints for the Hegemony's coveted Fourteenth Battlegroup designs - a highly-auspicious find, especially given how tightly-secured such blueprints are in Hegemony industrial worlds.",
 		"job_credit_reward":2000000,
 		"job_item_reward":{
-			"XIV_package":1
+			"$special XIV_package":1
 		},
 		"job_forFaction":"hegemony",
 		"job_reputation_reward":20,
@@ -578,6 +579,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"ROAMING",
+		"fleet_memory_flags":["$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -712,6 +714,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$cfai_makeHostile","$lowRepImpact"],
 
 		"location_distance":"CLOSE",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -733,9 +736,9 @@
 		"job_credit_reward":1250000,
 		"job_reputation_reward":30,
 		"job_item_reward":{
-			"amsrm":3,
-			"resonatormrm":2,
-			"rifttorpedo":1
+			"$weapon amsrm":3,
+			"$weapon resonatormrm":2,
+			"$weapon rifttorpedo":1
 		},
 		"job_type":"neutralization",
 		"job_show_fleet":"vanilla",
@@ -861,6 +864,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$noRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_derelict"],
@@ -951,6 +955,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_remnant"],
@@ -1054,6 +1059,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"GUARDED",
+		"fleet_memory_flags":["$cfai_makeHostile","$noRepImpact"],
 
 		# "A script relocates this bounty fleet to a nearby black-hole system"
 		"location_themes_blacklist":["theme_already_colonized","theme_hidden"],
@@ -1211,6 +1217,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -1277,6 +1284,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["procgen_no_theme_pulsar_blackhole"],
@@ -1337,6 +1345,7 @@
 		"fleet_transponder":true,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$cfai_makeAggressive","$cfai_noJump","$cfai_makeAllowDisengage","$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_ruins"],
@@ -1405,6 +1414,7 @@
 		"fleet_transponder":true,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$cfai_makeAggressive","$cfai_noJump","$cfai_makeAllowDisengage","$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_ruins"],
@@ -1466,6 +1476,7 @@
 		"fleet_transponder":true,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$cfai_makeAggressive","$cfai_noJump","$cfai_makeAllowDisengage","$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_ruins"],
@@ -1534,6 +1545,7 @@
 		"fleet_transponder":true,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"AGGRESSIVE",
+		"fleet_memory_flags":["$cfai_makeAggressive","$cfai_noJump","$cfai_makeAllowDisengage","$lowRepImpact"],
 
 		"location_distance":"FAR",
 		"location_themes":["theme_remnant_no_fleets","theme_remnant_destroyed"],
@@ -1605,6 +1617,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["limbo_hades"],
 		"location_distance":"FAR",
@@ -1681,6 +1694,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["limbo_hades"],
 		"location_distance":"FAR",
@@ -1763,6 +1777,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["limbo_hades"],
 		"location_distance":"FAR",
@@ -1787,7 +1802,7 @@
 			"weapon_bp realitydisruptor":1,
 			"weapon_bp resonatormrm":1,
 			"weapon_bp cryoblaster":1,
-			"omega_core":3
+			"$commodity omega_core":3
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
@@ -1849,6 +1864,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",
@@ -1873,10 +1889,10 @@
 			"weapon_bp heavy_mass_driver":1,
 			"weapon_bp light_mass_driver":1,
 			"weapon_bp neutron_torpedo":1,
-			"pristine_nanoforge":4,
-			"planetkiller":1,
-			"fragment_fabricator":30,
-			"threat_processing_unit":30
+			"$special pristine_nanoforge":4,
+			"$special planetkiller":1,
+			"$special fragment_fabricator":30,
+			"$special threat_processing_unit":30
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
@@ -1940,6 +1956,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",
@@ -1964,10 +1981,10 @@
 			"weapon_bp riftcascade":1,
 			"weapon_bp assaying_rift":1,
 			"weapon_bp rift_lightning":1,
-			"shrouded_substrate":100,
-			"shrouded_thunderhead":10,
-			"shrouded_mantle":10,
-			"shrouded_lens":10
+			"$special shrouded_substrate":100,
+			"$special shrouded_thunderhead":10,
+			"$special shrouded_mantle":10,
+			"$special shrouded_lens":10
 		},
 		"job_type":"obliteration",
 		"job_show_fleet":"none",
@@ -2028,6 +2045,7 @@
 		"fleet_transponder":false,
 		"fleet_no_retreat":true,
 		"fleet_behavior":"PASSIVE",
+		"fleet_memory_flags":["$noRepImpact","$noShipRecovery"],
 
 		"location_entitiesID":["nameless_ice_giant"],
 		"location_distance":"FAR",
