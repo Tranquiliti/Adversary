@@ -27,7 +27,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - Doubled the credit reward for destroying the ship
 * Other changes to MagicBounties:
   - Adjusted many bounty ship variants to account for 0.98.5a balance changes
-  - Adjusted several bounty/officer skillsets to account for changes to bounty ship variants
+  - Adjusted several bounty/officer skill sets to account for changes to bounty ship variants
   - Adjusted ship compositions for non-Silly bounties to account for officer number changes
   - Adjusted bounty faction spawn requirements, with most bounties now showing up in the bounty board if near a player market
   - Adjusted bounty rewards
@@ -37,7 +37,7 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
   - All support ships in station bounties now have officers commanding them
   - Fixed issue with vanilla variants being globally modified upon accepting "A Paradoxical Event"
 * "enableAdversarySCSupport" setting now also pre-configures the 4th XO slot if that SiC option is enabled
-* Rewrote Adversary faction description and some faction dialogue
+* Rewrote Adversary faction description and some faction-specific dialogue
 * Changed Adversary market scoring to prioritize markets with higher ship quality and fleet size multiplier
   - This affects the spawn location of the Adversary system defense fleet and crisis fleets
 * Added Ship Mastery System support for the Adversary faction (will have same mastery difficulty as mercenaries)
