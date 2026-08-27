@@ -1,13 +1,12 @@
 {
 	"displayName":"Custom",
-	"fluxCapacitors":23,
+	"fluxCapacitors":38,
 	"fluxVents":50,
 	"hullId":"onslaught_xiv",
 	"hullMods":[
 		"turretgyros",
 		"fluxdistributor",
 		"heavyarmor",
-		"armoredweapons",
 		"ballistic_rangefinder",
 		"hardenedshieldemitter",
 		"targetingunit",
@@ -23,6 +22,7 @@
 		"fluxdistributor",
 		"heavyarmor"
 	],
+	"sModdedBuiltIns":["armoredweapons"],
 	"variantId":"adversary_onslaught_xiv_Custom",
 	"weaponGroups":[
 		{

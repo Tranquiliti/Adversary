@@ -1,0 +1,59 @@
+{
+	"displayName":"Overdriven",
+	"fluxCapacitors":0,
+	"fluxVents":3,
+	"hullId":"enforcer_xiv",
+	"hullMods":[
+		"missleracks",
+		"heavyarmor",
+		"shield_shunt",
+		"armoredweapons",
+		"autorepair",
+		"reinforcedhull",
+		"safetyoverrides"
+	],
+	"permaMods":[
+		"missleracks",
+		"heavyarmor",
+		"shield_shunt"
+	],
+	"sMods":[
+		"missleracks",
+		"heavyarmor",
+		"shield_shunt"
+	],
+	"variantId":"adversary_enforcer_xiv_Overdriven",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"shredder",
+				"WS 005":"shredder"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"heavymg",
+				"WS 004":"heavymg"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 003":"miningblaster"}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 006":"sabot",
+				"WS 007":"sabot",
+				"WS 008":"sabot",
+				"WS 009":"sabot"
+			}
+		}
+	]
+}
