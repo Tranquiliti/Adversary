@@ -1,6 +1,6 @@
 {
 	"displayName":"Custom",
-	"fluxCapacitors":38,
+	"fluxCapacitors":19,
 	"fluxVents":50,
 	"hullId":"onslaught_xiv",
 	"hullMods":[
@@ -10,7 +10,7 @@
 		"ballistic_rangefinder",
 		"hardenedshieldemitter",
 		"targetingunit",
-		"fluxbreakers"
+		"adaptiveshields"
 	],
 	"permaMods":[
 		"turretgyros",
@@ -22,7 +22,6 @@
 		"fluxdistributor",
 		"heavyarmor"
 	],
-	"sModdedBuiltIns":["armoredweapons"],
 	"variantId":"adversary_onslaught_xiv_Custom",
 	"weaponGroups":[
 		{
@@ -64,19 +63,15 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 001":"lightneedler",
-				"WS 002":"lightneedler",
-				"WS 003":"lightneedler",
-				"WS 004":"lightneedler",
-				"WS 007":"dualflak",
-				"WS 008":"lightneedler",
-				"WS 009":"lightneedler",
-				"WS 010":"lightneedler",
-				"WS 011":"lightneedler",
-				"WS 012":"lightneedler",
-				"WS 013":"lightneedler",
-				"WS 014":"lightmg",
-				"WS 015":"lightmg"
+				"WS 001":"heavy_mass_driver",
+				"WS 003":"heavy_mass_driver",
+				"WS 007":"heavy_mass_driver",
+				"WS 008":"vulcan",
+				"WS 009":"vulcan",
+				"WS 010":"heavy_mass_driver",
+				"WS 011":"heavy_mass_driver",
+				"WS 012":"heavy_mass_driver",
+				"WS 013":"heavy_mass_driver"
 			}
 		}
 	]

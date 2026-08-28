@@ -1,6 +1,6 @@
 {
 	"displayName":"Elite",
-	"fluxCapacitors":48,
+	"fluxCapacitors":43,
 	"fluxVents":50,
 	"hullId":"onslaught_xiv",
 	"hullMods":[
@@ -12,11 +12,11 @@
 		"degraded_shields",
 		"erratic_injector",
 		"fragile_subsystems",
-		"armoredweapons",
 		"autorepair",
 		"eccm",
 		"magazines",
 		"missleracks",
+		"fluxdistributor",
 		"hardenedshieldemitter",
 		"fluxbreakers",
 		"adaptiveshields"
@@ -36,6 +36,7 @@
 		"ballistic_rangefinder",
 		"targetingunit"
 	],
+	"sModdedBuiltIns":["armoredweapons"],
 	"variantId":"adversary_onslaught_xiv_Elite",
 	"weaponGroups":[
 		{
