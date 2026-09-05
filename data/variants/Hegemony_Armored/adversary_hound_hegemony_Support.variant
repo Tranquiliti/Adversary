@@ -24,6 +24,7 @@
 		"nav_relay",
 		"reinforcedhull"
 	],
+	"sModdedBuiltIns":["armoredweapons"],
 	"variantId":"adversary_hound_hegemony_Support",
 	"weaponGroups":[{
 		"autofire":false,

@@ -460,6 +460,7 @@
 		"job_intel_success":"Not only did you get some credits for finishing the job, but it seems this former Pather had a cache of Alpha Cores with $himHerThem all along. Perhaps the operative who posted the bounty knew this too, but was afraid of being tempted by technological excess. Either way, you at least got something out of this mess.",
 		"job_forFaction":"luddic_path",
 		"job_credit_reward":100000,
+		"job_reputation_reward":5,
 		"job_item_reward":{
 			"$commodity alpha_core":3
 		},
@@ -525,7 +526,7 @@
 		},
 
 		"job_name":"Under Penalty of Death",
-		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, with most of the escaped prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships, weapons, and blueprints from a nearby Hegemony armory, left the atmosphere with their acquired arsenal, and then hunted down several Luddic Church trading fleets before leaving the Core Worlds altogether.\nMost worryingly, it appears that these Throwaways members have been receiving material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it. And so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==.\nShould you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered goods== from the gang's cargo holds (in addition to the bounty payout, of course).",
+		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, involving mostly prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships, weapons, and blueprints from a nearby Hegemony armory, left the atmosphere with their acquired arsenal, and preyed upon several Luddic Church trading fleets before leaving the Core Worlds altogether. Most worryingly, it appears that these Throwaways have recently received material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it.\nAnd so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==. Should you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered goods== from the gang's cargo holds (in addition to the bounty payout, of course).",
 		"job_comm_reply":"\"I've got nothin' to say to you, mate,\" remarks $name. \"Boys and girls, lets rip this one open like a Tachyon Lance!\"",
 		"job_intel_success":"With the debris settled, you alone remain afloat atop the burning wreckage of the thown-away ships. Salvage operations have discovered a valuable set of blueprints for the Hegemony's coveted Fourteenth Battlegroup designs - a highly-auspicious find, especially given how tightly-secured such blueprints are in Hegemony industrial worlds.",
 		"job_credit_reward":2000000,
@@ -595,7 +596,7 @@
 
 		"job_name":"Certainty of Victory",
 		"job_description":"Despite your past win against the Adversary's esteemed fleet commander, your contacts have reported that the Adversary has replaced the now-disgraced commander with another, similarly-experienced admiral to helm the faction's newest grand fleet. The latest intel suggests this fleet ==specializes in combined-arms tactics== to counter and crush any foe it observes.\nWhat's more, your contacts point out that certain League archons - the same archons you've upset from your previous involvement - appear genuinely worried about this reborn threat and, consequently, have posted a real bounty this time. If you rise up to meet the challenge once more, the League may finally ==respect your strength and tenacity== as a fleet captain, with a reward to match.",
-		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like a Reaper through your skull.\"",
+		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like a Reaper through your head.\"",
 		"job_intel_success":"At last, the Spirit of Destiny joins its spearheaded cousin in the vacuum of space. Your accomplishment in besting the Adversary's best twice will not go unnoticed by the League, for the archons have willingly parted ways with their credits this time. Perhaps even the gens will take note too and treat you more favorably in future dealings; whether this favor is born out of fear or of respect, you know the result is all the same.",
 		"job_forFaction":"persean",
 		"job_credit_reward":2000000,
@@ -891,6 +892,7 @@
 		"job_intel_success":"The angular shape and its minions have fallen before your mighty fleet, and you shall reap its bizarre and alien technology.",
 		"job_forFaction":"independent",
 		"job_credit_reward":2000000,
+		"job_reputation_reward":0,
 		"job_item_reward":{
 			"ship_bp scintilla":1
 		},
@@ -1303,6 +1305,7 @@
 		"job_intel_success":"You have demolished the Rebellion's last hope, once and for all. Lying within their ruins is a blueprint for a Remnant interceptor wing - a truly suspicious find for something found in a former Hegemony station.",
 		"job_forFaction":"hegemony",
 		"job_credit_reward":3000000,
+		"job_reputation_reward":5,
 		"job_item_reward":{
 			"ship_bp pegasus":1,
 			"fighter_bp spark_wing":1
@@ -1365,6 +1368,7 @@
 		"job_intel_success":"That was not worth it at all. Or so you thought, as your salvage team had found three blueprints from the wrecked station, with one containing schematics for a Remnant drone fighter. If any of the major factions had known about these blueprints, the so-called \"Chosen One\" would've been dead by now.",
 		"job_forFaction":"independent",
 		"job_credit_reward":2000000,
+		"job_reputation_reward":5,
 		"job_item_reward":{
 			"ship_bp paragon":1,
 			"fighter_bp lux_wing":1,
@@ -1434,6 +1438,7 @@
 		"job_intel_success":"From the burning hulk of a station comes a bountiful surprise: blueprints for both an Invictus-class ship and a Remnant bomber wing. It seemed like the League had access to one of Tri-Tachyon's blueprint caches and, thus, were keeping it a secret from the rest of the Sector.",
 		"job_forFaction":"tritachyon",
 		"job_credit_reward":4000000,
+		"job_reputation_reward":5,
 		"job_item_reward":{
 			"ship_bp invictus":1,
 			"fighter_bp flash_wing":1
@@ -1804,7 +1809,7 @@
 			"weapon_bp cryoblaster":1,
 			"$commodity omega_core":3
 		},
-		"job_type":"obliteration",
+		"job_type":"assassination",
 		"job_show_fleet":"none",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
@@ -1894,7 +1899,7 @@
 			"$special fragment_fabricator":30,
 			"$special threat_processing_unit":30
 		},
-		"job_type":"obliteration",
+		"job_type":"assassination",
 		"job_show_fleet":"none",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",
@@ -1986,7 +1991,7 @@
 			"$special shrouded_mantle":10,
 			"$special shrouded_lens":10
 		},
-		"job_type":"obliteration",
+		"job_type":"assassination",
 		"job_show_fleet":"none",
 		"job_show_distance":"vanilla",
 		"job_difficultyDescription":"auto",

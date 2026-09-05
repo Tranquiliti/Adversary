@@ -3,17 +3,18 @@ Version 8.0.0 (Update for Starsector 0.98.5a)
 * All Silly MagicBounties are now enabled by default
   - "enableAdversarySillyBounties" setting now defaults to "true" (previously defaulted to "false")
 * Added three new MagicBounties
-  - Each bounty is available upon completing one of these bounty pairs: Hegemony/Luddic Church, Persean League/Sindrian Diktat, or Pirates/Luddic Path
+  - Each bounty is available upon completing their respective bounty pairs: Hegemony/Luddic Church, Persean League/Sindrian Diktat, or Pirates/Luddic Path
+  - Generally much tougher than preceding bounties, with difficulty at or exceeding the level of the best possible vanilla NPC fleets
 * Changes to "An Even More Troublesome Mercenary" MagicBounty:
   - No longer considered a Silly bounty
   - Modified to closely match the three newly-added MagicBounties
-  - Now requires completing the Tri-Tachyon/Independent bounty pair (previously only needed the Tri-Tachyon bounty)
+  - Now requires completing the Tri-Tachyon/Independent bounty pair to appear (previously only needed the Tri-Tachyon bounty)
   - Added Afflictor (P) ships to the bounty fleet
   - Increased credit reward
 * Added one Silly MagicBounty, available after completing "Overwhelming Power"
 * Added three super-ultra-difficult Silly MagicBounties, each requiring their respective ultra-difficult MagicBounty to be defeated first
   - Failure is almost always expected...
-* Added 4 new MagicAchievements
+* Added at least 4 new MagicAchievements
 * Changes to "Omega Alpha Strike" Silly MagicBounty:
   - Revamped Remnant ship variants to no longer use Omega weapons
   - Tesseract variant now uses Omega weapons (from using ballistic PD loadout)

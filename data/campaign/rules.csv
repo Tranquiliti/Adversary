@@ -93,7 +93,7 @@ $faction.id == adversary",FireAll RelLevelMoreDescription,Adversary fleets are a
 relLevelVengefulAdversary,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
 $player.numColonies == 0
-$player.fleetPoints < 120",FireAll RelLevelMoreDescription,"To the Adversary, you are nothing more than a gnat buzzing around the grand and mighty bulwark of their glorious Project. No Adversary commander will pay you any heed should their fleets obliterate yours into nothingness - as they have always done against their foes for cycles and will continue to do so for an eternity.",,
+$player.fleetPoints < 120",FireAll RelLevelMoreDescription,"To the Adversary, you are nothing more than a gnat buzzing around the grand and mighty bulwark of their glorious Project. No Adversary commander will pay you any heed should their fleets obliterate your $shipOrFleet into nothingness - as they have always done against their foes for cycles and will continue to do so for an eternity.",,
 relLevelVengefulAdversaryFleet,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == adversary
 $player.numColonies == 0
@@ -130,16 +130,15 @@ $faction.id == adversary",FireAll PopulateCoresTurnInOptions,"""A fascinating fi
 "# Talking to the Adversary scout, spawned due to Colony Crisis",,,,,,
 adversaryScoutComms,OpenCommLink,$entity.adversaryScout score:1000,$entity.ignorePlayerCommRequests = true 7,"""Oh, if it isn't you, $playerName,"" the Adversary $post seems intent on analyzing your movements, looking for any signs of weakness or hesitation.
 
-""You're lucky that we didn't attack you, isn't that right? Now move it, while you still have the chance.""","adversaryScout_askWhy:""First, tell me why you are here, then I'll move.""
+""You're lucky that we didn't attack you, isn't that right? Now move it, while you still have the chance.""","adversaryScout_askWhy:""First, why are you here?""
 adversaryScout_askWhy2:""This is my domain. You have no right to be here!""
 adversaryScout_askWhySarcastic:""Yeah, you're lucky I didn't attack you yet. Now move it!""
 cutCommLink:Cut the comm link",
 adversaryScoutAskWhy,DialogOptionSelected,$option == adversaryScout_askWhy,FireAll AdversaryScoutResponse,"""Let me tell you what we stand for first. We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
-adversaryScoutAskWhy2,DialogOptionSelected,$option == adversaryScout_askWhy2,FireAll AdversaryScoutResponse,"""Your domain?"" The $post seems to ponder about this for a while, before $heOrShe then declares, ""This is our domain now.""
+adversaryScoutAskWhy2,DialogOptionSelected,$option == adversaryScout_askWhy2,FireAll AdversaryScoutResponse,"""Your domain?"" The $post ponders about this for a while, before $heOrShe then declares, ""This is our domain now.""
 
 ""Hmph, you still think otherwise? We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
-adversaryScoutAskWhySarcastic,DialogOptionSelected,$option == adversaryScout_askWhySarcastic,"$player.ethosSarcastic++
-FireAll AdversaryScoutResponse","The $post seems unfazed by your display of wit, faking a laugh, ""Oh, that was funny. Next, you'll tell me you'll blast my fleet off if I don't comply? Such a great joke; I can't wait to watch your next comedy holoshow soon!""
+adversaryScoutAskWhySarcastic,DialogOptionSelected,$option == adversaryScout_askWhySarcastic,FireAll AdversaryScoutResponse,"The $post fakes a hearty laugh, unfazed by your display of wit, ""Oh, that was funny. Next, you'll tell me you'll blast my fleet off if I don't comply? Such a great joke; I can't wait to watch your next comedy holoshow soon!""
 
 Satisfied by $hisOrHer own comeback, the $post resumes the serious tone, ""We, the Project, are the sworn protectors of a grand utopia, one you could never imagine with your own feeble brain. If Gilead is the jewel of the Persean Sector, then our worlds are a hoard of jewels - the likes of which only the defunct Domain could craft and now only we can protect.""",,
 adversaryScoutResponse,AdversaryScoutResponse,,,"""Right now, your settlements may be but a mere mimic with a fraction of our power, but we both know all too well that a problem left alone is a grand problem indeed. After all, why do you think the other factions wanted a slice of your pie?"" $HeOrShe leaves this question hanging briefly, though the answer is anything but mysterious. 
@@ -155,7 +154,7 @@ adversaryScoutRespondedThreat,DialogOptionSelected,$option == adversaryScout_res
 RemoveOption adversaryScout_respondedThreat
 AdjustRepActivePerson FAVORABLE 1","""Of course you would say that. I would love to see you try,"" the Adversary $post goads.
 
-""Not that I can even make the first move. My orders are absolute."" $HeOrShe seems utterly disappointed by this predicament, like $heOrShe missed out on a limited-time deal from a local TriStore.
+""Not that I can even make the first move. My orders are absolute."" $HeOrShe seems utterly disappointed by this fact, like $heOrShe missed out on a limited-time deal from a local TriStore.
 
 The comms link dissipates shortly thereafter.",,
 ,,,,,,
