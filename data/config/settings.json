@@ -36,6 +36,7 @@
 	"enableAdversarySillyBounties":true,
 
 	# Forces Adversary MagicBounties to spawn with pre-configured Second-in-Command executive officers.
+	# SiC skills can be configured in the data/config/secondInCommand/scBountySkills.json file.
 	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 

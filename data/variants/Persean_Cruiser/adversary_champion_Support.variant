@@ -1,14 +1,15 @@
 {
 	"displayName":"Support",
-	"fluxCapacitors":15,
+	"fluxCapacitors":12,
 	"fluxVents":30,
 	"hullId":"champion",
 	"hullMods":[
 		"hardenedshieldemitter",
 		"targetingunit",
+		"advancedoptics",
 		"eccm",
-		"missleracks",
-		"pointdefenseai",
+		"fluxdistributor",
+		"adaptiveshields",
 		"stabilizedshieldemitter"
 	],
 	"permaMods":[
@@ -35,12 +36,14 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 000":"lrpdlaser",
-				"WS 001":"lrpdlaser",
-				"WS 006":"hveldriver",
-				"WS 007":"hveldriver",
-				"WS 010":"lrpdlaser",
-				"WS 011":"lrpdlaser"
+				"WS 000":"taclaser",
+				"WS 001":"taclaser",
+				"WS 003":"taclaser",
+				"WS 004":"mininglaser",
+				"WS 006":"gravitonbeam",
+				"WS 007":"gravitonbeam",
+				"WS 010":"taclaser",
+				"WS 011":"taclaser"
 			}
 		}
 	]

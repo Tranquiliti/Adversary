@@ -1,24 +1,24 @@
 {
 	"displayName":"Fire Support",
-	"fluxCapacitors":35,
+	"fluxCapacitors":30,
 	"fluxVents":50,
 	"hullId":"pegasus",
 	"hullMods":[
 		"eccm",
-		"missleracks",
-		"armoredweapons",
-		"fluxdistributor",
 		"hardenedshieldemitter",
+		"armoredweapons",
+		"missleracks",
+		"fluxdistributor",
 		"targetingunit",
 		"adaptiveshields"
 	],
 	"permaMods":[
 		"eccm",
-		"missleracks"
+		"hardenedshieldemitter"
 	],
 	"sMods":[
 		"eccm",
-		"missleracks"
+		"hardenedshieldemitter"
 	],
 	"variantId":"adversary_pegasus_Fire_Support",
 	"weaponGroups":[

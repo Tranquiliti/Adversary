@@ -1,6 +1,6 @@
 {
 	"displayName":"Overdriven",
-	"fluxCapacitors":20,
+	"fluxCapacitors":18,
 	"fluxVents":0,
 	"hullId":"falcon_xiv",
 	"hullMods":[
@@ -26,7 +26,7 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 005":"heavyburst",
+				"WS 005":"ionpulser",
 				"WS 006":"heavyburst",
 				"WS 007":"heavymg",
 				"WS 008":"heavymg",
