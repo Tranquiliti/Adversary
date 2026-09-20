@@ -2,6 +2,8 @@
 	"playableFaction":true,
 	"corvusCompatible":true,
 
+	"rebelFleetSuffix":"Deserters",
+
 	"marketSpawnWeight":0.1,
 
 	"morality":"amoral",
@@ -15,6 +17,10 @@
 	# "No point going anywhere worse, but maybe the rock nearby looks nice?"
 	"colonyExpeditionChance":0.1,
 	"maxColonyDistance":5,
+
+	"groundBattleSettings":{
+		"moraleDamageTakenMult":0.9
+	},
 
 	"vengeanceLevelNames":["Retribution","Extermination","Death"],
 	"vengeanceFleetNames":["Retribution Fleet","Extermination Fleet","Death Fleet"],

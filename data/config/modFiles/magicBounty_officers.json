@@ -247,12 +247,12 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
+				"impact_mitigation":2,
 				"target_analysis":2,
 				"ballistic_mastery":2,
-				"missile_specialization":2,
+				"missile_specialization":1,
 				"gunnery_implants":1,
-				"ordnance_expert":1,
-				"polarized_armor":1
+				"ordnance_expert":1
 			}
 		},
 		"anubis":{
@@ -735,7 +735,7 @@
 			}
 		}
 	},
-	"adversary_Ultra_Tesseract":{ # An AI core who says it is a god, is no true god
+	"adversary_Ultra_Tesseract":{ # An AI core who must say, I am a god, is no true god
 		"tesseract":{
 			"officer_aiCoreId":"omega_core",
 			"officer_faction":"omega",

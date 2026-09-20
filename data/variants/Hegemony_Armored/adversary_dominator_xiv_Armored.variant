@@ -1,7 +1,7 @@
 {
 	"displayName":"Armored",
 	"fluxCapacitors":0,
-	"fluxVents":17,
+	"fluxVents":13,
 	"hullId":"dominator_xiv",
 	"hullMods":[
 		"autorepair",
@@ -58,6 +58,7 @@
 			"weapons":{
 				"WS 001":"lightmg",
 				"WS 003":"vulcan",
+				"WS 004":"vulcan",
 				"WS 005":"vulcan",
 				"WS 007":"lightmg"
 			}
