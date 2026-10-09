@@ -1,7 +1,7 @@
 {
 	"displayName":"Support",
-	"fluxCapacitors":15,
-	"fluxVents":17,
+	"fluxCapacitors":20,
+	"fluxVents":22,
 	"hullId":"eagle_LG",
 	"hullMods":[
 		"targetingunit",

@@ -1,7 +1,7 @@
 {
 	"displayName":"Support",
-	"fluxCapacitors":15,
-	"fluxVents":13,
+	"fluxCapacitors":18,
+	"fluxVents":17,
 	"hullId":"falcon_LG",
 	"hullMods":[
 		"targetingunit",

@@ -1,7 +1,7 @@
 {
 	"displayName":"Attack",
 	"fluxCapacitors":20,
-	"fluxVents":11,
+	"fluxVents":13,
 	"hullId":"facet",
 	"hullMods":[
 		"hardenedshieldemitter",

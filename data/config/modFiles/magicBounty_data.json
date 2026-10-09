@@ -1064,7 +1064,8 @@
 		"fleet_memory_flags":["$cfai_makeHostile","$noRepImpact"],
 
 		# "A script relocates this bounty fleet to a nearby black-hole system"
-		"location_themes_blacklist":["theme_already_colonized","theme_hidden"],
+		"location_themes":["theme_unsafe"],
+		"location_themes_blacklist":["theme_core","theme_already_colonized","theme_hidden"],
 		"location_entities":["jump_point"]
 	},
 	"adversary_Ziggurat_Plus":{

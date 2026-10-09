@@ -1,6 +1,6 @@
 {
 	"displayName":"Custom",
-	"fluxCapacitors":19,
+	"fluxCapacitors":1,
 	"fluxVents":50,
 	"hullId":"onslaught_xiv",
 	"hullMods":[
@@ -66,8 +66,8 @@
 				"WS 001":"heavy_mass_driver",
 				"WS 003":"heavy_mass_driver",
 				"WS 007":"heavy_mass_driver",
-				"WS 008":"vulcan",
-				"WS 009":"vulcan",
+				"WS 008":"lightmg",
+				"WS 009":"lightmg",
 				"WS 010":"heavy_mass_driver",
 				"WS 011":"heavy_mass_driver",
 				"WS 012":"heavy_mass_driver",

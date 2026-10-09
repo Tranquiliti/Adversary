@@ -1,7 +1,7 @@
 {
 	"displayName":"Archon",
 	"fluxCapacitors":10,
-	"fluxVents":7,
+	"fluxVents":9,
 	"hullId":"omen",
 	"hullMods":[
 		"hardenedshieldemitter",

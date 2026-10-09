@@ -1,7 +1,7 @@
 {
 	"displayName":"Support",
 	"fluxCapacitors":10,
-	"fluxVents":0,
+	"fluxVents":1,
 	"hullId":"afflictor",
 	"hullMods":[
 		"adaptive_coils",
@@ -12,7 +12,6 @@
 		"erratic_injector",
 		"faulty_auto",
 		"increased_maintenance",
-		"advancedoptics",
 		"eccm",
 		"missleracks",
 		"targetingunit",
@@ -39,9 +38,14 @@
 			"autofire":true,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 002":"taclaser",
-				"WS 003":"taclaser"
+				"WS 002":"lightneedler",
+				"WS 003":"lightneedler"
 			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 006":"lightneedler"}
 		},
 		{
 			"autofire":false,
@@ -50,11 +54,6 @@
 				"WS 001":"gazer",
 				"WS 004":"gazer"
 			}
-		},
-		{
-			"autofire":true,
-			"mode":"LINKED",
-			"weapons":{"WS 006":"taclaser"}
 		}
 	]
 }
