@@ -1,6 +1,6 @@
 {
 	"displayName":"Escort",
-	"fluxCapacitors":18,
+	"fluxCapacitors":3,
 	"fluxVents":20,
 	"hullId":"sunder_LG",
 	"hullMods":[
@@ -11,6 +11,7 @@
 		"damaged_mounts",
 		"erratic_injector",
 		"comp_structure",
+		"fluxdistributor",
 		"targetingunit"
 	],
 	"permaMods":[
@@ -33,14 +34,14 @@
 		{
 			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 003":"hil"}
+			"weapons":{"WS 003":"tachyonlance"}
 		},
 		{
 			"autofire":false,
 			"mode":"LINKED",
 			"weapons":{
-				"WS 002":"irautolance",
-				"WS 004":"irautolance"
+				"WS 002":"gravitonbeam",
+				"WS 004":"gravitonbeam"
 			}
 		},
 		{

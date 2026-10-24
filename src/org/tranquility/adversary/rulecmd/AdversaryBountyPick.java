@@ -20,6 +20,7 @@ import second_in_command.SCData;
 import second_in_command.SCUtils;
 import second_in_command.misc.SCSettings;
 import second_in_command.specs.SCOfficer;
+import second_in_command.specs.SCSpecStore;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
             bounty = MagicBountyCoordinator.getInstance().getActiveBounty(bountyId);
             if (bounty == null) throw new NullPointerException();
         } catch (Exception e) {
-            Global.getLogger(AdversaryBountyPick.class).error("Unable to get MagicBounty: " + bountyId, e);
+            Global.getLogger(AdversaryBountyPick.class).error("Unable to get MagicBounty: %s".formatted(bountyId), e);
             return true;
         }
 
@@ -313,34 +314,47 @@ public class AdversaryBountyPick extends BaseCommandPlugin {
         if (LUNALIB_ENABLED)
             enableSC = Boolean.TRUE.equals(LunaSettings.getBoolean(MOD_ID_ADVERSARY, SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT));
         else enableSC = Global.getSettings().getBoolean(SETTINGS_ENABLE_ADVERSARY_SC_SUPPORT);
-
         if (!enableSC) return;
 
         try {
             JSONObject bountyJSON = Global.getSettings().loadJSON("data/config/secondInCommand/scBountySkills.json", MOD_ID_ADVERSARY).optJSONObject(bountyId);
             if (bountyJSON == null) return;
 
-            SCData scData = SCUtils.getFleetData(bounty.getFleet());
             FactionAPI faction = Global.getSector().getFaction(bountyJSON.getString("factionId"));
 
             JSONArray scSkills = bountyJSON.getJSONArray("skills");
-            int currentSlot = 0;
-            for (int i = 0; i < scSkills.length(); i++) {
+            // Skip 4th slot if it is not enabled by Second-in-Command
+            int numOfficersToAdd = SCSettings.Companion.getAdditionalSlotForNPCFleets() ? scSkills.length() : scSkills.length() - 1;
+
+            List<SCOfficer> officersToAdd = new ArrayList<>(numOfficersToAdd);
+            for (int i = 0; i < numOfficersToAdd; i++) {
                 JSONArray scAptitudeSkills = scSkills.getJSONArray(i);
 
+                // Taking advantage of the SiC ID naming scheme to get the aptitude
                 String aptitudeId = scAptitudeSkills.getString(0).substring(0, scAptitudeSkills.getString(0).indexOf('_', "sc_".length()));
+                if (SCSpecStore.getAptitudeSpec(aptitudeId) == null) {
+                    Global.getLogger(AdversaryBountyPick.class).error("Second-in-Command aptitude \"%s\" does not exist! Skipping Second-in-Command preset skills for Adversary fleet!".formatted(aptitudeId));
+                    return;
+                }
+
                 SCOfficer officer = new SCOfficer(faction.createRandomPerson(), aptitudeId);
-                for (int s = 0; s < scAptitudeSkills.length(); s++)
-                    officer.addSkill(scAptitudeSkills.getString(s));
+                for (int s = 0; s < scAptitudeSkills.length(); s++) {
+                    String skillId = scAptitudeSkills.getString(s);
+                    if (SCSpecStore.getSkillSpec(skillId) != null) officer.addSkill(skillId);
+                    else {
+                        Global.getLogger(AdversaryBountyPick.class).error("Second-in-Command skill \"%s\" does not exist! Skipping Second-in-Command preset skills for Adversary fleet!".formatted(skillId));
+                        return;
+                    }
+                }
 
-                scData.setOfficerInSlot(currentSlot, officer);
-                currentSlot++;
-
-                // Skip 4th slot if it is not enabled by Second-in-Command
-                if (currentSlot >= 3 && !SCSettings.Companion.getAdditionalSlotForNPCFleets()) break;
+                officersToAdd.add(officer);
             }
+
+            SCData scData = SCUtils.getFleetData(bounty.getFleet());
+            for (int i = 0; i < officersToAdd.size(); i++)
+                scData.setOfficerInSlot(i, officersToAdd.get(i));
         } catch (JSONException | IOException e) {
-            throw new RuntimeException(e + "ERROR: Something went wrong setting the Second-in-Command skills for Adversary bounty; please contact the Adversary mod author with the error message! To avoid future errors, disable the Second-in-Command bounty support in settings.json or LunaSettings.\n");
+            throw new RuntimeException(e + "\nERROR: Something went wrong setting the Second-in-Command skills for Adversary bounty; please contact the Adversary mod author with the error message! To avoid future errors, disable the Second-in-Command bounty support in settings.json or LunaSettings.\n");
         }
     }
 }

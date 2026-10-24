@@ -1,6 +1,6 @@
 {
 	"displayName":"Support",
-	"fluxCapacitors":20,
+	"fluxCapacitors":21,
 	"fluxVents":22,
 	"hullId":"eagle_LG",
 	"hullMods":[
@@ -52,7 +52,7 @@
 		{
 			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 013":"hveldriver"}
+			"weapons":{"WS 013":"heavymauler"}
 		},
 		{
 			"autofire":false,

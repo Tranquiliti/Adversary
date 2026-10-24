@@ -196,7 +196,7 @@
 				"combat_endurance":1,
 				"impact_mitigation":2,
 				"point_defense":2,
-				"ordnance_expert":1,
+				"ordnance_expert":1
 			}
 		}
 	},
@@ -262,27 +262,27 @@
 			"officer_skills":{
 				"helmsmanship":2,
 				"combat_endurance":1,
-				"field_modulation":1,
 				"point_defense":2,
-				"target_analysis":2,
-				"gunnery_implants":1
+				"target_analysis":1,
+				"gunnery_implants":1,
+				"ordnance_expert":2
 			}
 		},
 		"sunder_LG":{
-			"officer_personality":"steady",
+			"officer_personality":"cautious",
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
 				"helmsmanship":1,
 				"combat_endurance":1,
-				"field_modulation":1,
 				"target_analysis":2,
 				"systems_expertise":2,
-				"gunnery_implants":2
+				"gunnery_implants":1,
+				"ordnance_expert":2
 			}
 		},
 		"gemini":{
-			"officer_personality":"cautious",
+			"officer_personality":"timid",
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
@@ -295,16 +295,16 @@
 			}
 		},
 		"afflictor_d_pirates":{
-			"officer_personality":"steady",
+			"officer_personality":"cautious",
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
 				"combat_endurance":2,
-				"field_modulation":2,
+				"field_modulation":1,
 				"point_defense":2,
 				"ballistic_mastery":1,
 				"systems_expertise":1,
-				"gunnery_implants":1
+				"gunnery_implants":2
 			}
 		},
 		"vanguard":{
@@ -735,7 +735,7 @@
 			}
 		}
 	},
-	"adversary_Ultra_Tesseract":{ # An AI core who must say, I am a god, is no true god
+	"adversary_Ultra_Tesseract":{ # An AI core who must say, "I am a god", is no true god
 		"tesseract":{
 			"officer_aiCoreId":"omega_core",
 			"officer_faction":"omega",

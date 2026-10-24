@@ -37,7 +37,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         }
         priorityDoctrinePicker.ready(factionId);
         refresh(); // Immediately apply the default doctrine
-        Global.getLogger(AdversaryDynamicDoctrine.class).info("Faction dynamic doctrine active for: " + factionId);
+        Global.getLogger(AdversaryDynamicDoctrine.class).info("Faction dynamic doctrine active for: %s".formatted(factionId));
     }
 
     @Override
@@ -55,7 +55,7 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
 
     public void setDelay(byte newDelay) {
         delayInMonths = newDelay;
-        Global.getLogger(AdversaryDynamicDoctrine.class).info("Set " + factionId + " dynamic doctrine delay to " + delayInMonths);
+        Global.getLogger(AdversaryDynamicDoctrine.class).info("Set %s dynamic doctrine delay to %d".formatted(factionId, delayInMonths));
     }
 
     // Refreshes the currently-set doctrine
@@ -77,14 +77,14 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
         factionDoctrine.setWarships(newDoctrine.warships);
         factionDoctrine.setCarriers(newDoctrine.carriers);
         factionDoctrine.setPhaseShips(newDoctrine.phaseShips);
-        doctrineLogger.info(factionId + " fleet composition set to " + factionDoctrine.getWarships() + "-" + factionDoctrine.getCarriers() + "-" + factionDoctrine.getPhaseShips());
+        doctrineLogger.info("%s fleet composition set to %d-%d-%d".formatted(factionId, factionDoctrine.getWarships(), factionDoctrine.getCarriers(), factionDoctrine.getPhaseShips()));
 
         factionDoctrine.getOfficerSkills().clear();
         if (newDoctrine.officerSkills != null && newDoctrine.officerSkills.length != 0)
             Collections.addAll(factionDoctrine.getOfficerSkills(), newDoctrine.officerSkills);
 
         factionDoctrine.setAggression(newDoctrine.aggression);
-        doctrineLogger.info(factionId + " aggression set to " + factionDoctrine.getAggression());
+        doctrineLogger.info("%s aggression set to %d".formatted(factionId, factionDoctrine.getAggression()));
 
         faction.getPriorityShips().clear();
         if (newDoctrine.priorityShips != null && newDoctrine.priorityShips.length != 0)
@@ -105,11 +105,11 @@ public class AdversaryDynamicDoctrine implements EconomyTickListener {
     }
 
     private void infoPrioritySet(Logger logger, Set<String> set, String text) {
-        if (set.isEmpty()) logger.info(factionId + " has no priority " + text);
+        if (set.isEmpty()) logger.info("%s has no priority %s".formatted(factionId, text));
         else {
             StringBuilder contents = new StringBuilder();
             for (String s : set) contents.append(s).append(',');
-            logger.info(factionId + " priority " + text + ": [" + contents.deleteCharAt(contents.length() - 1) + "]");
+            logger.info("%s priority %s: [%s]".formatted(factionId, text, contents.deleteCharAt(contents.length() - 1)));
         }
     }
 

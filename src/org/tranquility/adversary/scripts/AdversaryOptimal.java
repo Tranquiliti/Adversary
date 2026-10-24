@@ -41,7 +41,7 @@ public class AdversaryOptimal {
             system.getMemoryWithoutUpdate().set("$US_skipSystem", true);
         }
 
-        system.setBackgroundTextureFilename("graphics/backgrounds/" + (enableUS ? "US_background151.jpg" : "background1.jpg"));
+        system.setBackgroundTextureFilename("graphics/backgrounds/%s".formatted(enableUS ? "US_background151.jpg" : "background1.jpg"));
 
         SectorEntityToken center = system.initNonStarCenter();
         center.setId("adversary_optimal_center");
