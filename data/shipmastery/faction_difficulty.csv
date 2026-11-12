@@ -1,0 +1,2 @@
+faction_id, average_modifier, stdev, flagship_bonus, base_smod_prob, smod_prob_mult_per_dmod, mastery_strength_bonus
+adversary, 1,,3,0.9,0.8,0.25

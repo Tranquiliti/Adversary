@@ -1,59 +1,60 @@
 {
-    "displayName": "Fire Support",
-    "fluxCapacitors": 0,
-    "fluxVents": 1,
-    "hullId": "venture_p",
-    "hullMods": [
-        "missleracks",
-        "reinforcedhull",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems",
-        "converted_hangar",
-        "targetingunit",
-        "missile_autoloader"
-    ],
-    "permaMods": [
-        "missleracks",
-        "reinforcedhull",
-        "damaged_mounts",
-        "degraded_shields",
-        "erratic_injector",
-        "fragile_subsystems"
-    ],
-    "sMods": [
-        "missleracks",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_venture_p_Fire_Support",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 009": "squall"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "harpoon",
-                "WS 007": "harpoon"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {"WS 002": "gravitonbeam"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "heavymauler",
-                "WS 003": "heavymauler"
-            }
-        }
-    ],
-    "wings": ["broadsword_wing"]
+	"displayName":"Fire Support",
+	"fluxCapacitors":0,
+	"fluxVents":3,
+	"hullId":"venture_p",
+	"hullMods":[
+		"eccm",
+		"missleracks",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems",
+		"converted_hangar",
+		"targetingunit",
+		"missile_autoloader",
+		"reinforcedhull"
+	],
+	"permaMods":[
+		"eccm",
+		"missleracks",
+		"damaged_mounts",
+		"degraded_shields",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"eccm",
+		"missleracks"
+	],
+	"sModdedBuiltIns":["surveying_equipment"],
+	"variantId":"adversary_venture_p_Fire_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"harpoon",
+				"WS 007":"harpoon",
+				"WS 009":"squall"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"lightac",
+				"WS 006":"lightac"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"lightac",
+				"WS 003":"lightac"
+			}
+		}
+	],
+	"wings":["claw_wing"]
 }

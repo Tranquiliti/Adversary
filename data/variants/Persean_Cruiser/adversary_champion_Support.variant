@@ -1,0 +1,52 @@
+{
+	"displayName":"Support",
+	"fluxCapacitors":13,
+	"fluxVents":30,
+	"hullId":"champion",
+	"hullMods":[
+		"hardenedshieldemitter",
+		"targetingunit",
+		"advancedoptics",
+		"eccm",
+		"fluxdistributor",
+		"adaptiveshields",
+		"stabilizedshieldemitter"
+	],
+	"permaMods":[
+		"hardenedshieldemitter",
+		"targetingunit"
+	],
+	"sMods":[
+		"hardenedshieldemitter",
+		"targetingunit"
+	],
+	"variantId":"adversary_champion_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{"WS 009":"squall"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 008":"tachyonlance"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 000":"taclaser",
+				"WS 001":"taclaser",
+				"WS 002":"mininglaser",
+				"WS 003":"mininglaser",
+				"WS 004":"mininglaser",
+				"WS 005":"mininglaser",
+				"WS 006":"gravitonbeam",
+				"WS 007":"gravitonbeam",
+				"WS 010":"taclaser",
+				"WS 011":"taclaser"
+			}
+		}
+	]
+}

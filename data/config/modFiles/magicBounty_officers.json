@@ -1,62 +1,8 @@
 # Note: this file is not actually used by MagicLib; it is only placed here for organization purposes
 {
-	"adversary_TT_Wolfpack":{ # Officer Management, Cybernetic Augmentation
-		"hyperion":{
-			"officer_personality":"reckless",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":1,
-				"combat_endurance":1,
-				"field_modulation":2,
-				"target_analysis":1,
-				"systems_expertise":2
-			}
-		}
-	},
-	"adversary_LP_Heretics":{ # Cybernetic Augmentation
-		"prometheus2":{
-			"officer_personality":"reckless",
-			"officer_faction":"luddic_path",
-			"officer_level":5,
-			"officer_skills":{
-				"impact_mitigation":2,
-				"damage_control":1,
-				"point_defense":2,
-				"ordnance_expert":1,
-				"polarized_armor":1
-			}
-		}
-	},
-	"adversary_Pirates_Derelict":{ # Cybernetic Augmentation
-		"atlas2":{
-			"officer_personality":"cautious",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":2,
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"missile_specialization":2,
-				"gunnery_implants":1
-			}
-		},
-		"falcon_p":{
-			"officer_personality":"aggressive",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"helmsmanship":1,
-				"combat_endurance":1,
-				"field_modulation":1,
-				"target_analysis":2,
-				"missile_specialization":2
-			}
-		}
-	},
 	"adversary_Hegemony_Armored":{ # Officer Management, Officer Training, Cybernetic Augmentation
 		"dominator_xiv":{
-			"officer_personality":"reckless",
+			"officer_personality":"steady",
 			"officer_faction":"hegemony",
 			"officer_level":6,
 			"officer_skills":{
@@ -74,15 +20,41 @@
 			"officer_level":6,
 			"officer_skills":{
 				"combat_endurance":2,
-				"impact_mitigation":1,
-				"damage_control":2,
+				"impact_mitigation":2,
+				"damage_control":1,
 				"point_defense":2,
-				"gunnery_implants":1,
+				"ballistic_mastery":1,
 				"polarized_armor":1
 			}
 		}
 	},
-	"adversary_PL_Cruiser":{ # Officer Management, Cybernetic Augmentation
+	"adversary_LuddicChurch_Carrier":{ # No fleet-wide officer skills
+		"eradicator":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"target_analysis":1,
+				"ballistic_mastery":2,
+				"gunnery_implants":1,
+				"ordnance_expert":1
+			}
+		},
+		"retribution":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"target_analysis":1,
+				"ballistic_mastery":1,
+				"point_defense":2,
+				"ordnance_expert":1
+			}
+		}
+	},
+	"adversary_Persean_Cruiser":{ # Officer Management, Cybernetic Augmentation
 		"gryphon":{
 			"officer_personality":"cautious",
 			"officer_faction":"adversary",
@@ -102,9 +74,9 @@
 			"officer_skills":{
 				"combat_endurance":1,
 				"target_analysis":2,
-				"missile_specialization":1,
-				"gunnery_implants":1,
-				"ordnance_expert":2
+				"systems_expertise":1,
+				"missile_specialization":2,
+				"gunnery_implants":1
 			}
 		},
 		"pegasus":{
@@ -120,29 +92,43 @@
 			}
 		}
 	},
-	"adversary_LC_Carrier":{ # No fleet-wide officer skills
-		"eradicator":{
+	"adversary_SindrianDiktat_Beam":{ # Officer Management, Cybernetic Augmentation
+		"eagle_LG":{
 			"officer_personality":"steady",
-			"officer_faction":"adversary",
+			"officer_faction":"lions_guard",
 			"officer_level":5,
 			"officer_skills":{
-				"combat_endurance":2,
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"gunnery_implants":1,
-				"polarized_armor":1
-			}
-		},
-		"retribution":{
-			"officer_personality":"aggressive",
-			"officer_faction":"adversary",
-			"officer_level":5,
-			"officer_skills":{
-				"target_analysis":1,
-				"ballistic_mastery":1,
-				"point_defense":2,
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"target_analysis":2,
 				"gunnery_implants":1,
 				"ordnance_expert":1
+			}
+		},
+		"sunder_LG":{
+			"officer_personality":"steady",
+			"officer_faction":"lions_guard",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"target_analysis":2,
+				"gunnery_implants":1,
+				"ordnance_expert":1
+			}
+		},
+	},
+	"adversary_TriTachyon_Wolfpack":{ # Officer Management, Cybernetic Augmentation
+		"hyperion":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"target_analysis":1,
+				"gunnery_implants":2
 			}
 		}
 	},
@@ -152,12 +138,12 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
-				"helmsmanship":1,
-				"field_modulation":2,
+				"helmsmanship":2,
+				"combat_endurance":1,
 				"target_analysis":2,
 				"systems_expertise":1,
-				"ordnance_expert":2,
-				"polarized_armor":1
+				"missile_specialization":2,
+				"gunnery_implants":1
 			}
 		},
 		"apogee":{
@@ -165,109 +151,244 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
-				"helmsmanship":1,
-				"field_modulation":2,
-				"target_analysis":1,
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"target_analysis":2,
 				"gunnery_implants":1,
 				"ordnance_expert":2,
+				"missile_specialization":1
+			}
+		}
+	},
+	"adversary_Pirates_Derelict":{ # Cybernetic Augmentation
+		"atlas2":{
+			"officer_personality":"cautious",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":1,
+				"target_analysis":1,
+				"ballistic_mastery":2,
+				"missile_specialization":2,
+				"gunnery_implants":1
+			}
+		},
+		"falcon_p":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":5,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"target_analysis":1,
 				"missile_specialization":2
 			}
 		}
 	},
-	"adversary_SD_Beam":{ # Officer Management, Cybernetic Augmentation
-		"eagle_LG":{
-			"officer_personality":"cautious",
-			"officer_faction":"lions_guard",
+	"adversary_LuddicPath_Heretics":{ # Cybernetic Augmentation
+		"prometheus2":{
+			"officer_personality":"reckless",
+			"officer_faction":"luddic_path",
 			"officer_level":5,
 			"officer_skills":{
+				"helmsmanship":1,
 				"combat_endurance":1,
-				"field_modulation":1,
+				"impact_mitigation":2,
+				"point_defense":2,
+				"ordnance_expert":1
+			}
+		}
+	},
+	"adversary_Hegemony_Penal":{ # Maxed "mercenary" officers
+		"grendel":{
+			"officer_personality":"steady",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
 				"target_analysis":2,
+				"ballistic_mastery":1,
 				"gunnery_implants":1,
-				"ordnance_expert":2,
+				"polarized_armor":1
+			}
+		},
+		"mora":{
+			"officer_personality":"reckless",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":1
+			}
+		},
+		"vanguard":{
+			"officer_personality":"reckless",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_Persean_Combined_Arms":{ # Maxed mercenary officers
+		"onslaught_xiv":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"impact_mitigation":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"missile_specialization":1,
+				"gunnery_implants":1,
+				"ordnance_expert":1
+			}
+		},
+		"anubis":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"point_defense":2,
+				"target_analysis":1,
+				"gunnery_implants":1,
+				"ordnance_expert":2
 			}
 		},
 		"sunder_LG":{
 			"officer_personality":"cautious",
-			"officer_faction":"lions_guard",
-			"officer_level":5,
+			"officer_faction":"adversary",
+			"officer_level":6,
 			"officer_skills":{
-				"field_modulation":1,
+				"helmsmanship":1,
+				"combat_endurance":1,
 				"target_analysis":2,
+				"systems_expertise":2,
 				"gunnery_implants":1,
-				"energy_weapon_mastery":1,
-				"ordnance_expert":2,
+				"ordnance_expert":2
 			}
 		},
-	},
-	"adversary_Kite_Swarm":{ # Silly
-		"kite_hegemony":{
-			"officer_personality":"steady",
-			"officer_faction":"hegemony",
-			"officer_level":4,
+		"gemini":{
+			"officer_personality":"timid",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"field_modulation":1,
+				"point_defense":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"afflictor_d_pirates":{
+			"officer_personality":"cautious",
+			"officer_faction":"adversary",
+			"officer_level":6,
 			"officer_skills":{
 				"combat_endurance":2,
+				"field_modulation":1,
 				"point_defense":2,
-				"target_analysis":2,
+				"ballistic_mastery":1,
+				"systems_expertise":1,
+				"gunnery_implants":2
+			}
+		},
+		"vanguard":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":2,
+				"impact_mitigation":1,
+				"damage_control":1,
+				"systems_expertise":2,
 				"missile_specialization":2
 			}
 		}
 	},
-	"adversary_Ziggurat_Plus":{ # Sleeper officers
-		"scarab":{
-			"officer_personality":"aggressive",
-			"officer_faction":"tritachyon",
-			"officer_level":7,
+	"adversary_TriTachyon_Wolfpack_Plus":{ # Maxed mercenary officers
+		"hyperion":{
+			"officer_personality":"reckless",
+			"officer_faction":"adversary",
+			"officer_level":6,
 			"officer_skills":{
-				"helmsmanship":2,
-				"field_modulation":2,
-				"point_defense":2,
-				"target_analysis":1,
-				"gunnery_implants":2,
-				"energy_weapon_mastery":1,
-				"ordnance_expert":2
-			}
-		},
-		"medusa":{
-			"officer_personality":"aggressive",
-			"officer_faction":"tritachyon",
-			"officer_level":7,
-			"officer_skills":{
-				"helmsmanship":2,
-				"field_modulation":2,
-				"target_analysis":1,
-				"systems_expertise":1,
-				"gunnery_implants":2,
-				"energy_weapon_mastery":2,
-				"ordnance_expert":2
-			}
-		},
-		"aurora":{
-			"officer_personality":"aggressive",
-			"officer_faction":"tritachyon",
-			"officer_level":7,
-			"officer_skills":{
-				"helmsmanship":2,
+				"helmsmanship":1,
+				"combat_endurance":2,
 				"field_modulation":2,
 				"target_analysis":1,
 				"missile_specialization":2,
-				"gunnery_implants":1,
-				"energy_weapon_mastery":2,
-				"ordnance_expert":2
+				"energy_weapon_mastery":1
+			}
+		},
+		"afflictor_d_pirates":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"combat_endurance":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"ballistic_mastery":1,
+				"systems_expertise":1,
+				"gunnery_implants":1
 			}
 		}
 	},
-	"adversary_Remnant_Plus_Plus":{ # All ships already get Omega Cores
-	},
-	"adversary_Station_Low_Tech":{ # Station
-	},
-	"adversary_Station_Midline":{ # Station
-	},
-	"adversary_Station_High_Tech":{ # Station
-	},
-	"adversary_Station_Remnant":{ # Station
-	},
-	"adversary_Event_Horizon":{ # High-level officers on *all* ships
+	"adversary_LuddicPath_Missile":{ # Maxed mercenary officers
+		"venture_p":{
+			"officer_personality":"steady",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":1,
+				"target_analysis":2,
+				"missile_specialization":2,
+				"gunnery_implants":1,
+				"ordnance_expert":1
+			}
+		},
+		"manticore_luddic_path":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":1,
+				"missile_specialization":2
+			}
+		},
+		"brawler_pather":{
+			"officer_personality":"aggressive",
+			"officer_faction":"adversary",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"field_modulation":2,
+				"target_analysis":1,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
 	},
 	"adversary_Derelict_Operations":{ # Integrated Alpha Cores
 		"rampart":{
@@ -291,18 +412,229 @@
 			}
 		}
 	},
-	"adversary_TT_Wolfpack_Plus":{ # Maxed mercenary officers
-		"hyperion":{
-			"officer_personality":"reckless",
-			"officer_faction":"adversary",
-			"officer_level":6,
+	"adversary_Remnant_Plus_Plus":{ # Integrated Alpha Cores
+		"radiant":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
 			"officer_skills":{
+				"damage_control":0,
+				"systems_expertise":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"nova":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"impact_mitigation":0,
+				"damage_control":0,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":0,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2
+			}
+		},
+		"apex":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"missile_specialization":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"brilliant":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"systems_expertise":2,
+				"energy_weapon_mastery":2
+			}
+		},
+		"scintilla":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"fulgent":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"glimmer":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		},
+		"lumen":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"impact_mitigation":0,
+				"systems_expertise":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_Event_Horizon":{ # High-level officers on *all* ships (too many to enumerate here)
+	},
+	"adversary_Ziggurat_Plus":{ # Exceptional officers
+		"scarab":{
+			"officer_personality":"aggressive",
+			"officer_faction":"tritachyon",
+			"officer_level":7,
+			"officer_skills":{
+				"helmsmanship":1,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":1,
+				"ordnance_expert":2
+			}
+		},
+		"medusa":{
+			"officer_personality":"steady",
+			"officer_faction":"tritachyon",
+			"officer_level":7,
+			"officer_skills":{
+				"helmsmanship":2,
+				"field_modulation":1,
+				"target_analysis":1,
+				"systems_expertise":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2
+			}
+		},
+		"aurora":{
+			"officer_personality":"aggressive",
+			"officer_faction":"tritachyon",
+			"officer_level":7,
+			"officer_skills":{
+				"helmsmanship":2,
+				"field_modulation":2,
+				"target_analysis":1,
+				"missile_specialization":2,
+				"gunnery_implants":1,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2
+			}
+		}
+	},
+	"adversary_Swarm_Kite":{ # Kites with integrated "Gamma cores"
+		"kite_hegemony":{
+			"officer_personality":"aggressive",
+			"officer_faction":"hegemony",
+			"officer_level":4,
+			"officer_skills":{
+				"combat_endurance":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"missile_specialization":2
+			}
+		}
+	},
+	"adversary_Swarm_Omen":{ # Exceptional officers
+		"omen":{
+			"officer_personality":"reckless",
+			"officer_faction":"mercenary",
+			"officer_level":7,
+			"officer_skills":{
+				"helmsmanship":2,
 				"combat_endurance":1,
 				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"systems_expertise":2,
+				"missile_specialization":1
+			}
+		}
+	},
+	"adversary_Station_Low_Tech":{ # Station, with maxed mercenary support
+		"omen":{
+			"officer_personality":"aggressive",
+			"officer_faction":"independent",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"field_modulation":1,
+				"point_defense":1,
+				"target_analysis":2,
+				"missile_specialization":2,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_Midline":{ # Station, with maxed mercenary support
+		"vanguard_pirates":{
+			"officer_personality":"aggressive",
+			"officer_faction":"pirates",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"impact_mitigation":1,
 				"target_analysis":1,
 				"systems_expertise":2,
 				"missile_specialization":2,
-				"energy_weapon_mastery":1
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_High_Tech":{ # Station, with maxed mercenary support
+		"vigilance":{
+			"officer_personality":"cautious",
+			"officer_faction":"persean",
+			"officer_level":6,
+			"officer_skills":{
+				"helmsmanship":1,
+				"combat_endurance":1,
+				"target_analysis":2,
+				"ballistic_mastery":1,
+				"missile_specialization":2,
+				"gunnery_implants":2
+			}
+		}
+	},
+	"adversary_Station_Remnant":{ # Station, with Alpha Core support
+		"glimmer":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"remnant",
+			"officer_level":8,
+			"officer_skills":{
+				"damage_control":0,
+				"impact_mitigation":0,
+				"point_defense":2,
+				"systems_expertise":2,
+				"missile_specialization":2
 			}
 		}
 	},
@@ -334,11 +666,11 @@
 				"damage_control":1,
 				"point_defense":2,
 				"systems_expertise":2,
-				"gunnery_implants":2,
+				"gunnery_implants":2
 			}
 		}
 	},
-	"adversary_Ultra_Shrouded":{ # Integrated Alpha Cores
+	"adversary_Ultra_Dweller":{ # Integrated Alpha Cores
 		"brilliant":{
 			"officer_aiCoreId":"alpha_core",
 			"officer_faction":"remnant",
@@ -357,7 +689,7 @@
 				"gunnery_implants":0,
 				"energy_weapon_mastery":2,
 				"ordnance_expert":2,
-				"polarized_armor":0,
+				"polarized_armor":0
 			}
 		},
 		"fulgent":{
@@ -378,7 +710,7 @@
 				"gunnery_implants":2,
 				"energy_weapon_mastery":2,
 				"ordnance_expert":2,
-				"polarized_armor":0,
+				"polarized_armor":0
 			}
 		},
 		"lumen":{
@@ -399,7 +731,303 @@
 				"gunnery_implants":2,
 				"energy_weapon_mastery":0,
 				"ordnance_expert":0,
-				"polarized_armor":0,
+				"polarized_armor":0
+			}
+		}
+	},
+	"adversary_Ultra_Tesseract":{ # An AI core who must say, "I am a god", is no true god
+		"tesseract":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"facet":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"shard_left":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"shard_right":{
+			"officer_aiCoreId":"omega_core",
+			"officer_faction":"omega",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		}
+	},
+	"adversary_Ultra_Fabricator":{ # All your fragments are belong to us
+		"fabricator_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"hive_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"standoff_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"assault_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"overseer_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"skirmish_unit":{
+			"officer_aiCoreId":"alpha_core",
+			"officer_faction":"threat",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		}
+	},
+	"adversary_Ultra_Maw":{ # Get snacked upon, silly
+		"shrouded_maw":{
+			"officer_faction":"dweller",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"shrouded_eye":{
+			"officer_faction":"dweller",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"shrouded_maelstrom":{
+			"officer_faction":"dweller",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
+			}
+		},
+		"shrouded_tendril":{
+			"officer_faction":"dweller",
+			"officer_level":14,
+			"officer_skills":{
+				"helmsmanship":2,
+				"combat_endurance":2,
+				"impact_mitigation":2,
+				"damage_control":2,
+				"field_modulation":2,
+				"point_defense":2,
+				"target_analysis":2,
+				"ballistic_mastery":2,
+				"systems_expertise":2,
+				"missile_specialization":2,
+				"gunnery_implants":2,
+				"energy_weapon_mastery":2,
+				"ordnance_expert":2,
+				"polarized_armor":2
 			}
 		}
 	}

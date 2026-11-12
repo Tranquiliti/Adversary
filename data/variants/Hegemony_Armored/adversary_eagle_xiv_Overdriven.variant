@@ -1,68 +1,53 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 27,
-    "fluxVents": 0,
-    "hullId": "eagle_xiv",
-    "hullMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "safetyoverrides"
-    ],
-    "permaMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "sMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_eagle_xiv_Overdriven",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "ionpulser",
-                "WS 006": "ionpulser",
-                "WS 009": "miningblaster"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "breach",
-                "WS 002": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "heavymg",
-                "WS 008": "heavymg",
-                "WS 013": "heavymg"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "pdburst",
-                "WS 011": "pdburst",
-                "WS 012": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Overdriven",
+	"fluxCapacitors":23,
+	"fluxVents":0,
+	"hullId":"eagle_xiv",
+	"hullMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter",
+		"pointdefenseai",
+		"safetyoverrides"
+	],
+	"permaMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"sMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_eagle_xiv_Overdriven",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"heavyburst",
+				"WS 006":"heavyburst",
+				"WS 007":"heavymg",
+				"WS 008":"heavymg",
+				"WS 010":"pdburst",
+				"WS 011":"pdburst",
+				"WS 012":"pdburst",
+				"WS 013":"heavymg"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 009":"ionpulser"}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 001":"breach",
+				"WS 002":"breach"
+			}
+		}
+	]
 }

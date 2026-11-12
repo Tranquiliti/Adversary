@@ -1,65 +1,46 @@
 {
-    "displayName": "Overdriven",
-    "fluxCapacitors": 24,
-    "fluxVents": 0,
-    "hullId": "falcon_xiv",
-    "hullMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull",
-        "safetyoverrides"
-    ],
-    "permaMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "sMods": [
-        "magazines",
-        "hardenedshieldemitter",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_falcon_xiv_Overdriven",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 005": "ionpulser",
-                "WS 006": "miningblaster"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 001": "breach",
-                "WS 002": "breach"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 007": "heavymg",
-                "WS 008": "heavymg"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "mininglaser",
-                "WS 004": "mininglaser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 009": "pdburst",
-                "WS 010": "pdburst"
-            }
-        }
-    ]
+	"displayName":"Overdriven",
+	"fluxCapacitors":18,
+	"fluxVents":0,
+	"hullId":"falcon_xiv",
+	"hullMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter",
+		"pointdefenseai",
+		"safetyoverrides"
+	],
+	"permaMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"sMods":[
+		"magazines",
+		"fluxcoil",
+		"hardenedshieldemitter"
+	],
+	"variantId":"adversary_falcon_xiv_Overdriven",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 005":"ionpulser",
+				"WS 006":"heavyburst",
+				"WS 007":"heavymg",
+				"WS 008":"heavymg",
+				"WS 009":"pdburst",
+				"WS 010":"pdburst"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 001":"breach",
+				"WS 002":"breach"
+			}
+		}
+	]
 }

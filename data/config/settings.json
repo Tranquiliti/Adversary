@@ -1,12 +1,11 @@
-#-- Note for LunaLib users --#
-# LunaLib settings will override the following settings in this settings.json:
+#--- Note for LunaLib users ---#
+# LunaLib will override the following settings:
+# "enableAdversaryOptimal", "enableAdversaryUSOptimal", "enableAdversaryIndEvoOptimal",
 # "enableAdversaryDynamicDoctrine", "enableAdversaryBlueprintStealing",
 # "adversaryDynamicDoctrineDelay", "adversaryBlueprintStealingDelay"
-# "enableAdversarySillyBounties", "enableAdversarySCSupport", amd
-# "enableAdversaryPersonalFleet"
-#
-# Instead, use LunaLib's in-game UI configs to modify these.
-
+# "enableAdversarySillyBounties", "enableAdversarySCSupport", and
+# "enableAdversarySDF".
+# Instead, use LunaLib's in-game UI configs to modify these settings.
 {
 	# Toggles whether the default Optimal system will spawn when
 	# starting a new game or loading an existing game that does
@@ -31,20 +30,21 @@
 	# Note: Removing this from an existing game will not remove already-stolen blueprints from the Adversary's known lists.
 	"enableAdversaryBlueprintStealing":false,
 
-	# Allows the most broken, ridiculous MagicLib bounties to spawn in in-game bounty boards.
-	# Definitely not for those who value vanilla restraints!
+	# Allows the most broken, ridiculous MagicBounties to spawn in in-game bounty boards.
+	# Disabling this option will prevent those bounties from appearing.
 	# Requires MagicLib to work; does nothing otherwise.
-	"enableAdversarySillyBounties":false,
+	"enableAdversarySillyBounties":true,
 
-	# Forces Adversary MagicLib bounties to spawn with pre-configured Second-in-Command executive officers.
+	# Forces Adversary MagicBounties to spawn with pre-configured Second-in-Command executive officers.
+	# SiC skills can be configured in the data/config/secondInCommand/scBountySkills.json file.
 	# Requires the Second-in-Command mod to work; does nothing otherwise.
 	"enableAdversarySCSupport":true,
 
-	# Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the best High Command.
+	# Allows the Adversary System Defense Fleet to spawn on an Adversary planet with the highest ship quality and fleet size multiplier.
 	# WARNING: Only applies to new games! Existing games will remain unaffected!
 	"enableAdversarySDF":true,
 
-	#--- Settings for the Adversary's dynamic doctrine ---#
+	#--- Settings for the Adversary's Dynamic Doctrine ---#
 	# Any changes here do not re-apply to existing saves; #
 	# those saves must remove the old settings first by   #
 	# setting "enableAdversaryDynamicDoctrine" to false.  #
@@ -148,7 +148,7 @@
 		}
 	],
 
-	#--- Settings for the Adversary's blueprint stealing ---#
+	#--- Settings for the Adversary's Blueprint Stealing ---#
 	# Any changes here do not re-apply to existing saves;   #
 	# those saves must remove the old settings first by     #
 	# setting "enableAdversaryBlueprintStealing" to false.  #

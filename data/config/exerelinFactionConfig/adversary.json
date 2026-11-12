@@ -2,6 +2,8 @@
 	"playableFaction":true,
 	"corvusCompatible":true,
 
+	"rebelFleetSuffix":"Deserters",
+
 	"marketSpawnWeight":0.1,
 
 	"morality":"amoral",
@@ -12,15 +14,20 @@
 
 	"alignments":{"technocratic":0.5,"militarist":0.5,"diplomatic":-1,"ideological":0.5},
 
-	"colonyExpeditionChance":0.1, # No point going anywhere worse, but maybe...
-	"maxColonyDistance":5,        # ...the rock nearby looks nice?
+	# "No point going anywhere worse, but maybe the rock nearby looks nice?"
+	"colonyExpeditionChance":0.1,
+	"maxColonyDistance":5,
+
+	"groundBattleSettings":{
+		"moraleDamageTakenMult":0.9
+	},
 
 	"vengeanceLevelNames":["Retribution","Extermination","Death"],
 	"vengeanceFleetNames":["Retribution Fleet","Extermination Fleet","Death Fleet"],
 	"vengeanceFleetNamesSingle":["a Retribution Fleet","an Extermination Fleet","a Death Fleet"],
 
 	"startShipsSolo":[["centurion_Starting"],
-	  # tutorial start
+	  # "Tutorial starting ships"
 	  ["wolf_Starting","kite_Starting"],
 	  ["wolf_Starting","shepherd_Starting"],
 	  ["wayfarer_Starting","kite_Starting"],

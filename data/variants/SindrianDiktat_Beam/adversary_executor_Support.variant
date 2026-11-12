@@ -1,0 +1,80 @@
+{
+	"displayName":"Support",
+	"fluxCapacitors":50,
+	"fluxVents":50,
+	"hullId":"executor",
+	"hullMods":[
+		"targetingunit",
+		"reinforcedhull",
+		"missleracks",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"fragile_subsystems",
+		"fluxdistributor",
+		"hardenedshieldemitter"
+	],
+	"permaMods":[
+		"targetingunit",
+		"reinforcedhull",
+		"comp_armor",
+		"damaged_mounts",
+		"erratic_injector",
+		"fragile_subsystems"
+	],
+	"sMods":[
+		"targetingunit",
+		"reinforcedhull"
+	],
+	"sModdedBuiltIns":["solar_shielding"],
+	"variantId":"adversary_executor_Support",
+	"weaponGroups":[
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 012":"squall",
+				"WS 013":"squall"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 000":"hil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"hil"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"irautolance",
+				"WS 003":"irautolance",
+				"WS 004":"irautolance",
+				"WS 005":"irautolance",
+				"WS 006":"irautolance",
+				"WS 007":"irautolance"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 008":"hveldriver",
+				"WS 009":"hveldriver",
+				"WS 010":"hveldriver"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 014":"taclaser",
+				"WS 015":"taclaser"
+			}
+		}
+	]
+}

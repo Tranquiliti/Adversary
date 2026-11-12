@@ -1,47 +1,46 @@
 {
-    "displayName": "Strike",
-    "fluxCapacitors": 17,
-    "fluxVents": 0,
-    "hullId": "harbinger",
-    "hullMods": [
-        "heavyarmor",
-        "reinforcedhull",
-        "adaptive_coils",
-        "armoredweapons",
-        "hardened_subsystems",
-        "targetingunit",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "heavyarmor",
-        "reinforcedhull"
-    ],
-    "sMods": [
-        "heavyarmor",
-        "reinforcedhull"
-    ],
-    "variantId": "adversary_harbinger_Strike",
-    "weaponGroups": [
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 001": "miningblaster"}
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 002": "ionpulser",
-                "WS 003": "ionpulser"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 004": "swarmer",
-                "WS 005": "swarmer"
-            }
-        }
-    ]
+	"displayName":"Strike",
+	"fluxCapacitors":20,
+	"fluxVents":9,
+	"hullId":"harbinger",
+	"hullMods":[
+		"adaptive_coils",
+		"hardened_subsystems",
+		"armoredweapons",
+		"autorepair",
+		"fluxbreakers",
+		"unstable_injector"
+	],
+	"permaMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"sMods":[
+		"adaptive_coils",
+		"hardened_subsystems"
+	],
+	"variantId":"adversary_harbinger_Strike",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{"WS 001":"phasebeam"}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 002":"ionpulser",
+				"WS 003":"ionpulser"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 004":"breach",
+				"WS 005":"breach"
+			}
+		}
+	]
 }

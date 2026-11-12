@@ -1,76 +1,67 @@
 {
-    "displayName": "Armored",
-    "fluxCapacitors": 0,
-    "fluxVents": 0,
-    "hullId": "dominator_xiv",
-    "hullMods": [
-        "autorepair",
-        "reinforcedhull",
-        "shield_shunt",
-        "armoredweapons",
-        "auxiliarythrusters",
-        "blast_doors",
-        "heavyarmor",
-        "insulatedengine",
-        "pointdefenseai",
-        "targetingunit",
-        "fluxbreakers"
-    ],
-    "permaMods": [
-        "autorepair",
-        "reinforcedhull",
-        "shield_shunt"
-    ],
-    "sMods": [
-        "autorepair",
-        "reinforcedhull",
-        "shield_shunt"
-    ],
-    "variantId": "adversary_dominator_xiv_Armored",
-    "weaponGroups": [
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 003": "vulcan",
-                "WS 005": "vulcan",
-                "WS 012": "multineedler"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "ALTERNATING",
-            "weapons": {
-                "WS 014": "phasecl",
-                "WS 015": "phasecl",
-                "WS 016": "phasecl"
-            }
-        },
-        {
-            "autofire": false,
-            "mode": "LINKED",
-            "weapons": {"WS 013": "hephag"}
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 001": "mininglaser",
-                "WS 002": "mininglaser",
-                "WS 004": "mininglaser",
-                "WS 006": "mininglaser",
-                "WS 007": "mininglaser",
-                "WS 008": "mininglaser",
-                "WS 009": "mininglaser"
-            }
-        },
-        {
-            "autofire": true,
-            "mode": "LINKED",
-            "weapons": {
-                "WS 010": "flak",
-                "WS 011": "flak"
-            }
-        }
-    ]
+	"displayName":"Armored",
+	"fluxCapacitors":0,
+	"fluxVents":13,
+	"hullId":"dominator_xiv",
+	"hullMods":[
+		"autorepair",
+		"reinforcedhull",
+		"shield_shunt",
+		"armoredweapons",
+		"blast_doors",
+		"heavyarmor",
+		"insulatedengine",
+		"pointdefenseai",
+		"targetingunit",
+		"fluxbreakers"
+	],
+	"permaMods":[
+		"autorepair",
+		"reinforcedhull",
+		"shield_shunt"
+	],
+	"sMods":[
+		"autorepair",
+		"reinforcedhull",
+		"shield_shunt"
+	],
+	"variantId":"adversary_dominator_xiv_Armored",
+	"weaponGroups":[
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 012":"mark9",
+				"WS 013":"mark9"
+			}
+		},
+		{
+			"autofire":false,
+			"mode":"ALTERNATING",
+			"weapons":{
+				"WS 014":"phasecl",
+				"WS 015":"phasecl",
+				"WS 016":"phasecl"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 010":"heavymauler",
+				"WS 011":"heavymauler"
+			}
+		},
+		{
+			"autofire":true,
+			"mode":"LINKED",
+			"weapons":{
+				"WS 001":"lightmg",
+				"WS 003":"vulcan",
+				"WS 004":"vulcan",
+				"WS 005":"vulcan",
+				"WS 007":"lightmg"
+			}
+		}
+	]
 }
