@@ -355,12 +355,12 @@
 			"officer_faction":"adversary",
 			"officer_level":6,
 			"officer_skills":{
-				"helmsmanship":1,
-				"combat_endurance":2,
-				"impact_mitigation":1,
+				"helmsmanship":2,
+				"combat_endurance":1,
 				"target_analysis":2,
 				"missile_specialization":2,
-				"gunnery_implants":1
+				"gunnery_implants":1,
+				"ordnance_expert":1
 			}
 		},
 		"manticore_luddic_path":{

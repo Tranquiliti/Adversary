@@ -1,7 +1,7 @@
 {
 	"displayName":"Attack",
-	"fluxCapacitors":17,
-	"fluxVents":0,
+	"fluxCapacitors":20,
+	"fluxVents":1,
 	"hullId":"manticore_luddic_path",
 	"hullMods":[
 		"converted_hangar",
@@ -45,9 +45,9 @@
 				"WS 002":"lightmg",
 				"WS 003":"lightmg",
 				"WS 004":"chaingun",
-				"WS 005":"heavymg"
+				"WS 005":"chaingun"
 			}
 		}
 	],
-	"wings":["warthog_wing"]
+	"wings":["broadsword_wing"]
 }

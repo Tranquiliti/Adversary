@@ -1,7 +1,7 @@
 {
 	"displayName":"Missile",
-	"fluxCapacitors":3,
-	"fluxVents":5,
+	"fluxCapacitors":0,
+	"fluxVents":4,
 	"hullId":"venture_p",
 	"hullMods":[
 		"eccm",
@@ -44,7 +44,7 @@
 		{
 			"autofire":true,
 			"mode":"LINKED",
-			"weapons":{"WS 002":"irautolance"}
+			"weapons":{"WS 002":"ionbeam"}
 		},
 		{
 			"autofire":true,

@@ -526,8 +526,8 @@
 		},
 
 		"job_name":"Under Penalty of Death",
-		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, involving mostly prisoners belonging to an infamous pirate gang known only as \"The Throwaways\". With the gang back together, the escapees stole ships, weapons, and blueprints from a nearby Hegemony armory, left the atmosphere with their acquired arsenal, and preyed upon several Luddic Church trading fleets before leaving the Core Worlds altogether. Most worryingly, it appears that these Throwaways have recently received material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it.\nAnd so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==. Should you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered goods== from the gang's cargo holds (in addition to the bounty payout, of course).",
-		"job_comm_reply":"\"I've got nothin' to say to you, mate,\" remarks $name. \"Boys and girls, lets rip this one open like a Tachyon Lance!\"",
+		"job_description":"Hegemony COMSEC has recently reported a mass breakout in one of the largest prisons in Chicomoztoc, involving mostly members of an pirate gang regarded only as \"The Throwaways\" - infamous for their role in many high-profile drug and ship smuggling rings. With the gang back together, the escapees stole ships, weapons, and blueprints from a nearby Hegemony armory, left the atmosphere with their acquired arsenal, and preyed upon several Luddic Church trading fleets before leaving the Core Worlds altogether.\nMost worryingly, it appears that these Throwaways have recently received material support from certain high-ranking Adversary officials; for what purpose COMSEC sees no good coming out of it. And so a priority bounty has been placed on the escaped gang members - though all mercenaries who have attempted this bounty have so far fallen prey to the gang's ==swarm of stolen Hegemony and Luddic Church ships==.\nShould you ever succeed in eradicating this dangerous band of pirates, you may be able to recover the ==pilfered goods== from the gang's cargo holds (in addition to the bounty payout, of course).",
+		"job_comm_reply":"\"I've got nothin' to say to you, mate,\" remarks $name. \"Boys and girls, lets rip this one open like a cache of goods!\"",
 		"job_intel_success":"With the debris settled, you alone remain afloat atop the burning wreckage of the thown-away ships. Salvage operations have discovered a valuable set of blueprints for the Hegemony's coveted Fourteenth Battlegroup designs - a highly-auspicious find, especially given how tightly-secured such blueprints are in Hegemony industrial worlds.",
 		"job_credit_reward":2000000,
 		"job_item_reward":{
@@ -596,8 +596,8 @@
 
 		"job_name":"Certainty of Victory",
 		"job_description":"Despite your past win against the Adversary's esteemed fleet commander, your contacts have reported that the Adversary has replaced the now-disgraced commander with another, similarly-experienced admiral to helm the faction's newest grand fleet. The latest intel suggests this fleet ==specializes in combined-arms tactics== to counter and crush any foe it observes.\nWhat's more, your contacts point out that certain League archons - the same archons you've upset from your previous involvement - appear genuinely worried about this reborn threat and, consequently, have posted a real bounty this time. If you rise up to meet the challenge once more, the League may finally ==respect your strength and tenacity== as a fleet captain, with a reward to match.",
-		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like a Reaper through your head.\"",
-		"job_intel_success":"At last, the Spirit of Destiny joins its spearheaded cousin in the vacuum of space. Your accomplishment in besting the Adversary's best twice will not go unnoticed by the League, for the archons have willingly parted ways with their credits this time. Perhaps even the gens will take note too and treat you more favorably in future dealings; whether this favor is born out of fear or of respect, you know the result is all the same.",
+		"job_comm_reply":"\"I pray to see your fleet shatter against mine\", $name gloats. \"May your existence be short and sweet, like the flames of the Reaper.\"",
+		"job_intel_success":"At last, the Spirit of Destiny joins its spearheaded cousin in the vacuum of space. Your accomplishment in besting the Adversary's best twice will not go unnoticed by the League, for the archons have willingly parted ways with their credits this time. Perhaps even the gens will take note too and treat you more favorably in future dealings; whether this favor is born out of fear or of respect, you suspect the result is all the same.",
 		"job_forFaction":"persean",
 		"job_credit_reward":2000000,
 		"job_reputation_reward":30,
@@ -730,9 +730,9 @@
 		},
 
 		"job_name":"Missiles O'Plenty",
-		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. This kill-fleet - the so-called \"Missiletoe Rocketeers\" - relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested ==an end== to this Adversary operation, before it too obliterates the militant's own station.",
+		"job_description":"In recent months, an Adversary commander, fed up with constant pirate raids and Pather infiltrations, has ordered rapid production of missile weaponry to fuel a deadly kill-fleet, capable of obliterating a Pather battlestation many times over. Designated as the \"Missiletoe Rocketeers\", this kill-fleet relies on ==concentrated missile firepower== to deliver a crushing blow to would-be pirates and Pathers.\nNaturally, a Shepherd-militant of the Luddic Path has requested ==an end== to this Adversary operation, before it too obliterates the militant's own station.",
 		"job_comm_reply":"\"Haha, yes, more test subjects for our glorious fleet. We'll see how long you can last against our explosive barrage!\"",
-		"job_intel_success":"You have successfully survived the onslaught of missiles and dealt a fatal blow to the Adversary kill-fleet, crippling their base-hunting operations. Curiously, your salvage teams have recovered a cache of unknown, exotic missile armaments from an intact cargo hold. You briefly ponder about how the Rocketeers could have acquired such technology, for why wouldn't they have already deployed these weapons in battle?",
+		"job_intel_success":"You have successfully survived the onslaught of missiles and dealt a fatal blow to the Adversary kill-fleet, crippling their base-hunting operations and, as such, sparing a Pather base from utter annihilation.\nCuriously, your salvage teams have recovered a cache of unknown, exotic missile armaments from an intact cargo hold. You briefly ponder about how the Rocketeers could have acquired such technology, for why wouldn't they have already deployed these weapons in battle?",
 		"job_forFaction":"luddic_path",
 		"job_credit_reward":1250000,
 		"job_reputation_reward":30,
@@ -799,7 +799,7 @@
 		},
 
 		"job_name":"From Scrap, To Scrap",
-		"job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen\" and $hisHerTheir abominable fleet ==swept clean== from the Persean Sector.",
+		"job_description":"A traitor from a rising Luddic Path cell has mastered the extraordinary ability to salvage and control ==Domain-era droneships== to do $hisHerTheir bidding. Livid at such a wretched display of betrayal and the wanton use of \"demonic\" technology, the Pather cell wants this \"heathen and $hisHerTheir abominable fleet\" ==swept clean== from the Persean Sector.",
 		"job_comm_reply":"Inside what appears to be $hisHerTheir makeshift command bridge, the Pather laughs with menacing glee, \"I'll be sorting through your scraps!\"",
 		"job_intel_success":"In a twist of fate, the one sorting through the scraps is you, not the now-deceased Pather. As luck would have it, your salvors have spotted and acquired, among the Derelict wrecks, a blueprint for the Rampart-class droneship.\nDespite this blueprint - whose very existence would no doubt send most Luddic extremists into a fervent rampage - falling into your cargo holds, the Luddic Path cell responsible for placing the bounty seem oblivious to this fact, as your quartermaster reports the payout of the expected bounty reward to your accounts.",
 		"job_forFaction":"luddic_path",
@@ -1081,10 +1081,10 @@
 		},
 
 		"job_name":"The Sound of Motes",
-		"job_description":"COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to ==destroy== this particular example once and for all.",
+		"job_description":"Hegemony COMSEC has confirmed that Tri-Tachyon has produced yet another ==experimental Ziggurat-class hull==. Now, you have been tasked to ==destroy== this particular example once and for all.",
 		"job_comm_reply":"",
-		"job_intel_success":"You have destroyed the replicated Ziggurat-class hull! Various Hegemony ministries have applauded your accomplishments, and some will even feature you as a \"hero to the Free Citizens\" in their propaganda holodocs.",
-		"job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class ship, and the Hegemony now relentlessly pursues your destruction.",
+		"job_intel_success":"You have destroyed the replicated Ziggurat-class hull, scrapping its remains to the delight of the Hegemony. Various Hegemony ministries applaud your accomplishments, and some will even feature you as \"a hero to the Free Citizens\" in their propaganda holodocs.",
+		"job_intel_failure":"You have committed a grave mistake recovering the Ziggurat-class hull, and the Hegemony now relentlessly pursues your destruction.",
 		"job_forFaction":"hegemony",
 		"job_credit_reward":3000000,
 		"job_reputation_reward":100,
@@ -1567,6 +1567,7 @@
 		},
 
 		"job_name":"Rifts Ahead",
+		"job_description":"An extreme challenge awaits those who arrive at the light of the Abyss...",
 		"job_forFaction":"player",
 		"job_credit_reward":0,
 		"job_reputation_reward":0,
@@ -1639,6 +1640,7 @@
 		},
 
 		"job_name":"Swarm Rush",
+		"job_description":"An extreme challenge awaits those who arrive at the light of the Abyss...",
 		"job_forFaction":"player",
 		"job_credit_reward":0,
 		"job_reputation_reward":0,
@@ -1717,6 +1719,7 @@
 		},
 
 		"job_name":"Shroud in the Machine",
+		"job_description":"An extreme challenge awaits those who arrive at the light of the Abyss...",
 		"job_forFaction":"player",
 		"job_credit_reward":0,
 		"job_reputation_reward":0,
@@ -1799,6 +1802,7 @@
 		},
 
 		"job_name":"Fractal Complex",
+		"job_description":"An impossible challenge lies dormant in the deep Abyss...",
 		"job_comm_reply":"\"I! AM! OMEGA!\"",
 		"job_forFaction":"player",
 		"job_credit_reward":0,
@@ -1886,6 +1890,7 @@
 		},
 
 		"job_name":"An Unseen Threat",
+		"job_description":"An impossible challenge lies dormant in the deep Abyss...",
 		"job_comm_reply":"\"Unfabricate! Unfabricate! UNFABRICATE!\"",
 		"job_forFaction":"player",
 		"job_credit_reward":0,
@@ -1978,6 +1983,7 @@
 		},
 
 		"job_name":"Legacy of the Abyss",
+		"job_description":"An impossible challenge lies dormant in the deep Abyss...",
 		"job_comm_reply":"\"As I was the beginning - so shall I be... the end.\"",
 		"job_forFaction":"player",
 		"job_credit_reward":0,

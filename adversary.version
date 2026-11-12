@@ -7,7 +7,7 @@
 		"minor": 0,
 		"patch": 0
 	},
-	"starsectorVersion": "0.98.5a",
+	"starsectorVersion": "0.98.5a-RC4",
 	"directDownloadURL": "https://github.com/Tranquiliti/Adversary/releases/latest/download/Adversary.zip",
 	"changelogURL": "https://raw.githubusercontent.com/Tranquiliti/Adversary/main/changelog.txt"
 }
