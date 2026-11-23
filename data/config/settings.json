@@ -91,10 +91,10 @@
 		{ # Midline Warships
 			"weight":3,
 			"fleetComposition":[5,1,1],
-			"officerSkills":["combat_endurance","missile_specialization","target_analysis","field_modulation","point_defense"],
+			"officerSkills":["combat_endurance","missile_specialization","target_analysis","polarized_armor","helmsmanship"],
 			"aggression":2,
-			"priorityShips":["pegasus","doom","eagle","heron","gemini","monitor","hermes","dram","mercury"],
-			"priorityWeapons":["irautolance","phasebeam","lrpdlaser","cyclone","hurricane","dragonpod","harpoonpod","harpoon","atropos","heavyac","heavymauler","flak","lightac"],
+			"priorityShips":["pegasus","doom","eagle","heron","sunder","monitor","hermes","dram","mercury"],
+			"priorityWeapons":["tachyonlance","irautolance","phasebeam","lrpdlaser","cyclone","hurricane","dragonpod","harpoonpod","harpoon","atropos","heavyac","heavymauler","flak","lightac"],
 			"priorityFighters":["sarissa_wing","gladius_wing","wasp_wing","cobra_wing"]
 		},
 		{ # Low Tech Warships
